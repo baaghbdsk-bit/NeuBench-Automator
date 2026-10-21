@@ -1,7 +1,7 @@
 @echo off
-title X-Post-Automater Dashboard
+title NeuBench X-Post-Automater Dashboard
 echo ========================================================
-echo   Launching X-Post-Automater Dashboard...
+echo   Launching NeuBench X-Post-Automater Dashboard...
 echo ========================================================
 
 cd /d "%~dp0"

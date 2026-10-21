@@ -32,7 +32,7 @@ from src.scheduler import AutomaterEngine
 from src.ai_generator import AIGenerator
 from src.twitter_client import TwitterClient
 
-app = FastAPI(title="X-Post-Automater Dashboard", version="1.1.0")
+app = FastAPI(title="NeuBench X-Post-Automater", version="1.2.0")
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 # Cross-Promotion: Showcase NeuBench + Connect with Us

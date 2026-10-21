@@ -1,7 +1,7 @@
 @echo off
-title X-Post-Automater Setup
+title NeuBench X-Post-Automater Setup
 echo ========================================================
-echo   X-Post-Automater 1-Click Environment Setup
+echo   NeuBench X-Post-Automater 1-Click Environment Setup
 echo ========================================================
 
 cd /d "%~dp0"

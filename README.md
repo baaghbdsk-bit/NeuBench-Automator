@@ -1,7 +1,7 @@
-# 𝕏 X-Post-Automater
+# ⚡ NeuBench X-Post-Automater
 
-> **The 100% Free, Autonomous Growth & Monetization Engine for X (Twitter).**  
-> Built for creators, founders, and builders who want to reach the **5 Million Verified Impressions** and **500 Followers** threshold for X Creator Ads Revenue Sharing without paying $100+/month for official API keys.
+> **The Official NeuBench Autonomous AI News & Creator Growth Engine for X (Twitter).**  
+> Built for creators, founders, and builders who want to reach the **5 Million Verified Impressions** and **500 Followers** threshold for X Creator Ads Revenue Sharing without paying $100+/month for official API keys. Direct live integration with **[NeuBench](https://neubench.vercel.app/)**.
 
 ---
 
