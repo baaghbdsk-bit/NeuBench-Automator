@@ -12,286 +12,304 @@
       theme: {
         extend: {
           colors: {
-            xdark: '#090B0E',
-            xcard: '#11151F',
-            xcardhover: '#161C2A',
-            xborder: '#1C2333',
-            xblue: '#1D9BF0',
-            xcyan: '#00F0FF',
-            xpurple: '#8B5CF6'
+            xblack: '#000000',
+            xsurface: '#0d0f12',
+            xsurfacehover: '#15181e',
+            xsurfacecard: '#111419',
+            xborder: '#1f242d',
+            xborderlight: '#2a313d',
+            xblue: '#1d9bf0',
+            xbluehover: '#1a8cd8',
+            xtext: '#f7f9f9',
+            xmuted: '#71767b',
+            xgreen: '#00ba7c'
           }
         }
       }
     }
   </script>
   <style>
-    body { background-color: #090B0E; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 12px; }
-    .glass-card { background: rgba(17, 21, 31, 0.9); backdrop-filter: blur(10px); border: 1px solid #1C2333; }
-    .glow-cyan { box-shadow: 0 0 16px rgba(0, 240, 255, 0.07); }
-    .glow-blue { box-shadow: 0 0 16px rgba(29, 155, 240, 0.08); }
-    ::-webkit-scrollbar { width: 4px; height: 4px; }
-    ::-webkit-scrollbar-track { background: #090B0E; }
-    ::-webkit-scrollbar-thumb { background: #232B3B; border-radius: 4px; }
+    body {
+      background-color: #000000;
+      color: #f7f9f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: -0.01em;
+    }
+    .matte-card {
+      background-color: #0d0f12;
+      border: 1px solid #1f242d;
+    }
+    .matte-card-subtle {
+      background-color: #08090b;
+      border: 1px solid #1a1e26;
+    }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #000000; }
+    ::-webkit-scrollbar-thumb { background: #222730; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2d3340; }
   </style>
 </head>
-<body class="text-gray-200 min-h-screen flex flex-col antialiased">
+<body class="min-h-screen flex flex-col antialiased selection:bg-xblue/30 selection:text-white">
 
-  <!-- Compact Top Navbar -->
-  <header class="border-b border-xborder sticky top-0 z-40 bg-xdark/95 backdrop-blur-md px-4 py-2 flex items-center justify-between">
-    <div class="flex items-center space-x-2">
-      <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-xblue to-xcyan flex items-center justify-center font-black text-sm text-black">
+  <!-- Production Top Navbar (X Lights Out) -->
+  <header class="border-b border-xborder sticky top-0 z-40 bg-black/90 backdrop-blur-md px-4 sm:px-6 py-2.5 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <a href="/" class="w-8 h-8 rounded-full bg-white hover:bg-neutral-200 flex items-center justify-center font-bold text-sm text-black transition shrink-0">
         𝕏
-      </div>
+      </a>
       <div>
-        <div class="flex items-center gap-1.5">
-          <h1 class="text-xs font-bold tracking-tight text-white leading-none">X-Post-Automater</h1>
-          <span class="text-[9px] bg-xblue/15 text-xblue border border-xblue/30 px-1 py-0.2 rounded font-mono font-semibold">Pro</span>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm font-bold text-white tracking-tight leading-none">X-Post-Automater</h1>
+          <span class="text-[10px] bg-neutral-900 text-neutral-300 border border-neutral-700 px-1.5 py-0.5 rounded-full font-mono">v1.1</span>
         </div>
-        <p class="text-[10px] text-gray-400 leading-tight">Monetization & NeuBench AI Engine</p>
+        <p class="text-[11px] text-xmuted leading-tight mt-0.5">Creator Monetization Engine • NeuBench AI Radar</p>
       </div>
     </div>
 
     <!-- Right Profile & Quick Actions -->
-    <div class="flex items-center space-x-2.5">
-      <div class="hidden sm:flex items-center space-x-1.5 bg-xcard border border-xborder px-2 py-0.5 rounded-lg">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-[10px] text-gray-300 font-medium">24/7 Cloud Engine Active</span>
+    <div class="flex items-center space-x-3">
+      <div class="hidden md:flex items-center space-x-2 bg-xsurface border border-xborder px-2.5 py-1 rounded-full text-[11px]">
+        <span class="w-2 h-2 rounded-full bg-xgreen"></span>
+        <span class="text-xmuted">24/7 Cloud Engine:</span>
+        <span class="font-medium text-white">Active</span>
       </div>
 
-      <div class="flex items-center space-x-2 bg-xcard border border-xborder px-2 py-0.5 rounded-lg">
-        <div class="w-5 h-5 rounded-full bg-xcyan/20 border border-xcyan/40 flex items-center justify-center text-xcyan text-[9px] font-bold">
+      <a href="https://x.com/GWorld34864" target="_blank" class="flex items-center space-x-2 bg-xsurface hover:bg-xsurfacehover border border-xborder px-2.5 py-1 rounded-full text-[11px] transition">
+        <div class="w-5 h-5 rounded-full bg-neutral-800 flex items-center justify-center text-[10px] font-bold text-white">
           VR
         </div>
-        <div class="text-left text-[10px]">
-          <p class="font-bold text-gray-200 leading-none" id="nav-profile-name">vishnu rot</p>
-          <a href="https://x.com/GWorld34864" target="_blank" class="text-gray-400 hover:text-xblue">@GWorld34864 ↗</a>
-        </div>
-      </div>
+        <span class="font-semibold text-white" id="nav-profile-name">vishnu rot</span>
+        <span class="text-xmuted">@GWorld34864 ↗</span>
+      </a>
 
-      <button onclick="triggerAction('auto')" class="bg-gradient-to-r from-xblue to-xcyan hover:opacity-90 text-black font-bold px-2.5 py-1 rounded-lg text-[11px] flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-bolt text-[10px]"></i>
+      <button onclick="triggerAction('auto')" class="bg-white hover:bg-neutral-200 text-black font-semibold text-xs px-3.5 py-1.5 rounded-full transition flex items-center gap-1.5 shadow-sm">
+        <i class="fa-solid fa-bolt text-[11px]"></i>
         <span>Trigger Cycle</span>
       </button>
     </div>
   </header>
 
-  <!-- Main Container (High Density) -->
-  <main class="flex-1 max-w-6xl w-full mx-auto p-3 sm:p-4 space-y-3">
+  <!-- Main Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-5 space-y-3.5">
 
-    <!-- Section 1: Monetization Milestones (Compact) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+    <!-- Section 1: Monetization Milestones -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
       
-      <!-- Follower Progress Card -->
-      <div class="glass-card rounded-lg p-3 glow-blue relative overflow-hidden">
-        <div class="flex items-center justify-between mb-1.5">
-          <div class="flex items-center space-x-2">
-            <div class="w-6 h-6 rounded-md bg-xblue/10 border border-xblue/30 flex items-center justify-center text-xblue text-xs">
+      <!-- Follower Milestone -->
+      <div class="matte-card rounded-xl p-3.5">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-7 h-7 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xblue text-xs">
               <i class="fa-solid fa-users"></i>
             </div>
             <div>
-              <h3 class="text-[11px] font-semibold text-gray-200">Monetization Milestone: Followers</h3>
-              <p class="text-[9px] text-gray-400">Target: 500 followers for X Ad-Revenue Share</p>
+              <h3 class="text-xs font-semibold text-white">Monetization Milestone: Followers</h3>
+              <p class="text-[11px] text-xmuted">500 followers required for X Creator Ad-Revenue Sharing</p>
             </div>
           </div>
-          <span class="text-[10px] font-mono font-bold text-xblue bg-xblue/10 px-1.5 py-0.5 rounded" id="follower-pct">4.0%</span>
+          <span class="text-[11px] font-mono font-medium text-white bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded-full" id="follower-pct">4.0%</span>
         </div>
-        <div class="flex items-baseline space-x-1.5 mb-1">
-          <span class="text-lg font-bold text-white tracking-tight" id="follower-count">20</span>
-          <span class="text-[10px] text-gray-400">/ 500 Followers</span>
+        <div class="flex items-baseline space-x-2 mb-1.5">
+          <span class="text-xl font-bold text-white tracking-tight" id="follower-count">20</span>
+          <span class="text-xs text-xmuted">/ 500 Followers</span>
         </div>
-        <div class="w-full bg-xborder rounded-full h-1 overflow-hidden">
-          <div id="follower-bar" class="bg-gradient-to-r from-xblue to-xcyan h-1 rounded-full transition-all duration-700" style="width: 4%"></div>
+        <div class="w-full bg-neutral-900 rounded-full h-1.5 overflow-hidden">
+          <div id="follower-bar" class="bg-xblue h-1.5 rounded-full transition-all duration-700" style="width: 4%"></div>
         </div>
       </div>
 
-      <!-- Verified Impressions Progress Card -->
-      <div class="glass-card rounded-lg p-3 glow-cyan relative overflow-hidden">
-        <div class="flex items-center justify-between mb-1.5">
-          <div class="flex items-center space-x-2">
-            <div class="w-6 h-6 rounded-md bg-xcyan/10 border border-xcyan/30 flex items-center justify-center text-xcyan text-xs">
+      <!-- Verified Impressions Milestone -->
+      <div class="matte-card rounded-xl p-3.5">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-7 h-7 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white text-xs">
               <i class="fa-solid fa-chart-line"></i>
             </div>
             <div>
-              <h3 class="text-[11px] font-semibold text-gray-200">Monetization Milestone: Impressions</h3>
-              <p class="text-[9px] text-gray-400">Target: 5M verified impressions in 90 days</p>
+              <h3 class="text-xs font-semibold text-white">Monetization Milestone: Reach</h3>
+              <p class="text-[11px] text-xmuted">5M verified impressions required in trailing 90 days</p>
             </div>
           </div>
-          <span class="text-[10px] font-mono font-bold text-xcyan bg-xcyan/10 px-1.5 py-0.5 rounded" id="impression-pct">0.5%</span>
+          <span class="text-[11px] font-mono font-medium text-white bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded-full" id="impression-pct">0.5%</span>
         </div>
-        <div class="flex items-baseline space-x-1.5 mb-1">
-          <span class="text-lg font-bold text-white tracking-tight" id="impression-count">25,000</span>
-          <span class="text-[10px] text-gray-400">/ 5,000,000 Verified Reach (Est.)</span>
+        <div class="flex items-baseline space-x-2 mb-1.5">
+          <span class="text-xl font-bold text-white tracking-tight" id="impression-count">25,000</span>
+          <span class="text-xs text-xmuted">/ 5,000,000 Verified Reach (Est.)</span>
         </div>
-        <div class="w-full bg-xborder rounded-full h-1 overflow-hidden">
-          <div id="impression-bar" class="bg-gradient-to-r from-xcyan to-emerald-400 h-1 rounded-full transition-all duration-700" style="width: 1%"></div>
+        <div class="w-full bg-neutral-900 rounded-full h-1.5 overflow-hidden">
+          <div id="impression-bar" class="bg-white h-1.5 rounded-full transition-all duration-700" style="width: 1%"></div>
         </div>
       </div>
 
     </div>
 
-    <!-- Section 2: Today's Action Scorecard (High Density) -->
+    <!-- Section 2: Today's Action Quota Scorecard -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-      <div class="glass-card rounded-lg p-2.5">
-        <div class="flex items-center justify-between text-gray-400 text-[10px] mb-0.5">
-          <span>Today's Total</span>
+      <div class="matte-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
+          <span class="font-medium uppercase tracking-wider text-[10px]">Today's Total</span>
           <i class="fa-solid fa-list-check"></i>
         </div>
-        <h4 class="text-base font-bold text-white tracking-tight" id="stat-total">0 / 20</h4>
-        <p class="text-[9px] text-gray-500">Actions Executed</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-total">0 / 20</h4>
+        <p class="text-[10px] text-xmuted">Actions Executed</p>
       </div>
 
-      <div class="glass-card rounded-lg p-2.5">
-        <div class="flex items-center justify-between text-amber-400 text-[10px] mb-0.5">
-          <span>Sniper Replies</span>
+      <div class="matte-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
+          <span class="font-medium uppercase tracking-wider text-[10px]">Sniper Replies</span>
           <i class="fa-solid fa-reply"></i>
         </div>
-        <h4 class="text-base font-bold text-white tracking-tight" id="stat-replies">0 / 14</h4>
-        <p class="text-[9px] text-gray-500">Comments on Viral Posts</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-replies">0 / 14</h4>
+        <p class="text-[10px] text-xmuted">Viral Post Comments</p>
       </div>
 
-      <div class="glass-card rounded-lg p-2.5">
-        <div class="flex items-center justify-between text-xblue text-[10px] mb-0.5">
-          <span>Quote-Tweets</span>
+      <div class="matte-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
+          <span class="font-medium uppercase tracking-wider text-[10px]">Quote-Tweets</span>
           <i class="fa-solid fa-quote-right"></i>
         </div>
-        <h4 class="text-base font-bold text-white tracking-tight" id="stat-quotes">0 / 5</h4>
-        <p class="text-[9px] text-gray-500">Reposts + Commentary</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-quotes">0 / 5</h4>
+        <p class="text-[10px] text-xmuted">Reposts + Commentary</p>
       </div>
 
-      <div class="glass-card rounded-lg p-2.5">
-        <div class="flex items-center justify-between text-fuchsia-400 text-[10px] mb-0.5">
-          <span>Original Takes</span>
+      <div class="matte-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
+          <span class="font-medium uppercase tracking-wider text-[10px]">Original Takes</span>
           <i class="fa-solid fa-pen-nib"></i>
         </div>
-        <h4 class="text-base font-bold text-white tracking-tight" id="stat-original">0 / 4</h4>
-        <p class="text-[9px] text-gray-500">AI News & Debates</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-original">0 / 4</h4>
+        <p class="text-[10px] text-xmuted">AI News & Hot Takes</p>
       </div>
     </div>
 
-    <!-- Section 3: Dual Grid (NeuBench Live Radar + Bot Stream & Controls) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+    <!-- Section 3: Main Workbench (NeuBench Live AI Hub + Bot Controls & Logs) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5">
 
-      <!-- LEFT: NeuBench Live AI Radar (7 cols on lg) -->
-      <div class="lg:col-span-7 glass-card rounded-lg p-3 flex flex-col justify-between glow-cyan">
+      <!-- LEFT: NeuBench Live AI Feed (7 cols) -->
+      <div class="lg:col-span-7 matte-card rounded-xl p-3.5 flex flex-col justify-between">
         <div>
-          <!-- NeuBench Card Header -->
-          <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-xborder">
-            <div class="flex items-center space-x-2">
-              <div class="w-6 h-6 rounded-md bg-gradient-to-r from-xpurple to-xcyan flex items-center justify-center text-black font-black text-xs">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-xborder">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-7 h-7 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white text-xs">
                 <i class="fa-solid fa-bolt"></i>
               </div>
               <div>
-                <div class="flex items-center gap-1.5">
+                <div class="flex items-center gap-2">
                   <h3 class="text-xs font-bold text-white tracking-wide">NeuBench Live AI Radar</h3>
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                  <span class="text-[9px] text-emerald-400 font-mono">Live Synced</span>
+                  <span class="inline-flex items-center gap-1 text-[10px] text-xgreen bg-neutral-900 border border-neutral-800 px-1.5 py-0.5 rounded-full font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-xgreen"></span>
+                    <span>Live Sync</span>
+                  </span>
                 </div>
-                <p class="text-[10px] text-gray-400">Frontier AI breaking news & 266+ model benchmark leaderboard</p>
+                <p class="text-[11px] text-xmuted">Real-time AI news feed & 266+ model benchmark leaderboard</p>
               </div>
             </div>
 
-            <a href="https://neubench.vercel.app/" target="_blank" class="bg-xcard hover:bg-xcardhover border border-xcyan/40 hover:border-xcyan text-xcyan text-[10px] font-semibold px-2 py-1 rounded-md transition flex items-center gap-1">
-              <span>Open App</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            <a href="https://neubench.vercel.app/" target="_blank" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white text-[11px] font-medium px-2.5 py-1 rounded-full transition flex items-center gap-1.5">
+              <span>Open NeuBench</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-xmuted"></i>
             </a>
           </div>
 
-          <!-- Tabs: Stories vs Benchmarks -->
-          <div class="flex items-center space-x-2 mb-2 bg-xdark/70 p-1 rounded-md border border-xborder text-[10px]">
-            <button id="tab-btn-stories" onclick="switchNeuBenchTab('stories')" class="flex-1 py-1 rounded font-semibold text-center transition bg-xcard border border-xborder text-white">
-              🔥 Breaking AI News
+          <!-- Segmented Tab Controls (Linear Style) -->
+          <div class="flex items-center space-x-1.5 mb-2.5 bg-black p-1 rounded-lg border border-xborder text-[11px]">
+            <button id="tab-btn-stories" onclick="switchNeuBenchTab('stories')" class="flex-1 py-1 rounded-md font-medium text-center transition bg-neutral-800 text-white shadow-sm">
+              Latest AI Stories
             </button>
-            <button id="tab-btn-benchmarks" onclick="switchNeuBenchTab('benchmarks')" class="flex-1 py-1 rounded font-semibold text-center transition text-gray-400 hover:text-white">
-              🏆 Frontier Benchmarks
+            <button id="tab-btn-benchmarks" onclick="switchNeuBenchTab('benchmarks')" class="flex-1 py-1 rounded-md font-medium text-center transition text-xmuted hover:text-white">
+              Model Benchmarks (266+)
             </button>
           </div>
 
           <!-- Tab Content 1: Stories -->
-          <div id="neubench-stories-container" class="space-y-1.5 overflow-y-auto max-h-[260px] pr-1">
-            <div class="text-center py-8 text-gray-500 text-[11px]">
-              <i class="fa-solid fa-spinner fa-spin mb-1"></i>
-              <p>Fetching real-time stories from NeuBench API...</p>
+          <div id="neubench-stories-container" class="space-y-2 overflow-y-auto max-h-[280px] pr-1">
+            <div class="text-center py-8 text-xmuted text-xs">
+              <i class="fa-solid fa-circle-notch fa-spin mb-1.5"></i>
+              <p>Fetching real-time stories from NeuBench...</p>
             </div>
           </div>
 
           <!-- Tab Content 2: Benchmarks (Hidden by default) -->
-          <div id="neubench-benchmarks-container" class="hidden space-y-1.5 overflow-y-auto max-h-[260px] pr-1">
-            <div class="text-center py-8 text-gray-500 text-[11px]">
-              <i class="fa-solid fa-spinner fa-spin mb-1"></i>
-              <p>Loading benchmark leaderboard...</p>
+          <div id="neubench-benchmarks-container" class="hidden space-y-2 overflow-y-auto max-h-[280px] pr-1">
+            <div class="text-center py-8 text-xmuted text-xs">
+              <i class="fa-solid fa-circle-notch fa-spin mb-1.5"></i>
+              <p>Loading frontier benchmark leaderboard...</p>
             </div>
           </div>
         </div>
 
-        <div class="mt-2.5 pt-2 border-t border-xborder flex items-center justify-between text-[10px] text-gray-400">
-          <span class="flex items-center gap-1">
-            <i class="fa-solid fa-database text-xcyan text-[9px]"></i>
+        <!-- Footer Meta -->
+        <div class="mt-3 pt-2.5 border-t border-xborder flex items-center justify-between text-[11px] text-xmuted">
+          <span class="flex items-center gap-1.5">
+            <i class="fa-solid fa-database text-neutral-500 text-[10px]"></i>
             <span id="neubench-meta-text">Syncing with neubench.vercel.app...</span>
           </span>
           <a href="https://neubench.vercel.app/" target="_blank" class="text-xblue hover:underline font-medium">Explore All 266+ Models ↗</a>
         </div>
       </div>
 
-      <!-- RIGHT: Live Activity Stream & Control Center (5 cols on lg) -->
-      <div class="lg:col-span-5 flex flex-col space-y-3">
+      <!-- RIGHT: Bot Activity Stream & Control Center (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col space-y-3.5">
         
-        <!-- Live Activity Stream (Compact) -->
-        <div class="glass-card rounded-lg p-3 flex-1 flex flex-col justify-between">
+        <!-- Live Activity Stream -->
+        <div class="matte-card rounded-xl p-3.5 flex-1 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-2 pb-1.5 border-b border-xborder">
-              <div class="flex items-center space-x-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-xcyan animate-ping"></span>
-                <h3 class="text-[11px] font-bold text-white uppercase tracking-wider">Live Activity Stream</h3>
+            <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-xborder">
+              <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-xgreen"></span>
+                <h3 class="text-[10px] font-bold text-white uppercase tracking-wider">Live Activity Stream</h3>
               </div>
-              <span class="text-[9px] text-gray-500 font-mono" id="last-updated-text">Updating...</span>
+              <span class="text-[10px] text-xmuted font-mono" id="last-updated-text">Updating...</span>
             </div>
 
-            <div id="events-container" class="space-y-1.5 overflow-y-auto max-h-[170px] pr-1">
-              <div class="text-center py-6 text-gray-500 text-[11px]">
-                <i class="fa-solid fa-spinner fa-spin mb-1"></i>
+            <div id="events-container" class="space-y-1.5 overflow-y-auto max-h-[190px] pr-1">
+              <div class="text-center py-6 text-xmuted text-xs">
+                <i class="fa-solid fa-circle-notch fa-spin mb-1"></i>
                 <p>Loading bot events...</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Bot Quick Controls (Compact) -->
-        <div class="glass-card rounded-lg p-3 space-y-2">
-          <div class="flex items-center justify-between pb-1 border-b border-xborder">
-            <h3 class="text-[11px] font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-              <i class="fa-solid fa-sliders text-xcyan text-[10px]"></i>
+        <!-- Bot Quick Controls -->
+        <div class="matte-card rounded-xl p-3.5 space-y-2.5">
+          <div class="flex items-center justify-between pb-2 border-b border-xborder">
+            <h3 class="text-[10px] font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-sliders text-neutral-400 text-[10px]"></i>
               Control Center
             </h3>
-            <span class="text-[9px] text-gray-500 font-mono">Gemini 3.5 Flash</span>
+            <span class="text-[10px] text-xmuted font-mono">Gemini 3.5 Flash</span>
           </div>
 
           <div class="grid grid-cols-3 gap-1.5">
-            <button onclick="triggerAction('reply')" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] py-1 rounded font-medium transition">
+            <button onclick="triggerAction('reply')" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-white text-[11px] py-1.5 rounded-lg font-medium transition">
               💬 Reply
             </button>
-            <button onclick="triggerAction('repost')" class="bg-xblue/10 hover:bg-xblue/20 text-xblue border border-xblue/30 text-[10px] py-1 rounded font-medium transition">
+            <button onclick="triggerAction('repost')" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-white text-[11px] py-1.5 rounded-lg font-medium transition">
               🔁 Quote
             </button>
-            <button onclick="triggerAction('post')" class="bg-fuchsia-500/10 hover:bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/30 text-[10px] py-1 rounded font-medium transition">
+            <button onclick="triggerAction('post')" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-white text-[11px] py-1.5 rounded-lg font-medium transition">
               🚀 Post
             </button>
           </div>
 
-          <div class="flex items-center justify-between bg-xcard p-1.5 rounded border border-xborder">
+          <div class="flex items-center justify-between bg-black p-2 rounded-lg border border-xborder">
             <div>
-              <p class="text-[10px] font-semibold text-white">Dry Run Mode</p>
-              <p class="text-[9px] text-gray-400">Simulate actions safely</p>
+              <p class="text-[11px] font-semibold text-white">Dry Run Mode</p>
+              <p class="text-[10px] text-xmuted">Simulate cycles without live posting</p>
             </div>
-            <input type="checkbox" id="dry-run-toggle" onchange="toggleDryRun(this.checked)" class="w-3.5 h-3.5 accent-xcyan rounded">
+            <input type="checkbox" id="dry-run-toggle" onchange="toggleDryRun(this.checked)" class="w-4 h-4 accent-white rounded cursor-pointer">
           </div>
 
-          <div class="flex items-center justify-between bg-xcard p-1.5 rounded border border-xborder">
+          <div class="flex items-center justify-between bg-black p-2 rounded-lg border border-xborder">
             <div>
-              <p class="text-[10px] font-semibold text-white">24/7 Cloud Engine</p>
-              <p class="text-[9px] text-gray-400">Automated every 45 min</p>
+              <p class="text-[11px] font-semibold text-white">24/7 Cloud Actions</p>
+              <p class="text-[10px] text-xmuted">Automated execution every 45 min</p>
             </div>
-            <a href="https://github.com/baaghbdsk-bit/X-Post-Automater/actions" target="_blank" class="text-[10px] bg-xborder hover:bg-gray-700 text-gray-200 px-2 py-1 rounded transition font-medium">
-              Runs ↗
+            <a href="https://github.com/baaghbdsk-bit/X-Post-Automater/actions" target="_blank" class="text-[11px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white px-2.5 py-1 rounded-md transition font-medium">
+              View Runs ↗
             </a>
           </div>
         </div>
@@ -300,37 +318,37 @@
 
     </div>
 
-    <!-- Section 4: Ecosystem & Community (NeuBench + Connect With Us) -->
-    <div class="glass-card rounded-lg p-3 border border-xborder glow-blue">
-      <div class="flex items-center justify-between mb-2 pb-1.5 border-b border-xborder">
+    <!-- Section 4: Ecosystem & Apps (NeuBench + Connect With Us) -->
+    <div class="matte-card rounded-xl p-3.5">
+      <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-xborder">
         <div class="flex items-center space-x-2">
-          <div class="w-5 h-5 rounded bg-gradient-to-r from-xpurple to-xcyan flex items-center justify-center text-black font-black text-[10px]">
+          <div class="w-6 h-6 rounded-md bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white text-[11px]">
             <i class="fa-solid fa-shapes"></i>
           </div>
           <div>
-            <h3 class="text-[11px] font-bold text-white tracking-wide">🚀 Built by Our Ecosystem</h3>
-            <p class="text-[9px] text-gray-400">Unified suite for AI intelligence, benchmarking, and autonomous growth</p>
+            <h3 class="text-xs font-bold text-white tracking-wide">Ecosystem & Community</h3>
+            <p class="text-[11px] text-xmuted">Explore our AI tools, benchmarks, and creator community</p>
           </div>
         </div>
-        <span class="text-[9px] text-xpurple font-mono bg-xpurple/10 px-1.5 py-0.5 rounded border border-xpurple/20">Official Ecosystem</span>
+        <span class="text-[10px] text-xmuted font-mono bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded-full">Official Apps</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
         {% for prod in products %}
-        <a href="{{ prod.link }}" target="_blank" class="group bg-xcard hover:bg-xcardhover border border-xborder hover:border-xcyan/40 p-2.5 rounded-lg transition flex flex-col justify-between">
+        <a href="{{ prod.link }}" target="_blank" class="group bg-black hover:bg-xsurface border border-xborder hover:border-neutral-700 p-3 rounded-lg transition flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-1">
-              <div class="flex items-center space-x-1.5">
-                <i class="fa-{{ prod.icon if 'fa-' in prod.icon else 'solid fa-' + prod.icon }} text-xcyan text-[11px]"></i>
-                <h4 class="font-bold text-white text-[11px] group-hover:text-xcyan transition">{{ prod.name }}</h4>
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center space-x-2">
+                <i class="fa-{{ prod.icon if 'fa-' in prod.icon else 'solid fa-' + prod.icon }} text-neutral-300 text-xs"></i>
+                <h4 class="font-bold text-white text-xs group-hover:text-xblue transition">{{ prod.name }}</h4>
               </div>
-              <span class="text-[8px] bg-xblue/10 text-xblue border border-xblue/20 px-1.5 py-0.2 rounded font-medium">{{ prod.badge }}</span>
+              <span class="text-[9px] bg-neutral-900 text-neutral-400 border border-neutral-800 px-1.5 py-0.5 rounded-full font-medium">{{ prod.badge }}</span>
             </div>
-            <p class="text-[10px] text-gray-400 leading-snug">{{ prod.tagline }}</p>
+            <p class="text-[11px] text-xmuted leading-snug">{{ prod.tagline }}</p>
           </div>
-          <div class="mt-2 flex items-center text-[10px] font-semibold text-xcyan group-hover:underline">
+          <div class="mt-2.5 flex items-center text-[11px] font-medium text-white group-hover:text-xblue">
             <span>{{ prod.cta or "Explore" }}</span>
-            <i class="fa-solid fa-arrow-right text-[8px] ml-1 transition-transform group-hover:translate-x-1"></i>
+            <i class="fa-solid fa-arrow-right text-[9px] ml-1.5 transition-transform group-hover:translate-x-1"></i>
           </div>
         </a>
         {% endfor %}
@@ -339,37 +357,37 @@
 
   </main>
 
-  <!-- Compact Footer -->
-  <footer class="border-t border-xborder text-center py-2 text-[10px] text-gray-500">
-    <p>© 2026 X-Post-Automater • Built for High-Impact Creators • Integrated with <a href="https://neubench.vercel.app/" target="_blank" class="text-xcyan hover:underline">NeuBench</a></p>
+  <!-- Clean Footer -->
+  <footer class="border-t border-xborder text-center py-3 text-[11px] text-xmuted">
+    <p>© 2026 X-Post-Automater • Built for High-Impact Creators • Integrated with <a href="https://neubench.vercel.app/" target="_blank" class="text-neutral-300 hover:text-white underline">NeuBench</a></p>
   </footer>
 
-  <!-- Draft Tweet Modal (Interactive Generator) -->
-  <div id="draft-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
-    <div class="glass-card rounded-xl max-w-lg w-full p-4 border border-xcyan/40 glow-cyan flex flex-col space-y-3">
+  <!-- Draft Tweet Modal (Linear / X Style) -->
+  <div id="draft-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="matte-card rounded-2xl max-w-lg w-full p-4 sm:p-5 border border-neutral-800 shadow-2xl flex flex-col space-y-3.5">
       
       <!-- Modal Header -->
-      <div class="flex items-center justify-between pb-2 border-b border-xborder">
-        <div class="flex items-center space-x-2">
-          <div class="w-6 h-6 rounded-md bg-gradient-to-r from-xblue to-xcyan flex items-center justify-center text-black text-xs font-bold">
+      <div class="flex items-center justify-between pb-2.5 border-b border-xborder">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-7 h-7 rounded-full bg-white flex items-center justify-center text-black text-xs font-bold">
             𝕏
           </div>
           <div>
             <h4 class="text-xs font-bold text-white">AI-Drafted 𝕏 Post</h4>
-            <p class="text-[9px] text-gray-400" id="draft-modal-subtitle">Generated from NeuBench AI Radar</p>
+            <p class="text-[10px] text-xmuted" id="draft-modal-subtitle">Generated from NeuBench AI Radar</p>
           </div>
         </div>
-        <button onclick="closeDraftModal()" class="text-gray-400 hover:text-white text-xs p-1">
+        <button onclick="closeDraftModal()" class="text-xmuted hover:text-white text-sm p-1 transition">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
       <!-- Modal Body (Editable Textarea) -->
       <div>
-        <label class="text-[10px] text-gray-300 font-semibold mb-1 block">Post Preview & Editor:</label>
+        <label class="text-[11px] text-neutral-300 font-medium mb-1.5 block">Review & Polish Tweet:</label>
         <div class="relative">
-          <textarea id="draft-tweet-textarea" rows="4" class="w-full bg-xdark border border-xborder rounded-lg p-2.5 text-xs text-gray-100 focus:outline-none focus:border-xcyan resize-none font-sans" oninput="updateCharCount()"></textarea>
-          <div class="flex items-center justify-between mt-1 text-[9px] text-gray-400">
+          <textarea id="draft-tweet-textarea" rows="4" class="w-full bg-black border border-xborder focus:border-neutral-600 rounded-xl p-3 text-xs text-white focus:outline-none resize-none leading-relaxed" oninput="updateCharCount()"></textarea>
+          <div class="flex items-center justify-between mt-1.5 text-[10px] text-xmuted">
             <span>Tone: Authentic, contrarian human take</span>
             <span id="draft-char-count" class="font-mono">0 / 280</span>
           </div>
@@ -377,18 +395,18 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex items-center justify-between pt-2 border-t border-xborder">
-        <button onclick="copyDraftToClipboard()" id="copy-btn" class="bg-xcard hover:bg-xcardhover border border-xborder text-gray-200 text-[10px] px-2.5 py-1.5 rounded-md font-medium transition flex items-center gap-1.5">
+      <div class="flex items-center justify-between pt-2.5 border-t border-xborder">
+        <button onclick="copyDraftToClipboard()" id="copy-btn" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white text-xs px-3 py-1.5 rounded-full font-medium transition flex items-center gap-1.5">
           <i class="fa-regular fa-copy"></i>
           <span>Copy Text</span>
         </button>
 
         <div class="flex items-center space-x-2">
-          <button onclick="closeDraftModal()" class="text-gray-400 hover:text-gray-200 text-[10px] px-2.5 py-1.5 font-medium transition">
+          <button onclick="closeDraftModal()" class="text-xmuted hover:text-white text-xs px-3 py-1.5 font-medium transition">
             Cancel
           </button>
-          <button onclick="publishDraftedTweet()" id="publish-btn" class="bg-gradient-to-r from-xblue to-xcyan hover:opacity-90 text-black font-bold text-[10px] px-3 py-1.5 rounded-md flex items-center gap-1.5 transition">
-            <i class="fa-solid fa-paper-plane"></i>
+          <button onclick="publishDraftedTweet()" id="publish-btn" class="bg-white hover:bg-neutral-200 text-black font-semibold text-xs px-4 py-1.5 rounded-full flex items-center gap-1.5 transition shadow-sm">
+            <i class="fa-solid fa-paper-plane text-[10px]"></i>
             <span id="publish-btn-text">Publish to 𝕏</span>
           </button>
         </div>
@@ -426,35 +444,35 @@
         // Update Dry Run checkbox
         document.getElementById('dry-run-toggle').checked = data.safety.dry_run;
 
-        // Render Events (Compact)
+        // Render Events
         const container = document.getElementById('events-container');
         if (data.recent_events && data.recent_events.length > 0) {
           container.innerHTML = data.recent_events.map(ev => {
             const isSuccess = ev.status === 'success';
             const isSkipped = ev.status === 'skipped';
-            const badgeColor = isSuccess ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : isSkipped ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20';
-            const actionIcon = ev.action_type === 'reply' ? '💬 Reply' : ev.action_type === 'quote_tweet' ? '🔁 Quote' : '🚀 Post';
+            const badgeColor = isSuccess ? 'bg-neutral-900 text-xgreen border-neutral-800' : isSkipped ? 'bg-neutral-900 text-amber-400 border-neutral-800' : 'bg-neutral-900 text-red-400 border-neutral-800';
+            const actionLabel = ev.action_type === 'reply' ? 'Reply' : ev.action_type === 'quote_tweet' ? 'Quote' : 'Post';
 
             return `
-              <div class="bg-xcard p-1.5 rounded border border-xborder flex items-start justify-between space-x-1.5 text-[10px]">
+              <div class="bg-black p-2 rounded-lg border border-xborder flex items-start justify-between space-x-2 text-[11px]">
                 <div class="flex-1 min-w-0">
-                  <div class="flex items-center space-x-1.5 mb-0.5">
-                    <span class="font-bold text-gray-200">${actionIcon}</span>
-                    <span class="text-[8px] px-1 py-0.1 rounded border font-mono ${badgeColor}">${ev.status}</span>
-                    ${ev.is_dry_run ? '<span class="text-[8px] bg-purple-500/10 text-purple-300 border border-purple-500/20 px-1 py-0.1 rounded font-mono">DRY-RUN</span>' : ''}
-                    <span class="text-gray-500 text-[8px] font-mono">${ev.timestamp ? ev.timestamp.substring(11, 19) + ' UTC' : ''}</span>
+                  <div class="flex items-center space-x-2 mb-0.5">
+                    <span class="font-semibold text-white">${actionLabel}</span>
+                    <span class="text-[9px] px-1.5 py-0.2 rounded border font-mono ${badgeColor}">${ev.status}</span>
+                    ${ev.is_dry_run ? '<span class="text-[9px] bg-neutral-900 text-neutral-400 border border-neutral-800 px-1.5 py-0.2 rounded font-mono">DRY-RUN</span>' : ''}
+                    <span class="text-xmuted text-[9px] font-mono">${ev.timestamp ? ev.timestamp.substring(11, 19) + ' UTC' : ''}</span>
                   </div>
-                  <p class="text-gray-300 font-normal truncate">${ev.content_preview || ev.reason || 'Cycle processed.'}</p>
+                  <p class="text-neutral-300 font-normal truncate">${ev.content_preview || ev.reason || 'Cycle processed.'}</p>
                 </div>
-                ${ev.target && ev.target.startsWith('http') ? `<a href="${ev.target}" target="_blank" class="text-xblue hover:underline text-[9px] shrink-0 font-medium">View ↗</a>` : ''}
+                ${ev.target && ev.target.startsWith('http') ? `<a href="${ev.target}" target="_blank" class="text-xblue hover:underline text-[10px] shrink-0 font-medium">View ↗</a>` : ''}
               </div>
             `;
           }).join('');
         } else {
-          container.innerHTML = `<p class="text-center py-6 text-gray-500 text-[10px]">No activity recorded yet.</p>`;
+          container.innerHTML = `<p class="text-center py-6 text-xmuted text-xs">No activity recorded yet.</p>`;
         }
 
-        document.getElementById('last-updated-text').innerText = 'Synced: ' + new Date().toLocaleTimeString();
+        document.getElementById('last-updated-text').innerText = 'Synced ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
       } catch (err) {
         console.error("Failed to fetch stats:", err);
       }
@@ -473,28 +491,23 @@
         const storiesContainer = document.getElementById('neubench-stories-container');
         if (data.stories && data.stories.length > 0) {
           storiesContainer.innerHTML = data.stories.map((s, idx) => {
-            const companyColor = s.company === 'OpenAI' ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' :
-                                 s.company === 'DeepSeek' ? 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20' :
-                                 s.company === 'Google' ? 'text-blue-400 bg-blue-500/10 border-blue-500/20' :
-                                 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20';
-            
             return `
-              <div class="bg-xcard hover:bg-xcardhover p-2 rounded border border-xborder transition flex flex-col justify-between space-y-1">
+              <div class="bg-black hover:bg-xsurface p-2.5 rounded-lg border border-xborder transition flex flex-col justify-between space-y-1.5">
                 <div>
-                  <div class="flex items-center justify-between mb-0.5">
-                    <span class="text-[9px] font-mono px-1.5 py-0.2 rounded border font-semibold ${companyColor}">${s.company}</span>
-                    <span class="text-[9px] text-gray-500">${s.date || 'Breaking'}</span>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border border-neutral-800 bg-neutral-900 text-neutral-300 font-medium">${s.company}</span>
+                    <span class="text-[10px] text-xmuted">${s.date || 'Breaking'}</span>
                   </div>
-                  <h4 class="text-[11px] font-bold text-gray-100 hover:text-xcyan leading-snug cursor-pointer" onclick="openStoryModal(${idx})">${s.title}</h4>
-                  <p class="text-[10px] text-gray-400 line-clamp-1 mt-0.5">${s.summary}</p>
+                  <h4 class="text-xs font-bold text-white hover:text-xblue leading-snug cursor-pointer transition" onclick="draftStoryTweet(${idx})">${s.title}</h4>
+                  <p class="text-[11px] text-xmuted line-clamp-1 mt-0.5">${s.summary}</p>
                 </div>
-                <div class="flex items-center justify-between pt-1 border-t border-xborder/60 text-[9px]">
-                  <a href="${s.neubenchUrl}" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-0.5">
+                <div class="flex items-center justify-between pt-1.5 border-t border-xborder/70 text-[10px]">
+                  <a href="${s.neubenchUrl}" target="_blank" class="text-xmuted hover:text-white flex items-center gap-1 transition">
                     <span>Read on NeuBench</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
                   </a>
-                  <button onclick="draftStoryTweet(${idx})" class="bg-xcyan/10 hover:bg-xcyan/20 border border-xcyan/30 text-xcyan px-2 py-0.5 rounded font-semibold flex items-center gap-1 transition">
-                    <i class="fa-solid fa-pen-nib text-[8px]"></i>
+                  <button onclick="draftStoryTweet(${idx})" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-pen-nib text-[9px] text-xblue"></i>
                     <span>Draft 𝕏 Tweet</span>
                   </button>
                 </div>
@@ -502,7 +515,7 @@
             `;
           }).join('');
         } else {
-          storiesContainer.innerHTML = `<p class="text-center py-6 text-gray-500 text-[10px]">No stories loaded.</p>`;
+          storiesContainer.innerHTML = `<p class="text-center py-6 text-xmuted text-xs">No stories loaded.</p>`;
         }
 
         // Render Benchmarks
@@ -510,29 +523,29 @@
         if (data.benchmarks && data.benchmarks.length > 0) {
           benchmarksContainer.innerHTML = data.benchmarks.map((m, idx) => {
             const chips = (m.highlights || []).map(h => `
-              <span class="bg-xborder/80 border border-xborder text-[8px] px-1 py-0.5 rounded text-gray-300">
-                <span class="text-gray-500">${h.name}:</span> <span class="font-bold text-xcyan">${h.score}</span>
+              <span class="bg-neutral-900 border border-neutral-800 text-[9px] px-2 py-0.5 rounded-full text-neutral-300">
+                <span class="text-xmuted">${h.name}:</span> <span class="font-bold text-white">${h.score}</span>
               </span>
             `).join('');
 
             return `
-              <div class="bg-xcard hover:bg-xcardhover p-2 rounded border border-xborder transition flex flex-col justify-between space-y-1">
+              <div class="bg-black hover:bg-xsurface p-2.5 rounded-lg border border-xborder transition flex flex-col justify-between space-y-1.5">
                 <div>
-                  <div class="flex items-center justify-between mb-0.5">
-                    <span class="text-[11px] font-bold text-gray-100">${m.name}</span>
-                    <span class="text-[9px] text-gray-400 font-mono">${m.developer}</span>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-xs font-bold text-white">${m.name}</span>
+                    <span class="text-[10px] text-xmuted font-mono">${m.developer}</span>
                   </div>
                   <div class="flex flex-wrap gap-1 mt-1 mb-1">
                     ${chips}
                   </div>
                 </div>
-                <div class="flex items-center justify-between pt-1 border-t border-xborder/60 text-[9px]">
-                  <a href="${m.neubenchUrl}" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-0.5">
+                <div class="flex items-center justify-between pt-1.5 border-t border-xborder/70 text-[10px]">
+                  <a href="${m.neubenchUrl}" target="_blank" class="text-xmuted hover:text-white flex items-center gap-1 transition">
                     <span>Compare on NeuBench</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
                   </a>
-                  <button onclick="draftBenchmarkTweet(${idx})" class="bg-xpurple/10 hover:bg-xpurple/20 border border-xpurple/30 text-xpurple px-2 py-0.5 rounded font-semibold flex items-center gap-1 transition">
-                    <i class="fa-solid fa-pen-nib text-[8px]"></i>
+                  <button onclick="draftBenchmarkTweet(${idx})" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-pen-nib text-[9px] text-xblue"></i>
                     <span>Draft 𝕏 Tweet</span>
                   </button>
                 </div>
@@ -554,13 +567,13 @@
       if (tab === 'stories') {
         storiesTab.classList.remove('hidden');
         benchTab.classList.add('hidden');
-        btnStories.className = 'flex-1 py-1 rounded font-semibold text-center transition bg-xcard border border-xborder text-white';
-        btnBench.className = 'flex-1 py-1 rounded font-semibold text-center transition text-gray-400 hover:text-white';
+        btnStories.className = 'flex-1 py-1 rounded-md font-medium text-center transition bg-neutral-800 text-white shadow-sm';
+        btnBench.className = 'flex-1 py-1 rounded-md font-medium text-center transition text-xmuted hover:text-white';
       } else {
         storiesTab.classList.add('hidden');
         benchTab.classList.remove('hidden');
-        btnBench.className = 'flex-1 py-1 rounded font-semibold text-center transition bg-xcard border border-xborder text-white';
-        btnStories.className = 'flex-1 py-1 rounded font-semibold text-center transition text-gray-400 hover:text-white';
+        btnBench.className = 'flex-1 py-1 rounded-md font-medium text-center transition bg-neutral-800 text-white shadow-sm';
+        btnStories.className = 'flex-1 py-1 rounded-md font-medium text-center transition text-xmuted hover:text-white';
       }
     }
 
@@ -568,7 +581,7 @@
     async function draftStoryTweet(idx) {
       if (!neubenchFeedData || !neubenchFeedData.stories[idx]) return;
       const s = neubenchFeedData.stories[idx];
-      openDraftModal('Drafting viral post on: ' + s.title + '...', true);
+      openDraftModal('Drafting take on: ' + s.title + '...', true);
 
       try {
         const res = await fetch('/api/neubench/draft', {
@@ -646,14 +659,14 @@
       const countEl = document.getElementById('draft-char-count');
       const len = textarea.value.length;
       countEl.innerText = `${len} / 280`;
-      countEl.className = len > 280 ? 'font-mono text-red-400 font-bold' : 'font-mono text-gray-400';
+      countEl.className = len > 280 ? 'font-mono text-red-400 font-bold' : 'font-mono text-xmuted';
     }
 
     function copyDraftToClipboard() {
       const text = document.getElementById('draft-tweet-textarea').value;
       navigator.clipboard.writeText(text);
       const btn = document.getElementById('copy-btn');
-      btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i><span class="text-emerald-400">Copied!</span>`;
+      btn.innerHTML = `<i class="fa-solid fa-check text-xgreen"></i><span class="text-xgreen font-medium">Copied!</span>`;
       setTimeout(() => {
         btn.innerHTML = `<i class="fa-regular fa-copy"></i><span>Copy Text</span>`;
       }, 2000);
