@@ -1,0 +1,43 @@
+{
+  "trial_meta": {
+    "version": "1.0.0",
+    "last_updated": "2026-10-21T21:42:29.694669+00:00",
+    "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
+  },
+  "lifetime_summary": {
+    "total_cycles_executed": 2,
+    "original_posts_attempted": 0,
+    "original_posts_succeeded": 0,
+    "replies_attempted": 1,
+    "replies_succeeded": 1,
+    "reposts_attempted": 1,
+    "reposts_succeeded": 1,
+    "actions_skipped": 0,
+    "failed_operations": 0,
+    "ai_generation_requests": 2,
+    "ai_generation_failures": 0,
+    "rate_limits_encountered": 0
+  },
+  "recent_events": [
+    {
+      "timestamp": "2026-10-21T21:41:55.765794+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "https://x.com/unusual_whales/status/2086422490872713578",
+      "content_preview": "Great, now I can lose money faster and via code.",
+      "reason": "",
+      "duration_s": 17.38
+    },
+    {
+      "timestamp": "2026-10-21T21:42:29.694647+00:00",
+      "action_type": "quote_tweet",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "https://x.com/ndtv/status/2113019999380193613",
+      "content_preview": "Cant wait for tech bros to solve this with a productivity app.",
+      "reason": "",
+      "duration_s": 11.28
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import sys
 import time
 import json
 import random
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 # Ensure UTF-8 output on Windows consoles
@@ -19,6 +19,8 @@ import config
 from src.trend_hunter import TrendHunter
 from src.ai_generator import AIGenerator
 from src.twitter_client import TwitterClient
+from src.tracker import ActivityTracker
+from src.safety import SafetyEngine
 
 console = Console()
 
@@ -41,109 +43,312 @@ VIRAL_ACCOUNTS = [
 ]
 
 class AutomaterEngine:
-    def __init__(self):
+    def __init__(self, dry_run: bool = False):
         self.hunter = TrendHunter()
         self.ai = AIGenerator()
-        self.twitter = TwitterClient(headless=True)
+        self.safety = SafetyEngine()
+        
+        # Override dry_run if explicitly passed
+        if dry_run:
+            self.safety.dry_run = True
+
+        self.twitter = TwitterClient(headless=True, dry_run=self.safety.dry_run)
+        
         self.history_file = config.BASE_DIR / "post_history.json"
-        self.history = self._load_history()
+        self.metrics_file = config.BASE_DIR / "trial_metrics.json"
+        self.tracker = ActivityTracker(self.metrics_file, self.history_file)
 
-    def _load_history(self) -> dict:
-        if self.history_file.exists():
-            try:
-                with open(self.history_file, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception:
-                pass
-        return {"posted_tweets": [], "replied_urls": []}
+    def run_single_cycle(self, force_action: str = "auto") -> bool:
+        """
+        Executes one verifiable cycle within the safety envelope.
+        force_action can be: 'auto', 'post', 'reply', 'repost'
+        """
+        start_time = time.time()
+        start_iso = datetime.now(timezone.utc).isoformat()
+        console.print(f"\n[cyan]⏱️  Cycle triggered at {start_iso} (Dry Run: {self.safety.dry_run})[/cyan]")
 
-    def _save_history(self):
-        try:
-            with open(self.history_file, "w", encoding="utf-8") as f:
-                json.dump(self.history, f, indent=2)
-        except Exception as e:
-            console.print(f"[red]Error saving history: {e}[/red]")
+        # 1. Check Global Trial Status & Window
+        trial_start = self.tracker.metrics.get("trial_meta", {}).get("trial_start_utc", "")
+        is_active, status_msg = self.safety.check_trial_status(trial_start)
+        if not is_active:
+            console.print(f"[bold red]⛔ Trial Safety Stop: {status_msg}[/bold red]")
+            self.tracker.record_event(
+                action_type="lifecycle",
+                status="skipped",
+                skip_or_error_reason=status_msg,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
 
-    def run_single_cycle(self) -> bool:
-        """Executes one automated action: either an original debate take or a sniper reply."""
-        console.print(f"\n[cyan]⏱️  Cycle triggered at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}[/cyan]")
-        
-        is_reply = random.randint(1, 100) <= config.REPLY_PERCENTAGE
-        
-        if is_reply:
-            return self._execute_sniper_reply()
+        # 2. Get today's quota usage
+        today_counts = self.tracker.get_today_counts()
+        console.print(
+            f"[dim]Today's Verifiable Totals -> Original: {today_counts['original_posts']}/{self.safety.max_daily_original} | "
+            f"Replies: {today_counts['replies']}/{self.safety.max_daily_replies} | "
+            f"Reposts: {today_counts['reposts']}/{self.safety.max_daily_reposts} | "
+            f"Total: {today_counts['total_actions']}/{self.safety.max_daily_total}[/dim]"
+        )
+
+        # 3. Determine action type
+        if force_action in ("post", "reply", "repost"):
+            action_choice = force_action
         else:
-            return self._execute_original_post()
+            # Distribution: 60% Reply, 20% Repost (Quote-Tweet), 20% Original Post
+            roll = random.randint(1, 100)
+            if roll <= 60:
+                action_choice = "reply"
+            elif roll <= 80:
+                action_choice = "repost"
+            else:
+                action_choice = "post"
 
-    def _execute_sniper_reply(self) -> bool:
+        # 4. Enforce quota check
+        can_proceed, reason = self.safety.can_perform_action(action_choice, today_counts)
+        if not can_proceed:
+            console.print(f"[yellow]⚠️ Action '{action_choice}' blocked: {reason}[/yellow]")
+            # Attempt fallback to alternative action if total limit is not exceeded
+            if today_counts.get("total_actions", 0) < self.safety.max_daily_total:
+                fallbacks = [a for a in ["reply", "post", "repost"] if a != action_choice]
+                for fb in fallbacks:
+                    fb_ok, _ = self.safety.can_perform_action(fb, today_counts)
+                    if fb_ok:
+                        console.print(f"[green]Falling back to action: '{fb}'[/green]")
+                        action_choice = fb
+                        can_proceed = True
+                        break
+
+            if not can_proceed:
+                self.tracker.record_event(
+                    action_type=action_choice,
+                    status="skipped",
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run
+                )
+                return False
+
+        # 5. Dispatch chosen action
+        if action_choice == "reply":
+            return self._execute_sniper_reply(start_time)
+        elif action_choice == "repost":
+            return self._execute_quote_tweet(start_time)
+        else:
+            return self._execute_original_post(start_time)
+
+    def _execute_sniper_reply(self, start_time: float) -> bool:
         """Finds a viral account, extracts latest tweet, and replies with high-engagement AI take."""
         console.print("[bold yellow]🎯 Mode: Sniper Reply on Viral Account[/bold yellow]")
-        
-        # Pick random viral account
         account = random.choice(VIRAL_ACCOUNTS)
         console.print(f"[dim]Checking latest tweet from @{account}...[/dim]")
-        
+
         tweet_data = self.twitter.get_latest_tweet_from_account(account)
         tweet_url = tweet_data.get("tweet_url")
         tweet_text = tweet_data.get("tweet_text")
-        
+
         if not tweet_url or not tweet_text:
-            console.print("[yellow]Could not find suitable tweet. Falling back to original post...[/yellow]")
-            return self._execute_original_post()
-            
-        if tweet_url in self.history["replied_urls"]:
-            console.print(f"[dim]Already replied to {tweet_url}. Skipping...[/dim]")
+            console.print("[yellow]Could not find suitable tweet. Skipping cycle...[/yellow]")
+            self.tracker.record_event(
+                action_type="reply",
+                status="skipped",
+                target_identifier=f"@{account}",
+                skip_or_error_reason=f"No tweet found for @{account}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
+
+        if tweet_url in self.tracker.history["replied_urls"]:
+            console.print(f"[dim]Already replied to {tweet_url}. Skipping duplicate...[/dim]")
+            self.tracker.record_event(
+                action_type="reply",
+                status="skipped",
+                target_identifier=tweet_url,
+                skip_or_error_reason="Idempotency: already replied to this tweet URL",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
             return False
 
         console.print(f"[bold]Target Tweet:[/bold] {tweet_text[:80]}...")
-        reply_content = self.ai.generate_sniper_reply(account, tweet_text)
-        console.print(f"[green]Generated Reply:[/green] {reply_content}")
+        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+        try:
+            reply_content = self.ai.generate_sniper_reply(account, tweet_text)
+        except Exception as e:
+            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+            console.print(f"[red]AI Generation Error: {e}[/red]")
+            self.tracker.record_event(
+                action_type="reply",
+                status="failed",
+                target_identifier=tweet_url,
+                skip_or_error_reason=f"AI generation failed: {e}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
 
+        console.print(f"[green]Generated Reply Draft:[/green] {reply_content}")
+
+        # Post reply
         success = self.twitter.post_reply(tweet_url, reply_content)
+        status = "success" if success else "failed"
+        self.tracker.record_event(
+            action_type="reply",
+            status=status,
+            target_identifier=tweet_url,
+            content_preview=reply_content,
+            skip_or_error_reason="" if success else "Playwright selector or network failure",
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
         if success:
-            self.history["replied_urls"].append(tweet_url)
-            self._save_history()
             console.print("[bold green]✅ Successfully sniped reply![/bold green]")
         return success
 
-    def _execute_original_post(self) -> bool:
+    def _execute_quote_tweet(self, start_time: float) -> bool:
+        """Finds a viral tweet and Quote-Tweets it with commentary ('masala on top')."""
+        console.print("[bold blue]🔁 Mode: Quote-Tweet ('Repost with Masala')[/bold blue]")
+        account = random.choice(VIRAL_ACCOUNTS)
+        console.print(f"[dim]Checking latest tweet from @{account} to quote...[/dim]")
+
+        tweet_data = self.twitter.get_latest_tweet_from_account(account)
+        tweet_url = tweet_data.get("tweet_url")
+        tweet_text = tweet_data.get("tweet_text")
+
+        if not tweet_url or not tweet_text:
+            console.print("[yellow]Could not find tweet to quote. Skipping cycle...[/yellow]")
+            self.tracker.record_event(
+                action_type="quote_tweet",
+                status="skipped",
+                target_identifier=f"@{account}",
+                skip_or_error_reason=f"No tweet found for @{account}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
+
+        if tweet_url in self.tracker.history["reposted_urls"]:
+            console.print(f"[dim]Already quoted {tweet_url}. Skipping duplicate...[/dim]")
+            self.tracker.record_event(
+                action_type="quote_tweet",
+                status="skipped",
+                target_identifier=tweet_url,
+                skip_or_error_reason="Idempotency: already quoted this tweet URL",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
+
+        console.print(f"[bold]Target Tweet:[/bold] {tweet_text[:80]}...")
+        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+        try:
+            commentary = self.ai.generate_quote_tweet_commentary(account, tweet_text)
+        except Exception as e:
+            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+            console.print(f"[red]AI Generation Error: {e}[/red]")
+            self.tracker.record_event(
+                action_type="quote_tweet",
+                status="failed",
+                target_identifier=tweet_url,
+                skip_or_error_reason=f"AI generation failed: {e}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
+
+        console.print(f"[green]Generated Quote Draft:[/green] {commentary}")
+
+        success = self.twitter.post_quote_tweet(tweet_url, commentary)
+        status = "success" if success else "failed"
+        self.tracker.record_event(
+            action_type="quote_tweet",
+            status=status,
+            target_identifier=tweet_url,
+            content_preview=commentary,
+            skip_or_error_reason="" if success else "Playwright quote-tweet failure",
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
+        if success:
+            console.print("[bold green]✅ Successfully published quote tweet![/bold green]")
+        return success
+
+    def _execute_original_post(self, start_time: float) -> bool:
         """Discovers trending topics and posts a polarizing hot take."""
         console.print("[bold magenta]🚀 Mode: Original Debate Hot Take[/bold magenta]")
-        
+
         trends = self.hunter.get_curated_trending_topics()
         if not trends:
-            console.print("[red]No trends found to post about.[/red]")
+            console.print("[red]No trends discovered. Skipping...[/red]")
+            self.tracker.record_event(
+                action_type="original_post",
+                status="skipped",
+                skip_or_error_reason="Trend discovery returned 0 items",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
             return False
-            
+
         # Select an unused trend
         selected_trend = None
         for t in trends:
-            if t["title"] not in self.history["posted_tweets"]:
+            if t["title"] not in self.tracker.history["posted_tweets"]:
                 selected_trend = t
                 break
-                
+
         if not selected_trend:
-            selected_trend = trends[0]
+            console.print("[yellow]All discovered trends were previously posted. Skipping...[/yellow]")
+            self.tracker.record_event(
+                action_type="original_post",
+                status="skipped",
+                skip_or_error_reason="Idempotency: all candidate trends already published",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
 
         console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
-        hot_take = self.ai.generate_hot_take(
-            selected_trend["title"], 
-            selected_trend.get("summary", "")
-        )
-        console.print(f"[green]Generated Hot Take:[/green] {hot_take}")
+        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+        try:
+            hot_take = self.ai.generate_hot_take(
+                selected_trend["title"],
+                selected_trend.get("summary", "")
+            )
+        except Exception as e:
+            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+            console.print(f"[red]AI Generation Error: {e}[/red]")
+            self.tracker.record_event(
+                action_type="original_post",
+                status="failed",
+                target_identifier=selected_trend["title"],
+                skip_or_error_reason=f"AI generation failed: {e}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
+
+        console.print(f"[green]Generated Hot Take Draft:[/green] {hot_take}")
 
         success = self.twitter.post_tweet(hot_take)
+        status = "success" if success else "failed"
+        self.tracker.record_event(
+            action_type="original_post",
+            status=status,
+            target_identifier=selected_trend["title"],
+            content_preview=hot_take,
+            skip_or_error_reason="" if success else "Playwright compose failure",
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
         if success:
-            self.history["posted_tweets"].append(selected_trend["title"])
-            self._save_history()
             console.print("[bold green]✅ Successfully published tweet![/bold green]")
         return success
 
     def start_scheduler(self):
         """Runs the continuous loop with randomized intervals to avoid bot detection."""
         console.print("\n" + "="*60, style="bold cyan")
-        console.print("🤖 X-Post-Automater Active & Running", style="bold green")
-        console.print(f"Target: ~{config.POSTS_PER_DAY} posts/day ({config.REPLY_PERCENTAGE}% sniper replies)", style="yellow")
+        console.print("🤖 X-Post-Automater Active & Running (Daemon Mode)", style="bold green")
+        console.print(f"Daily Cap: {self.safety.max_daily_total} total actions/day (Dry Run: {self.safety.dry_run})", style="yellow")
         console.print("="*60 + "\n", style="bold cyan")
 
         while True:
@@ -152,7 +357,6 @@ class AutomaterEngine:
             except Exception as e:
                 console.print(f"[bold red]Cycle Error: {e}[/bold red]")
 
-            # Random sleep interval between min and max configured minutes
             sleep_minutes = random.randint(
                 config.POST_INTERVAL_MIN_MINUTES,
                 config.POST_INTERVAL_MAX_MINUTES

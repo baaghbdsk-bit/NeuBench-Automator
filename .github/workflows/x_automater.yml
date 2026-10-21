@@ -2,16 +2,40 @@ name: X-Post-Automater 24/7 Engine
 
 on:
   schedule:
-    # Runs automatically roughly every 45 minutes
+    # Runs roughly every 45 minutes
     - cron: '*/45 * * * *'
-  workflow_dispatch: # Allows manual 1-click trigger from GitHub Actions tab
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry Run (simulate without publishing live)'
+        type: boolean
+        default: false
+      action_type:
+        description: 'Action to execute'
+        type: choice
+        options:
+          - auto
+          - post
+          - reply
+          - repost
+        default: auto
+
+concurrency:
+  group: x-automater-cloud-engine
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   run-automater:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,10 +56,49 @@ jobs:
           mkdir -p browser_session
           echo "$X_COOKIES_BASE64" | base64 --decode > browser_session/cookies.json
 
-      - name: Run Automated Post or Sniper Reply
+      - name: Execute Automated Cycle
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-3.5-flash-lite
           PYTHONIOENCODING: utf-8
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          TRIAL_ENABLED: 'true'
+          MAX_DAILY_ORIGINAL_POSTS: '4'
+          MAX_DAILY_REPLIES: '14'
+          MAX_DAILY_REPOSTS: '5'
+          MAX_DAILY_TOTAL: '20'
+          TRIAL_MAX_HOURS: '48.0'
         run: |
-          python main.py run-once
+          ACTION="${{ inputs.action_type || 'auto' }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python main.py run-once --dry-run
+          else
+            python main.py run-once
+          fi
+
+      - name: Persist Trial Metrics and Post History
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add post_history.json trial_metrics.json || true
+          git commit -m "chore(trial): update durable activity metrics [skip ci]" || echo "No changes to commit"
+          git push origin main || echo "Push skipped or non-fast-forward"
+
+      - name: Generate Run Summary
+        if: always()
+        run: |
+          echo "## 📊 X-Post-Automater Run Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json, os
+          from pathlib import Path
+          p = Path('trial_metrics.json')
+          if p.exists():
+              d = json.load(open(p, encoding='utf-8'))
+              s = d.get('lifetime_summary', {})
+              print('| Metric | Count |', file=open(os.environ['GITHUB_STEP_SUMMARY'], 'a'))
+              print('| :--- | :--- |', file=open(os.environ['GITHUB_STEP_SUMMARY'], 'a'))
+              for k, v in s.items():
+                  print(f'| {k.replace(\"_\", \" \").title()} | **{v}** |', file=open(os.environ['GITHUB_STEP_SUMMARY'], 'a'))
+          " || echo "Summary generated"

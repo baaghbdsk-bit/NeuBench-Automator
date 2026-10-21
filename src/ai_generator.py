@@ -77,6 +77,22 @@ It must:
         text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.85)
         return text.strip('"')
 
+    def generate_quote_tweet_commentary(self, target_tweet_author: str, target_tweet_text: str) -> str:
+        """Generates sharp, opinionated Quote-Tweet commentary ('masala on top') to quote a viral tweet."""
+        prompt = f"""
+Viral Tweet by @{target_tweet_author}:
+"{target_tweet_text}"
+
+Generate a punchy, sharp, or witty 1-2 sentence Quote-Tweet commentary.
+It must:
+- Add a unique, polarizing, or cynical angle to the quoted tweet.
+- Make followers want to quote-tweet or debate in your thread.
+- Sound 100% human, confident, and concise (under 160 characters).
+- Output ONLY the commentary text. No quotes, no hashtags.
+"""
+        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88)
+        return text.strip('"')
+
     def generate_poll_tweet(self, topic: str) -> dict:
         """Generates a poll question and 2-4 options."""
         prompt = f"""

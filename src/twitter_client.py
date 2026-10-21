@@ -7,8 +7,9 @@ import config
 class TwitterClient:
     """Automates X interactions safely with stealth, human typing jitter, and storage state."""
 
-    def __init__(self, headless: bool = True):
+    def __init__(self, headless: bool = True, dry_run: bool = False):
         self.headless = headless
+        self.dry_run = dry_run
         self.user_data_dir = str(config.USER_DATA_DIR)
 
     def _get_context_and_browser(self, p):
@@ -68,6 +69,10 @@ class TwitterClient:
 
     def post_tweet(self, text: str) -> bool:
         """Publishes an original tweet."""
+        if self.dry_run:
+            print(f"[TwitterClient] [DRY RUN] Would publish original tweet: {text}")
+            return True
+
         with sync_playwright() as p:
             context, browser = self._get_context_and_browser(p)
             page = context.pages[0] if context.pages else context.new_page()
@@ -83,7 +88,6 @@ class TwitterClient:
                 time.sleep(random.uniform(1.0, 2.0))
                 post_btn.click()
                 
-                # Wait for modal to disappear or toast to show
                 page.wait_for_timeout(5000)
                 print(f"[TwitterClient] ✅ Tweet posted successfully: {text[:60]}...")
                 return True
@@ -97,6 +101,10 @@ class TwitterClient:
 
     def post_reply(self, tweet_url: str, reply_text: str) -> bool:
         """Publishes a reply under a target viral tweet."""
+        if self.dry_run:
+            print(f"[TwitterClient] [DRY RUN] Would reply to {tweet_url}: {reply_text}")
+            return True
+
         with sync_playwright() as p:
             context, browser = self._get_context_and_browser(p)
             page = context.pages[0] if context.pages else context.new_page()
@@ -104,7 +112,6 @@ class TwitterClient:
                 print(f"[TwitterClient] Opening tweet for reply: {tweet_url}")
                 page.goto(tweet_url, timeout=35000)
                 
-                # Wait for reply textarea
                 reply_box = page.locator('[data-testid="tweetTextarea_0"], div[role="textbox"]').first
                 reply_box.wait_for(state="visible", timeout=15000)
                 self._human_type(reply_box, reply_text)
@@ -124,8 +131,57 @@ class TwitterClient:
                 if browser:
                     browser.close()
 
+    def post_quote_tweet(self, tweet_url: str, quote_text: str) -> bool:
+        """Publishes a Quote-Tweet ('repost with masala on top')."""
+        if self.dry_run:
+            print(f"[TwitterClient] [DRY RUN] Would quote-tweet {tweet_url}: {quote_text}")
+            return True
+
+        with sync_playwright() as p:
+            context, browser = self._get_context_and_browser(p)
+            page = context.pages[0] if context.pages else context.new_page()
+            try:
+                print(f"[TwitterClient] Opening tweet for quote: {tweet_url}")
+                page.goto(tweet_url, timeout=35000)
+                page.wait_for_selector('article[data-testid="tweet"]', timeout=15000)
+
+                # Click the Retweet button to open menu
+                retweet_btn = page.locator('[data-testid="retweet"]').first
+                retweet_btn.wait_for(state="visible", timeout=10000)
+                retweet_btn.click()
+                page.wait_for_timeout(1500)
+
+                # Click "Quote" option in dropdown menu
+                quote_option = page.locator('a[href*="/compose/post"], [role="menuitem"]:has-text("Quote")').first
+                if not quote_option.is_visible():
+                    print("[TwitterClient] ⚠️ Quote option not visible in menu.")
+                    return False
+                quote_option.click()
+                page.wait_for_timeout(2500)
+
+                # Type commentary in compose modal
+                modal_textarea = page.locator('[data-testid="tweetTextarea_0"], div[role="textbox"]').first
+                modal_textarea.wait_for(state="visible", timeout=10000)
+                self._human_type(modal_textarea, quote_text)
+
+                # Click Post
+                post_btn = page.locator('[data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
+                time.sleep(random.uniform(1.0, 2.0))
+                post_btn.click()
+
+                page.wait_for_timeout(5000)
+                print(f"[TwitterClient] ✅ Quote-Tweet posted successfully!")
+                return True
+            except Exception as e:
+                print(f"[TwitterClient] ❌ Failed to quote tweet: {e}")
+                return False
+            finally:
+                context.close()
+                if browser:
+                    browser.close()
+
     def get_latest_tweet_from_account(self, username: str) -> dict:
-        """Fetches the latest tweet from a target viral account to snipe."""
+        """Fetches the latest tweet from a target viral account to snipe or quote."""
         with sync_playwright() as p:
             context, browser = self._get_context_and_browser(p)
             page = context.pages[0] if context.pages else context.new_page()
@@ -138,7 +194,6 @@ class TwitterClient:
                 tweet_text_el = first_tweet.locator('[data-testid="tweetText"]')
                 tweet_text = tweet_text_el.inner_text() if tweet_text_el.is_visible() else ""
                 
-                # Extract tweet link
                 link_el = first_tweet.locator('a[href*="/status/"]').first
                 href = link_el.get_attribute("href") if link_el else None
                 tweet_url = f"https://x.com{href}" if href and not href.startswith("http") else href
