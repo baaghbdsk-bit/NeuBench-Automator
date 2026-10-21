@@ -67,8 +67,8 @@ def main():
     parser = argparse.ArgumentParser(description="X-Post-Automater: 24/7 Cloud Trial & Growth Engine.")
     parser.add_argument(
         "action", 
-        choices=["login", "test", "run-once", "start", "post", "reply", "repost", "update-profile", "metrics"], 
-        help="Action: 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "test", "run-once", "start", "post", "reply", "repost", "update-profile", "metrics", "dashboard", "ui"], 
+        help="Action: 'dashboard' (launch UI), 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
     parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', or 'repost')")
@@ -81,6 +81,18 @@ def main():
 
     if args.action == "metrics":
         display_metrics()
+        return
+
+    if args.action in ("dashboard", "ui"):
+        import webbrowser
+        import uvicorn
+        console.print("\n[bold cyan]🚀 Starting X-Post-Automater Dashboard on http://127.0.0.1:8000[/bold cyan]")
+        console.print("[dim]Press Ctrl+C to stop the dashboard server[/dim]\n")
+        try:
+            webbrowser.open("http://127.0.0.1:8000")
+        except Exception:
+            pass
+        uvicorn.run("src.web.app:app", host="127.0.0.1", port=8000, reload=False)
         return
 
     if args.action == "login":
