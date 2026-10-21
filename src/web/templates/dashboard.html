@@ -12,16 +12,14 @@
       theme: {
         extend: {
           colors: {
-            xblack: '#000000',
-            xsurface: '#0d0f12',
-            xsurfacehover: '#15181e',
-            xsurfacecard: '#111419',
-            xborder: '#1f242d',
-            xborderlight: '#2a313d',
             xblue: '#1d9bf0',
             xbluehover: '#1a8cd8',
+            xdark: '#07090d',
+            xcard: '#0f131a',
+            xborder: '#1f2633',
+            xborderhover: '#2f3b4f',
             xtext: '#f7f9f9',
-            xmuted: '#71767b',
+            xmuted: '#8b98a5',
             xgreen: '#00ba7c'
           }
         }
@@ -30,60 +28,74 @@
   </script>
   <style>
     body {
-      background-color: #000000;
+      background: radial-gradient(1200px 600px at 50% -100px, rgba(29, 155, 240, 0.08), transparent 75%), #080a0f;
       color: #f7f9f9;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 13px;
       letter-spacing: -0.01em;
     }
-    .matte-card {
-      background-color: #0d0f12;
-      border: 1px solid #1f242d;
+    
+    /* Hardware Bevel & Tactile Depth */
+    .pro-card {
+      background: linear-gradient(180deg, #121620 0%, #0d1017 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 16px -2px rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
     }
-    .matte-card-subtle {
-      background-color: #08090b;
-      border: 1px solid #1a1e26;
+    
+    .item-surface {
+      background: rgba(10, 13, 19, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .item-surface:hover {
+      background: rgba(18, 23, 33, 0.9);
+      border-color: rgba(29, 155, 240, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Scrollbars */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: #000000; }
-    ::-webkit-scrollbar-thumb { background: #222730; border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #2d3340; }
+    ::-webkit-scrollbar-track { background: #080a0f; }
+    ::-webkit-scrollbar-thumb { background: #232b38; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2f3b4d; }
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-xblue/30 selection:text-white">
 
-  <!-- Production Top Navbar (X Lights Out) -->
-  <header class="border-b border-xborder sticky top-0 z-40 bg-black/90 backdrop-blur-md px-4 sm:px-6 py-2.5 flex items-center justify-between">
+  <!-- Production Top Navbar -->
+  <header class="border-b border-white/[0.08] sticky top-0 z-40 bg-[#080a0f]/90 backdrop-blur-md px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-sm">
     <div class="flex items-center space-x-3">
-      <a href="/" class="w-8 h-8 rounded-full bg-white hover:bg-neutral-200 flex items-center justify-center font-bold text-sm text-black transition shrink-0">
+      <a href="/" class="w-8 h-8 rounded-full bg-white hover:bg-neutral-200 flex items-center justify-center font-bold text-sm text-black transition shrink-0 shadow-sm">
         𝕏
       </a>
       <div>
         <div class="flex items-center gap-2">
           <h1 class="text-sm font-bold text-white tracking-tight leading-none">X-Post-Automater</h1>
-          <span class="text-[10px] bg-neutral-900 text-neutral-300 border border-neutral-700 px-1.5 py-0.5 rounded-full font-mono">v1.1</span>
+          <span class="text-[10px] bg-xblue/15 text-xblue border border-xblue/30 px-2 py-0.5 rounded-full font-mono font-medium">Pro</span>
         </div>
         <p class="text-[11px] text-xmuted leading-tight mt-0.5">Creator Monetization Engine • NeuBench AI Radar</p>
       </div>
     </div>
 
     <!-- Right Profile & Quick Actions -->
-    <div class="flex items-center space-x-3">
-      <div class="hidden md:flex items-center space-x-2 bg-xsurface border border-xborder px-2.5 py-1 rounded-full text-[11px]">
+    <div class="flex items-center space-x-2.5">
+      <div class="hidden md:flex items-center space-x-2 bg-[#0e1219] border border-white/[0.08] px-2.5 py-1 rounded-full text-[11px] shadow-inner">
         <span class="w-2 h-2 rounded-full bg-xgreen"></span>
         <span class="text-xmuted">24/7 Cloud Engine:</span>
         <span class="font-medium text-white">Active</span>
       </div>
 
-      <a href="https://x.com/GWorld34864" target="_blank" class="flex items-center space-x-2 bg-xsurface hover:bg-xsurfacehover border border-xborder px-2.5 py-1 rounded-full text-[11px] transition">
-        <div class="w-5 h-5 rounded-full bg-neutral-800 flex items-center justify-center text-[10px] font-bold text-white">
+      <a href="https://x.com/GWorld34864" target="_blank" class="flex items-center space-x-2 bg-[#0e1219] hover:bg-[#141a24] border border-white/[0.08] px-2.5 py-1 rounded-full text-[11px] transition">
+        <div class="w-5 h-5 rounded-full bg-xblue/20 text-xblue border border-xblue/30 flex items-center justify-center text-[10px] font-bold">
           VR
         </div>
         <span class="font-semibold text-white" id="nav-profile-name">vishnu rot</span>
         <span class="text-xmuted">@GWorld34864 ↗</span>
       </a>
 
-      <button onclick="triggerAction('auto')" class="bg-white hover:bg-neutral-200 text-black font-semibold text-xs px-3.5 py-1.5 rounded-full transition flex items-center gap-1.5 shadow-sm">
+      <button onclick="triggerAction('auto')" class="bg-xblue hover:bg-xbluehover text-white font-bold text-xs px-3.5 py-1.5 rounded-full transition flex items-center gap-1.5 shadow-sm shadow-blue-500/25 active:scale-95">
         <i class="fa-solid fa-bolt text-[11px]"></i>
         <span>Trigger Cycle</span>
       </button>
@@ -94,92 +106,92 @@
   <main class="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-5 space-y-3.5">
 
     <!-- Section 1: Monetization Milestones -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
       
       <!-- Follower Milestone -->
-      <div class="matte-card rounded-xl p-3.5">
+      <div class="pro-card p-4 relative overflow-hidden">
         <div class="flex items-center justify-between mb-2">
           <div class="flex items-center space-x-2.5">
-            <div class="w-7 h-7 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xblue text-xs">
+            <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400 text-xs shadow-inner">
               <i class="fa-solid fa-users"></i>
             </div>
             <div>
-              <h3 class="text-xs font-semibold text-white">Monetization Milestone: Followers</h3>
+              <h3 class="text-xs font-bold text-white">Monetization Milestone: Followers</h3>
               <p class="text-[11px] text-xmuted">500 followers required for X Creator Ad-Revenue Sharing</p>
             </div>
           </div>
-          <span class="text-[11px] font-mono font-medium text-white bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded-full" id="follower-pct">4.0%</span>
+          <span class="text-[11px] font-mono font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20 px-2 py-0.5 rounded-full" id="follower-pct">4.0%</span>
         </div>
-        <div class="flex items-baseline space-x-2 mb-1.5">
-          <span class="text-xl font-bold text-white tracking-tight" id="follower-count">20</span>
+        <div class="flex items-baseline space-x-2 mb-2">
+          <span class="text-2xl font-bold text-white tracking-tight" id="follower-count">20</span>
           <span class="text-xs text-xmuted">/ 500 Followers</span>
         </div>
-        <div class="w-full bg-neutral-900 rounded-full h-1.5 overflow-hidden">
-          <div id="follower-bar" class="bg-xblue h-1.5 rounded-full transition-all duration-700" style="width: 4%"></div>
+        <div class="w-full bg-[#080a0f] rounded-full h-2 overflow-hidden border border-white/[0.04]">
+          <div id="follower-bar" class="bg-gradient-to-r from-sky-500 to-xblue h-2 rounded-full transition-all duration-700 shadow-sm" style="width: 4%"></div>
         </div>
       </div>
 
       <!-- Verified Impressions Milestone -->
-      <div class="matte-card rounded-xl p-3.5">
+      <div class="pro-card p-4 relative overflow-hidden">
         <div class="flex items-center justify-between mb-2">
           <div class="flex items-center space-x-2.5">
-            <div class="w-7 h-7 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white text-xs">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 text-xs shadow-inner">
               <i class="fa-solid fa-chart-line"></i>
             </div>
             <div>
-              <h3 class="text-xs font-semibold text-white">Monetization Milestone: Reach</h3>
+              <h3 class="text-xs font-bold text-white">Monetization Milestone: Reach</h3>
               <p class="text-[11px] text-xmuted">5M verified impressions required in trailing 90 days</p>
             </div>
           </div>
-          <span class="text-[11px] font-mono font-medium text-white bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded-full" id="impression-pct">0.5%</span>
+          <span class="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full" id="impression-pct">0.5%</span>
         </div>
-        <div class="flex items-baseline space-x-2 mb-1.5">
-          <span class="text-xl font-bold text-white tracking-tight" id="impression-count">25,000</span>
-          <span class="text-xs text-xmuted">/ 5,000,000 Verified Reach (Est.)</span>
+        <div class="flex items-baseline space-x-2 mb-2">
+          <span class="text-2xl font-bold text-white tracking-tight" id="impression-count">25,000</span>
+          <span class="text-xs text-xmuted">/ 5,000,000 Reach (Est.)</span>
         </div>
-        <div class="w-full bg-neutral-900 rounded-full h-1.5 overflow-hidden">
-          <div id="impression-bar" class="bg-white h-1.5 rounded-full transition-all duration-700" style="width: 1%"></div>
+        <div class="w-full bg-[#080a0f] rounded-full h-2 overflow-hidden border border-white/[0.04]">
+          <div id="impression-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2 rounded-full transition-all duration-700 shadow-sm" style="width: 1%"></div>
         </div>
       </div>
 
     </div>
 
     <!-- Section 2: Today's Action Quota Scorecard -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-      <div class="matte-card rounded-xl p-3">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div class="pro-card p-3.5">
         <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
-          <span class="font-medium uppercase tracking-wider text-[10px]">Today's Total</span>
-          <i class="fa-solid fa-list-check"></i>
+          <span class="font-semibold uppercase tracking-wider text-[10px] text-neutral-400">Today's Total</span>
+          <i class="fa-solid fa-list-check text-neutral-400"></i>
         </div>
         <h4 class="text-lg font-bold text-white tracking-tight" id="stat-total">0 / 20</h4>
-        <p class="text-[10px] text-xmuted">Actions Executed</p>
+        <p class="text-[10px] text-xmuted mt-0.5">Actions Executed</p>
       </div>
 
-      <div class="matte-card rounded-xl p-3">
-        <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
-          <span class="font-medium uppercase tracking-wider text-[10px]">Sniper Replies</span>
+      <div class="pro-card p-3.5">
+        <div class="flex items-center justify-between text-amber-400 text-[11px] mb-1">
+          <span class="font-semibold uppercase tracking-wider text-[10px] text-amber-400">Sniper Replies</span>
           <i class="fa-solid fa-reply"></i>
         </div>
         <h4 class="text-lg font-bold text-white tracking-tight" id="stat-replies">0 / 14</h4>
-        <p class="text-[10px] text-xmuted">Viral Post Comments</p>
+        <p class="text-[10px] text-xmuted mt-0.5">Viral Post Comments</p>
       </div>
 
-      <div class="matte-card rounded-xl p-3">
-        <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
-          <span class="font-medium uppercase tracking-wider text-[10px]">Quote-Tweets</span>
+      <div class="pro-card p-3.5">
+        <div class="flex items-center justify-between text-sky-400 text-[11px] mb-1">
+          <span class="font-semibold uppercase tracking-wider text-[10px] text-sky-400">Quote-Tweets</span>
           <i class="fa-solid fa-quote-right"></i>
         </div>
         <h4 class="text-lg font-bold text-white tracking-tight" id="stat-quotes">0 / 5</h4>
-        <p class="text-[10px] text-xmuted">Reposts + Commentary</p>
+        <p class="text-[10px] text-xmuted mt-0.5">Reposts + Commentary</p>
       </div>
 
-      <div class="matte-card rounded-xl p-3">
-        <div class="flex items-center justify-between text-xmuted text-[11px] mb-1">
-          <span class="font-medium uppercase tracking-wider text-[10px]">Original Takes</span>
+      <div class="pro-card p-3.5">
+        <div class="flex items-center justify-between text-purple-400 text-[11px] mb-1">
+          <span class="font-semibold uppercase tracking-wider text-[10px] text-purple-400">Original Takes</span>
           <i class="fa-solid fa-pen-nib"></i>
         </div>
         <h4 class="text-lg font-bold text-white tracking-tight" id="stat-original">0 / 4</h4>
-        <p class="text-[10px] text-xmuted">AI News & Hot Takes</p>
+        <p class="text-[10px] text-xmuted mt-0.5">AI News & Hot Takes</p>
       </div>
     </div>
 
@@ -187,35 +199,35 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5">
 
       <!-- LEFT: NeuBench Live AI Feed (7 cols) -->
-      <div class="lg:col-span-7 matte-card rounded-xl p-3.5 flex flex-col justify-between">
+      <div class="lg:col-span-7 pro-card p-4 flex flex-col justify-between">
         <div>
           <!-- Header -->
-          <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-xborder">
+          <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-white/[0.08]">
             <div class="flex items-center space-x-2.5">
-              <div class="w-7 h-7 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white text-xs">
+              <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400 text-xs shadow-inner">
                 <i class="fa-solid fa-bolt"></i>
               </div>
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="text-xs font-bold text-white tracking-wide">NeuBench Live AI Radar</h3>
-                  <span class="inline-flex items-center gap-1 text-[10px] text-xgreen bg-neutral-900 border border-neutral-800 px-1.5 py-0.5 rounded-full font-mono">
-                    <span class="w-1.5 h-1.5 rounded-full bg-xgreen"></span>
-                    <span>Live Sync</span>
+                  <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <span>Live Synced</span>
                   </span>
                 </div>
-                <p class="text-[11px] text-xmuted">Real-time AI news feed & 266+ model benchmark leaderboard</p>
+                <p class="text-[11px] text-xmuted">Breaking AI news & 266+ model benchmark leaderboard</p>
               </div>
             </div>
 
-            <a href="https://neubench.vercel.app/" target="_blank" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white text-[11px] font-medium px-2.5 py-1 rounded-full transition flex items-center gap-1.5">
+            <a href="https://neubench.vercel.app/" target="_blank" class="bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 text-sky-400 text-[11px] font-semibold px-2.5 py-1 rounded-full transition flex items-center gap-1.5 shadow-sm">
               <span>Open NeuBench</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-xmuted"></i>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
             </a>
           </div>
 
           <!-- Segmented Tab Controls (Linear Style) -->
-          <div class="flex items-center space-x-1.5 mb-2.5 bg-black p-1 rounded-lg border border-xborder text-[11px]">
-            <button id="tab-btn-stories" onclick="switchNeuBenchTab('stories')" class="flex-1 py-1 rounded-md font-medium text-center transition bg-neutral-800 text-white shadow-sm">
+          <div class="flex items-center space-x-1.5 mb-3 bg-[#090c12] p-1 rounded-lg border border-white/[0.06] text-[11px]">
+            <button id="tab-btn-stories" onclick="switchNeuBenchTab('stories')" class="flex-1 py-1 rounded-md font-semibold text-center transition bg-[#181f2c] text-white border border-white/[0.08] shadow-sm">
               Latest AI Stories
             </button>
             <button id="tab-btn-benchmarks" onclick="switchNeuBenchTab('benchmarks')" class="flex-1 py-1 rounded-md font-medium text-center transition text-xmuted hover:text-white">
@@ -224,29 +236,29 @@
           </div>
 
           <!-- Tab Content 1: Stories -->
-          <div id="neubench-stories-container" class="space-y-2 overflow-y-auto max-h-[280px] pr-1">
+          <div id="neubench-stories-container" class="space-y-2 overflow-y-auto max-h-[290px] pr-1">
             <div class="text-center py-8 text-xmuted text-xs">
-              <i class="fa-solid fa-circle-notch fa-spin mb-1.5"></i>
+              <i class="fa-solid fa-circle-notch fa-spin mb-1.5 text-sky-400"></i>
               <p>Fetching real-time stories from NeuBench...</p>
             </div>
           </div>
 
           <!-- Tab Content 2: Benchmarks (Hidden by default) -->
-          <div id="neubench-benchmarks-container" class="hidden space-y-2 overflow-y-auto max-h-[280px] pr-1">
+          <div id="neubench-benchmarks-container" class="hidden space-y-2 overflow-y-auto max-h-[290px] pr-1">
             <div class="text-center py-8 text-xmuted text-xs">
-              <i class="fa-solid fa-circle-notch fa-spin mb-1.5"></i>
+              <i class="fa-solid fa-circle-notch fa-spin mb-1.5 text-sky-400"></i>
               <p>Loading frontier benchmark leaderboard...</p>
             </div>
           </div>
         </div>
 
         <!-- Footer Meta -->
-        <div class="mt-3 pt-2.5 border-t border-xborder flex items-center justify-between text-[11px] text-xmuted">
+        <div class="mt-3 pt-2.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-xmuted">
           <span class="flex items-center gap-1.5">
-            <i class="fa-solid fa-database text-neutral-500 text-[10px]"></i>
+            <i class="fa-solid fa-database text-sky-400 text-[10px]"></i>
             <span id="neubench-meta-text">Syncing with neubench.vercel.app...</span>
           </span>
-          <a href="https://neubench.vercel.app/" target="_blank" class="text-xblue hover:underline font-medium">Explore All 266+ Models ↗</a>
+          <a href="https://neubench.vercel.app/" target="_blank" class="text-sky-400 hover:underline font-medium">Explore All 266+ Models ↗</a>
         </div>
       </div>
 
@@ -254,19 +266,19 @@
       <div class="lg:col-span-5 flex flex-col space-y-3.5">
         
         <!-- Live Activity Stream -->
-        <div class="matte-card rounded-xl p-3.5 flex-1 flex flex-col justify-between">
+        <div class="pro-card p-4 flex-1 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-xborder">
+            <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-white/[0.08]">
               <div class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-xgreen"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <h3 class="text-[10px] font-bold text-white uppercase tracking-wider">Live Activity Stream</h3>
               </div>
               <span class="text-[10px] text-xmuted font-mono" id="last-updated-text">Updating...</span>
             </div>
 
-            <div id="events-container" class="space-y-1.5 overflow-y-auto max-h-[190px] pr-1">
+            <div id="events-container" class="space-y-1.5 overflow-y-auto max-h-[195px] pr-1">
               <div class="text-center py-6 text-xmuted text-xs">
-                <i class="fa-solid fa-circle-notch fa-spin mb-1"></i>
+                <i class="fa-solid fa-circle-notch fa-spin mb-1 text-sky-400"></i>
                 <p>Loading bot events...</p>
               </div>
             </div>
@@ -274,41 +286,41 @@
         </div>
 
         <!-- Bot Quick Controls -->
-        <div class="matte-card rounded-xl p-3.5 space-y-2.5">
-          <div class="flex items-center justify-between pb-2 border-b border-xborder">
+        <div class="pro-card p-4 space-y-2.5">
+          <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
             <h3 class="text-[10px] font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-              <i class="fa-solid fa-sliders text-neutral-400 text-[10px]"></i>
+              <i class="fa-solid fa-sliders text-sky-400 text-[10px]"></i>
               Control Center
             </h3>
             <span class="text-[10px] text-xmuted font-mono">Gemini 3.5 Flash</span>
           </div>
 
           <div class="grid grid-cols-3 gap-1.5">
-            <button onclick="triggerAction('reply')" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-white text-[11px] py-1.5 rounded-lg font-medium transition">
+            <button onclick="triggerAction('reply')" class="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[11px] py-1.5 rounded-lg font-medium transition active:scale-95">
               💬 Reply
             </button>
-            <button onclick="triggerAction('repost')" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-white text-[11px] py-1.5 rounded-lg font-medium transition">
+            <button onclick="triggerAction('repost')" class="bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 text-sky-300 text-[11px] py-1.5 rounded-lg font-medium transition active:scale-95">
               🔁 Quote
             </button>
-            <button onclick="triggerAction('post')" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-white text-[11px] py-1.5 rounded-lg font-medium transition">
+            <button onclick="triggerAction('post')" class="bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-300 text-[11px] py-1.5 rounded-lg font-medium transition active:scale-95">
               🚀 Post
             </button>
           </div>
 
-          <div class="flex items-center justify-between bg-black p-2 rounded-lg border border-xborder">
+          <div class="flex items-center justify-between item-surface p-2 rounded-lg">
             <div>
               <p class="text-[11px] font-semibold text-white">Dry Run Mode</p>
               <p class="text-[10px] text-xmuted">Simulate cycles without live posting</p>
             </div>
-            <input type="checkbox" id="dry-run-toggle" onchange="toggleDryRun(this.checked)" class="w-4 h-4 accent-white rounded cursor-pointer">
+            <input type="checkbox" id="dry-run-toggle" onchange="toggleDryRun(this.checked)" class="w-4 h-4 accent-xblue rounded cursor-pointer">
           </div>
 
-          <div class="flex items-center justify-between bg-black p-2 rounded-lg border border-xborder">
+          <div class="flex items-center justify-between item-surface p-2 rounded-lg">
             <div>
               <p class="text-[11px] font-semibold text-white">24/7 Cloud Actions</p>
               <p class="text-[10px] text-xmuted">Automated execution every 45 min</p>
             </div>
-            <a href="https://github.com/baaghbdsk-bit/X-Post-Automater/actions" target="_blank" class="text-[11px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white px-2.5 py-1 rounded-md transition font-medium">
+            <a href="https://github.com/baaghbdsk-bit/X-Post-Automater/actions" target="_blank" class="text-[11px] bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.1] text-white px-3 py-1 rounded-full transition font-medium">
               View Runs ↗
             </a>
           </div>
@@ -319,10 +331,10 @@
     </div>
 
     <!-- Section 4: Ecosystem & Apps (NeuBench + Connect With Us) -->
-    <div class="matte-card rounded-xl p-3.5">
-      <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-xborder">
-        <div class="flex items-center space-x-2">
-          <div class="w-6 h-6 rounded-md bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white text-[11px]">
+    <div class="pro-card p-4">
+      <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-white/[0.08]">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400 text-xs shadow-inner">
             <i class="fa-solid fa-shapes"></i>
           </div>
           <div>
@@ -330,23 +342,23 @@
             <p class="text-[11px] text-xmuted">Explore our AI tools, benchmarks, and creator community</p>
           </div>
         </div>
-        <span class="text-[10px] text-xmuted font-mono bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded-full">Official Apps</span>
+        <span class="text-[10px] text-xmuted font-mono bg-white/[0.05] border border-white/[0.08] px-2.5 py-0.5 rounded-full">Official Apps</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         {% for prod in products %}
-        <a href="{{ prod.link }}" target="_blank" class="group bg-black hover:bg-xsurface border border-xborder hover:border-neutral-700 p-3 rounded-lg transition flex flex-col justify-between">
+        <a href="{{ prod.link }}" target="_blank" class="group item-surface p-3.5 rounded-xl transition flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-1.5">
               <div class="flex items-center space-x-2">
-                <i class="fa-{{ prod.icon if 'fa-' in prod.icon else 'solid fa-' + prod.icon }} text-neutral-300 text-xs"></i>
-                <h4 class="font-bold text-white text-xs group-hover:text-xblue transition">{{ prod.name }}</h4>
+                <i class="fa-{{ prod.icon if 'fa-' in prod.icon else 'solid fa-' + prod.icon }} text-sky-400 text-xs"></i>
+                <h4 class="font-bold text-white text-xs group-hover:text-sky-400 transition">{{ prod.name }}</h4>
               </div>
-              <span class="text-[9px] bg-neutral-900 text-neutral-400 border border-neutral-800 px-1.5 py-0.5 rounded-full font-medium">{{ prod.badge }}</span>
+              <span class="text-[9px] bg-white/[0.05] text-neutral-300 border border-white/[0.08] px-2 py-0.5 rounded-full font-medium">{{ prod.badge }}</span>
             </div>
             <p class="text-[11px] text-xmuted leading-snug">{{ prod.tagline }}</p>
           </div>
-          <div class="mt-2.5 flex items-center text-[11px] font-medium text-white group-hover:text-xblue">
+          <div class="mt-3 flex items-center text-[11px] font-medium text-sky-400 group-hover:underline">
             <span>{{ prod.cta or "Explore" }}</span>
             <i class="fa-solid fa-arrow-right text-[9px] ml-1.5 transition-transform group-hover:translate-x-1"></i>
           </div>
@@ -358,18 +370,18 @@
   </main>
 
   <!-- Clean Footer -->
-  <footer class="border-t border-xborder text-center py-3 text-[11px] text-xmuted">
-    <p>© 2026 X-Post-Automater • Built for High-Impact Creators • Integrated with <a href="https://neubench.vercel.app/" target="_blank" class="text-neutral-300 hover:text-white underline">NeuBench</a></p>
+  <footer class="border-t border-white/[0.08] text-center py-3 text-[11px] text-xmuted">
+    <p>© 2026 X-Post-Automater • Built for High-Impact Creators • Integrated with <a href="https://neubench.vercel.app/" target="_blank" class="text-sky-400 hover:underline">NeuBench</a></p>
   </footer>
 
   <!-- Draft Tweet Modal (Linear / X Style) -->
   <div id="draft-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="matte-card rounded-2xl max-w-lg w-full p-4 sm:p-5 border border-neutral-800 shadow-2xl flex flex-col space-y-3.5">
+    <div class="pro-card max-w-lg w-full p-5 border border-white/[0.15] shadow-2xl flex flex-col space-y-3.5">
       
       <!-- Modal Header -->
-      <div class="flex items-center justify-between pb-2.5 border-b border-xborder">
+      <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
         <div class="flex items-center space-x-2.5">
-          <div class="w-7 h-7 rounded-full bg-white flex items-center justify-center text-black text-xs font-bold">
+          <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black text-xs font-bold shadow-sm">
             𝕏
           </div>
           <div>
@@ -386,7 +398,7 @@
       <div>
         <label class="text-[11px] text-neutral-300 font-medium mb-1.5 block">Review & Polish Tweet:</label>
         <div class="relative">
-          <textarea id="draft-tweet-textarea" rows="4" class="w-full bg-black border border-xborder focus:border-neutral-600 rounded-xl p-3 text-xs text-white focus:outline-none resize-none leading-relaxed" oninput="updateCharCount()"></textarea>
+          <textarea id="draft-tweet-textarea" rows="4" class="w-full bg-[#080a0f] border border-white/[0.1] focus:border-sky-500 rounded-xl p-3 text-xs text-white focus:outline-none resize-none leading-relaxed" oninput="updateCharCount()"></textarea>
           <div class="flex items-center justify-between mt-1.5 text-[10px] text-xmuted">
             <span>Tone: Authentic, contrarian human take</span>
             <span id="draft-char-count" class="font-mono">0 / 280</span>
@@ -395,8 +407,8 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex items-center justify-between pt-2.5 border-t border-xborder">
-        <button onclick="copyDraftToClipboard()" id="copy-btn" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white text-xs px-3 py-1.5 rounded-full font-medium transition flex items-center gap-1.5">
+      <div class="flex items-center justify-between pt-2.5 border-t border-white/[0.08]">
+        <button onclick="copyDraftToClipboard()" id="copy-btn" class="bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.1] text-white text-xs px-3 py-1.5 rounded-full font-medium transition flex items-center gap-1.5">
           <i class="fa-regular fa-copy"></i>
           <span>Copy Text</span>
         </button>
@@ -405,7 +417,7 @@
           <button onclick="closeDraftModal()" class="text-xmuted hover:text-white text-xs px-3 py-1.5 font-medium transition">
             Cancel
           </button>
-          <button onclick="publishDraftedTweet()" id="publish-btn" class="bg-white hover:bg-neutral-200 text-black font-semibold text-xs px-4 py-1.5 rounded-full flex items-center gap-1.5 transition shadow-sm">
+          <button onclick="publishDraftedTweet()" id="publish-btn" class="bg-xblue hover:bg-xbluehover text-white font-bold text-xs px-4 py-1.5 rounded-full flex items-center gap-1.5 transition shadow-sm shadow-blue-500/25">
             <i class="fa-solid fa-paper-plane text-[10px]"></i>
             <span id="publish-btn-text">Publish to 𝕏</span>
           </button>
@@ -450,21 +462,21 @@
           container.innerHTML = data.recent_events.map(ev => {
             const isSuccess = ev.status === 'success';
             const isSkipped = ev.status === 'skipped';
-            const badgeColor = isSuccess ? 'bg-neutral-900 text-xgreen border-neutral-800' : isSkipped ? 'bg-neutral-900 text-amber-400 border-neutral-800' : 'bg-neutral-900 text-red-400 border-neutral-800';
-            const actionLabel = ev.action_type === 'reply' ? 'Reply' : ev.action_type === 'quote_tweet' ? 'Quote' : 'Post';
+            const badgeColor = isSuccess ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : isSkipped ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20';
+            const actionLabel = ev.action_type === 'reply' ? '💬 Reply' : ev.action_type === 'quote_tweet' ? '🔁 Quote' : '🚀 Post';
 
             return `
-              <div class="bg-black p-2 rounded-lg border border-xborder flex items-start justify-between space-x-2 text-[11px]">
+              <div class="item-surface p-2 rounded-lg flex items-start justify-between space-x-2 text-[11px]">
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center space-x-2 mb-0.5">
-                    <span class="font-semibold text-white">${actionLabel}</span>
+                    <span class="font-bold text-white">${actionLabel}</span>
                     <span class="text-[9px] px-1.5 py-0.2 rounded border font-mono ${badgeColor}">${ev.status}</span>
-                    ${ev.is_dry_run ? '<span class="text-[9px] bg-neutral-900 text-neutral-400 border border-neutral-800 px-1.5 py-0.2 rounded font-mono">DRY-RUN</span>' : ''}
+                    ${ev.is_dry_run ? '<span class="text-[9px] bg-purple-500/10 text-purple-300 border border-purple-500/20 px-1.5 py-0.2 rounded font-mono">DRY-RUN</span>' : ''}
                     <span class="text-xmuted text-[9px] font-mono">${ev.timestamp ? ev.timestamp.substring(11, 19) + ' UTC' : ''}</span>
                   </div>
                   <p class="text-neutral-300 font-normal truncate">${ev.content_preview || ev.reason || 'Cycle processed.'}</p>
                 </div>
-                ${ev.target && ev.target.startsWith('http') ? `<a href="${ev.target}" target="_blank" class="text-xblue hover:underline text-[10px] shrink-0 font-medium">View ↗</a>` : ''}
+                ${ev.target && ev.target.startsWith('http') ? `<a href="${ev.target}" target="_blank" class="text-sky-400 hover:underline text-[10px] shrink-0 font-medium">View ↗</a>` : ''}
               </div>
             `;
           }).join('');
@@ -491,23 +503,28 @@
         const storiesContainer = document.getElementById('neubench-stories-container');
         if (data.stories && data.stories.length > 0) {
           storiesContainer.innerHTML = data.stories.map((s, idx) => {
+            const companyBadgeColor = s.company === 'OpenAI' ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' :
+                                      s.company === 'DeepSeek' ? 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20' :
+                                      s.company === 'Google' ? 'text-blue-400 bg-blue-500/10 border-blue-500/20' :
+                                      'text-sky-400 bg-sky-500/10 border-sky-500/20';
+
             return `
-              <div class="bg-black hover:bg-xsurface p-2.5 rounded-lg border border-xborder transition flex flex-col justify-between space-y-1.5">
+              <div class="item-surface p-2.5 rounded-xl transition flex flex-col justify-between space-y-1.5">
                 <div>
                   <div class="flex items-center justify-between mb-1">
-                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border border-neutral-800 bg-neutral-900 text-neutral-300 font-medium">${s.company}</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border font-medium ${companyBadgeColor}">${s.company}</span>
                     <span class="text-[10px] text-xmuted">${s.date || 'Breaking'}</span>
                   </div>
-                  <h4 class="text-xs font-bold text-white hover:text-xblue leading-snug cursor-pointer transition" onclick="draftStoryTweet(${idx})">${s.title}</h4>
+                  <h4 class="text-xs font-bold text-white hover:text-sky-400 leading-snug cursor-pointer transition" onclick="draftStoryTweet(${idx})">${s.title}</h4>
                   <p class="text-[11px] text-xmuted line-clamp-1 mt-0.5">${s.summary}</p>
                 </div>
-                <div class="flex items-center justify-between pt-1.5 border-t border-xborder/70 text-[10px]">
+                <div class="flex items-center justify-between pt-1.5 border-t border-white/[0.06] text-[10px]">
                   <a href="${s.neubenchUrl}" target="_blank" class="text-xmuted hover:text-white flex items-center gap-1 transition">
                     <span>Read on NeuBench</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
                   </a>
-                  <button onclick="draftStoryTweet(${idx})" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen-nib text-[9px] text-xblue"></i>
+                  <button onclick="draftStoryTweet(${idx})" class="bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 text-sky-400 px-3 py-1 rounded-full font-semibold flex items-center gap-1.5 transition active:scale-95 shadow-sm">
+                    <i class="fa-solid fa-pen-nib text-[9px]"></i>
                     <span>Draft 𝕏 Tweet</span>
                   </button>
                 </div>
@@ -523,13 +540,13 @@
         if (data.benchmarks && data.benchmarks.length > 0) {
           benchmarksContainer.innerHTML = data.benchmarks.map((m, idx) => {
             const chips = (m.highlights || []).map(h => `
-              <span class="bg-neutral-900 border border-neutral-800 text-[9px] px-2 py-0.5 rounded-full text-neutral-300">
-                <span class="text-xmuted">${h.name}:</span> <span class="font-bold text-white">${h.score}</span>
+              <span class="bg-[#0b0e15] border border-white/[0.08] text-[9px] px-2 py-0.5 rounded-full text-neutral-300">
+                <span class="text-xmuted">${h.name}:</span> <span class="font-bold text-sky-400">${h.score}</span>
               </span>
             `).join('');
 
             return `
-              <div class="bg-black hover:bg-xsurface p-2.5 rounded-lg border border-xborder transition flex flex-col justify-between space-y-1.5">
+              <div class="item-surface p-2.5 rounded-xl transition flex flex-col justify-between space-y-1.5">
                 <div>
                   <div class="flex items-center justify-between mb-1">
                     <span class="text-xs font-bold text-white">${m.name}</span>
@@ -539,13 +556,13 @@
                     ${chips}
                   </div>
                 </div>
-                <div class="flex items-center justify-between pt-1.5 border-t border-xborder/70 text-[10px]">
+                <div class="flex items-center justify-between pt-1.5 border-t border-white/[0.06] text-[10px]">
                   <a href="${m.neubenchUrl}" target="_blank" class="text-xmuted hover:text-white flex items-center gap-1 transition">
                     <span>Compare on NeuBench</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
                   </a>
-                  <button onclick="draftBenchmarkTweet(${idx})" class="bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-pen-nib text-[9px] text-xblue"></i>
+                  <button onclick="draftBenchmarkTweet(${idx})" class="bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-300 px-3 py-1 rounded-full font-semibold flex items-center gap-1.5 transition active:scale-95 shadow-sm">
+                    <i class="fa-solid fa-pen-nib text-[9px]"></i>
                     <span>Draft 𝕏 Tweet</span>
                   </button>
                 </div>
@@ -567,12 +584,12 @@
       if (tab === 'stories') {
         storiesTab.classList.remove('hidden');
         benchTab.classList.add('hidden');
-        btnStories.className = 'flex-1 py-1 rounded-md font-medium text-center transition bg-neutral-800 text-white shadow-sm';
+        btnStories.className = 'flex-1 py-1 rounded-md font-semibold text-center transition bg-[#181f2c] text-white border border-white/[0.08] shadow-sm';
         btnBench.className = 'flex-1 py-1 rounded-md font-medium text-center transition text-xmuted hover:text-white';
       } else {
         storiesTab.classList.add('hidden');
         benchTab.classList.remove('hidden');
-        btnBench.className = 'flex-1 py-1 rounded-md font-medium text-center transition bg-neutral-800 text-white shadow-sm';
+        btnBench.className = 'flex-1 py-1 rounded-md font-semibold text-center transition bg-[#181f2c] text-white border border-white/[0.08] shadow-sm';
         btnStories.className = 'flex-1 py-1 rounded-md font-medium text-center transition text-xmuted hover:text-white';
       }
     }
@@ -666,7 +683,7 @@
       const text = document.getElementById('draft-tweet-textarea').value;
       navigator.clipboard.writeText(text);
       const btn = document.getElementById('copy-btn');
-      btn.innerHTML = `<i class="fa-solid fa-check text-xgreen"></i><span class="text-xgreen font-medium">Copied!</span>`;
+      btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i><span class="text-emerald-400 font-medium">Copied!</span>`;
       setTimeout(() => {
         btn.innerHTML = `<i class="fa-regular fa-copy"></i><span>Copy Text</span>`;
       }, 2000);
