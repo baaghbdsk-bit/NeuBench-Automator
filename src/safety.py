@@ -24,8 +24,8 @@ class SafetyEngine:
         self.max_daily_reposts = int(os.getenv("MAX_DAILY_REPOSTS", "5"))
         self.max_daily_total = int(os.getenv("MAX_DAILY_TOTAL", "20"))
 
-        # Trial duration enforcement (in hours, e.g. 48)
-        self.trial_max_hours = float(os.getenv("TRIAL_MAX_HOURS", "48.0"))
+        # Trial duration enforcement (in hours, e.g. 744h = 31 days)
+        self.trial_max_hours = float(os.getenv("TRIAL_MAX_HOURS", "744.0"))
 
     def check_trial_status(self, trial_start_iso: str) -> Tuple[bool, str]:
         """Verifies if the trial is globally active and within the time window."""
@@ -68,3 +68,4 @@ class SafetyEngine:
                 return False, f"Daily reposts limit reached ({today_counts.get('reposts')}/{self.max_daily_reposts})."
 
         return True, "Approved"
+

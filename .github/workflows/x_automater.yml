@@ -67,7 +67,7 @@ jobs:
           MAX_DAILY_REPLIES: '14'
           MAX_DAILY_REPOSTS: '5'
           MAX_DAILY_TOTAL: '20'
-          TRIAL_MAX_HOURS: '48.0'
+          TRIAL_MAX_HOURS: '744.0'
         run: |
           ACTION="${{ inputs.action_type || 'auto' }}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then

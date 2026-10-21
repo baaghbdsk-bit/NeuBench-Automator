@@ -157,11 +157,17 @@ class ActivityTracker:
             "duration_s": round(duration_seconds, 2)
         }
 
-        # Keep rolling 150 events
+        # Keep rolling 150 events in metrics
         events = self.metrics.get("recent_events", [])
         events.append(event_record)
         if len(events) > 150:
             events = events[-150:]
         self.metrics["recent_events"] = events
 
+        # Keep rolling 500 entries per history list to keep storage tiny over 30 days
+        for k in ["posted_tweets", "replied_urls", "reposted_urls"]:
+            if len(self.history.get(k, [])) > 500:
+                self.history[k] = self.history[k][-500:]
+
         self.save()
+
