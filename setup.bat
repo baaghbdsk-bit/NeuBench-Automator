@@ -24,3 +24,4 @@ echo   To log into your X account, run:
 echo   .\venv\Scripts\python.exe main.py login
 echo ========================================================
 pause
+

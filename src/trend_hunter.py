@@ -77,9 +77,32 @@ class TrendHunter:
                 print(f"[TrendHunter] RSS error on {source_name}: {e}")
         return items
 
+    def get_neubench_stories(self, limit: int = 6) -> List[Dict[str, Any]]:
+        """Pulls breaking AI and frontier model news directly from NeuBench (https://neubench.vercel.app)."""
+        items = []
+        try:
+            url = f"https://neubench.vercel.app/api/stories?limit={limit}"
+            res = requests.get(url, headers=self.headers, timeout=4)
+            if res.status_code == 200:
+                data = res.json()
+                for story in data.get("stories", [])[:limit]:
+                    items.append({
+                        "title": story.get("title", ""),
+                        "summary": story.get("summary", ""),
+                        "company": story.get("company", "AI"),
+                        "source": f"NeuBench ({story.get('company', 'AI')})",
+                        "traffic": "Trending in AI",
+                        "category": "ai_tech",
+                        "url": "https://neubench.vercel.app/"
+                    })
+        except Exception as e:
+            print(f"[TrendHunter] NeuBench API error: {e}")
+        return items
+
     def get_curated_trending_topics(self) -> List[Dict[str, Any]]:
         """Combines and ranks all trends by engagement potential."""
         all_trends = []
+        all_trends.extend(self.get_neubench_stories())
         all_trends.extend(self.get_google_trends())
         all_trends.extend(self.get_tech_news())
         all_trends.extend(self.get_breaking_rss())

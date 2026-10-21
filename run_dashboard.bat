@@ -14,3 +14,4 @@ if not exist "venv\Scripts\python.exe" (
 echo Starting web server on http://127.0.0.1:8000
 .\venv\Scripts\python.exe main.py dashboard
 pause
+

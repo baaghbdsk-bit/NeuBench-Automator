@@ -118,3 +118,24 @@ Return ONLY valid JSON.
                 "options": ["Agree 100%", "Completely wrong", "Too early to tell", "Results"]
             }
 
+    def generate_neubench_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
+        """Generates a viral take on a NeuBench AI news story or benchmark model, driving engagement & traffic."""
+        link_instruction = "End naturally with 'Tracking benchmarks on neubench.vercel.app' or similar subtle nod." if include_link else "Do not include URLs."
+        prompt = f"""
+AI News / Model: "{title}"
+Developer/Company: "{company}"
+Context / Summary: "{summary}"
+
+Write a punchy, opinionated, high-engagement X tweet about this AI update.
+Rules:
+- Sound 100% like a sharp tech-native commentator (contrarian, witty, zero corporate PR fluff).
+- NO hashtags (#). No robotic emojis like 🚀🤖 at start.
+- Provoke discussion in the replies.
+- {link_instruction}
+- Total length under 260 characters.
+- Output ONLY the tweet text.
+"""
+        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88)
+        return text.strip('"')
+
+
