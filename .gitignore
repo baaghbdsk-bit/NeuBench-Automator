@@ -1,0 +1,11 @@
+venv/
+.env
+__pycache__/
+*.pyc
+user_data/
+browser_session/
+*.log
+.perm_test.tmp
+*.png
+*.jpg
+cookies.json
