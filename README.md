@@ -70,9 +70,11 @@ Save your browser session securely on your machine:
 *(A browser opens. Log into X normally, see your feed, and press ENTER in terminal).*
 
 ### 4. Launch the Dashboard
-```powershell
-.\venv\Scripts\python.exe main.py dashboard
-```
+* **Option A (1-Click Windows):** Double-click `run_dashboard.bat` in the folder.
+* **Option B (Terminal):**
+  ```powershell
+  .\venv\Scripts\python.exe main.py dashboard
+  ```
 Opens your local control center at **`http://127.0.0.1:8000`** with live milestone trackers, trigger buttons, and real-time activity stream!
 
 ---

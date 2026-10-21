@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>X-Post-Automater | Creator Growth & Monetization Dashboard</title>
+  <title>X-Post-Automater | Creator Growth & Monetization Command Center</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script>
@@ -12,9 +12,10 @@
       theme: {
         extend: {
           colors: {
-            xdark: '#0B0E14',
-            xcard: '#151922',
-            xborder: '#232936',
+            xdark: '#090B0E',
+            xcard: '#12161F',
+            xcardhover: '#181D29',
+            xborder: '#1F2533',
             xblue: '#1D9BF0',
             xcyan: '#00F0FF',
             xpurple: '#8B5CF6'
@@ -24,248 +25,250 @@
     }
   </script>
   <style>
-    body { background-color: #0B0E14; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    .glass-card { background: rgba(21, 25, 34, 0.75); backdrop-filter: blur(12px); border: 1px solid #232936; }
-    .glow-cyan { box-shadow: 0 0 25px rgba(0, 240, 255, 0.15); }
-    .glow-blue { box-shadow: 0 0 25px rgba(29, 155, 240, 0.2); }
+    body { background-color: #090B0E; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; }
+    .glass-card { background: rgba(18, 22, 31, 0.85); backdrop-filter: blur(10px); border: 1px solid #1F2533; }
+    .glow-cyan { box-shadow: 0 0 20px rgba(0, 240, 255, 0.08); }
+    .glow-blue { box-shadow: 0 0 20px rgba(29, 155, 240, 0.1); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #090B0E; }
+    ::-webkit-scrollbar-thumb { background: #232B3B; border-radius: 4px; }
   </style>
 </head>
-<body class="text-gray-100 min-h-screen flex flex-col antialiased">
+<body class="text-gray-200 min-h-screen flex flex-col antialiased">
 
-  <!-- Top Navbar -->
-  <header class="border-b border-xborder sticky top-0 z-50 bg-xdark/90 backdrop-blur-md px-6 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-xblue to-xcyan flex items-center justify-center font-black text-xl text-black">
+  <!-- Compact Top Navbar -->
+  <header class="border-b border-xborder sticky top-0 z-50 bg-xdark/95 backdrop-blur-md px-5 py-2.5 flex items-center justify-between">
+    <div class="flex items-center space-x-2.5">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-xblue to-xcyan flex items-center justify-center font-black text-base text-black">
         𝕏
       </div>
       <div>
-        <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-          X-Post-Automater
-          <span class="text-xs bg-xblue/20 text-xblue border border-xblue/30 px-2 py-0.5 rounded-full font-mono font-medium">Pro</span>
-        </h1>
-        <p class="text-xs text-gray-400">Autonomous Reach & Monetization Engine</p>
+        <div class="flex items-center gap-1.5">
+          <h1 class="text-sm font-bold tracking-tight text-white">X-Post-Automater</h1>
+          <span class="text-[10px] bg-xblue/15 text-xblue border border-xblue/30 px-1.5 py-0.2 rounded font-mono font-semibold">Pro</span>
+        </div>
+        <p class="text-[11px] text-gray-400">Autonomous Creator Monetization Engine</p>
       </div>
     </div>
 
     <!-- Right Profile & Quick Actions -->
-    <div class="flex items-center space-x-4">
-      <div class="hidden sm:flex items-center space-x-2 bg-xcard border border-xborder px-3 py-1.5 rounded-xl">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-xs text-gray-300 font-medium">24/7 Cloud Engine Active</span>
+    <div class="flex items-center space-x-3">
+      <div class="hidden sm:flex items-center space-x-1.5 bg-xcard border border-xborder px-2.5 py-1 rounded-lg">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-[11px] text-gray-300 font-medium">24/7 Cloud Engine Active</span>
       </div>
 
-      <div class="flex items-center space-x-2.5 bg-xcard border border-xborder px-3 py-1.5 rounded-xl">
-        <div class="w-7 h-7 rounded-full bg-xcyan/20 border border-xcyan/40 flex items-center justify-center text-xcyan text-xs font-bold">
+      <div class="flex items-center space-x-2 bg-xcard border border-xborder px-2.5 py-1 rounded-lg">
+        <div class="w-6 h-6 rounded-full bg-xcyan/20 border border-xcyan/40 flex items-center justify-center text-xcyan text-[10px] font-bold">
           VR
         </div>
-        <div class="text-left text-xs">
-          <p class="font-bold text-gray-200" id="nav-profile-name">vishnu rot</p>
+        <div class="text-left text-[11px]">
+          <p class="font-bold text-gray-200 leading-tight" id="nav-profile-name">vishnu rot</p>
           <a href="https://x.com/GWorld34864" target="_blank" class="text-gray-400 hover:text-xblue">@GWorld34864 ↗</a>
         </div>
       </div>
 
-      <button onclick="triggerAction('auto')" class="bg-gradient-to-r from-xblue to-xcyan hover:opacity-90 text-black font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition duration-200">
-        <i class="fa-solid fa-bolt"></i>
+      <button onclick="triggerAction('auto')" class="bg-gradient-to-r from-xblue to-xcyan hover:opacity-90 text-black font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-bolt text-[11px]"></i>
         <span>Trigger Cycle</span>
       </button>
     </div>
   </header>
 
   <!-- Main Container -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-6 space-y-6">
+  <main class="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-5 space-y-4">
 
-    <!-- Section 1: Monetization Milestones -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Section 1: Monetization Milestones (Compact) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       
       <!-- Follower Progress Card -->
-      <div class="glass-card rounded-2xl p-5 glow-blue relative overflow-hidden">
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-lg bg-xblue/10 border border-xblue/30 flex items-center justify-center text-xblue">
-              <i class="fa-solid fa-users text-sm"></i>
+      <div class="glass-card rounded-xl p-3.5 glow-blue relative overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-xblue/10 border border-xblue/30 flex items-center justify-center text-xblue text-xs">
+              <i class="fa-solid fa-users"></i>
             </div>
             <div>
-              <h3 class="text-sm font-semibold text-gray-200">Monetization Milestone: Followers</h3>
-              <p class="text-xs text-gray-400">Target: 500 followers for X Ad-Revenue Eligibility</p>
+              <h3 class="text-xs font-semibold text-gray-200">Monetization Milestone: Followers</h3>
+              <p class="text-[10px] text-gray-400">Requirement: 500 followers for X Ad-Revenue Payouts</p>
             </div>
           </div>
-          <span class="text-xs font-mono font-bold text-xblue bg-xblue/10 px-2 py-1 rounded-md" id="follower-pct">4.0%</span>
+          <span class="text-[11px] font-mono font-bold text-xblue bg-xblue/10 px-1.5 py-0.5 rounded" id="follower-pct">4.0%</span>
         </div>
-        <div class="flex items-baseline space-x-2 mb-2">
-          <span class="text-3xl font-extrabold text-white" id="follower-count">20</span>
-          <span class="text-xs text-gray-400">/ 500 Followers</span>
+        <div class="flex items-baseline space-x-1.5 mb-1.5">
+          <span class="text-xl font-bold text-white tracking-tight" id="follower-count">20</span>
+          <span class="text-[11px] text-gray-400">/ 500 Followers</span>
         </div>
-        <div class="w-full bg-xborder rounded-full h-2.5 overflow-hidden">
-          <div id="follower-bar" class="bg-gradient-to-r from-xblue to-xcyan h-2.5 rounded-full transition-all duration-700" style="width: 4%"></div>
+        <div class="w-full bg-xborder rounded-full h-1.5 overflow-hidden">
+          <div id="follower-bar" class="bg-gradient-to-r from-xblue to-xcyan h-1.5 rounded-full transition-all duration-700" style="width: 4%"></div>
         </div>
       </div>
 
       <!-- Verified Impressions Progress Card -->
-      <div class="glass-card rounded-2xl p-5 glow-cyan relative overflow-hidden">
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-lg bg-xcyan/10 border border-xcyan/30 flex items-center justify-center text-xcyan">
-              <i class="fa-solid fa-chart-line text-sm"></i>
+      <div class="glass-card rounded-xl p-3.5 glow-cyan relative overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-xcyan/10 border border-xcyan/30 flex items-center justify-center text-xcyan text-xs">
+              <i class="fa-solid fa-chart-line"></i>
             </div>
             <div>
-              <h3 class="text-sm font-semibold text-gray-200">Monetization Milestone: Impressions</h3>
-              <p class="text-xs text-gray-400">Target: 5M verified impressions in trailing 90 days</p>
+              <h3 class="text-xs font-semibold text-gray-200">Monetization Milestone: Impressions</h3>
+              <p class="text-[10px] text-gray-400">Requirement: 5M verified impressions (trailing 90 days)</p>
             </div>
           </div>
-          <span class="text-xs font-mono font-bold text-xcyan bg-xcyan/10 px-2 py-1 rounded-md" id="impression-pct">0.5%</span>
+          <span class="text-[11px] font-mono font-bold text-xcyan bg-xcyan/10 px-1.5 py-0.5 rounded" id="impression-pct">0.5%</span>
         </div>
-        <div class="flex items-baseline space-x-2 mb-2">
-          <span class="text-3xl font-extrabold text-white" id="impression-count">25,000</span>
-          <span class="text-xs text-gray-400">/ 5,000,000 Verified Reach (Est.)</span>
+        <div class="flex items-baseline space-x-1.5 mb-1.5">
+          <span class="text-xl font-bold text-white tracking-tight" id="impression-count">25,000</span>
+          <span class="text-[11px] text-gray-400">/ 5,000,000 Verified Reach (Est.)</span>
         </div>
-        <div class="w-full bg-xborder rounded-full h-2.5 overflow-hidden">
-          <div id="impression-bar" class="bg-gradient-to-r from-xcyan to-emerald-400 h-2.5 rounded-full transition-all duration-700" style="width: 1%"></div>
+        <div class="w-full bg-xborder rounded-full h-1.5 overflow-hidden">
+          <div id="impression-bar" class="bg-gradient-to-r from-xcyan to-emerald-400 h-1.5 rounded-full transition-all duration-700" style="width: 1%"></div>
         </div>
       </div>
 
     </div>
 
-    <!-- Section 2: Today's Action Scorecard -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-      <div class="glass-card rounded-xl p-4">
-        <p class="text-xs text-gray-400 mb-1">Today's Total</p>
-        <div class="flex items-baseline justify-between">
-          <h4 class="text-2xl font-bold text-white" id="stat-total">0 / 20</h4>
-          <i class="fa-solid fa-list-check text-gray-500 text-sm"></i>
+    <!-- Section 2: Today's Action Scorecard (High Density) -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div class="glass-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-gray-400 text-[11px] mb-1">
+          <span>Today's Total</span>
+          <i class="fa-solid fa-list-check"></i>
         </div>
-        <p class="text-[11px] text-gray-500 mt-1">Actions Executed</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-total">0 / 20</h4>
+        <p class="text-[10px] text-gray-500 mt-0.5">Actions Executed</p>
       </div>
 
-      <div class="glass-card rounded-xl p-4">
-        <p class="text-xs text-amber-400 mb-1">Sniper Replies</p>
-        <div class="flex items-baseline justify-between">
-          <h4 class="text-2xl font-bold text-white" id="stat-replies">0 / 14</h4>
-          <i class="fa-solid fa-reply text-amber-400/60 text-sm"></i>
+      <div class="glass-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-amber-400 text-[11px] mb-1">
+          <span>Sniper Replies</span>
+          <i class="fa-solid fa-reply"></i>
         </div>
-        <p class="text-[11px] text-gray-500 mt-1">Comments on Viral Tweets</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-replies">0 / 14</h4>
+        <p class="text-[10px] text-gray-500 mt-0.5">Comments on Viral Posts</p>
       </div>
 
-      <div class="glass-card rounded-xl p-4">
-        <p class="text-xs text-xblue mb-1">Quote-Tweets</p>
-        <div class="flex items-baseline justify-between">
-          <h4 class="text-2xl font-bold text-white" id="stat-quotes">0 / 5</h4>
-          <i class="fa-solid fa-quote-right text-xblue/60 text-sm"></i>
+      <div class="glass-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-xblue text-[11px] mb-1">
+          <span>Quote-Tweets</span>
+          <i class="fa-solid fa-quote-right"></i>
         </div>
-        <p class="text-[11px] text-gray-500 mt-1">Reposts + Masala</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-quotes">0 / 5</h4>
+        <p class="text-[10px] text-gray-500 mt-0.5">Reposts + Masala</p>
       </div>
 
-      <div class="glass-card rounded-xl p-4">
-        <p class="text-xs text-fuchsia-400 mb-1">Original Takes</p>
-        <div class="flex items-baseline justify-between">
-          <h4 class="text-2xl font-bold text-white" id="stat-original">0 / 4</h4>
-          <i class="fa-solid fa-pen-nib text-fuchsia-400/60 text-sm"></i>
+      <div class="glass-card rounded-xl p-3">
+        <div class="flex items-center justify-between text-fuchsia-400 text-[11px] mb-1">
+          <span>Original Takes</span>
+          <i class="fa-solid fa-pen-nib"></i>
         </div>
-        <p class="text-[11px] text-gray-500 mt-1">Debate Starters & Polls</p>
+        <h4 class="text-lg font-bold text-white tracking-tight" id="stat-original">0 / 4</h4>
+        <p class="text-[10px] text-gray-500 mt-0.5">Debate Starters & Polls</p>
       </div>
     </div>
 
     <!-- Section 3: Live Feed & Control Center -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
-      <!-- Left 2 Cols: Live Feed -->
-      <div class="lg:col-span-2 glass-card rounded-2xl p-5 flex flex-col">
-        <div class="flex items-center justify-between mb-4">
+      <!-- Left 2 Cols: Live Feed (High Density) -->
+      <div class="lg:col-span-2 glass-card rounded-xl p-4 flex flex-col">
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-xborder">
           <div class="flex items-center space-x-2">
             <span class="w-2 h-2 rounded-full bg-xcyan animate-ping"></span>
-            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Live Activity Stream</h3>
+            <h3 class="text-xs font-bold text-white uppercase tracking-wider">Live Activity Stream</h3>
           </div>
-          <span class="text-xs text-gray-400 font-mono" id="last-updated-text">Updating...</span>
+          <span class="text-[10px] text-gray-400 font-mono" id="last-updated-text">Updating...</span>
         </div>
 
-        <div id="events-container" class="space-y-3 overflow-y-auto max-h-[380px] pr-2">
-          <!-- Populated dynamically via JS -->
-          <div class="text-center py-10 text-gray-500 text-xs">
-            <i class="fa-solid fa-spinner fa-spin text-lg mb-2"></i>
+        <div id="events-container" class="space-y-2 overflow-y-auto max-h-[290px] pr-1.5">
+          <div class="text-center py-8 text-gray-500 text-xs">
+            <i class="fa-solid fa-spinner fa-spin text-sm mb-1.5"></i>
             <p>Loading recent bot events...</p>
           </div>
         </div>
       </div>
 
-      <!-- Right 1 Col: Control Center -->
-      <div class="glass-card rounded-2xl p-5 flex flex-col justify-between space-y-4">
+      <!-- Right 1 Col: Control Center (Compact) -->
+      <div class="glass-card rounded-xl p-4 flex flex-col justify-between space-y-3">
         <div>
-          <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-2">
-            <i class="fa-solid fa-sliders text-xcyan"></i>
+          <h3 class="text-xs font-bold text-white uppercase tracking-wider mb-2.5 flex items-center gap-1.5 pb-2 border-b border-xborder">
+            <i class="fa-solid fa-sliders text-xcyan text-[11px]"></i>
             Control Center
           </h3>
           
-          <div class="space-y-3">
-            <div class="bg-xcard p-3 rounded-xl border border-xborder">
-              <label class="text-xs text-gray-300 font-medium block mb-1">Manual Action Trigger</label>
-              <div class="grid grid-cols-3 gap-2 mt-2">
-                <button onclick="triggerAction('reply')" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs py-2 rounded-lg font-medium transition">
+          <div class="space-y-2.5">
+            <div class="bg-xcard p-2.5 rounded-lg border border-xborder">
+              <label class="text-[11px] text-gray-300 font-medium block mb-1.5">Manual Action Trigger</label>
+              <div class="grid grid-cols-3 gap-1.5">
+                <button onclick="triggerAction('reply')" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] py-1.5 rounded-md font-medium transition">
                   💬 Reply
                 </button>
-                <button onclick="triggerAction('repost')" class="bg-xblue/10 hover:bg-xblue/20 text-xblue border border-xblue/30 text-xs py-2 rounded-lg font-medium transition">
+                <button onclick="triggerAction('repost')" class="bg-xblue/10 hover:bg-xblue/20 text-xblue border border-xblue/30 text-[11px] py-1.5 rounded-md font-medium transition">
                   🔁 Quote
                 </button>
-                <button onclick="triggerAction('post')" class="bg-fuchsia-500/10 hover:bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/30 text-xs py-2 rounded-lg font-medium transition">
+                <button onclick="triggerAction('post')" class="bg-fuchsia-500/10 hover:bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/30 text-[11px] py-1.5 rounded-md font-medium transition">
                   🚀 Post
                 </button>
               </div>
             </div>
 
-            <div class="bg-xcard p-3 rounded-xl border border-xborder flex items-center justify-between">
+            <div class="bg-xcard p-2.5 rounded-lg border border-xborder flex items-center justify-between">
               <div>
-                <p class="text-xs font-semibold text-white">Dry Run Mode</p>
-                <p class="text-[11px] text-gray-400">Simulate without live publishing</p>
+                <p class="text-[11px] font-semibold text-white">Dry Run Mode</p>
+                <p class="text-[10px] text-gray-400">Simulate without publishing live</p>
               </div>
-              <input type="checkbox" id="dry-run-toggle" onchange="toggleDryRun(this.checked)" class="w-4 h-4 accent-xcyan rounded">
+              <input type="checkbox" id="dry-run-toggle" onchange="toggleDryRun(this.checked)" class="w-3.5 h-3.5 accent-xcyan rounded">
             </div>
 
-            <div class="bg-xcard p-3 rounded-xl border border-xborder">
-              <p class="text-xs font-semibold text-white mb-1">24/7 Cloud Engine</p>
-              <p class="text-[11px] text-gray-400 mb-2">Automated on GitHub Actions every ~45 mins.</p>
-              <a href="https://github.com/baaghbdsk-bit/X-Post-Automater/actions" target="_blank" class="w-full inline-block text-center text-xs bg-xborder hover:bg-gray-700 text-gray-200 py-1.5 rounded-lg transition">
-                View GitHub Cloud Runs ↗
+            <div class="bg-xcard p-2.5 rounded-lg border border-xborder">
+              <p class="text-[11px] font-semibold text-white mb-0.5">24/7 Cloud Engine</p>
+              <p class="text-[10px] text-gray-400 mb-1.5">Automated on GitHub Actions every ~45 mins.</p>
+              <a href="https://github.com/baaghbdsk-bit/X-Post-Automater/actions" target="_blank" class="w-full inline-block text-center text-[11px] bg-xborder hover:bg-gray-700 text-gray-200 py-1.5 rounded-md transition font-medium">
+                View Cloud Runs ↗
               </a>
             </div>
           </div>
         </div>
 
-        <div class="pt-2 border-t border-xborder/60 text-center">
-          <span class="text-[11px] text-gray-500 font-mono">Engine Version: 1.0.0 • AI: Gemini 3.5 Flash</span>
+        <div class="pt-2 border-t border-xborder text-center">
+          <span class="text-[10px] text-gray-500 font-mono">Engine: v1.0.0 • AI: Gemini 3.5 Flash</span>
         </div>
       </div>
 
     </div>
 
-    <!-- Section 4: Cross-Promotion & Ecosystem Showcase ("Checkout our other products") -->
-    <div class="glass-card rounded-2xl p-6 border border-xborder glow-blue">
-      <div class="flex items-center justify-between mb-4">
-        <div class="flex items-center space-x-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-r from-xpurple to-xcyan flex items-center justify-center text-black font-black text-sm">
+    <!-- Section 4: Ecosystem & Community (NeuBench + Connect With Us) -->
+    <div class="glass-card rounded-xl p-4 border border-xborder glow-blue">
+      <div class="flex items-center justify-between mb-3 pb-2 border-b border-xborder">
+        <div class="flex items-center space-x-2">
+          <div class="w-7 h-7 rounded-lg bg-gradient-to-r from-xpurple to-xcyan flex items-center justify-center text-black font-black text-xs">
             <i class="fa-solid fa-shapes"></i>
           </div>
           <div>
-            <h3 class="text-sm font-bold text-white tracking-wide">🚀 Built by Our Ecosystem</h3>
-            <p class="text-xs text-gray-400">Discover NeuBench & connect with our developer community.</p>
+            <h3 class="text-xs font-bold text-white tracking-wide">🚀 Built by Our Ecosystem</h3>
+            <p class="text-[10px] text-gray-400">Discover NeuBench & connect with our developer community.</p>
           </div>
         </div>
-        <span class="text-xs text-xpurple font-mono bg-xpurple/10 px-2.5 py-1 rounded-full border border-xpurple/20">Ecosystem & Community</span>
+        <span class="text-[10px] text-xpurple font-mono bg-xpurple/10 px-2 py-0.5 rounded-full border border-xpurple/20">Ecosystem & Community</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         {% for prod in products %}
-        <a href="{{ prod.link }}" target="_blank" class="group bg-xcard hover:bg-xborder/50 border border-xborder hover:border-xcyan/40 p-4 rounded-xl transition duration-200 flex flex-col justify-between">
+        <a href="{{ prod.link }}" target="_blank" class="group bg-xcard hover:bg-xcardhover border border-xborder hover:border-xcyan/40 p-3 rounded-lg transition flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <div class="flex items-center space-x-2">
-                <i class="fa-{{ prod.icon if 'fa-' in prod.icon else 'solid fa-' + prod.icon }} text-xcyan text-sm"></i>
-                <h4 class="font-bold text-white text-sm group-hover:text-xcyan transition">{{ prod.name }}</h4>
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-{{ prod.icon if 'fa-' in prod.icon else 'solid fa-' + prod.icon }} text-xcyan text-xs"></i>
+                <h4 class="font-bold text-white text-xs group-hover:text-xcyan transition">{{ prod.name }}</h4>
               </div>
-              <span class="text-[10px] bg-xblue/10 text-xblue border border-xblue/20 px-2 py-0.5 rounded-full font-medium">{{ prod.badge }}</span>
+              <span class="text-[9px] bg-xblue/10 text-xblue border border-xblue/20 px-1.5 py-0.2 rounded-full font-medium">{{ prod.badge }}</span>
             </div>
-            <p class="text-xs text-gray-400 leading-relaxed">{{ prod.tagline }}</p>
+            <p class="text-[11px] text-gray-400 leading-snug">{{ prod.tagline }}</p>
           </div>
-          <div class="mt-4 flex items-center text-xs font-semibold text-xcyan group-hover:underline">
+          <div class="mt-2.5 flex items-center text-[11px] font-semibold text-xcyan group-hover:underline">
             <span>{{ prod.cta or "Explore" }}</span>
-            <i class="fa-solid fa-arrow-right text-[10px] ml-1.5 transition-transform group-hover:translate-x-1"></i>
+            <i class="fa-solid fa-arrow-right text-[9px] ml-1 transition-transform group-hover:translate-x-1"></i>
           </div>
         </a>
         {% endfor %}
@@ -274,9 +277,9 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-xborder text-center py-4 text-xs text-gray-500">
-    <p>© 2026 X-Post-Automater. Designed for Creators & Builders. Automated ethically and safely.</p>
+  <!-- Compact Footer -->
+  <footer class="border-t border-xborder text-center py-2.5 text-[11px] text-gray-500">
+    <p>© 2026 X-Post-Automater • Built for High-Impact Creators • Safe & Human Paced</p>
   </footer>
 
   <!-- Real-time Polling & UI logic -->
@@ -305,7 +308,7 @@
         // Update Dry Run checkbox
         document.getElementById('dry-run-toggle').checked = data.safety.dry_run;
 
-        // Render Events
+        // Render Events (Compact)
         const container = document.getElementById('events-container');
         if (data.recent_events && data.recent_events.length > 0) {
           container.innerHTML = data.recent_events.map(ev => {
@@ -315,17 +318,17 @@
             const actionIcon = ev.action_type === 'reply' ? '💬 Reply' : ev.action_type === 'quote_tweet' ? '🔁 Quote' : '🚀 Post';
 
             return `
-              <div class="bg-xcard p-3 rounded-xl border border-xborder flex items-start justify-between space-x-3 text-xs">
-                <div class="flex-1">
-                  <div class="flex items-center space-x-2 mb-1">
+              <div class="bg-xcard p-2 rounded-lg border border-xborder flex items-start justify-between space-x-2 text-[11px]">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center space-x-1.5 mb-0.5">
                     <span class="font-bold text-gray-200">${actionIcon}</span>
-                    <span class="text-[10px] px-1.5 py-0.5 rounded border font-mono ${badgeColor}">${ev.status}</span>
-                    ${ev.is_dry_run ? '<span class="text-[10px] bg-purple-500/10 text-purple-300 border border-purple-500/20 px-1.5 py-0.5 rounded font-mono">DRY-RUN</span>' : ''}
-                    <span class="text-gray-500 text-[10px] font-mono">${ev.timestamp ? ev.timestamp.substring(11, 19) + ' UTC' : ''}</span>
+                    <span class="text-[9px] px-1 py-0.2 rounded border font-mono ${badgeColor}">${ev.status}</span>
+                    ${ev.is_dry_run ? '<span class="text-[9px] bg-purple-500/10 text-purple-300 border border-purple-500/20 px-1 py-0.2 rounded font-mono">DRY-RUN</span>' : ''}
+                    <span class="text-gray-500 text-[9px] font-mono">${ev.timestamp ? ev.timestamp.substring(11, 19) + ' UTC' : ''}</span>
                   </div>
-                  <p class="text-gray-300 font-normal line-clamp-2">${ev.content_preview || ev.reason || 'Cycle processed.'}</p>
+                  <p class="text-gray-300 font-normal truncate">${ev.content_preview || ev.reason || 'Cycle processed.'}</p>
                 </div>
-                ${ev.target && ev.target.startsWith('http') ? `<a href="${ev.target}" target="_blank" class="text-xblue hover:underline text-[11px] shrink-0">View ↗</a>` : ''}
+                ${ev.target && ev.target.startsWith('http') ? `<a href="${ev.target}" target="_blank" class="text-xblue hover:underline text-[10px] shrink-0 font-medium">View ↗</a>` : ''}
               </div>
             `;
           }).join('');
@@ -374,4 +377,3 @@
   </script>
 </body>
 </html>
-
