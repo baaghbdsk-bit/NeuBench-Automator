@@ -23,13 +23,13 @@
 * 🔁 **Quote-Tweets with "Masala on Top" (20%):** Takes breaking news and quotes it with a polarizing counter-intuitive angle.
 * 🚀 **Original Hot Takes & Polls (20%):** Generates high-dwell-time debate polls and questions to convert casual viewers into profile followers.
 * 🛡️ **Safety & Warm-Up Engine:** Strict human-cadence cap (max 20 actions/day), random keystroke delays (30–80ms), and duplicate prevention to keep accounts safe from bot detection.
-* 📊 **Gamified Monetization Dashboard:** High-density dark-mode web UI tracking your live progress toward the 500 follower and 5M impression goals.
+* 📊 **Gamified Monetization Dashboard:** High-density web UI (featuring a clean, high-contrast Light Mode default and 1-click Dark Mode toggle) tracking your live progress toward the 500 follower and 5M impression milestones.
 
 ---
 
 ## 🚀 Choose Your Setup Track
 
-You can run **X-Post-Automater** in two ways depending on your workflow:
+You can run **NeuBench X-Post-Automater** in two ways depending on your workflow:
 
 | Feature | Track 1: Local Web Dashboard (Option B) | Track 2: 24/7 Cloud Actions (Option C) |
 | :--- | :--- | :--- |
