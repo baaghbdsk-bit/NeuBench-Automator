@@ -26,7 +26,8 @@ console = Console()
 
 # Target high-engagement accounts for explosive reach (Indian + Global tech giants)
 VIRAL_ACCOUNTS = [
-    # Top Indian Reach & Tech Accounts
+    # Top Indian Reach & National / Tech Accounts
+    "narendramodi",
     "IndianTechGuide",
     "peakbengaluru",
     "ANI",
