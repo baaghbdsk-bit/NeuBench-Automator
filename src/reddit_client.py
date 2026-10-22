@@ -79,3 +79,4 @@ class RedditClient:
             return True, f"https://reddit.com{submission.permalink}"
         except Exception as e:
             return False, f"Reddit submission error: {e}"
+
