@@ -1,0 +1,22 @@
+{
+  "x": [
+    "ai_benchmarks",
+    "contrarian_takes",
+    "tech_culture",
+    "market_finance"
+  ],
+  "bluesky": [
+    "ai_benchmarks",
+    "open_source"
+  ],
+  "linkedin": [
+    "ai_benchmarks",
+    "b2b_thought_leadership",
+    "market_finance"
+  ],
+  "threads": [
+    "contrarian_takes",
+    "tech_culture",
+    "community_discussions"
+  ]
+}

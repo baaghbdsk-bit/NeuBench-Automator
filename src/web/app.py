@@ -33,7 +33,7 @@ from src.ai_generator import AIGenerator
 from src.twitter_client import TwitterClient
 from src.bluesky_client import BlueskyClient
 
-app = FastAPI(title="NeuBench-Automator", version="2.0.0")
+app = FastAPI(title="NeuBench X-Post Automator", version="2.0.0")
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 # Cross-Promotion: Showcase NeuBench + Connect with Us
@@ -413,6 +413,98 @@ async def update_settings(req: SettingsRequest):
         f.writelines(new_lines)
 
     return {"status": "success", "message": "Settings updated successfully"}
+
+
+AVAILABLE_TOPICS = [
+    {
+        "id": "ai_benchmarks",
+        "name": "AI Models and Benchmarks",
+        "icon": "fa-solid fa-microchip",
+        "desc": "Frontier LLM evaluations, latency, MMLU and reasoning scores from NeuBench",
+        "best_for": ["x", "bluesky"]
+    },
+    {
+        "id": "contrarian_takes",
+        "name": "Contrarian Hot Takes",
+        "icon": "fa-solid fa-fire-flame-curved",
+        "desc": "Calling out tech myths, overhyped trends, and bold unpopular predictions",
+        "best_for": ["x", "threads"]
+    },
+    {
+        "id": "tech_culture",
+        "name": "Work and City Culture",
+        "icon": "fa-solid fa-mug-hot",
+        "desc": "Bengaluru potholes, startup hustle satire, corporate irony and developer life",
+        "best_for": ["x", "threads"]
+    },
+    {
+        "id": "open_source",
+        "name": "Open-Source and AT Protocol",
+        "icon": "fa-brands fa-git-alt",
+        "desc": "Decentralized social networks, open weights, local models and developer tooling",
+        "best_for": ["bluesky"]
+    },
+    {
+        "id": "b2b_thought_leadership",
+        "name": "B2B Thought Leadership",
+        "icon": "fa-solid fa-briefcase",
+        "desc": "Enterprise AI ROI, team architecture, productivity and strategic engineering",
+        "best_for": ["linkedin"]
+    },
+    {
+        "id": "market_finance",
+        "name": "Markets and Wealth Culture",
+        "icon": "fa-solid fa-chart-line",
+        "desc": "Tech equity, funding rounds, compensation realities and market macro",
+        "best_for": ["x", "linkedin"]
+    },
+    {
+        "id": "community_discussions",
+        "name": "Community Questions and Polls",
+        "icon": "fa-solid fa-comments",
+        "desc": "Open-ended prompts asking developers and creators for their honest workflows",
+        "best_for": ["threads", "x"]
+    }
+]
+
+DEFAULT_TOPIC_ROUTING = {
+    "x": ["ai_benchmarks", "contrarian_takes", "tech_culture", "market_finance"],
+    "bluesky": ["ai_benchmarks", "open_source"],
+    "linkedin": ["ai_benchmarks", "b2b_thought_leadership", "market_finance"],
+    "threads": ["contrarian_takes", "tech_culture", "community_discussions"]
+}
+
+def get_topic_routing() -> dict:
+    fpath = config.BASE_DIR / "topic_routing.json"
+    if fpath.exists():
+        try:
+            import json
+            with open(fpath, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return DEFAULT_TOPIC_ROUTING
+
+def save_topic_routing(routing: dict):
+    fpath = config.BASE_DIR / "topic_routing.json"
+    import json
+    with open(fpath, "w", encoding="utf-8") as f:
+        json.dump(routing, f, indent=2)
+
+@app.get("/api/topics")
+async def get_topics_api():
+    return {
+        "available_topics": AVAILABLE_TOPICS,
+        "routing": get_topic_routing()
+    }
+
+class TopicRoutingUpdateRequest(BaseModel):
+    routing: Dict[str, List[str]]
+
+@app.post("/api/topics")
+async def update_topics_api(req: TopicRoutingUpdateRequest):
+    save_topic_routing(req.routing)
+    return {"status": "success", "message": "Topic routing updated successfully", "routing": req.routing}
 
 @app.get("/api/products")
 async def get_ecosystem_products():
