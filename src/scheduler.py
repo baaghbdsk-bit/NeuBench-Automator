@@ -24,9 +24,9 @@ from src.safety import SafetyEngine
 
 console = Console()
 
-# Target high-engagement accounts for explosive reach (Indian + Global giants)
+# Target high-engagement accounts for explosive reach (Indian + Global tech giants)
 VIRAL_ACCOUNTS = [
-    # Top Indian Reach & Debate Accounts
+    # Top Indian Reach & Tech Accounts
     "IndianTechGuide",
     "peakbengaluru",
     "ANI",
@@ -34,9 +34,12 @@ VIRAL_ACCOUNTS = [
     "thetanmay",
     "kunalb11",
     "Zomato",
-    # Global Heavyweights
-    "elonmusk",
+    # Global Tech & AI Heavyweights
     "sama",
+    "karpathy",
+    "satyanadella",
+    "ylecun",
+    "levelsio",
     "PopBase",
     "WatcherGuru",
     "unusual_whales"
@@ -139,41 +142,36 @@ class AutomaterEngine:
     def _execute_sniper_reply(self, start_time: float) -> bool:
         """Finds a viral account, extracts latest tweet, and replies with high-engagement AI take."""
         console.print("[bold yellow]🎯 Mode: Sniper Reply on Viral Account[/bold yellow]")
-        account = random.choice(VIRAL_ACCOUNTS)
-        console.print(f"[dim]Checking latest tweet from @{account}...[/dim]")
+        
+        # Sample candidate accounts to try
+        candidates = random.sample(VIRAL_ACCOUNTS, min(3, len(VIRAL_ACCOUNTS)))
+        tweet_data = {}
+        target_account = ""
 
-        tweet_data = self.twitter.get_latest_tweet_from_account(account)
+        for account in candidates:
+            console.print(f"[dim]Checking latest tweet from @{account}...[/dim]")
+            data = self.twitter.get_latest_tweet_from_account(account)
+            url = data.get("tweet_url")
+            text = data.get("tweet_text")
+            if url and text:
+                if url not in self.tracker.history["replied_urls"]:
+                    tweet_data = data
+                    target_account = account
+                    break
+                else:
+                    console.print(f"[dim]Already replied to {url}. Trying next candidate...[/dim]")
+
         tweet_url = tweet_data.get("tweet_url")
         tweet_text = tweet_data.get("tweet_text")
 
         if not tweet_url or not tweet_text:
-            console.print("[yellow]Could not find suitable tweet. Skipping cycle...[/yellow]")
-            self.tracker.record_event(
-                action_type="reply",
-                status="skipped",
-                target_identifier=f"@{account}",
-                skip_or_error_reason=f"No tweet found for @{account}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+            console.print("[yellow]Could not find unreplied tweet among candidates. Falling back to Original Hot Take from NeuBench/Trends...[/yellow]")
+            return self._execute_original_post(start_time)
 
-        if tweet_url in self.tracker.history["replied_urls"]:
-            console.print(f"[dim]Already replied to {tweet_url}. Skipping duplicate...[/dim]")
-            self.tracker.record_event(
-                action_type="reply",
-                status="skipped",
-                target_identifier=tweet_url,
-                skip_or_error_reason="Idempotency: already replied to this tweet URL",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        console.print(f"[bold]Target Tweet:[/bold] {tweet_text[:80]}...")
+        console.print(f"[bold]Target Tweet (@{target_account}):[/bold] {tweet_text[:80]}...")
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
         try:
-            reply_content = self.ai.generate_sniper_reply(account, tweet_text)
+            reply_content = self.ai.generate_sniper_reply(target_account, tweet_text)
         except Exception as e:
             self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
             console.print(f"[red]AI Generation Error: {e}[/red]")
@@ -208,41 +206,35 @@ class AutomaterEngine:
     def _execute_quote_tweet(self, start_time: float) -> bool:
         """Finds a viral tweet and Quote-Tweets it with commentary ('masala on top')."""
         console.print("[bold blue]🔁 Mode: Quote-Tweet ('Repost with Masala')[/bold blue]")
-        account = random.choice(VIRAL_ACCOUNTS)
-        console.print(f"[dim]Checking latest tweet from @{account} to quote...[/dim]")
+        
+        candidates = random.sample(VIRAL_ACCOUNTS, min(3, len(VIRAL_ACCOUNTS)))
+        tweet_data = {}
+        target_account = ""
 
-        tweet_data = self.twitter.get_latest_tweet_from_account(account)
+        for account in candidates:
+            console.print(f"[dim]Checking latest tweet from @{account} to quote...[/dim]")
+            data = self.twitter.get_latest_tweet_from_account(account)
+            url = data.get("tweet_url")
+            text = data.get("tweet_text")
+            if url and text:
+                if url not in self.tracker.history["reposted_urls"]:
+                    tweet_data = data
+                    target_account = account
+                    break
+                else:
+                    console.print(f"[dim]Already quoted {url}. Trying next candidate...[/dim]")
+
         tweet_url = tweet_data.get("tweet_url")
         tweet_text = tweet_data.get("tweet_text")
 
         if not tweet_url or not tweet_text:
-            console.print("[yellow]Could not find tweet to quote. Skipping cycle...[/yellow]")
-            self.tracker.record_event(
-                action_type="quote_tweet",
-                status="skipped",
-                target_identifier=f"@{account}",
-                skip_or_error_reason=f"No tweet found for @{account}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+            console.print("[yellow]Could not find unquoted tweet among candidates. Falling back to Original Hot Take from NeuBench/Trends...[/yellow]")
+            return self._execute_original_post(start_time)
 
-        if tweet_url in self.tracker.history["reposted_urls"]:
-            console.print(f"[dim]Already quoted {tweet_url}. Skipping duplicate...[/dim]")
-            self.tracker.record_event(
-                action_type="quote_tweet",
-                status="skipped",
-                target_identifier=tweet_url,
-                skip_or_error_reason="Idempotency: already quoted this tweet URL",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        console.print(f"[bold]Target Tweet:[/bold] {tweet_text[:80]}...")
+        console.print(f"[bold]Target Tweet (@{target_account}):[/bold] {tweet_text[:80]}...")
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
         try:
-            commentary = self.ai.generate_quote_tweet_commentary(account, tweet_text)
+            commentary = self.ai.generate_quote_tweet_commentary(target_account, tweet_text)
         except Exception as e:
             self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
             console.print(f"[red]AI Generation Error: {e}[/red]")
@@ -296,16 +288,15 @@ class AutomaterEngine:
                 selected_trend = t
                 break
 
-        if not selected_trend:
-            console.print("[yellow]All discovered trends were previously posted. Skipping...[/yellow]")
-            self.tracker.record_event(
-                action_type="original_post",
-                status="skipped",
-                skip_or_error_reason="Idempotency: all candidate trends already published",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+        if not selected_trend and trends:
+            # Re-engage with a fresh take on the top trending item
+            selected_trend = random.choice(trends)
+            console.print(f"[dim]Re-analyzing top trending topic with fresh angle: {selected_trend['title']}[/dim]")
+        elif not selected_trend:
+            selected_trend = {
+                "title": "Frontier AI Benchmark Discrepancies",
+                "summary": "Tracking model performance drift and benchmark evaluations across LLMs on NeuBench."
+            }
 
         console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1

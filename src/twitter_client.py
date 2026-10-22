@@ -188,10 +188,27 @@ class TwitterClient:
             try:
                 profile_url = f"https://x.com/{username}"
                 page.goto(profile_url, timeout=35000)
-                page.wait_for_selector('article[data-testid="tweet"]', timeout=15000)
+                page.wait_for_timeout(2500)
+
+                # Check if user is blocked or unavailable
+                body_text = page.inner_text("body")
+                if "is blocked" in body_text or "Account suspended" in body_text:
+                    print(f"[TwitterClient] Account @{username} is blocked or suspended. Skipping.")
+                    return {}
+
+                # Scroll down to trigger lazy loading of tweets past tall banners / live broadcasts
+                page.evaluate("window.scrollBy(0, 600)")
+                page.wait_for_timeout(2000)
+
+                # Wait for tweets with fallback selector
+                page.wait_for_selector('article[data-testid="tweet"], article', timeout=12000)
                 
-                first_tweet = page.locator('article[data-testid="tweet"]').first
-                tweet_text_el = first_tweet.locator('[data-testid="tweetText"]')
+                tweets = page.locator('article[data-testid="tweet"], article')
+                if tweets.count() == 0:
+                    return {}
+
+                first_tweet = tweets.first
+                tweet_text_el = first_tweet.locator('[data-testid="tweetText"]').first
                 tweet_text = tweet_text_el.inner_text() if tweet_text_el.is_visible() else ""
                 
                 link_el = first_tweet.locator('a[href*="/status/"]').first

@@ -2,8 +2,8 @@ name: NeuBench-Automator 24/7 Engine
 
 on:
   schedule:
-    # Runs roughly every 45 minutes
-    - cron: '*/45 * * * *'
+    # Runs reliably every 30 minutes at minute 15 and 45
+    - cron: '15,45 * * * *'
   workflow_dispatch:
     inputs:
       dry_run:
