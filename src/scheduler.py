@@ -58,6 +58,11 @@ class AutomaterEngine:
             self.safety.dry_run = True
 
         self.twitter = TwitterClient(headless=True, dry_run=self.safety.dry_run)
+        self.bluesky = BlueskyClient(
+            handle=config.BLUESKY_HANDLE,
+            app_password=config.BLUESKY_APP_PASSWORD,
+            dry_run=self.safety.dry_run
+        )
         
         self.history_file = config.BASE_DIR / "post_history.json"
         self.metrics_file = config.BASE_DIR / "trial_metrics.json"
@@ -96,7 +101,7 @@ class AutomaterEngine:
         )
 
         # 3. Determine action type
-        if force_action in ("post", "reply", "repost"):
+        if force_action in ("post", "reply", "repost", "bluesky"):
             action_choice = force_action
         else:
             # Distribution: 60% Reply, 20% Repost (Quote-Tweet), 20% Original Post
@@ -138,6 +143,8 @@ class AutomaterEngine:
             return self._execute_sniper_reply(start_time)
         elif action_choice == "repost":
             return self._execute_quote_tweet(start_time)
+        elif action_choice == "bluesky":
+            return self._execute_bluesky_post(start_time)
         else:
             return self._execute_original_post(start_time)
 
