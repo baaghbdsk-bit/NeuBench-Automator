@@ -64,15 +64,15 @@ def display_metrics():
         console.print(f"[red]Error reading metrics: {e}[/red]")
 
 def main():
-    parser = argparse.ArgumentParser(description="NeuBench X-Post Automator: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
+    parser = argparse.ArgumentParser(description="NeuBench X-Post Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "test", "run-once", "start", "post", "reply", "repost", "update-profile", "metrics", "dashboard", "ui"], 
-        help="Action: 'dashboard' (launch UI), 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "update-profile", "metrics", "dashboard", "ui"], 
+        help="Action: 'dashboard' (launch UI), 'bluesky' (post to Bluesky), 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
-    parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', or 'repost')")
-    parser.add_argument("--dry-run", action="store_true", help="Run without publishing live to X")
+    parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', or 'bluesky')")
+    parser.add_argument("--dry-run", action="store_true", help="Run without publishing live")
     parser.add_argument("--name", type=str, default="vishnu rot", help="Display Name for profile")
     parser.add_argument("--bio", type=str, default="Tech, markets & the absurd reality of modern work. Calling out what everyone thinks but won't tweet. | Building in public.", help="Bio for profile")
     parser.add_argument("--location", type=str, default="Bengaluru / Earth", help="Location for profile")
@@ -97,7 +97,33 @@ def main():
         uvicorn.run("src.web.app:app", host="127.0.0.1", port=8000, reload=False)
         return
 
-    if args.action == "login":
+    if args.action == "bluesky":
+        import config
+        from src.bluesky_client import BlueskyClient
+        from src.ai_generator import AIGenerator
+        client = BlueskyClient(
+            handle=config.BLUESKY_HANDLE,
+            app_password=config.BLUESKY_APP_PASSWORD,
+            dry_run=args.dry_run
+        )
+        if args.text:
+            text = args.text
+        else:
+            ai = AIGenerator()
+            console.print("[cyan]Generating high-signal AI benchmark take for Bluesky...[/cyan]")
+            text = ai.generate_bluesky_take(
+                title="DeepSeek vs Llama Inference & Quantization Benchmarks",
+                summary="Tracking 42% latency reduction and throughput tradeoffs on NeuBench.",
+                company="NeuBench"
+            )
+        console.print(f"[bold green]Bluesky Post Draft:[/bold green]\n{text}\n")
+        ok, msg = client.post(text)
+        if ok:
+            console.print(f"[bold cyan]✅ {msg}[/bold cyan]")
+        else:
+            console.print(f"[bold red]❌ {msg}[/bold red]")
+
+    elif args.action == "login":
         from scripts.login_browser import login_and_save_session
         login_and_save_session()
         
