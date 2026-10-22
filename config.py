@@ -32,3 +32,7 @@ BLUESKY_APP_PASSWORD = os.getenv("BLUESKY_APP_PASSWORD", "")
 LINKEDIN_ENABLED = os.getenv("LINKEDIN_ENABLED", "true").lower() in ("true", "1")
 THREADS_ENABLED = os.getenv("THREADS_ENABLED", "true").lower() in ("true", "1")
 
+# Real-Time Push Alerts (Optional: Discord / Telegram)
+DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "")
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")

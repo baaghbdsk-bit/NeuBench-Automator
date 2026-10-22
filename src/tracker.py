@@ -171,3 +171,16 @@ class ActivityTracker:
 
         self.save()
 
+        # Optional real-time push notification
+        try:
+            from src.notifier import PushNotifier
+            PushNotifier().send_action_alert(
+                action_type=action_type,
+                content_preview=content_preview,
+                target_account_or_url=target_identifier,
+                status=status,
+                is_dry_run=is_dry_run
+            )
+        except Exception:
+            pass
+

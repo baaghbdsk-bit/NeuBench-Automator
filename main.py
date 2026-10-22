@@ -76,6 +76,8 @@ def main():
     parser.add_argument("--name", type=str, default="vishnu rot", help="Display Name for profile")
     parser.add_argument("--bio", type=str, default="Tech, markets & the absurd reality of modern work. Calling out what everyone thinks but won't tweet. | Building in public.", help="Bio for profile")
     parser.add_argument("--location", type=str, default="Bengaluru / Earth", help="Location for profile")
+    parser.add_argument("--avatar", type=str, default="", help="Avatar image path for profile")
+    parser.add_argument("--header", type=str, default="", help="Header banner image path for profile")
 
     args = parser.parse_args()
 
@@ -135,7 +137,13 @@ def main():
 
     elif args.action == "update-profile":
         from scripts.update_profile import update_x_profile
-        update_x_profile(name=args.name, bio=args.bio, location=args.location)
+        update_x_profile(
+            name=args.name,
+            bio=args.bio,
+            location=args.location,
+            avatar_path=args.avatar or None,
+            header_path=args.header or None
+        )
 
     elif args.action == "run-once":
         from src.scheduler import AutomaterEngine

@@ -17,12 +17,13 @@ if sys.platform == "win32":
 from playwright.sync_api import sync_playwright
 import config
 
-def update_x_profile(name: str = None, bio: str = None, location: str = None, avatar_path: str = None) -> bool:
+def update_x_profile(name: str = None, bio: str = None, location: str = None, avatar_path: str = None, header_path: str = None) -> bool:
     print(f"\n[Profile Updater] Starting profile update...")
     if name: print(f"  Name: {name}")
     if bio: print(f"  Bio: {bio}")
     if location: print(f"  Location: {location}")
-    if avatar_path: print(f"  Avatar: {avatar_path}\n")
+    if avatar_path: print(f"  Avatar: {avatar_path}")
+    if header_path: print(f"  Header: {header_path}\n")
 
     with sync_playwright() as p:
         ctx = p.chromium.launch_persistent_context(
@@ -57,6 +58,21 @@ def update_x_profile(name: str = None, bio: str = None, location: str = None, av
 
             # Wait for modal
             page.wait_for_selector('input[name="displayName"]', timeout=15000)
+
+                        # Upload Header Banner if provided
+            if header_path and Path(header_path).exists():
+                print(f"[Profile Updater] Uploading header banner: {header_path}...")
+                file_inputs = page.locator('input[type="file"]').all()
+                if len(file_inputs) >= 1:
+                    header_input = file_inputs[0]
+                    header_input.set_input_files(str(header_path))
+                    page.wait_for_timeout(3000)
+                    apply_btn = page.locator('[data-testid="applyButton"]').first
+                    if apply_btn.is_visible():
+                        print("[Profile Updater] Applying banner crop...")
+                        apply_btn.click()
+                        page.wait_for_timeout(3000)
+                    print("[Profile Updater] ✅ Header banner uploaded successfully!")
 
             # Upload Avatar if provided
             if avatar_path and Path(avatar_path).exists():
