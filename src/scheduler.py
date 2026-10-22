@@ -334,7 +334,34 @@ class AutomaterEngine:
             is_dry_run=self.safety.dry_run
         )
         if success:
-            console.print("[bold green]✅ Successfully published tweet![/bold green]")
+            console.print("[bold green]✅ Successfully published tweet on 𝕏![/bold green]")
+            # Cross-post to Bluesky if configured
+            if config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD:
+                try:
+                    from src.bluesky_client import BlueskyClient
+                    bsky_client = BlueskyClient(
+                        handle=config.BLUESKY_HANDLE,
+                        app_password=config.BLUESKY_APP_PASSWORD,
+                        dry_run=self.safety.dry_run
+                    )
+                    bsky_take = self.ai.generate_bluesky_take(
+                        selected_trend["title"],
+                        selected_trend.get("summary", "")
+                    )
+                    bsky_ok, bsky_msg = bsky_client.post(bsky_take)
+                    if bsky_ok:
+                        console.print("[bold cyan]🦋 Also published to Bluesky (@neubench.bsky.social)![/bold cyan]")
+                        self.tracker.record_event(
+                            action_type="bluesky_post",
+                            status="success",
+                            target_identifier="Bluesky (@neubench.bsky.social)",
+                            content_preview=bsky_take,
+                            duration_seconds=1.2,
+                            is_dry_run=self.safety.dry_run
+                        )
+                except Exception as e:
+                    console.print(f"[dim]Bluesky dispatch note: {e}[/dim]")
+
         return success
 
     def start_scheduler(self):
