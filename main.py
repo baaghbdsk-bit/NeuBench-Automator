@@ -68,8 +68,8 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench X-Post Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads, Reddit)")
     parser.add_argument(
         "action", 
-        choices=["login", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "update-profile", "metrics", "dashboard", "ui"], 
-        help="Action: 'dashboard' (launch UI), 'bluesky' (post to Bluesky), 'linkedin' (generate & launch LinkedIn post), 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "login-linkedin", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "update-profile", "metrics", "dashboard", "ui"], 
+        help="Action: 'dashboard', 'login-linkedin', 'bluesky', 'linkedin', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
     parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', 'bluesky', or 'linkedin')")
@@ -124,12 +124,19 @@ def main():
         else:
             console.print(f"[bold red]❌ {msg}[/bold red]")
 
+    elif args.action == "login-linkedin":
+        from scripts.login_linkedin import login_linkedin
+        login_linkedin()
+
     elif args.action == "linkedin":
         import webbrowser
         from src.ai_generator import AIGenerator
         from src.linkedin_client import LinkedInClient
+        from src.linkedin_automater import LinkedInAutomater
 
+        automater = LinkedInAutomater(headless=True, dry_run=args.dry_run)
         client = LinkedInClient()
+
         if args.text:
             text = args.text
         else:
@@ -142,13 +149,26 @@ def main():
             )
 
         console.print(Panel(text, title="[bold blue]LinkedIn B2B Thought-Leadership Draft[/bold blue]", border_style="blue"))
-        share_url = client.generate_share_url(text)
-        console.print(f"\n[bold green]🚀 1-Click LinkedIn Composer URL:[/bold green]\n{share_url}\n")
-        try:
-            webbrowser.open(share_url)
-            console.print("[dim]Opened LinkedIn composer in your default browser.[/dim]")
-        except Exception:
-            pass
+
+        # If autonomous session exists, publish autonomously!
+        if automater.is_session_available():
+            console.print("\n[bold cyan]🤖 Saved LinkedIn browser session detected! Publishing autonomously...[/bold cyan]")
+            ok, msg = automater.post(text)
+            if ok:
+                console.print(f"[bold green]✅ {msg}[/bold green]")
+            else:
+                console.print(f"[yellow]⚠️ Autonomous attempt note: {msg}[/yellow]")
+                share_url = client.generate_share_url(text)
+                console.print(f"[dim]Falling back to 1-Click Composer URL: {share_url}[/dim]")
+        else:
+            console.print("\n[yellow]💡 Note: To make LinkedIn 100% autonomous, run: [bold white]python main.py login-linkedin[/bold white][/yellow]")
+            share_url = client.generate_share_url(text)
+            console.print(f"[bold green]🚀 1-Click LinkedIn Composer URL:[/bold green]\n{share_url}\n")
+            try:
+                webbrowser.open(share_url)
+                console.print("[dim]Opened LinkedIn composer in your default browser.[/dim]")
+            except Exception:
+                pass
 
     elif args.action == "login":
         from scripts.login_browser import login_and_save_session

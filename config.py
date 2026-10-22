@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent
 USER_DATA_DIR = BASE_DIR / "browser_session"
 COOKIES_FILE = BASE_DIR / "browser_session" / "cookies.json"
+LINKEDIN_USER_DATA_DIR = BASE_DIR / "linkedin_session"
 
 # Load environment
 load_dotenv(BASE_DIR / ".env")

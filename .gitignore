@@ -4,6 +4,7 @@ __pycache__/
 *.pyc
 user_data/
 browser_session/
+linkedin_session/
 *.log
 .perm_test.tmp
 *.png
