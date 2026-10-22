@@ -35,6 +35,7 @@ VIRAL_ACCOUNTS = [
     "kunalb11",
     "Zomato",
     # Global Tech & AI Heavyweights
+    "elonmusk",
     "sama",
     "karpathy",
     "satyanadella",
