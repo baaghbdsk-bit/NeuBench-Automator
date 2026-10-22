@@ -1059,6 +1059,70 @@ async def launch_linkedin_login():
 
 
 
+
+_REDDIT_LOGIN_PROC = None
+_THREADS_LOGIN_PROC = None
+
+@app.post("/api/auth/launch-reddit-login")
+async def launch_reddit_login():
+    global _REDDIT_LOGIN_PROC
+    if _REDDIT_LOGIN_PROC and _REDDIT_LOGIN_PROC.poll() is not None:
+        _REDDIT_LOGIN_PROC = None
+
+    script_path = config.BASE_DIR / "scripts" / "login_reddit.py"
+    venv_py = config.BASE_DIR / "venv" / "Scripts" / "python.exe"
+    py_bin = str(venv_py) if venv_py.exists() else sys.executable
+
+    creation_flags = 0
+    if sys.platform == "win32":
+        creation_flags = subprocess.CREATE_NEW_CONSOLE
+
+    try:
+        if not (_REDDIT_LOGIN_PROC and _REDDIT_LOGIN_PROC.poll() is None):
+            _REDDIT_LOGIN_PROC = subprocess.Popen(
+                [py_bin, str(script_path)],
+                cwd=str(config.BASE_DIR),
+                creationflags=creation_flags
+            )
+    except Exception:
+        pass
+
+    return {
+        "status": "launched",
+        "message": "Reddit login browser initiated! Run 'python main.py login-reddit' in your terminal if not visible.",
+        "command": "python main.py login-reddit"
+    }
+
+@app.post("/api/auth/launch-threads-login")
+async def launch_threads_login():
+    global _THREADS_LOGIN_PROC
+    if _THREADS_LOGIN_PROC and _THREADS_LOGIN_PROC.poll() is not None:
+        _THREADS_LOGIN_PROC = None
+
+    script_path = config.BASE_DIR / "scripts" / "login_threads.py"
+    venv_py = config.BASE_DIR / "venv" / "Scripts" / "python.exe"
+    py_bin = str(venv_py) if venv_py.exists() else sys.executable
+
+    creation_flags = 0
+    if sys.platform == "win32":
+        creation_flags = subprocess.CREATE_NEW_CONSOLE
+
+    try:
+        if not (_THREADS_LOGIN_PROC and _THREADS_LOGIN_PROC.poll() is None):
+            _THREADS_LOGIN_PROC = subprocess.Popen(
+                [py_bin, str(script_path)],
+                cwd=str(config.BASE_DIR),
+                creationflags=creation_flags
+            )
+    except Exception:
+        pass
+
+    return {
+        "status": "launched",
+        "message": "Threads login browser initiated! Run 'python main.py login-threads' in your terminal if not visible.",
+        "command": "python main.py login-threads"
+    }
+
 @app.post("/api/auth/launch-x-login")
 
 async def launch_x_login():

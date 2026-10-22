@@ -80,8 +80,8 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench X-Post Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads, Reddit)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "update-profile", "metrics", "dashboard", "ui"], 
-        help="Action: 'dashboard', 'login-linkedin', 'bluesky', 'linkedin', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "login-linkedin", "login-reddit", "login-threads", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "update-profile", "metrics", "dashboard", "ui"], 
+        help="Action: 'dashboard', 'login-linkedin', 'login-reddit', 'login-threads', 'bluesky', 'linkedin', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
     parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', 'bluesky', or 'linkedin')")
@@ -185,6 +185,18 @@ def main():
     elif args.action == "login":
         from scripts.login_browser import login_and_save_session
         login_and_save_session()
+
+    elif args.action == "login-linkedin":
+        from scripts.login_linkedin import login_linkedin
+        login_linkedin()
+
+    elif args.action == "login-reddit":
+        from scripts.login_reddit import login_reddit
+        login_reddit()
+
+    elif args.action == "login-threads":
+        from scripts.login_threads import login_threads
+        login_threads()
         
     elif args.action == "test":
         from scripts.test_generation import test_pipeline
