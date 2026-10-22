@@ -105,3 +105,4 @@ if put_res.status_code == 200:
     print(f"View live profile at: https://bsky.app/profile/{handle}")
 else:
     print(f"[Bluesky] Failed to update profile record: {put_res.status_code} {put_res.text}")
+
