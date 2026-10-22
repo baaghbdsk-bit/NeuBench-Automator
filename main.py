@@ -1,7 +1,19 @@
 import sys
+import subprocess
+from pathlib import Path
+
+# Auto-switch to virtualenv python if invoked via global python without venv activated
+_BASE_DIR = Path(__file__).resolve().parent
+_VENV_PYTHON = _BASE_DIR / "venv" / "Scripts" / "python.exe"
+if _VENV_PYTHON.exists() and Path(sys.executable).resolve() != _VENV_PYTHON.resolve():
+    try:
+        # Re-execute seamlessly inside the virtual environment
+        sys.exit(subprocess.call([str(_VENV_PYTHON)] + sys.argv))
+    except Exception:
+        pass
+
 import argparse
 import json
-from pathlib import Path
 
 # Ensure UTF-8 output on Windows consoles
 if sys.platform == "win32":
