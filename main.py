@@ -13,6 +13,7 @@ if sys.platform == "win32":
 
 from rich.console import Console
 from rich.table import Table
+from rich.panel import Panel
 
 console = Console()
 
@@ -64,14 +65,14 @@ def display_metrics():
         console.print(f"[red]Error reading metrics: {e}[/red]")
 
 def main():
-    parser = argparse.ArgumentParser(description="NeuBench X-Post Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
+    parser = argparse.ArgumentParser(description="NeuBench X-Post Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads, Reddit)")
     parser.add_argument(
         "action", 
-        choices=["login", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "update-profile", "metrics", "dashboard", "ui"], 
-        help="Action: 'dashboard' (launch UI), 'bluesky' (post to Bluesky), 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "update-profile", "metrics", "dashboard", "ui"], 
+        help="Action: 'dashboard' (launch UI), 'bluesky' (post to Bluesky), 'linkedin' (generate & launch LinkedIn post), 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
-    parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', or 'bluesky')")
+    parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', 'bluesky', or 'linkedin')")
     parser.add_argument("--dry-run", action="store_true", help="Run without publishing live")
     parser.add_argument("--name", type=str, default="vishnu rot", help="Display Name for profile")
     parser.add_argument("--bio", type=str, default="Tech, markets & the absurd reality of modern work. Calling out what everyone thinks but won't tweet. | Building in public.", help="Bio for profile")
@@ -122,6 +123,32 @@ def main():
             console.print(f"[bold cyan]✅ {msg}[/bold cyan]")
         else:
             console.print(f"[bold red]❌ {msg}[/bold red]")
+
+    elif args.action == "linkedin":
+        import webbrowser
+        from src.ai_generator import AIGenerator
+        from src.linkedin_client import LinkedInClient
+
+        client = LinkedInClient()
+        if args.text:
+            text = args.text
+        else:
+            ai = AIGenerator()
+            console.print("[cyan]Generating high-authority B2B thought-leadership post for LinkedIn...[/cyan]")
+            text = ai.generate_linkedin_take(
+                title="Frontier Reasoning Drift & Token Efficiency across Claude 3.5, Gemini 2.0 & DeepSeek-V3",
+                summary="NeuBench telemetry reveals significant latency and cost differences when evaluating long-horizon coding tasks on quantized vs dense weights.",
+                company="NeuBench"
+            )
+
+        console.print(Panel(text, title="[bold blue]LinkedIn B2B Thought-Leadership Draft[/bold blue]", border_style="blue"))
+        share_url = client.generate_share_url(text)
+        console.print(f"\n[bold green]🚀 1-Click LinkedIn Composer URL:[/bold green]\n{share_url}\n")
+        try:
+            webbrowser.open(share_url)
+            console.print("[dim]Opened LinkedIn composer in your default browser.[/dim]")
+        except Exception:
+            pass
 
     elif args.action == "login":
         from scripts.login_browser import login_and_save_session
