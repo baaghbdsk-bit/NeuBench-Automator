@@ -1,7 +1,8 @@
 @echo off
-title NeuBench X-Post-Automater Dashboard
+title NeuBench-Automator Omnichannel Dashboard
 echo ========================================================
-echo   Launching NeuBench X-Post-Automater Dashboard...
+echo   Launching NeuBench-Automator Dashboard...
+echo   Omnichannel OS for 𝕏, Bluesky, LinkedIn & Threads
 echo ========================================================
 
 cd /d "%~dp0"

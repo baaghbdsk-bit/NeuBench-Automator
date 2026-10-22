@@ -31,8 +31,9 @@ from src.safety import SafetyEngine
 from src.scheduler import AutomaterEngine
 from src.ai_generator import AIGenerator
 from src.twitter_client import TwitterClient
+from src.bluesky_client import BlueskyClient
 
-app = FastAPI(title="NeuBench X-Post-Automater", version="1.2.0")
+app = FastAPI(title="NeuBench-Automator", version="2.0.0")
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 # Cross-Promotion: Showcase NeuBench + Connect with Us
@@ -111,6 +112,30 @@ async def get_stats():
             "estimated_impressions": estimated_impressions,
             "target_impressions": target_impressions,
             "impression_pct": impression_pct
+        },
+        "platforms": {
+            "x": {
+                "name": "𝕏 (Twitter)",
+                "configured": config.COOKIES_FILE.exists(),
+                "handle": "@GWorld34864",
+                "status": "connected" if config.COOKIES_FILE.exists() else "setup_needed"
+            },
+            "bluesky": {
+                "name": "Bluesky (AT Protocol)",
+                "configured": bool(config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD),
+                "handle": config.BLUESKY_HANDLE or "Not configured",
+                "status": "ready" if (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD) else "setup_needed"
+            },
+            "linkedin": {
+                "name": "LinkedIn Thought Leadership",
+                "configured": config.LINKEDIN_ENABLED,
+                "status": "ready"
+            },
+            "threads": {
+                "name": "Threads Community",
+                "configured": config.THREADS_ENABLED,
+                "status": "ready"
+            }
         },
         "today": {
             "counts": today_counts,
@@ -274,11 +299,79 @@ async def draft_neubench_tweet(req: NeuBenchDraftRequest):
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
+@app.post("/api/neubench/draft-multi")
+async def draft_neubench_multi(req: NeuBenchDraftRequest):
+    """Generates platform-tailored takes for 𝕏, Bluesky, LinkedIn, and Threads simultaneously."""
+    try:
+        ai = AIGenerator()
+        inc = req.include_link if req.include_link is not None else True
+        title = req.title
+        summary = req.summary or ""
+        company = req.company or ""
+
+        x_take = ai.generate_neubench_take(title=title, summary=summary, company=company, include_link=inc)
+        bluesky_take = ai.generate_bluesky_take(title=title, summary=summary, company=company, include_link=inc)
+        linkedin_take = ai.generate_linkedin_take(title=title, summary=summary, company=company, include_link=inc)
+        threads_take = ai.generate_threads_take(title=title, summary=summary, company=company, include_link=inc)
+
+        return {
+            "status": "success",
+            "takes": {
+                "x": x_take,
+                "bluesky": bluesky_take,
+                "linkedin": linkedin_take,
+                "threads": threads_take
+            }
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+class PublishBlueskyRequest(BaseModel):
+    text: str
+    dry_run: Optional[bool] = None
+
+@app.post("/api/action/publish-bluesky")
+async def publish_bluesky_post(req: PublishBlueskyRequest):
+    """Publishes a drafted post directly to Bluesky via AT Protocol XRPC."""
+    safety = SafetyEngine()
+    is_dry = req.dry_run if req.dry_run is not None else safety.dry_run
+
+    tracker = ActivityTracker(config.BASE_DIR / "trial_metrics.json", config.BASE_DIR / "post_history.json")
+    start_time = time.time()
+
+    try:
+        client = BlueskyClient(
+            handle=config.BLUESKY_HANDLE,
+            app_password=config.BLUESKY_APP_PASSWORD,
+            dry_run=is_dry
+        )
+        success, message = client.post(req.text)
+        status = "success" if success else "failed"
+
+        tracker.record_event(
+            action_type="bluesky_post",
+            status=status,
+            target_identifier="Bluesky (AT Protocol)",
+            content_preview=req.text[:80],
+            skip_or_error_reason="" if success else message,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=is_dry
+        )
+        return {
+            "status": status,
+            "dry_run": is_dry,
+            "message": message
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 class SettingsRequest(BaseModel):
     max_daily_total: Optional[int] = 20
     max_daily_replies: Optional[int] = 14
     dry_run: Optional[bool] = False
     target_niches: Optional[str] = "ai_tech,wealth_finance,viral_culture"
+    bluesky_handle: Optional[str] = None
+    bluesky_app_password: Optional[str] = None
 
 @app.post("/api/settings")
 async def update_settings(req: SettingsRequest):
@@ -294,6 +387,12 @@ async def update_settings(req: SettingsRequest):
         "DRY_RUN": "true" if req.dry_run else "false",
         "TARGET_NICHES": req.target_niches
     }
+    if req.bluesky_handle is not None:
+        updates["BLUESKY_HANDLE"] = req.bluesky_handle.strip()
+        config.BLUESKY_HANDLE = req.bluesky_handle.strip()
+    if req.bluesky_app_password is not None:
+        updates["BLUESKY_APP_PASSWORD"] = req.bluesky_app_password.strip()
+        config.BLUESKY_APP_PASSWORD = req.bluesky_app_password.strip()
 
     new_lines = []
     seen = set()

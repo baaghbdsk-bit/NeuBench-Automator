@@ -1,4 +1,4 @@
-name: X-Post-Automater 24/7 Engine
+name: NeuBench-Automator 24/7 Engine
 
 on:
   schedule:
@@ -21,7 +21,7 @@ on:
         default: auto
 
 concurrency:
-  group: x-automater-cloud-engine
+  group: neubench-automator-cloud-engine
   cancel-in-progress: false
 
 permissions:
@@ -60,6 +60,8 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-3.5-flash-lite
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           PYTHONIOENCODING: utf-8
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           TRIAL_ENABLED: 'true'
@@ -88,7 +90,7 @@ jobs:
       - name: Generate Run Summary
         if: always()
         run: |
-          echo "## 📊 X-Post-Automater Run Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 NeuBench-Automator Run Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           python -c "
           import json, os

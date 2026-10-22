@@ -64,7 +64,7 @@ def display_metrics():
         console.print(f"[red]Error reading metrics: {e}[/red]")
 
 def main():
-    parser = argparse.ArgumentParser(description="NeuBench X-Post-Automater: 24/7 AI News & Growth Engine.")
+    parser = argparse.ArgumentParser(description="NeuBench-Automator: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
         choices=["login", "test", "run-once", "start", "post", "reply", "repost", "update-profile", "metrics", "dashboard", "ui"], 
@@ -86,7 +86,7 @@ def main():
     if args.action in ("dashboard", "ui"):
         import webbrowser
         import uvicorn
-        console.print("\n[bold cyan]🚀 Starting NeuBench X-Post-Automater Dashboard on http://127.0.0.1:8000[/bold cyan]")
+        console.print("\n[bold cyan]🚀 Starting NeuBench-Automator Dashboard on http://127.0.0.1:8000[/bold cyan]")
         console.print("[dim]Press Ctrl+C to stop the dashboard server[/dim]\n")
         try:
             webbrowser.open("http://127.0.0.1:8000")

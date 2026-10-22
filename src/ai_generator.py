@@ -138,4 +138,55 @@ Rules:
         text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88)
         return text.strip('"')
 
+    def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
+        """Generates a technical, open-source and developer-friendly post for Bluesky (under 300 chars)."""
+        link_str = " (neubench.vercel.app)" if include_link else ""
+        prompt = f"""
+Topic: "{title}"
+Company/Developer: "{company}"
+Context: "{summary}"
+
+Write a Bluesky post about this AI development.
+Rules:
+- Audience: Open-source developers, researchers, tech builders.
+- Tone: Curious, technical, direct, respectful of open standards, zero corporate cringe.
+- Length: strictly under 280 characters so it fits the 300-char limit{link_str}.
+- Output ONLY the post text.
+"""
+        return self._generate_with_fallback(prompt, "You write for tech-savvy developers on Bluesky.", temperature=0.8).strip('"')
+
+    def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
+        """Generates a professional B2B thought-leadership post for LinkedIn with structured insights."""
+        link_line = "\n\nTracking the frontier benchmarks on NeuBench (https://neubench.vercel.app)." if include_link else ""
+        prompt = f"""
+Topic: "{title}"
+Developer/Company: "{company}"
+Context: "{summary}"
+
+Write a concise, high-value LinkedIn post.
+Format:
+- 1 strong hook line highlighting the industry shift.
+- 2-3 short bullet points (using • or -) explaining the practical implications for software teams or founders.
+- 1 thoughtful question asking the network for their perspective.
+- Tone: Professional, analytical, forward-looking, zero cheesy fluff or corporate platitudes.
+{link_line}
+- Output ONLY the post text.
+"""
+        return self._generate_with_fallback(prompt, "You are a senior tech strategist writing high-value insights on LinkedIn.", temperature=0.75).strip('"')
+
+    def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
+        """Generates a casual, conversational discussion post for Threads."""
+        link_str = " Checked the benchmarks on neubench.vercel.app" if include_link else ""
+        prompt = f"""
+Topic: "{title}"
+Context: "{summary}"
+
+Write a casual, conversational post for Threads that invites people to share their experience or opinion.
+- Friendly, curiosity-driven, easy to read on mobile.
+- Under 250 characters{link_str}.
+- Output ONLY the post text.
+"""
+        return self._generate_with_fallback(prompt, "You are an authentic mobile creator writing for Threads.", temperature=0.85).strip('"')
+
+
 

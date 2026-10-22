@@ -25,3 +25,10 @@ TARGET_NICHES = [
         "ai_tech,wealth_finance,viral_culture,work_life_debates"
     ).split(",") if n.strip()
 ]
+
+# Omnichannel Expansion (Bluesky, LinkedIn, Threads)
+BLUESKY_HANDLE = os.getenv("BLUESKY_HANDLE", "")
+BLUESKY_APP_PASSWORD = os.getenv("BLUESKY_APP_PASSWORD", "")
+LINKEDIN_ENABLED = os.getenv("LINKEDIN_ENABLED", "true").lower() in ("true", "1")
+THREADS_ENABLED = os.getenv("THREADS_ENABLED", "true").lower() in ("true", "1")
+

@@ -1,7 +1,8 @@
 @echo off
-title NeuBench X-Post-Automater Setup
+title NeuBench-Automator Setup
 echo ========================================================
-echo   NeuBench X-Post-Automater 1-Click Environment Setup
+echo   NeuBench-Automator 1-Click Environment Setup
+echo   Omnichannel AI Social Growth Suite
 echo ========================================================
 
 cd /d "%~dp0"
