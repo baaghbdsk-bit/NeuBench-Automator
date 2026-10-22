@@ -188,5 +188,40 @@ Write a casual, conversational post for Threads that invites people to share the
 """
         return self._generate_with_fallback(prompt, "You are an authentic mobile creator writing for Threads.", temperature=0.85).strip('"')
 
+    def generate_reddit_post(self, title: str, summary: str = "", company: str = "", subreddit: str = "r/LocalLLaMA", include_link: bool = True) -> dict:
+        """Generates a high-value, community-tailored Reddit post with markdown formatting."""
+        link_str = "\n\n*Benchmarks tracked on [NeuBench](https://neubench.vercel.app) • Open source engine on [GitHub](https://github.com/baaghbdsk-bit/NeuBench-Automator)*" if include_link else ""
+        prompt = f"""
+Topic: "{title}"
+Developer/Company: "{company}"
+Context: "{summary}"
+Target Subreddit: "{subreddit}"
 
+Write an authentic, highly engaging Reddit post for this subreddit.
+Format:
+Return a JSON object with:
+1. "title": An informative, natural Reddit post title (no buzzwords, no clickbait, fits {subreddit} style).
+2. "body": Markdown formatted body with:
+   - **TL;DR:** 1-2 sentence core takeaway.
+   - **Key Findings & Benchmark Analysis:** 2-3 clear analytical paragraphs or bullet points explaining what this means for developers/builders.
+   - **Community Discussion:** 1 provocative question asking the community about their experience or real-world benchmarks.
+   {link_str}
+
+Rules:
+- Sound like an active, genuine technical community member. Zero corporate PR fluff.
+- Output ONLY valid JSON with keys "title" and "body".
+"""
+        raw = self._generate_with_fallback(prompt, "You are a respected technical developer writing on Reddit. Output ONLY valid JSON.", temperature=0.75)
+        try:
+            cleaned = raw.strip()
+            if cleaned.startswith("```json"):
+                cleaned = cleaned[7:-3].strip()
+            elif cleaned.startswith("```"):
+                cleaned = cleaned[3:-3].strip()
+            return json.loads(cleaned)
+        except Exception:
+            return {
+                "title": f"[Discussion] {title}: Benchmark analysis & takeaways",
+                "body": f"**TL;DR:** {summary}\n\nKey analysis on {title} by {company}.\n\nWhat are you seeing in your real-world workloads?{link_str}"
+            }
 

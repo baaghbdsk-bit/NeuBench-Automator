@@ -70,6 +70,48 @@ _NEUBENCH_CACHE = {
     "data": None
 }
 
+
+# In-memory cache for live Bluesky AT Protocol metrics (TTL: 60 seconds)
+_BLUESKY_METRICS_CACHE = {
+    "timestamp": 0,
+    "followers": 1,
+    "following": 8,
+    "posts": 1
+}
+
+def get_live_bluesky_metrics():
+    now = time.time()
+    if now - _BLUESKY_METRICS_CACHE["timestamp"] < 60:
+        return _BLUESKY_METRICS_CACHE
+
+    handle = config.BLUESKY_HANDLE or "neubench.bsky.social"
+    pwd = config.BLUESKY_APP_PASSWORD
+    if not (handle and pwd):
+        return _BLUESKY_METRICS_CACHE
+
+    try:
+        res = requests.post(
+            "https://bsky.social/xrpc/com.atproto.server.createSession",
+            json={"identifier": handle, "password": pwd},
+            timeout=4
+        )
+        if res.status_code == 200:
+            jwt = res.json()["accessJwt"]
+            headers = {"Authorization": f"Bearer {jwt}"}
+            prof = requests.get(
+                f"https://bsky.social/xrpc/app.bsky.actor.getProfile?actor={handle}",
+                headers=headers,
+                timeout=4
+            ).json()
+            _BLUESKY_METRICS_CACHE["followers"] = prof.get("followersCount", 1)
+            _BLUESKY_METRICS_CACHE["following"] = prof.get("followsCount", 8)
+            _BLUESKY_METRICS_CACHE["posts"] = prof.get("postsCount", 1)
+            _BLUESKY_METRICS_CACHE["timestamp"] = now
+    except Exception as e:
+        print(f"[Bluesky Metrics] Failed to fetch: {e}")
+
+    return _BLUESKY_METRICS_CACHE
+
 def get_engine():
     return AutomaterEngine()
 
@@ -102,6 +144,16 @@ async def get_stats():
     target_impressions = 5_000_000
     impression_pct = min(100, round((estimated_impressions / target_impressions) * 100, 2))
 
+    # Calculate platform-specific activity counts from event stream
+    events = tracker.metrics.get("recent_events", [])
+    x_count = sum(1 for e in events if e.get("action_type") in ("original_post", "reply", "quote_tweet", "repost"))
+    bsky_actions = sum(1 for e in events if "bluesky" in e.get("action_type", ""))
+    linkedin_actions = sum(1 for e in events if "linkedin" in e.get("action_type", ""))
+    reddit_actions = sum(1 for e in events if "reddit" in e.get("action_type", ""))
+    threads_actions = sum(1 for e in events if "threads" in e.get("action_type", ""))
+
+    bsky_live = get_live_bluesky_metrics()
+
     return {
         "profile": {
             "name": "vishnu rot",
@@ -118,22 +170,43 @@ async def get_stats():
                 "name": "𝕏 (Twitter)",
                 "configured": config.COOKIES_FILE.exists(),
                 "handle": "@GWorld34864",
+                "followers": current_followers,
+                "target_followers": target_followers,
+                "reach": estimated_impressions,
+                "total_actions": x_count,
                 "status": "connected" if config.COOKIES_FILE.exists() else "setup_needed"
             },
             "bluesky": {
                 "name": "Bluesky (AT Protocol)",
                 "configured": bool(config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD),
-                "handle": config.BLUESKY_HANDLE or "Not configured",
-                "status": "ready" if (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD) else "setup_needed"
+                "handle": config.BLUESKY_HANDLE or "@neubench.bsky.social",
+                "followers": bsky_live.get("followers", 1),
+                "following": bsky_live.get("following", 8),
+                "posts": bsky_live.get("posts", 1),
+                "total_actions": bsky_actions,
+                "status": "active" if (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD) else "setup_needed"
             },
             "linkedin": {
-                "name": "LinkedIn Thought Leadership",
+                "name": "LinkedIn B2B Studio",
                 "configured": config.LINKEDIN_ENABLED,
+                "handle": "Professional Network",
+                "target_views": 10000,
+                "takes_generated": max(linkedin_actions, 1),
+                "status": "ready"
+            },
+            "reddit": {
+                "name": "Reddit AI Communities",
+                "configured": True,
+                "handle": "u/NeuBench",
+                "target_subreddits": 5,
+                "takes_generated": reddit_actions,
                 "status": "ready"
             },
             "threads": {
                 "name": "Threads Community",
                 "configured": config.THREADS_ENABLED,
+                "handle": "Mobile Dialogue",
+                "takes_generated": max(threads_actions, 1),
                 "status": "ready"
             }
         },
@@ -505,6 +578,70 @@ class TopicRoutingUpdateRequest(BaseModel):
 async def update_topics_api(req: TopicRoutingUpdateRequest):
     save_topic_routing(req.routing)
     return {"status": "success", "message": "Topic routing updated successfully", "routing": req.routing}
+
+
+class RecordCopyRequest(BaseModel):
+    platform: str
+    content_preview: Optional[str] = ""
+
+@app.post("/api/action/record-copy")
+async def record_copy(req: RecordCopyRequest):
+    """Records copy action to track engagement metrics for non-API platforms."""
+    tracker = ActivityTracker(config.BASE_DIR / "trial_metrics.json", config.BASE_DIR / "post_history.json")
+    tracker.record_event(
+        action_type=f"{req.platform}_copy",
+        status="success",
+        target_identifier=f"{req.platform.upper()} Studio",
+        content_preview=req.content_preview[:80],
+        duration_seconds=0.1,
+        is_dry_run=False
+    )
+    return {"status": "success", "platform": req.platform}
+
+@app.get("/api/reddit/subreddits")
+async def get_reddit_subreddits_api():
+    from src.reddit_client import RedditClient
+    client = RedditClient()
+    return {"subreddits": client.get_target_subreddits()}
+
+class RedditDraftRequest(BaseModel):
+    title: str
+    summary: Optional[str] = ""
+    company: Optional[str] = ""
+    subreddit: Optional[str] = "r/LocalLLaMA"
+
+@app.post("/api/reddit/draft")
+async def draft_reddit_api(req: RedditDraftRequest):
+    try:
+        from src.ai_generator import AIGenerator
+        from src.reddit_client import RedditClient
+        ai = AIGenerator()
+        result = ai.generate_reddit_post(
+            title=req.title,
+            summary=req.summary or "",
+            company=req.company or "",
+            subreddit=req.subreddit or "r/LocalLLaMA"
+        )
+        client = RedditClient()
+        submit_url = client.generate_submit_url(req.subreddit or "r/LocalLLaMA", result.get("title", ""), result.get("body", ""))
+
+        tracker = ActivityTracker(config.BASE_DIR / "trial_metrics.json", config.BASE_DIR / "post_history.json")
+        tracker.record_event(
+            action_type="reddit_draft",
+            status="success",
+            target_identifier=req.subreddit or "r/LocalLLaMA",
+            content_preview=result.get("title", "")[:80],
+            duration_seconds=1.0,
+            is_dry_run=False
+        )
+        return {
+            "status": "success",
+            "title": result.get("title", ""),
+            "body": result.get("body", ""),
+            "submit_url": submit_url
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 @app.get("/api/products")
 async def get_ecosystem_products():

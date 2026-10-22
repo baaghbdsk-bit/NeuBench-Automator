@@ -196,7 +196,17 @@
         </span>
       </div>
 
-      <!-- Icon 5: Threads (🧵) -->
+            <!-- Icon 5: Reddit (👽) -->
+      <div class="relative rail-btn w-full flex justify-center">
+        <button onclick="switchPlatform('reddit')" id="rail-btn-reddit" class="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-500/10 transition">
+          <i class="fa-brands fa-reddit-alien text-sm"></i>
+        </button>
+        <span class="rail-tooltip absolute left-14 top-2 bg-slate-900 text-white text-[11px] font-semibold px-2 py-1 rounded shadow-lg whitespace-nowrap z-50 pointer-events-none">
+          Reddit AI Communities
+        </span>
+      </div>
+
+      <!-- Icon 6: Threads (🧵) -->
       <div class="relative rail-btn w-full flex justify-center">
         <button onclick="switchPlatform('threads')" id="rail-btn-threads" class="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition">
           <i class="fa-brands fa-threads text-xs"></i>
@@ -290,8 +300,8 @@
       <!-- ========================================== -->
       <div id="view-hub" class="space-y-4">
         
-        <!-- Omnichannel Channel Status Row -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <!-- Omnichannel Channel Status Row (5 Active Platforms) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           
           <!-- 𝕏 Card -->
           <div class="card-base p-3.5 flex flex-col justify-between hover:border-slate-400 dark:hover:border-slate-600 cursor-pointer transition" onclick="switchPlatform('x')">
@@ -339,6 +349,22 @@
               <div class="text-base font-bold text-slate-900 dark:text-white">Hook + 3 Bullets</div>
             </div>
             <span class="text-[10px] text-blue-600 dark:text-blue-400 font-semibold flex items-center gap-1">Open Studio →</span>
+          </div>
+
+                    <!-- Reddit Card -->
+          <div class="card-base p-3.5 flex flex-col justify-between hover:border-orange-400 dark:hover:border-orange-600 cursor-pointer transition" onclick="switchPlatform('reddit')">
+            <div class="flex items-center justify-between mb-1">
+              <div class="flex items-center space-x-1.5 text-xs font-bold text-orange-600 dark:text-orange-400">
+                <i class="fa-brands fa-reddit-alien text-[12px]"></i>
+                <span>Reddit AI</span>
+              </div>
+              <span class="text-[9px] bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-500/20 px-1.5 py-0.2 rounded font-mono font-semibold">Active</span>
+            </div>
+            <div class="my-1.5">
+              <div class="text-xs text-slate-500 dark:text-xmuted">Communities:</div>
+              <div class="text-base font-bold text-slate-900 dark:text-white" id="hub-reddit-stats">5 Subreddits</div>
+            </div>
+            <span class="text-[10px] text-orange-600 dark:text-orange-400 font-semibold flex items-center gap-1">Open Reddit Studio →</span>
           </div>
 
           <!-- Threads Card -->
@@ -635,6 +661,30 @@
       <!-- VIEW 3: BLUESKY (AT PROTOCOL) SUITE        -->
       <!-- ========================================== -->
       <div id="view-bluesky" class="hidden space-y-4">
+        <!-- Bluesky Real-Time AT Protocol KPI Strip -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="card-base p-3 flex flex-col justify-between">
+            <span class="text-[10px] text-slate-400 dark:text-xmuted font-semibold uppercase tracking-wider">Live Followers</span>
+            <div class="text-xl font-bold text-sky-600 dark:text-sky-400 mt-0.5" id="bsky-followers-count">1</div>
+            <span class="text-[10px] text-slate-500">Synced from AT Protocol</span>
+          </div>
+          <div class="card-base p-3 flex flex-col justify-between">
+            <span class="text-[10px] text-slate-400 dark:text-xmuted font-semibold uppercase tracking-wider">Following</span>
+            <div class="text-xl font-bold text-slate-900 dark:text-white mt-0.5" id="bsky-following-count">8</div>
+            <span class="text-[10px] text-slate-500">Top AI leaders & devs</span>
+          </div>
+          <div class="card-base p-3 flex flex-col justify-between">
+            <span class="text-[10px] text-slate-400 dark:text-xmuted font-semibold uppercase tracking-wider">Posts Published</span>
+            <div class="text-xl font-bold text-emerald-600 dark:text-emerald-400 mt-0.5" id="bsky-posts-count">1</div>
+            <span class="text-[10px] text-slate-500">Dual-distributed automatically</span>
+          </div>
+          <div class="card-base p-3 flex flex-col justify-between">
+            <span class="text-[10px] text-slate-400 dark:text-xmuted font-semibold uppercase tracking-wider">Protocol Latency</span>
+            <div class="text-xl font-bold text-purple-600 dark:text-purple-400 mt-0.5">~120ms</div>
+            <span class="text-[10px] text-slate-500">Direct XRPC REST API</span>
+          </div>
+        </div>
+
 
         <!-- Bluesky Platform Insights HUD -->
         <div class="card-base p-4 bg-gradient-to-r from-sky-50/50 to-slate-50 dark:from-[#0d1527] dark:to-[#0c0f16] border border-sky-200 dark:border-sky-500/20">
@@ -828,6 +878,38 @@
           </div>
         </div>
 
+                <!-- LinkedIn Profile Enhancement Guide & Assets -->
+        <div class="card-base p-4 space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-xborder">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-id-card text-blue-600"></i>
+              <h4 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-wider">LinkedIn Profile Branding & Setup</h4>
+            </div>
+            <span class="text-[10px] bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20 px-2 py-0.5 rounded-full font-semibold">B2B Authority</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div class="space-y-1.5 bg-slate-50 dark:bg-[#0c0f16] p-3 rounded-xl border border-slate-200 dark:border-xborder">
+              <span class="font-bold text-slate-900 dark:text-white block">Recommended Headline:</span>
+              <p class="text-[11px] text-slate-600 dark:text-neutral-300 font-mono bg-white dark:bg-[#11141d] p-2 rounded border border-slate-200 dark:border-xborder select-all">Building NeuBench • Real-Time AI Benchmarks & LLM Evals across 266+ Models | Tech & Engineering Commentary</p>
+              <button onclick="navigator.clipboard.writeText('Building NeuBench • Real-Time AI Benchmarks & LLM Evals across 266+ Models | Tech & Engineering Commentary'); alert('Copied LinkedIn headline to clipboard!');" class="text-[10px] text-blue-600 dark:text-blue-400 font-semibold flex items-center gap-1 hover:underline">
+                <i class="fa-regular fa-copy"></i> Copy Headline
+              </button>
+            </div>
+
+            <div class="space-y-1.5 bg-slate-50 dark:bg-[#0c0f16] p-3 rounded-xl border border-slate-200 dark:border-xborder">
+              <span class="font-bold text-slate-900 dark:text-white block">Recommended About Section:</span>
+              <p class="text-[11px] text-slate-600 dark:text-neutral-300 font-mono bg-white dark:bg-[#11141d] p-2 rounded border border-slate-200 dark:border-xborder select-all line-clamp-3">Tracking frontier AI models, benchmark discrepancy, and enterprise LLM performance.
+
+Live Platform: https://neubench.vercel.app
+Open-Source Suite: https://github.com/baaghbdsk-bit/NeuBench-Automator</p>
+              <button onclick="navigator.clipboard.writeText('Tracking frontier AI models, benchmark discrepancy, and enterprise LLM performance.\n\nLive Platform: https://neubench.vercel.app\nOpen-Source Suite: https://github.com/baaghbdsk-bit/NeuBench-Automator'); alert('Copied About section to clipboard!');" class="text-[10px] text-blue-600 dark:text-blue-400 font-semibold flex items-center gap-1 hover:underline">
+                <i class="fa-regular fa-copy"></i> Copy About Text
+              </button>
+            </div>
+          </div>
+        </div>
+
         <!-- Interactive LinkedIn Drafting Pad -->
         <div class="card-base p-4 space-y-3">
           <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-xborder">
@@ -848,8 +930,118 @@
 
       </div>
 
+            <!-- ========================================== -->
+      <!-- VIEW 5: REDDIT (AI COMMUNITIES) STUDIO     -->
       <!-- ========================================== -->
-      <!-- VIEW 5: THREADS CONVERSATION STUDIO        -->
+      <div id="view-reddit" class="hidden space-y-4">
+        
+        <!-- Reddit Strategy HUD -->
+        <div class="card-base p-4 bg-gradient-to-r from-orange-50/50 to-slate-50 dark:from-[#211107] dark:to-[#0c0f16] border border-orange-200 dark:border-orange-500/20">
+          <div class="flex items-center justify-between mb-3 pb-2 border-b border-orange-200 dark:border-xborder">
+            <div class="flex items-center space-x-2">
+              <i class="fa-brands fa-reddit-alien text-orange-500 text-lg"></i>
+              <div>
+                <h4 class="font-bold text-slate-900 dark:text-white text-xs">Reddit Developer Communities (r/LocalLLaMA & Machine Learning)</h4>
+                <p class="text-[10px] text-slate-500 dark:text-xmuted">Authentic technical breakdowns tailored for open-source AI builders & researchers</p>
+              </div>
+            </div>
+            <span class="text-[10px] bg-orange-100 dark:bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-0.5 rounded font-mono font-semibold">High-Karma Authority</span>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 text-[11px]">
+            <div class="bg-white dark:bg-[#0c0f16] p-2.5 rounded-lg border border-slate-200 dark:border-xborder">
+              <span class="text-slate-400 dark:text-xmuted block text-[10px] font-semibold uppercase tracking-wider">Top Communities</span>
+              <span class="font-bold text-slate-900 dark:text-white mt-0.5 block">r/LocalLLaMA & r/ML</span>
+              <span class="text-slate-500 text-[10px]">Over 1.5M combined ML builders</span>
+            </div>
+            <div class="bg-white dark:bg-[#0c0f16] p-2.5 rounded-lg border border-slate-200 dark:border-xborder">
+              <span class="text-slate-400 dark:text-xmuted block text-[10px] font-semibold uppercase tracking-wider">Key Rule</span>
+              <span class="font-bold text-orange-600 dark:text-orange-400 mt-0.5 block">Zero PR Fluff & Clickbait</span>
+              <span class="text-slate-500 text-[10px]">Must provide immediate technical value in post</span>
+            </div>
+            <div class="bg-white dark:bg-[#0c0f16] p-2.5 rounded-lg border border-slate-200 dark:border-xborder">
+              <span class="text-slate-400 dark:text-xmuted block text-[10px] font-semibold uppercase tracking-wider">Format</span>
+              <span class="font-bold text-slate-900 dark:text-white mt-0.5 block">Title + TL;DR + Analysis</span>
+              <span class="text-slate-500 text-[10px]">Ends with open community question</span>
+            </div>
+            <div class="bg-white dark:bg-[#0c0f16] p-2.5 rounded-lg border border-slate-200 dark:border-xborder">
+              <span class="text-slate-400 dark:text-xmuted block text-[10px] font-semibold uppercase tracking-wider">Attribution</span>
+              <span class="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5 block">NeuBench + GitHub</span>
+              <span class="text-slate-500 text-[10px]">Clean footnote markdown citation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reddit Topic Routing Matrix -->
+        <div class="card-base p-4 space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-xborder">
+            <div>
+              <h4 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                <i class="fa-solid fa-route text-orange-500"></i>
+                <span>Topic Routing: What Goes to Reddit</span>
+              </h4>
+              <p class="text-[11px] text-slate-500 dark:text-xmuted mt-0.5">Route technical benchmark analysis and open weights to Reddit developer subreddits.</p>
+            </div>
+            <button onclick="savePlatformTopics('reddit')" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs px-3.5 py-1 rounded-full transition shadow-sm">
+              Save Reddit Topics
+            </button>
+          </div>
+
+          <div id="topics-grid-reddit" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 pt-1">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+        <!-- Reddit Interactive Composer & Subreddit Dispatcher -->
+        <div class="card-base p-4 space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-xborder">
+            <div class="flex items-center space-x-2">
+              <h4 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-wider">Reddit Post Composer</h4>
+              <select id="reddit-subreddit-select" class="bg-slate-100 dark:bg-[#0c0f16] border border-slate-200 dark:border-xborder rounded-md px-2 py-0.5 text-xs text-slate-800 dark:text-white focus:outline-none focus:border-orange-500 font-mono">
+                <option value="r/LocalLLaMA">r/LocalLLaMA (Open Source Models)</option>
+                <option value="r/MachineLearning">r/MachineLearning (Research & Architecture)</option>
+                <option value="r/ArtificialInteligence">r/ArtificialInteligence (Industry Evals)</option>
+                <option value="r/singularity">r/singularity (Frontier Models)</option>
+                <option value="r/ChatGPT">r/ChatGPT (Productivity & Real World)</option>
+              </select>
+            </div>
+            <button onclick="draftSelectedRedditStory()" class="bg-orange-50 hover:bg-orange-100 dark:bg-orange-500/10 dark:hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-500/30 text-xs px-3 py-1 rounded-full font-semibold transition flex items-center gap-1.5">
+              <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i>
+              <span>Draft from NeuBench Radar</span>
+            </button>
+          </div>
+
+          <div class="space-y-2">
+            <div>
+              <label class="text-[11px] font-semibold text-slate-600 dark:text-neutral-300">Reddit Post Title:</label>
+              <input type="text" id="reddit-studio-title" placeholder="[Discussion] Frontier LLM latency & benchmark discrepancies..." class="w-full mt-1 bg-slate-50 dark:bg-[#0c0f16] border border-slate-200 dark:border-xborder rounded-lg p-2.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 font-medium">
+            </div>
+
+            <div>
+              <label class="text-[11px] font-semibold text-slate-600 dark:text-neutral-300">Markdown Body (TL;DR + Technical Analysis + Community Question):</label>
+              <textarea id="reddit-studio-body" rows="7" placeholder="Click 'Draft from NeuBench Radar' or choose a story below to generate an in-depth Reddit breakdown..." class="w-full mt-1 bg-slate-50 dark:bg-[#0c0f16] border border-slate-200 dark:border-xborder rounded-xl p-3 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 resize-none font-mono leading-relaxed"></textarea>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-xborder">
+            <span class="text-[10px] text-slate-500 dark:text-xmuted">Includes NeuBench Web App & GitHub citations</span>
+            <div class="flex items-center space-x-2">
+              <button onclick="copyRedditStudioText()" id="reddit-copy-btn" class="bg-slate-100 hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/15 text-slate-800 dark:text-white font-semibold text-xs px-3.5 py-1.5 rounded-full transition flex items-center gap-1.5 active:scale-95">
+                <i class="fa-regular fa-copy"></i>
+                <span>Copy Markdown</span>
+              </button>
+              <button onclick="openRedditSubmitPage()" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs px-4 py-1.5 rounded-full transition flex items-center gap-1.5 shadow-sm shadow-orange-500/25 active:scale-95">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                <span>1-Click Submit on Reddit ↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================== -->
+      <!-- VIEW 6: THREADS CONVERSATION STUDIO        -->
       <!-- ========================================== -->
       <div id="view-threads" class="hidden space-y-4">
         
@@ -1087,10 +1279,11 @@
     // Initialize Theme immediately
     initTheme();
 
-    // 2. Platform Viewport Switcher
+    
+    // Platform Viewport Switcher (Supports: hub, x, bluesky, linkedin, reddit, threads)
     function switchPlatform(platform) {
       currentPlatform = platform;
-      const views = ['hub', 'x', 'bluesky', 'linkedin', 'threads'];
+      const views = ['hub', 'x', 'bluesky', 'linkedin', 'reddit', 'threads'];
       
       views.forEach(p => {
         const viewEl = document.getElementById(`view-${p}`);
@@ -1111,7 +1304,6 @@
         }
       });
 
-      // Update Header Title & Subtitle based on platform
       const titleEl = document.getElementById('header-platform-title');
       const subEl = document.getElementById('header-subtitle');
       const badgeEl = document.getElementById('header-badge');
@@ -1119,19 +1311,23 @@
       if (platform === 'hub') {
         titleEl.innerText = 'NeuBench X-Post Automator';
         badgeEl.innerText = 'Omnichannel OS';
-        subEl.innerText = 'Autonomous growth for 𝕏, Bluesky, LinkedIn & Threads • Powered by NeuBench AI';
+        subEl.innerText = 'Autonomous growth for 𝕏, Bluesky, LinkedIn, Reddit & Threads • Powered by NeuBench AI';
       } else if (platform === 'x') {
         titleEl.innerText = '𝕏 Growth Suite';
         badgeEl.innerText = '@GWorld34864';
-        subEl.innerText = 'Targeting 500 followers & 5M impressions via automated contrarian takes and replies';
+        subEl.innerText = 'Targeting 500 followers & 5M impressions via automated contrarian takes and sniper replies';
       } else if (platform === 'bluesky') {
         titleEl.innerText = 'Bluesky (AT Protocol)';
-        badgeEl.innerText = '100% Free / Open XRPC';
-        subEl.innerText = 'Engage open-source developers, AI researchers, and technical builders';
+        badgeEl.innerText = '@neubench.bsky.social';
+        subEl.innerText = 'Real-time open-source LLM evals and builder takes on the decentralized AT Protocol';
       } else if (platform === 'linkedin') {
         titleEl.innerText = 'LinkedIn B2B Studio';
-        badgeEl.innerText = 'Thought Leadership';
+        badgeEl.innerText = 'Enterprise Tech';
         subEl.innerText = 'Hook + 3 bullet insights + engagement questions for enterprise founders & tech leads';
+      } else if (platform === 'reddit') {
+        titleEl.innerText = 'Reddit AI Communities';
+        badgeEl.innerText = 'r/LocalLLaMA & r/ML';
+        subEl.innerText = 'In-depth benchmark discussions and technical breakdowns for 1.5M+ developers';
       } else if (platform === 'threads') {
         titleEl.innerText = 'Threads Community';
         badgeEl.innerText = 'Mobile Dialogue';
@@ -1139,7 +1335,99 @@
       }
     }
 
+    async function copyLinkedInStudioText() {
+      const text = document.getElementById('linkedin-studio-textarea').value;
+      if (!text) return;
+      navigator.clipboard.writeText(text);
+      fetch('/api/action/record-copy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ platform: 'linkedin', content_preview: text.substring(0, 80) })
+      });
+      const btn = document.getElementById('linkedin-copy-btn');
+      btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i><span>Copied to Clipboard!</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<i class="fa-regular fa-copy"></i><span>Copy LinkedIn Post</span>`;
+      }, 2000);
+      fetchStats();
+    }
+
+    async function copyThreadsStudioText() {
+      const text = document.getElementById('threads-studio-textarea').value;
+      if (!text) return;
+      navigator.clipboard.writeText(text);
+      fetch('/api/action/record-copy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ platform: 'threads', content_preview: text.substring(0, 80) })
+      });
+      const btn = document.getElementById('threads-copy-btn');
+      btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i><span>Copied to Clipboard!</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<i class="fa-regular fa-copy"></i><span>Copy Threads Post</span>`;
+      }, 2000);
+      fetchStats();
+    }
+
+    async function copyRedditStudioText() {
+      const title = document.getElementById('reddit-studio-title').value;
+      const body = document.getElementById('reddit-studio-body').value;
+      if (!title && !body) return;
+      const fullText = `# ${title}\n\n${body}`;
+      navigator.clipboard.writeText(fullText);
+      fetch('/api/action/record-copy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ platform: 'reddit', content_preview: title })
+      });
+      const btn = document.getElementById('reddit-copy-btn');
+      btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i><span>Copied Markdown!</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<i class="fa-regular fa-copy"></i><span>Copy Markdown</span>`;
+      }, 2000);
+      fetchStats();
+    }
+
+    function openRedditSubmitPage() {
+      const sub = document.getElementById('reddit-subreddit-select').value.replace('r/', '');
+      const title = encodeURIComponent(document.getElementById('reddit-studio-title').value || '');
+      const body = encodeURIComponent(document.getElementById('reddit-studio-body').value || '');
+      const url = `https://www.reddit.com/r/${sub}/submit?title=${title}&text=${body}`;
+      window.open(url, '_blank');
+    }
+
+    async function draftSelectedRedditStory() {
+      if (!neubenchFeedData || !neubenchFeedData.stories || neubenchFeedData.stories.length === 0) {
+        alert('NeuBench stories are loading, please wait 3 seconds.');
+        return;
+      }
+      const s = neubenchFeedData.stories[0];
+      const sub = document.getElementById('reddit-subreddit-select').value;
+      try {
+        const res = await fetch('/api/reddit/draft', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: s.title,
+            summary: s.summary,
+            company: s.company,
+            subreddit: sub
+          })
+        });
+        const d = await res.json();
+        if (d.status === 'success') {
+          document.getElementById('reddit-studio-title').value = d.title;
+          document.getElementById('reddit-studio-body').value = d.body;
+          alert(`Generated Reddit discussion for ${sub}!`);
+          fetchStats();
+        }
+      } catch (e) {
+        alert('Failed to generate Reddit draft: ' + e);
+      }
+    }
+
     // 3. Fetch Stats & Scorecard
+
     async function fetchStats() {
       try {
         const res = await fetch('/api/stats');
