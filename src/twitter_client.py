@@ -78,7 +78,7 @@ class TwitterClient:
             page = context.pages[0] if context.pages else context.new_page()
             try:
                 print(f"[TwitterClient] Navigating to compose tweet...")
-                page.goto("https://x.com/compose/post", timeout=35000)
+                page.goto("https://x.com/compose/post", wait_until="domcontentloaded", timeout=35000)
                 page.wait_for_selector('[data-testid="tweetTextarea_0"], div[role="textbox"]', timeout=15000)
                 
                 textarea = page.locator('[data-testid="tweetTextarea_0"], div[role="textbox"]').first
@@ -110,13 +110,19 @@ class TwitterClient:
             page = context.pages[0] if context.pages else context.new_page()
             try:
                 print(f"[TwitterClient] Opening tweet for reply: {tweet_url}")
-                page.goto(tweet_url, timeout=35000)
+                page.goto(tweet_url, wait_until="domcontentloaded", timeout=35000)
                 
-                reply_box = page.locator('[data-testid="tweetTextarea_0"], div[role="textbox"]').first
-                reply_box.wait_for(state="visible", timeout=15000)
+                # Wait for tweet shell and click reply action button to open composer modal
+                page.wait_for_selector('[data-testid="reply"]', timeout=20000)
+                page.locator('[data-testid="reply"]').first.click()
+                page.wait_for_timeout(1500)
+
+                # Wait for active reply textarea in modal dialog (avoid background mask intercept)
+                page.wait_for_selector('div[role="dialog"] div[role="textbox"], [data-testid="tweetTextarea_0"]', timeout=15000)
+                reply_box = page.locator('div[role="dialog"] div[role="textbox"], [data-testid="tweetTextarea_0"]').first
                 self._human_type(reply_box, reply_text)
 
-                reply_btn = page.locator('[data-testid="tweetButtonInline"], [data-testid="tweetButton"]').first
+                reply_btn = page.locator('div[role="dialog"] [data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(0.8, 1.8))
                 reply_btn.click()
                 
@@ -142,30 +148,26 @@ class TwitterClient:
             page = context.pages[0] if context.pages else context.new_page()
             try:
                 print(f"[TwitterClient] Opening tweet for quote: {tweet_url}")
-                page.goto(tweet_url, timeout=35000)
-                page.wait_for_selector('article[data-testid="tweet"]', timeout=15000)
+                page.goto(tweet_url, wait_until="domcontentloaded", timeout=35000)
 
-                # Click the Retweet button to open menu
-                retweet_btn = page.locator('[data-testid="retweet"]').first
-                retweet_btn.wait_for(state="visible", timeout=10000)
-                retweet_btn.click()
+                # Wait for retweet action button to open menu
+                page.wait_for_selector('[data-testid="retweet"]', timeout=20000)
+                page.locator('[data-testid="retweet"]').first.click()
                 page.wait_for_timeout(1500)
 
                 # Click "Quote" option in dropdown menu
-                quote_option = page.locator('a[href*="/compose/post"], [role="menuitem"]:has-text("Quote")').first
-                if not quote_option.is_visible():
-                    print("[TwitterClient] ⚠️ Quote option not visible in menu.")
-                    return False
+                quote_option = page.locator('a[href*="/compose/post"], [role="menuitem"]:has-text("Quote"), div[role="menuitem"]:has-text("Quote")').first
+                quote_option.wait_for(state="visible", timeout=10000)
                 quote_option.click()
-                page.wait_for_timeout(2500)
+                page.wait_for_timeout(2000)
 
-                # Type commentary in compose modal
-                modal_textarea = page.locator('[data-testid="tweetTextarea_0"], div[role="textbox"]').first
-                modal_textarea.wait_for(state="visible", timeout=10000)
+                # Type commentary in compose modal dialog
+                page.wait_for_selector('div[role="dialog"] div[role="textbox"], [data-testid="tweetTextarea_0"]', timeout=15000)
+                modal_textarea = page.locator('div[role="dialog"] div[role="textbox"], [data-testid="tweetTextarea_0"]').first
                 self._human_type(modal_textarea, quote_text)
 
                 # Click Post
-                post_btn = page.locator('[data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
+                post_btn = page.locator('div[role="dialog"] [data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(1.0, 2.0))
                 post_btn.click()
 
