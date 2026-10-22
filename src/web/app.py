@@ -935,23 +935,29 @@ async def get_auth_status():
             pass
 
     bsky_configured = bool(config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD)
-    reddit_configured = bool(os.getenv("REDDIT_CLIENT_ID") or (config.BASE_DIR / "reddit_session").exists())
-    threads_configured = True
+    
+    # Reddit is ONLY logged in if credentials exist in .env OR reddit_session has cookies
+    reddit_session_dir = config.BASE_DIR / "reddit_session"
+    reddit_configured = bool(os.getenv("REDDIT_CLIENT_ID") and os.getenv("REDDIT_CLIENT_SECRET")) or (reddit_session_dir.exists() and any(reddit_session_dir.iterdir()))
+
+    # Threads is ONLY logged in if threads_session exists with session
+    threads_session_dir = config.BASE_DIR / "threads_session"
+    threads_configured = threads_session_dir.exists() and any(threads_session_dir.iterdir())
 
     return {
         "x": {
             "logged_in": x_logged_in,
-            "status": "Active" if x_logged_in else "Connect",
+            "status": "Active" if x_logged_in else "Not Connected",
             "account_name": "vishnu rot",
             "handle": "@GWorld34864" if x_logged_in else "Not Connected",
-            "followers": "20 / 500",
+            "followers": "20",
             "reach": "25,000 Reach",
             "daily_quota": "0 / 20"
         },
         "bluesky": {
             "configured": bsky_configured,
             "logged_in": bsky_configured,
-            "status": "Active" if bsky_configured else "Setup Required",
+            "status": "Active" if bsky_configured else "Not Connected",
             "account_name": "NeuBench AI",
             "handle": config.BLUESKY_HANDLE or "neubench.bsky.social",
             "protocol": "AT Protocol XRPC",
@@ -960,31 +966,34 @@ async def get_auth_status():
         },
         "linkedin": {
             "logged_in": li_logged_in,
-            "status": "Active" if li_logged_in else "Login Required",
+            "status": "Active" if li_logged_in else "Not Connected",
             "account_name": li_profile.get("name") or ("Vivek Gupta" if li_logged_in else "Not Connected"),
-            "profile_url": li_profile.get("profile_url", "https://www.linkedin.com/feed/"),
-            "headline": li_profile.get("headline", "AI & Software Engineering Leader"),
-            "connections": li_profile.get("connections", "500+ Connections"),
-            "reach": "B2B Tech Leaders",
-            "impressions": li_profile.get("impressions", "B2B Organic Reach"),
+            "profile_url": li_profile.get("profile_url", "https://www.linkedin.com/in/vivek-gupta-b6b2951b2/"),
+            "headline": li_profile.get("headline", "Student at BBDNITM, Lucknow"),
+            "location": li_profile.get("location", "Uttar Pradesh, India"),
+            "connections": li_profile.get("connections", 7),
+            "followers": li_profile.get("followers", 7),
+            "impressions": li_profile.get("impressions", 0),
+            "profile_views": li_profile.get("profile_views", 0),
+            "search_appearances": li_profile.get("search_appearances", 0),
             "cadence": "1 post / 24-48h",
             "login_process_active": bool(_LINKEDIN_LOGIN_PROC and _LINKEDIN_LOGIN_PROC.poll() is None)
         },
         "reddit": {
             "configured": reddit_configured,
             "logged_in": reddit_configured,
-            "status": "Active" if reddit_configured else "Ready",
-            "account_name": "Reddit AI Hub",
-            "handle": "5 Subreddits",
+            "status": "Active" if reddit_configured else "Not Connected",
+            "account_name": os.getenv("REDDIT_USERNAME") or "Not Connected",
+            "handle": "5 AI Subreddits",
             "reach": "1.5M+ ML Builders",
             "communities": ["r/LocalLLaMA", "r/MachineLearning", "r/singularity", "r/ChatGPT", "r/ArtificialInteligence"]
         },
         "threads": {
             "configured": threads_configured,
             "logged_in": threads_configured,
-            "status": "Active",
-            "account_name": "NeuBench Threads",
-            "handle": "@neubench",
+            "status": "Active" if threads_configured else "Not Connected",
+            "account_name": "Not Connected",
+            "handle": "Not Connected",
             "reach": "Mobile Tech Devs",
             "limit": "500 Chars Max"
         }
