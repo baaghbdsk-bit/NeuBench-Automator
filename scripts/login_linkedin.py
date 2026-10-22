@@ -32,16 +32,20 @@ def login_linkedin():
     user_data_dir.mkdir(parents=True, exist_ok=True)
 
     with sync_playwright() as p:
-        context = p.chromium.launch_persistent_context(
-            str(user_data_dir),
-            headless=False,
-            viewport={"width": 1280, "height": 800},
-            args=[
+        launch_kwargs = {
+            "user_data_dir": str(user_data_dir),
+            "headless": False,
+            "viewport": {"width": 1280, "height": 800},
+            "args": [
                 "--disable-blink-features=AutomationControlled",
                 "--no-sandbox",
                 "--start-maximized"
             ]
-        )
+        }
+        try:
+            context = p.chromium.launch_persistent_context(**launch_kwargs, channel="chrome")
+        except Exception:
+            context = p.chromium.launch_persistent_context(**launch_kwargs)
 
         page = context.pages[0] if context.pages else context.new_page()
 
@@ -49,20 +53,30 @@ def login_linkedin():
             console.print("[dim]Navigating to https://www.linkedin.com/login ...[/dim]")
             page.goto("https://www.linkedin.com/login", wait_until="domcontentloaded", timeout=45000)
 
-            console.print("[bold yellow]Waiting for you to log in... (Checking every 3 seconds)[/bold yellow]")
+            console.print("[bold yellow]Waiting for you to log in... (Checking every 2 seconds)[/bold yellow]")
 
-            # Loop waiting for feed or user confirmation
+            # Loop waiting for feed or li_at cookie
             max_wait_seconds = 300  # 5 minutes
             start_wait = time.time()
             logged_in = False
 
             while time.time() - start_wait < max_wait_seconds:
+                # 1. Check cookies for primary auth token
+                try:
+                    cookies = context.cookies()
+                    if any(c.get("name") == "li_at" for c in cookies):
+                        logged_in = True
+                        break
+                except Exception:
+                    pass
+
+                # 2. Check URL
                 current_url = page.url.lower()
                 if "feed" in current_url or "mynetwork" in current_url or "messaging" in current_url:
                     logged_in = True
                     break
 
-                # Also check for global nav or profile icon
+                # 3. Check for global nav or profile icon
                 try:
                     if page.locator('.global-nav__me-photo, img[alt*="photo"], [data-view-name="feed-share-box-trigger"]').first.is_visible():
                         logged_in = True
@@ -70,7 +84,7 @@ def login_linkedin():
                 except Exception:
                     pass
 
-                time.sleep(3)
+                time.sleep(2)
 
             if logged_in:
                 console.print("\n[bold green]🎉 SUCCESS! Logged into LinkedIn successfully![/bold green]")
@@ -91,3 +105,4 @@ def login_linkedin():
 
 if __name__ == "__main__":
     login_linkedin()
+

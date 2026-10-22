@@ -71,3 +71,4 @@ class LinkedInClient:
                 return False, f"LinkedIn API returned {res.status_code}: {res.text}"
         except Exception as e:
             return False, f"LinkedIn network error: {e}"
+

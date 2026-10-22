@@ -26,8 +26,21 @@ class LinkedInAutomater:
         self.user_data_dir = config.LINKEDIN_USER_DATA_DIR
 
     def is_session_available(self) -> bool:
-        """Checks if a saved browser session directory exists."""
-        return self.user_data_dir.exists() and any(self.user_data_dir.iterdir())
+        """Checks if a saved browser session directory exists with valid auth cookie."""
+        cookie_db = self.user_data_dir / "Default" / "Network" / "Cookies"
+        if not cookie_db.exists():
+            return False
+        try:
+            import sqlite3
+            uri = f"file:{cookie_db.resolve().as_posix()}?mode=ro"
+            conn = sqlite3.connect(uri, uri=True)
+            cur = conn.cursor()
+            cur.execute("SELECT 1 FROM cookies WHERE name = 'li_at' LIMIT 1")
+            has_cookie = cur.fetchone() is not None
+            conn.close()
+            return has_cookie
+        except Exception:
+            return self.user_data_dir.exists() and any(self.user_data_dir.iterdir())
 
     def post(self, text: str) -> Tuple[bool, str]:
         """Publishes an update to LinkedIn via automated browser session."""
@@ -36,18 +49,22 @@ class LinkedInAutomater:
             return True, f"[DRY RUN] Simulated post ({len(text)} chars)"
 
         if not self.is_session_available():
-            return False, "LinkedIn session not found. Run 'python scripts/login_linkedin.py' once to log in."
+            return False, "LinkedIn session not authenticated. Run 'python main.py login-linkedin' to connect."
 
         with sync_playwright() as p:
-            context = p.chromium.launch_persistent_context(
-                str(self.user_data_dir),
-                headless=self.headless,
-                viewport={"width": 1280, "height": 800},
-                args=[
+            launch_kwargs = {
+                "user_data_dir": str(self.user_data_dir),
+                "headless": self.headless,
+                "viewport": {"width": 1280, "height": 800},
+                "args": [
                     "--disable-blink-features=AutomationControlled",
                     "--no-sandbox"
                 ]
-            )
+            }
+            try:
+                context = p.chromium.launch_persistent_context(**launch_kwargs, channel="chrome")
+            except Exception:
+                context = p.chromium.launch_persistent_context(**launch_kwargs)
             page = context.pages[0] if context.pages else context.new_page()
 
             try:
@@ -141,3 +158,4 @@ class LinkedInAutomater:
                 return False, f"LinkedIn browser automation error: {e}"
             finally:
                 context.close()
+
