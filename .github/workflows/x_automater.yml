@@ -1,9 +1,9 @@
-name: NeuBench-Automator 24/7 Engine
+name: NeuBench-Automator 24/7 Cloud Autopilot
 
 on:
   schedule:
-    # Runs reliably every 30 minutes at minute 15 and 45
-    - cron: '15,45 * * * *'
+    # Runs automatically every 45 minutes 24/7 in GitHub cloud
+    - cron: '*/45 * * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -59,12 +59,26 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: playwright install chromium --with-deps
 
-      - name: Restore X Session
+      - name: Restore Multi-Platform Browser Sessions
         env:
           X_COOKIES_BASE64: ${{ secrets.X_COOKIES_BASE64 }}
+          LINKEDIN_COOKIES_BASE64: ${{ secrets.LINKEDIN_COOKIES_BASE64 }}
+          THREADS_COOKIES_BASE64: ${{ secrets.THREADS_COOKIES_BASE64 }}
+          REDDIT_COOKIES_BASE64: ${{ secrets.REDDIT_COOKIES_BASE64 }}
         run: |
-          mkdir -p browser_session
-          echo "$X_COOKIES_BASE64" | base64 --decode > browser_session/cookies.json
+          mkdir -p browser_session linkedin_session threads_session reddit_session
+          if [ -n "$X_COOKIES_BASE64" ]; then
+            echo "$X_COOKIES_BASE64" | base64 --decode > browser_session/cookies.json
+          fi
+          if [ -n "$LINKEDIN_COOKIES_BASE64" ]; then
+            echo "$LINKEDIN_COOKIES_BASE64" | base64 --decode > linkedin_session/cookies.json
+          fi
+          if [ -n "$THREADS_COOKIES_BASE64" ]; then
+            echo "$THREADS_COOKIES_BASE64" | base64 --decode > threads_session/cookies.json
+          fi
+          if [ -n "$REDDIT_COOKIES_BASE64" ]; then
+            echo "$REDDIT_COOKIES_BASE64" | base64 --decode > reddit_session/cookies.json
+          fi
 
       - name: Execute Automated Cycle
         env:
@@ -75,13 +89,11 @@ jobs:
           PYTHONIOENCODING: utf-8
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           TRIAL_ENABLED: 'true'
-          MAX_DAILY_ORIGINAL_POSTS: '4'
+          MAX_DAILY_ORIGINAL_POSTS: '8'
           MAX_DAILY_REPLIES: '14'
-          MAX_DAILY_REPOSTS: '5'
-          MAX_DAILY_TOTAL: '20'
-          TRIAL_MAX_HOURS: '744.0'
+          MAX_DAILY_REPOSTS: '6'
+          MAX_DAILY_TOTAL: '28'
         run: |
-          ACTION="${{ inputs.action_type || 'auto' }}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             python main.py run-once --dry-run
           else
@@ -93,8 +105,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add post_history.json trial_metrics.json || true
-          git commit -m "chore(trial): update durable activity metrics [skip ci]" || echo "No changes to commit"
+          git pull --rebase origin main || true
+          git add post_history.json trial_metrics.json linkedin_network.json || true
+          git commit -m "chore(cloud): autonomous update post metrics [skip ci]" || echo "No changes to commit"
           git push origin main || echo "Push skipped or non-fast-forward"
 
       - name: Generate Run Summary

@@ -50,3 +50,5 @@ scripts/run_update_*.py
 scripts/save_*.py
 scripts/test_*.py
 !scripts/test_post_all.py
+
+cloud_exports/

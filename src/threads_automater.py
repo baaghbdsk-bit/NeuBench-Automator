@@ -51,6 +51,8 @@ class ThreadsAutomater:
 
 
     def is_session_available(self) -> bool:
+        if (self.user_data_dir / "cookies.json").exists():
+            return True
 
         cookie_db = self.user_data_dir / "Default" / "Network" / "Cookies"
 
@@ -119,6 +121,18 @@ class ThreadsAutomater:
             except Exception:
 
                 context = p.chromium.launch_persistent_context(**launch_kwargs)
+
+            cookie_file = self.user_data_dir / "cookies.json"
+            if cookie_file.exists():
+                try:
+                    import json
+                    with open(cookie_file, "r", encoding="utf-8") as f:
+                        c_data = json.load(f)
+                        raw_cookies = c_data.get("cookies", c_data) if isinstance(c_data, dict) else c_data
+                        if isinstance(raw_cookies, list):
+                            context.add_cookies(raw_cookies)
+                except Exception as e:
+                    print(f"[ThreadsAutomater] Error restoring cookies: {e}")
 
             page = context.pages[0] if context.pages else context.new_page()
 
