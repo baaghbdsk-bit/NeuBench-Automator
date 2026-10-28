@@ -164,13 +164,36 @@ class RedditAutomater:
 
 
 
-                title_el = page.locator('textarea[name="title"]').first
+                title_filled = False
+                for sel in [
+                    'textarea[name="title"]',
+                    'textarea[placeholder*="Title"]',
+                    'input[placeholder*="Title"]',
+                    'input[name="title"]',
+                    '[data-testid="post-title-input"]',
+                    'faceplate-textarea-input textarea',
+                    'shreddit-composer [name="title"]'
+                ]:
+                    try:
+                        el = page.locator(sel).first
+                        if el.is_visible():
+                            el.fill(title)
+                            title_filled = True
+                            break
+                    except Exception:
+                        pass
 
-                if not title_el.is_visible():
+                if not title_filled:
+                    try:
+                        page.wait_for_selector('textarea[name="title"], textarea[placeholder*="Title"], input[placeholder*="Title"]', timeout=10000)
+                        title_el = page.locator('textarea[name="title"], textarea[placeholder*="Title"], input[placeholder*="Title"]').first
+                        title_el.fill(title)
+                        title_filled = True
+                    except Exception:
+                        pass
 
+                if not title_filled:
                     return False, "Could not locate title field on Reddit submit page."
-
-                title_el.fill(title)
 
                 page.wait_for_timeout(500)
 
@@ -239,8 +262,10 @@ class RedditAutomater:
 
 
                 print("[RedditAutomater] Clicking 'Post' button...")
-
-                post_btn.click()
+                try:
+                    post_btn.click(force=True, timeout=10000)
+                except Exception:
+                    post_btn.dispatch_event("click")
 
                 page.wait_for_timeout(6000)
 
