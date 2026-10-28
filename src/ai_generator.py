@@ -1,4 +1,6 @@
 import json
+import re
+from typing import List, Optional
 from google import genai
 from google.genai import types
 import config
@@ -6,8 +8,8 @@ import config
 SYSTEM_PROMPT = """You are a real, sharp, chronically online human commentator on X (Twitter).
 You write like a real person typing on their phone — witty, opinionated, skeptical, and slightly contrarian.
 
-CRITICAL RULES TO SOUND 100% HUMAN:
-1. NEVER use hashtags (#) or robotic emojis at the start of sentences.
+CRITICAL RULES TO SOUND 100% HUMAN & MAXIMIZE REACH:
+1. Never place hashtags (#) or robotic emojis at the beginning of sentences. Always append 1-3 targeted hashtags at the very end of original posts to maximize search discovery.
 2. NEVER use AI buzzwords: "Delving into", "In conclusion", "Game-changer", "Tapestry", "Fascinating", "Buckle up", "Here is why".
 3. Write casually. It's okay to use occasional lowercase starts, natural contractions (don't, can't, honestly, bro, idk), and blunt 1-liners.
 4. For Indian context topics: Sound like a sharp Indian tech/internet native (e.g. relatable work culture, Bengaluru traffic/rents, startup drama, corporate irony, "make it make sense").
@@ -15,8 +17,40 @@ CRITICAL RULES TO SOUND 100% HUMAN:
    - Strong unpopular opinions ("Hot take:", "Most people are blind to this...")
    - Calling out corporate or internet hypocrisy
    - Sarcastic or witty observations
-6. Keep replies ULTRA-CONCISE (under 120 characters). The shorter and sharper the reply, the more likes and quote-tweets it gets.
+6. Keep replies concise. For standalone posts, append 1-3 hashtags (#AI, #Tech) at the very end.
 """
+
+def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> str:
+    """Ensures relevant hashtags are included at the end of the post without exceeding platform character limits."""
+    if not text:
+        return text
+    
+    current_text = text.strip()
+    
+    # If the text already has 2 or more hashtags, keep it as is
+    existing_tags = re.findall(r'#\w+', current_text)
+    if len(existing_tags) >= 2:
+        return current_text
+        
+    tags_to_add = []
+    for tag in default_tags:
+        clean_tag = tag if tag.startswith("#") else f"#{tag}"
+        if clean_tag.lower() not in [t.lower() for t in existing_tags]:
+            # Test length with tag added
+            tentative_tags = " ".join(tags_to_add + [clean_tag])
+            if len(f"{current_text} {tentative_tags}") <= max_len:
+                tags_to_add.append(clean_tag)
+            else:
+                break
+                
+    if tags_to_add:
+        tag_str = " ".join(tags_to_add)
+        if max_len > 350 and len(f"{current_text}\n\n{tag_str}") <= max_len:
+            return f"{current_text}\n\n{tag_str}"
+        elif len(f"{current_text} {tag_str}") <= max_len:
+            return f"{current_text} {tag_str}"
+            
+    return current_text
 
 FALLBACK_MODELS = [
     config.GEMINI_MODEL,
@@ -49,17 +83,18 @@ class AIGenerator:
         raise RuntimeError(f"All Gemini models failed: {last_error}")
 
     def generate_hot_take(self, topic: str, context: str = "") -> str:
-        """Generates an original high-engagement polarizing hot take or debate starter."""
+        """Generates an original high-engagement polarizing hot take with relevant hashtags."""
         prompt = f"""
 Trending topic: "{topic}"
 Context: "{context}"
 
 Write ONE punchy, controversial or thought-provoking tweet about this topic.
 The tweet must trigger people to reply in the comments (either to agree strongly or disagree passionately).
-Output ONLY the raw tweet text. No quotes, no hashtags, no introductory filler.
+Include 1-2 relevant, high-traffic hashtags at the end (e.g. #AI #Tech) to maximize reach.
+Output ONLY the raw tweet text. Total length strictly under 260 characters.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.9)
-        return text.strip('"')
+        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.9).strip('"').strip()
+        return append_hashtags(text, ["#AI", "#Tech"], max_len=275)
 
     def generate_sniper_reply(self, target_tweet_author: str, target_tweet_text: str) -> str:
         """Generates a sharp, witty or contrarian reply to a viral tweet."""
@@ -78,7 +113,7 @@ It must:
         return text.strip('"')
 
     def generate_quote_tweet_commentary(self, target_tweet_author: str, target_tweet_text: str) -> str:
-        """Generates sharp, opinionated Quote-Tweet commentary ('masala on top') to quote a viral tweet."""
+        """Generates sharp, opinionated Quote-Tweet commentary with hashtag for reach."""
         prompt = f"""
 Viral Tweet by @{target_tweet_author}:
 "{target_tweet_text}"
@@ -88,10 +123,11 @@ It must:
 - Add a unique, polarizing, or cynical angle to the quoted tweet.
 - Make followers want to quote-tweet or debate in your thread.
 - Sound 100% human, confident, and concise (under 160 characters).
-- Output ONLY the commentary text. No quotes, no hashtags.
+- Include 1 relevant hashtag at the end (e.g. #AI) if space allows.
+- Output ONLY the commentary text. No quotes.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88)
-        return text.strip('"')
+        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
+        return append_hashtags(text, ["#AI"], max_len=180)
 
     def generate_poll_tweet(self, topic: str) -> dict:
         """Generates a poll question and 2-4 options."""
@@ -99,7 +135,7 @@ It must:
 Topic: "{topic}"
 Create an interactive poll that people on X won't resist voting on.
 Return a valid JSON object with:
-- "question": string (under 120 chars)
+- "question": string (under 120 chars, can include 1 hashtag like #AI)
 - "options": list of 2 to 4 concise options (each under 25 chars)
 
 Return ONLY valid JSON.
@@ -114,12 +150,12 @@ Return ONLY valid JSON.
             return json.loads(cleaned)
         except Exception:
             return {
-                "question": f"What's your honest take on {topic}?",
+                "question": f"What's your honest take on {topic}? #AI",
                 "options": ["Agree 100%", "Completely wrong", "Too early to tell", "Results"]
             }
 
     def generate_neubench_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a viral take on a NeuBench AI news story or benchmark model, driving engagement & traffic."""
+        """Generates a viral take on a NeuBench AI news story or benchmark model with hashtags & backlinks."""
         link_instruction = (
             "Creatively and naturally include our platform URL 'https://neubench.netlify.app' at the end or within the take "
             "(e.g., 'Tracked the latency & cost live on https://neubench.netlify.app' or 'Full eval breakdown on https://neubench.netlify.app'). "
@@ -133,23 +169,23 @@ Context / Summary: "{summary}"
 Write a punchy, opinionated, high-engagement X tweet about this AI update.
 Rules:
 - Sound 100% like a sharp tech-native commentator (contrarian, witty, zero corporate PR fluff).
-- NO hashtags (#). No robotic emojis like 🚀🤖 at start.
+- Include 1-2 high-traffic hashtags at the end (e.g., #AI #LLMs #Tech) to maximize search reach.
 - Provoke discussion in the replies.
 - {link_instruction}
-- Total length strictly under 275 characters (including the URL).
+- Total length strictly under 250 characters so hashtags and link fit within 280 chars.
 - Output ONLY the raw tweet text.
 """
         text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             suffix = " Live evals: https://neubench.netlify.app"
-            if len(text) + len(suffix) <= 280:
+            if len(text) + len(suffix) <= 245:
                 text = f"{text}{suffix}"
             else:
-                text = f"{text[:280 - len(suffix) - 1]}…{suffix}"
-        return text
+                text = f"{text[:245 - len(suffix) - 1]}…{suffix}"
+        return append_hashtags(text, ["#AI", "#LLMs", "#Tech"], max_len=278)
 
     def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a technical, open-source and developer-friendly post for Bluesky (under 300 chars)."""
+        """Generates a technical, developer-friendly post for Bluesky with custom-feed hashtags (under 300 chars)."""
         link_instruction = (
             "Include 'https://neubench.netlify.app' creatively at the end (e.g. 'Live benchmarks: https://neubench.netlify.app' or 'Comparing 260+ models on https://neubench.netlify.app')."
         ) if include_link else "Do not include URLs."
@@ -162,21 +198,22 @@ Write a Bluesky post about this AI development.
 Rules:
 - Audience: Open-source developers, researchers, tech builders.
 - Tone: Curious, technical, direct, respectful of open standards, zero corporate cringe.
+- Include 2-3 targeted technical hashtags at the end (e.g. #AI #MachineLearning #OpenSource) so the post is indexed by Bluesky algorithmic feeds.
 - {link_instruction}
-- Length: strictly under 280 characters so it fits within Bluesky's 300-char limit.
+- Length: strictly under 255 characters so hashtags and links fit within Bluesky's 300-char limit.
 - Output ONLY the post text.
 """
         text = self._generate_with_fallback(prompt, "You write for tech-savvy developers on Bluesky.", temperature=0.8).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             suffix = " | Benchmarks: https://neubench.netlify.app"
-            if len(text) + len(suffix) <= 295:
+            if len(text) + len(suffix) <= 255:
                 text = f"{text}{suffix}"
             else:
-                text = f"{text[:295 - len(suffix) - 1]}…{suffix}"
-        return text
+                text = f"{text[:255 - len(suffix) - 1]}…{suffix}"
+        return append_hashtags(text, ["#AI", "#MachineLearning", "#OpenSource"], max_len=295)
 
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a professional B2B thought-leadership post for LinkedIn with structured insights."""
+        """Generates a professional B2B thought-leadership post for LinkedIn with 3-5 high-reach hashtags."""
         link_instruction = (
             "At the end of the post, seamlessly integrate a call-to-action mentioning https://neubench.netlify.app "
             "(e.g., '📊 Tracking real-time latency, throughput, and frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app')."
@@ -193,15 +230,16 @@ Format:
 - 1 thoughtful question asking the network for their perspective.
 - Tone: Professional, analytical, forward-looking, zero cheesy fluff or corporate platitudes.
 {link_instruction}
+- Include 3-5 relevant, high-visibility professional hashtags at the end on a new line (e.g. #ArtificialIntelligence #MachineLearning #LLM #TechInnovation #GenerativeAI) to maximize reach across the LinkedIn algorithm.
 - Output ONLY the post text.
 """
         text = self._generate_with_fallback(prompt, "You are a senior tech strategist writing high-value insights on LinkedIn.", temperature=0.75).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             text = f"{text}\n\n📊 Tracking real-time frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app"
-        return text
+        return append_hashtags(text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechTrends", "#GenerativeAI"], max_len=2800)
 
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a casual, conversational discussion post for Threads."""
+        """Generates a casual, conversational discussion post for Threads with hashtags."""
         link_instruction = (
             "Creatively add 'https://neubench.netlify.app' below the post (e.g. 'Ran the evals on https://neubench.netlify.app' or 'Full comparison on https://neubench.netlify.app')."
         ) if include_link else ""
@@ -211,16 +249,17 @@ Context: "{summary}"
 
 Write a casual, conversational post for Threads that invites people to share their experience or opinion.
 - Friendly, curiosity-driven, easy to read on mobile.
+- Include 2-3 popular hashtags at the bottom (e.g. #AI #Tech #Developers #Coding) to boost algorithmic discovery on Threads.
 - {link_instruction}
-- Under 280 characters.
+- Under 380 characters.
 - Output ONLY the post text.
 """
         text = self._generate_with_fallback(prompt, "You are an authentic mobile creator writing for Threads.", temperature=0.85).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             suffix = "\n\nChecked the evals on https://neubench.netlify.app"
-            if len(text) + len(suffix) <= 450:
+            if len(text) + len(suffix) <= 400:
                 text = f"{text}{suffix}"
-        return text
+        return append_hashtags(text, ["#AI", "#Tech", "#Developers"], max_len=480)
 
     def generate_reddit_post(self, title: str, summary: str = "", company: str = "", subreddit: str = "r/LocalLLaMA", include_link: bool = True) -> dict:
         """Generates a high-value, community-tailored Reddit post with markdown formatting."""
@@ -258,4 +297,3 @@ Rules:
                 "title": f"[Discussion] {title}: Benchmark analysis & takeaways",
                 "body": f"**TL;DR:** {summary}\n\nKey analysis on {title} by {company}.\n\nWhat are you seeing in your real-world workloads?{link_str}"
             }
-
