@@ -1,18 +1,18 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-28T20:22:18.750697+00:00",
+    "last_updated": "2026-10-28T20:31:41.719339+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 91,
+    "total_cycles_executed": 92,
     "original_posts_attempted": 17,
     "original_posts_succeeded": 15,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 10,
     "reposts_succeeded": 8,
-    "actions_skipped": 7,
+    "actions_skipped": 8,
     "failed_operations": 6,
     "ai_generation_requests": 53,
     "ai_generation_failures": 0,
@@ -928,6 +928,16 @@
       "content_preview": "Wild to think over 40,000 DHS, CBP, and ICE personnel records just got leaked on",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-28T20:31:41.719316+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Daily LinkedIn cap reached (2/day)",
+      "duration_s": 0.01
     }
   ]
 }
