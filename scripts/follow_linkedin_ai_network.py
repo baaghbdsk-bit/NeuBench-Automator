@@ -35,11 +35,11 @@ TOP_AI_TARGETS = [
     {"name": "Perplexity AI", "url": "https://www.linkedin.com/company/perplexity-ai/"},
     {"name": "Cohere", "url": "https://www.linkedin.com/company/cohere-ai/"},
     {"name": "Mistral AI", "url": "https://www.linkedin.com/company/mistralai/"},
-    {"name": "Scale AI", "url": "https://www.linkedin.com/company/scale-ai/"},
+    {"name": "Scale AI", "url": "https://www.linkedin.com/company/scaleai/"},
     {"name": "NVIDIA", "url": "https://www.linkedin.com/company/nvidia/"},
     {"name": "LangChain", "url": "https://www.linkedin.com/company/langchain/"},
     {"name": "Pinecone", "url": "https://www.linkedin.com/company/pinecone-io/"},
-    {"name": "Together AI", "url": "https://www.linkedin.com/company/togetherai/"},
+    {"name": "Together AI", "url": "https://www.linkedin.com/company/together-ai/"},
     {"name": "LlamaIndex", "url": "https://www.linkedin.com/company/llamaindex/"},
     {"name": "Groq", "url": "https://www.linkedin.com/company/groq/"},
     {"name": "Weights & Biases", "url": "https://www.linkedin.com/company/wandb/"},
@@ -156,7 +156,10 @@ def follow_top_network(max_count: int = 50, headless: bool = True) -> int:
                         continue
 
                 if follow_btn:
-                    follow_btn.click(timeout=4000)
+                    try:
+                        follow_btn.click(force=True, timeout=5000)
+                    except Exception:
+                        follow_btn.dispatch_event("click")
                     followed_count += 1
                     already_followed.add(url)
                     log_data["followed"] = list(already_followed)
@@ -173,7 +176,10 @@ def follow_top_network(max_count: int = 50, headless: bool = True) -> int:
                                 r_aria = (rb.get_attribute("aria-label") or "").strip()
                                 r_name = r_aria.replace("Follow ", "").strip()
                                 if r_name and r_name.lower() not in [n.lower() for n in log_data.get("followed_names", [])]:
-                                    rb.click(timeout=3000)
+                                    try:
+                                        rb.click(force=True, timeout=3000)
+                                    except Exception:
+                                        rb.dispatch_event("click")
                                     followed_count += 1
                                     log_data.setdefault("followed_names", []).append(r_name)
                                     save_network_log(log_data)
