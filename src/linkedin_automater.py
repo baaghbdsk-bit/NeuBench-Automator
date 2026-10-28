@@ -301,52 +301,24 @@ class LinkedInAutomater:
 
 
                 post_btn = None
-
-                # New LinkedIn UI: visible button with exact text "Post"
-
-                try:
-
-                    role_candidates = page.get_by_role("button", name="Post")
-
-                    for i in range(role_candidates.count()):
-
-                        c = role_candidates.nth(i)
-
-                        if c.is_visible():
-
-                            post_btn = c
-
-                            break
-
-                except Exception:
-
-                    post_btn = None
+                for b in page.locator("button").all():
+                    if b.is_visible() and b.inner_text().strip() == "Post":
+                        post_btn = b
+                        break
 
                 if not post_btn:
-
                     for sel in post_btn_selectors:
-
                         btn = page.locator(sel).first
-
                         if btn.is_visible():
-
                             post_btn = btn
-
                             break
 
-
-
                 if not post_btn:
-
                     return False, "Could not locate the 'Post' button in the post modal."
 
-
-
                 print("[LinkedInAutomater] Clicking 'Post' button...")
-
-                post_btn.click()
-
-                page.wait_for_timeout(8000)
+                post_btn.click(force=True)
+                page.wait_for_timeout(6000)
 
 
 
