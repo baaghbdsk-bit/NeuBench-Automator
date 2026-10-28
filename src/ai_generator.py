@@ -213,30 +213,46 @@ Rules:
         return append_hashtags(text, ["#AI", "#MachineLearning", "#OpenSource"], max_len=295)
 
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a professional B2B thought-leadership post for LinkedIn with 3-5 high-reach hashtags."""
+        """Generates an in-depth, long-form creative B2B thought-leadership and breaking analysis post for LinkedIn (1,200 to 2,000 characters)."""
         link_instruction = (
-            "At the end of the post, seamlessly integrate a call-to-action mentioning https://neubench.netlify.app "
-            "(e.g., '📊 Tracking real-time latency, throughput, and frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app')."
+            "Seamlessly integrate a benchmark breakdown and call-to-action mentioning https://neubench.netlify.app "
+            "(e.g., '📊 Tracking real-time latency, cost-efficiency, and throughput benchmarks across 260+ models on NeuBench: https://neubench.netlify.app')."
         ) if include_link else ""
         prompt = f"""
-Topic: "{title}"
-Developer/Company: "{company}"
-Context: "{summary}"
+Topic / Breaking AI News: "{title}"
+Company / Ecosystem: "{company}"
+Context / Story: "{summary}"
 
-Write a concise, high-value LinkedIn post.
-Format:
-- 1 strong hook line highlighting the industry shift.
-- 2-3 short bullet points (using • or -) explaining the practical implications for software teams or founders.
-- 1 thoughtful question asking the network for their perspective.
-- Tone: Professional, analytical, forward-looking, zero cheesy fluff or corporate platitudes.
-{link_instruction}
-- Include 3-5 relevant, high-visibility professional hashtags at the end on a new line (e.g. #ArtificialIntelligence #MachineLearning #LLM #TechInnovation #GenerativeAI) to maximize reach across the LinkedIn algorithm.
-- Output ONLY the post text.
+Write a comprehensive, authoritative, and engaging long-form LinkedIn thought-leadership post (1,200 - 1,800 characters).
+LinkedIn rewards in-depth analysis, structured storytelling, and tangible insights for engineering leaders, AI founders, and enterprise builders.
+
+Structure:
+1. 🔥 BREAKING / INDUSTRY SHIFT HOOK: A bold, curiosity-inducing opening 1-2 lines that stops the scroll in the LinkedIn feed.
+2. 💡 THE CONTEXT & WHAT HAPPENED: Unpack the news clearly — explain what actually launched or changed, removing marketing hype and exposing the real mechanics.
+3. ⚙️ ARCHITECTURAL & ECONOMIC BREAKDOWN:
+   - Provide 3-4 deep-dive bullet points with bold subheadings (e.g. • **Inference Unit Economics:** ..., • **Latency vs Throughput Tradeoffs:** ..., • **Developer & Enterprise Impact:** ...).
+   - Explain how this impacts production software, token costs, or system architecture.
+4. 📊 BENCHMARK PERSPECTIVE:
+   - Relate this to real-world evaluations: how benchmark claims in PR often diverge from live enterprise workloads.
+   {link_instruction}
+5. 💬 OPEN COMMUNITY QUESTION:
+   - End with a thought-provoking, debate-starting question that encourages founders and engineers to share their perspective in the comments.
+6. 🏷️ HASHTAGS:
+   - Include 4-5 relevant, high-reach professional hashtags on a new line (e.g. #ArtificialIntelligence #MachineLearning #LLM #TechInnovation #GenerativeAI).
+
+Rules:
+- High intellectual density, structured with clean spacing and bullet points for effortless mobile reading.
+- No corporate platitudes, buzzword soup, or shallow summaries. Provide genuine technical commentary.
+- Output ONLY the raw post text.
 """
-        text = self._generate_with_fallback(prompt, "You are a senior tech strategist writing high-value insights on LinkedIn.", temperature=0.75).strip('"').strip()
+        text = self._generate_with_fallback(
+            prompt,
+            "You are a respected AI systems architect and tech executive writing deep-dive analyses on LinkedIn.",
+            temperature=0.78
+        ).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             text = f"{text}\n\n📊 Tracking real-time frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app"
-        return append_hashtags(text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechTrends", "#GenerativeAI"], max_len=2800)
+        return append_hashtags(text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechTrends", "#GenerativeAI"], max_len=2900)
 
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a casual, conversational discussion post for Threads with hashtags."""

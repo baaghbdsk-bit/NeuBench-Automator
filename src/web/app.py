@@ -1327,6 +1327,20 @@ async def publish_linkedin_action(req: PublishLinkedInRequest):
 
     return {"status": status, "message": msg}
 
+
+@app.post("/api/action/follow-linkedin-network")
+async def follow_linkedin_network_endpoint(background_tasks: BackgroundTasks):
+    """Triggers background follow of top AI leaders on LinkedIn."""
+    def run_follower():
+        try:
+            from scripts.follow_linkedin_ai_network import follow_top_network
+            follow_top_network(max_count=35, headless=True)
+        except Exception as e:
+            print(f"[LinkedIn Follower Error] {e}")
+            
+    background_tasks.add_task(run_follower)
+    return {"success": True, "message": "Started following top AI leaders and organizations in background!"}
+
 class PublishRedditRequest(BaseModel):
 
     subreddit: str
