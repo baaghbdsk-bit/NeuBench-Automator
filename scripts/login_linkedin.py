@@ -90,6 +90,18 @@ def login_linkedin():
                 console.print("\n[bold green]🎉 SUCCESS! Logged into LinkedIn successfully![/bold green]")
                 console.print(f"[dim]Current URL: {page.url}[/dim]")
                 time.sleep(3)
+                
+                # Export portable storage state for local and cloud execution
+                try:
+                    export_file = user_data_dir / "cookies.json"
+                    context.storage_state(path=str(export_file))
+                    cloud_export = BASE_DIR / "cloud_exports" / "linkedin_storage.json"
+                    cloud_export.parent.mkdir(exist_ok=True)
+                    context.storage_state(path=str(cloud_export))
+                    console.print("[bold green]✅ Portable cookies exported to cookies.json & cloud_exports![/bold green]")
+                except Exception as e:
+                    console.print(f"[yellow]Warning exporting cookies: {e}[/yellow]")
+
                 console.print(f"[bold cyan]✅ Session saved securely into: {user_data_dir}[/bold cyan]")
                 console.print("[green]The automater can now publish to LinkedIn 100% autonomously in the background![/green]\n")
                 return True

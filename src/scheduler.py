@@ -794,21 +794,22 @@ class AutomaterEngine:
             from src.reddit_automater import RedditAutomater
             rd_automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
             if rd_automater.is_session_available():
+                target_sub = random.choice(["singularity", "LocalLLaMA", "ArtificialInteligence", "ChatGPT"])
                 rd_post = self.ai.generate_reddit_post(
                     selected_trend["title"],
                     selected_trend.get("summary", ""),
                     company=selected_trend.get("company", "NeuBench"),
-                    subreddit="r/test"
+                    subreddit=f"r/{target_sub}"
                 )
                 rd_title = rd_post.get("title", f"Discussion: {selected_trend['title']}")
                 rd_body = rd_post.get("body", selected_trend.get("summary", ""))
-                rd_ok, rd_msg = rd_automater.post("test", rd_title, rd_body)
+                rd_ok, rd_msg = rd_automater.post(target_sub, rd_title, rd_body)
                 if rd_ok:
-                    console.print("[bold orange]🤖 Also published to Reddit (r/test)![/bold orange]")
+                    console.print(f"[bold orange]🤖 Also published to Reddit (r/{target_sub})![/bold orange]")
                     self.tracker.record_event(
                         action_type="reddit_post",
                         status="success",
-                        target_identifier="r/test",
+                        target_identifier=f"r/{target_sub}",
                         content_preview=rd_title[:80],
                         duration_seconds=15.0,
                         is_dry_run=self.safety.dry_run

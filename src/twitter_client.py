@@ -1,5 +1,13 @@
+import sys
 import time
 import random
+
+if sys.platform == 'win32':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 from pathlib import Path
 from playwright.sync_api import sync_playwright, BrowserContext
 import config
@@ -102,7 +110,7 @@ class TwitterClient:
                 except Exception:
                     post_btn.dispatch_event("click")
                 
-                page.wait_for_timeout(5000)
+                page.wait_for_timeout(8000)
                 print(f"[TwitterClient] ✅ Tweet posted successfully: {text[:60]}...")
                 return True
             except Exception as e:
