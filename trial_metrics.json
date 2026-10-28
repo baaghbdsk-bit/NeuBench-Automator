@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-28T19:47:40.295557+00:00",
+    "last_updated": "2026-10-28T19:54:06.732603+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 82,
+    "total_cycles_executed": 83,
     "original_posts_attempted": 15,
     "original_posts_succeeded": 14,
     "replies_attempted": 16,
     "replies_succeeded": 13,
     "reposts_attempted": 10,
     "reposts_succeeded": 8,
-    "actions_skipped": 6,
+    "actions_skipped": 7,
     "failed_operations": 5,
-    "ai_generation_requests": 49,
+    "ai_generation_requests": 50,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -838,6 +838,16 @@
       "content_preview": "the real divide isn't people vs AI, it's the 1% building hype loops and everyone else who just wants a search bar that a",
       "reason": "Playwright quote-tweet failure",
       "duration_s": 70.03
+    },
+    {
+      "timestamp": "2026-10-28T19:54:06.732582+00:00",
+      "action_type": "reddit_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Applying ML-based toolpath optimization to high-precision CNC stone carving workflows",
+      "content_preview": "**TL;DR:** We've been running rigorous latency and tool-wear benchmarks on NeuBench comparing traditional CAM interpolat",
+      "reason": "Reddit session not authenticated",
+      "duration_s": 4.44
     }
   ]
 }
