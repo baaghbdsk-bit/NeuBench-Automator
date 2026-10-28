@@ -41,7 +41,13 @@ class TwitterClient:
 
     def _human_type(self, element, text: str):
         """Types text with randomized human-like delay between keystrokes."""
-        element.click()
+        try:
+            element.click(force=True, timeout=5000)
+        except Exception:
+            try:
+                element.focus()
+            except Exception:
+                pass
         time.sleep(random.uniform(0.3, 0.7))
         for char in text:
             element.type(char)

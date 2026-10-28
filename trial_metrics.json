@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-28T15:53:15.278188+00:00",
+    "last_updated": "2026-10-28T18:59:05.984001+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 62,
-    "original_posts_attempted": 12,
-    "original_posts_succeeded": 11,
-    "replies_attempted": 15,
-    "replies_succeeded": 12,
+    "total_cycles_executed": 75,
+    "original_posts_attempted": 14,
+    "original_posts_succeeded": 13,
+    "replies_attempted": 16,
+    "replies_succeeded": 13,
     "reposts_attempted": 9,
     "reposts_succeeded": 8,
-    "actions_skipped": 4,
+    "actions_skipped": 6,
     "failed_operations": 4,
-    "ai_generation_requests": 43,
+    "ai_generation_requests": 46,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -636,6 +636,136 @@
       "is_dry_run": false,
       "target": "r/test",
       "content_preview": "Ran some TTFT & throughput benchmarks across major hosted LLM endpoints \u2014 saw up",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-28T16:27:15.416837+00:00",
+      "action_type": "reddit_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Daily Reddit cap reached (1/day)",
+      "duration_s": 0.15
+    },
+    {
+      "timestamp": "2026-10-28T17:02:15.478961+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Daily LinkedIn cap reached (2/day)",
+      "duration_s": 0.04
+    },
+    {
+      "timestamp": "2026-10-28T17:40:04.595846+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "parma vs udinese",
+      "content_preview": "parma vs udinese is the football equivalent of a 2am zoom call that could've been an email",
+      "reason": "",
+      "duration_s": 109.11
+    },
+    {
+      "timestamp": "2026-10-28T17:40:19.576366+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Parma vs Udinese on the pitch is fine, but how do current open-weight LLMs handle complex Italian syntax and context vs ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-28T17:41:02.355615+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "While mainstream sports analytics focuses on tactical formations, modern clubs a",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-28T17:41:34.942232+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Anyone watching Parma vs Udinese today? Such a tactical battle so far, but I\u2019m c",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-28T17:42:05.009304+00:00",
+      "action_type": "reddit_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "r/test",
+      "content_preview": "Parma vs Udinese performance and data breakdown",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-28T18:19:58.811344+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/IndianTechGuide/status/2115466208694722851",
+      "content_preview": "meanwhile bangalore founders are calling remote work a moral failing while their office AC barely works",
+      "reason": "",
+      "duration_s": 53.8
+    },
+    {
+      "timestamp": "2026-10-28T18:57:45.949863+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Why Is This Fingerprinting Script Creating Bioweapons?",
+      "content_preview": "devs adding 47 tracking scripts to a clone of flappy bird and acting shocked when it gains consciousness",
+      "reason": "",
+      "duration_s": 47.14
+    },
+    {
+      "timestamp": "2026-10-28T18:57:51.276208+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Ever run an eval and watch an LLM hallucinate dual-use chemistry from a standard canvas fingerprinting payload? Model sa",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-28T18:58:19.521042+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "The line between software telemetry and dual-use biological research is official",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-28T18:58:43.301954+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Okay, who had \"harmless tracking script goes rogue and invents pathogens\" on the",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-28T18:59:05.983978+00:00",
+      "action_type": "reddit_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "r/test",
+      "content_preview": "Why Is This Fingerprinting Script Creating Bioweapons?",
       "reason": "",
       "duration_s": 15.0
     }

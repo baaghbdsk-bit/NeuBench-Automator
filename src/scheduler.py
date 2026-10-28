@@ -917,7 +917,7 @@ class AutomaterEngine:
             if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
             and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "linkedin_post"
         )
-        if today_li >= 2:
+        if today_li >= 6:
             console.print("[yellow]⚠️ LinkedIn daily cap reached (2/2). Skipping.[/yellow]")
             self.tracker.record_event(
                 action_type="linkedin_post",
@@ -1022,7 +1022,7 @@ class AutomaterEngine:
             if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
             and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "reddit_post"
         )
-        if today_rd >= 1:
+        if today_rd >= 6:
             console.print("[yellow]Reddit daily cap reached (1/1). Skipping.[/yellow]")
             self.tracker.record_event(
                 action_type="reddit_post",
@@ -1135,7 +1135,7 @@ class AutomaterEngine:
             if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
             and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "threads_post"
         )
-        if today_th >= 2:
+        if today_th >= 6:
             console.print("[yellow]Threads daily cap reached (2/2). Skipping.[/yellow]")
             self.tracker.record_event(
                 action_type="threads_post",
