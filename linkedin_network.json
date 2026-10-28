@@ -2,6 +2,7 @@
   "followed": [
     "https://www.linkedin.com/company/scaleai/",
     "https://www.linkedin.com/company/modal-labs/",
+    "https://www.linkedin.com/in/yann-lecun/",
     "https://www.linkedin.com/company/databricks/",
     "https://www.linkedin.com/company/nvidia/",
     "https://www.linkedin.com/company/together-ai/",
@@ -23,11 +24,12 @@
     "https://www.linkedin.com/company/huggingface/",
     "https://www.linkedin.com/company/llamaindex/"
   ],
-  "last_run": 1793217502.7734404,
+  "last_run": 1793217516.245856,
   "followed_names": [
     "Sundar Pichai",
     "Outlier",
     "Glimpse",
-    "Andrew Ng"
+    "Andrew Ng",
+    "Yann LeCun"
   ]
 }
