@@ -4,7 +4,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 avatar_img = Path("assets/neubench_avatar.jpg").resolve()
-threads_bio = "Real-time AI evals | Follow: 𝕏 @GWorld34864 | 🦋 Bluesky @neubench | 💼 in/vivek-gupta-b6b2951b2 | 👽 reddit u/Express-Cucumber-478"
+threads_bio = "Real-time AI evals | Follow: 𝕏 @GWorld34864 | 🦋 Bluesky @neubench | 💼 in/vishnu-gupta-b6b2951b2 | 👽 reddit u/Express-Cucumber-478"
 print(f"Threads bio length: {len(threads_bio)} chars")
 
 with sync_playwright() as p:

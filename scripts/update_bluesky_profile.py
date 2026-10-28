@@ -68,7 +68,7 @@ profile_record = {
         "🌐 App: https://neubench.netlify.app\n"
         "𝕏: x.com/GWorld34864\n"
         "🧵 Threads: threads.net/@neubench\n"
-        "💼 LinkedIn: in/vivek-gupta-b6b2951b2\n"
+        "💼 LinkedIn: in/vishnu-gupta-b6b2951b2\n"
         "👽 Reddit: u/Express-Cucumber-478"
     )
 }

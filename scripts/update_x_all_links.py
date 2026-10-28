@@ -10,7 +10,7 @@ avatar_img = BASE_DIR / "assets" / "neubench_avatar.jpg"
 banner_img = BASE_DIR / "assets" / "neubench_twitter_banner.jpg"
 
 # 157 chars - exactly fits X's 160 char limit
-x_bio = "Real-time AI evals (neubench.netlify.app) | Follow: 🦋 bsky: @neubench | 🧵 threads: @neubench | 💼 in/vivek-gupta-b6b2951b2 | 👽 reddit: u/Express-Cucumber-478"
+x_bio = "Real-time AI evals (neubench.netlify.app) | Follow: 🦋 bsky: @neubench | 🧵 threads: @neubench | 💼 in/vishnu-gupta-b6b2951b2 | 👽 reddit: u/Express-Cucumber-478"
 print(f"X Bio length: {len(x_bio)} / 160 characters")
 
 with sync_playwright() as p:

@@ -1016,7 +1016,7 @@ async def get_auth_status():
             "logged_in": li_logged_in,
             "status": "Active" if li_logged_in else "Not Connected",
             "account_name": "NeuBench",
-            "profile_url": "https://www.linkedin.com/in/vivek-gupta-b6b2951b2/",
+            "profile_url": "https://www.linkedin.com/in/vishnu-gupta-b6b2951b2/",
             "headline": "NeuBench • Tracking real-world LLM benchmarks, latency & cost",
             "location": "Bengaluru / Global",
             "connections": 8,

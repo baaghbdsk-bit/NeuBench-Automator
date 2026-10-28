@@ -140,8 +140,8 @@ def run_deep_verification():
             pass
 
     if "li_at" in li_found:
-        prof_name = li_profile.get("name", "Vivek Gupta")
-        prof_url = li_profile.get("profile_url", "https://www.linkedin.com/in/vivek-gupta-b6b2951b2/")
+        prof_name = li_profile.get("name", "Vishnu Gupta")
+        prof_url = li_profile.get("profile_url", "https://www.linkedin.com/in/vishnu-gupta-b6b2951b2/")
         results["LinkedIn"] = {
             "status": "OPERATIONAL",
             "profile": prof_name,

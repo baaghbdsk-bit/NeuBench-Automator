@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 
 avatar_img = Path("assets/neubench_avatar.jpg").resolve()
 banner_img = Path("assets/neubench_twitter_banner.jpg").resolve()
-reddit_bio = "Real-time AI evals across 260+ models (https://neubench.netlify.app) | Follow: 𝕏 @GWorld34864 | 🦋 Bluesky @neubench | 🧵 Threads @neubench | 💼 LinkedIn in/vivek-gupta-b6b2951b2"
+reddit_bio = "Real-time AI evals across 260+ models (https://neubench.netlify.app) | Follow: 𝕏 @GWorld34864 | 🦋 Bluesky @neubench | 🧵 Threads @neubench | 💼 LinkedIn in/vishnu-gupta-b6b2951b2"
 
 with sync_playwright() as p:
     ctx = p.chromium.launch_persistent_context("reddit_session", headless=True)

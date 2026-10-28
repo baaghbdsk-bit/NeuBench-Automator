@@ -13,7 +13,7 @@ headline = "Building NeuBench • Real-Time AI Benchmarks across 266+ Models | L
 with sync_playwright() as p:
     ctx = p.chromium.launch_persistent_context(str(config.LINKEDIN_USER_DATA_DIR), headless=True, channel='chrome')
     page = ctx.pages[0] if ctx.pages else ctx.new_page()
-    page.goto('https://www.linkedin.com/in/vivek-gupta-b6b2951b2/', wait_until='domcontentloaded', timeout=30000)
+    page.goto('https://www.linkedin.com/in/vishnu-gupta-b6b2951b2/', wait_until='domcontentloaded', timeout=30000)
     page.wait_for_timeout(3000)
 
     # Click Edit Profile
