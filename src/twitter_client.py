@@ -97,7 +97,10 @@ class TwitterClient:
 
                 post_btn = page.locator('[data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(1.0, 2.0))
-                post_btn.click()
+                try:
+                    post_btn.click(force=True, timeout=10000)
+                except Exception:
+                    post_btn.dispatch_event("click")
                 
                 page.wait_for_timeout(5000)
                 print(f"[TwitterClient] ✅ Tweet posted successfully: {text[:60]}...")
@@ -135,7 +138,10 @@ class TwitterClient:
 
                 reply_btn = page.locator('div[role="dialog"] [data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(0.8, 1.8))
-                reply_btn.click()
+                try:
+                    reply_btn.click(force=True, timeout=10000)
+                except Exception:
+                    reply_btn.dispatch_event("click")
                 
                 page.wait_for_timeout(5000)
                 print(f"[TwitterClient] ✅ Reply posted successfully!")
@@ -180,7 +186,10 @@ class TwitterClient:
                 # Click Post
                 post_btn = page.locator('div[role="dialog"] [data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(1.0, 2.0))
-                post_btn.click()
+                try:
+                    post_btn.click(force=True, timeout=10000)
+                except Exception:
+                    post_btn.dispatch_event("click")
 
                 page.wait_for_timeout(5000)
                 print(f"[TwitterClient] ✅ Quote-Tweet posted successfully!")

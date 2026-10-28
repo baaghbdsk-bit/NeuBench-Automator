@@ -18,6 +18,11 @@ on:
           - post
           - reply
           - repost
+          - omnichannel
+          - bluesky
+          - linkedin
+          - reddit
+          - threads
         default: auto
 
 concurrency:
@@ -94,10 +99,19 @@ jobs:
           MAX_DAILY_REPOSTS: '6'
           MAX_DAILY_TOTAL: '28'
         run: |
+          ACTION="${{ inputs.action_type }}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python main.py run-once --dry-run
+            if [ -n "$ACTION" ] && [ "$ACTION" != "auto" ]; then
+              python main.py "$ACTION" --dry-run
+            else
+              python main.py run-once --dry-run
+            fi
           else
-            python main.py run-once
+            if [ -n "$ACTION" ] && [ "$ACTION" != "auto" ]; then
+              python main.py "$ACTION"
+            else
+              python main.py run-once
+            fi
           fi
 
       - name: Persist Trial Metrics and Post History

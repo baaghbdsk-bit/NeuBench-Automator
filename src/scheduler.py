@@ -293,33 +293,39 @@ class AutomaterEngine:
 
 
         # 5. Dispatch chosen action
-
         if action_choice == "reply":
-
-            return self._execute_sniper_reply(start_time)
-
+            ok = self._execute_sniper_reply(start_time)
+            if not ok:
+                console.print("[yellow]Reply mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
+                return self._execute_original_post(start_time)
+            return ok
         elif action_choice == "repost":
-
-            return self._execute_quote_tweet(start_time)
-
+            ok = self._execute_quote_tweet(start_time)
+            if not ok:
+                console.print("[yellow]Quote tweet mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
+                return self._execute_original_post(start_time)
+            return ok
         elif action_choice == "bluesky":
-
             return self._execute_bluesky_post(start_time)
-
         elif action_choice == "linkedin":
-
-            return self._execute_linkedin_post(start_time)
-
+            ok = self._execute_linkedin_post(start_time)
+            if not ok:
+                console.print("[yellow]LinkedIn mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
+                return self._execute_original_post(start_time)
+            return ok
         elif action_choice == "reddit":
-
-            return self._execute_reddit_post(start_time)
-
+            ok = self._execute_reddit_post(start_time)
+            if not ok:
+                console.print("[yellow]Reddit mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
+                return self._execute_original_post(start_time)
+            return ok
         elif action_choice == "threads":
-
-            return self._execute_threads_post(start_time)
-
+            ok = self._execute_threads_post(start_time)
+            if not ok:
+                console.print("[yellow]Threads mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
+                return self._execute_original_post(start_time)
+            return ok
         else:
-
             return self._execute_original_post(start_time)
 
 
@@ -786,7 +792,7 @@ class AutomaterEngine:
         # 5. Cross-post to Reddit (Independent)
         try:
             from src.reddit_automater import RedditAutomater
-            rd_automater = RedditAutomater(headless=False, dry_run=self.safety.dry_run)
+            rd_automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
             if rd_automater.is_session_available():
                 rd_post = self.ai.generate_reddit_post(
                     selected_trend["title"],
@@ -917,16 +923,9 @@ class AutomaterEngine:
             if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
             and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "linkedin_post"
         )
-        if today_li >= 6:
-            console.print("[yellow]⚠️ LinkedIn daily cap reached (2/2). Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="linkedin_post",
-                status="skipped",
-                skip_or_error_reason="Daily LinkedIn cap reached (2/day)",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+        if today_li >= 10:
+            console.print("[yellow]⚠️ LinkedIn daily cap reached (10/day). Falling back to Omnichannel broadcast...[/yellow]")
+            return self._execute_original_post(start_time)
 
         from src.linkedin_automater import LinkedInAutomater
         automater = LinkedInAutomater(headless=True, dry_run=self.safety.dry_run)
@@ -1022,20 +1021,13 @@ class AutomaterEngine:
             if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
             and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "reddit_post"
         )
-        if today_rd >= 6:
-            console.print("[yellow]Reddit daily cap reached (1/1). Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="skipped",
-                skip_or_error_reason="Daily Reddit cap reached (1/day)",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+        if today_rd >= 10:
+            console.print("[yellow]⚠️ Reddit daily cap reached (10/day). Falling back to Omnichannel broadcast...[/yellow]")
+            return self._execute_original_post(start_time)
 
         from src.reddit_automater import RedditAutomater
         from src.reddit_client import RedditClient
-        automater = RedditAutomater(headless=False, dry_run=self.safety.dry_run)
+        automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
         rclient = RedditClient()
 
         subreddits = rclient.get_target_subreddits()
@@ -1135,16 +1127,9 @@ class AutomaterEngine:
             if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
             and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "threads_post"
         )
-        if today_th >= 6:
-            console.print("[yellow]Threads daily cap reached (2/2). Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="threads_post",
-                status="skipped",
-                skip_or_error_reason="Daily Threads cap reached (2/day)",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+        if today_th >= 10:
+            console.print("[yellow]⚠️ Threads daily cap reached (10/day). Falling back to Omnichannel broadcast...[/yellow]")
+            return self._execute_original_post(start_time)
 
         from src.threads_automater import ThreadsAutomater
         automater = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)

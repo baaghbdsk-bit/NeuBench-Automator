@@ -44,7 +44,7 @@ if sys.platform == "win32":
 
 class RedditAutomater:
 
-    def __init__(self, headless: bool = False, dry_run: bool = False):
+    def __init__(self, headless: bool = True, dry_run: bool = False):
 
         self.headless = headless
 
