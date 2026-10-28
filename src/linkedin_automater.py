@@ -109,21 +109,14 @@ class LinkedInAutomater:
         with sync_playwright() as p:
 
             launch_kwargs = {
-
                 "user_data_dir": str(self.user_data_dir),
-
                 "headless": self.headless,
-
                 "viewport": {"width": 1280, "height": 800},
-
+                "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
                 "args": [
-
                     "--disable-blink-features=AutomationControlled",
-
                     "--no-sandbox"
-
                 ]
-
             }
 
             try:
@@ -142,7 +135,14 @@ class LinkedInAutomater:
                         c_data = json.load(f)
                         raw_cookies = c_data.get("cookies", c_data) if isinstance(c_data, dict) else c_data
                         if isinstance(raw_cookies, list):
-                            context.add_cookies(raw_cookies)
+                            all_cookies = []
+                            for c in raw_cookies:
+                                all_cookies.append(c)
+                                if c.get("domain") == ".www.linkedin.com":
+                                    c_copy = dict(c)
+                                    c_copy["domain"] = ".linkedin.com"
+                                    all_cookies.append(c_copy)
+                            context.add_cookies(all_cookies)
                 except Exception as e:
                     print(f"[LinkedInAutomater] Error restoring cookies: {e}")
 
