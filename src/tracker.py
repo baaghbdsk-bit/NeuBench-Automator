@@ -91,7 +91,7 @@ class ActivityTracker:
             "total_actions": 0
         }
         for event in self.metrics.get("recent_events", []):
-            if event.get("timestamp", "").startswith(today_str) and event.get("status") == "success":
+            if event.get("timestamp", "").startswith(today_str) and event.get("status") == "success" and not event.get("is_dry_run", False):
                 atype = event.get("action_type")
                 if atype == "original_post":
                     counts["original_posts"] += 1

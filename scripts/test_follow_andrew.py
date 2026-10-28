@@ -33,3 +33,4 @@ with sync_playwright() as p:
 
     finally:
         ctx.close()
+

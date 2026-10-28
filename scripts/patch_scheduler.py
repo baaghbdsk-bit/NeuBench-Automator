@@ -82,3 +82,4 @@ if "_execute_bluesky_post" not in content:
 
 path.write_text(content, encoding="utf-8")
 print("Patch applied to src/scheduler.py!")
+

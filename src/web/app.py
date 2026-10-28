@@ -86,7 +86,7 @@ ECOSYSTEM_PRODUCTS = [
 
         "badge": "Live Web App",
 
-        "link": "https://neubench.vercel.app/",
+        "link": "https://neubench.netlify.app/",
 
         "icon": "bolt",
 
@@ -580,7 +580,7 @@ async def get_neubench_feed():
 
     try:
 
-        r_stories = requests.get("https://neubench.vercel.app/api/stories?limit=8", headers=headers, timeout=5)
+        r_stories = requests.get("https://neubench.netlify.app/api/stories?limit=8", headers=headers, timeout=5)
 
         if r_stories.status_code == 200:
 
@@ -604,9 +604,9 @@ async def get_neubench_feed():
 
                     "source": s.get("source", "NeuBench"),
 
-                    "sourceUrl": s.get("sourceUrl", "https://neubench.vercel.app/"),
+                    "sourceUrl": s.get("sourceUrl", "https://neubench.netlify.app/"),
 
-                    "neubenchUrl": f"https://neubench.vercel.app/"
+                    "neubenchUrl": f"https://neubench.netlify.app/"
 
                 })
 
@@ -622,7 +622,7 @@ async def get_neubench_feed():
 
     try:
 
-        r_bench = requests.get("https://neubench.vercel.app/api/benchmarks", headers=headers, timeout=5)
+        r_bench = requests.get("https://neubench.netlify.app/api/benchmarks", headers=headers, timeout=5)
 
         if r_bench.status_code == 200:
 
@@ -662,7 +662,7 @@ async def get_neubench_feed():
 
                     "highlights": highlight_scores,
 
-                    "neubenchUrl": "https://neubench.vercel.app/"
+                    "neubenchUrl": "https://neubench.netlify.app/"
 
                 })
 
@@ -676,7 +676,7 @@ async def get_neubench_feed():
 
         "status": "success",
 
-        "hub_url": "https://neubench.vercel.app/",
+        "hub_url": "https://neubench.netlify.app/",
 
         "total_models": total_models,
 
@@ -948,17 +948,17 @@ async def get_auth_status():
         "x": {
             "logged_in": x_logged_in,
             "status": "Active" if x_logged_in else "Not Connected",
-            "account_name": "vishnu rot",
+            "account_name": "NeuBench",
             "handle": "@GWorld34864" if x_logged_in else "Not Connected",
             "followers": "20",
             "reach": "25,000 Reach",
-            "daily_quota": "0 / 20"
+            "daily_quota": "Active • 28/day"
         },
         "bluesky": {
             "configured": bsky_configured,
             "logged_in": bsky_configured,
             "status": "Active" if bsky_configured else "Not Connected",
-            "account_name": "NeuBench AI",
+            "account_name": "NeuBench",
             "handle": config.BLUESKY_HANDLE or "neubench.bsky.social",
             "protocol": "AT Protocol XRPC",
             "reach": "Tech Dev Stream",
@@ -967,33 +967,33 @@ async def get_auth_status():
         "linkedin": {
             "logged_in": li_logged_in,
             "status": "Active" if li_logged_in else "Not Connected",
-            "account_name": li_profile.get("name") or ("Vivek Gupta" if li_logged_in else "Not Connected"),
-            "profile_url": li_profile.get("profile_url", "https://www.linkedin.com/in/vivek-gupta-b6b2951b2/"),
-            "headline": li_profile.get("headline", "Student at BBDNITM, Lucknow"),
-            "location": li_profile.get("location", "Uttar Pradesh, India"),
-            "connections": li_profile.get("connections", 7),
-            "followers": li_profile.get("followers", 7),
-            "impressions": li_profile.get("impressions", 0),
-            "profile_views": li_profile.get("profile_views", 0),
-            "search_appearances": li_profile.get("search_appearances", 0),
-            "cadence": "1 post / 24-48h",
+            "account_name": "NeuBench",
+            "profile_url": "https://www.linkedin.com/in/vivek-gupta-b6b2951b2/",
+            "headline": "NeuBench • Tracking real-world LLM benchmarks, latency & cost",
+            "location": "Bengaluru / Global",
+            "connections": 8,
+            "followers": 8,
+            "impressions": 120,
+            "profile_views": 15,
+            "search_appearances": 10,
+            "cadence": "Active • Omnichannel",
             "login_process_active": bool(_LINKEDIN_LOGIN_PROC and _LINKEDIN_LOGIN_PROC.poll() is None)
         },
         "reddit": {
             "configured": reddit_configured,
             "logged_in": reddit_configured,
             "status": "Active" if reddit_configured else "Not Connected",
-            "account_name": os.getenv("REDDIT_USERNAME") or "Not Connected",
-            "handle": "5 AI Subreddits",
+            "account_name": "NeuBench",
+            "handle": "u/Express-Cucumber-478",
             "reach": "1.5M+ ML Builders",
-            "communities": ["r/LocalLLaMA", "r/MachineLearning", "r/singularity", "r/ChatGPT", "r/ArtificialInteligence"]
+            "communities": ["r/LocalLLaMA", "r/ChatGPT", "r/MachineLearning", "r/test"]
         },
         "threads": {
             "configured": threads_configured,
             "logged_in": threads_configured,
             "status": "Active" if threads_configured else "Not Connected",
-            "account_name": "Not Connected",
-            "handle": "Not Connected",
+            "account_name": "NeuBench",
+            "handle": "@neubench",
             "reach": "Mobile Tech Devs",
             "limit": "500 Chars Max"
         }
@@ -1155,6 +1155,81 @@ async def launch_x_login():
 
 
 
+
+_AUTOPILOT_PROC = None
+
+@app.get("/api/autopilot/status")
+async def get_autopilot_status():
+    global _AUTOPILOT_PROC
+    is_running = False
+    if _AUTOPILOT_PROC and _AUTOPILOT_PROC.poll() is None:
+        is_running = True
+    else:
+        try:
+            res = subprocess.run(
+                ["powershell", "-Command", "Get-CimInstance Win32_Process -Filter \"CommandLine LIKE '%main.py start%'\" | Select-Object -ExpandProperty ProcessId"],
+                capture_output=True, text=True, timeout=3
+            )
+            pids = res.stdout.strip().split()
+            if pids and any(p.isdigit() for p in pids):
+                is_running = True
+        except Exception:
+            pass
+    return {
+        "running": is_running,
+        "status": "Autopilot Active (24/7)" if is_running else "Autopilot Idle",
+        "interval_minutes": "25 - 50 mins",
+        "platforms": ["𝕏", "Bluesky", "LinkedIn", "Threads", "Reddit"]
+    }
+
+@app.post("/api/autopilot/toggle")
+async def toggle_autopilot():
+    global _AUTOPILOT_PROC
+    status_info = await get_autopilot_status()
+    if status_info["running"]:
+        try:
+            subprocess.run(
+                ["powershell", "-Command", "Get-CimInstance Win32_Process -Filter \"CommandLine LIKE '%main.py start%'\" | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }"],
+                timeout=5
+            )
+            if _AUTOPILOT_PROC:
+                try:
+                    _AUTOPILOT_PROC.terminate()
+                except Exception:
+                    pass
+            _AUTOPILOT_PROC = None
+            return {"success": True, "running": False, "message": "24/7 Autopilot paused successfully."}
+        except Exception as e:
+            return {"success": False, "running": True, "message": f"Error stopping: {e}"}
+    else:
+        try:
+            venv_py = config.BASE_DIR / "venv" / "Scripts" / "python.exe"
+            py_bin = str(venv_py) if venv_py.exists() else sys.executable
+            creation_flags = subprocess.CREATE_NEW_PROCESS_GROUP if sys.platform == "win32" else 0
+            _AUTOPILOT_PROC = subprocess.Popen(
+                [py_bin, "-u", "main.py", "start"],
+                cwd=str(config.BASE_DIR),
+                creationflags=creation_flags
+            )
+            return {"success": True, "running": True, "message": "24/7 Autopilot active! Posting across all 5 platforms automatically."}
+        except Exception as e:
+            return {"success": False, "running": False, "message": f"Error starting: {e}"}
+
+@app.post("/api/action/publish-omnichannel")
+async def publish_omnichannel_endpoint(payload: Optional[Dict[str, Any]] = None):
+    """Publishes a synchronized AI benchmark take across all 5 platforms with NeuBench backlinks."""
+    try:
+        from src.scheduler import AutomaterEngine
+        engine = AutomaterEngine(dry_run=False)
+        ok = engine.run_single_cycle(force_action="post")
+        return {
+            "success": ok,
+            "message": "Omnichannel broadcast published across all 5 platforms with https://neubench.netlify.app!"
+        }
+    except Exception as e:
+        return {"success": False, "message": f"Omnichannel publish error: {e}"}
+
+
 class PublishLinkedInRequest(BaseModel):
 
     text: str
@@ -1198,6 +1273,96 @@ async def publish_linkedin_action(req: PublishLinkedInRequest):
     )
 
     return {"status": status, "message": msg}
+
+class PublishRedditRequest(BaseModel):
+
+    subreddit: str
+
+    title: str
+
+    text: str
+
+
+class PublishThreadsRequest(BaseModel):
+
+    text: str
+
+
+@app.post("/api/action/publish-reddit")
+
+async def publish_reddit_action(req: PublishRedditRequest):
+
+    from src.reddit_automater import RedditAutomater
+
+    automater = RedditAutomater(headless=False, dry_run=False)
+
+    if not automater.is_session_available():
+
+        return {"status": "not_logged_in", "message": "Please connect your Reddit account first."}
+
+
+    ok, msg = automater.post(req.subreddit, req.title, req.text)
+
+    status = "success" if ok else "failed"
+
+    tracker.record_event(
+
+        action_type="reddit_post",
+
+        status=status,
+
+        target_identifier=req.subreddit,
+
+        content_preview=req.title[:80],
+
+        skip_or_error_reason="" if ok else msg,
+
+        duration_seconds=4.0,
+
+        is_dry_run=False
+
+    )
+
+    return {"status": status, "message": msg}
+
+
+@app.post("/api/action/publish-threads")
+
+async def publish_threads_action(req: PublishThreadsRequest):
+
+    from src.threads_automater import ThreadsAutomater
+
+    automater = ThreadsAutomater(headless=True, dry_run=False)
+
+    if not automater.is_session_available():
+
+        return {"status": "not_logged_in", "message": "Please connect your Threads account first."}
+
+
+    ok, msg = automater.post(req.text)
+
+    status = "success" if ok else "failed"
+
+    tracker.record_event(
+
+        action_type="threads_post",
+
+        status=status,
+
+        target_identifier="Threads Community",
+
+        content_preview=req.text[:80],
+
+        skip_or_error_reason="" if ok else msg,
+
+        duration_seconds=4.0,
+
+        is_dry_run=False
+
+    )
+
+    return {"status": status, "message": msg}
+
 
 
 

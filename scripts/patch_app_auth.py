@@ -96,3 +96,4 @@ if "/api/auth/launch-linkedin-login" not in content:
     print("Patched src/web/app.py with auth endpoints!")
 else:
     print("Auth endpoints already present.")
+

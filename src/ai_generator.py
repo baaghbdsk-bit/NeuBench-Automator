@@ -120,7 +120,11 @@ Return ONLY valid JSON.
 
     def generate_neubench_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a viral take on a NeuBench AI news story or benchmark model, driving engagement & traffic."""
-        link_instruction = "End naturally with 'Tracking benchmarks on neubench.vercel.app' or similar subtle nod." if include_link else "Do not include URLs."
+        link_instruction = (
+            "Creatively and naturally include our platform URL 'https://neubench.netlify.app' at the end or within the take "
+            "(e.g., 'Tracked the latency & cost live on https://neubench.netlify.app' or 'Full eval breakdown on https://neubench.netlify.app'). "
+            "Make it relevant to the topic."
+        ) if include_link else "Do not include URLs."
         prompt = f"""
 AI News / Model: "{title}"
 Developer/Company: "{company}"
@@ -132,15 +136,23 @@ Rules:
 - NO hashtags (#). No robotic emojis like 🚀🤖 at start.
 - Provoke discussion in the replies.
 - {link_instruction}
-- Total length under 260 characters.
-- Output ONLY the tweet text.
+- Total length strictly under 275 characters (including the URL).
+- Output ONLY the raw tweet text.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88)
-        return text.strip('"')
+        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
+        if include_link and "neubench.netlify.app" not in text:
+            suffix = " Live evals: https://neubench.netlify.app"
+            if len(text) + len(suffix) <= 280:
+                text = f"{text}{suffix}"
+            else:
+                text = f"{text[:280 - len(suffix) - 1]}…{suffix}"
+        return text
 
     def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a technical, open-source and developer-friendly post for Bluesky (under 300 chars)."""
-        link_str = " (neubench.vercel.app)" if include_link else ""
+        link_instruction = (
+            "Include 'https://neubench.netlify.app' creatively at the end (e.g. 'Live benchmarks: https://neubench.netlify.app' or 'Comparing 260+ models on https://neubench.netlify.app')."
+        ) if include_link else "Do not include URLs."
         prompt = f"""
 Topic: "{title}"
 Company/Developer: "{company}"
@@ -150,14 +162,25 @@ Write a Bluesky post about this AI development.
 Rules:
 - Audience: Open-source developers, researchers, tech builders.
 - Tone: Curious, technical, direct, respectful of open standards, zero corporate cringe.
-- Length: strictly under 280 characters so it fits the 300-char limit{link_str}.
+- {link_instruction}
+- Length: strictly under 280 characters so it fits within Bluesky's 300-char limit.
 - Output ONLY the post text.
 """
-        return self._generate_with_fallback(prompt, "You write for tech-savvy developers on Bluesky.", temperature=0.8).strip('"')
+        text = self._generate_with_fallback(prompt, "You write for tech-savvy developers on Bluesky.", temperature=0.8).strip('"').strip()
+        if include_link and "neubench.netlify.app" not in text:
+            suffix = " | Benchmarks: https://neubench.netlify.app"
+            if len(text) + len(suffix) <= 295:
+                text = f"{text}{suffix}"
+            else:
+                text = f"{text[:295 - len(suffix) - 1]}…{suffix}"
+        return text
 
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a professional B2B thought-leadership post for LinkedIn with structured insights."""
-        link_line = "\n\nTracking the frontier benchmarks on NeuBench (https://neubench.vercel.app)." if include_link else ""
+        link_instruction = (
+            "At the end of the post, seamlessly integrate a call-to-action mentioning https://neubench.netlify.app "
+            "(e.g., '📊 Tracking real-time latency, throughput, and frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app')."
+        ) if include_link else ""
         prompt = f"""
 Topic: "{title}"
 Developer/Company: "{company}"
@@ -169,28 +192,39 @@ Format:
 - 2-3 short bullet points (using • or -) explaining the practical implications for software teams or founders.
 - 1 thoughtful question asking the network for their perspective.
 - Tone: Professional, analytical, forward-looking, zero cheesy fluff or corporate platitudes.
-{link_line}
+{link_instruction}
 - Output ONLY the post text.
 """
-        return self._generate_with_fallback(prompt, "You are a senior tech strategist writing high-value insights on LinkedIn.", temperature=0.75).strip('"')
+        text = self._generate_with_fallback(prompt, "You are a senior tech strategist writing high-value insights on LinkedIn.", temperature=0.75).strip('"').strip()
+        if include_link and "neubench.netlify.app" not in text:
+            text = f"{text}\n\n📊 Tracking real-time frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app"
+        return text
 
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a casual, conversational discussion post for Threads."""
-        link_str = " Checked the benchmarks on neubench.vercel.app" if include_link else ""
+        link_instruction = (
+            "Creatively add 'https://neubench.netlify.app' below the post (e.g. 'Ran the evals on https://neubench.netlify.app' or 'Full comparison on https://neubench.netlify.app')."
+        ) if include_link else ""
         prompt = f"""
 Topic: "{title}"
 Context: "{summary}"
 
 Write a casual, conversational post for Threads that invites people to share their experience or opinion.
 - Friendly, curiosity-driven, easy to read on mobile.
-- Under 250 characters{link_str}.
+- {link_instruction}
+- Under 280 characters.
 - Output ONLY the post text.
 """
-        return self._generate_with_fallback(prompt, "You are an authentic mobile creator writing for Threads.", temperature=0.85).strip('"')
+        text = self._generate_with_fallback(prompt, "You are an authentic mobile creator writing for Threads.", temperature=0.85).strip('"').strip()
+        if include_link and "neubench.netlify.app" not in text:
+            suffix = "\n\nChecked the evals on https://neubench.netlify.app"
+            if len(text) + len(suffix) <= 450:
+                text = f"{text}{suffix}"
+        return text
 
     def generate_reddit_post(self, title: str, summary: str = "", company: str = "", subreddit: str = "r/LocalLLaMA", include_link: bool = True) -> dict:
         """Generates a high-value, community-tailored Reddit post with markdown formatting."""
-        link_str = "\n\n*Benchmarks tracked on [NeuBench](https://neubench.vercel.app) • Open source engine on [GitHub](https://github.com/baaghbdsk-bit/NeuBench-Automator)*" if include_link else ""
+        link_str = "\n\n*Benchmarks tracked on [NeuBench](https://neubench.netlify.app) • Open source engine on [GitHub](https://github.com/baaghbdsk-bit/NeuBench-Automator)*" if include_link else ""
         prompt = f"""
 Topic: "{title}"
 Developer/Company: "{company}"

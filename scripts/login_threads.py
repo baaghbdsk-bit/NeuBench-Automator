@@ -25,7 +25,7 @@ def login_threads():
     console.print("\n[cyan]A visible Chrome/Chromium browser window will open now.[/cyan]")
     console.print("[yellow]1. Log in with your Instagram or Threads credentials.[/yellow]")
     console.print("[yellow]2. Complete any 2FA or verification prompt if asked.[/yellow]")
-    console.print("[green]3. Once you reach your Threads feed, this script will save your session![/green]\n")
+    console.print("[green]3. Once you reach your Threads feed, return here and press ENTER to save.[/green]\n")
 
     user_data_dir = config.BASE_DIR / "threads_session"
     user_data_dir.mkdir(parents=True, exist_ok=True)
@@ -52,50 +52,69 @@ def login_threads():
             console.print("[dim]Navigating to https://www.threads.net/login ...[/dim]")
             page.goto("https://www.threads.net/login", wait_until="domcontentloaded", timeout=45000)
 
-            console.print("[bold yellow]Waiting for you to log in... (Checking every 2 seconds)[/bold yellow]")
+            input("\n👉 Press ENTER here in this console AFTER you have successfully logged in...\n")
 
-            max_wait_seconds = 300
-            start_wait = time.time()
-            logged_in = False
-
-            while time.time() - start_wait < max_wait_seconds:
-                # 1. Check cookies for Instagram/Threads session
-                try:
-                    cookies = context.cookies()
-                    if any(c.get("name") in ("sessionid", "ds_user_id") for c in cookies):
-                        logged_in = True
-                except Exception:
-                    pass
-
-                # 2. Check if reached main feed
-                current_url = page.url.lower()
-                if "login" not in current_url and ("threads.net" in current_url):
-                    try:
-                        # Feed navigation bar or profile tab
-                        if page.locator('svg[aria-label="Home"], svg[aria-label="Profile"], a[href*="/@"]').first.is_visible():
-                            logged_in = True
-                            break
-                    except Exception:
-                        pass
-                    if logged_in:
-                        break
-
-                time.sleep(2)
-
-            if logged_in:
-                console.print("\n[bold green]🎉 SUCCESS! Logged into Threads successfully![/bold green]")
-                time.sleep(2)
-                console.print(f"[bold cyan]✅ Session saved into: {user_data_dir}[/bold cyan]")
-                return True
-            else:
-                console.print("\n[red]Login timed out after 5 minutes. Please try again.[/red]")
+            # ✅ NEW: Verify login by checking auth cookies
+            try:
+                page.goto("https://www.threads.net/", wait_until="domcontentloaded", timeout=30000)
+                cookies = context.cookies()
+                # Check for sessionid on threads.com or instagram.com domains
+                auth_cookies = [c for c in cookies 
+                              if c.get('expires', 0) > int(time.time())
+                              and (c.get('domain', '').endswith('.threads.com') or c.get('domain', '').endswith('.instagram.com'))
+                              and c.get('name') in ('sessionid', 'csrftoken', 'ds_user_id')]
+                if not auth_cookies:
+                    console.print("[red]❌ Login not detected: no valid Threads auth cookies found.[/red]")
+                    console.print("[dim]Make sure you completed login and the browser redirected to your feed.[/dim]")
+                    context.close()
+                    return False
+                console.print(f"[bold green]✅ Auth cookies verified! Saving session...[/bold green]")
+            except Exception as e:
+                console.print(f"[red]❌ Error verifying login: {e}[/red]")
+                context.close()
                 return False
+
+            # Try to capture the logged-in handle (best-effort)
+            account_name = "Threads User"
+            try:
+                page.goto("https://www.threads.net/", wait_until="domcontentloaded", timeout=30000)
+                time.sleep(2)
+                loc = page.locator('a[href*="/@"]').first
+                if loc and loc.is_visible():
+                    href = loc.get_attribute("href") or ""
+                    name = href.split("/@")[-1].split("/")[0].split("?")[0]
+                    if name:
+                        account_name = "@" + name
+            except Exception:
+                pass
+
+            # Save a marker file so the dashboard knows login succeeded
+            try:
+                if account_name == "Threads User":
+                    existing = user_data_dir / "account.txt"
+                    if existing.exists():
+                        val = existing.read_text(encoding="utf-8").strip()
+                        if val and val != "Threads User":
+                            account_name = val
+                    else:
+                        account_name = "@neubench"
+                (user_data_dir / "account.txt").write_text(account_name, encoding="utf-8")
+            except Exception:
+                pass
+
+            console.print(f"\n[bold green]🎉 SUCCESS! Logged into Threads as {account_name}![/bold green]")
+            time.sleep(2)
+            console.print(f"[bold cyan]✅ Session saved into: {user_data_dir}[/bold cyan]")
+            return True
 
         except Exception as e:
             console.print(f"\n[red]Browser error during Threads login: {e}[/red]")
             return False
         finally:
-            context.close()
+            try:
+                context.close()
+            except Exception:
+                pass
 
 if __name__ == "__main__":
     login_threads()

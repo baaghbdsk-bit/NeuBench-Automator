@@ -79,7 +79,12 @@ class TwitterClient:
             try:
                 print(f"[TwitterClient] Navigating to compose tweet...")
                 page.goto("https://x.com/compose/post", wait_until="domcontentloaded", timeout=35000)
-                page.wait_for_selector('[data-testid="tweetTextarea_0"], div[role="textbox"]', timeout=15000)
+                try:
+                    page.wait_for_selector('[data-testid="tweetTextarea_0"], div[role="textbox"]', timeout=20000)
+                except Exception:
+                    print("[TwitterClient] Retrying compose via x.com/home...")
+                    page.goto("https://x.com/home", wait_until="domcontentloaded", timeout=25000)
+                    page.wait_for_selector('[data-testid="tweetTextarea_0"], div[role="textbox"]', timeout=15000)
                 
                 textarea = page.locator('[data-testid="tweetTextarea_0"], div[role="textbox"]').first
                 self._human_type(textarea, text)

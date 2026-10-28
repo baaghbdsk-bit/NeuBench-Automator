@@ -198,7 +198,7 @@
 
 
 
-      background-color: #f8fafc;
+      background-color: #d1d5db;
 
 
 
@@ -222,7 +222,7 @@
 
 
 
-      background-color: #090a0f;
+      background-color: #374151;
 
 
 
@@ -958,7 +958,7 @@
 
 
 
-            Autonomous growth for 𝕏, Bluesky, LinkedIn & Threads • Powered by NeuBench AI
+            Autonomous growth for 𝕏, Bluesky, LinkedIn, Threads & Reddit • Powered by NeuBench AI
 
 
 
@@ -1180,7 +1180,7 @@
 
             <div class="my-1.5">
 
-              <div class="text-[11px] font-semibold text-slate-900 dark:text-white truncate" id="hub-linkedin-account">Vivek Gupta</div>
+              <div class="text-[11px] font-semibold text-slate-900 dark:text-white truncate" id="hub-linkedin-account">NeuBench</div>
 
               <div class="text-[11px] text-slate-500 dark:text-xmuted mt-0.5" id="hub-linkedin-stats">Autonomous B2B • Hook + 3 Takeaways</div>
 
@@ -1206,19 +1206,19 @@
 
               </div>
 
-              <span id="hub-reddit-badge" class="text-[9px] bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20 px-1.5 py-0.2 rounded font-mono font-semibold">Not Connected</span>
+              <span id="hub-reddit-badge" class="text-[9px] bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 px-1.5 py-0.2 rounded font-mono font-semibold">Active</span>
 
             </div>
 
             <div class="my-1.5">
 
-              <div class="text-[11px] font-semibold text-slate-900 dark:text-white truncate" id="hub-reddit-account">Reddit AI Hub</div>
+              <div class="text-[11px] font-semibold text-slate-900 dark:text-white truncate" id="hub-reddit-account">u/VishnuGupta</div>
 
-              <div class="text-[11px] text-slate-500 dark:text-xmuted mt-0.5" id="hub-reddit-stats">Not Connected • Click to Connect</div>
+              <div class="text-[11px] text-slate-500 dark:text-xmuted mt-0.5" id="hub-reddit-stats">5 AI Subreddits • 1.5M+ ML Builders</div>
 
             </div>
 
-            <span class="text-[10px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">Connect Reddit →</span>
+            <span id="hub-reddit-action" class="text-[10px] text-orange-600 dark:text-orange-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">Open Reddit Studio →</span>
 
           </div>
 
@@ -1238,19 +1238,19 @@
 
               </div>
 
-              <span id="hub-threads-badge" class="text-[9px] bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20 px-1.5 py-0.2 rounded font-mono font-semibold">Not Connected</span>
+              <span id="hub-threads-badge" class="text-[9px] bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 px-1.5 py-0.2 rounded font-mono font-semibold">Active</span>
 
             </div>
 
             <div class="my-1.5">
 
-              <div class="text-[11px] font-semibold text-slate-900 dark:text-white truncate" id="hub-threads-account">Threads Studio</div>
+              <div class="text-[11px] font-semibold text-slate-900 dark:text-white truncate" id="hub-threads-account">@neubench</div>
 
-              <div class="text-[11px] text-slate-500 dark:text-xmuted mt-0.5" id="hub-threads-stats">Not Connected • Click to Connect</div>
+              <div class="text-[11px] text-slate-500 dark:text-xmuted mt-0.5" id="hub-threads-stats">Mobile Tech Devs • 500 Chars Max</div>
 
             </div>
 
-            <span class="text-[10px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">Connect Threads →</span>
+            <span id="hub-threads-action" class="text-[10px] text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">Open Threads Studio →</span>
 
           </div>
 
@@ -1548,7 +1548,36 @@
 
 
 
-                <label class="text-[11px] text-slate-700 dark:text-neutral-300 font-semibold mb-1.5 block">Trigger Instant Action:</label>
+                <!-- 24/7 Autopilot Control Card -->
+              <div class="card-base p-3 flex items-center justify-between border-l-4 border-emerald-500 bg-emerald-50/40 dark:bg-emerald-500/5 mb-3 rounded-xl">
+                <div class="flex items-center gap-2.5">
+                  <span class="relative flex h-3 w-3">
+                    <span id="autopilot-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span id="autopilot-dot" class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                  </span>
+                  <div>
+                    <div class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                      <span>24/7 Autopilot Engine</span>
+                      <span id="autopilot-badge" class="text-[9px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 font-mono px-1.5 py-0.2 rounded font-bold">ACTIVE</span>
+                    </div>
+                    <div id="autopilot-subtext" class="text-[10px] text-slate-500 dark:text-xmuted">Autonomous posting across all 5 platforms • 25–50m cadence</div>
+                  </div>
+                </div>
+                <button onclick="toggleAutopilot()" id="autopilot-toggle-btn" class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-black dark:hover:bg-slate-200 transition active:scale-95 shadow-sm">
+                  Pause
+                </button>
+              </div>
+
+              <!-- Master 1-Click Omnichannel Broadcast Button -->
+              <div class="mb-3">
+                <button onclick="triggerOmnichannelBroadcast()" id="btn-broadcast-omnichannel" class="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold text-xs py-2.5 px-3.5 rounded-xl shadow-md shadow-indigo-500/20 flex items-center justify-center gap-2 transition-all active:scale-98">
+                  <i class="fa-solid fa-bolt-lightning text-amber-300"></i>
+                  <span>Broadcast Across All 5 Platforms</span>
+                  <span class="text-[9px] bg-white/20 px-1.5 py-0.5 rounded font-mono">𝕏 • Bsky • LI • Th • Rd</span>
+                </button>
+              </div>
+
+              <label class="text-[11px] text-slate-700 dark:text-neutral-300 font-semibold mb-1.5 block">Trigger Instant Action:</label>
 
 
 
@@ -5138,7 +5167,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-      fetchStats();
+      fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -5206,7 +5235,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-      fetchStats();
+      fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -5282,7 +5311,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-      fetchStats();
+      fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -5414,7 +5443,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-          fetchStats();
+          fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -5445,6 +5474,88 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
     // 3. Fetch Stats & Scorecard
 
 
+
+    
+    // 24/7 Autopilot & Omnichannel Broadcast Handlers
+    async function checkAutopilotStatus() {
+      try {
+        const res = await fetch('/api/autopilot/status');
+        const data = await res.json();
+        const isRunning = data.running;
+        const badge = document.getElementById('autopilot-badge');
+        const dot = document.getElementById('autopilot-dot');
+        const ping = document.getElementById('autopilot-ping');
+        const subtext = document.getElementById('autopilot-subtext');
+        const btn = document.getElementById('autopilot-toggle-btn');
+
+        if (badge && btn) {
+          if (isRunning) {
+            badge.textContent = 'ACTIVE';
+            badge.className = 'text-[9px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 font-mono px-1.5 py-0.2 rounded font-bold';
+            dot.className = 'relative inline-flex rounded-full h-3 w-3 bg-emerald-500';
+            if (ping) ping.style.display = 'inline-flex';
+            subtext.textContent = 'Autonomous posting across all 5 platforms • 25–50m cadence';
+            btn.textContent = 'Pause';
+            btn.className = 'px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-200 hover:bg-slate-300 text-slate-800 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 transition active:scale-95';
+          } else {
+            badge.textContent = 'PAUSED';
+            badge.className = 'text-[9px] bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 font-mono px-1.5 py-0.2 rounded font-bold';
+            dot.className = 'relative inline-flex rounded-full h-3 w-3 bg-amber-500';
+            if (ping) ping.style.display = 'none';
+            subtext.textContent = 'Autopilot is currently paused. Click Start to resume.';
+            btn.textContent = 'Start Autopilot';
+            btn.className = 'px-2.5 py-1 rounded-lg text-[11px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition active:scale-95 shadow-sm';
+          }
+        }
+      } catch (e) {
+        console.warn('Autopilot status check error:', e);
+      }
+    }
+
+    async function toggleAutopilot() {
+      const btn = document.getElementById('autopilot-toggle-btn');
+      if (btn) btn.disabled = true;
+      try {
+        const res = await fetch('/api/autopilot/toggle', { method: 'POST' });
+        const data = await res.json();
+        alert(data.message || 'Autopilot updated');
+        await checkAutopilotStatus();
+      } catch (e) {
+        alert('Failed to toggle autopilot: ' + e);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    }
+
+    async function triggerOmnichannelBroadcast() {
+      const btn = document.getElementById('btn-broadcast-omnichannel');
+      const originalHTML = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Broadcasting to All 5 Platforms...';
+      }
+      try {
+        const res = await fetch('/api/action/publish-omnichannel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({})
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert('🚀 SUCCESS: ' + (data.message || 'Omnichannel broadcast completed!'));
+        } else {
+          alert('⚠️ Notice: ' + (data.message || 'Broadcast finished with notes. Check logs.'));
+        }
+        if (typeof fetchStats === 'function') fetchStats();
+      } catch (e) {
+        alert('Broadcast request failed: ' + e);
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = originalHTML;
+        }
+      }
+    }
 
     async function fetchStats() {
 
@@ -6762,7 +6873,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-          fetchStats();
+          fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -6842,7 +6953,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-          fetchStats();
+          fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -6990,7 +7101,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-        fetchStats();
+        fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -7086,7 +7197,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-        fetchStats();
+        fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -7282,61 +7393,117 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
           }
 
-          if (acc) acc.innerText = data.linkedin.account_name || 'Vivek Gupta';
+          if (acc) acc.innerText = data.linkedin.account_name || 'NeuBench';
 
-          if (stats) stats.innerText = data.linkedin.logged_in ? `${data.linkedin.connections || 7} Connections • B2B Active` : 'Not Connected • Click to Connect';
+          if (stats) stats.innerText = data.linkedin.logged_in ? `${data.linkedin.connections || 7} Connections ? B2B Active` : 'Not Connected ? Click to Connect';
 
         }
 
 
 
         if (data.reddit) {
-
           const badge = document.getElementById('hub-reddit-badge');
-
           const acc = document.getElementById('hub-reddit-account');
-
           const stats = document.getElementById('hub-reddit-stats');
-
+          const act = document.getElementById('hub-reddit-action');
           if (badge) {
-
             badge.innerText = data.reddit.logged_in ? 'Active' : 'Not Connected';
-
             badge.className = data.reddit.logged_in ? 'text-[9px] bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 px-1.5 py-0.2 rounded font-mono font-semibold' : 'text-[9px] bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20 px-1.5 py-0.2 rounded font-mono font-semibold';
-
           }
-
-          if (acc) acc.innerText = data.reddit.account_name || 'Reddit AI Hub';
-
-          if (stats) stats.innerText = data.reddit.logged_in ? 'Connected' : 'Not Connected • Click to Connect';
-
+          if (acc) acc.innerText = data.reddit.account_name || 'u/VishnuGupta';
+          if (stats) stats.innerText = data.reddit.logged_in ? `${data.reddit.handle || '5 AI Subreddits'} ? ${data.reddit.reach || '1.5M+ ML Builders'}` : 'Not Connected ? Click to Connect';
+          if (act) {
+            act.innerText = data.reddit.logged_in ? 'Open Reddit Studio →' : 'Connect Reddit →';
+            act.className = data.reddit.logged_in ? 'text-[10px] text-orange-600 dark:text-orange-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform' : 'text-[10px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform';
+          }
         }
 
 
 
         if (data.threads) {
-
           const badge = document.getElementById('hub-threads-badge');
-
           const acc = document.getElementById('hub-threads-account');
-
           const stats = document.getElementById('hub-threads-stats');
-
+          const act = document.getElementById('hub-threads-action');
           if (badge) {
-
             badge.innerText = data.threads.logged_in ? 'Active' : 'Not Connected';
-
             badge.className = data.threads.logged_in ? 'text-[9px] bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 px-1.5 py-0.2 rounded font-mono font-semibold' : 'text-[9px] bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20 px-1.5 py-0.2 rounded font-mono font-semibold';
-
           }
-
-          if (acc) acc.innerText = data.threads.logged_in ? data.threads.handle : 'Threads Studio';
-
-          if (stats) stats.innerText = data.threads.logged_in ? 'Connected' : 'Not Connected • Click to Connect';
-
+          if (acc) acc.innerText = data.threads.logged_in ? (data.threads.handle || data.threads.account_name) : 'Threads Studio';
+          if (stats) stats.innerText = data.threads.logged_in ? `${data.threads.reach || 'Mobile Tech Devs'} ? ${data.threads.limit || '500 Chars Max'}` : 'Not Connected ? Click to Connect';
+          if (act) {
+            act.innerText = data.threads.logged_in ? 'Open Threads Studio →' : 'Connect Threads →';
+            act.className = data.threads.logged_in ? 'text-[10px] text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform' : 'text-[10px] text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform';
+          }
         }
 
 
+
+        // 2a. Update Reddit Section (view-reddit connect card)
+        const rdBadge = document.getElementById('reddit-status-badge');
+        const rdBtnText = document.getElementById('btn-reddit-login-text');
+        const rdAlert = document.getElementById('reddit-login-alert');
+        const rdNameHeader = document.getElementById('reddit-account-name-header');
+
+        if (data.reddit && data.reddit.logged_in) {
+          if (rdBadge) {
+            rdBadge.className = 'badge-base badge-emerald text-[10px] px-2 py-0.5 rounded font-mono font-semibold';
+            rdBadge.innerText = 'Connected';
+          }
+          if (rdNameHeader) rdNameHeader.innerText = data.reddit.account_name || 'u/VishnuGupta';
+        const rdDesc = document.getElementById('reddit-status-desc');
+        if (rdDesc) rdDesc.innerText = 'Connected as ' + (data.reddit.account_name || 'u/VishnuGupta') + '. Autonomous cross-posting to ML subreddits active.';
+          if (rdBtnText) rdBtnText.innerText = 'Switch Account';
+          if (rdAlert) rdAlert.classList.add('hidden');
+          if (_authPollInterval) {
+            clearInterval(_authPollInterval);
+            _authPollInterval = null;
+          }
+        } else {
+          if (rdBadge) {
+            rdBadge.className = 'badge-base badge-amber text-[10px] px-2 py-0.5 rounded font-mono font-semibold';
+            rdBadge.innerText = 'Not Connected';
+          }
+          if (rdNameHeader) rdNameHeader.innerText = 'Reddit Autonomous Session';
+          if (rdBtnText) rdBtnText.innerText = 'Log in to Reddit (1-Click)';
+          if (data.reddit && data.reddit.login_process_active) {
+            if (rdAlert) rdAlert.classList.remove('hidden');
+            if (!_authPollInterval) _authPollInterval = setInterval(checkAuthStatus, 3000);
+          }
+        }
+
+        // 2b. Update Threads Section (view-threads connect card)
+        const thBadge = document.getElementById('threads-status-badge');
+        const thBtnText = document.getElementById('btn-threads-login-text');
+        const thAlert = document.getElementById('threads-login-alert');
+        const thNameHeader = document.getElementById('threads-account-name-header');
+
+        if (data.threads && data.threads.logged_in) {
+          if (thBadge) {
+            thBadge.className = 'badge-base badge-emerald text-[10px] px-2 py-0.5 rounded font-mono font-semibold';
+            thBadge.innerText = 'Connected';
+          }
+          if (thNameHeader) thNameHeader.innerText = data.threads.handle || data.threads.account_name || '@neubench';
+        const thDesc = document.getElementById('threads-status-desc');
+        if (thDesc) thDesc.innerText = 'Connected as ' + (data.threads.handle || '@neubench') + '. Autonomous mobile dev dialogues active.';
+          if (thBtnText) thBtnText.innerText = 'Switch Account';
+          if (thAlert) thAlert.classList.add('hidden');
+          if (_authPollInterval) {
+            clearInterval(_authPollInterval);
+            _authPollInterval = null;
+          }
+        } else {
+          if (thBadge) {
+            thBadge.className = 'badge-base badge-amber text-[10px] px-2 py-0.5 rounded font-mono font-semibold';
+            thBadge.innerText = 'Not Connected';
+          }
+          if (thNameHeader) thNameHeader.innerText = 'Threads Autonomous Session';
+          if (thBtnText) thBtnText.innerText = 'Log in to Threads (1-Click)';
+          if (data.threads && data.threads.login_process_active) {
+            if (thAlert) thAlert.classList.remove('hidden');
+            if (!_authPollInterval) _authPollInterval = setInterval(checkAuthStatus, 3000);
+          }
+        }
 
         // 2. Update LinkedIn Section (view-linkedin)
 
@@ -7390,7 +7557,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
           }
 
-          if (liNameHeader) liNameHeader.innerText = data.linkedin.account_name || 'Vivek Gupta';
+          if (liNameHeader) liNameHeader.innerText = data.linkedin.account_name || 'NeuBench';
 
           if (liHeadline && data.linkedin.headline) liHeadline.innerText = data.linkedin.headline;
 
@@ -7565,6 +7732,8 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
+    }
+
     async function launchRedditLogin() {
       const alertBox = document.getElementById('reddit-login-alert');
       try {
@@ -7591,8 +7760,6 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
       } catch (e) {
         alert('Failed to launch Threads login: ' + e);
       }
-    }
-
     }
 
 
@@ -7709,7 +7876,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-          fetchStats();
+          fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -7865,7 +8032,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-        fetchStats();
+        fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 
@@ -8173,7 +8340,7 @@ Paste into your Command Prompt and hit Enter!');" class="text-xs text-slate-300 
 
 
 
-    fetchStats();
+    fetchStats(); checkAutopilotStatus(); setInterval(checkAutopilotStatus, 15000);
 
 
 

@@ -80,7 +80,7 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench X-Post Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads, Reddit)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-reddit", "login-threads", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "update-profile", "metrics", "dashboard", "ui"], 
+        choices=["login", "login-linkedin", "login-reddit", "login-threads", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "reddit", "threads", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
         help="Action: 'dashboard', 'login-linkedin', 'login-reddit', 'login-threads', 'bluesky', 'linkedin', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
@@ -241,6 +241,18 @@ def main():
             avatar_path=args.avatar or None,
             header_path=args.header or None
         )
+
+    elif args.action in ("reddit", "threads"):
+        from src.scheduler import AutomaterEngine
+        engine = AutomaterEngine(dry_run=args.dry_run)
+        engine.run_single_cycle(force_action=args.action)
+
+
+    elif args.action in ("omnichannel", "post-all"):
+        from src.scheduler import AutomaterEngine
+        engine = AutomaterEngine(dry_run=args.dry_run)
+        console.print("[bold cyan]🚀 Triggering Live Omnichannel Broadcast Across All 5 Platforms...[/bold cyan]")
+        engine.run_single_cycle(force_action="post")
 
     elif args.action == "run-once":
         from src.scheduler import AutomaterEngine

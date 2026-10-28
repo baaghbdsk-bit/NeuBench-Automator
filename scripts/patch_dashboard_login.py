@@ -206,3 +206,4 @@ if "checkAuthStatus();" not in content:
 
 html_path.write_text(content, encoding="utf-8")
 print("Dashboard HTML updated successfully!")
+

@@ -18,7 +18,7 @@ class LinkedInClient:
         """Checks if official LinkedIn API tokens are configured."""
         return bool(self.access_token and self.author_urn)
 
-    def generate_share_url(self, text: str, url: str = "https://neubench.vercel.app") -> str:
+    def generate_share_url(self, text: str, url: str = "https://neubench.netlify.app") -> str:
         """
         Creates a 1-click LinkedIn pre-filled share URL.
         Opens the native LinkedIn web composer with pre-filled content without needing paid APIs.

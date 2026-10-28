@@ -4,7 +4,6 @@ import requests
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Ensure UTF-8 output on Windows consoles
 if sys.platform == "win32":
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -33,8 +32,6 @@ jwt = session["accessJwt"]
 did = session["did"]
 headers = {"Authorization": f"Bearer {jwt}"}
 
-print(f"[Bluesky] Authenticated! DID: {did}")
-
 def upload_blob(file_path: Path):
     if not file_path.exists():
         print(f"File {file_path} not found")
@@ -60,33 +57,26 @@ def upload_blob(file_path: Path):
         print(f"Upload failed for {file_path.name}: {r.status_code} {r.text}")
         return None
 
-avatar_blob = upload_blob(Path("avatar.jpg"))
+avatar_blob = upload_blob(Path("assets/neubench_avatar.jpg"))
 banner_blob = upload_blob(Path("assets/neubench_twitter_banner.jpg"))
-
-existing_profile = {}
-get_record = requests.get(
-    f"https://bsky.social/xrpc/com.atproto.repo.getRecord?repo={did}&collection=app.bsky.actor.profile&rkey=self",
-    headers=headers,
-    timeout=10
-)
-if get_record.status_code == 200:
-    existing_profile = get_record.json().get("value", {})
 
 profile_record = {
     "$type": "app.bsky.actor.profile",
     "displayName": "NeuBench",
-    "description": "Frontier AI Benchmarks, real-time model evals & autonomous open-source intelligence across 266+ LLMs.\n\nLive leaderboard: neubench.vercel.app"
+    "description": (
+        "NeuBench: Real-time AI evals across 260+ models.\n\n"
+        "🌐 App: https://neubench.netlify.app\n"
+        "𝕏: x.com/GWorld34864\n"
+        "🧵 Threads: threads.net/@neubench\n"
+        "💼 LinkedIn: in/vivek-gupta-b6b2951b2\n"
+        "👽 Reddit: u/Express-Cucumber-478"
+    )
 }
 
 if avatar_blob:
     profile_record["avatar"] = avatar_blob
-elif "avatar" in existing_profile:
-    profile_record["avatar"] = existing_profile["avatar"]
-
 if banner_blob:
     profile_record["banner"] = banner_blob
-elif "banner" in existing_profile:
-    profile_record["banner"] = existing_profile["banner"]
 
 put_res = requests.post(
     "https://bsky.social/xrpc/com.atproto.repo.putRecord",
@@ -101,8 +91,7 @@ put_res = requests.post(
 )
 
 if put_res.status_code == 200:
-    print("[Bluesky] Profile updated successfully on AT Protocol!")
-    print(f"View live profile at: https://bsky.app/profile/{handle}")
+    print("✅ Bluesky profile updated successfully with all 4 platforms & app URL!")
+    print(f"URL: https://bsky.app/profile/{handle}")
 else:
-    print(f"[Bluesky] Failed to update profile record: {put_res.status_code} {put_res.text}")
-
+    print(f"❌ Failed to update Bluesky profile: {put_res.status_code} {put_res.text}")
