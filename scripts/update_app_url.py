@@ -12,8 +12,8 @@ files = [
 for f in files:
     if f.exists():
         content = f.read_text(encoding="utf-8")
-        if "neubench.vercel.app" in content:
-            new_content = content.replace("neubench.vercel.app", "neubench.netlify.app")
+        if "neubench.netlify.app" in content:
+            new_content = content.replace("neubench.netlify.app", "neubench.netlify.app")
             f.write_text(new_content, encoding="utf-8")
             print(f"Updated URL in {f}")
         else:
