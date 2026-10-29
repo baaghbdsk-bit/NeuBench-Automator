@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T02:02:52.773554+00:00",
+    "last_updated": "2026-10-29T03:02:39.777264+00:00",
     "trial_start_utc": "2026-10-28T23:01:36.101995+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 18,
-    "original_posts_attempted": 5,
-    "original_posts_succeeded": 5,
+    "total_cycles_executed": 21,
+    "original_posts_attempted": 6,
+    "original_posts_succeeded": 6,
     "replies_attempted": 0,
     "replies_succeeded": 0,
     "reposts_attempted": 0,
     "reposts_succeeded": 0,
     "actions_skipped": 0,
     "failed_operations": 3,
-    "ai_generation_requests": 8,
+    "ai_generation_requests": 9,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -196,6 +196,36 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Is it just me, or have LLM API outages felt way more random lately? \ud83d\udcc9\ud83e\udd16 \n\nWe\u2019ve b",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T03:02:09.323133+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "brewers coach",
+      "content_preview": "unpopular opinion: hiring a brand new brewers coach won\u2019t fix a clubhouse that\u2019s fundamentally allergic to playing small",
+      "reason": "",
+      "duration_s": 36.86
+    },
+    {
+      "timestamp": "2026-10-29T03:02:11.000226+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Testing local inference limits on a \"brewers coach\" RAG setup today. Context windows are holding up, but prompt caching ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T03:02:39.777236+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Still processing the latest moves with the Brewers coach. Are we feeling optimis",
       "reason": "",
       "duration_s": 15.0
     }
