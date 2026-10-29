@@ -1,3 +1,4 @@
+import os
 """
 
 Autonomous LinkedIn Browser Automater for NeuBench.
@@ -56,6 +57,9 @@ class LinkedInAutomater:
 
         """Checks if a saved browser session directory exists with valid auth cookie."""
 
+        if os.getenv("LINKEDIN_ACCESS_TOKEN") and os.getenv("LINKEDIN_PERSON_URN"):
+            return True
+
         if (self.user_data_dir / "cookies.json").exists():
             return True
 
@@ -99,6 +103,44 @@ class LinkedInAutomater:
             return True, f"[DRY RUN] Simulated post ({len(text)} chars)"
 
 
+
+        # 1. Prefer Official LinkedIn REST API if access token is available
+        access_token = os.getenv("LINKEDIN_ACCESS_TOKEN")
+        person_urn = os.getenv("LINKEDIN_PERSON_URN")
+        if access_token and person_urn:
+            print("[LinkedInAutomater] 🚀 Publishing via Official LinkedIn REST API...")
+            try:
+                import requests
+                post_url = "https://api.linkedin.com/v2/ugcPosts"
+                post_payload = {
+                    "author": person_urn,
+                    "lifecycleState": "PUBLISHED",
+                    "specificContent": {
+                        "com.linkedin.ugc.ShareContent": {
+                            "shareCommentary": {
+                                "text": text
+                            },
+                            "shareMediaCategory": "NONE"
+                        }
+                    },
+                    "visibility": {
+                        "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
+                    }
+                }
+                headers = {
+                    "Authorization": f"Bearer {access_token}",
+                    "X-Restli-Protocol-Version": "2.0.0",
+                    "Content-Type": "application/json"
+                }
+                resp = requests.post(post_url, json=post_payload, headers=headers, timeout=20)
+                if resp.status_code in [200, 201]:
+                    share_id = resp.json().get("id", "urn:li:share:published")
+                    print(f"[LinkedInAutomater] ✅ Successfully published post to LinkedIn via Official API! ({share_id})")
+                    return True, f"Published via Official LinkedIn API: {share_id}"
+                else:
+                    print(f"[LinkedInAutomater] API returned {resp.status_code}: {resp.text}. Falling back to browser...")
+            except Exception as e:
+                print(f"[LinkedInAutomater] API dispatch error: {e}. Falling back to browser...")
 
         if not self.is_session_available():
 

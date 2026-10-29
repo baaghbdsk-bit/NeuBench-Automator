@@ -91,6 +91,8 @@ jobs:
           GEMINI_MODEL: gemini-3.5-flash-lite
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
           PYTHONIOENCODING: utf-8
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           TRIAL_ENABLED: 'true'
