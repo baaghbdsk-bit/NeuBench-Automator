@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T00:29:10.903388+00:00",
+    "last_updated": "2026-10-29T01:02:44.153395+00:00",
     "trial_start_utc": "2026-10-28T23:01:36.101995+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 10,
-    "original_posts_attempted": 3,
-    "original_posts_succeeded": 3,
+    "total_cycles_executed": 14,
+    "original_posts_attempted": 4,
+    "original_posts_succeeded": 4,
     "replies_attempted": 0,
     "replies_succeeded": 0,
     "reposts_attempted": 0,
     "reposts_succeeded": 0,
     "actions_skipped": 0,
-    "failed_operations": 1,
-    "ai_generation_requests": 4,
+    "failed_operations": 2,
+    "ai_generation_requests": 6,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -116,6 +116,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Wild to think StackOverflow is down to under 1,000 questions a month now. \ud83e\udd2f \n\nIs",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T01:01:42.597383+00:00",
+      "action_type": "linkedin_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83d\udd25 If you\u2019re building production LLM apps using static API provider benchmarks, your system architecture is likely built ",
+      "reason": "LinkedIn browser automation error: Page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at https://www.linkedin.com/feed/\nCall log:\n  - navigating to \"https://www.linkedin.com/feed/\", waiting until \"domcontentloaded\"\n",
+      "duration_s": 13.9
+    },
+    {
+      "timestamp": "2026-10-29T01:02:15.934846+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "A Health Update",
+      "content_preview": "people posting \"A Health Update\" on main like they\u2019re dropping a netflix series finale. just say you're taking a digital",
+      "reason": "",
+      "duration_s": 47.24
+    },
+    {
+      "timestamp": "2026-10-29T01:02:17.295602+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Profiling memory bottlenecks and inference drift today. System diagnostics check out, but tuning KV cache allocation is ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T01:02:44.153326+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Took a little step back lately to focus on health, and honestly, slowing down wa",
       "reason": "",
       "duration_s": 15.0
     }
