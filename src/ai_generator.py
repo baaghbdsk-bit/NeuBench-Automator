@@ -64,6 +64,57 @@ def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> s
             
     return current_text[:max_len]
 
+# Native Unicode bold alphabet mapping for LinkedIn
+_UNICODE_BOLD_MAP = {
+    'A': '𝗔', 'B': '𝗕', 'C': '𝗖', 'D': '𝗗', 'E': '𝗘', 'F': '𝗙', 'G': '𝗚', 'H': '𝗛', 'I': '𝗜',
+    'J': '𝗝', 'K': '𝗞', 'L': '𝗟', 'M': '𝗠', 'N': '𝗡', 'O': '𝗢', 'P': '𝗣', 'Q': '𝗤', 'R': '𝗥',
+    'S': '𝗦', 'T': '𝗧', 'U': '𝗨', 'V': '𝗩', 'W': '𝗪', 'X': '𝗫', 'Y': '𝗬', 'Z': '𝗭',
+    'a': '𝗮', 'b': '𝗯', 'c': '𝗰', 'd': '𝗱', 'e': '𝗲', 'f': '𝗳', 'g': '𝗴', 'h': '𝗵', 'i': '𝗶',
+    'j': '𝗷', 'k': '𝗸', 'l': '𝗹', 'm': '𝗺', 'n': '𝗻', 'o': '𝗼', 'p': '𝗽', 'q': '𝗾', 'r': '𝗿',
+    's': '𝘀', 't': '𝘁', 'u': '𝘂', 'v': '𝘃', 'w': '𝘄', 'x': '𝘅', 'y': '𝘆', 'z': '𝘇',
+    '0': '𝟬', '1': '𝟭', '2': '𝟮', '3': '𝟯', '4': '𝟰', '5': '𝟱', '6': '𝟲', '7': '𝟳', '8': '𝟴', '9': '𝟵'
+}
+
+def to_unicode_bold(text: str) -> str:
+    """Converts alphanumeric text to clean Unicode bold characters visible across all devices."""
+    return ''.join(_UNICODE_BOLD_MAP.get(c, c) for c in text)
+
+def clean_linkedin_formatting(text: str) -> str:
+    """Removes raw markdown artifacts (*, **, #, ```) and formats LinkedIn posts cleanly with native Unicode bold."""
+    if not text:
+        return text
+
+    # 1. Remove markdown code fences (e.g. ```text or ```)
+    text = re.sub(r'```[a-zA-Z]*\n?', '', text)
+
+    # 2. Replace horizontal dividers (***, ---, ___) with a single clean separator
+    text = re.sub(r'^\s*[\*\-_]{3,}\s*$', '──────────────────────────────', text, flags=re.MULTILINE)
+
+    # 3. Convert markdown headers (# Header) to bold text
+    def replace_headers(match):
+        header_text = match.group(2).strip()
+        return '\n' + to_unicode_bold(header_text) + '\n'
+    text = re.sub(r'^(#{1,6})\s+(.+)$', replace_headers, text, flags=re.MULTILINE)
+
+    # 4. Convert **bold** markdown to native Unicode bold characters (no raw asterisks!)
+    def replace_bold(match):
+        return to_unicode_bold(match.group(1))
+    text = re.sub(r'\*\*(.+?)\*\*', replace_bold, text)
+
+    # 5. Remove italics asterisks (*text* or _text_)
+    text = re.sub(r'(?<!\w)\*([^\*\n]+)\*(?!\w)', r'\1', text)
+    text = re.sub(r'(?<!\w)_([^\_\n]+)_(?!\w)', r'\1', text)
+
+    # 6. Remove any remaining stray backticks or lone asterisks
+    text = text.replace('`', '')
+    text = re.sub(r'(?<!\w)\*(?!\w)', '', text)
+
+    # 7. Normalize excessive blank lines
+    text = re.sub(r'\n{3,}', '\n\n', text)
+
+    return text.strip()
+
+
 FALLBACK_MODELS = [
     config.GEMINI_MODEL,
     "gemini-3.5-flash-lite",
@@ -273,7 +324,8 @@ Rules:
         ).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             text = f"{text}\n\n📊 Tracking real-time latency, cost, and reasoning benchmarks across 260+ models: https://neubench.netlify.app"
-        return append_hashtags(text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechInnovation", "#GenerativeAI"], max_len=2950)
+        cleaned_text = clean_linkedin_formatting(text)
+        return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechInnovation", "#GenerativeAI"], max_len=2950)
 
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a casual, conversational discussion post for Threads with hashtags."""
