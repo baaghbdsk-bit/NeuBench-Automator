@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T13:49:24.536970+00:00",
+    "last_updated": "2026-10-29T14:09:48.534366+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 105,
-    "original_posts_attempted": 20,
-    "original_posts_succeeded": 17,
+    "total_cycles_executed": 109,
+    "original_posts_attempted": 21,
+    "original_posts_succeeded": 18,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 10,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
-    "failed_operations": 7,
-    "ai_generation_requests": 57,
+    "failed_operations": 8,
+    "ai_generation_requests": 59,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -1066,6 +1066,46 @@
       "is_dry_run": false,
       "target": "r/singularity",
       "content_preview": "[Discussion] Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligen",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T14:02:47.189393+00:00",
+      "action_type": "linkedin_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83d\udd25 The AI economics playbook just got rewritten\u2014and the gap between marketing hype and live production telemetry has neve",
+      "reason": "Session expired or logged out. Please re-run 'python scripts/login_linkedin.py'.",
+      "duration_s": 71.93
+    },
+    {
+      "timestamp": "2026-10-29T14:03:32.560203+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "piracy off the coast of somalia",
+      "content_preview": "wild how supply chain issues suddenly vanished the second the insurance rates spiked. almost like global logistics is ju",
+      "reason": "",
+      "duration_s": 117.3
+    },
+    {
+      "timestamp": "2026-10-29T14:03:47.830098+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Unrelated to code, but interesting dataset for anomaly detection: maritime AIS telemetry patterns during Somali coastal ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T14:09:48.534338+00:00",
+      "action_type": "reddit_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "r/singularity",
+      "content_preview": "We evaluated multimodal edge models for autonomous maritime threat detection off",
       "reason": "",
       "duration_s": 15.0
     }
