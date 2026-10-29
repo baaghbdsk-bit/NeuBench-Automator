@@ -189,39 +189,29 @@ class AutomaterEngine:
 
         # 3. Determine action type
 
-        if force_action in ("post", "reply", "repost", "bluesky", "linkedin", "reddit", "threads", "omnichannel", "post-all"):
+        if force_action in ("post", "reply", "repost", "bluesky", "linkedin", "threads", "omnichannel", "post-all"):
 
             action_choice = force_action
 
         else:
 
-            # Distribution respects REDDIT_ENABLED config:
+            # Distribution across active platforms:
+            # 55% Sniper Reply on high-traffic accounts (Modi, Musk, Vaishnaw, etc.)
+            # 15% Quote-Tweet / Repost
+            # 14% Original Hot Take / Broadcast (cross-posted to Bluesky & Threads)
+            # 12% In-depth Technical LinkedIn Post
+            # 4% Dedicated Threads Discussion
             roll = random.randint(1, 100)
-            if getattr(config, "REDDIT_ENABLED", False):
-                if roll <= 50:
-                    action_choice = "reply"
-                elif roll <= 65:
-                    action_choice = "repost"
-                elif roll <= 80:
-                    action_choice = "post"
-                elif roll <= 88:
-                    action_choice = "linkedin"
-                elif roll <= 94:
-                    action_choice = "reddit"
-                else:
-                    action_choice = "threads"
+            if roll <= 55:
+                action_choice = "reply"
+            elif roll <= 70:
+                action_choice = "repost"
+            elif roll <= 84:
+                action_choice = "post"
+            elif roll <= 96:
+                action_choice = "linkedin"
             else:
-                # Reddit disabled: boost high-reach sniper replies and long-form LinkedIn
-                if roll <= 55:
-                    action_choice = "reply"
-                elif roll <= 70:
-                    action_choice = "repost"
-                elif roll <= 82:
-                    action_choice = "post"
-                elif roll <= 92:
-                    action_choice = "linkedin"
-                else:
-                    action_choice = "threads"
+                action_choice = "threads"
 
 
 
@@ -296,12 +286,7 @@ class AutomaterEngine:
                 console.print("[yellow]LinkedIn mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
                 return self._execute_original_post(start_time)
             return ok
-        elif action_choice == "reddit":
-            ok = self._execute_reddit_post(start_time)
-            if not ok:
-                console.print("[yellow]Reddit mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
-                return self._execute_original_post(start_time)
-            return ok
+
         elif action_choice == "threads":
             ok = self._execute_threads_post(start_time)
             if not ok:
@@ -772,36 +757,6 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Threads dispatch note: {e}[/dim]")
 
-        # 5. Cross-post to Reddit (Independent)
-        try:
-            from src.reddit_automater import RedditAutomater
-            rd_automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
-            if rd_automater.is_session_available():
-                target_sub = random.choice(["singularity", "singularity", "ArtificialInteligence", "ChatGPT"])
-                rd_post = self.ai.generate_reddit_post(
-                    selected_trend["title"],
-                    selected_trend.get("summary", ""),
-                    company=selected_trend.get("company", "NeuBench"),
-                    subreddit=f"r/{target_sub}"
-                )
-                rd_title = rd_post.get("title", f"Discussion: {selected_trend['title']}")
-                rd_body = rd_post.get("body", selected_trend.get("summary", ""))
-                rd_ok, rd_msg = rd_automater.post(target_sub, rd_title, rd_body)
-                if rd_ok:
-                    console.print(f"[bold orange]🤖 Also published to Reddit (r/{target_sub})![/bold orange]")
-                    self.tracker.record_event(
-                        action_type="reddit_post",
-                        status="success",
-                        target_identifier=f"r/{target_sub}",
-                        content_preview=rd_title[:80],
-                        duration_seconds=15.0,
-                        is_dry_run=self.safety.dry_run
-                    )
-                else:
-                    console.print(f"[yellow]Reddit note: {rd_msg}[/yellow]")
-        except Exception as e:
-            console.print(f"[dim]Reddit dispatch note: {e}[/dim]")
-
         return success
 
     def _execute_bluesky_post(self, start_time: float) -> bool:
@@ -996,113 +951,6 @@ class AutomaterEngine:
         return ok
 
 
-    def _execute_reddit_post(self, start_time: float) -> bool:
-        """Generates a community-tailored Reddit post and publishes it via saved session."""
-        if not getattr(config, "REDDIT_ENABLED", False):
-            console.print("[yellow]Reddit auto-posting is disabled in configuration. Falling back to Omnichannel broadcast...[/yellow]")
-            return self._execute_original_post(start_time)
-        console.print("[bold orange]Mode: Reddit Auto Post (Community Discussion)[/bold orange]")
-
-        today_rd = sum(
-            1 for e in self.tracker.metrics.get("recent_events", [])
-            if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
-            and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "reddit_post"
-        )
-        if today_rd >= 10:
-            console.print("[yellow]⚠️ Reddit daily cap reached (10/day). Falling back to Omnichannel broadcast...[/yellow]")
-            return self._execute_original_post(start_time)
-
-        from src.reddit_automater import RedditAutomater
-        from src.reddit_client import RedditClient
-        automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
-        rclient = RedditClient()
-
-        subreddits = rclient.get_target_subreddits()
-        subreddit = random.choice(subreddits) if subreddits else {"name": "r/LocalLLaMA", "desc": ""}
-        sub_name = subreddit.get("name", "r/LocalLLaMA")
-
-        trends = self.hunter.get_curated_trending_topics()
-        pool = trends or []
-        if not pool:
-            selected_trend = {
-                "title": "Frontier Reasoning Drift & Token Efficiency across Claude, Gemini & DeepSeek",
-                "summary": "NeuBench telemetry reveals latency and cost differences on long-horizon coding tasks.",
-                "company": "NeuBench"
-            }
-        else:
-            selected_trend = None
-            for t in pool:
-                key = f"rd:{t['title']}"
-                if key not in self.tracker.history.get("posted_tweets", []):
-                    selected_trend = t
-                    break
-            if not selected_trend:
-                selected_trend = random.choice(pool)
-
-        console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
-        console.print(f"[bold]Target Subreddit:[/bold] {sub_name}")
-        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-
-        try:
-            post_data = self.ai.generate_reddit_post(
-                selected_trend["title"],
-                selected_trend.get("summary", ""),
-                company=selected_trend.get("company", "NeuBench"),
-                subreddit=sub_name
-            )
-        except Exception as e:
-            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-            console.print(f"[red]AI Generation Error: {e}[/red]")
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="failed",
-                target_identifier=selected_trend["title"],
-                skip_or_error_reason=f"AI generation failed: {e}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        title = post_data.get("title", f"Discussion: {selected_trend['title']}")
-        body = post_data.get("body", selected_trend.get("summary", ""))
-        console.print(f"[green]Generated Reddit Title:[/green] {title}")
-
-        if not automater.is_session_available():
-            console.print("[yellow]Reddit session not available. Run 'python main.py login-reddit'. Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="skipped",
-                target_identifier=title,
-                content_preview=body,
-                skip_or_error_reason="Reddit session not authenticated",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        ok, msg = automater.post(sub_name, title, body)
-        status = "success" if ok else "failed"
-        self.tracker.record_event(
-            action_type="reddit_post",
-            status=status,
-            target_identifier=f"{sub_name}",
-            content_preview=title,
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-
-        if ok:
-            console.print(f"[bold orange]OK {msg}[/bold orange]")
-            try:
-                self.tracker.history.setdefault("posted_tweets", []).append(f"rd:{selected_trend['title']}")
-                self.tracker.save_history()
-            except Exception:
-                pass
-        else:
-            console.print(f"[red]Reddit publish failed: {msg}[/red]")
-
-        return ok
 
 
     def _execute_threads_post(self, start_time: float) -> bool:

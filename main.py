@@ -77,11 +77,11 @@ def display_metrics():
         console.print(f"[red]Error reading metrics: {e}[/red]")
 
 def main():
-    parser = argparse.ArgumentParser(description="NeuBench X-Post Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads, Reddit)")
+    parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-reddit", "login-threads", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "reddit", "threads", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
-        help="Action: 'dashboard', 'login-linkedin', 'login-reddit', 'login-threads', 'bluesky', 'linkedin', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "login-linkedin", "login-threads", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
+        help="Action: 'dashboard', 'login-linkedin', 'login-threads', 'bluesky', 'linkedin', 'threads', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
     parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', 'bluesky', or 'linkedin')")
@@ -101,7 +101,7 @@ def main():
     if args.action in ("dashboard", "ui"):
         import webbrowser
         import uvicorn
-        console.print("\n[bold cyan]🚀 Starting NeuBench X-Post Automator Dashboard on http://127.0.0.1:8000[/bold cyan]")
+        console.print("\n[bold cyan]🚀 Starting NeuBench Omnichannel Dashboard on http://127.0.0.1:8000[/bold cyan]")
         console.print("[dim]Press Ctrl+C to stop the dashboard server[/dim]\n")
         try:
             webbrowser.open("http://127.0.0.1:8000")
@@ -164,7 +164,7 @@ def main():
 
         # If autonomous session exists, publish autonomously!
         if automater.is_session_available():
-            console.print("\n[bold cyan]🤖 Saved LinkedIn browser session detected! Publishing autonomously...[/bold cyan]")
+            console.print("\n[bold cyan]🤖 Saved LinkedIn session detected! Publishing autonomously...[/bold cyan]")
             ok, msg = automater.post(text)
             if ok:
                 console.print(f"[bold green]✅ {msg}[/bold green]")
@@ -173,7 +173,6 @@ def main():
                 share_url = client.generate_share_url(text)
                 console.print(f"[dim]Falling back to 1-Click Composer URL: {share_url}[/dim]")
         else:
-            console.print("\n[yellow]💡 Note: To make LinkedIn 100% autonomous, run: [bold white]python main.py login-linkedin[/bold white][/yellow]")
             share_url = client.generate_share_url(text)
             console.print(f"[bold green]🚀 1-Click LinkedIn Composer URL:[/bold green]\n{share_url}\n")
             try:
@@ -186,20 +185,12 @@ def main():
         from scripts.login_browser import login_and_save_session
         login_and_save_session()
 
-    elif args.action == "login-linkedin":
-        from scripts.login_linkedin import login_linkedin
-        login_linkedin()
-
-    elif args.action == "login-reddit":
-        from scripts.login_reddit import login_reddit
-        login_reddit()
-
     elif args.action == "login-threads":
         from scripts.login_threads import login_threads
         login_threads()
         
     elif args.action == "test":
-        from scripts.test_generation import test_pipeline
+        from scripts.test_pipeline import test_pipeline
         test_pipeline()
         
     elif args.action == "post":
@@ -242,27 +233,26 @@ def main():
             header_path=args.header or None
         )
 
-    elif args.action in ("reddit", "threads"):
+    elif args.action == "threads":
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
-        engine.run_single_cycle(force_action=args.action)
-
+        engine.run_single_cycle(force_action="threads")
 
     elif args.action in ("omnichannel", "post-all"):
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
-        console.print("[bold cyan]🚀 Triggering Live Omnichannel Broadcast Across All 5 Platforms...[/bold cyan]")
-        engine.run_single_cycle(force_action="post")
+        console.print("[bold cyan]🚀 Triggering Omnichannel Broadcast Across All Platforms...[/bold cyan]")
+        engine._execute_original_post(time.time())
 
-    elif args.action == "run-once":
+    elif args.action in ("start", "run-once"):
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
-        engine.run_single_cycle()
-        
-    elif args.action == "start":
-        from src.scheduler import AutomaterEngine
-        engine = AutomaterEngine(dry_run=args.dry_run)
-        engine.start_scheduler()
+        if args.action == "run-once":
+            console.print("[cyan]Running single autonomous cycle across all platforms...[/cyan]")
+            engine.run_single_cycle()
+        else:
+            console.print("[bold green]Starting autonomous continuous schedule...[/bold green]")
+            engine.start_loop()
 
 if __name__ == "__main__":
     main()

@@ -21,7 +21,6 @@ on:
           - omnichannel
           - bluesky
           - linkedin
-          - reddit
           - threads
         default: auto
 
@@ -69,9 +68,8 @@ jobs:
           X_COOKIES_BASE64: ${{ secrets.X_COOKIES_BASE64 }}
           LINKEDIN_COOKIES_BASE64: ${{ secrets.LINKEDIN_COOKIES_BASE64 }}
           THREADS_COOKIES_BASE64: ${{ secrets.THREADS_COOKIES_BASE64 }}
-          REDDIT_COOKIES_BASE64: ${{ secrets.REDDIT_COOKIES_BASE64 }}
         run: |
-          mkdir -p browser_session linkedin_session threads_session reddit_session
+          mkdir -p browser_session linkedin_session threads_session
           if [ -n "$X_COOKIES_BASE64" ]; then
             echo "$X_COOKIES_BASE64" | base64 --decode > browser_session/cookies.json
           fi
@@ -81,8 +79,6 @@ jobs:
           if [ -n "$THREADS_COOKIES_BASE64" ]; then
             echo "$THREADS_COOKIES_BASE64" | base64 --decode > threads_session/cookies.json
           fi
-          if [ -n "$REDDIT_COOKIES_BASE64" ]; then
-            echo "$REDDIT_COOKIES_BASE64" | base64 --decode > reddit_session/cookies.json
           fi
 
       - name: Execute Automated Cycle

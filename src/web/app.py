@@ -1232,7 +1232,7 @@ async def get_autopilot_status():
         "running": is_running,
         "status": "Autopilot Active (24/7)" if is_running else "Autopilot Idle",
         "interval_minutes": "25 - 50 mins",
-        "platforms": ["𝕏", "Bluesky", "LinkedIn", "Threads", "Reddit"]
+        "platforms": ["𝕏", "Bluesky", "LinkedIn", "Threads"]
     }
 
 @app.post("/api/autopilot/toggle")

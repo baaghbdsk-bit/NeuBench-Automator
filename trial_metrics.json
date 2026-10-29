@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T19:06:03.274982+00:00",
+    "last_updated": "2026-10-29T19:08:34.852608+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 111,
-    "original_posts_attempted": 21,
-    "original_posts_succeeded": 16,
+    "total_cycles_executed": 101,
+    "original_posts_attempted": 19,
+    "original_posts_succeeded": 14,
     "replies_attempted": 17,
     "replies_succeeded": 14,
-    "reposts_attempted": 10,
+    "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
-    "failed_operations": 9,
-    "ai_generation_requests": 58,
+    "failed_operations": 10,
+    "ai_generation_requests": 56,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1020,114 +1020,14 @@
       "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-29T18:52:27.540159+00:00",
-      "action_type": "original_post",
-      "status": "success",
+      "timestamp": "2026-10-29T19:08:34.852553+00:00",
+      "action_type": "quote_tweet",
+      "status": "failed",
       "is_dry_run": false,
-      "target": "LLM API Outage Frequency & Degradation Index",
-      "content_preview": "hot take: people obsessing over LLM uptime metrics are just avoiding the actual problem. your prompt is garbage, an API ",
-      "reason": "",
-      "duration_s": 32.04
-    },
-    {
-      "timestamp": "2026-10-29T18:52:30.548998+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "API degradation is silent technical debt. We\u2019re tracking real-time error rates, latency spikes, and uptime for frontier ",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T18:52:35.830627+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "\ud83d\udd25 The illusion of \"five-nines\" availability in frontier LLM APIs is officially s",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T18:52:58.768595+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Is it just me, or have LLM API hiccups felt way more frequent lately? \ud83e\udee0 Keeping ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T18:53:19.416963+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/ArtificialInteligence",
-      "content_preview": "Tracking LLM API reliability: Outage frequency and degradation across frontier p",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T19:02:10.584866+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/MachineLearning",
-      "content_preview": "Benchmarking \"\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf\": Performance and throughput analysis across standard hardware",
-      "reason": "",
-      "duration_s": 30.14
-    },
-    {
-      "timestamp": "2026-10-29T19:05:17.252983+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "everton vs newcastle",
-      "content_preview": "Everton vs Newcastle is just 90 minutes of pure mid-table chaos disguised as a football match and honestly some of you t",
-      "reason": "",
-      "duration_s": 81.2
-    },
-    {
-      "timestamp": "2026-10-29T19:05:19.128607+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Watching Everton vs Newcastle feels like debugging a distributed systems deadlock with zero logs. At least model converg",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T19:05:23.579926+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "\u26bd **Everton vs. Newcastle is dominating sports feeds today\u2014but for enterprise AI",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T19:05:46.247595+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Who\u2019s taking this one tonight? Goodison Park under the lights is always spicy, b",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T19:06:03.274955+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/ArtificialInteligence",
-      "content_preview": "Predicting Premier League outcomes with local LLMs: Everton vs Newcastle benchma",
-      "reason": "",
-      "duration_s": 15.0
+      "target": "https://x.com/ANI/status/2115405724356661566",
+      "content_preview": "Bro we are literally in 2024 and they\u2019re already speedrunning 2027 UP election discourse. Give us a break. #UPElections ",
+      "reason": "Playwright quote-tweet failure",
+      "duration_s": 75.22
     }
   ]
 }
