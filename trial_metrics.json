@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T01:02:44.153395+00:00",
+    "last_updated": "2026-10-29T02:02:52.773554+00:00",
     "trial_start_utc": "2026-10-28T23:01:36.101995+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 14,
-    "original_posts_attempted": 4,
-    "original_posts_succeeded": 4,
+    "total_cycles_executed": 18,
+    "original_posts_attempted": 5,
+    "original_posts_succeeded": 5,
     "replies_attempted": 0,
     "replies_succeeded": 0,
     "reposts_attempted": 0,
     "reposts_succeeded": 0,
     "actions_skipped": 0,
-    "failed_operations": 2,
-    "ai_generation_requests": 6,
+    "failed_operations": 3,
+    "ai_generation_requests": 8,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -156,6 +156,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Took a little step back lately to focus on health, and honestly, slowing down wa",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T02:01:46.501285+00:00",
+      "action_type": "reddit_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "r/LocalLLaMA",
+      "content_preview": "Using Local LLMs to predict MLS matches: Houston Dynamo vs Seattle Sounders benchmarked on Llama 3",
+      "reason": "Could not locate title field on Reddit submit page.",
+      "duration_s": 23.94
+    },
+    {
+      "timestamp": "2026-10-29T02:02:17.448936+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM API Outage Frequency & Degradation Index",
+      "content_preview": "Hot take: half these AI startups would collapse in a week if they had to build actual 99.999% uptime infra instead of ju",
+      "reason": "",
+      "duration_s": 54.89
+    },
+    {
+      "timestamp": "2026-10-29T02:02:21.344336+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Are frontier LLM APIs getting more brittle? We've been tracking real-time endpoint reliability, HTTP 5xx spikes, and deg",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T02:02:52.773527+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Is it just me, or have LLM API outages felt way more random lately? \ud83d\udcc9\ud83e\udd16 \n\nWe\u2019ve b",
       "reason": "",
       "duration_s": 15.0
     }
