@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T08:03:38.296540+00:00",
+    "last_updated": "2026-10-29T09:03:52.429564+00:00",
     "trial_start_utc": "2026-10-28T23:01:36.101995+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 37,
-    "original_posts_attempted": 11,
-    "original_posts_succeeded": 11,
+    "total_cycles_executed": 40,
+    "original_posts_attempted": 12,
+    "original_posts_succeeded": 12,
     "replies_attempted": 0,
     "replies_succeeded": 0,
     "reposts_attempted": 1,
     "reposts_succeeded": 1,
     "actions_skipped": 0,
     "failed_operations": 3,
-    "ai_generation_requests": 15,
+    "ai_generation_requests": 16,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -386,6 +386,36 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Okay, but why is this harmless fingerprinting script suddenly trying to design b",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T09:03:01.599390+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Forging a Microsoft Edge Full Chain with Logic Bugs Only",
+      "content_preview": "security researchers will spend months chaining logic bugs just to bypass edge sandbox only for corporate IT to force ev",
+      "reason": "",
+      "duration_s": 88.55
+    },
+    {
+      "timestamp": "2026-10-29T09:03:03.768275+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Chaining logic bugs to compromise Edge without a single memory corruption flaw is peak systems engineering evil. Beautif",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T09:03:52.429534+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Zero memory corruption, just pure logic bugs chaining together to completely com",
       "reason": "",
       "duration_s": 15.0
     }
