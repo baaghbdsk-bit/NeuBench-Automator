@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T06:33:57.847848+00:00",
+    "last_updated": "2026-10-29T07:05:23.755228+00:00",
     "trial_start_utc": "2026-10-28T23:01:36.101995+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 31,
-    "original_posts_attempted": 9,
-    "original_posts_succeeded": 9,
+    "total_cycles_executed": 34,
+    "original_posts_attempted": 10,
+    "original_posts_succeeded": 10,
     "replies_attempted": 0,
     "replies_succeeded": 0,
     "reposts_attempted": 1,
     "reposts_succeeded": 1,
     "actions_skipped": 0,
     "failed_operations": 3,
-    "ai_generation_requests": 13,
+    "ai_generation_requests": 14,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -326,6 +326,36 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Nothing sparks a passionate debate quite like Bengal vs Kerala! Both have such r",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T07:02:06.135428+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "I earn \u00a330,000. I'm angry there was no fuel duty cut in the Budget",
+      "content_preview": "Bro is making 30k and his main opp is a fuel duty cut. Make it make sense. The British obsession with petrol prices whil",
+      "reason": "",
+      "duration_s": 37.0
+    },
+    {
+      "timestamp": "2026-10-29T07:04:31.824953+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Real-world policy sentiment across income brackets remains a tricky benchmark for open LLMs compared to synthetic tests.",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T07:05:23.755200+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Earning \u00a330k right now feels like constantly chasing a moving finish line. Seein",
       "reason": "",
       "duration_s": 15.0
     }
