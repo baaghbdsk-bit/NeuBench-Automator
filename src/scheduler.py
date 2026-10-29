@@ -794,7 +794,7 @@ class AutomaterEngine:
             from src.reddit_automater import RedditAutomater
             rd_automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
             if rd_automater.is_session_available():
-                target_sub = random.choice(["singularity", "LocalLLaMA", "ArtificialInteligence", "ChatGPT"])
+                target_sub = random.choice(["singularity", "singularity", "ArtificialInteligence", "ChatGPT"])
                 rd_post = self.ai.generate_reddit_post(
                     selected_trend["title"],
                     selected_trend.get("summary", ""),

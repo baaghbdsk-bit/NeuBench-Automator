@@ -137,11 +137,9 @@ class LinkedInAutomater:
                         if isinstance(raw_cookies, list):
                             all_cookies = []
                             for c in raw_cookies:
-                                all_cookies.append(c)
-                                if c.get("domain") == ".www.linkedin.com":
-                                    c_copy = dict(c)
-                                    c_copy["domain"] = ".linkedin.com"
-                                    all_cookies.append(c_copy)
+                                # Ensure valid cookie fields and avoid duplicate conflicting domains
+                                clean_c = {k: v for k, v in c.items() if k in ["name", "value", "domain", "path", "expires", "httpOnly", "secure", "sameSite"]}
+                                all_cookies.append(clean_c)
                             context.add_cookies(all_cookies)
                 except Exception as e:
                     print(f"[LinkedInAutomater] Error restoring cookies: {e}")

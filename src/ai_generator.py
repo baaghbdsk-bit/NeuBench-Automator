@@ -27,8 +27,20 @@ def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> s
     
     current_text = text.strip()
     
-    # If the text already has 2 or more hashtags, keep it as is
+    # Check existing hashtags
     existing_tags = re.findall(r'#\w+', current_text)
+    
+    # If already exceeding max_len, cleanly clamp/truncate first
+    if len(current_text) > max_len:
+        primary_tag = default_tags[0] if (default_tags and default_tags[0].startswith("#")) else (f"#{default_tags[0]}" if default_tags else "")
+        needed_space = (len(primary_tag) + 1) if (primary_tag and primary_tag.lower() not in [t.lower() for t in existing_tags]) else 0
+        cutoff = max_len - needed_space - 4
+        current_text = current_text[:cutoff].rsplit(' ', 1)[0].rstrip('.,:;') + '...'
+        if needed_space > 0:
+            current_text = f"{current_text} {primary_tag}"
+        return current_text.strip()
+        
+    # If the text already has 2 or more hashtags and is within limits, keep it as is
     if len(existing_tags) >= 2:
         return current_text
         
@@ -50,7 +62,7 @@ def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> s
         elif len(f"{current_text} {tag_str}") <= max_len:
             return f"{current_text} {tag_str}"
             
-    return current_text
+    return current_text[:max_len]
 
 FALLBACK_MODELS = [
     config.GEMINI_MODEL,

@@ -197,47 +197,25 @@ class ThreadsAutomater:
 
 
                 post_btn = None
-
-                candidates = page.get_by_text("Post", exact=True)
-
-                for i in range(candidates.count()):
-
-                    c = candidates.nth(i)
-
-                    if c.is_visible():
-
-                        box = c.bounding_box()
-
-                        if box and box['y'] > 200:  # Select composer submit button, not top navigation
-
-                            post_btn = c
-
-                            break
+                dialog = page.locator('div[role="dialog"]').first
+                if dialog.count() > 0:
+                    exact_btn = dialog.locator('div[role="button"], button').filter(has_text=re.compile(r"^Post$")).first
+                    if exact_btn.count() > 0 and exact_btn.is_visible():
+                        post_btn = exact_btn
 
                 if not post_btn:
-
-                    # fallback to any visible candidate
-
-                    for i in range(candidates.count()):
-
-                        c = candidates.nth(i)
-
+                    candidates = page.locator('div[role="button"], button').filter(has_text=re.compile(r"^Post$")).all()
+                    for c in candidates:
                         if c.is_visible():
-
-                            post_btn = c
-
-                            break
-
-
+                            box = c.bounding_box()
+                            if box and box['y'] > 300:
+                                post_btn = c
+                                break
 
                 if not post_btn:
-
                     return False, "Could not locate 'Post' button on Threads."
 
-
-
                 print("[ThreadsAutomater] Clicking 'Post' button...")
-
                 post_btn.click(force=True)
 
                 page.wait_for_timeout(7000)
