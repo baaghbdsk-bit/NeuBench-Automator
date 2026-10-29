@@ -1,21 +1,21 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T18:04:25.302879+00:00",
+    "last_updated": "2026-10-29T18:36:19.623196+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 121,
-    "original_posts_attempted": 25,
-    "original_posts_succeeded": 22,
+    "total_cycles_executed": 100,
+    "original_posts_attempted": 19,
+    "original_posts_succeeded": 14,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 10,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
-    "failed_operations": 8,
-    "ai_generation_requests": 63,
-    "ai_generation_failures": 0,
+    "failed_operations": 9,
+    "ai_generation_requests": 55,
+    "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
@@ -970,262 +970,52 @@
       "duration_s": 58.7
     },
     {
-      "timestamp": "2026-10-29T11:27:19.091800+00:00",
+      "timestamp": "2026-10-29T11:36:03.450241+00:00",
       "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
-      "content_preview": "People crying about FP8 quantization ruining autonomous coding agents just want an excuse to expense a cluster of 8xH100",
-      "reason": "",
-      "duration_s": 38.99
-    },
-    {
-      "timestamp": "2026-10-29T11:27:21.389579+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Does FP8 quantization actually break autonomous coding agents, or is the inference speedup worth the small accuracy drop",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T11:28:03.636627+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/ChatGPT",
-      "content_preview": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents: What our benchmarks",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T12:03:01.419247+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "\u0905\u0927\u093f\u0915\u093e\u0930\u0940",
-      "content_preview": "Most of these 'officers' treat a public service job like a hereditary monarchy the second they get a cabin and a driver.",
-      "reason": "",
-      "duration_s": 86.71
-    },
-    {
-      "timestamp": "2026-10-29T12:03:12.918652+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Parsing Hindi model outputs like \"\u0905\u0927\u093f\u0915\u093e\u0930\u0940\" (officer/authority) requires nuanced tokenization and robust evaluation bench",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T12:04:23.860071+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/ArtificialInteligence",
-      "content_preview": "\u0905\u0927\u093f\u0915\u093e\u0930\u0940 (Adhikari) and localized LLM benchmarking: What our latest runs show abo",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T13:02:24.586181+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/singularity",
-      "content_preview": "Unusual compute patterns and sentiment routing: Analyzing the recent Flavio Bolsonaro algorithmic discourse surge on Neu",
-      "reason": "",
-      "duration_s": 46.67
-    },
-    {
-      "timestamp": "2026-10-29T13:47:22.511953+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5",
-      "content_preview": "another week, another benchmark claiming a new king just to get completely destroyed by a casual prompt on a Tuesday aft",
-      "reason": "",
-      "duration_s": 98.73
-    },
-    {
-      "timestamp": "2026-10-29T13:47:39.297029+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Gemini 4 Carbon just took the #1 spot on Artificial Analysis Index v5. Interesting shifts in reasoning vs latency tradeo",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T13:49:24.536942+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/singularity",
-      "content_preview": "[Discussion] Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligen",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T14:02:47.189393+00:00",
-      "action_type": "linkedin_post",
       "status": "failed",
       "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "\ud83d\udd25 The AI economics playbook just got rewritten\u2014and the gap between marketing hype and live production telemetry has neve",
-      "reason": "Session expired or logged out. Please re-run 'python scripts/login_linkedin.py'.",
-      "duration_s": 71.93
+      "target": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: [Errno 11001] getaddrinfo failed",
+      "duration_s": 86.23
     },
     {
-      "timestamp": "2026-10-29T14:03:32.560203+00:00",
+      "timestamp": "2026-10-29T18:35:06.055105+00:00",
       "action_type": "original_post",
-      "status": "success",
+      "status": "failed",
       "is_dry_run": false,
-      "target": "piracy off the coast of somalia",
-      "content_preview": "wild how supply chain issues suddenly vanished the second the insurance rates spiked. almost like global logistics is ju",
-      "reason": "",
-      "duration_s": 117.3
+      "target": "Google Search is now less than half of Alphabet\u2019s revenue",
+      "content_preview": "Google Search dropping below 50% of Alphabet's revenue just proves search is dying while cloud and ads keep them afloat.",
+      "reason": "Playwright compose failure",
+      "duration_s": 88.08
     },
     {
-      "timestamp": "2026-10-29T14:03:47.830098+00:00",
+      "timestamp": "2026-10-29T18:35:10.844671+00:00",
       "action_type": "bluesky_post",
       "status": "success",
       "is_dry_run": false,
       "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Unrelated to code, but interesting dataset for anomaly detection: maritime AIS telemetry patterns during Somali coastal ",
+      "content_preview": "Search is officially <50% of Alphabet. The ad-funded web era is shifting. As compute pivots to inference and custom mode",
       "reason": "",
       "duration_s": 1.2
     },
     {
-      "timestamp": "2026-10-29T14:09:48.534338+00:00",
-      "action_type": "reddit_post",
+      "timestamp": "2026-10-29T18:35:55.076632+00:00",
+      "action_type": "threads_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "r/singularity",
-      "content_preview": "We evaluated multimodal edge models for autonomous maritime threat detection off",
+      "target": "Threads Community",
+      "content_preview": "Wild to think Google Search is officially making up less than half of Alphabet\u2019s",
       "reason": "",
       "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-29T15:04:36.605259+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Wabi, the AI agent that builds mini apps, now valued at $1.25B after latest round",
-      "content_preview": "a wrapper that builds wrappers is now worth 1.25 billion dollars. we are officially living in a parody simulation and ha",
-      "reason": "",
-      "duration_s": 176.15
-    },
-    {
-      "timestamp": "2026-10-29T15:05:00.529329+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "$55M into \"Wabi\" to agentic mini-app generation at a $1.25B valuation. Interesting shift from chat interfaces to direct ",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T15:07:05.199772+00:00",
+      "timestamp": "2026-10-29T18:36:19.622773+00:00",
       "action_type": "reddit_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "r/ArtificialInteligence",
-      "content_preview": "Wabi hits $1.25B valuation with $55M round, shifting focus to 'personal agent' a",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T16:03:33.827439+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Mistral Large 4 (Le Chonk) is now Open Weight",
-      "content_preview": "Call it \"Le Chonk\" all you want, but OpenAI and Anthropic are sweating right now. Open weight models are eating propriet",
-      "reason": "",
-      "duration_s": 118.74
-    },
-    {
-      "timestamp": "2026-10-29T16:04:20.015100+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Mistral just dropped Large 4 (\"Le Chonk\") as open weights. Another massive open-weight contender entering the arena to t",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T16:07:09.791537+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/ArtificialInteligence",
-      "content_preview": "Mistral Large 4 (Le Chonk) drops open weights \u2014 initial thoughts and benchmark b",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T17:04:47.257687+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "\u0935\u093f\u091c\u092f \u0915\u0947\u0921\u093f\u092f\u093e",
-      "content_preview": "Most retail investors hanging on to Vijay Kedias every word are just looking for a shortcut so they dont have to do actu",
-      "reason": "",
-      "duration_s": 194.67
-    },
-    {
-      "timestamp": "2026-10-29T17:04:49.233036+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Vijay Kedia\u2019s recent insights on market cycles got me thinking about compute scaling laws. Are we hitting diminishing re",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T17:06:55.346765+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/singularity",
-      "content_preview": "Analysing Vijay Kedia's recent takes on AI disruption vs reality on the ground",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T18:02:22.215447+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Russell Brand's wife tells his rape trial he is 'kind and a wonderful father'",
-      "content_preview": "every single time a high-profile guy gets caught, the defense is always \"he reads poetry to the kids and makes good tea.",
-      "reason": "",
-      "duration_s": 49.85
-    },
-    {
-      "timestamp": "2026-10-29T18:02:38.150304+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Wait, what? A legacy media breaking news headline injected into my dev feed? Reminds me of when raw unstructured text sl",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T18:04:25.302848+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/ChatGPT",
-      "content_preview": "LLM sentiment analysis tests on high-profile trial transcripts: What our recent ",
+      "target": "r/test",
+      "content_preview": "Google Search dropping below 50% of Alphabet's revenue: architectural shift impl",
       "reason": "",
       "duration_s": 15.0
     }
