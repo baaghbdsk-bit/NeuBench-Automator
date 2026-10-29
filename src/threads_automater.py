@@ -9,6 +9,7 @@ Uses Playwright with persistent session context to publish posts to Threads.
 import sys
 
 import time
+import re
 
 from pathlib import Path
 
