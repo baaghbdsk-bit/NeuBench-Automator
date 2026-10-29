@@ -25,7 +25,6 @@ on:
           - bluesky
           - linkedin
           - threads
-        default: auto
 
 concurrency:
   group: neubench-automator-cloud-engine
