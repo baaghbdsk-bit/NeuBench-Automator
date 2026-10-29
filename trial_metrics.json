@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-28T23:02:52.300956+00:00",
+    "last_updated": "2026-10-29T00:03:39.857120+00:00",
     "trial_start_utc": "2026-10-28T23:01:36.101995+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3,
-    "original_posts_attempted": 1,
-    "original_posts_succeeded": 1,
+    "total_cycles_executed": 6,
+    "original_posts_attempted": 2,
+    "original_posts_succeeded": 2,
     "replies_attempted": 0,
     "replies_succeeded": 0,
     "reposts_attempted": 0,
     "reposts_succeeded": 0,
     "actions_skipped": 0,
     "failed_operations": 0,
-    "ai_generation_requests": 1,
+    "ai_generation_requests": 2,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -46,6 +46,36 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "There\u2019s something so mesmerizing about watching a CNC machine transform a raw sl",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T00:03:02.029298+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Google expands AI Search ads globally as core ad growth slows",
+      "content_preview": "alphabet making $127b and still panicking to shove ads inside every single AI search result is all you need to know abou",
+      "reason": "",
+      "duration_s": 90.4
+    },
+    {
+      "timestamp": "2026-10-29T00:03:03.508041+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Alphabet's Q3 revenue hits $127.6B, and AI Overviews ads are going global. Core search monetization is shifting under th",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T00:03:39.857090+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Google is rolling out AI Search ads globally as ad growth cools down. Alphabet j",
       "reason": "",
       "duration_s": 15.0
     }
