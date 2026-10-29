@@ -253,6 +253,34 @@ class TwitterClient:
                 if browser:
                     browser.close()
 
+    def follow_account(self, username: str) -> bool:
+        """Follows an account on X if not already followed."""
+        if self.dry_run:
+            print(f"[TwitterClient] [DRY RUN] Would follow @{username}")
+            return True
+        with sync_playwright() as p:
+            context, browser = self._get_context_and_browser(p)
+            page = context.pages[0] if context.pages else context.new_page()
+            try:
+                page.goto(f"https://x.com/{username}", timeout=35000)
+                page.wait_for_timeout(2500)
+                follow_btn = page.locator('button[data-testid$="-follow"], [role="button"][data-testid$="-follow"]').first
+                if follow_btn.is_visible(timeout=3000):
+                    follow_btn.click(force=True)
+                    page.wait_for_timeout(2000)
+                    print(f"[TwitterClient] Successfully followed @{username}!")
+                    return True
+                else:
+                    print(f"[TwitterClient] Already following @{username} or follow button unavailable.")
+                    return True
+            except Exception as e:
+                print(f"[TwitterClient] Could not follow @{username}: {e}")
+                return False
+            finally:
+                context.close()
+                if browser:
+                    browser.close()
+
     def get_latest_tweet_from_account(self, username: str) -> dict:
         """Fetches the latest tweet from a target viral account to snipe or quote."""
         with sync_playwright() as p:
@@ -272,6 +300,16 @@ class TwitterClient:
                 # Scroll down to trigger lazy loading of tweets past tall banners / live broadcasts
                 page.evaluate("window.scrollBy(0, 600)")
                 page.wait_for_timeout(2000)
+
+                # Auto-follow viral target account if not yet followed
+                try:
+                    follow_btn = page.locator('button[data-testid$="-follow"], [role="button"][data-testid$="-follow"]').first
+                    if follow_btn.is_visible(timeout=2000):
+                        print(f"[TwitterClient] Auto-following @{username} for direct notification & reach...")
+                        follow_btn.click(force=True)
+                        page.wait_for_timeout(1000)
+                except Exception:
+                    pass
 
                 # Wait for tweets with fallback selector
                 page.wait_for_selector('article[data-testid="tweet"], article', timeout=12000)

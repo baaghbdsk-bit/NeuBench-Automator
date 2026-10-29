@@ -55,49 +55,28 @@ console = Console()
 # Target high-engagement accounts for explosive reach (Indian + Global tech giants)
 
 VIRAL_ACCOUNTS = [
-
-    # Mega-reach Indian National & Tech Accounts (Highest impression velocity)
-
-    "narendramodi",
-
-    "narendramodi",  # Prioritized for explosive reach
-
-    "AshwiniVaishnaw",  # Union Minister for IT & Electronics / IndiaAI
-
+    # Mega-reach Indian National & Tech Accounts (Highest impression velocity & Modi replies)
+    "narendramodi",       # Highest view velocity
+    "AshwiniVaishnaw",    # Union Minister for IT & Electronics / IndiaAI
     "IndianTechGuide",
-
     "peakbengaluru",
-
     "ANI",
-
     "NDTV",
-
     "thetanmay",
-
     "kunalb11",
-
     "Zomato",
-
+    "swiggy",
     # Global Tech & AI Heavyweights
-
     "elonmusk",
-
     "sama",
-
-    "karpathy",
-
     "satyanadella",
-
+    "sundarpichai",
+    "karpathy",
     "ylecun",
-
+    "mkbhd",
     "levelsio",
-
-    "PopBase",
-
     "WatcherGuru",
-
     "unusual_whales"
-
 ]
 
 
@@ -216,33 +195,33 @@ class AutomaterEngine:
 
         else:
 
-            # Distribution: 50% Reply, 15% Repost, 15% Original Post, 8% LinkedIn, 6% Reddit, 6% Threads
-
+            # Distribution respects REDDIT_ENABLED config:
             roll = random.randint(1, 100)
-
-            if roll <= 50:
-
-                action_choice = "reply"
-
-            elif roll <= 65:
-
-                action_choice = "repost"
-
-            elif roll <= 80:
-
-                action_choice = "post"
-
-            elif roll <= 88:
-
-                action_choice = "linkedin"
-
-            elif roll <= 94:
-
-                action_choice = "reddit"
-
+            if getattr(config, "REDDIT_ENABLED", False):
+                if roll <= 50:
+                    action_choice = "reply"
+                elif roll <= 65:
+                    action_choice = "repost"
+                elif roll <= 80:
+                    action_choice = "post"
+                elif roll <= 88:
+                    action_choice = "linkedin"
+                elif roll <= 94:
+                    action_choice = "reddit"
+                else:
+                    action_choice = "threads"
             else:
-
-                action_choice = "threads"
+                # Reddit disabled: boost high-reach sniper replies and long-form LinkedIn
+                if roll <= 55:
+                    action_choice = "reply"
+                elif roll <= 70:
+                    action_choice = "repost"
+                elif roll <= 82:
+                    action_choice = "post"
+                elif roll <= 92:
+                    action_choice = "linkedin"
+                else:
+                    action_choice = "threads"
 
 
 
@@ -1019,6 +998,9 @@ class AutomaterEngine:
 
     def _execute_reddit_post(self, start_time: float) -> bool:
         """Generates a community-tailored Reddit post and publishes it via saved session."""
+        if not getattr(config, "REDDIT_ENABLED", False):
+            console.print("[yellow]Reddit auto-posting is disabled in configuration. Falling back to Omnichannel broadcast...[/yellow]")
+            return self._execute_original_post(start_time)
         console.print("[bold orange]Mode: Reddit Auto Post (Community Discussion)[/bold orange]")
 
         today_rd = sum(

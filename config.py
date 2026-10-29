@@ -27,11 +27,12 @@ TARGET_NICHES = [
     ).split(",") if n.strip()
 ]
 
-# Omnichannel Expansion (Bluesky, LinkedIn, Threads)
+# Omnichannel Expansion (Bluesky, LinkedIn, Threads, Reddit)
 BLUESKY_HANDLE = os.getenv("BLUESKY_HANDLE", "")
 BLUESKY_APP_PASSWORD = os.getenv("BLUESKY_APP_PASSWORD", "")
 LINKEDIN_ENABLED = os.getenv("LINKEDIN_ENABLED", "true").lower() in ("true", "1")
 THREADS_ENABLED = os.getenv("THREADS_ENABLED", "true").lower() in ("true", "1")
+REDDIT_ENABLED = os.getenv("REDDIT_ENABLED", "false").lower() in ("true", "1")
 
 # Real-Time Push Alerts (Optional: Discord / Telegram)
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "")
