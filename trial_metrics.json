@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T05:02:07.076202+00:00",
+    "last_updated": "2026-10-29T06:03:24.750677+00:00",
     "trial_start_utc": "2026-10-28T23:01:36.101995+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 25,
-    "original_posts_attempted": 7,
-    "original_posts_succeeded": 7,
+    "total_cycles_executed": 28,
+    "original_posts_attempted": 8,
+    "original_posts_succeeded": 8,
     "replies_attempted": 0,
     "replies_succeeded": 0,
     "reposts_attempted": 1,
     "reposts_succeeded": 1,
     "actions_skipped": 0,
     "failed_operations": 3,
-    "ai_generation_requests": 11,
+    "ai_generation_requests": 12,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -268,6 +268,36 @@
       "content_preview": "another quarter of printing billions while every PM frantically rebrands their roadmaps to include the word \"agentic\" #A",
       "reason": "",
       "duration_s": 36.42
+    },
+    {
+      "timestamp": "2026-10-29T06:02:55.394836+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cbic",
+      "content_preview": "Hot take: half the people tweeting about CBIC notices have zero idea how basic tax compliance works and just want free c",
+      "reason": "",
+      "duration_s": 85.95
+    },
+    {
+      "timestamp": "2026-10-29T06:02:56.587047+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Parsing CBIC outputs and wondering how it stacks up against the broader open-source model landscape across standard eval",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T06:03:24.750647+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Has anyone been diving into cbic lately? Would love to hear how you're using it ",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
