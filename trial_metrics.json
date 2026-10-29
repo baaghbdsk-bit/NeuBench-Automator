@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T13:02:24.586207+00:00",
+    "last_updated": "2026-10-29T13:49:24.536970+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 102,
-    "original_posts_attempted": 19,
-    "original_posts_succeeded": 16,
+    "total_cycles_executed": 105,
+    "original_posts_attempted": 20,
+    "original_posts_succeeded": 17,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 10,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 7,
-    "ai_generation_requests": 56,
+    "ai_generation_requests": 57,
     "ai_generation_failures": 0,
     "rate_limits_encountered": 0
   },
@@ -1038,6 +1038,36 @@
       "content_preview": "Unusual compute patterns and sentiment routing: Analyzing the recent Flavio Bolsonaro algorithmic discourse surge on Neu",
       "reason": "",
       "duration_s": 46.67
+    },
+    {
+      "timestamp": "2026-10-29T13:47:22.511953+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5",
+      "content_preview": "another week, another benchmark claiming a new king just to get completely destroyed by a casual prompt on a Tuesday aft",
+      "reason": "",
+      "duration_s": 98.73
+    },
+    {
+      "timestamp": "2026-10-29T13:47:39.297029+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Gemini 4 Carbon just took the #1 spot on Artificial Analysis Index v5. Interesting shifts in reasoning vs latency tradeo",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T13:49:24.536942+00:00",
+      "action_type": "reddit_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "r/singularity",
+      "content_preview": "[Discussion] Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligen",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
