@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T18:36:19.623196+00:00",
+    "last_updated": "2026-10-29T18:53:19.416988+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 100,
-    "original_posts_attempted": 19,
-    "original_posts_succeeded": 14,
+    "total_cycles_executed": 105,
+    "original_posts_attempted": 20,
+    "original_posts_succeeded": 15,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 10,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 9,
-    "ai_generation_requests": 55,
+    "ai_generation_requests": 56,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1016,6 +1016,56 @@
       "is_dry_run": false,
       "target": "r/test",
       "content_preview": "Google Search dropping below 50% of Alphabet's revenue: architectural shift impl",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T18:52:27.540159+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM API Outage Frequency & Degradation Index",
+      "content_preview": "hot take: people obsessing over LLM uptime metrics are just avoiding the actual problem. your prompt is garbage, an API ",
+      "reason": "",
+      "duration_s": 32.04
+    },
+    {
+      "timestamp": "2026-10-29T18:52:30.548998+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "API degradation is silent technical debt. We\u2019re tracking real-time error rates, latency spikes, and uptime for frontier ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-29T18:52:35.830627+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83d\udd25 The illusion of \"five-nines\" availability in frontier LLM APIs is officially s",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T18:52:58.768595+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Is it just me, or have LLM API hiccups felt way more frequent lately? \ud83e\udee0 Keeping ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-29T18:53:19.416963+00:00",
+      "action_type": "reddit_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "r/ArtificialInteligence",
+      "content_preview": "Tracking LLM API reliability: Outage frequency and degradation across frontier p",
       "reason": "",
       "duration_s": 15.0
     }
