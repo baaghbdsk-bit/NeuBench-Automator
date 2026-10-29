@@ -128,23 +128,32 @@ class TwitterClient:
                     self._human_type(textarea, short_text)
                     page.wait_for_timeout(1000)
 
+                # Submit via native Control+Enter keyboard shortcut to bypass overlay pointer intercepts
+                print("[TwitterClient] Submitting tweet via Control+Enter keyboard shortcut...")
                 try:
-                    post_btn.click(timeout=10000)
+                    textarea.focus()
                 except Exception:
+                    pass
+                page.keyboard.press("Control+Enter")
+
+                # Fallback: attempt direct button click and dispatch_event
+                time.sleep(1.0)
+                if not tweet_sent:
                     try:
-                        post_btn.click(force=True, timeout=5000)
+                        post_btn.click(force=True, timeout=3000)
                     except Exception:
-                        post_btn.dispatch_event("click")
-                
+                        try:
+                            post_btn.dispatch_event("click")
+                        except Exception:
+                            pass
+
+                # Await network confirmation
                 for _ in range(12):
                     if tweet_sent:
                         break
-                    if "/compose/post" not in page.url:
-                        tweet_sent = True
-                        break
                     page.wait_for_timeout(1000)
 
-                page.wait_for_timeout(3000)
+                page.wait_for_timeout(2000)
                 print(f"[TwitterClient] ✅ Tweet posted successfully (network verified): {text[:60]}...")
                 return True
             except Exception as e:
