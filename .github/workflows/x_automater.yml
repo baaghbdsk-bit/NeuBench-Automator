@@ -2,16 +2,19 @@ name: NeuBench-Automator 24/7 Cloud Autopilot
 
 on:
   schedule:
-    # Runs automatically every 45 minutes 24/7 in GitHub cloud
+    # Autonomous loop runs every 45-60 minutes around the clock
     - cron: '*/45 * * * *'
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Dry Run (simulate without publishing live)'
-        type: boolean
-        default: false
-      action_type:
-        description: 'Action to execute'
+        description: 'Dry run mode (simulate without publishing)'
+        required: false
+        default: 'false'
+        type: string
+      action:
+        description: 'Force specific action (leave auto for intelligent rotation)'
+        required: false
+        default: 'auto'
         type: choice
         options:
           - auto
@@ -79,7 +82,6 @@ jobs:
           if [ -n "$THREADS_COOKIES_BASE64" ]; then
             echo "$THREADS_COOKIES_BASE64" | base64 --decode > threads_session/cookies.json
           fi
-          fi
 
       - name: Execute Automated Cycle
         env:
@@ -97,8 +99,8 @@ jobs:
           MAX_DAILY_REPOSTS: '6'
           MAX_DAILY_TOTAL: '28'
         run: |
-          ACTION="${{ inputs.action_type }}"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          ACTION="${{ inputs.action || 'auto' }}"
+          if [ "$DRY_RUN" = "true" ]; then
             if [ -n "$ACTION" ] && [ "$ACTION" != "auto" ]; then
               python main.py "$ACTION" --dry-run
             else
@@ -113,7 +115,6 @@ jobs:
           fi
 
       - name: Persist Trial Metrics and Post History
-        if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -127,15 +128,10 @@ jobs:
         run: |
           echo "## 📊 NeuBench-Automator Run Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          python -c "
-          import json, os
-          from pathlib import Path
-          p = Path('trial_metrics.json')
-          if p.exists():
-              d = json.load(open(p, encoding='utf-8'))
-              s = d.get('lifetime_summary', {})
-              print('| Metric | Count |', file=open(os.environ['GITHUB_STEP_SUMMARY'], 'a'))
-              print('| :--- | :--- |', file=open(os.environ['GITHUB_STEP_SUMMARY'], 'a'))
-              for k, v in s.items():
-                  print(f'| {k.replace(\"_\", \" \").title()} | **{v}** |', file=open(os.environ['GITHUB_STEP_SUMMARY'], 'a'))
-          " || echo "Summary generated"
+          echo "- **Execution Mode:** Cloud Autopilot (Ubuntu 24.04)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Platforms:** 𝕏 (Twitter), Bluesky, LinkedIn, Threads" >> $GITHUB_STEP_SUMMARY
+          echo "- **Execution Time (UTC):** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          if [ -f "post_history.json" ]; then
+            TOTAL_POSTS=$(python -c "import json; data=json.load(open('post_history.json')); print(len(data.get('posted_tweets', [])))" 2>/dev/null || echo "N/A")
+            echo "- **Total Tracked Posts:** $TOTAL_POSTS" >> $GITHUB_STEP_SUMMARY
+          fi
