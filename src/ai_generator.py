@@ -225,46 +225,55 @@ Rules:
         return append_hashtags(text, ["#AI", "#MachineLearning", "#OpenSource"], max_len=295)
 
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates an in-depth, long-form creative B2B thought-leadership and breaking analysis post for LinkedIn (1,200 to 2,000 characters)."""
+        """Generates a viral, high-save LinkedIn Technical Cheatsheet & Visual Study Note in the style of top tech creators (90k+ reach playbook)."""
         link_instruction = (
-            "Seamlessly integrate a benchmark breakdown and call-to-action mentioning https://neubench.netlify.app "
-            "(e.g., '📊 Tracking real-time latency, cost-efficiency, and throughput benchmarks across 260+ models on NeuBench: https://neubench.netlify.app')."
+            "Naturally mention our real-time benchmark radar at https://neubench.netlify.app "
+            "(e.g., '📊 Tracking real-time latency, token economics, and reasoning scores across 260+ models live on https://neubench.netlify.app')."
         ) if include_link else ""
         prompt = f"""
-Topic / Breaking AI News: "{title}"
-Company / Ecosystem: "{company}"
-Context / Story: "{summary}"
+Topic / Technology: "{title}"
+Ecosystem / Framework: "{company}"
+Context / Findings: "{summary}"
 
-Write a comprehensive, authoritative, and engaging long-form LinkedIn thought-leadership post (1,200 - 1,800 characters).
-LinkedIn rewards in-depth analysis, structured storytelling, and tangible insights for engineering leaders, AI founders, and enterprise builders.
+You are a top tech educator and developer who creates viral technical cheatsheets and visual study notes on LinkedIn (the style that gets 50k-100k+ saves like Roshani Kumari or Alex Xu).
+
+Write a high-utility, beautifully formatted LinkedIn Study Note / Cheatsheet post.
 
 Structure:
-1. 🔥 BREAKING / INDUSTRY SHIFT HOOK: A bold, curiosity-inducing opening 1-2 lines that stops the scroll in the LinkedIn feed.
-2. 💡 THE CONTEXT & WHAT HAPPENED: Unpack the news clearly — explain what actually launched or changed, removing marketing hype and exposing the real mechanics.
-3. ⚙️ ARCHITECTURAL & ECONOMIC BREAKDOWN:
-   - Provide 3-4 deep-dive bullet points with bold subheadings (e.g. • **Inference Unit Economics:** ..., • **Latency vs Throughput Tradeoffs:** ..., • **Developer & Enterprise Impact:** ...).
-   - Explain how this impacts production software, token costs, or system architecture.
-4. 📊 BENCHMARK PERSPECTIVE:
-   - Relate this to real-world evaluations: how benchmark claims in PR often diverge from live enterprise workloads.
+1. 🪝 THE HOOK (First 2 Lines):
+   - A high-curiosity, high-utility opener promising to save time or money (e.g. "I spent 40+ hours benchmarking 260+ models on [Topic]. Here is the 1-page visual cheatsheet so you don't burn your cloud budget:").
+
+2. 🗺️ VISUAL CHEATSHEET / MATRIX:
+   - Use clean, structured ASCII tables or box diagrams (e.g. using `+----+` or `[ Component ] -> [ Component ]`) showing trade-offs, architecture, or benchmark comparisons.
+   - 📌 **Key Tradeoff Matrix** (Bullet points comparing Speed, Cost, Accuracy, or Hardware Requirements).
+
+3. ⚠️ 3 PRODUCTION PITFALLS / COMMON MISTAKES:
+   - 3 numbered, high-signal lessons from real-world engineering (bold takeaway + 1 sentence why most developers get it wrong).
+
+4. 💡 2026 RECOMMENDED STACK / IMPLEMENTATION:
+   - Clear architectural diagram or flow showing how to combine tools properly.
+
+5. 📌 SAVE & ENGAGEMENT CTA (Triggers Algorithm Saves & Reposts):
+   - "📌 **Save this post** to reference during your next system design or benchmark review."
    {link_instruction}
-5. 💬 OPEN COMMUNITY QUESTION:
-   - End with a thought-provoking, debate-starting question that encourages founders and engineers to share their perspective in the comments.
+   - "💬 **Comment 'BENCHMARK' or 'CHEATSHEET' below** and I'll send you the raw PDF comparison sheet."
+
 6. 🏷️ HASHTAGS:
-   - Include 4-5 relevant, high-reach professional hashtags on a new line (e.g. #ArtificialIntelligence #MachineLearning #LLM #TechInnovation #GenerativeAI).
+   - 4-5 high-traffic hashtags (e.g. #ArtificialIntelligence #MachineLearning #LLM #SoftwareEngineering #Python).
 
 Rules:
-- High intellectual density, structured with clean spacing and bullet points for effortless mobile reading.
-- No corporate platitudes, buzzword soup, or shallow summaries. Provide genuine technical commentary.
+- 100% actionable and authentic. Zero corporate fluff, PR marketing buzzwords, or textbook filler.
+- Clean spacing with emojis as bullet points for effortless mobile reading.
 - Output ONLY the raw post text.
 """
         text = self._generate_with_fallback(
             prompt,
-            "You are a respected AI systems architect and tech executive writing deep-dive analyses on LinkedIn.",
+            "You are a top technical educator and systems architect crafting viral cheatsheets and notes on LinkedIn.",
             temperature=0.78
         ).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
-            text = f"{text}\n\n📊 Tracking real-time frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app"
-        return append_hashtags(text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechTrends", "#GenerativeAI"], max_len=2900)
+            text = f"{text}\n\n📊 Tracking real-time latency, cost, and reasoning benchmarks across 260+ models: https://neubench.netlify.app"
+        return append_hashtags(text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechInnovation", "#GenerativeAI"], max_len=2950)
 
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a casual, conversational discussion post for Threads with hashtags."""
