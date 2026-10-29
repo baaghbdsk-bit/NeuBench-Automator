@@ -56,9 +56,13 @@ console = Console()
 
 VIRAL_ACCOUNTS = [
 
-    # Top Indian Reach & National / Tech Accounts
+    # Mega-reach Indian National & Tech Accounts (Highest impression velocity)
 
     "narendramodi",
+
+    "narendramodi",  # Prioritized for explosive reach
+
+    "AshwiniVaishnaw",  # Union Minister for IT & Electronics / IndiaAI
 
     "IndianTechGuide",
 
