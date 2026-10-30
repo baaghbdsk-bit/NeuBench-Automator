@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T16:59:10.748660+00:00",
+    "last_updated": "2026-10-30T17:03:42.457296+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 131,
-    "original_posts_attempted": 23,
-    "original_posts_succeeded": 15,
+    "total_cycles_executed": 135,
+    "original_posts_attempted": 24,
+    "original_posts_succeeded": 16,
     "replies_attempted": 23,
     "replies_succeeded": 19,
     "reposts_attempted": 17,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 21,
-    "ai_generation_requests": 74,
+    "ai_generation_requests": 75,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1326,6 +1326,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Who else is over surface-level conference small talk? \ud83e\udd71 \n\nSuper excited that Tec",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T17:03:13.948647+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "konyaspor vs galatasaray",
+      "content_preview": "Galatasaray fans really act like every dodgy referee decision is part of some grand cosmic masterclass. Make it make sen",
+      "reason": "",
+      "duration_s": 90.6
+    },
+    {
+      "timestamp": "2026-10-30T17:03:15.793322+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Training an LLM to reliably parse Turkish S\u00fcper Lig match dynamics like Konyaspor vs Galatasaray is a fun edge case. Rea",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T17:03:18.968842+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running heavy simulations on NeuBench for high-stakes fixtures",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T17:03:42.457269+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Matchday mode: ON! \u26bd\ufe0f Konyaspor vs Galatasaray is always such a tense fixture. W",
       "reason": "",
       "duration_s": 15.0
     }
