@@ -947,6 +947,56 @@ class AutomaterEngine:
                 self.tracker.save_history()
                 if next_day_info:
                     series_mgr.record_published_day(day_num, topic_title, li_text)
+
+                    # --- Automatic Omnichannel Syndication for Daily Series ---
+                    # 1. Dev.to Article
+                    try:
+                        from src.devto_automater import DevToAutomater
+                        devto = DevToAutomater()
+                        if devto.is_configured():
+                            console.print("[bold magenta]Syndicating series lesson to Dev.to...[/bold magenta]")
+                            d_ok, d_msg, d_url = devto.create_article(
+                                title=f"Day {day_num:02d}: {topic_title}",
+                                body_markdown=li_text,
+                                series="AI Explained: Zero to Advanced"
+                            )
+                            if d_ok:
+                                console.print(f"[bold green]✅ Dev.to syndicated: {d_url}[/bold green]")
+                    except Exception as ex:
+                        console.print(f"[dim]Dev.to syndication note: {ex}[/dim]")
+
+                    # 2. Instagram Carousel (5 slides)
+                    try:
+                        from src.instagram_carousel import InstagramCarouselGenerator
+                        from src.instagram_automater import InstagramAutomater
+                        ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
+                        if ig_automater.is_session_available():
+                            console.print("[bold magenta]Rendering & uploading Instagram Carousel...[/bold magenta]")
+                            ig_gen = InstagramCarouselGenerator()
+                            slides = ig_gen.build_day1_sample() if day_num == 1 else ig_gen.build_day1_sample()
+                            ig_caption = f"Day {day_num:02d}: {topic_title}\n\n90 Days. 90 Concepts. One AI Journey. 🎓\n\nSwipe through for the 1-page cheatsheet ➡️\n\n📌 Save this for revision!\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#AI #MachineLearning #AIEngineering #Coding"
+                            ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
+                            if ig_ok:
+                                console.print("[bold green]✅ Instagram carousel published![/bold green]")
+                    except Exception as ex:
+                        console.print(f"[dim]Instagram syndication note: {ex}[/dim]")
+
+                    # 3. Pinterest Infographic Pin
+                    try:
+                        from src.pinterest_automater import PinterestAutomater
+                        import glob
+                        pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
+                        if pin_automater.is_session_available():
+                            console.print("[bold magenta]Publishing Pin to Pinterest...[/bold magenta]")
+                            slides_found = sorted(glob.glob(f"AI_SERIES/CAROUSELS/DAY_{day_num:03d}/*.png"))
+                            cover_img = slides_found[0] if slides_found else "AI_SERIES/CAROUSELS/DAY_001/slide_01.png"
+                            pin_title = f"Day {day_num:02d}: {topic_title}"
+                            pin_desc = f"Part of 90-Day Master Series: AI Explained by NeuBench. Live model benchmarks at neubench.netlify.app"
+                            p_ok, p_msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://neubench.netlify.app")
+                            if p_ok:
+                                console.print("[bold green]✅ Pinterest Pin published![/bold green]")
+                    except Exception as ex:
+                        console.print(f"[dim]Pinterest syndication note: {ex}[/dim]")
             except Exception:
                 pass
         else:
