@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T09:36:32.315539+00:00",
+    "last_updated": "2026-10-30T10:03:27.263231+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 142,
-    "original_posts_attempted": 28,
-    "original_posts_succeeded": 23,
+    "total_cycles_executed": 146,
+    "original_posts_attempted": 29,
+    "original_posts_succeeded": 24,
     "replies_attempted": 18,
     "replies_succeeded": 15,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 70,
+    "ai_generation_requests": 71,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1438,6 +1438,46 @@
       "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 01/90]\nMost developers think AI is just complex math. \nToday, we flip that menta",
       "reason": "",
       "duration_s": 4.3
+    },
+    {
+      "timestamp": "2026-10-30T10:02:59.461061+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Astroterm: A Planetarium for Your Terminal",
+      "content_preview": "developers will literally spend 40 hours building a planetarium inside a bash terminal just to avoid looking at the actu",
+      "reason": "",
+      "duration_s": 84.96
+    },
+    {
+      "timestamp": "2026-10-30T10:03:01.093350+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Render planetary orbits, star catalogs, and satellite passes straight in the tty with Astroterm. Because standard output",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T10:03:04.432197+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours testing terminal-based rendering engines and terminal apps. \n\n",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T10:03:27.263204+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Who else spends way too much time making their terminal look cool? \ud83e\udd13 Just found ",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
