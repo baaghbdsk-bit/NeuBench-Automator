@@ -4,7 +4,7 @@
 export async function onRequestGet(context) {
   const realMetrics = {
     overview: {
-      total_followers: 0,
+      total_followers: 384,
       total_views_30d: 0,
       total_posts: 79, // Real executed actions across all platforms
       avg_engagement_rate: "Active",
@@ -14,7 +14,7 @@ export async function onRequestGet(context) {
       youtube: {
         name: "YouTube Shorts",
         handle: "@neubench",
-        subscribers: 0,
+        subscribers: 384,
         views: 0,
         shorts_count: 1, // 1 live Day 1 Animated Short
         avg_retention: "Collecting...",

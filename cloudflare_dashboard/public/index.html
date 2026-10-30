@@ -485,7 +485,7 @@
       </div>
       <div class="hero-metrics">
         <div class="metric-box">
-          <span class="metric-value" id="total-reach">0</span>
+          <span class="metric-value" id="total-reach">384</span>
           <span class="metric-label">Audience Reach</span>
         </div>
         <div class="metric-box">
@@ -528,7 +528,7 @@
         </div>
         <div class="card-stats">
           <div class="stat-item">
-            <span class="stat-val">0</span>
+            <span class="stat-val">384</span>
             <span class="stat-lbl">Subscribers</span>
           </div>
           <div class="stat-item">
@@ -817,17 +817,33 @@
       });
     }
 
-    // PWA Install Prompt Handler
+    // PWA Install Prompt Handler & Fallback
     let deferredPrompt;
     const pwaPrompt = document.getElementById('pwa-prompt');
     const pwaBtn = document.getElementById('pwa-btn');
     const pwaClose = document.getElementById('pwa-close');
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      pwaPrompt.style.display = 'flex';
-    });
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (!isStandalone) {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        pwaPrompt.style.display = 'flex';
+      });
+
+      // Always show prompt banner after 1.5 seconds if not installed
+      setTimeout(() => {
+        if (!sessionStorage.getItem('pwa_prompt_dismissed')) {
+          pwaPrompt.style.display = 'flex';
+          if (isIOS) {
+            document.querySelector('.pwa-text p').innerHTML = 'Tap <b>Share</b> then <b>Add to Home Screen</b>';
+            pwaBtn.style.display = 'none';
+          }
+        }
+      }, 1500);
+    }
 
     pwaBtn.addEventListener('click', async () => {
       if (deferredPrompt) {
@@ -837,11 +853,14 @@
           pwaPrompt.style.display = 'none';
         }
         deferredPrompt = null;
+      } else {
+        alert('To install: open your browser menu or Share sheet and tap Add to Home Screen.');
       }
     });
 
     pwaClose.addEventListener('click', () => {
       pwaPrompt.style.display = 'none';
+      sessionStorage.setItem('pwa_prompt_dismissed', 'true');
     });
   </script>
 </body>
