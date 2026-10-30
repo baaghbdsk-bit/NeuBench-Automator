@@ -14,6 +14,7 @@ if _VENV_PYTHON.exists() and Path(sys.executable).resolve() != _VENV_PYTHON.reso
 
 import argparse
 import json
+import time
 
 # Ensure UTF-8 output on Windows consoles
 if sys.platform == "win32":
