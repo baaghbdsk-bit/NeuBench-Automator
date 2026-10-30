@@ -80,8 +80,8 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-threads", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
-        help="Action: 'dashboard', 'login-linkedin', 'login-threads', 'bluesky', 'linkedin', 'threads', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "login-linkedin", "login-threads", "login-instagram", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
+        help="Action: 'dashboard', 'login-linkedin', 'login-threads', 'login-instagram', 'bluesky', 'linkedin', 'threads', 'instagram', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
     parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', 'bluesky', or 'linkedin')")
@@ -188,6 +188,10 @@ def main():
     elif args.action == "login-threads":
         from scripts.login_threads import login_threads
         login_threads()
+
+    elif args.action == "login-instagram":
+        from scripts.login_instagram import login_instagram
+        login_instagram()
         
     elif args.action == "test":
         from scripts.test_pipeline import test_pipeline
@@ -237,6 +241,20 @@ def main():
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
         engine.run_single_cycle(force_action="threads")
+
+    elif args.action == "instagram":
+        from src.instagram_carousel import InstagramCarouselGenerator
+        from src.instagram_automater import InstagramAutomater
+        console.print("[magenta]Rendering latest AI Series carousel slides for Instagram (@neubench)...[/magenta]")
+        generator = InstagramCarouselGenerator()
+        image_paths = generator.build_day1_sample()
+        automater = InstagramAutomater(headless=False, dry_run=args.dry_run)
+        caption = "Day 01: What is Artificial Intelligence? (Rules-Based Code vs. Learned Behavior)\n\n90 Days. 90 Concepts. One AI Journey.\n\nSwipe through the 1-page cheatsheet ➡️\n\n📌 Save this post for your revision!\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#AI #MachineLearning #AIEngineering #Coding #Developers"
+        ok, msg = automater.post_carousel(image_paths, caption)
+        if ok:
+            console.print(f"[bold green]✅ {msg}[/bold green]")
+        else:
+            console.print(f"[bold red]❌ {msg}[/bold red]")
 
     elif args.action in ("omnichannel", "post-all"):
         from src.scheduler import AutomaterEngine
