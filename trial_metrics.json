@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T15:14:56.109277+00:00",
+    "last_updated": "2026-10-30T14:59:48.532403+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 121,
+    "total_cycles_executed": 122,
     "original_posts_attempted": 21,
     "original_posts_succeeded": 14,
-    "replies_attempted": 21,
-    "replies_succeeded": 17,
+    "replies_attempted": 23,
+    "replies_succeeded": 19,
     "reposts_attempted": 17,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 19,
-    "ai_generation_requests": 69,
+    "ai_generation_requests": 71,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1220,14 +1220,24 @@
       "duration_s": 78.16
     },
     {
-      "timestamp": "2026-10-30T15:14:56.109244+00:00",
-      "action_type": "youtube",
-      "status": "dry_run",
-      "is_dry_run": true,
-      "target": "Day 1: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior)",
-      "content_preview": "Day 01: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior) #Shorts",
+      "timestamp": "2026-10-30T14:25:54.822504+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/PopBase/status/2116174108040008033",
+      "content_preview": "bro that song is practically squatting in my brain rent-free at this point, how is it only at 178",
       "reason": "",
-      "duration_s": 5.89
+      "duration_s": 64.38
+    },
+    {
+      "timestamp": "2026-10-30T14:59:48.532374+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/narendramodi/status/2116149567267983689",
+      "content_preview": "the ground reality is that our rural women are carrying the entire agricultural economy on their backs while getting zer",
+      "reason": "",
+      "duration_s": 53.69
     }
   ]
 }
