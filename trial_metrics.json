@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T17:45:45.642981+00:00",
+    "last_updated": "2026-10-30T19:07:29.247893+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 145,
-    "original_posts_attempted": 24,
-    "original_posts_succeeded": 16,
+    "total_cycles_executed": 153,
+    "original_posts_attempted": 25,
+    "original_posts_succeeded": 17,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 18,
     "reposts_succeeded": 9,
     "actions_skipped": 9,
     "failed_operations": 21,
-    "ai_generation_requests": 77,
+    "ai_generation_requests": 78,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-21T21:41:55.765794+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "https://x.com/unusual_whales/status/2086422490872713578",
-      "content_preview": "Great, now I can lose money faster and via code.",
-      "reason": "",
-      "duration_s": 17.38
-    },
-    {
-      "timestamp": "2026-10-21T21:42:29.694647+00:00",
-      "action_type": "quote_tweet",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "https://x.com/ndtv/status/2113019999380193613",
-      "content_preview": "Cant wait for tech bros to solve this with a productivity app.",
-      "reason": "",
-      "duration_s": 11.28
-    },
-    {
-      "timestamp": "2026-10-21T21:43:53.416701+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Rosenberg: US diplomatic push offers little hope for imminent Ukraine peace",
-      "content_preview": "bro discovered this 2 years late \ud83d\udc80",
-      "reason": "",
-      "duration_s": 2.49
-    },
     {
       "timestamp": "2026-10-21T22:36:13.582174+00:00",
       "action_type": "reply",
@@ -1466,6 +1436,86 @@
       "is_dry_run": true,
       "target": "YouTube Short",
       "content_preview": "Day 02: The Big Picture: AI vs. Machine Learning vs. Deep Learning #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T19:03:12.844140+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "daniel vogelbach",
+      "content_preview": "Daniel Vogelbach playing professional baseball while half of twitter acts like hitting a 95mph fastball is easy because ",
+      "reason": "",
+      "duration_s": 89.36
+    },
+    {
+      "timestamp": "2026-10-30T19:03:14.883130+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Can we talk about Daniel Vogelbach as the ultimate architectural metaphor for LLMs? Absolute unit of compute, zero waste",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T19:03:17.956033+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running heavy compute benchmarks on Daniel Vogelbach-style pow",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T19:03:53.235836+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Okay, I need to know. Are we all still secretly rooting for Daniel Vogelbach to ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T19:04:17.175797+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Daniel Vogelbach playing professional baseball while half of twitter acts like h",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T19:05:44.691012+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Carousel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-30T19:07:25.916565+00:00",
+      "action_type": "instagram_reel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Reel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 25.0
+    },
+    {
+      "timestamp": "2026-10-30T19:07:29.247862+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
       "reason": "",
       "duration_s": 15.0
     }
