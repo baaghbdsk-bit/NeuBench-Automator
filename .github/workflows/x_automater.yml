@@ -25,6 +25,7 @@ on:
           - bluesky
           - linkedin
           - threads
+          - instagram
 
 concurrency:
   group: neubench-automator-cloud-engine
@@ -70,8 +71,9 @@ jobs:
           X_COOKIES_BASE64: ${{ secrets.X_COOKIES_BASE64 }}
           LINKEDIN_COOKIES_BASE64: ${{ secrets.LINKEDIN_COOKIES_BASE64 }}
           THREADS_COOKIES_BASE64: ${{ secrets.THREADS_COOKIES_BASE64 }}
+          INSTAGRAM_COOKIES_BASE64: ${{ secrets.INSTAGRAM_COOKIES_BASE64 }}
         run: |
-          mkdir -p browser_session linkedin_session threads_session
+          mkdir -p browser_session linkedin_session threads_session instagram_session
           if [ -n "$X_COOKIES_BASE64" ]; then
             echo "$X_COOKIES_BASE64" | base64 --decode > browser_session/cookies.json
           fi
@@ -80,6 +82,9 @@ jobs:
           fi
           if [ -n "$THREADS_COOKIES_BASE64" ]; then
             echo "$THREADS_COOKIES_BASE64" | base64 --decode > threads_session/cookies.json
+          fi
+          if [ -n "$INSTAGRAM_COOKIES_BASE64" ]; then
+            echo "$INSTAGRAM_COOKIES_BASE64" | base64 --decode > instagram_session/cookies.json
           fi
 
       - name: Execute Automated Cycle
@@ -128,7 +133,7 @@ jobs:
           echo "## 📊 NeuBench-Automator Run Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Execution Mode:** Cloud Autopilot (Ubuntu 24.04)" >> $GITHUB_STEP_SUMMARY
-          echo "- **Platforms:** 𝕏 (Twitter), Bluesky, LinkedIn, Threads" >> $GITHUB_STEP_SUMMARY
+          echo "- **Platforms:** 𝕏 (Twitter), Bluesky, LinkedIn, Threads, Instagram" >> $GITHUB_STEP_SUMMARY
           echo "- **Execution Time (UTC):** $(date -u)" >> $GITHUB_STEP_SUMMARY
           if [ -f "post_history.json" ]; then
             TOTAL_POSTS=$(python -c "import json; data=json.load(open('post_history.json')); print(len(data.get('posted_tweets', [])))" 2>/dev/null || echo "N/A")
