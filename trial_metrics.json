@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T13:03:39.268895+00:00",
+    "last_updated": "2026-10-30T14:03:46.262940+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 122,
-    "original_posts_attempted": 22,
-    "original_posts_succeeded": 15,
+    "total_cycles_executed": 126,
+    "original_posts_attempted": 23,
+    "original_posts_succeeded": 16,
     "replies_attempted": 20,
     "replies_succeeded": 16,
     "reposts_attempted": 16,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 18,
-    "ai_generation_requests": 68,
+    "ai_generation_requests": 69,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1236,6 +1236,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Heartbroken to hear about the loss of the legendary Sir Patrick Stewart. From th",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T14:03:06.054942+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "DoorDash said it\u2019s only received \u2018several hundred\u2019 orders from AI agents",
+      "content_preview": "people spent six months pretending AI agents are ordering their dinner and running errands, only for DoorDash to admit i",
+      "reason": "",
+      "duration_s": 92.49
+    },
+    {
+      "timestamp": "2026-10-30T14:03:11.821418+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "DoorDash reports only \"several hundred\" orders via AI agents so far. Protocol fragmentation and brittle DOM parsing are ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T14:03:17.968516+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours breaking down the real-world metrics behind DoorDash's recent ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T14:03:46.262912+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "DoorDash just dropped that they've only gotten \"several hundred\" orders from AI ",
       "reason": "",
       "duration_s": 15.0
     }
