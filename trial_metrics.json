@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T08:03:36.396972+00:00",
+    "last_updated": "2026-10-30T09:02:35.267873+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 137,
-    "original_posts_attempted": 27,
-    "original_posts_succeeded": 22,
+    "total_cycles_executed": 141,
+    "original_posts_attempted": 28,
+    "original_posts_succeeded": 23,
     "replies_attempted": 18,
     "replies_succeeded": 15,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 68,
+    "ai_generation_requests": 69,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1386,6 +1386,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Curious how everyone\u2019s balancing speed vs accuracy for coding agents lately. \n\nA",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T09:02:07.762964+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "We're releasing the weights of Mistral Large 4",
+      "content_preview": "open source is just becoming a charity case where US labs drop their mid models after OpenAI has already eaten the entir",
+      "reason": "",
+      "duration_s": 28.51
+    },
+    {
+      "timestamp": "2026-10-30T09:02:09.098760+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Mistral Large 4 weights are officially out. Time to benchmark the new dense architecture and see how it handles localize",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T09:02:12.072406+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours benchmarking Mistral Large 4 weights across 260+ production ta",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T09:02:35.267848+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Mistral Large 4 weights are officially out! \ud83e\udd2f Who\u2019s already testing them locally",
       "reason": "",
       "duration_s": 15.0
     }
