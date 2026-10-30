@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T17:13:01.563267+00:00",
+    "last_updated": "2026-10-30T17:18:12.031798+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 140,
-    "original_posts_attempted": 25,
-    "original_posts_succeeded": 17,
+    "total_cycles_executed": 146,
+    "original_posts_attempted": 26,
+    "original_posts_succeeded": 18,
     "replies_attempted": 23,
     "replies_succeeded": 19,
     "reposts_attempted": 17,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 21,
-    "ai_generation_requests": 76,
+    "ai_generation_requests": 77,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1418,6 +1418,66 @@
       "content_preview": "so google put a tpu in space just to make it write cringe poetry. we are literal",
       "reason": "",
       "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-30T17:16:10.300786+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "uttarakhand helicopter crash",
+      "content_preview": "Another tragic crash and we\u2019ll talk about safety audits for a week before going right back to booking VIP darshan slots.",
+      "reason": "",
+      "duration_s": 37.61
+    },
+    {
+      "timestamp": "2026-10-30T17:16:11.928382+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Tragic news out of Uttarakhand. While this isn't an AI incident, it's a reminder of why reliable sensor fusion and edge ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T17:16:15.168849+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing aviation safety data and crash simulations using Neu",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T17:16:42.201612+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Heartbreaking news coming out about the Uttarakhand helicopter crash today. \ud83d\udc94 Su",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T17:18:08.965253+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Carousel",
+      "content_preview": "Another tragic crash and we\u2019ll talk about safety audits for a week before going ",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-30T17:18:12.031767+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "uttarakhand helicopter crash #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
