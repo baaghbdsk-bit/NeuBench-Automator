@@ -1,104 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T19:07:29.247893+00:00",
+    "last_updated": "2026-10-30T20:07:27.858893+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 153,
-    "original_posts_attempted": 25,
-    "original_posts_succeeded": 17,
+    "total_cycles_executed": 161,
+    "original_posts_attempted": 26,
+    "original_posts_succeeded": 18,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 18,
     "reposts_succeeded": 9,
     "actions_skipped": 9,
     "failed_operations": 21,
-    "ai_generation_requests": 78,
+    "ai_generation_requests": 79,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-21T22:36:13.582174+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "@elonmusk",
-      "content_preview": "",
-      "reason": "No tweet found for @elonmusk",
-      "duration_s": 37.6
-    },
-    {
-      "timestamp": "2026-10-21T22:59:08.789895+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "NeuBench Radar",
-      "content_preview": "Testing NeuBench integration into X automater. Tracking live on neubench.vercel.",
-      "reason": "",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-22T00:16:53.616168+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "@NDTV",
-      "content_preview": "",
-      "reason": "No tweet found for @NDTV",
-      "duration_s": 16.19
-    },
-    {
-      "timestamp": "2026-10-22T00:19:04.927326+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Bluesky (AT Protocol)",
-      "content_preview": "test bsky take",
-      "reason": "",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-22T05:27:00.761761+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "@thetanmay",
-      "content_preview": "",
-      "reason": "No tweet found for @thetanmay",
-      "duration_s": 16.76
-    },
-    {
-      "timestamp": "2026-10-22T05:33:43.330119+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "https://x.com/ndtv/status/2113128816046669862",
-      "content_preview": "bro we are still decoding potholes in Bengaluru, let's calm down on geopolitics",
-      "reason": "",
-      "duration_s": 20.92
-    },
-    {
-      "timestamp": "2026-10-22T05:37:37.295545+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "donovan mitchell",
-      "content_preview": "overrated in the regular season and invisible when it actually matters. y'all just like his shoe colorways",
-      "reason": "",
-      "duration_s": 31.96
-    },
-    {
-      "timestamp": "2026-10-22T11:40:26.895088+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Airbnb limits chores for guests, sparking backlash from hosts",
-      "content_preview": "hot take: paying a 150 dollar cleaning fee and still being asked to mop is pure scam behavior. glad airbnb finally stepp",
-      "reason": "",
-      "duration_s": 35.38
-    },
     {
       "timestamp": "2026-10-22T11:48:22.485247+00:00",
       "action_type": "quote_tweet",
@@ -1511,6 +1431,86 @@
     },
     {
       "timestamp": "2026-10-30T19:07:29.247862+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T20:03:12.320524+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "poland",
+      "content_preview": "poland is lowkey becoming the tech and defense powerhouse of europe while western europe is just arguing on twitter abou",
+      "reason": "",
+      "duration_s": 91.29
+    },
+    {
+      "timestamp": "2026-10-30T20:03:14.201140+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Interesting shift in the Central European AI landscape: Poland\u2019s open-weights research is quietly accelerating, with tea",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T20:03:17.230111+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours benchmarking Poland's top localized LLM workloads and region-s",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T20:03:49.532181+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Okay, I need to know why Poland isn't on everyone's bucket list yet?! \ud83e\udd5f\ud83c\udff0 \n\nThe a",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T20:04:14.902168+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "poland is lowkey becoming the tech and defense powerhouse of europe while wester",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T20:05:42.007497+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Carousel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-30T20:07:24.238675+00:00",
+      "action_type": "instagram_reel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Reel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 25.0
+    },
+    {
+      "timestamp": "2026-10-30T20:07:27.858854+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
