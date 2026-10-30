@@ -55,25 +55,25 @@ ALGORITHMIC_WINDOWS = {
         "primary_actions": ["post", "bluesky", "reply"],
         "description": "Short, punchy tech take on 𝕏 and Bluesky, plus early morning engagement replies."
     },
-    # Window 2: Europe Afternoon / US Pre-Standup
-    "W2_B2B_LONGFORM": {
-        "utc_start": 11,  # 11:00 UTC = 16:30 PM IST = 07:00 AM EST
-        "utc_end": 13,    # 13:00 UTC = 18:30 PM IST = 09:00 AM EST
-        "ist_display": "16:30 - 18:30 IST",
-        "est_display": "07:00 - 09:00 EST",
-        "name": "B2B Thought-Leadership & Engineering Deep-Dive",
-        "primary_actions": ["linkedin", "devto"],
-        "description": "High-authority LinkedIn technical post + in-depth Dev.to article before US engineering standups."
+    # Window 2: Early Evening Video Slot (5:30 PM IST / 12:00 UTC)
+    "W2_YT_EVENING_EARLY": {
+        "utc_start": 12,  # 12:00 UTC = 17:30 (5:30 PM) IST = 08:00 AM EST
+        "utc_end": 13,    # 13:00 UTC = 18:30 (6:30 PM) IST = 09:00 AM EST
+        "ist_display": "17:30 - 18:30 (5:30 PM) IST",
+        "est_display": "08:00 - 09:00 AM EST",
+        "name": "YouTube Shorts Evening Drop #1 (5:30 PM IST)",
+        "primary_actions": ["youtube", "linkedin", "devto"],
+        "description": "First prime YouTube Short drop (5:30 PM IST) + LinkedIn & Dev.to thought leadership."
     },
-    # Window 3: Silicon Valley Morning / Global Tech Peak Prime
-    "W3_VISUAL_PRIME": {
-        "utc_start": 14,  # 14:00 UTC = 19:30 PM IST = 10:00 AM EST
-        "utc_end": 16,    # 16:00 UTC = 21:30 PM IST = 12:00 PM EST
-        "ist_display": "19:30 - 21:30 IST",
-        "est_display": "10:00 - 12:00 EST",
-        "name": "Visual Curriculum Prime (Shorts + Carousels)",
+    # Window 3: Peak Prime Evening Video Slot (7:30 PM IST / 14:00 UTC)
+    "W3_YT_EVENING_PEAK": {
+        "utc_start": 14,  # 14:00 UTC = 19:30 (7:30 PM) IST = 10:00 AM EST
+        "utc_end": 15,    # 15:00 UTC = 20:30 (8:30 PM) IST = 11:00 AM EST
+        "ist_display": "19:30 - 20:30 (7:30 PM) IST",
+        "est_display": "10:00 - 11:00 AM EST",
+        "name": "YouTube Shorts Evening Drop #2 (7:30 PM IST)",
         "primary_actions": ["youtube", "instagram", "pinterest"],
-        "description": "YouTube Short #1 + Instagram Enriched Carousel + Pinterest Pin during peak global dwell time."
+        "description": "Second prime YouTube Short drop (7:30 PM IST) + Instagram Technical Carousel & Pinterest Pin."
     },
     # Window 4: US Afternoon Break / Tech Discourse
     "W4_TECH_DEBATE": {
