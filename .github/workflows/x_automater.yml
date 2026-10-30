@@ -77,8 +77,9 @@ jobs:
           THREADS_COOKIES_BASE64: ${{ secrets.THREADS_COOKIES_BASE64 }}
           INSTAGRAM_COOKIES_BASE64: ${{ secrets.INSTAGRAM_COOKIES_BASE64 }}
           PINTEREST_COOKIES_BASE64: ${{ secrets.PINTEREST_COOKIES_BASE64 }}
+          REDDIT_COOKIES_BASE64: ${{ secrets.REDDIT_COOKIES_BASE64 }}
         run: |
-          mkdir -p browser_session linkedin_session threads_session instagram_session pinterest_session
+          mkdir -p browser_session linkedin_session threads_session instagram_session pinterest_session reddit_session
           if [ -n "$X_COOKIES_BASE64" ]; then
             echo "$X_COOKIES_BASE64" | base64 --decode > browser_session/cookies.json
           fi
@@ -93,6 +94,9 @@ jobs:
           fi
           if [ -n "$PINTEREST_COOKIES_BASE64" ]; then
             echo "$PINTEREST_COOKIES_BASE64" | base64 --decode > pinterest_session/cookies.json
+          fi
+          if [ -n "$REDDIT_COOKIES_BASE64" ]; then
+            echo "$REDDIT_COOKIES_BASE64" | base64 --decode > reddit_session/cookies.json
           fi
 
       - name: Execute Automated Cycle
@@ -132,9 +136,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main || true
           git add post_history.json trial_metrics.json linkedin_network.json || true
           git commit -m "chore(cloud): autonomous update post metrics [skip ci]" || echo "No changes to commit"
+          git pull --rebase origin main || true
           git push origin main || echo "Push skipped or non-fast-forward"
 
       - name: Generate Run Summary

@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T15:49:07.684139+00:00",
+    "last_updated": "2026-10-30T16:14:28.673851+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 126,
+    "total_cycles_executed": 127,
     "original_posts_attempted": 22,
     "original_posts_succeeded": 14,
     "replies_attempted": 23,
@@ -13,8 +13,8 @@
     "reposts_attempted": 17,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
-    "failed_operations": 20,
-    "ai_generation_requests": 72,
+    "failed_operations": 21,
+    "ai_generation_requests": 73,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1278,6 +1278,16 @@
       "content_preview": "Analyzing Virat Kohli's batting metrics and performance consistency using NeuBen",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T16:14:28.673809+00:00",
+      "action_type": "linkedin_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "The political tolerance for socializing private AI infrastructure risk is officially hitting a wall.\n\n\u2022 **Capex Rational",
+      "reason": "LinkedIn browser automation error: Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://www.linkedin.com/feed/\nCall log:\n  - navigating to \"https://www.linkedin.com/feed/\", waiting until \"domcontentloaded\"\n",
+      "duration_s": 20.97
     }
   ]
 }

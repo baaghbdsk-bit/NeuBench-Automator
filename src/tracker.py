@@ -71,9 +71,21 @@ class ActivityTracker:
         return default_history
 
     def save(self):
-        """Persists metrics and post history atomically."""
+        """Persists metrics and post history atomically with smart disk-state merging."""
         self.metrics["trial_meta"]["last_updated"] = datetime.now(timezone.utc).isoformat()
         try:
+            # Re-read and merge any newly added items from disk (e.g. from Cloud GitHub Actions)
+            if self.history_file.exists():
+                try:
+                    with open(self.history_file, "r", encoding="utf-8") as hf:
+                        disk_hist = json.load(hf)
+                    for key in ["posted_tweets", "replied_urls", "reposted_urls"]:
+                        disk_list = disk_hist.get(key, [])
+                        combined = list(dict.fromkeys(self.history.get(key, []) + disk_list))
+                        self.history[key] = combined
+                except Exception:
+                    pass
+
             with open(self.metrics_file, "w", encoding="utf-8") as f:
                 json.dump(self.metrics, f, indent=2)
             with open(self.history_file, "w", encoding="utf-8") as f:
