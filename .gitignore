@@ -52,3 +52,9 @@ scripts/test_*.py
 !scripts/test_post_all.py
 
 cloud_exports/
+
+*.mp4
+*.mp3
+AI_SERIES/VIDEOS/
+client_secret*.json
+youtube_token*.json

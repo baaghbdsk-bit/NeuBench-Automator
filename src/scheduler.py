@@ -997,6 +997,30 @@ class AutomaterEngine:
                                 console.print("[bold green]✅ Pinterest Pin published![/bold green]")
                     except Exception as ex:
                         console.print(f"[dim]Pinterest syndication note: {ex}[/dim]")
+
+                    # 4. YouTube Shorts (Animated Video + Dual Subtitles)
+                    try:
+                        from src.youtube_automater import YouTubeAutomater
+                        yt_automater = YouTubeAutomater()
+                        if yt_automater.is_authenticated:
+                            console.print("[bold magenta]Publishing Animated Short to YouTube Shorts...[/bold magenta]")
+                            yt_video = f"AI_SERIES/VIDEOS/DAY_{day_num:03d}/animated_short_day{day_num}.mp4"
+                            yt_srt = f"AI_SERIES/VIDEOS/DAY_{day_num:03d}/subtitles_day_{day_num:03d}.srt"
+                            if not Path(yt_video).exists():
+                                from scripts.render_animated_demo import render_animated_demo
+                                render_animated_demo()
+                            yt_title = f"Day {day_num:02d}: {topic_title} #Shorts"
+                            yt_desc = (
+                                f"Day {day_num:02d} of the 90-Day Master Series: AI Explained: Zero to Advanced.\n\n"
+                                f"Understand the core engineering foundations of modern AI systems.\n\n"
+                                "📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+                                "#Shorts #AI #MachineLearning #DeepLearning #Coding #DataScience"
+                            )
+                            yt_res = yt_automater.upload_short(video_path=yt_video, title=yt_title, description=yt_desc, srt_path=yt_srt)
+                            if yt_res:
+                                console.print(f"[bold green]✅ YouTube Short published: {yt_res['url']}[/bold green]")
+                    except Exception as ex:
+                        console.print(f"[dim]YouTube syndication note: {ex}[/dim]")
             except Exception:
                 pass
         else:
@@ -1140,4 +1164,3 @@ class AutomaterEngine:
             console.print(f"\n[dim]💤 Sleeping for {sleep_minutes} minutes before next post...[/dim]\n")
 
             time.sleep(sleep_minutes * 60)
-

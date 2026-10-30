@@ -2,7 +2,7 @@ import sys
 import os
 import asyncio
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Dict, Any, Optional
 
 # Ensure UTF-8 on Windows
 if sys.platform == "win32":
@@ -13,10 +13,18 @@ if sys.platform == "win32":
         pass
 
 import edge_tts
-from moviepy import ImageClip, AudioFileClip, CompositeVideoClip, concatenate_videoclips
+from playwright.sync_api import sync_playwright
+from moviepy import ImageClip, AudioFileClip, concatenate_videoclips
 
 class VideoGenerator:
-    """Renders 1080x1920 9:16 vertical video YouTube Shorts from AI Series carousels + Andrew Neural TTS."""
+    """
+    Renders high-production 1080x1920 9:16 vertical animated videos for YouTube Shorts & Instagram Reels.
+    Features:
+    - Andrew Neural Voice (edge-tts en-US-AndrewMultilingualNeural at +10%)
+    - Dynamic visual acts rendered in Playwright Chromium with glowing frosted glass cards
+    - Dual Subtitles: Dynamic burned-in on-screen captions + standalone standard .srt subtitle track for YouTube CC
+    - Safe-zone optimized layout centered in viewport avoiding mobile overlay obstructions
+    """
 
     VOICE = "en-US-AndrewMultilingualNeural"
     RATE = "+10%"
@@ -25,51 +33,109 @@ class VideoGenerator:
         self.base_dir = Path(__file__).resolve().parent.parent
         self.output_dir = self.base_dir / "AI_SERIES" / "VIDEOS"
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.template_path = self.base_dir / "src" / "templates" / "animated_short_template.html"
 
     async def _synthesize_speech(self, script_text: str, output_audio: str):
         communicate = edge_tts.Communicate(script_text, self.VOICE, rate=self.RATE)
         await communicate.save(output_audio)
 
-    def render_short(
+    def _generate_srt_file(self, scenes: List[Dict[str, Any]], srt_path: str):
+        """Builds standard SubRip (.srt) subtitle track for YouTube Captions."""
+        def format_timestamp(seconds: float) -> str:
+            hrs = int(seconds // 3600)
+            mins = int((seconds % 3600) // 60)
+            secs = int(seconds % 60)
+            millis = int(round((seconds - int(seconds)) * 1000))
+            return f"{hrs:02d}:{mins:02d}:{secs:02d},{millis:03d}"
+
+        srt_blocks = []
+        current_time = 0.0
+        for i, scene in enumerate(scenes, 1):
+            dur = float(scene.get("duration", 10.0))
+            start_str = format_timestamp(current_time)
+            end_str = format_timestamp(current_time + dur)
+            caption = scene.get("caption", "").strip()
+
+            srt_blocks.append(f"{i}\n{start_str} --> {end_str}\n{caption}\n")
+            current_time += dur
+
+        with open(srt_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(srt_blocks))
+        print(f"[VideoGenerator] Subtitle track created: {srt_path}")
+
+    def render_animated_short(
         self,
         day: int,
         topic_title: str,
-        script_text: str,
-        slide_image_paths: List[str]
-    ) -> str:
+        scenes: List[Dict[str, Any]],
+        full_narration: str
+    ) -> Dict[str, str]:
         """
-        Creates a synchronized 9:16 vertical short video with voiceover and slide transitions.
-        Returns the absolute path to the generated MP4 file.
+        Renders a complete animated Short video and matching .srt subtitles.
+        Returns dict with paths: {'video_path': ..., 'srt_path': ..., 'audio_path': ...}
         """
         day_dir = self.output_dir / f"DAY_{day:03d}"
         day_dir.mkdir(parents=True, exist_ok=True)
+        frames_dir = day_dir / "ANIM_FRAMES"
+        frames_dir.mkdir(parents=True, exist_ok=True)
 
-        audio_path = str(day_dir / "andrew_voiceover.mp3")
-        video_path = str(day_dir / f"short_day_{day:03d}.mp4")
+        audio_path = str(day_dir / "narration.mp3")
+        video_path = str(day_dir / f"animated_short_day{day}.mp4")
+        srt_path = str(day_dir / f"subtitles_day_{day:03d}.srt")
 
         # 1. Synthesize Voiceover with Andrew
         print(f"[VideoGenerator] Generating Andrew neural voiceover for Day {day:02d}...")
-        asyncio.run(self._synthesize_speech(script_text, audio_path))
+        asyncio.run(self._synthesize_speech(full_narration, audio_path))
 
-        # 2. Measure Duration
-        audio_clip = AudioFileClip(audio_path)
-        total_duration = audio_clip.duration
-        print(f"[VideoGenerator] Voiceover duration: {total_duration:.1f}s")
+        # 2. Generate .srt Closed Captions file
+        self._generate_srt_file(scenes, srt_path)
 
-        # 3. Assemble Slides
-        valid_slides = [s for s in slide_image_paths if os.path.exists(s)]
-        if not valid_slides:
-            raise FileNotFoundError(f"No valid slide images provided for Day {day}")
+        # 3. Render HTML frames with Playwright
+        print(f"[VideoGenerator] Rendering {len(scenes)} visual acts via Chromium...")
+        with open(self.template_path, "r", encoding="utf-8") as f:
+            html_template = f.read()
 
-        slide_duration = total_duration / len(valid_slides)
-        print(f"[VideoGenerator] Composing {len(valid_slides)} slides ({slide_duration:.2f}s each)...")
+        scene_images = []
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page(viewport={"width": 1080, "height": 1920})
 
+            for i, sc in enumerate(scenes):
+                act_num = i + 1
+                scene_title = sc.get("title", f"Act {act_num}")
+                scene_html = sc.get("html", "")
+                caption = sc.get("caption", "")
+                duration = float(sc.get("duration", 12.0))
+
+                # Inject dynamic scene contents into template
+                rendered_html = html_template.replace(
+                    '<div class="hero-concept" id="scene-title">Rules-Based Code vs. Learned Behavior</div>',
+                    f'<div class="hero-concept" id="scene-title">{scene_title}</div>'
+                ).replace(
+                    '<div class="stage" id="stage-content">\n    <!-- Populated per scene -->\n  </div>',
+                    f'<div class="stage" id="stage-content">\n{scene_html}\n</div>'
+                ).replace(
+                    '<!-- Dynamic caption text -->',
+                    f'<span class="highlight-word">"{caption}"</span>'
+                )
+
+                frame_img = str(frames_dir / f"scene_{act_num:02d}.png")
+                page.set_content(rendered_html)
+                page.wait_for_timeout(800)
+                page.screenshot(path=frame_img)
+                scene_images.append((frame_img, duration))
+
+            browser.close()
+
+        # 4. Assemble video with MoviePy
+        print(f"[VideoGenerator] Assembling video track with audio...")
         clips = []
-        for s in valid_slides:
-            img_clip = ImageClip(str(s)).with_duration(slide_duration)
-            clips.append(img_clip)
+        for img_path, duration in scene_images:
+            clip = ImageClip(img_path).with_duration(duration)
+            clips.append(clip)
 
         final_video = concatenate_videoclips(clips, method="compose")
+        audio_clip = AudioFileClip(audio_path)
         final_video = final_video.with_audio(audio_clip)
 
         print(f"[VideoGenerator] Encoding vertical Short to: {video_path}...")
@@ -81,8 +147,12 @@ class VideoGenerator:
             preset="ultrafast",
             logger=None
         )
-
         audio_clip.close()
         final_video.close()
-        print(f"[VideoGenerator] ✅ Video rendered: {video_path}")
-        return video_path
+        print(f"[VideoGenerator] Done! Short generated: {video_path}")
+
+        return {
+            "video_path": video_path,
+            "srt_path": srt_path,
+            "audio_path": audio_path
+        }

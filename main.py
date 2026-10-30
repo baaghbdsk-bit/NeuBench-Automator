@@ -80,8 +80,8 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-threads", "login-instagram", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "devto", "pinterest", "login-pinterest", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
-        help="Action: 'dashboard', 'login-linkedin', 'login-threads', 'login-instagram', 'bluesky', 'linkedin', 'threads', 'instagram', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
+        choices=["login", "login-linkedin", "login-threads", "login-instagram", "login-youtube", "login-pinterest", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "devto", "pinterest", "youtube", "render-video", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
+        help="Action: 'dashboard', 'youtube', 'render-video', 'login-youtube', 'bluesky', 'linkedin', 'threads', 'instagram', 'devto', 'pinterest', 'run-once', 'post', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
     parser.add_argument("--text", type=str, default="", help="Custom text (for 'post', 'reply', 'repost', 'bluesky', or 'linkedin')")
@@ -245,6 +245,41 @@ def main():
     elif args.action == "login-pinterest":
         from scripts.login_pinterest import login_pinterest
         login_pinterest()
+
+    elif args.action == "login-youtube":
+        from scripts.login_youtube import login_youtube
+        login_youtube()
+
+    elif args.action == "render-video":
+        from scripts.render_animated_demo import render_animated_demo
+        console.print("[magenta]Rendering high-production animated short...[/magenta]")
+        render_animated_demo()
+        console.print("[bold green]✅ Animated short rendered in AI_SERIES/VIDEOS/DAY_001/[/bold green]")
+
+    elif args.action == "youtube":
+        from src.youtube_automater import YouTubeAutomater
+        console.print("[magenta]Uploading latest animated short to YouTube Shorts (@neubench)...[/magenta]")
+        yt = YouTubeAutomater()
+        video_path = "AI_SERIES/VIDEOS/DAY_001/animated_short_day1.mp4"
+        srt_path = "AI_SERIES/VIDEOS/DAY_001/subtitles_day_001.srt"
+        if not Path(video_path).exists():
+            from scripts.render_animated_demo import render_animated_demo
+            console.print("[yellow]Video not found, rendering now...[/yellow]")
+            render_animated_demo()
+
+        title = "Day 01: What is AI? (Rules-Based Code vs Learned Behavior) #Shorts"
+        desc = (
+            "Day 01 of the 90-Day Master Series: AI Explained: Zero to Advanced.\n\n"
+            "Understand the core mental model of modern AI engineering: moving from hardcoded deterministic "
+            "rules to continuous weight optimization.\n\n"
+            "📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+            "#Shorts #AI #MachineLearning #DeepLearning #Python #SoftwareEngineering #DataScience"
+        )
+        res = yt.upload_short(video_path=video_path, title=title, description=desc, srt_path=srt_path)
+        if res:
+            console.print(f"[bold green]✅ Published live to YouTube: {res['url']}[/bold green]")
+        else:
+            console.print("[bold red]❌ Failed to upload to YouTube. Check credentials.[/bold red]")
 
     elif args.action == "pinterest":
         import glob
