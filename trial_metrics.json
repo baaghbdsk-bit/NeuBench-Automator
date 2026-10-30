@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T21:01:35.189096+00:00",
+    "last_updated": "2026-10-30T21:02:47.342974+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 162,
+    "total_cycles_executed": 163,
     "original_posts_attempted": 26,
     "original_posts_succeeded": 18,
     "replies_attempted": 24,
     "replies_succeeded": 20,
-    "reposts_attempted": 19,
+    "reposts_attempted": 20,
     "reposts_succeeded": 9,
-    "actions_skipped": 10,
+    "actions_skipped": 11,
     "failed_operations": 21,
     "ai_generation_requests": 79,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-22T15:42:00.914133+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "\u0baa\u0bca\u0bb1\u0bbf\u0baf\u0bbf\u0baf\u0bb2\u0bcd",
-      "content_preview": "4 years of engineering just to learn Excel and argue on LinkedIn about \"hustle culture.\" Make it make sense.",
-      "reason": "",
-      "duration_s": 89.24
-    },
     {
       "timestamp": "2026-10-22T15:42:30.956416+00:00",
       "action_type": "bluesky_post",
@@ -1511,6 +1501,16 @@
     },
     {
       "timestamp": "2026-10-30T21:01:35.189074+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (29/28).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-10-30T21:02:47.342947+00:00",
       "action_type": "repost",
       "status": "skipped",
       "is_dry_run": false,
