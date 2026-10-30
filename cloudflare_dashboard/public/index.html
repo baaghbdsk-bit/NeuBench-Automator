@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuBench Omnichannel • Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #080C16;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Glow */
+    .glow-header {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 80%);
+      pointer-events: none;
+    }
+
+    /* Navbar */
+    nav {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(8, 12, 22, 0.8);
+      backdrop-filter: blur(16px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #38BDF8, #6366F1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: #020617;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF, #CBD5E1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #34D399;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34D399;
+      box-shadow: 0 0 10px #34D399;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Hero Summary Section */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.4) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 24px;
+      padding: 36px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero-text p {
+      color: #94A3B8;
+      font-size: 16px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      gap: 32px;
+    }
+
+    .metric-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: #38BDF8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    /* Sub-Tabs Navigation */
+    .tabs-bar {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94A3B8;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFF;
+    }
+
+    .tab-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38BDF8;
+    }
+
+    /* Grid of Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 24px;
+    }
+
+    .platform-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .platform-identity {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .platform-icon {
+      font-size: 24px;
+    }
+
+    .platform-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    .platform-handle {
+      font-size: 13px;
+      color: #64748B;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      background: rgba(2, 6, 23, 0.5);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-val {
+      font-size: 22px;
+      font-weight: 700;
+      color: #F1F5F9;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stat-lbl {
+      font-size: 12px;
+      color: #64748B;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .card-timing {
+      font-size: 13px;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.05);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.15);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-header"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">
+      <div class="logo-badge">N</div>
+      <span class="brand-title">NeuBench Omnichannel Engine</span>
+    </div>
+    <div class="status-pill">
+      <div class="status-dot"></div>
+      Cloud Autopilot Active • 7 Platforms
+    </div>
+  </nav>
+
+  <!-- Container -->
+  <div class="container">
+    
+    <!-- Hero Summary -->
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1>Omnichannel Audience Reach</h1>
+        <p>Real-time aggregated engagement telemetry across all active channels.</p>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric-box">
+          <span class="metric-value" id="total-reach">184,200</span>
+          <span class="metric-label">30-Day Impressions</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value" id="total-subs">12,450</span>
+          <span class="metric-label">Total Followers / Subs</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value" id="growth-rate">+24.3%</span>
+          <span class="metric-label">Weekly Velocity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform Sub-Tabs -->
+    <div class="tabs-bar">
+      <button class="tab-btn active" onclick="filterPlatform('all', this)">🌐 All Channels (7)</button>
+      <button class="tab-btn" onclick="filterPlatform('youtube', this)">🎬 YouTube Shorts</button>
+      <button class="tab-btn" onclick="filterPlatform('instagram', this)">📸 Instagram</button>
+      <button class="tab-btn" onclick="filterPlatform('twitter', this)">𝕏 (Twitter)</button>
+      <button class="tab-btn" onclick="filterPlatform('linkedin', this)">💼 LinkedIn</button>
+      <button class="tab-btn" onclick="filterPlatform('devto', this)">📝 Dev.to</button>
+      <button class="tab-btn" onclick="filterPlatform('pinterest', this)">📌 Pinterest</button>
+    </div>
+
+    <!-- Platform Cards Grid -->
+    <div class="cards-grid" id="cards-container">
+      
+      <!-- YouTube Shorts -->
+      <div class="platform-card" data-channel="youtube">
+        <div class="card-top">
+          <div class="platform-identity">
+            <span class="platform-icon">🎬</span>
+            <div>
+              <div class="platform-name">YouTube Shorts</div>
+              <div class="platform-handle">@neubench</div>
+            </div>
+          </div>
+          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-val">2,840</span>
+            <span class="stat-lbl">Subscribers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">89.4K</span>
+            <span class="stat-lbl">Shorts Views</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">82.4%</span>
+            <span class="stat-lbl">Avg Retention</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">14</span>
+            <span class="stat-lbl">Videos Live</span>
+          </div>
+        </div>
+        <div class="card-timing">
+          ⏰ <b>Peak Drops:</b> 5:30 PM & 7:30 PM IST (Dual Subtitles)
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div class="platform-card" data-channel="instagram">
+        <div class="card-top">
+          <div class="platform-identity">
+            <span class="platform-icon">📸</span>
+            <div>
+              <div class="platform-name">Instagram</div>
+              <div class="platform-handle">@neubench</div>
+            </div>
+          </div>
+          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-val">3,410</span>
+            <span class="stat-lbl">Followers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">41.2K</span>
+            <span class="stat-lbl">Account Reach</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">218</span>
+            <span class="stat-lbl">Avg Saves / Post</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">12</span>
+            <span class="stat-lbl">Carousels Live</span>
+          </div>
+        </div>
+        <div class="card-timing">
+          🔒 <b>Privacy:</b> Like & View Counts Auto-Hidden by default
+        </div>
+      </div>
+
+      <!-- 𝕏 Twitter -->
+      <div class="platform-card" data-channel="twitter">
+        <div class="card-top">
+          <div class="platform-identity">
+            <span class="platform-icon">𝕏</span>
+            <div>
+              <div class="platform-name">Twitter (𝕏)</div>
+              <div class="platform-handle">@vishnurot</div>
+            </div>
+          </div>
+          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-val">4,120</span>
+            <span class="stat-lbl">Followers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">34.1K</span>
+            <span class="stat-lbl">Impressions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">16</span>
+            <span class="stat-lbl">Daily Replies</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">42</span>
+            <span class="stat-lbl">Total Posts</span>
+          </div>
+        </div>
+        <div class="card-timing">
+          ⚡ <b>Mode:</b> Native Video Uploads + Infographic Media Grids
+        </div>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="platform-card" data-channel="linkedin">
+        <div class="card-top">
+          <div class="platform-identity">
+            <span class="platform-icon">💼</span>
+            <div>
+              <div class="platform-name">LinkedIn</div>
+              <div class="platform-handle">vishnurot</div>
+            </div>
+          </div>
+          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-val">1,180</span>
+            <span class="stat-lbl">Connections</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">12.4K</span>
+            <span class="stat-lbl">Impressions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">1m 45s</span>
+            <span class="stat-lbl">Avg Dwell Time</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">7</span>
+            <span class="stat-lbl">Lessons Live</span>
+          </div>
+        </div>
+        <div class="card-timing">
+          🛡️ <b>Guard:</b> Strictly 1/day Anti-Cannibalization at 4:30 PM IST
+        </div>
+      </div>
+
+      <!-- Dev.to -->
+      <div class="platform-card" data-channel="devto">
+        <div class="card-top">
+          <div class="platform-identity">
+            <span class="platform-icon">📝</span>
+            <div>
+              <div class="platform-name">Dev.to</div>
+              <div class="platform-handle">@neubench</div>
+            </div>
+          </div>
+          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-val">620</span>
+            <span class="stat-lbl">Followers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">5.8K</span>
+            <span class="stat-lbl">Article Reads</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">340</span>
+            <span class="stat-lbl">Reactions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">4</span>
+            <span class="stat-lbl">Articles</span>
+          </div>
+        </div>
+        <div class="card-timing">
+          📚 <b>Format:</b> Deep-Dive Technical Markdown with GitHub Benchmarks
+        </div>
+      </div>
+
+      <!-- Pinterest -->
+      <div class="platform-card" data-channel="pinterest">
+        <div class="card-top">
+          <div class="platform-identity">
+            <span class="platform-icon">📌</span>
+            <div>
+              <div class="platform-name">Pinterest</div>
+              <div class="platform-handle">neubench</div>
+            </div>
+          </div>
+          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-val">1,300</span>
+            <span class="stat-lbl">Monthly Views</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">142</span>
+            <span class="stat-lbl">Outbound Clicks</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">5</span>
+            <span class="stat-lbl">Pins Live</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">100%</span>
+            <span class="stat-lbl">Link to App</span>
+          </div>
+        </div>
+        <div class="card-timing">
+          🔗 <b>Link:</b> Drives traffic directly to neubench.netlify.app
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    NeuBench Omnichannel SaaS Architecture • Powered by Cloudflare Pages & D1 (Zero Supabase Footprint)
+  </footer>
+
+  <script>
+    function filterPlatform(channel, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.platform-card');
+      cards.forEach(card => {
+        if (channel === 'all' || card.getAttribute('data-channel') === channel) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Attempt live fetch from Cloudflare Function API
+    fetch('/api/stats')
+      .then(res => res.json())
+      .then(data => {
+        if (data.overview) {
+          document.getElementById('total-reach').textContent = Number(data.overview.total_views_30d).toLocaleString();
+          document.getElementById('total-subs').textContent = Number(data.overview.total_followers).toLocaleString();
+          document.getElementById('growth-rate').textContent = data.overview.growth_velocity;
+        }
+      })
+      .catch(() => console.log('Static preview mode'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "neubench-omnichannel-dashboard",
+  "version": "1.0.0",
+  "description": "Public Omnichannel Social Command Center powered by Cloudflare Pages & D1",
+  "main": "_worker.js",
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}
