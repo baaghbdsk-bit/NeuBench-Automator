@@ -24,9 +24,7 @@ class InstagramAutomater:
     def is_session_available(self) -> bool:
         """Checks if a saved Instagram session with valid cookies exists."""
         cookie_file = self.user_data_dir / "cookies.json"
-        if cookie_file.exists():
-            return True
-        return False
+        return cookie_file.exists()
 
     def post_carousel(self, image_paths: List[str], caption: str) -> Tuple[bool, str]:
         """Publishes multi-slide carousel images to Instagram (@neubench)."""
@@ -49,11 +47,12 @@ class InstagramAutomater:
                 "--no-sandbox",
                 "--disable-infobars"
             ]
-            context = p.chromium.launch_persistent_context(
-                user_data_dir=str(self.user_data_dir),
+            browser = p.chromium.launch(
                 headless=self.headless,
+                args=args
+            )
+            context = browser.new_context(
                 viewport={"width": 1280, "height": 900},
-                args=args,
                 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
             )
 
@@ -68,14 +67,14 @@ class InstagramAutomater:
                 except Exception as e:
                     print(f"[InstagramAutomater] Cookie restore note: {e}")
 
-            page = context.pages[0] if context.pages else context.new_page()
+            page = context.new_page()
 
             try:
                 print("[InstagramAutomater] Navigating to https://www.instagram.com/ ...")
                 page.goto("https://www.instagram.com/", wait_until="domcontentloaded", timeout=40000)
-                page.wait_for_timeout(3000)
+                page.wait_for_timeout(4000)
 
-                # Dismiss 'Turn on Notifications' or cookies popups if present
+                # Dismiss 'Not Now' notification popups
                 for dismiss_text in ["Not Now", "Cancel", "Decline optional cookies"]:
                     try:
                         btn = page.locator(f'button:has-text("{dismiss_text}")')
@@ -85,58 +84,55 @@ class InstagramAutomater:
                     except Exception:
                         pass
 
-                # Locate the 'New post' / 'Create' button (SVG or aria-label)
-                create_btn = page.locator('svg[aria-label="New post"], svg[aria-label="Create"], [aria-label="New post"]').first
-                if not create_btn.is_visible(timeout=10000):
-                    # Check if 'Create' text exists in side nav
-                    create_btn = page.locator('span:has-text("Create"), a:has-text("Create")').first
+                # 1. Click Create button in navigation menu
+                print("[InstagramAutomater] Opening Create menu...")
+                create_link = page.locator('svg[aria-label="New post"]').locator('xpath=ancestor::a | ancestor::div[role="button"]').first
+                create_link.click()
+                page.wait_for_timeout(1500)
 
-                print("[InstagramAutomater] Clicking Create post button...")
-                create_btn.click()
+                # 2. Click 'Post' option in the Create dropdown
+                post_item = page.locator('span:text-is("Post")').first
+                post_item.wait_for(state="visible", timeout=10000)
+                post_item.click()
                 page.wait_for_timeout(2500)
 
-                # File input handler for multi-image upload
-                file_input = page.locator('input[type="file"]').first
+                # 3. Upload images
+                print(f"[InstagramAutomater] Uploading {len(valid_images)} carousel slides...")
+                file_input = page.locator('div[role="dialog"] input[type="file"], input[type="file"]').first
+                file_input.wait_for(state="attached", timeout=15000)
                 file_input.set_input_files(valid_images)
-                page.wait_for_timeout(3000)
+                page.wait_for_timeout(4000)
 
-                # Set aspect ratio to Original / 4:5 if selector exists
-                try:
-                    ratio_btn = page.locator('svg[aria-label="Select crop"], button:has-text("Select crop")').first
-                    if ratio_btn.is_visible(timeout=2000):
-                        ratio_btn.click()
-                        page.wait_for_timeout(500)
-                        orig_btn = page.locator('span:has-text("Original"), span:has-text("4:5")').first
-                        if orig_btn.is_visible(timeout=1500):
-                            orig_btn.click()
-                            page.wait_for_timeout(500)
-                except Exception:
-                    pass
-
-                # Click 'Next' button (Top right of modal)
-                next_btn = page.locator('div[role="dialog"] div:has-text("Next"), button:has-text("Next")').last
+                # 4. First 'Next' button (Top right of dialog: Crop step)
+                next_btn = page.locator('div[role="dialog"] div:text-is("Next"), div[role="dialog"] button:has-text("Next")').last
                 next_btn.click()
-                page.wait_for_timeout(2000)
+                page.wait_for_timeout(3500)
 
-                # Second 'Next' button (Filter step)
-                next_btn2 = page.locator('div[role="dialog"] div:has-text("Next"), button:has-text("Next")').last
+                # 5. Second 'Next' button (Filters step)
+                next_btn2 = page.locator('div[role="dialog"] div:text-is("Next"), div[role="dialog"] button:has-text("Next")').last
                 next_btn2.click()
-                page.wait_for_timeout(2000)
+                page.wait_for_timeout(3500)
 
-                # Type caption in the textarea / contenteditable div
-                caption_area = page.locator('div[role="dialog"] div[aria-label="Write a caption..."], div[role="textbox"]').first
+                # 6. Write caption in dialog textbox
+                print("[InstagramAutomater] Entering caption...")
+                caption_area = page.locator('div[role="dialog"] [aria-label*="caption" i], div[role="dialog"] div[role="textbox"]').first
                 caption_area.click()
                 page.wait_for_timeout(500)
                 caption_area.fill(caption)
                 page.wait_for_timeout(1500)
 
-                # Click 'Share' button
-                share_btn = page.locator('div[role="dialog"] div:has-text("Share"), button:has-text("Share")').last
+                # 7. Click 'Share' button
                 print("[InstagramAutomater] Clicking Share button...")
+                share_btn = page.locator('div[role="dialog"] div:text-is("Share"), div[role="dialog"] button:has-text("Share")').last
                 share_btn.click()
 
-                # Wait for confirmation: 'Your post has been shared.'
-                page.wait_for_selector('text="Your post has been shared."', timeout=35000)
+                # 8. Await post confirmation
+                print("[InstagramAutomater] Waiting for upload confirmation...")
+                try:
+                    page.wait_for_selector('text="Your post has been shared.", text="Post shared."', timeout=45000)
+                except Exception:
+                    page.wait_for_timeout(10000)
+
                 print("[InstagramAutomater] ✅ Successfully published carousel to Instagram (@neubench)!")
                 return True, "Published carousel to Instagram (@neubench)"
 
@@ -145,3 +141,4 @@ class InstagramAutomater:
                 return False, f"Instagram publish error: {e}"
             finally:
                 context.close()
+                browser.close()
