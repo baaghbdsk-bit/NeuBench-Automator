@@ -9,6 +9,7 @@ if sys.platform == 'win32':
     except Exception:
         pass
 from pathlib import Path
+from typing import Optional, List, Dict, Any
 from playwright.sync_api import sync_playwright, BrowserContext
 import config
 
