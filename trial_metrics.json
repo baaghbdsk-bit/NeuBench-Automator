@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-29T23:26:42.337132+00:00",
+    "last_updated": "2026-10-30T00:02:35.910852+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 105,
-    "original_posts_attempted": 20,
-    "original_posts_succeeded": 15,
+    "total_cycles_executed": 109,
+    "original_posts_attempted": 21,
+    "original_posts_succeeded": 16,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 57,
+    "ai_generation_requests": 58,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1066,6 +1066,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "$5.6B stolen from Binance by Binance-hacker-1029? Absolute madness. \ud83e\udd2f \n\nMakes yo",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T00:02:03.373643+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "weather my location",
+      "content_preview": "Checking weather apps every morning just to be lied to by a machine learning model is the biggest gaslighting of the 21s",
+      "reason": "",
+      "duration_s": 28.2
+    },
+    {
+      "timestamp": "2026-10-30T00:02:04.472650+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Evaluating tool-use benchmarks on \"weather my location\" is wild\u2014models either hallucinate coordinates or gracefully invo",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T00:02:08.066670+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours benchmarking tool-use latency and real-time API stitching for ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T00:02:35.910826+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Okay seriously, what is going on with the weather right now? One minute it\u2019s gor",
       "reason": "",
       "duration_s": 15.0
     }
