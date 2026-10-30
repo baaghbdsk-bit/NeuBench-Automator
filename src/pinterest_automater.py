@@ -31,7 +31,7 @@ class PinterestAutomater:
         title: str,
         description: str,
         link: str = "https://neubench.netlify.app",
-        board_name: Optional[str] = "AI Explained"
+        board_name: Optional[str] = "Social"
     ) -> Tuple[bool, str]:
         """Uploads an image as a Pin on Pinterest with title, description, and website destination link."""
         if self.dry_run:
@@ -80,43 +80,51 @@ class PinterestAutomater:
 
                 # 1. Upload Pin media
                 print(f"[PinterestAutomater] Uploading pin image: {img_file.name}...")
-                file_input = page.locator('input[type="file"]').first
+                file_input = page.locator("input[type='file']").first
                 file_input.wait_for(state="attached", timeout=15000)
                 file_input.set_input_files(str(img_file))
                 page.wait_for_timeout(3000)
 
                 # 2. Enter Title
                 print(f"[PinterestAutomater] Setting Pin title: {title[:40]}...")
-                title_input = page.locator('input[placeholder*="title" i], textarea[placeholder*="title" i], input#storyboard-selector-title, [data-test-id*="pin-title" i]').first
-                if title_input.is_visible(timeout=5000):
-                    title_input.click()
-                    title_input.fill(title[:100])
-                else:
-                    # Generic fallback
-                    page.locator('input[type="text"]').first.fill(title[:100])
+                title_input = page.locator("#storyboard-selector-title, input[placeholder*='title' i], input[type='text']").first
+                title_input.click()
+                title_input.fill(title[:100])
                 page.wait_for_timeout(1000)
 
-                # 3. Enter Description
-                print("[PinterestAutomater] Setting Pin description...")
-                desc_input = page.locator('div[role="textbox"][aria-label*="description" i], textarea[placeholder*="description" i], [data-test-id*="pin-description" i]').first
-                if desc_input.is_visible(timeout=5000):
-                    desc_input.click()
-                    desc_input.fill(description[:500])
-                page.wait_for_timeout(1000)
-
-                # 4. Enter Destination Link
+                # 3. Enter Destination Link
                 print(f"[PinterestAutomater] Setting destination link: {link}...")
-                link_input = page.locator('input[placeholder*="link" i], input[placeholder*="destination" i], input#storyboard-selector-link').first
-                if link_input.is_visible(timeout=5000):
-                    link_input.click()
-                    link_input.fill(link)
+                link_input = page.locator("#WebsiteField, input[placeholder*='link' i]").first
+                link_input.click()
+                link_input.fill(link)
                 page.wait_for_timeout(1000)
+
+                # 4. Select Board (Required to enable Publish button)
+                print(f"[PinterestAutomater] Selecting Pinterest board: {board_name}...")
+                board_btn = page.locator("[data-test-id='board-dropdown-select-button']").first
+                if board_btn.is_visible(timeout=3000):
+                    board_btn.click()
+                    page.wait_for_timeout(1500)
+
+                    board_row = page.locator(f"div[role='button']:has-text('{board_name}'), div:text-is('{board_name}')").last
+                    if board_row.is_visible(timeout=2000):
+                        board_row.click()
+                    else:
+                        page.locator("[role='option'], div[role='button']").last.click()
+                    page.wait_for_timeout(1500)
 
                 # 5. Publish Pin
-                print("[PinterestAutomater] Clicking Publish/Save button...")
-                publish_btn = page.locator('button:has-text("Publish"), button:has-text("Save"), [data-test-id="board-dropdown-save-button"]').last
+                print("[PinterestAutomater] Clicking Publish button...")
+                publish_btn = page.locator("[data-test-id='storyboard-creation-nav-done'] button, button:has-text('Publish')").first
+                publish_btn.wait_for(state="visible", timeout=10000)
+
+                for _ in range(20):
+                    if not publish_btn.is_disabled():
+                        break
+                    page.wait_for_timeout(1000)
+
                 publish_btn.click()
-                page.wait_for_timeout(8000)
+                page.wait_for_timeout(10000)
 
                 print("[PinterestAutomater] ✅ Successfully published Pin to Pinterest!")
                 return True, "Published Pin to Pinterest"
