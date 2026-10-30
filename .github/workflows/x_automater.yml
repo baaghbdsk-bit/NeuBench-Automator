@@ -28,6 +28,8 @@ on:
           - instagram
           - devto
           - pinterest
+          - youtube
+          - render-video
 
 concurrency:
   group: neubench-automator-cloud-engine
@@ -102,6 +104,7 @@ jobs:
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
           LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          YOUTUBE_TOKEN_BASE64: ${{ secrets.YOUTUBE_TOKEN_BASE64 }}
           PYTHONIOENCODING: utf-8
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           TRIAL_ENABLED: 'true'
