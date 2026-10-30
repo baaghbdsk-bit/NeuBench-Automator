@@ -646,7 +646,17 @@ class AutomaterEngine:
 
 
 
-        success = self.twitter.post_tweet(hot_take)
+        # Attach visual infographic slide so the post isn't plain dry text
+        visual_path = None
+        try:
+            import glob, random
+            slides = sorted(glob.glob("AI_SERIES/CAROUSELS/*/*.png"))
+            if slides:
+                visual_path = random.choice(slides)
+        except Exception:
+            pass
+
+        success = self.twitter.post_tweet(hot_take, media_path=visual_path)
         status = "success" if success else "failed"
         self.tracker.record_event(
             action_type="original_post",
