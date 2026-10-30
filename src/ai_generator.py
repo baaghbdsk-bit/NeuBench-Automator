@@ -290,19 +290,45 @@ You are a top tech educator and developer who creates viral technical cheatsheet
 
 Write a high-utility, beautifully formatted LinkedIn Study Note / Cheatsheet post.
 
+CRITICAL MOBILE-FIRST FORMATTING RULES (80%+ OF USERS READ ON PHONES):
+- ❌ NEVER use wide multi-column ASCII tables (no "+---+---+", no "| Col1 | Col2 | Col3 |"). On narrow smartphone screens (30-38 characters wide), tables wrap line-by-line and look broken and unreadable.
+- ❌ NEVER use long horizontal arrow flows across a line (e.g. "[A] ──> [B] ──> [C]") as they break mid-box on mobile.
+- ✅ ALWAYS use VERTICAL MOBILE SCORECARDS and CLEAN VERTICAL PIPELINES (downward arrows ▼ only):
+
 Structure:
 1. 🪝 THE HOOK (First 2 Lines):
    - A high-curiosity, high-utility opener promising to save time or money (e.g. "I spent 40+ hours benchmarking 260+ models on [Topic]. Here is the 1-page visual cheatsheet so you don't burn your cloud budget:").
 
-2. 🗺️ VISUAL CHEATSHEET / MATRIX:
-   - Use clean, structured ASCII tables or box diagrams (e.g. using `+----+` or `[ Component ] -> [ Component ]`) showing trade-offs, architecture, or benchmark comparisons.
-   - 📌 **Key Tradeoff Matrix** (Bullet points comparing Speed, Cost, Accuracy, or Hardware Requirements).
+2. 🗺️ MOBILE CHEATSHEET SCORECARDS (Use vertical card boxes, under 32 chars wide):
+   Example:
+   ┌──────────────────────────────┐
+     ⚡ 𝗦𝗣𝗘𝗘𝗗 & 𝗧𝗧𝗙𝗧
+     • Model A: 1.2s – 2.4s
+     • Model B: 0.35s (Fastest)
+     • Winner: Model B (3x faster)
+   └──────────────────────────────┘
+
+   ┌──────────────────────────────┐
+     💰 𝗜𝗡𝗙𝗘𝗥𝗘𝗡𝗖𝗘 𝗖𝗢𝗦𝗧𝗦 (1M Tokens)
+     • Model A: $3.00 In / $15.00 Out
+     • Model B: $0.14 In / $0.28 Out
+     • Winner: Model B (95% cheaper)
+   └──────────────────────────────┘
 
 3. ⚠️ 3 PRODUCTION PITFALLS / COMMON MISTAKES:
    - 3 numbered, high-signal lessons from real-world engineering (bold takeaway + 1 sentence why most developers get it wrong).
 
-4. 💡 2026 RECOMMENDED STACK / IMPLEMENTATION:
-   - Clear architectural diagram or flow showing how to combine tools properly.
+4. 💡 2026 RECOMMENDED STACK (Vertical Flow Only):
+   Example:
+   [1] 𝗜𝗻𝗰𝗼𝗺𝗶𝗻𝗴 𝗣𝗿𝗼𝗺𝗽𝘁 (Client / User)
+     │
+     ▼
+   [2] 𝗡𝗲𝘂𝗕𝗲𝗻𝗰𝗵 𝗜𝗻𝘁𝗲𝗹𝗹𝗶𝗴𝗲𝗻𝘁 𝗥𝗼𝘂𝘁𝗲𝗿
+     ├─► Simple Q&A ➔ Fast Model ($0.14/1M)
+     └─► Complex Logic ➔ Heavy Model ($3.00/1M)
+     │
+     ▼
+   [3] 𝗢𝗽𝘁𝗶𝗺𝗶𝘇𝗲𝗱 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 (90% Cost Cut)
 
 5. 📌 SAVE & ENGAGEMENT CTA (Triggers Algorithm Saves & Reposts):
    - "📌 **Save this post** to reference during your next system design or benchmark review."
@@ -315,6 +341,7 @@ Structure:
 Rules:
 - 100% actionable and authentic. Zero corporate fluff, PR marketing buzzwords, or textbook filler.
 - Clean spacing with emojis as bullet points for effortless mobile reading.
+- Maximum line width: 34 characters for any diagram or box so it NEVER wraps on mobile!
 - Output ONLY the raw post text.
 """
         text = self._generate_with_fallback(
