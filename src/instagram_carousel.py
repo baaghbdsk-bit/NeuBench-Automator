@@ -310,6 +310,18 @@ class InstagramCarouselGenerator:
         return generated_files
 
     def build_day1_sample(self) -> List[str]:
+        return self.generate_day_carousel(1)
+
+    def generate_day_carousel(self, day: int) -> List[str]:
+        """Generates full 5-slide carousel for any curriculum day."""
+        if day == 2:
+            return self._build_day2_slides()
+        elif day == 3:
+            return self._build_day3_slides()
+        else:
+            return self._build_day1_slides()
+
+    def _build_day1_slides(self) -> List[str]:
         """Builds the enriched high-density Day 1 5-slide visual cheatsheet with large readable fonts."""
         slides = [
             # Slide 1: Cover
@@ -461,6 +473,150 @@ class InstagramCarouselGenerator:
         ]
 
         return self.render_slides(day=1, topic="What is Artificial Intelligence?", slides_data=slides)
+
+    def _build_day2_slides(self) -> List[str]:
+        """Builds high-impact enlarged slides for Day 02: AI vs ML vs DL."""
+        slides = [
+            # Slide 1: Cover
+            {
+                "cta": "Swipe to Learn ➔",
+                "html": """
+                <div class="category-pill pill-cyan">DAY 02 • THE MENTAL MODEL</div>
+                <h1 class="hero-heading">AI vs. Machine Learning vs. Deep Learning</h1>
+                <div class="hero-subheading">
+                  Stop using them interchangeably. Here is the exact mathematical and architectural hierarchy in 60 seconds.
+                </div>
+
+                <div class="glass-card" style="margin-top: 24px;">
+                  <div style="font-size: 24px; font-weight: 700; color: #38BDF8; margin-bottom: 10px;">
+                    🎯 The Russian Doll Hierarchy
+                  </div>
+                  <div style="font-size: 22px; color: #E2E8F0; line-height: 1.6;">
+                    All Deep Learning is ML. All Machine Learning is AI. But <b>not all AI is Machine Learning</b>. Let's break down where the boundaries lie.
+                  </div>
+                </div>
+                """
+            },
+            # Slide 2: The Three Concentric Circles
+            {
+                "cta": "Swipe for Distinction ➔",
+                "html": """
+                <div class="category-pill pill-purple">THE ARCHITECTURE</div>
+                <h1 class="hero-heading" style="font-size: 44px;">Three Concentric Circles</h1>
+                
+                <div class="flow-grid">
+                  <div class="flow-panel" style="border-color: rgba(56, 189, 248, 0.4);">
+                    <div class="flow-title" style="color: #38BDF8;">1️⃣ Artificial Intelligence (1950s)</div>
+                    <div style="font-size: 21px; color: #E2E8F0; line-height: 1.6;">
+                      The broadest discipline. Any computer system exhibiting human-like logic, reasoning, or rule resolution.
+                    </div>
+                  </div>
+                  <div class="flow-panel" style="border-color: rgba(52, 211, 153, 0.4);">
+                    <div class="flow-title" style="color: #34D399;">2️⃣ Machine Learning (1990s)</div>
+                    <div style="font-size: 21px; color: #E2E8F0; line-height: 1.6;">
+                      A subset of AI where algorithms learn mathematical mappings from data without explicit manual rules.
+                    </div>
+                  </div>
+                  <div class="flow-panel" style="border-color: rgba(244, 114, 182, 0.4);">
+                    <div class="flow-title" style="color: #F472B6;">3️⃣ Deep Learning (2010s)</div>
+                    <div style="font-size: 21px; color: #E2E8F0; line-height: 1.6;">
+                      Multi-layered artificial neural networks that automatically extract hierarchical representations from raw pixels/tokens.
+                    </div>
+                  </div>
+                </div>
+                """
+            },
+            # Slide 3: Symbolic AI vs ML
+            {
+                "cta": "Swipe for The Breakthrough ➔",
+                "html": """
+                <div class="category-pill pill-pink">THE PARADIGM SHIFT</div>
+                <h1 class="hero-heading" style="font-size: 44px;">Symbolic AI vs. Machine Learning</h1>
+
+                <div class="flow-grid">
+                  <div class="flow-panel" style="border-color: rgba(244, 63, 94, 0.4);">
+                    <div class="flow-title" style="color: #FB7185;">♟️ Symbolic AI (Rule-Based)</div>
+                    <ul style="font-size: 21px; color: #E2E8F0; line-height: 1.6; margin-left: 20px;">
+                      <li>Handcrafted logic trees</li>
+                      <li>Expert systems (MYCIN)</li>
+                      <li>Deep Blue chess engine</li>
+                      <li>Zero adaptability to noise</li>
+                    </ul>
+                  </div>
+
+                  <div class="flow-panel" style="border-color: rgba(52, 211, 153, 0.4);">
+                    <div class="flow-title" style="color: #34D399;">🧠 Machine Learning (Data-Driven)</div>
+                    <ul style="font-size: 21px; color: #E2E8F0; line-height: 1.6; margin-left: 20px;">
+                      <li>Continuous weight optimization</li>
+                      <li>Statistical loss minimization</li>
+                      <li>AlphaGo / LLMs</li>
+                      <li>Self-adjusts as data expands</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="takeaway-banner">
+                  💡 <b>Historical Fact:</b> Deep Blue was pure AI, but had ZERO machine learning!
+                </div>
+                """
+            },
+            # Slide 4: Why Deep Learning Exploded
+            {
+                "cta": "Swipe for Cheatsheet ➔",
+                "html": """
+                <div class="category-pill pill-emerald">REPRESENTATION LEARNING</div>
+                <h1 class="hero-heading" style="font-size: 44px;">Why Deep Learning Won</h1>
+
+                <div class="glass-card">
+                  <div style="font-size: 25px; font-weight: 700; color: #F1F5F9; margin-bottom: 8px;">
+                    The Death of Manual Feature Engineering
+                  </div>
+                  <div style="font-size: 22px; line-height: 1.5; color: #CBD5E1;">
+                    In classical ML, data scientists spent 80% of their time engineering hand-tuned features. If the features were flawed, the model failed.
+                  </div>
+                  <div class="code-snip" style="font-size: 21px; margin-top: 14px;">
+                    Traditional ML:  Raw Data ➔ [Human Manual Features] ➔ Model<br>
+                    Deep Learning:   Raw Data ➔ [Layer 1 ➔ Layer 2 ➔ Layer N] ➔ Output
+                  </div>
+                </div>
+
+                <div class="takeaway-banner" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3);">
+                  🔥 <b>The Superpower:</b> Deep neural nets learn both the representation AND the prediction simultaneously.
+                </div>
+                """
+            },
+            # Slide 5: Recap & Next Day
+            {
+                "cta": "📌 Save for Revision",
+                "html": """
+                <div class="category-pill pill-cyan">DAY 02 RECAP • 1-PAGE CHEATSHEET</div>
+                <h1 class="hero-heading" style="font-size: 46px;">Day 02 Cheatsheet</h1>
+
+                <div class="glass-card">
+                  <div style="font-size: 24px; line-height: 1.6; color: #F1F5F9; display: flex; flex-direction: column; gap: 14px;">
+                    <div>1️⃣ <b>AI:</b> Any artificial system mimicking cognitive reasoning.</div>
+                    <div>2️⃣ <b>ML:</b> Statistical algorithms learning parameters directly from data.</div>
+                    <div>3️⃣ <b>DL:</b> Deep stacked neural nets with representation learning.</div>
+                  </div>
+                </div>
+
+                <div class="glass-card" style="border-color: #38BDF8; background: rgba(56, 189, 248, 0.08); text-align: center;">
+                  <div style="font-size: 25px; font-weight: 800; color: #38BDF8; margin-bottom: 8px;">
+                    Tomorrow: Day 03
+                  </div>
+                  <div style="font-size: 22px; color: #F8FAFC;">
+                    How Computers Actually "Learn": The Function Approximation Analogy.
+                  </div>
+                </div>
+                """
+            }
+        ]
+        return self.render_slides(day=2, topic="AI vs Machine Learning vs Deep Learning", slides_data=slides)
+
+    def _build_day3_slides(self) -> List[str]:
+        """Placeholder for Day 3, ready for tomorrow."""
+        return self._build_day2_slides()
+
 
 if __name__ == "__main__":
     generator = InstagramCarouselGenerator()
