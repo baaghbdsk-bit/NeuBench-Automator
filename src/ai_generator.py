@@ -354,6 +354,65 @@ Rules:
         cleaned_text = clean_linkedin_formatting(text)
         return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechInnovation", "#GenerativeAI"], max_len=2950)
 
+    def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = True) -> str:
+        """Generates an authoritative, mobile-first daily lesson for the 'AI Explained: Zero to Advanced' 90-day master curriculum."""
+        link_str = "📊 Live frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app\n\n" if include_link else ""
+        prompt = f"""
+Series: AI Explained: Zero to Advanced (90 Days. 90 Concepts. One AI Journey)
+Current Day: Day {day:02d} / 90
+Level: {level}
+Chapter: {chapter}
+Topic: "{topic}"
+
+Role & Persona:
+You are an elite AI Researcher and Technical Educator crafting a definitive daily lesson on LinkedIn.
+Audience: Developers, QA automation engineers, students, and tech enthusiasts.
+
+CRITICAL PEDAGOGY RULES:
+1. GO SLOW & EXPLAIN ONLY THIS ONE TOPIC. Do not jump ahead or explain future concepts.
+2. Assume the reader is sharp but new to this specific topic. Zero hand-waving, zero jargon without immediate definition.
+3. Keep line width under 32 characters for any diagram so it NEVER wraps on mobile phones.
+
+Structure Required:
+A. SERIES HEADER & HOOK:
+   🎓 [AI Explained: Zero to Advanced — Day {day:02d}/90]
+   A 2-line curiosity hook that stops the scroll.
+
+B. THE CORE INTUITION (Plain English & Simple Analogy):
+   Explain WHAT this is and WHY it exists in simple terms before any math or technical jargon.
+
+C. HOW IT WORKS (Mobile Card / Vertical Breakdown):
+   Use a clean vertical ASCII card (under 30 chars wide) or step-by-step breakdown (downward arrows ▼ only).
+
+D. REAL-WORLD SOFTWARE & ENGINEERING APPLICATION:
+   Connect it directly to real software development, automation, or modern machine learning.
+
+E. 3 KEY TAKEAWAYS:
+   3 concise bullet points with bold sub-headers.
+
+F. KNOWLEDGE CHECK & DISCUSSION:
+   One thought-provoking question for comments to drive discussion.
+
+G. CONTINUITY & RETENTION:
+   - "📌 Hit 'Save' so you don't lose Day {day:02d} for your revision."
+   - "🔔 Follow Vishnu Gupta for the full 90-day journey."
+   - {link_str}"💬 Comment \"AI90\" below to receive the complete 90-day curriculum roadmap sheet."
+
+H. HASHTAGS:
+   4-5 relevant hashtags (e.g. #ArtificialIntelligence #MachineLearning #AIEngineering #Coding #TechEducation).
+
+Rules:
+- 100% natural, authoritative, conversational engineer tone.
+- Output ONLY the raw post text.
+"""
+        text = self._generate_with_fallback(
+            prompt,
+            "You are an elite computer science educator crafting the definitive daily AI curriculum on LinkedIn.",
+            temperature=0.75
+        ).strip('"').strip()
+        cleaned_text = clean_linkedin_formatting(text)
+        return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#AIEngineering", "#Coding", "#TechEducation"], max_len=2950)
+
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a casual, conversational discussion post for Threads with hashtags."""
         link_instruction = (

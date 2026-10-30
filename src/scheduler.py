@@ -853,8 +853,8 @@ class AutomaterEngine:
 
 
     def _execute_linkedin_post(self, start_time: float) -> bool:
-        """Generates a B2B thought-leadership post and publishes it to LinkedIn via saved session."""
-        console.print("[bold blue]💼 Mode: LinkedIn Auto Post (B2B Thought Leadership)[/bold blue]")
+        """Publishes the next progressive lesson of the 90-day 'AI Explained: Zero to Advanced' master curriculum."""
+        console.print("[bold blue]🎓 Mode: LinkedIn AI Explained Master Series (Day-by-Day)[/bold blue]")
 
         # Daily cap: max 2 LinkedIn posts/day
         today_li = sum(
@@ -869,47 +869,49 @@ class AutomaterEngine:
         from src.linkedin_automater import LinkedInAutomater
         automater = LinkedInAutomater(headless=True, dry_run=self.safety.dry_run)
 
-        trends = self.hunter.get_curated_trending_topics()
-        # Prefer AI/tech/business-relevant trends for LinkedIn B2B
-        preferred = [t for t in trends if t.get("category") in ("ai_tech",) or "NeuBench" in t.get("source", "") or "HackerNews" in t.get("source", "") or "TechCrunch" in t.get("source", "")]
-        pool = preferred or trends
-        if not pool:
-            selected_trend = {
-                "title": "Frontier Reasoning Drift & Token Efficiency across Claude, Gemini & DeepSeek",
-                "summary": "NeuBench telemetry reveals latency and cost differences on long-horizon coding tasks.",
-                "company": "NeuBench"
-            }
+        from src.series_manager import AISeriesManager
+        series_mgr = AISeriesManager()
+        next_day_info = series_mgr.get_next_unpublished_day()
+
+        if next_day_info:
+            day_num = next_day_info["day"]
+            topic_title = next_day_info["title"]
+            level_name = next_day_info.get("level", "Level 1: AI Fundamentals")
+            chapter_name = next_day_info.get("chapter", "Core Mental Model")
+            console.print(f"[bold cyan]Publishing Series Lesson:[/bold cyan] Day {day_num:02d}: {topic_title}")
+            self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+
+            try:
+                li_text = self.ai.generate_ai_series_lesson(
+                    day=day_num,
+                    topic=topic_title,
+                    level=level_name,
+                    chapter=chapter_name
+                )
+            except Exception as e:
+                self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+                console.print(f"[red]AI Generation Error on Series Day {day_num}: {e}[/red]")
+                return False
         else:
-            selected_trend = None
-            for t in pool:
-                key = f"li:{t['title']}"
-                if key not in self.tracker.history.get("posted_tweets", []):
-                    selected_trend = t
-                    break
-            if not selected_trend:
-                selected_trend = random.choice(pool)
-
-        console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
-        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-
-        try:
-            li_text = self.ai.generate_linkedin_take(
-                selected_trend["title"],
-                selected_trend.get("summary", ""),
-                company=selected_trend.get("company", "NeuBench")
-            )
-        except Exception as e:
-            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-            console.print(f"[red]AI Generation Error: {e}[/red]")
-            self.tracker.record_event(
-                action_type="linkedin_post",
-                status="failed",
-                target_identifier=selected_trend["title"],
-                skip_or_error_reason=f"AI generation failed: {e}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+            # Fallback to trending topic if all 90 days are done
+            trends = self.hunter.get_curated_trending_topics()
+            selected_trend = trends[0] if trends else {"title": "Frontier Reasoning Benchmarks", "summary": ""}
+            day_num = 0
+            topic_title = selected_trend["title"]
+            try:
+                li_text = self.ai.generate_linkedin_take(selected_trend["title"], selected_trend.get("summary", ""))
+            except Exception as e:
+                self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+                console.print(f"[red]AI Generation Error: {e}[/red]")
+                self.tracker.record_event(
+                    action_type="linkedin_post",
+                    status="failed",
+                    target_identifier=selected_trend["title"],
+                    skip_or_error_reason=f"AI generation failed: {e}",
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run
+                )
+                return False
 
         console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
 
@@ -941,8 +943,10 @@ class AutomaterEngine:
         if ok:
             console.print(f"[bold blue]✅ {msg}[/bold blue]")
             try:
-                self.tracker.history.setdefault("posted_tweets", []).append(f"li:{selected_trend['title']}")
+                self.tracker.history.setdefault("posted_tweets", []).append(f"li:Day {day_num:02d}: {topic_title}")
                 self.tracker.save_history()
+                if next_day_info:
+                    series_mgr.record_published_day(day_num, topic_title, li_text)
             except Exception:
                 pass
         else:
