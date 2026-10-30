@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T07:02:02.829080+00:00",
+    "last_updated": "2026-10-30T07:13:05.327239+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 129,
-    "original_posts_attempted": 25,
-    "original_posts_succeeded": 20,
+    "total_cycles_executed": 133,
+    "original_posts_attempted": 26,
+    "original_posts_succeeded": 21,
     "replies_attempted": 18,
     "replies_succeeded": 15,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 66,
+    "ai_generation_requests": 67,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1308,6 +1308,46 @@
       "content_preview": "simplified for whom? the PR team or the folks waiting 4 years for a single fab to actually break ground?",
       "reason": "",
       "duration_s": 34.46
+    },
+    {
+      "timestamp": "2026-10-30T07:12:30.247674+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "midterm election predictions",
+      "content_preview": "midterm predictions are just astrology for people who watch cable news. \n\nwake me up when a politician actually delivers",
+      "reason": "",
+      "duration_s": 36.18
+    },
+    {
+      "timestamp": "2026-10-30T07:12:31.478255+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Polling models on election outcomes feels like running inference on stochastic noise with zero ground truth. Give me rep",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T07:12:34.521639+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running heavy data simulations and statistical pipelines on mi",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T07:13:05.327211+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Okay, who actually knows what's going to happen in these midterms? \ud83d\ude05 Every poll ",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
