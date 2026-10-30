@@ -80,7 +80,7 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-threads", "login-instagram", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "devto", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
+        choices=["login", "login-linkedin", "login-threads", "login-instagram", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "devto", "pinterest", "login-pinterest", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
         help="Action: 'dashboard', 'login-linkedin', 'login-threads', 'login-instagram', 'bluesky', 'linkedin', 'threads', 'instagram', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
@@ -241,6 +241,30 @@ def main():
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
         engine.run_single_cycle(force_action="threads")
+
+    elif args.action == "login-pinterest":
+        from scripts.login_pinterest import login_pinterest
+        login_pinterest()
+
+    elif args.action == "pinterest":
+        import glob
+        from src.pinterest_automater import PinterestAutomater
+        from src.series_manager import AISeriesManager
+        console.print("[magenta]Publishing latest AI Series Pin to Pinterest...[/magenta]")
+        automater = PinterestAutomater(headless=False, dry_run=args.dry_run)
+        slides = sorted(glob.glob('AI_SERIES/CAROUSELS/DAY_001/*.png'))
+        if not slides:
+            from src.instagram_carousel import InstagramCarouselGenerator
+            generator = InstagramCarouselGenerator()
+            slides = generator.build_day1_sample()
+        cover_image = slides[0]
+        title = "Day 01: What is AI? (Rules-Based vs. Learned Behavior)"
+        desc = "Part of the 90-Day Master Series: AI Explained: Zero to Advanced by NeuBench. Save this pin for your revision notes! Live AI model benchmarks at neubench.netlify.app"
+        ok, msg = automater.create_pin(image_path=cover_image, title=title, description=desc, link="https://neubench.netlify.app")
+        if ok:
+            console.print(f"[bold green]✅ {msg}[/bold green]")
+        else:
+            console.print(f"[bold red]❌ {msg}[/bold red]")
 
     elif args.action == "devto":
         from src.devto_automater import DevToAutomater
