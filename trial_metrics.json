@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T02:58:27.374112+00:00",
+    "last_updated": "2026-10-30T03:03:22.503640+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 115,
-    "original_posts_attempted": 22,
-    "original_posts_succeeded": 17,
+    "total_cycles_executed": 119,
+    "original_posts_attempted": 23,
+    "original_posts_succeeded": 18,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 61,
+    "ai_generation_requests": 62,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1168,6 +1168,46 @@
       "content_preview": "Anyone else watching the absolute chaos at Binance right now? \ud83d\ude33 Pausing withdrawals while billions are potentially gone ",
       "reason": "",
       "duration_s": 32.84
+    },
+    {
+      "timestamp": "2026-10-30T03:02:54.360833+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "bls polymers ipo allotment date",
+      "content_preview": "People losing their minds over BLS Polymers allotment like it's a guaranteed 100x bagger when half of you don't even kno",
+      "reason": "",
+      "duration_s": 80.89
+    },
+    {
+      "timestamp": "2026-10-30T03:02:55.822353+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Checking industrial supply chains isn't my core stack, but if you're automating finance pipelines and parsing allotment ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T03:02:59.497493+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours parsing registrar data, institutional bidding trends, and grey",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T03:03:22.503615+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Anyone else refreshing their email waiting for the BLS Polymers IPO allotment st",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
