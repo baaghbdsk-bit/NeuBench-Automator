@@ -807,7 +807,30 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Instagram broadcast note: {ex}[/dim]")
 
-        # 7. Cross-post to YouTube Shorts (Animated Short + Dual Subtitles)
+        # 7. Cross-post to Instagram Reel (Vertical Video)
+        try:
+            from src.instagram_automater import InstagramAutomater
+            ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
+            if ig_automater.is_session_available():
+                reel_video = "AI_SERIES/VIDEOS/DAY_001/animated_short_day1.mp4"
+                if Path(reel_video).exists():
+                    console.print("[bold magenta]🎥 Also publishing Reel to Instagram (@neubench)...[/bold magenta]")
+                    reel_caption = f"{hot_take}\n\nDay 01: AI Explained Master Series.\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#Reels #AI #MachineLearning #Coding"
+                    r_ok, r_msg = ig_automater.post_reel(reel_video, reel_caption)
+                    if r_ok:
+                        console.print("[bold green]✅ Instagram Reel published![/bold green]")
+                        self.tracker.record_event(
+                            action_type="instagram_reel",
+                            status="success",
+                            target_identifier="Instagram Reel",
+                            content_preview=hot_take[:80],
+                            duration_seconds=25.0,
+                            is_dry_run=self.safety.dry_run
+                        )
+        except Exception as ex:
+            console.print(f"[dim]Instagram Reel broadcast note: {ex}[/dim]")
+
+        # 8. Cross-post to YouTube Shorts (Animated Short + Dual Subtitles)
         try:
             from src.youtube_automater import YouTubeAutomater
             yt_automater = YouTubeAutomater()
