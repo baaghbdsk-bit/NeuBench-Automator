@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T05:01:47.881341+00:00",
+    "last_updated": "2026-10-30T06:03:17.964618+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 124,
-    "original_posts_attempted": 24,
-    "original_posts_succeeded": 19,
+    "total_cycles_executed": 128,
+    "original_posts_attempted": 25,
+    "original_posts_succeeded": 20,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 64,
+    "ai_generation_requests": 65,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1258,6 +1258,46 @@
       "content_preview": "I spent 40+ hours breaking down the Smalltalk renaissance and benchmarking modern message-passing runtimes on \ud835\udde1\ud835\uddf2\ud835\ude02\ud835\uddd5\ud835\uddf2\ud835\uddfb\ud835\uddf0\ud835\uddf5. ",
       "reason": "",
       "duration_s": 6.28
+    },
+    {
+      "timestamp": "2026-10-30T06:02:50.207610+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "\u0c39\u0c3e\u0c30\u0c4d\u0c26\u0c3f\u0c15\u0c4d \u0c2a\u0c3e\u0c02\u0c21\u0c4d\u0c2f\u0c3e",
+      "content_preview": "Hardik Pandya gets more hate in five minutes than entire corporate frauds in this country get in a decade. Make it make ",
+      "reason": "",
+      "duration_s": 80.82
+    },
+    {
+      "timestamp": "2026-10-30T06:02:51.706246+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Testing model tokenization on regional entities. How well do multilingual LLMs tokenize \"\u0c39\u0c3e\u0c30\u0c4d\u0c26\u0c3f\u0c15\u0c4d \u0c2a\u0c3e\u0c02\u0c21\u0c4d\u0c2f\u0c3e\" (Hardik Pandy",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T06:02:54.650545+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing performance spikes and evaluating edge-case metrics ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T06:03:17.964592+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "\u0c39\u0c3e\u0c30\u0c4d\u0c26\u0c3f\u0c15\u0c4d \u0c2a\u0c3e\u0c02\u0c21\u0c4d\u0c2f\u0c3e \u0c2e\u0c33\u0c4d\u0c33\u0c40 \u0c2e\u0c41\u0c02\u0c2c\u0c48 \u0c07\u0c02\u0c21\u0c3f\u0c2f\u0c28\u0c4d\u0c38\u0c4d \u0c15\u0c3f \u0c15\u0c46\u0c2a\u0c4d\u0c1f\u0c46\u0c28\u0c4d \u0c05\u0c2f\u0c3f\u0c24\u0c47 \u0c0e\u0c32\u0c3e \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f? \u0c2e\u0c40 \u0c05\u0c2d\u0c3f\u0c2a\u0c4d\u0c30\u0c3e",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
