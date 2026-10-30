@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T07:13:05.327239+00:00",
+    "last_updated": "2026-10-30T08:03:36.396972+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 133,
-    "original_posts_attempted": 26,
-    "original_posts_succeeded": 21,
+    "total_cycles_executed": 137,
+    "original_posts_attempted": 27,
+    "original_posts_succeeded": 22,
     "replies_attempted": 18,
     "replies_succeeded": 15,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 67,
+    "ai_generation_requests": 68,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1346,6 +1346,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Okay, who actually knows what's going to happen in these midterms? \ud83d\ude05 Every poll ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T08:03:00.668115+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
+      "content_preview": "people crying about FP8 accuracy drops on coding agents just want an excuse to expense a cluster of H100s. your local mo",
+      "reason": "",
+      "duration_s": 85.59
+    },
+    {
+      "timestamp": "2026-10-30T08:03:03.417036+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "FP8 quantization vs dense weights for coding agents: does the accuracy drop on complex AST manipulation outweigh the inf",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T08:03:06.666610+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running automated evaluations on 260+ LLMs for autonomous codi",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T08:03:36.396947+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Curious how everyone\u2019s balancing speed vs accuracy for coding agents lately. \n\nA",
       "reason": "",
       "duration_s": 15.0
     }
