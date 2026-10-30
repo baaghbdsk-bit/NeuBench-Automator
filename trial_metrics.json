@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T13:44:50.428983+00:00",
+    "last_updated": "2026-10-30T15:14:56.109277+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 120,
+    "total_cycles_executed": 121,
     "original_posts_attempted": 21,
     "original_posts_succeeded": 14,
     "replies_attempted": 21,
@@ -1218,6 +1218,16 @@
       "content_preview": "Bro voted from Vatican city for a Chicago midterms race like his local property tax didn\u2019t drop when he got the papacy. ",
       "reason": "Playwright quote-tweet failure",
       "duration_s": 78.16
+    },
+    {
+      "timestamp": "2026-10-30T15:14:56.109244+00:00",
+      "action_type": "youtube",
+      "status": "dry_run",
+      "is_dry_run": true,
+      "target": "Day 1: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior)",
+      "content_preview": "Day 01: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior) #Shorts",
+      "reason": "",
+      "duration_s": 5.89
     }
   ]
 }
