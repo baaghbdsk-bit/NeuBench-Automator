@@ -26,25 +26,26 @@ class SafetyEngine:
         self.max_daily_reposts = self.caps.get("twitter_reposts", 5)
         self.max_daily_total = int(os.getenv("MAX_DAILY_TOTAL", "28"))
 
-        # Trial duration enforcement (in hours, e.g. 744h = 31 days)
-        self.trial_max_hours = float(os.getenv("TRIAL_MAX_HOURS", "744.0"))
+        # Indefinite 24/7 Autopilot (no expiration limit)
+        self.trial_max_hours = float(os.getenv("TRIAL_MAX_HOURS", "0"))
 
     def check_trial_status(self, trial_start_iso: str) -> Tuple[bool, str]:
-        """Verifies if the trial is globally active and within the time window."""
+        """Verifies if the system is globally active (Permanent Autopilot)."""
         if not self.trial_enabled:
-            return False, "Trial globally disabled via TRIAL_ENABLED=false."
+            return False, "System disabled via TRIAL_ENABLED=false."
 
-        if trial_start_iso:
+        # If a positive limit is explicitly provided in env, respect it; otherwise run indefinitely
+        if self.trial_max_hours > 0 and trial_start_iso:
             try:
                 start_dt = datetime.fromisoformat(trial_start_iso)
                 now_dt = datetime.now(timezone.utc)
                 elapsed_hours = (now_dt - start_dt).total_seconds() / 3600.0
                 if elapsed_hours > self.trial_max_hours:
-                    return False, f"Trial duration expired ({elapsed_hours:.1f}h > {self.trial_max_hours}h limit)."
+                    return False, f"Duration expired ({elapsed_hours:.1f}h > {self.trial_max_hours}h limit)."
             except Exception:
                 pass
 
-        return True, "Active"
+        return True, "Permanent Autopilot Active"
 
     def can_perform_action(self, action_type: str, today_counts: Dict[str, int]) -> Tuple[bool, str]:
         """Evaluates whether an action complies with daily quotas and anti-cannibalization rules."""
