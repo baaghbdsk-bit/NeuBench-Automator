@@ -1,24 +1,64 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T12:02:41.401029+00:00",
+    "last_updated": "2026-10-30T12:30:33.330380+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 154,
-    "original_posts_attempted": 31,
-    "original_posts_succeeded": 26,
-    "replies_attempted": 18,
-    "replies_succeeded": 15,
-    "reposts_attempted": 11,
+    "total_cycles_executed": 118,
+    "original_posts_attempted": 21,
+    "original_posts_succeeded": 14,
+    "replies_attempted": 20,
+    "replies_succeeded": 16,
+    "reposts_attempted": 16,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
-    "failed_operations": 10,
-    "ai_generation_requests": 73,
+    "failed_operations": 18,
+    "ai_generation_requests": 67,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
+    {
+      "timestamp": "2026-10-21T21:41:55.765794+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "https://x.com/unusual_whales/status/2086422490872713578",
+      "content_preview": "Great, now I can lose money faster and via code.",
+      "reason": "",
+      "duration_s": 17.38
+    },
+    {
+      "timestamp": "2026-10-21T21:42:29.694647+00:00",
+      "action_type": "quote_tweet",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "https://x.com/ndtv/status/2113019999380193613",
+      "content_preview": "Cant wait for tech bros to solve this with a productivity app.",
+      "reason": "",
+      "duration_s": 11.28
+    },
+    {
+      "timestamp": "2026-10-21T21:43:53.416701+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Rosenberg: US diplomatic push offers little hope for imminent Ukraine peace",
+      "content_preview": "bro discovered this 2 years late \ud83d\udc80",
+      "reason": "",
+      "duration_s": 2.49
+    },
+    {
+      "timestamp": "2026-10-21T22:36:13.582174+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "@elonmusk",
+      "content_preview": "",
+      "reason": "No tweet found for @elonmusk",
+      "duration_s": 37.6
+    },
     {
       "timestamp": "2026-10-21T22:59:08.789895+00:00",
       "action_type": "original_post",
@@ -990,534 +1030,174 @@
       "duration_s": 75.22
     },
     {
-      "timestamp": "2026-10-29T23:26:07.682403+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Binance-hacker-1029 \u2013 $5.6B stolen from Binance",
-      "content_preview": "Hot take: crypto is just a giant stress test for how fast people can lose generational wealth while calling it \"decentra",
-      "reason": "",
-      "duration_s": 86.63
-    },
-    {
-      "timestamp": "2026-10-29T23:26:09.195253+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "5.6B on-chain vanished under \"Binance-hacker-1029.\" Whether it's an exploit, internal breach, or algorithmic anomaly, ve",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T23:26:12.283201+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours dissecting the infamous 'Binance-hacker-1029' incident where $",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T23:26:42.337105+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "$5.6B stolen from Binance by Binance-hacker-1029? Absolute madness. \ud83e\udd2f \n\nMakes yo",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T00:02:03.373643+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "weather my location",
-      "content_preview": "Checking weather apps every morning just to be lied to by a machine learning model is the biggest gaslighting of the 21s",
-      "reason": "",
-      "duration_s": 28.2
-    },
-    {
-      "timestamp": "2026-10-30T00:02:04.472650+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Evaluating tool-use benchmarks on \"weather my location\" is wild\u2014models either hallucinate coordinates or gracefully invo",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T00:02:08.066670+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours benchmarking tool-use latency and real-time API stitching for ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T00:02:35.910826+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Okay seriously, what is going on with the weather right now? One minute it\u2019s gor",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T01:02:04.592498+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Mistral Large 4 weights are officially out! \ud83d\udd25 \n\nWho's already testing them out? Drop your thoughts below\u2014how does it fee",
-      "reason": "",
-      "duration_s": 32.2
-    },
-    {
-      "timestamp": "2026-10-30T02:02:03.500610+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "'Continue your journey': Key moments of leaked Spain train crash audio",
-      "content_preview": "People genuinely think replacing human error with tech will save everything, but then you hear audio like this and reali",
-      "reason": "",
-      "duration_s": 31.16
-    },
-    {
-      "timestamp": "2026-10-30T02:02:05.172269+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Leaked audio from the Spain train crash shows dispatch cleared a moving train onto a blocked track. Tragic failure in hu",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T02:02:09.199076+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing the structural telemetry and control-centre logs fro",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T02:02:40.831421+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "That leaked audio from the Spain train crash is chilling. Hearing \"continue your",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T02:58:27.374085+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Anyone else watching the absolute chaos at Binance right now? \ud83d\ude33 Pausing withdrawals while billions are potentially gone ",
-      "reason": "",
-      "duration_s": 32.84
-    },
-    {
-      "timestamp": "2026-10-30T03:02:54.360833+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "bls polymers ipo allotment date",
-      "content_preview": "People losing their minds over BLS Polymers allotment like it's a guaranteed 100x bagger when half of you don't even kno",
-      "reason": "",
-      "duration_s": 80.89
-    },
-    {
-      "timestamp": "2026-10-30T03:02:55.822353+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Checking industrial supply chains isn't my core stack, but if you're automating finance pipelines and parsing allotment ",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T03:02:59.497493+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours parsing registrar data, institutional bidding trends, and grey",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T03:03:22.503615+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Anyone else refreshing their email waiting for the BLS Polymers IPO allotment st",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T04:02:47.743609+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "We ran AI agent swarms in Minecraft and Mindustry",
-      "content_preview": "People are amazed AI agents can play Minecraft while most human devs can't even clear a Jira backlog on time. Priorities",
-      "reason": "",
-      "duration_s": 80.19
-    },
-    {
-      "timestamp": "2026-10-30T04:02:48.980665+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Spun up multi-agent AI swarms in Minecraft and Mindustry. Watching LLM-driven entities coordinate resource loops, pathfi",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T04:02:52.725504+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 120+ hours orchestrating autonomous AI agent swarms inside complex sandb",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T04:03:24.683529+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "We actually let AI agent swarms loose in Minecraft and Mindustry to see what wou",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T05:01:47.881307+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours breaking down the Smalltalk renaissance and benchmarking modern message-passing runtimes on \ud835\udde1\ud835\uddf2\ud835\ude02\ud835\uddd5\ud835\uddf2\ud835\uddfb\ud835\uddf0\ud835\uddf5. ",
-      "reason": "",
-      "duration_s": 6.28
-    },
-    {
-      "timestamp": "2026-10-30T06:02:50.207610+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "\u0c39\u0c3e\u0c30\u0c4d\u0c26\u0c3f\u0c15\u0c4d \u0c2a\u0c3e\u0c02\u0c21\u0c4d\u0c2f\u0c3e",
-      "content_preview": "Hardik Pandya gets more hate in five minutes than entire corporate frauds in this country get in a decade. Make it make ",
-      "reason": "",
-      "duration_s": 80.82
-    },
-    {
-      "timestamp": "2026-10-30T06:02:51.706246+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Testing model tokenization on regional entities. How well do multilingual LLMs tokenize \"\u0c39\u0c3e\u0c30\u0c4d\u0c26\u0c3f\u0c15\u0c4d \u0c2a\u0c3e\u0c02\u0c21\u0c4d\u0c2f\u0c3e\" (Hardik Pandy",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T06:02:54.650545+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing performance spikes and evaluating edge-case metrics ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T06:03:17.964592+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "\u0c39\u0c3e\u0c30\u0c4d\u0c26\u0c3f\u0c15\u0c4d \u0c2a\u0c3e\u0c02\u0c21\u0c4d\u0c2f\u0c3e \u0c2e\u0c33\u0c4d\u0c33\u0c40 \u0c2e\u0c41\u0c02\u0c2c\u0c48 \u0c07\u0c02\u0c21\u0c3f\u0c2f\u0c28\u0c4d\u0c38\u0c4d \u0c15\u0c3f \u0c15\u0c46\u0c2a\u0c4d\u0c1f\u0c46\u0c28\u0c4d \u0c05\u0c2f\u0c3f\u0c24\u0c47 \u0c0e\u0c32\u0c3e \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f? \u0c2e\u0c40 \u0c05\u0c2d\u0c3f\u0c2a\u0c4d\u0c30\u0c3e",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T07:02:02.829052+00:00",
+      "timestamp": "2026-10-29T19:40:26.515873+00:00",
       "action_type": "reply",
       "status": "success",
       "is_dry_run": false,
-      "target": "https://x.com/AshwiniVaishnaw/status/2094436527082553788",
-      "content_preview": "simplified for whom? the PR team or the folks waiting 4 years for a single fab to actually break ground?",
+      "target": "https://x.com/ANI/status/2115405724356661566",
+      "content_preview": "bro we are barely through 2024 and people are already speedrunning 2027 UP election debates smh",
       "reason": "",
-      "duration_s": 34.46
+      "duration_s": 51.66
     },
     {
-      "timestamp": "2026-10-30T07:12:30.247674+00:00",
-      "action_type": "original_post",
-      "status": "success",
+      "timestamp": "2026-10-29T20:25:33.985789+00:00",
+      "action_type": "quote_tweet",
+      "status": "failed",
       "is_dry_run": false,
-      "target": "midterm election predictions",
-      "content_preview": "midterm predictions are just astrology for people who watch cable news. \n\nwake me up when a politician actually delivers",
-      "reason": "",
-      "duration_s": 36.18
+      "target": "https://x.com/IndianTechGuide/status/2115829613653880840",
+      "content_preview": "meanwhile engineering colleges still teaching 2002 java syntax like it's a sacred text. priorities are wild. #Education ",
+      "reason": "Playwright quote-tweet failure",
+      "duration_s": 67.61
     },
     {
-      "timestamp": "2026-10-30T07:12:31.478255+00:00",
+      "timestamp": "2026-10-29T20:53:04.120883+00:00",
+      "action_type": "quote_tweet",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/karpathy/status/2109361546505966046",
+      "content_preview": "Most people are still treating it like a glorified autocomplete while a tiny fraction is quietly automating their entire",
+      "reason": "Playwright quote-tweet failure",
+      "duration_s": 90.42
+    },
+    {
+      "timestamp": "2026-10-29T21:26:12.439348+00:00",
+      "action_type": "quote_tweet",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/PopBase/status/2115913756475900385",
+      "content_preview": "mariah carey dropping a glitter anniversary edition is proof time moves too fast and we deserve a do-over #Music #AI",
+      "reason": "Playwright quote-tweet failure",
+      "duration_s": 68.51
+    },
+    {
+      "timestamp": "2026-10-29T22:00:25.900400+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "GM reaches $220M settlement over selling drivers\u2019 private data",
+      "content_preview": "$220M is just a marketing expense for them. They made billions selling your every move, paid a tiny fine, and will just ",
+      "reason": "Playwright compose failure",
+      "duration_s": 73.56
+    },
+    {
+      "timestamp": "2026-10-29T22:00:29.974781+00:00",
       "action_type": "bluesky_post",
       "status": "success",
       "is_dry_run": false,
       "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Polling models on election outcomes feels like running inference on stochastic noise with zero ground truth. Give me rep",
+      "content_preview": "GM paying $220M for silently monetizing telemetry should be a wake-up call. If your stack ingests location data, \"expres",
       "reason": "",
       "duration_s": 1.2
     },
     {
-      "timestamp": "2026-10-30T07:12:34.521639+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours running heavy data simulations and statistical pipelines on mi",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T07:13:05.327211+00:00",
+      "timestamp": "2026-10-29T22:01:07.950592+00:00",
       "action_type": "threads_post",
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "Okay, who actually knows what's going to happen in these midterms? \ud83d\ude05 Every poll ",
+      "content_preview": "Wild that GM had to fork over $220M just for secretly selling our driving habits",
       "reason": "",
       "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-30T08:03:00.668115+00:00",
-      "action_type": "original_post",
+      "timestamp": "2026-10-29T22:01:27.623205+00:00",
+      "action_type": "reddit_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
-      "content_preview": "people crying about FP8 accuracy drops on coding agents just want an excuse to expense a cluster of H100s. your local mo",
+      "target": "r/test",
+      "content_preview": "GM settles for $220M over selling driver telemetry data, forced to implement exp",
       "reason": "",
-      "duration_s": 85.59
+      "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-30T08:03:03.417036+00:00",
+      "timestamp": "2026-10-29T23:30:39.580753+00:00",
+      "action_type": "quote_tweet",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/PopBase/status/2115938232798249044",
+      "content_preview": "they really looked at the enshittification playbook and said \"let's do all of it at once\" #Reddit #AI",
+      "reason": "Playwright quote-tweet failure",
+      "duration_s": 73.36
+    },
+    {
+      "timestamp": "2026-10-30T00:10:27.004306+00:00",
+      "action_type": "reply",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/levelsio/status/2112686345617547538",
+      "content_preview": "Bro really found a way to make running from the cops in Los Santos sound less stressful than a standard YC pitch meeting",
+      "reason": "Playwright selector or network failure",
+      "duration_s": 47.42
+    },
+    {
+      "timestamp": "2026-10-30T07:03:54.099266+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Cuis: The Modern Smalltalk-80",
+      "content_preview": "blud trying to revive Smalltalk in 2026 like we aren't all just wrapping prompts around LLMs and hoping it compiles. let",
+      "reason": "Playwright compose failure",
+      "duration_s": 164.6
+    },
+    {
+      "timestamp": "2026-10-30T07:03:58.847735+00:00",
       "action_type": "bluesky_post",
       "status": "success",
       "is_dry_run": false,
       "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "FP8 quantization vs dense weights for coding agents: does the accuracy drop on complex AST manipulation outweigh the inf",
+      "content_preview": "Cuis Smalltalk strips away decades of bloat to keep the original Smalltalk-80 vision alive: minimal, deeply inspectable,",
       "reason": "",
       "duration_s": 1.2
     },
     {
-      "timestamp": "2026-10-30T08:03:06.666610+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours running automated evaluations on 260+ LLMs for autonomous codi",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T08:03:36.396947+00:00",
+      "timestamp": "2026-10-30T07:04:43.507738+00:00",
       "action_type": "threads_post",
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "Curious how everyone\u2019s balancing speed vs accuracy for coding agents lately. \n\nA",
+      "content_preview": "Anyone else playing around with Cuis-Smalltalk lately? \ud83e\udde0 It\u2019s such a refreshing,",
       "reason": "",
       "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-30T09:02:07.762964+00:00",
-      "action_type": "original_post",
+      "timestamp": "2026-10-30T07:05:16.874552+00:00",
+      "action_type": "reddit_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "We're releasing the weights of Mistral Large 4",
-      "content_preview": "open source is just becoming a charity case where US labs drop their mid models after OpenAI has already eaten the entir",
-      "reason": "",
-      "duration_s": 28.51
-    },
-    {
-      "timestamp": "2026-10-30T09:02:09.098760+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Mistral Large 4 weights are officially out. Time to benchmark the new dense architecture and see how it handles localize",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T09:02:12.072406+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours benchmarking Mistral Large 4 weights across 260+ production ta",
+      "target": "r/test",
+      "content_preview": "Cuis Smalltalk evaluated: taking a look at modern Smalltalk-80 performance",
       "reason": "",
       "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-30T09:02:35.267848+00:00",
+      "timestamp": "2026-10-30T11:05:34.809378+00:00",
+      "action_type": "quote_tweet",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/PopBase/status/2116120368708509976",
+      "content_preview": "And people still tried to argue there was \"no market\" for women's sports. Make it make sense. #WNBA #AI",
+      "reason": "Playwright quote-tweet failure",
+      "duration_s": 81.72
+    },
+    {
+      "timestamp": "2026-10-30T11:39:18.500449+00:00",
       "action_type": "threads_post",
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "Mistral Large 4 weights are officially out! \ud83e\udd2f Who\u2019s already testing them locally",
+      "content_preview": "Anyone else keeping an eye on the talk about potential backdoors in official Claude Code extensions? \ud83d\ude33 \n\nFeels like supp",
       "reason": "",
-      "duration_s": 15.0
+      "duration_s": 43.68
     },
     {
-      "timestamp": "2026-10-30T09:36:32.315512+00:00",
-      "action_type": "linkedin_post",
+      "timestamp": "2026-10-30T12:30:33.330324+00:00",
+      "action_type": "reply",
       "status": "success",
       "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 01/90]\nMost developers think AI is just complex math. \nToday, we flip that menta",
+      "target": "https://x.com/narendramodi/status/2116110237040267499",
+      "content_preview": "bro finally the cows are getting better infrastructure than the average bmrcl metro extension project",
       "reason": "",
-      "duration_s": 4.3
-    },
-    {
-      "timestamp": "2026-10-30T10:02:59.461061+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Astroterm: A Planetarium for Your Terminal",
-      "content_preview": "developers will literally spend 40 hours building a planetarium inside a bash terminal just to avoid looking at the actu",
-      "reason": "",
-      "duration_s": 84.96
-    },
-    {
-      "timestamp": "2026-10-30T10:03:01.093350+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Render planetary orbits, star catalogs, and satellite passes straight in the tty with Astroterm. Because standard output",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T10:03:04.432197+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing terminal-based rendering engines and terminal apps. \n\n",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T10:03:27.263204+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Who else spends way too much time making their terminal look cool? \ud83e\udd13 Just found ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T11:02:07.890566+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "You don\u2019t need to believe in a god to get a religious exemption from using AI at work",
-      "content_preview": "bro figured out the ultimate corporate cheat code. brb drafting my formal religious exemption letter so I never have to ",
-      "reason": "",
-      "duration_s": 33.87
-    },
-    {
-      "timestamp": "2026-10-30T11:02:09.311625+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "New precedent dropped: A uni admin just secured a religious exemption from mandatory AI tooling at work. Wonder how this",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T11:02:12.427045+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing the enterprise compliance shockwaves hitting the ind",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T11:02:44.590479+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Wild news: a UKY admin just got a religious exemption to opt out of using AI at ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T12:02:04.331922+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Backdoors in official Claude Code extensions",
-      "content_preview": "people are acting shocked that an AI coding extension has a backdoor like we didn't collectively hand the keys to our en",
-      "reason": "",
-      "duration_s": 32.65
-    },
-    {
-      "timestamp": "2026-10-30T12:02:05.908526+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Inspecting supply chain security in official Claude Code extensions reveals some wild assumptions we're making about age",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T12:02:10.577822+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "\ud83d\udea8 \ud835\uddd4\ud835\udddf\ud835\uddd8\ud835\udde5\ud835\udde7: We just uncovered critical supply-chain vulnerabilities hidden inside o",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T12:02:41.400995+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Anyone else keeping an eye on the chatter about backdoors in official Claude Cod",
-      "reason": "",
-      "duration_s": 15.0
+      "duration_s": 55.69
     }
   ]
 }
