@@ -1214,6 +1214,31 @@ class AutomaterEngine:
         )
         if ok:
             console.print(f"[bold green]✅ YouTube Short live: {url}[/bold green]")
+            
+            # Re-use the EXACT same rendered video across 𝕏 and Pinterest without re-rendering:
+            # 1. 𝕏 (Twitter) Native Video Post
+            try:
+                x_text = f"Day {day_num:02d}: {topic_title}\n\nThe core mental model of modern AI engineering. 🧵👇\n\nLive benchmarks: https://neubench.netlify.app\n#AI #Dev"
+                console.print("[bold cyan]Syndicating same video to 𝕏 (Twitter)...[/bold cyan]")
+                self.twitter.post_tweet(x_text, media_path=str(yt_video))
+            except Exception as e:
+                console.print(f"[dim]𝕏 video syndication notice: {e}[/dim]")
+
+            # 2. Pinterest Video Pin
+            try:
+                from src.pinterest_automater import PinterestAutomater
+                pin_auto = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
+                if pin_auto.is_session_available():
+                    console.print("[bold cyan]Syndicating same video to Pinterest...[/bold cyan]")
+                    pin_auto.create_pin(
+                        image_path=str(yt_video),
+                        title=f"Day {day_num:02d}: {topic_title}",
+                        description=desc,
+                        link="https://neubench.netlify.app"
+                    )
+            except Exception as e:
+                console.print(f"[dim]Pinterest video syndication notice: {e}[/dim]")
+
         return ok
 
     def _execute_instagram_carousel(self, start_time: float) -> bool:

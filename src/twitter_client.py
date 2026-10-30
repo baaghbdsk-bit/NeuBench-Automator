@@ -81,7 +81,7 @@ class TwitterClient:
                 if browser:
                     browser.close()
 
-    def post_tweet(self, text: str) -> bool:
+    def post_tweet(self, text: str, media_path: Optional[str] = None) -> bool:
         """Publishes an original tweet."""
         if self.dry_run:
             print(f"[TwitterClient] [DRY RUN] Would publish original tweet: {text}")
@@ -115,6 +115,15 @@ class TwitterClient:
                 
                 textarea = page.locator('[data-testid="tweetTextarea_0"], div[role="textbox"]').first
                 self._human_type(textarea, text)
+
+                if media_path and os.path.exists(media_path):
+                    try:
+                        print(f"[TwitterClient] Attaching media: {media_path}...")
+                        file_input = page.locator('input[type="file"][data-testid="fileInput"]').first
+                        file_input.set_input_files(media_path)
+                        page.wait_for_timeout(5000)
+                    except Exception as ex:
+                        print(f"[TwitterClient] Media attach notice: {ex}")
 
                 post_btn = page.locator('[data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(1.0, 2.0))

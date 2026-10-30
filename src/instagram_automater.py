@@ -121,6 +121,23 @@ class InstagramAutomater:
                 caption_area.fill(caption)
                 page.wait_for_timeout(1500)
 
+                # 6b. Advanced Settings: Hide Like and View Counts by default
+                try:
+                    print("[InstagramAutomater] Enabling 'Hide like and view counts' in Advanced settings...")
+                    adv_btn = page.locator('div[role="dialog"] span:has-text("Advanced settings"), div[role="dialog"] div:has-text("Advanced settings")').last
+                    if adv_btn.count() > 0:
+                        adv_btn.click()
+                        page.wait_for_timeout(1000)
+                        # Locate the toggle checkbox/switch for hiding like count
+                        hide_likes_switch = page.locator('div[role="dialog"] input[type="checkbox"], div[role="dialog"] [role="switch"]').first
+                        if hide_likes_switch.count() > 0:
+                            is_checked = hide_likes_switch.is_checked() if hasattr(hide_likes_switch, 'is_checked') else False
+                            if not is_checked:
+                                hide_likes_switch.click()
+                                print("[InstagramAutomater] ✅ Hidden like and view counts enabled.")
+                except Exception as ex:
+                    print(f"[InstagramAutomater] Note on advanced settings toggle: {ex}")
+
                 # 7. Click 'Share' button
                 print("[InstagramAutomater] Clicking Share button...")
                 share_btn = page.locator('div[role="dialog"] div:text-is("Share"), div[role="dialog"] button:has-text("Share")').last
