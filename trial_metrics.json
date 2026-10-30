@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T03:03:22.503640+00:00",
+    "last_updated": "2026-10-30T04:03:24.683557+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 119,
-    "original_posts_attempted": 23,
-    "original_posts_succeeded": 18,
+    "total_cycles_executed": 123,
+    "original_posts_attempted": 24,
+    "original_posts_succeeded": 19,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 62,
+    "ai_generation_requests": 63,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1206,6 +1206,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Anyone else refreshing their email waiting for the BLS Polymers IPO allotment st",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T04:02:47.743609+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "We ran AI agent swarms in Minecraft and Mindustry",
+      "content_preview": "People are amazed AI agents can play Minecraft while most human devs can't even clear a Jira backlog on time. Priorities",
+      "reason": "",
+      "duration_s": 80.19
+    },
+    {
+      "timestamp": "2026-10-30T04:02:48.980665+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Spun up multi-agent AI swarms in Minecraft and Mindustry. Watching LLM-driven entities coordinate resource loops, pathfi",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T04:02:52.725504+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 120+ hours orchestrating autonomous AI agent swarms inside complex sandb",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T04:03:24.683529+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "We actually let AI agent swarms loose in Minecraft and Mindustry to see what wou",
       "reason": "",
       "duration_s": 15.0
     }
