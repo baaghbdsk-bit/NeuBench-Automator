@@ -9,6 +9,7 @@ import random
 from datetime import datetime, timezone
 
 from pathlib import Path
+from typing import Dict, List, Optional, Any
 
 
 
@@ -188,35 +189,13 @@ class AutomaterEngine:
 
 
         # 3. Determine action type
-
-        if force_action in ("post", "reply", "repost", "bluesky", "linkedin", "threads", "omnichannel", "post-all"):
-
+        valid_forces = ("post", "reply", "repost", "bluesky", "linkedin", "threads", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
+        if force_action in valid_forces:
             action_choice = force_action
-
         else:
-
-            # Distribution across active platforms:
-            # 55% Sniper Reply on high-traffic accounts (Modi, Musk, Vaishnaw, etc.)
-            # 15% Quote-Tweet / Repost
-            # 14% Original Hot Take / Broadcast (cross-posted to Bluesky & Threads)
-            # 12% In-depth Technical LinkedIn Post
-            # 4% Dedicated Threads Discussion
-            roll = random.randint(1, 100)
-            if roll <= 55:
-                action_choice = "reply"
-            elif roll <= 70:
-                action_choice = "repost"
-            elif roll <= 84:
-                action_choice = "post"
-            elif roll <= 96:
-                action_choice = "linkedin"
-            else:
-                action_choice = "threads"
-
-
+            action_choice = self._resolve_algorithmic_action(today_counts)
 
         # 4. Enforce quota check
-
         can_proceed, reason = self.safety.can_perform_action(action_choice, today_counts)
 
         if not can_proceed:
@@ -286,13 +265,20 @@ class AutomaterEngine:
                 console.print("[yellow]LinkedIn mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
                 return self._execute_original_post(start_time)
             return ok
-
         elif action_choice == "threads":
             ok = self._execute_threads_post(start_time)
             if not ok:
                 console.print("[yellow]Threads mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
                 return self._execute_original_post(start_time)
             return ok
+        elif action_choice == "youtube":
+            return self._execute_youtube_upload(start_time)
+        elif action_choice == "instagram":
+            return self._execute_instagram_carousel(start_time)
+        elif action_choice == "devto":
+            return self._execute_devto_post(start_time)
+        elif action_choice == "pinterest":
+            return self._execute_pinterest_pin(start_time)
         else:
             return self._execute_original_post(start_time)
 
@@ -1126,6 +1112,236 @@ class AutomaterEngine:
 
         return ok
 
+
+
+    def _resolve_algorithmic_action(self, today_counts: Dict[str, int]) -> str:
+        """
+        Resolves action based on the 5 Algorithmic Peak Windows and anti-cannibalization limits.
+        """
+        current_hour_utc = datetime.now(timezone.utc).hour
+        
+        # Check active window
+        for win_id, win in config.ALGORITHMIC_WINDOWS.items():
+            if win["utc_start"] <= current_hour_utc < win["utc_end"]:
+                console.print(f"\n[bold cyan]⏰ Active Algorithmic Window: {win['name']} ({win['ist_display']} / {win['est_display']})[/bold cyan]")
+                for action in win["primary_actions"]:
+                    action_key = "youtube" if action == "youtube_reel" else action
+                    can_do, _ = self.safety.can_perform_action(action_key, today_counts)
+                    if can_do:
+                        console.print(f"[bold green]🎯 Algorithmic Selection: '{action_key}' for {win['name']}[/bold green]")
+                        return action_key
+
+        # Outside peak windows: run sniper replies to maintain high engagement without feed spam
+        console.print("[dim]Outside peak broadcast windows: Running active sniper reply engagement...[/dim]")
+        can_reply, _ = self.safety.can_perform_action("reply", today_counts)
+        if can_reply:
+            return "reply"
+
+        can_post, _ = self.safety.can_perform_action("post", today_counts)
+        if can_post:
+            return "post"
+
+        return "repost"
+
+    def _execute_youtube_upload(self, start_time: float) -> bool:
+        """Publishes the current AI Series lesson as an animated Short with dual subtitles."""
+        console.print("[bold magenta]🎬 Mode: YouTube Shorts Animated Publishing[/bold magenta]")
+        from src.youtube_automater import YouTubeAutomater
+        from src.series_manager import AISeriesManager
+
+        series_mgr = AISeriesManager()
+        next_day = series_mgr.get_next_unpublished_day()
+        day_num = next_day["day"] if next_day else 1
+        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
+
+        yt = YouTubeAutomater()
+        if not yt.is_authenticated:
+            console.print("[yellow]YouTube service not authenticated. Run 'python main.py login-youtube'. Skipping.[/yellow]")
+            self.tracker.record_event(
+                action_type="youtube",
+                status="skipped",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                skip_or_error_reason="YouTube credentials not authenticated",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
+
+        yt_video = config.BASE_DIR / f"AI_SERIES/VIDEOS/DAY_{day_num:03d}/animated_short_day{day_num}.mp4"
+        yt_srt = config.BASE_DIR / f"AI_SERIES/VIDEOS/DAY_{day_num:03d}/subtitles_day_{day_num:03d}.srt"
+        
+        if not yt_video.exists():
+            console.print(f"[cyan]Rendering Day {day_num} animated short video...[/cyan]")
+            try:
+                from scripts.render_animated_demo import render_animated_demo
+                render_animated_demo()
+            except Exception as e:
+                console.print(f"[red]Error rendering animated video: {e}[/red]")
+
+        title = f"Day {day_num:02d}: {topic_title} #Shorts"
+        desc = (
+            f"Day {day_num:02d} of the 90-Day Master Series: AI Explained: Zero to Advanced.\n\n"
+            f"Understand the core engineering foundations of modern AI systems.\n\n"
+            "📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+            "#Shorts #AI #MachineLearning #DeepLearning #Python #SoftwareEngineering #DataScience"
+        )
+
+        if self.safety.dry_run:
+            console.print(f"[bold yellow][DRY RUN] Would upload YouTube Short: {title}[/bold yellow]")
+            self.tracker.record_event(
+                action_type="youtube",
+                status="dry_run",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                content_preview=title,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=True
+            )
+            return True
+
+        res = yt.upload_short(video_path=str(yt_video), title=title, description=desc, srt_path=str(yt_srt) if yt_srt.exists() else None)
+        ok = res is not None
+        status = "success" if ok else "failed"
+        url = res.get("url", "") if res else ""
+        
+        self.tracker.record_event(
+            action_type="youtube",
+            status=status,
+            target_identifier=f"Day {day_num}: {topic_title}",
+            content_preview=title,
+            skip_or_error_reason="" if ok else "YouTube API upload error",
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
+        if ok:
+            console.print(f"[bold green]✅ YouTube Short live: {url}[/bold green]")
+        return ok
+
+    def _execute_instagram_carousel(self, start_time: float) -> bool:
+        """Renders and publishes the enriched 5-slide technical carousel to Instagram."""
+        console.print("[bold magenta]📸 Mode: Instagram Technical Carousel Publishing[/bold magenta]")
+        from src.instagram_carousel import InstagramCarouselGenerator
+        from src.instagram_automater import InstagramAutomater
+        from src.series_manager import AISeriesManager
+
+        series_mgr = AISeriesManager()
+        next_day = series_mgr.get_next_unpublished_day()
+        day_num = next_day["day"] if next_day else 1
+        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
+
+        automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
+        if not automater.is_session_available():
+            console.print("[yellow]Instagram session not available. Run 'python main.py login-instagram'. Skipping.[/yellow]")
+            self.tracker.record_event(
+                action_type="instagram",
+                status="skipped",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                skip_or_error_reason="Instagram session not authenticated",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
+
+        gen = InstagramCarouselGenerator()
+        slides = gen.build_day1_sample()
+        caption = (
+            f"Day {day_num:02d}: {topic_title}\n\n"
+            "90 Days. 90 Concepts. One AI Journey. 🎓\n\n"
+            "Swipe through the 1-page engineering cheatsheet ➡️\n\n"
+            "📌 Save this post for your revision!\n"
+            "📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
+            "#AI #MachineLearning #AIEngineering #Coding #Developers #Tech"
+        )
+        ok, msg = automater.post_carousel(slides, caption)
+        status = "success" if ok else "failed"
+        self.tracker.record_event(
+            action_type="instagram",
+            status=status,
+            target_identifier=f"Day {day_num}: {topic_title}",
+            content_preview=caption[:100],
+            skip_or_error_reason="" if ok else msg,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
+        if ok:
+            console.print(f"[bold green]✅ Instagram Carousel published![/bold green]")
+        return ok
+
+    def _execute_devto_post(self, start_time: float) -> bool:
+        """Publishes the current lesson as a comprehensive article on Dev.to."""
+        console.print("[bold magenta]📝 Mode: Dev.to Deep-Dive Article Publishing[/bold magenta]")
+        from src.devto_automater import DevToAutomater
+        from src.series_manager import AISeriesManager
+
+        series_mgr = AISeriesManager()
+        next_day = series_mgr.get_next_unpublished_day()
+        day_num = next_day["day"] if next_day else 1
+        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
+        level_name = next_day.get("level", "Level 1: AI Fundamentals") if next_day else "Level 1"
+        chapter_name = next_day.get("chapter", "The Core Mental Model") if next_day else "Core"
+
+        devto = DevToAutomater()
+        if not devto.is_configured():
+            console.print("[yellow]Dev.to API key not configured. Skipping.[/yellow]")
+            return False
+
+        lesson_body = self.ai.generate_ai_series_lesson(
+            day=day_num,
+            topic=topic_title,
+            level=level_name,
+            chapter=chapter_name
+        )
+        title = f"Day {day_num:02d}: {topic_title}"
+        ok, msg, url = devto.create_article(title=title, body_markdown=lesson_body, series="AI Explained: Zero to Advanced")
+        status = "success" if ok else "failed"
+        self.tracker.record_event(
+            action_type="devto",
+            status=status,
+            target_identifier=title,
+            content_preview=title,
+            skip_or_error_reason="" if ok else msg,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
+        if ok:
+            console.print(f"[bold green]✅ Dev.to article live: {url}[/bold green]")
+        return ok
+
+    def _execute_pinterest_pin(self, start_time: float) -> bool:
+        """Publishes an infographic pin to Pinterest."""
+        console.print("[bold magenta]📌 Mode: Pinterest Infographic Pin Publishing[/bold magenta]")
+        from src.pinterest_automater import PinterestAutomater
+        from src.series_manager import AISeriesManager
+        import glob
+
+        series_mgr = AISeriesManager()
+        next_day = series_mgr.get_next_unpublished_day()
+        day_num = next_day["day"] if next_day else 1
+        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
+
+        pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
+        if not pin_automater.is_session_available():
+            console.print("[yellow]Pinterest session not available. Skipping.[/yellow]")
+            return False
+
+        slides = sorted(glob.glob(f"AI_SERIES/CAROUSELS/DAY_{day_num:03d}/*.png"))
+        cover_img = slides[0] if slides else "AI_SERIES/CAROUSELS/DAY_001/slide_01.png"
+        pin_title = f"Day {day_num:02d}: {topic_title}"
+        pin_desc = f"Part of the 90-Day Master Series: AI Explained by NeuBench. Save for revision! Live model benchmarks at neubench.netlify.app"
+        
+        ok, msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://neubench.netlify.app")
+        status = "success" if ok else "failed"
+        self.tracker.record_event(
+            action_type="pinterest",
+            status=status,
+            target_identifier=pin_title,
+            content_preview=pin_title,
+            skip_or_error_reason="" if ok else msg,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
+        if ok:
+            console.print(f"[bold green]✅ Pinterest Pin live![/bold green]")
+        return ok
 
     def start_scheduler(self):
 

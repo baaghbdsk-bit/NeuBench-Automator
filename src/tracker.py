@@ -82,26 +82,45 @@ class ActivityTracker:
             print(f"[ActivityTracker] Error saving metrics/history: {e}")
 
     def get_today_counts(self) -> Dict[str, int]:
-        """Calculates successful actions completed in the current UTC day."""
+        """Calculates successful actions completed in the current UTC day across all platforms."""
         today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         counts = {
             "original_posts": 0,
             "replies": 0,
             "reposts": 0,
+            "youtube_shorts": 0,
+            "instagram_carousels": 0,
+            "linkedin_posts": 0,
+            "devto_articles": 0,
+            "pinterest_pins": 0,
+            "threads_posts": 0,
+            "bluesky_posts": 0,
             "total_actions": 0
         }
         for event in self.metrics.get("recent_events", []):
             if event.get("timestamp", "").startswith(today_str) and event.get("status") == "success" and not event.get("is_dry_run", False):
                 atype = event.get("action_type")
-                if atype == "original_post":
+                counts["total_actions"] += 1
+                if atype in ("original_post", "post"):
                     counts["original_posts"] += 1
-                    counts["total_actions"] += 1
                 elif atype == "reply":
                     counts["replies"] += 1
-                    counts["total_actions"] += 1
                 elif atype in ("repost", "quote_tweet"):
                     counts["reposts"] += 1
-                    counts["total_actions"] += 1
+                elif atype in ("youtube", "youtube_short"):
+                    counts["youtube_shorts"] += 1
+                elif atype in ("instagram", "instagram_carousel"):
+                    counts["instagram_carousels"] += 1
+                elif atype in ("linkedin", "linkedin_post"):
+                    counts["linkedin_posts"] += 1
+                elif atype in ("devto", "devto_article"):
+                    counts["devto_articles"] += 1
+                elif atype in ("pinterest", "pinterest_pin"):
+                    counts["pinterest_pins"] += 1
+                elif atype in ("threads", "threads_post"):
+                    counts["threads_posts"] += 1
+                elif atype in ("bluesky", "bluesky_post"):
+                    counts["bluesky_posts"] += 1
         return counts
 
     def record_event(
