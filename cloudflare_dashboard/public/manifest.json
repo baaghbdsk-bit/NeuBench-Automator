@@ -1,0 +1,24 @@
+{
+  "name": "NeuBench Omnichannel Command Center",
+  "short_name": "NeuBench",
+  "description": "Real-time Omnichannel Growth & Telemetry for NeuBench across 7 Platforms",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070A12",
+  "theme_color": "#070A12",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
