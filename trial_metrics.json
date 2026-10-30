@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T10:03:27.263231+00:00",
+    "last_updated": "2026-10-30T11:02:44.590506+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 146,
-    "original_posts_attempted": 29,
-    "original_posts_succeeded": 24,
+    "total_cycles_executed": 150,
+    "original_posts_attempted": 30,
+    "original_posts_succeeded": 25,
     "replies_attempted": 18,
     "replies_succeeded": 15,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 71,
+    "ai_generation_requests": 72,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1476,6 +1476,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Who else spends way too much time making their terminal look cool? \ud83e\udd13 Just found ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T11:02:07.890566+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "You don\u2019t need to believe in a god to get a religious exemption from using AI at work",
+      "content_preview": "bro figured out the ultimate corporate cheat code. brb drafting my formal religious exemption letter so I never have to ",
+      "reason": "",
+      "duration_s": 33.87
+    },
+    {
+      "timestamp": "2026-10-30T11:02:09.311625+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "New precedent dropped: A uni admin just secured a religious exemption from mandatory AI tooling at work. Wonder how this",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T11:02:12.427045+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing the enterprise compliance shockwaves hitting the ind",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T11:02:44.590479+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Wild news: a UKY admin just got a religious exemption to opt out of using AI at ",
       "reason": "",
       "duration_s": 15.0
     }
