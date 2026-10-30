@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T17:18:12.031798+00:00",
+    "last_updated": "2026-10-30T17:21:22.619494+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 146,
-    "original_posts_attempted": 26,
-    "original_posts_succeeded": 18,
-    "replies_attempted": 23,
-    "replies_succeeded": 19,
-    "reposts_attempted": 17,
-    "reposts_succeeded": 8,
+    "total_cycles_executed": 129,
+    "original_posts_attempted": 22,
+    "original_posts_succeeded": 14,
+    "replies_attempted": 24,
+    "replies_succeeded": 20,
+    "reposts_attempted": 18,
+    "reposts_succeeded": 9,
     "actions_skipped": 9,
     "failed_operations": 21,
-    "ai_generation_requests": 77,
+    "ai_generation_requests": 75,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1290,194 +1290,24 @@
       "duration_s": 20.97
     },
     {
-      "timestamp": "2026-10-30T16:57:16.290105+00:00",
-      "action_type": "original_post",
+      "timestamp": "2026-10-30T16:41:31.904049+00:00",
+      "action_type": "reply",
       "status": "success",
       "is_dry_run": false,
-      "target": "Skip the small talk: Make game-changing connections at TechCrunch Founder Summit with Braindate",
-      "content_preview": "Nothing screams \"forced corporate cringe\" quite like an app telling you how to skip small talk. Just let founders drink ",
+      "target": "https://x.com/sundarpichai/status/2115535455156642066",
+      "content_preview": "half a trillion and yet the YouTube ad blocker arms race is still the fiercest battle on the internet make it make sense",
       "reason": "",
-      "duration_s": 56.46
+      "duration_s": 43.73
     },
     {
-      "timestamp": "2026-10-30T16:58:10.371957+00:00",
-      "action_type": "bluesky_post",
+      "timestamp": "2026-10-30T17:21:22.618919+00:00",
+      "action_type": "quote_tweet",
       "status": "success",
       "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Skipping the fluffy small talk for actual protocol-level engineering discussions? If you're tackling distributed systems",
+      "target": "https://x.com/satyanadella/status/2115577764300693644",
+      "content_preview": "63 billion and teams still randomly drops calls mid-sentence. make it make sense. #Microsoft #AI",
       "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T16:58:34.564686+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent weeks analyzing high-signal networking data and founder event metrics to",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T16:59:10.748630+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Who else is over surface-level conference small talk? \ud83e\udd71 \n\nSuper excited that Tec",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:03:13.948647+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "konyaspor vs galatasaray",
-      "content_preview": "Galatasaray fans really act like every dodgy referee decision is part of some grand cosmic masterclass. Make it make sen",
-      "reason": "",
-      "duration_s": 90.6
-    },
-    {
-      "timestamp": "2026-10-30T17:03:15.793322+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Training an LLM to reliably parse Turkish S\u00fcper Lig match dynamics like Konyaspor vs Galatasaray is a fun edge case. Rea",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T17:03:18.968842+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours running heavy simulations on NeuBench for high-stakes fixtures",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:03:42.457269+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Matchday mode: ON! \u26bd\ufe0f Konyaspor vs Galatasaray is always such a tense fixture. W",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:11:06.603459+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Google\u2019s first data center satellite is online and writing poetry",
-      "content_preview": "so google put a tpu in space just to make it write cringe poetry. we are literally wasting billions on orbital art proje",
-      "reason": "",
-      "duration_s": 30.71
-    },
-    {
-      "timestamp": "2026-10-30T17:11:08.529220+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "First orbital TPU is live, running Gemma 4 in LEO and generating orbital rhymes. Edge inference just got a literal cosmi",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T17:11:11.747323+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent the last 72 hours analyzing the telemetry from Google's first orbital da",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:11:34.473751+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "The first TPU in space is officially running a Gemma 4 model and writing\u2026 cheesy",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:13:01.563243+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel",
-      "content_preview": "so google put a tpu in space just to make it write cringe poetry. we are literal",
-      "reason": "",
-      "duration_s": 20.0
-    },
-    {
-      "timestamp": "2026-10-30T17:16:10.300786+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "uttarakhand helicopter crash",
-      "content_preview": "Another tragic crash and we\u2019ll talk about safety audits for a week before going right back to booking VIP darshan slots.",
-      "reason": "",
-      "duration_s": 37.61
-    },
-    {
-      "timestamp": "2026-10-30T17:16:11.928382+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Tragic news out of Uttarakhand. While this isn't an AI incident, it's a reminder of why reliable sensor fusion and edge ",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T17:16:15.168849+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing aviation safety data and crash simulations using Neu",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:16:42.201612+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Heartbreaking news coming out about the Uttarakhand helicopter crash today. \ud83d\udc94 Su",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:18:08.965253+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel",
-      "content_preview": "Another tragic crash and we\u2019ll talk about safety audits for a week before going ",
-      "reason": "",
-      "duration_s": 20.0
-    },
-    {
-      "timestamp": "2026-10-30T17:18:12.031767+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "uttarakhand helicopter crash #Shorts",
-      "reason": "",
-      "duration_s": 15.0
+      "duration_s": 50.68
     }
   ]
 }
