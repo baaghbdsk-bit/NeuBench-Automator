@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T17:32:35.801964+00:00",
+    "last_updated": "2026-10-30T17:44:22.147814+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 136,
+    "total_cycles_executed": 137,
     "original_posts_attempted": 23,
     "original_posts_succeeded": 15,
     "replies_attempted": 24,
@@ -1310,72 +1310,82 @@
       "duration_s": 50.68
     },
     {
-      "timestamp": "2026-10-30T17:28:48.294423+00:00",
+      "timestamp": "2026-10-30T17:43:19.428467+00:00",
       "action_type": "original_post",
       "status": "success",
-      "is_dry_run": false,
-      "target": "puppy",
-      "content_preview": "unpopular opinion: people who buy expensive designer puppies instead of adopting a street dog just want an aesthetic acc",
+      "is_dry_run": true,
+      "target": "jiri lehecka",
+      "content_preview": "Jiri Lehecka is literally just a random name tennis media drops to sound like they actually watch matches outside of the",
       "reason": "",
-      "duration_s": 25.16
+      "duration_s": 10.11
     },
     {
-      "timestamp": "2026-10-30T17:28:54.072416+00:00",
+      "timestamp": "2026-10-30T17:44:02.768214+00:00",
       "action_type": "bluesky_post",
       "status": "success",
-      "is_dry_run": false,
+      "is_dry_run": true,
       "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Training a new model architecture is fun, but evaluating it shouldn't mean spinning up brittle custom harnesses. Compare",
+      "content_preview": "Watching Jiri Lehecka carve through the draw with that clean baseline power is giving me clean, zero-bloat transformer a",
       "reason": "",
       "duration_s": 1.2
     },
     {
-      "timestamp": "2026-10-30T17:28:57.135027+00:00",
+      "timestamp": "2026-10-30T17:44:05.310926+00:00",
       "action_type": "linkedin_post",
       "status": "success",
-      "is_dry_run": false,
+      "is_dry_run": true,
       "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours benchmarking cutting-edge computer vision models for live pet ",
+      "content_preview": "I spent 40+ hours benchmarking emerging sports-tech intelligence frameworks and ",
       "reason": "",
       "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-30T17:29:26.877041+00:00",
+      "timestamp": "2026-10-30T17:44:06.988537+00:00",
       "action_type": "threads_post",
       "status": "success",
-      "is_dry_run": false,
+      "is_dry_run": true,
       "target": "Threads Community",
-      "content_preview": "Is there anything better in this world than puppy breath? Asking for a friend wh",
+      "content_preview": "Is anyone else super impressed by Jiri Lehecka\u2019s recent matches? \ud83c\udfbe His game is j",
       "reason": "",
       "duration_s": 15.0
     },
     {
-      "timestamp": "2026-10-30T17:30:52.275993+00:00",
+      "timestamp": "2026-10-30T17:44:06.997328+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Jiri Lehecka is literally just a random name tennis media drops to sound like th",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T17:44:14.002421+00:00",
       "action_type": "instagram_carousel",
       "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel",
-      "content_preview": "unpopular opinion: people who buy expensive designer puppies instead of adopting",
+      "is_dry_run": true,
+      "target": "Instagram Carousel Day 1",
+      "content_preview": "Day 1: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior)",
       "reason": "",
       "duration_s": 20.0
     },
     {
-      "timestamp": "2026-10-30T17:32:32.833857+00:00",
+      "timestamp": "2026-10-30T17:44:14.009411+00:00",
       "action_type": "instagram_reel",
       "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Reel",
-      "content_preview": "unpopular opinion: people who buy expensive designer puppies instead of adopting",
+      "is_dry_run": true,
+      "target": "Instagram Reel Day 1",
+      "content_preview": "Day 1: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior)",
       "reason": "",
       "duration_s": 25.0
     },
     {
-      "timestamp": "2026-10-30T17:32:35.801944+00:00",
+      "timestamp": "2026-10-30T17:44:22.147781+00:00",
       "action_type": "youtube_short",
       "status": "success",
-      "is_dry_run": false,
+      "is_dry_run": true,
       "target": "YouTube Short",
-      "content_preview": "puppy #Shorts",
+      "content_preview": "Day 01: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior) #Shorts",
       "reason": "",
       "duration_s": 15.0
     }
