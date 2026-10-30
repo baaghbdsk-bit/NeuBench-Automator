@@ -753,6 +753,99 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Threads dispatch note: {e}[/dim]")
 
+        # 5. Cross-post to Pinterest Pin (Visual Cover)
+        try:
+            from src.pinterest_automater import PinterestAutomater
+            import glob
+            pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
+            if pin_automater.is_session_available():
+                slides_found = sorted(glob.glob("AI_SERIES/CAROUSELS/*/*.png"))
+                cover_img = visual_path if visual_path else (slides_found[0] if slides_found else None)
+                if cover_img:
+                    console.print("[bold magenta]📌 Also publishing Visual Pin to Pinterest...[/bold magenta]")
+                    p_ok, p_msg = pin_automater.create_pin(
+                        image_path=cover_img,
+                        title=f"{selected_trend['title'][:95]}",
+                        description=f"{hot_take[:490]}
+
+Live benchmarks: https://neubench.netlify.app",
+                        link="https://neubench.netlify.app"
+                    )
+                    if p_ok:
+                        console.print("[bold green]✅ Pinterest Pin published![/bold green]")
+                        self.tracker.record_event(
+                            action_type="pinterest_pin",
+                            status="success",
+                            target_identifier="Pinterest Visual Pin",
+                            content_preview=hot_take[:80],
+                            duration_seconds=15.0,
+                            is_dry_run=self.safety.dry_run
+                        )
+        except Exception as ex:
+            console.print(f"[dim]Pinterest broadcast note: {ex}[/dim]")
+
+        # 6. Cross-post to Instagram Carousel (Cheatsheet)
+        try:
+            from src.instagram_carousel import InstagramCarouselGenerator
+            from src.instagram_automater import InstagramAutomater
+            ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
+            if ig_automater.is_session_available():
+                console.print("[bold magenta]📸 Also publishing Carousel to Instagram (@neubench)...[/bold magenta]")
+                ig_gen = InstagramCarouselGenerator()
+                slides = ig_gen.build_day1_sample()
+                ig_caption = f"{hot_take}
+
+90 Days. 90 Concepts. One AI Journey. 🎓
+
+📌 Save for revision!
+📊 Live 260+ model benchmarks: neubench.netlify.app
+
+#AI #MachineLearning #AIEngineering #Coding"
+                ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
+                if ig_ok:
+                    console.print("[bold green]✅ Instagram carousel published![/bold green]")
+                    self.tracker.record_event(
+                        action_type="instagram_carousel",
+                        status="success",
+                        target_identifier="Instagram Carousel",
+                        content_preview=hot_take[:80],
+                        duration_seconds=20.0,
+                        is_dry_run=self.safety.dry_run
+                    )
+        except Exception as ex:
+            console.print(f"[dim]Instagram broadcast note: {ex}[/dim]")
+
+        # 7. Cross-post to YouTube Shorts (Animated Short + Dual Subtitles)
+        try:
+            from src.youtube_automater import YouTubeAutomater
+            yt_automater = YouTubeAutomater()
+            if yt_automater.is_authenticated:
+                console.print("[bold magenta]🎬 Also publishing Short to YouTube Shorts (@neubench)...[/bold magenta]")
+                yt_video = "AI_SERIES/VIDEOS/DAY_001/animated_short_day1.mp4"
+                yt_srt = "AI_SERIES/VIDEOS/DAY_001/subtitles_day_001.srt"
+                if not Path(yt_video).exists():
+                    from scripts.render_animated_demo import render_animated_demo
+                    render_animated_demo()
+                yt_title = f"{selected_trend['title'][:70]} #Shorts"
+                yt_desc = f"{hot_take}
+
+📊 Live 260+ model benchmarks: https://neubench.netlify.app
+
+#Shorts #AI #MachineLearning #Coding"
+                yt_res = yt_automater.upload_short(video_path=yt_video, title=yt_title, description=yt_desc, srt_path=yt_srt)
+                if yt_res:
+                    console.print(f"[bold green]✅ YouTube Short published: {yt_res['url']}[/bold green]")
+                    self.tracker.record_event(
+                        action_type="youtube_short",
+                        status="success",
+                        target_identifier="YouTube Short",
+                        content_preview=yt_title,
+                        duration_seconds=15.0,
+                        is_dry_run=self.safety.dry_run
+                    )
+        except Exception as ex:
+            console.print(f"[dim]YouTube broadcast note: {ex}[/dim]")
+
         return success
 
     def _execute_bluesky_post(self, start_time: float) -> bool:
