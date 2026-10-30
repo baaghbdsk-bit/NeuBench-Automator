@@ -27,13 +27,15 @@ TARGET_NICHES = [
     ).split(",") if n.strip()
 ]
 
-# Omnichannel Expansion (Bluesky, LinkedIn, Threads, Instagram)
+# Omnichannel Expansion (Bluesky, LinkedIn, Threads, Instagram, Dev.to)
 BLUESKY_HANDLE = os.getenv("BLUESKY_HANDLE", "")
 BLUESKY_APP_PASSWORD = os.getenv("BLUESKY_APP_PASSWORD", "")
 LINKEDIN_ENABLED = os.getenv("LINKEDIN_ENABLED", "true").lower() in ("true", "1")
 LINKEDIN_ORGANIZATION_URN = os.getenv("LINKEDIN_ORGANIZATION_URN", "")  # Optional: urn:li:organization:<id> for NeuBench company page
 THREADS_ENABLED = os.getenv("THREADS_ENABLED", "true").lower() in ("true", "1")
 INSTAGRAM_ENABLED = os.getenv("INSTAGRAM_ENABLED", "true").lower() in ("true", "1")
+DEVTO_API_KEY = os.getenv("DEVTO_API_KEY", "")
+DEVTO_ENABLED = os.getenv("DEVTO_ENABLED", "true").lower() in ("true", "1")
 
 # Real-Time Push Alerts (Optional: Discord / Telegram)
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "")

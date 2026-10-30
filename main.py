@@ -80,7 +80,7 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-threads", "login-instagram", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
+        choices=["login", "login-linkedin", "login-threads", "login-instagram", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "devto", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
         help="Action: 'dashboard', 'login-linkedin', 'login-threads', 'login-instagram', 'bluesky', 'linkedin', 'threads', 'instagram', 'run-once', 'post', 'reply', 'repost', 'metrics', 'login', 'test', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
@@ -241,6 +241,30 @@ def main():
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
         engine.run_single_cycle(force_action="threads")
+
+    elif args.action == "devto":
+        from src.devto_automater import DevToAutomater
+        from src.series_manager import AISeriesManager
+        from src.ai_generator import AIGenerator
+        console.print("[magenta]Publishing latest AI Series lesson to Dev.to (@neubench)...[/magenta]")
+        manager = AISeriesManager()
+        next_topic = manager.get_next_unpublished_day()
+        if not next_topic:
+            next_topic = {"day": 1, "title": "What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior)", "level": "Level 1", "chapter": "The Core Mental Model"}
+        ai = AIGenerator()
+        lesson_body = ai.generate_ai_series_lesson(
+            day=next_topic["day"],
+            topic_title=next_topic["title"],
+            level=next_topic["level"],
+            chapter=next_topic["chapter"]
+        )
+        automater = DevToAutomater()
+        title = f"Day {next_topic['day']:02d}: {next_topic['title']}"
+        ok, msg, url = automater.create_article(title=title, body_markdown=lesson_body, series="AI Explained: Zero to Advanced")
+        if ok:
+            console.print(f"[bold green]✅ {msg}: {url}[/bold green]")
+        else:
+            console.print(f"[bold red]❌ {msg}[/bold red]")
 
     elif args.action == "instagram":
         from src.instagram_carousel import InstagramCarouselGenerator
