@@ -353,7 +353,7 @@ def main():
             engine.run_single_cycle()
         else:
             console.print("[bold green]Starting autonomous continuous schedule...[/bold green]")
-            engine.start_loop()
+            engine.start_scheduler()
 
 if __name__ == "__main__":
     main()
