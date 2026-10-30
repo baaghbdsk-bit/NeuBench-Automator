@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T01:02:04.592522+00:00",
+    "last_updated": "2026-10-30T02:02:40.831453+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 110,
-    "original_posts_attempted": 21,
-    "original_posts_succeeded": 16,
+    "total_cycles_executed": 114,
+    "original_posts_attempted": 22,
+    "original_posts_succeeded": 17,
     "replies_attempted": 17,
     "replies_succeeded": 14,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 59,
+    "ai_generation_requests": 60,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1118,6 +1118,46 @@
       "content_preview": "Mistral Large 4 weights are officially out! \ud83d\udd25 \n\nWho's already testing them out? Drop your thoughts below\u2014how does it fee",
       "reason": "",
       "duration_s": 32.2
+    },
+    {
+      "timestamp": "2026-10-30T02:02:03.500610+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "'Continue your journey': Key moments of leaked Spain train crash audio",
+      "content_preview": "People genuinely think replacing human error with tech will save everything, but then you hear audio like this and reali",
+      "reason": "",
+      "duration_s": 31.16
+    },
+    {
+      "timestamp": "2026-10-30T02:02:05.172269+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Leaked audio from the Spain train crash shows dispatch cleared a moving train onto a blocked track. Tragic failure in hu",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T02:02:09.199076+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing the structural telemetry and control-centre logs fro",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T02:02:40.831421+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "That leaked audio from the Spain train crash is chilling. Hearing \"continue your",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
