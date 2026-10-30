@@ -763,12 +763,11 @@ class AutomaterEngine:
                 cover_img = visual_path if visual_path else (slides_found[0] if slides_found else None)
                 if cover_img:
                     console.print("[bold magenta]📌 Also publishing Visual Pin to Pinterest...[/bold magenta]")
+                    p_desc = f"{hot_take[:490]}\n\nLive benchmarks: https://neubench.netlify.app"
                     p_ok, p_msg = pin_automater.create_pin(
                         image_path=cover_img,
                         title=f"{selected_trend['title'][:95]}",
-                        description=f"{hot_take[:490]}
-
-Live benchmarks: https://neubench.netlify.app",
+                        description=p_desc,
                         link="https://neubench.netlify.app"
                     )
                     if p_ok:
@@ -793,14 +792,7 @@ Live benchmarks: https://neubench.netlify.app",
                 console.print("[bold magenta]📸 Also publishing Carousel to Instagram (@neubench)...[/bold magenta]")
                 ig_gen = InstagramCarouselGenerator()
                 slides = ig_gen.build_day1_sample()
-                ig_caption = f"{hot_take}
-
-90 Days. 90 Concepts. One AI Journey. 🎓
-
-📌 Save for revision!
-📊 Live 260+ model benchmarks: neubench.netlify.app
-
-#AI #MachineLearning #AIEngineering #Coding"
+                ig_caption = f"{hot_take}\n\n90 Days. 90 Concepts. One AI Journey. 🎓\n\n📌 Save for revision!\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#AI #MachineLearning #AIEngineering #Coding"
                 ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
                 if ig_ok:
                     console.print("[bold green]✅ Instagram carousel published![/bold green]")
@@ -827,11 +819,7 @@ Live benchmarks: https://neubench.netlify.app",
                     from scripts.render_animated_demo import render_animated_demo
                     render_animated_demo()
                 yt_title = f"{selected_trend['title'][:70]} #Shorts"
-                yt_desc = f"{hot_take}
-
-📊 Live 260+ model benchmarks: https://neubench.netlify.app
-
-#Shorts #AI #MachineLearning #Coding"
+                yt_desc = f"{hot_take}\n\n📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n#Shorts #AI #MachineLearning #Coding"
                 yt_res = yt_automater.upload_short(video_path=yt_video, title=yt_title, description=yt_desc, srt_path=yt_srt)
                 if yt_res:
                     console.print(f"[bold green]✅ YouTube Short published: {yt_res['url']}[/bold green]")
