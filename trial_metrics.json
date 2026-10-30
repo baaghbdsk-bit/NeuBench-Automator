@@ -1,19 +1,19 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T14:03:46.262940+00:00",
+    "last_updated": "2026-10-30T13:44:50.428983+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 126,
-    "original_posts_attempted": 23,
-    "original_posts_succeeded": 16,
-    "replies_attempted": 20,
-    "replies_succeeded": 16,
-    "reposts_attempted": 16,
+    "total_cycles_executed": 120,
+    "original_posts_attempted": 21,
+    "original_posts_succeeded": 14,
+    "replies_attempted": 21,
+    "replies_succeeded": 17,
+    "reposts_attempted": 17,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
-    "failed_operations": 18,
+    "failed_operations": 19,
     "ai_generation_requests": 69,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
@@ -1200,84 +1200,24 @@
       "duration_s": 55.69
     },
     {
-      "timestamp": "2026-10-30T13:03:01.874494+00:00",
-      "action_type": "original_post",
+      "timestamp": "2026-10-30T13:16:32.253468+00:00",
+      "action_type": "reply",
       "status": "success",
       "is_dry_run": false,
-      "target": "Watch: Iconic moments from Sir Patrick Stewart's career",
-      "content_preview": "People are crying over Patrick Stewart while completely ignoring how fast AI is already cloning actors' voices and liken",
+      "target": "https://x.com/ndtv/status/2115684991585943607",
+      "content_preview": "Can we please have just one award show where the criteria isn\u2019t \"who attended the summit and sat in the front row",
       "reason": "",
-      "duration_s": 87.84
+      "duration_s": 58.91
     },
     {
-      "timestamp": "2026-10-30T13:03:03.550676+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
+      "timestamp": "2026-10-30T13:44:50.428905+00:00",
+      "action_type": "quote_tweet",
+      "status": "failed",
       "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "RIP Sir Patrick Stewart. A legendary voice and presence we'll sorely miss. Reminder of how fast synthetic voice tech mov",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T13:03:07.000591+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing the lifetime output, stagecraft, and cinematic deliv",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T13:03:39.268869+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Heartbroken to hear about the loss of the legendary Sir Patrick Stewart. From th",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T14:03:06.054942+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "DoorDash said it\u2019s only received \u2018several hundred\u2019 orders from AI agents",
-      "content_preview": "people spent six months pretending AI agents are ordering their dinner and running errands, only for DoorDash to admit i",
-      "reason": "",
-      "duration_s": 92.49
-    },
-    {
-      "timestamp": "2026-10-30T14:03:11.821418+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "DoorDash reports only \"several hundred\" orders via AI agents so far. Protocol fragmentation and brittle DOM parsing are ",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T14:03:17.968516+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours breaking down the real-world metrics behind DoorDash's recent ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T14:03:46.262912+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "DoorDash just dropped that they've only gotten \"several hundred\" orders from AI ",
-      "reason": "",
-      "duration_s": 15.0
+      "target": "https://x.com/PopBase/status/2116163092979589625",
+      "content_preview": "Bro voted from Vatican city for a Chicago midterms race like his local property tax didn\u2019t drop when he got the papacy. ",
+      "reason": "Playwright quote-tweet failure",
+      "duration_s": 78.16
     }
   ]
 }
