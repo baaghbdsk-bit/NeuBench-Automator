@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T17:21:22.619494+00:00",
+    "last_updated": "2026-10-30T17:32:35.801964+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 129,
-    "original_posts_attempted": 22,
-    "original_posts_succeeded": 14,
+    "total_cycles_executed": 136,
+    "original_posts_attempted": 23,
+    "original_posts_succeeded": 15,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 18,
     "reposts_succeeded": 9,
     "actions_skipped": 9,
     "failed_operations": 21,
-    "ai_generation_requests": 75,
+    "ai_generation_requests": 76,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1308,6 +1308,76 @@
       "content_preview": "63 billion and teams still randomly drops calls mid-sentence. make it make sense. #Microsoft #AI",
       "reason": "",
       "duration_s": 50.68
+    },
+    {
+      "timestamp": "2026-10-30T17:28:48.294423+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "puppy",
+      "content_preview": "unpopular opinion: people who buy expensive designer puppies instead of adopting a street dog just want an aesthetic acc",
+      "reason": "",
+      "duration_s": 25.16
+    },
+    {
+      "timestamp": "2026-10-30T17:28:54.072416+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Training a new model architecture is fun, but evaluating it shouldn't mean spinning up brittle custom harnesses. Compare",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T17:28:57.135027+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours benchmarking cutting-edge computer vision models for live pet ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T17:29:26.877041+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Is there anything better in this world than puppy breath? Asking for a friend wh",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T17:30:52.275993+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Carousel",
+      "content_preview": "unpopular opinion: people who buy expensive designer puppies instead of adopting",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-30T17:32:32.833857+00:00",
+      "action_type": "instagram_reel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Reel",
+      "content_preview": "unpopular opinion: people who buy expensive designer puppies instead of adopting",
+      "reason": "",
+      "duration_s": 25.0
+    },
+    {
+      "timestamp": "2026-10-30T17:32:35.801944+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "puppy #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
