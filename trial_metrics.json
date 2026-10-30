@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T11:02:44.590506+00:00",
+    "last_updated": "2026-10-30T12:02:41.401029+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 150,
-    "original_posts_attempted": 30,
-    "original_posts_succeeded": 25,
+    "total_cycles_executed": 154,
+    "original_posts_attempted": 31,
+    "original_posts_succeeded": 26,
     "replies_attempted": 18,
     "replies_succeeded": 15,
     "reposts_attempted": 11,
     "reposts_succeeded": 8,
     "actions_skipped": 9,
     "failed_operations": 10,
-    "ai_generation_requests": 72,
+    "ai_generation_requests": 73,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-21T21:41:55.765794+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "https://x.com/unusual_whales/status/2086422490872713578",
-      "content_preview": "Great, now I can lose money faster and via code.",
-      "reason": "",
-      "duration_s": 17.38
-    },
-    {
-      "timestamp": "2026-10-21T21:42:29.694647+00:00",
-      "action_type": "quote_tweet",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "https://x.com/ndtv/status/2113019999380193613",
-      "content_preview": "Cant wait for tech bros to solve this with a productivity app.",
-      "reason": "",
-      "duration_s": 11.28
-    },
-    {
-      "timestamp": "2026-10-21T21:43:53.416701+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Rosenberg: US diplomatic push offers little hope for imminent Ukraine peace",
-      "content_preview": "bro discovered this 2 years late \ud83d\udc80",
-      "reason": "",
-      "duration_s": 2.49
-    },
-    {
-      "timestamp": "2026-10-21T22:36:13.582174+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "@elonmusk",
-      "content_preview": "",
-      "reason": "No tweet found for @elonmusk",
-      "duration_s": 37.6
-    },
     {
       "timestamp": "2026-10-21T22:59:08.789895+00:00",
       "action_type": "original_post",
@@ -1516,6 +1476,46 @@
       "is_dry_run": false,
       "target": "Threads Community",
       "content_preview": "Wild news: a UKY admin just got a religious exemption to opt out of using AI at ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T12:02:04.331922+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Backdoors in official Claude Code extensions",
+      "content_preview": "people are acting shocked that an AI coding extension has a backdoor like we didn't collectively hand the keys to our en",
+      "reason": "",
+      "duration_s": 32.65
+    },
+    {
+      "timestamp": "2026-10-30T12:02:05.908526+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Inspecting supply chain security in official Claude Code extensions reveals some wild assumptions we're making about age",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-30T12:02:10.577822+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83d\udea8 \ud835\uddd4\ud835\udddf\ud835\uddd8\ud835\udde5\ud835\udde7: We just uncovered critical supply-chain vulnerabilities hidden inside o",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-30T12:02:41.400995+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Anyone else keeping an eye on the chatter about backdoors in official Claude Cod",
       "reason": "",
       "duration_s": 15.0
     }
