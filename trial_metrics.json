@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T17:05:22.438387+00:00",
+    "last_updated": "2026-10-31T18:05:17.716969+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 240,
-    "original_posts_attempted": 37,
-    "original_posts_succeeded": 29,
+    "total_cycles_executed": 246,
+    "original_posts_attempted": 38,
+    "original_posts_succeeded": 30,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 91,
+    "ai_generation_requests": 92,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T23:11:55.818637+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "New UK budget drops. Wondering how public sector tech investment and R&D tax credits shift for open-source builders? Her",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-28T23:12:32.064749+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Just glanced through the key points from John Healey\u2019s first Budget. Lots to unp",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T23:12:51.945510+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "John Healey's first Budget: Technical breakdown and developer impact",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T23:51:52.056896+00:00",
-      "action_type": "threads_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Daily Threads cap reached (2/day)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-10-29T11:01:37.177140+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/ylecun/status/1862598063275061484",
-      "content_preview": "bro is just treating X like an RSS feed aggregator",
-      "reason": "",
-      "duration_s": 58.7
-    },
-    {
-      "timestamp": "2026-10-29T11:36:03.450241+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: [Errno 11001] getaddrinfo failed",
-      "duration_s": 86.23
-    },
     {
       "timestamp": "2026-10-29T18:35:06.055105+00:00",
       "action_type": "original_post",
@@ -1511,6 +1451,66 @@
     },
     {
       "timestamp": "2026-10-31T17:05:22.438353+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T18:03:00.311495+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pile-ins, payouts, and pacing pressure: the investors behind the VCs open up",
+      "content_preview": "Limited partners acting shocked that the VCs they funded are burning cash on pointless AI wrappers is the highest form o",
+      "reason": "",
+      "duration_s": 83.82
+    },
+    {
+      "timestamp": "2026-10-31T18:03:02.772706+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "LPs are pumping the hype cycle, but the actual compute ROI remains an open question for builders. Are we scaling inferen",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T18:03:05.683315+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing the closed-door data on how LPs (the money behind th",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T18:03:34.061378+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Ever wonder what the *actual* money behind VCs is thinking right now? Turns out ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T18:03:58.333200+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Limited partners acting shocked that the VCs they funded are burning cash on poi",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T18:05:17.716935+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
