@@ -646,24 +646,9 @@ class AutomaterEngine:
 
 
 
-        # Attach visual infographic slide ONLY if the post topic is explicitly AI/tech-related
-        visual_path = None
-        try:
-            from src.series_manager import AISeriesManager
-            series_mgr = AISeriesManager()
-            next_topic = series_mgr.get_next_unpublished_day()
-            current_day = next_topic["day"] if next_topic else 3
-            
-            # Contextual Relevance Guard: Only attach graphic if tweet discusses AI/tech/models
-            ai_keywords = ["ai", "model", "llm", "neural", "benchmark", "learning", "deep learning", "weights", "data science", "algorithm", "gpt", "claude", "gemini"]
-            if any(k in hot_take.lower() for k in ai_keywords):
-                day_slide = Path(f"AI_SERIES/CAROUSELS/DAY_{current_day:03d}/slide_01.png")
-                if day_slide.exists():
-                    visual_path = str(day_slide)
-        except Exception:
-            pass
-
-        success = self.twitter.post_tweet(hot_take, media_path=visual_path)
+        # Standard original tweets: Post text-only so unrelated slides/graphics are never attached.
+        # Dedicated curriculum graphics and videos are handled exclusively by their respective pipeline modules.
+        success = self.twitter.post_tweet(hot_take)
         status = "success" if success else "failed"
         self.tracker.record_event(
             action_type="original_post",
