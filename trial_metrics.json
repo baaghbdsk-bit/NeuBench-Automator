@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T14:04:09.434773+00:00",
+    "last_updated": "2026-10-31T15:05:27.025148+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 222,
-    "original_posts_attempted": 34,
-    "original_posts_succeeded": 26,
+    "total_cycles_executed": 228,
+    "original_posts_attempted": 35,
+    "original_posts_succeeded": 27,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 88,
+    "ai_generation_requests": 89,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T18:58:19.521042+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "The line between software telemetry and dual-use biological research is official",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T18:58:43.301954+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Okay, who had \"harmless tracking script goes rogue and invents pathogens\" on the",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T18:59:05.983978+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "Why Is This Fingerprinting Script Creating Bioweapons?",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T19:22:01.780192+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Key points at a glance",
-      "content_preview": "another budget written by people who haven't paid for their own groceries since 1995. make it make sense",
-      "reason": "",
-      "duration_s": 69.31
-    },
-    {
-      "timestamp": "2026-10-28T19:22:05.533750+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "New UK budget drops. While policy folks parse the fiscal headroom, the real question is how state compute investments wi",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-28T19:22:36.257326+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Tax policies and government spending are shifting the baseline for how tech comp",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-28T19:23:02.408880+00:00",
       "action_type": "threads_post",
@@ -1516,6 +1456,66 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "Most court battles today are just expensive software subscription updates for la",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T15:03:09.732302+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "I took two iPhones on vacation. The Duo won me over.",
+      "content_preview": "Imagine paying a down payment on a phone just to leave it in the hotel room because your \"fun\" secondary device is trend",
+      "reason": "",
+      "duration_s": 79.81
+    },
+    {
+      "timestamp": "2026-10-31T15:03:11.230778+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Took two phones on vacation expecting to hate the dual setup. The Duo format actually won me over\u2014frustrating at times, ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T15:03:13.914452+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I took two iPhones on vacation to stress-test their limits. Surprisingly, the du",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T15:03:43.386914+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "I packed two iPhones for my trip expecting to stick to the Pro Max. But honestly",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T15:04:07.110704+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Imagine paying a down payment on a phone just to leave it in the hotel room beca",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T15:05:27.025115+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
       "reason": "",
       "duration_s": 15.0
     }
