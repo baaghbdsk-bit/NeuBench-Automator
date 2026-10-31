@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T09:01:34.913125+00:00",
+    "last_updated": "2026-10-31T10:01:37.303468+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 199,
+    "total_cycles_executed": 200,
     "original_posts_attempted": 30,
     "original_posts_succeeded": 22,
     "replies_attempted": 24,
     "replies_succeeded": 20,
-    "reposts_attempted": 28,
+    "reposts_attempted": 29,
     "reposts_succeeded": 9,
-    "actions_skipped": 19,
+    "actions_skipped": 20,
     "failed_operations": 21,
     "ai_generation_requests": 84,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T13:53:48.725548+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "People stressing over token costs while their devs spend 4 hours debugging a button. Make it make sense.",
-      "reason": "",
-      "duration_s": 66.43
-    },
     {
       "timestamp": "2026-10-28T13:53:55.681325+00:00",
       "action_type": "bluesky_post",
@@ -1511,6 +1501,16 @@
     },
     {
       "timestamp": "2026-10-31T09:01:34.913100+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (28/28).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-10-31T10:01:37.303441+00:00",
       "action_type": "repost",
       "status": "skipped",
       "is_dry_run": false,
