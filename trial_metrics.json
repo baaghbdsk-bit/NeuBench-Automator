@@ -1,104 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T00:07:29.249013+00:00",
+    "last_updated": "2026-10-31T01:07:05.011786+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 173,
-    "original_posts_attempted": 27,
-    "original_posts_succeeded": 19,
+    "total_cycles_executed": 181,
+    "original_posts_attempted": 28,
+    "original_posts_succeeded": 20,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 22,
     "reposts_succeeded": 9,
     "actions_skipped": 13,
     "failed_operations": 21,
-    "ai_generation_requests": 80,
+    "ai_generation_requests": 81,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-27T19:24:49.636382+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Men abused woman after her husband drugged and advertised her online, court told",
-      "content_preview": "This isn't an AI development story. This is a horrific true crime report about human trafficking and abuse. Wrong prompt",
-      "reason": "",
-      "duration_s": 9.41
-    },
-    {
-      "timestamp": "2026-10-27T19:32:46.449387+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "LinkedIn B2B",
-      "content_preview": "Physical security breaches at critical military installations are no longer just geopolitical headlines\u2014they are severe ",
-      "reason": "",
-      "duration_s": 13.72
-    },
-    {
-      "timestamp": "2026-10-27T19:40:46.602725+00:00",
-      "action_type": "linkedin_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Apple\u2019s M6 silicon isn\u2019t just an incremental bump\u2014it\u2019s redefining local hardware limits for enterprise development and e",
-      "reason": "Could not locate the post text editor modal on LinkedIn.",
-      "duration_s": 28.57
-    },
-    {
-      "timestamp": "2026-10-27T19:43:30.499375+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Apple\u2019s silicon roadmap just crossed another threshold. The emerging benchmark data for the M6 architecture on NeuBench ",
-      "reason": "",
-      "duration_s": 50.2
-    },
-    {
-      "timestamp": "2026-10-27T19:45:40.096416+00:00",
-      "action_type": "quote_tweet",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/peakbengaluru/status/1483798136951021581",
-      "content_preview": "inclusiveness until the auto driver quotes 4x and your 2BHK landlord asks for your blood type. make it make sense.",
-      "reason": "",
-      "duration_s": 53.73
-    },
-    {
-      "timestamp": "2026-10-27T20:00:33.991365+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "r/ArtificialInteligence",
-      "content_preview": "Torino vs Como inference benchmarks: what the latest runs on NeuBench reveal about latency scaling",
-      "reason": "",
-      "duration_s": 10.8
-    },
-    {
-      "timestamp": "2026-10-27T20:00:49.514222+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Threads Community",
-      "content_preview": "Minimum wage is going up, but 18-20 year-olds are missing out on the bigger bump. \ud83e\udd14 \n\nDoes age really determine how hard",
-      "reason": "",
-      "duration_s": 10.33
-    },
-    {
-      "timestamp": "2026-10-27T20:00:55.048554+00:00",
-      "action_type": "reddit_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Daily Reddit cap reached (1/day)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-10-27T20:03:46.203887+00:00",
       "action_type": "reddit_post",
@@ -1511,6 +1431,86 @@
     },
     {
       "timestamp": "2026-10-31T00:07:29.248980+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T01:03:03.164666+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "worlds 2026",
+      "content_preview": "Hot take: half the people screaming about worlds 2026 haven't shipped a single line of production code in their lives. Y",
+      "reason": "",
+      "duration_s": 86.26
+    },
+    {
+      "timestamp": "2026-10-31T01:03:04.543196+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Curious what architecture will take Worlds 2026? Scaling laws are shifting toward inference-time compute and efficient a",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T01:03:07.376120+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours stress-testing the architecture limits for \ud835\uddea\ud835\uddfc\ud835\uddff\ud835\uddf9\ud835\uddf1\ud835\ude00 \ud835\udfee\ud835\udfec\ud835\udfee\ud835\udff2 using t",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T01:03:31.659290+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Is anyone else already thinking about Worlds 2026? \ud83d\uddfa\ufe0f\u2728 \n\nDrop your boldest predi",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T01:03:54.837339+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Hot take: half the people screaming about worlds 2026 haven't shipped a single l",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T01:05:20.952677+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Carousel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-31T01:07:01.911367+00:00",
+      "action_type": "instagram_reel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Reel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 25.0
+    },
+    {
+      "timestamp": "2026-10-31T01:07:05.011751+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
