@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T10:01:37.303468+00:00",
+    "last_updated": "2026-10-31T11:01:34.310181+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 200,
+    "total_cycles_executed": 201,
     "original_posts_attempted": 30,
     "original_posts_succeeded": 22,
     "replies_attempted": 24,
     "replies_succeeded": 20,
-    "reposts_attempted": 29,
+    "reposts_attempted": 30,
     "reposts_succeeded": 9,
-    "actions_skipped": 20,
+    "actions_skipped": 21,
     "failed_operations": 21,
     "ai_generation_requests": 84,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T13:53:55.681325+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Frontier reasoning drift is real. Watching long-horizon coding evals across DeepSeek, Claude, and Gemini shows massive s",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-28T13:54:33.148667+00:00",
       "action_type": "linkedin_post",
@@ -1511,6 +1501,16 @@
     },
     {
       "timestamp": "2026-10-31T10:01:37.303441+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (28/28).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-10-31T11:01:34.310154+00:00",
       "action_type": "repost",
       "status": "skipped",
       "is_dry_run": false,
