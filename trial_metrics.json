@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T12:14:20.413441+00:00",
+    "last_updated": "2026-10-31T13:03:50.301683+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 207,
-    "original_posts_attempted": 31,
-    "original_posts_succeeded": 23,
+    "total_cycles_executed": 212,
+    "original_posts_attempted": 32,
+    "original_posts_succeeded": 24,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 85,
+    "ai_generation_requests": 86,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T15:50:59.479454+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "cloud providers really selling you 100mbps and delivering dial-up speeds the second you actually ship to production huh",
-      "reason": "",
-      "duration_s": 71.08
-    },
-    {
-      "timestamp": "2026-10-28T15:51:22.220663+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Same weights. Same prompt. Up to 40% variance in real-world token throughput across hosted LLM endpoints. \n\nTTFT and out",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-28T15:52:04.462680+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "The myth of model parity is costing production AI teams thousands in hidden late",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T15:52:33.290925+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Wild how different hosted LLM speeds actually are in practice. NeuBench speed te",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T15:53:15.278163+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "Ran some TTFT & throughput benchmarks across major hosted LLM endpoints \u2014 saw up",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-28T16:27:15.416837+00:00",
       "action_type": "reddit_post",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "Paying thousands of dollars to sweat through the boroughs just so finance bros c",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T13:02:50.588152+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "marco palestra",
+      "content_preview": "bro really thought he could just copy-paste some generic motivation and charge people thousands for it. the online coach",
+      "reason": "",
+      "duration_s": 78.28
+    },
+    {
+      "timestamp": "2026-10-31T13:02:52.185013+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Marco Palestra's work on efficient transformer architectures and scaling laws keeps pushing the needle for open research",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T13:02:55.641703+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours testing Marco Palestra's latest NeuBench benchmarking framewor",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T13:03:26.368655+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Anyone else keeping an eye on Marco Palestra lately? Curious how their recent wo",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T13:03:50.301653+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "bro really thought he could just copy-paste some generic motivation and charge p",
       "reason": "",
       "duration_s": 15.0
     }
