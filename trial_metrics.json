@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T20:05:14.368584+00:00",
+    "last_updated": "2026-10-31T21:05:24.003099+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 258,
-    "original_posts_attempted": 40,
-    "original_posts_succeeded": 32,
+    "total_cycles_executed": 264,
+    "original_posts_attempted": 41,
+    "original_posts_succeeded": 33,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 94,
+    "ai_generation_requests": 95,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-29T22:01:27.623205+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "GM settles for $220M over selling driver telemetry data, forced to implement exp",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T23:30:39.580753+00:00",
-      "action_type": "quote_tweet",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/PopBase/status/2115938232798249044",
-      "content_preview": "they really looked at the enshittification playbook and said \"let's do all of it at once\" #Reddit #AI",
-      "reason": "Playwright quote-tweet failure",
-      "duration_s": 73.36
-    },
-    {
-      "timestamp": "2026-10-30T00:10:27.004306+00:00",
-      "action_type": "reply",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/levelsio/status/2112686345617547538",
-      "content_preview": "Bro really found a way to make running from the cops in Los Santos sound less stressful than a standard YC pitch meeting",
-      "reason": "Playwright selector or network failure",
-      "duration_s": 47.42
-    },
-    {
-      "timestamp": "2026-10-30T07:03:54.099266+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Cuis: The Modern Smalltalk-80",
-      "content_preview": "blud trying to revive Smalltalk in 2026 like we aren't all just wrapping prompts around LLMs and hoping it compiles. let",
-      "reason": "Playwright compose failure",
-      "duration_s": 164.6
-    },
-    {
-      "timestamp": "2026-10-30T07:03:58.847735+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Cuis Smalltalk strips away decades of bloat to keep the original Smalltalk-80 vision alive: minimal, deeply inspectable,",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T07:04:43.507738+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Anyone else playing around with Cuis-Smalltalk lately? \ud83e\udde0 It\u2019s such a refreshing,",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-30T07:05:16.874552+00:00",
       "action_type": "reddit_post",
@@ -1511,6 +1451,66 @@
     },
     {
       "timestamp": "2026-10-31T20:05:14.368523+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:03:07.157272+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "'It's been killing me!' Celebrity Traitors winners relieved the secret is out",
+      "content_preview": "people actually sitting through an entire reality TV season just to care about who won a game of digital lying needs to ",
+      "reason": "",
+      "duration_s": 85.85
+    },
+    {
+      "timestamp": "2026-10-31T21:03:08.511702+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "11.2M live viewers keeping a zero-leak state for months? Harder than maintaining strict determinism in distributed train",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T21:03:11.511762+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing the viral mechanics of distributed state systems and",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:03:40.745512+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "11.2 million viewers?! \ud83e\udd2f Honestly so glad the Traitors winners can finally breat",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:04:04.683927+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "people actually sitting through an entire reality TV season just to care about w",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:05:24.003068+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
