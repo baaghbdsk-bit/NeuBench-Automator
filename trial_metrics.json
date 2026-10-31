@@ -1,94 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T01:07:05.011786+00:00",
+    "last_updated": "2026-10-31T02:07:09.466990+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 181,
-    "original_posts_attempted": 28,
-    "original_posts_succeeded": 20,
+    "total_cycles_executed": 188,
+    "original_posts_attempted": 29,
+    "original_posts_succeeded": 21,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 22,
     "reposts_succeeded": 9,
     "actions_skipped": 13,
     "failed_operations": 21,
-    "ai_generation_requests": 81,
+    "ai_generation_requests": 82,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-27T20:03:46.203887+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/ArtificialInteligence",
-      "content_preview": "Running local LLMs and vision models on the M6 MacBook Pro: Initial benchmark analysis",
-      "reason": "",
-      "duration_s": 77.41
-    },
-    {
-      "timestamp": "2026-10-27T20:05:10.083115+00:00",
-      "action_type": "threads_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Roma vs Cagliari tonight! \ud83c\udfdf\ufe0f Anyone heading to the match or watching from the couch? How are we feeling about this squad",
-      "reason": "Threads browser automation error: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Post\", exact=True).first\n    - locator resolved to <div class=\"xc26acl x6s0dn4 x78zum5 xl56j7k x6ikm8r x10wlt62 xf7dkkf xv54qhq xlyipyv xw2npq5\">Post</div>\n  - attempting click action\n    2 \u00d7 waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"__fb-light-mode x1qjc9v5 x9f619 x78zum5 xdt5ytf x1iyjqo2 xl56j7k\">\u2026</div> from <div>\u2026</div> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 \u00d7 waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"__fb-light-mode x1qjc9v5 x9f619 x78zum5 xdt5ytf x1iyjqo2 xl56j7k\">\u2026</div> from <div>\u2026</div> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    54 \u00d7 waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <div class=\"__fb-light-mode x1qjc9v5 x9f619 x78zum5 xdt5ytf x1iyjqo2 xl56j7k\">\u2026</div> from <div>\u2026</div> subtree intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n",
-      "duration_s": 64.02
-    },
-    {
-      "timestamp": "2026-10-27T20:06:17.490718+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Chris Mason\u2019s spot on\u2014this Budget really needs to actually deliver on those big promises, especially with energy bills s",
-      "reason": "",
-      "duration_s": 30.21
-    },
-    {
-      "timestamp": "2026-10-27T20:07:54.619693+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "New 14\u2011inch MacBook Pro with M6",
-      "content_preview": "buying an M6 macbook pro to run chrome and slack with 40 tabs open is elite comedy",
-      "reason": "",
-      "duration_s": 51.42
-    },
-    {
-      "timestamp": "2026-10-27T20:07:59.026544+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "M6 in the new 14\" MacBook Pro. Let\u2019s see actual memory bandwidth metrics under heavy local compilation and inference. Un",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-27T20:48:40.644778+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/kunalb11/status/2110987620113412597",
-      "content_preview": "bro just dropped a Fortune 50 cookie and called it a masterclass",
-      "reason": "",
-      "duration_s": 41.36
-    },
-    {
-      "timestamp": "2026-10-27T21:54:35.427545+00:00",
-      "action_type": "quote_tweet",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/levelsio/status/2112686345617547538",
-      "content_preview": "Can't wait for the part where CJ gets stuck in Bangalore traffic trying to reach Koramangala for a pitch meeting.",
-      "reason": "",
-      "duration_s": 54.76
-    },
     {
       "timestamp": "2026-10-27T22:49:15.486385+00:00",
       "action_type": "reply",
@@ -1518,6 +1448,76 @@
       "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T02:03:04.353869+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "\u0938\u0948\u092e\u0938\u0902\u0917",
+      "content_preview": "Samsung still making you sit through unskippable ads on a phone you paid a lakh for is the ultimate corporate scam. Appl",
+      "reason": "",
+      "duration_s": 89.99
+    },
+    {
+      "timestamp": "2026-10-31T02:03:05.335169+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Interesting shifts happening in Samsung's mobile AI stack. Curious to see how their on-device quantization handles edge ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T02:03:08.381612+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours testing Samsung's hardware capabilities alongside NeuBench acr",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T02:03:38.447625+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "\u0938\u0948\u092e\u0938\u0902\u0917 \u0915\u093e \u0915\u094c\u0928 \u0938\u093e \u092b\u094b\u0928 \u0907\u0938 \u0938\u092e\u092f \u0906\u092a\u0915\u093e \u092b\u0947\u0935\u0930\u0947\u091f \u0939\u0948? \ud83e\udd14 \n\n\u092a\u0941\u0930\u093e\u0928\u0947 \u092e\u0949\u0921\u0932\u094d\u0938 \u0938\u0947 \u0932\u0947\u0915\u0930 \u0932\u0947\u091f\u0947\u0938\u094d\u091f S ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T02:04:01.978366+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Samsung still making you sit through unskippable ads on a phone you paid a lakh ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T02:05:28.534773+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Carousel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-31T02:07:09.466960+00:00",
+      "action_type": "instagram_reel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Reel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 25.0
     }
   ]
 }
