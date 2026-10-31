@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T07:29:52.930555+00:00",
+    "last_updated": "2026-10-31T08:01:40.198165+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 197,
+    "total_cycles_executed": 198,
     "original_posts_attempted": 30,
     "original_posts_succeeded": 22,
     "replies_attempted": 24,
     "replies_succeeded": 20,
-    "reposts_attempted": 26,
+    "reposts_attempted": 27,
     "reposts_succeeded": 9,
-    "actions_skipped": 17,
+    "actions_skipped": 18,
     "failed_operations": 21,
     "ai_generation_requests": 84,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T13:50:58.128702+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Kodiak pivoting to pure-play AV tech supplier via DTL Transport is a smart move. Heavy-haul autonomy needs open tooling,",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-28T13:52:02.263195+00:00",
       "action_type": "original_post",
@@ -1511,6 +1501,16 @@
     },
     {
       "timestamp": "2026-10-31T07:29:52.930532+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (28/28).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-10-31T08:01:40.198142+00:00",
       "action_type": "repost",
       "status": "skipped",
       "is_dry_run": false,
