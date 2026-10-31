@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T11:01:34.310181+00:00",
+    "last_updated": "2026-10-31T12:01:37.892867+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 201,
+    "total_cycles_executed": 202,
     "original_posts_attempted": 30,
     "original_posts_succeeded": 22,
     "replies_attempted": 24,
     "replies_succeeded": 20,
-    "reposts_attempted": 30,
+    "reposts_attempted": 31,
     "reposts_succeeded": 9,
-    "actions_skipped": 21,
+    "actions_skipped": 22,
     "failed_operations": 21,
     "ai_generation_requests": 84,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T13:54:33.148667+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "The frontier AI cost-to-performance curve has officially broken, and traditional",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-28T13:55:15.358255+00:00",
       "action_type": "threads_post",
@@ -1511,6 +1501,16 @@
     },
     {
       "timestamp": "2026-10-31T11:01:34.310154+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (28/28).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-10-31T12:01:37.892846+00:00",
       "action_type": "repost",
       "status": "skipped",
       "is_dry_run": false,
