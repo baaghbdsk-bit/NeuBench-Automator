@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T22:05:15.114839+00:00",
+    "last_updated": "2026-10-31T23:03:59.117611+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 276,
-    "original_posts_attempted": 43,
-    "original_posts_succeeded": 35,
+    "total_cycles_executed": 281,
+    "original_posts_attempted": 44,
+    "original_posts_succeeded": 36,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 97,
+    "ai_generation_requests": 98,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T16:14:28.673809+00:00",
-      "action_type": "linkedin_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "The political tolerance for socializing private AI infrastructure risk is officially hitting a wall.\n\n\u2022 **Capex Rational",
-      "reason": "LinkedIn browser automation error: Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://www.linkedin.com/feed/\nCall log:\n  - navigating to \"https://www.linkedin.com/feed/\", waiting until \"domcontentloaded\"\n",
-      "duration_s": 20.97
-    },
-    {
-      "timestamp": "2026-10-30T16:41:31.904049+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/sundarpichai/status/2115535455156642066",
-      "content_preview": "half a trillion and yet the YouTube ad blocker arms race is still the fiercest battle on the internet make it make sense",
-      "reason": "",
-      "duration_s": 43.73
-    },
-    {
-      "timestamp": "2026-10-30T17:21:22.618919+00:00",
-      "action_type": "quote_tweet",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/satyanadella/status/2115577764300693644",
-      "content_preview": "63 billion and teams still randomly drops calls mid-sentence. make it make sense. #Microsoft #AI",
-      "reason": "",
-      "duration_s": 50.68
-    },
-    {
-      "timestamp": "2026-10-30T17:43:19.428467+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "jiri lehecka",
-      "content_preview": "Jiri Lehecka is literally just a random name tennis media drops to sound like they actually watch matches outside of the",
-      "reason": "",
-      "duration_s": 10.11
-    },
-    {
-      "timestamp": "2026-10-30T17:44:02.768214+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Watching Jiri Lehecka carve through the draw with that clean baseline power is giving me clean, zero-bloat transformer a",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-30T17:44:05.310926+00:00",
       "action_type": "linkedin_post",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "YouTube Short",
       "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T23:03:07.227901+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "It's the Memory Latency, Stupid",
+      "content_preview": "People keep throwing billions at raw compute while completely ignoring that memory latency is the actual bottleneck chok",
+      "reason": "",
+      "duration_s": 85.04
+    },
+    {
+      "timestamp": "2026-10-31T23:03:08.527411+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Forget raw FLOPS. When scaling inference on modern hardware, memory bandwidth and latency are the real bottlenecks. Stop",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T23:03:11.758551+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running heavy profiling across 260+ LLM architectures with Neu",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T23:03:34.878927+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Everyone\u2019s obsessed with raw compute and parameter counts, but when real-world p",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T23:03:59.117581+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "People keep throwing billions at raw compute while completely ignoring that memo",
       "reason": "",
       "duration_s": 15.0
     }
