@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T21:05:24.003099+00:00",
+    "last_updated": "2026-10-31T21:55:34.955666+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 264,
-    "original_posts_attempted": 41,
-    "original_posts_succeeded": 33,
+    "total_cycles_executed": 270,
+    "original_posts_attempted": 42,
+    "original_posts_succeeded": 34,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 95,
+    "ai_generation_requests": 96,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T07:05:16.874552+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "Cuis Smalltalk evaluated: taking a look at modern Smalltalk-80 performance",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T11:05:34.809378+00:00",
-      "action_type": "quote_tweet",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/PopBase/status/2116120368708509976",
-      "content_preview": "And people still tried to argue there was \"no market\" for women's sports. Make it make sense. #WNBA #AI",
-      "reason": "Playwright quote-tweet failure",
-      "duration_s": 81.72
-    },
-    {
-      "timestamp": "2026-10-30T11:39:18.500449+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Anyone else keeping an eye on the talk about potential backdoors in official Claude Code extensions? \ud83d\ude33 \n\nFeels like supp",
-      "reason": "",
-      "duration_s": 43.68
-    },
-    {
-      "timestamp": "2026-10-30T12:30:33.330324+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/narendramodi/status/2116110237040267499",
-      "content_preview": "bro finally the cows are getting better infrastructure than the average bmrcl metro extension project",
-      "reason": "",
-      "duration_s": 55.69
-    },
-    {
-      "timestamp": "2026-10-30T13:16:32.253468+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/ndtv/status/2115684991585943607",
-      "content_preview": "Can we please have just one award show where the criteria isn\u2019t \"who attended the summit and sat in the front row",
-      "reason": "",
-      "duration_s": 58.91
-    },
-    {
-      "timestamp": "2026-10-30T13:44:50.428905+00:00",
-      "action_type": "quote_tweet",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/PopBase/status/2116163092979589625",
-      "content_preview": "Bro voted from Vatican city for a Chicago midterms race like his local property tax didn\u2019t drop when he got the papacy. ",
-      "reason": "Playwright quote-tweet failure",
-      "duration_s": 78.16
-    },
     {
       "timestamp": "2026-10-30T14:25:54.822504+00:00",
       "action_type": "reply",
@@ -1511,6 +1451,66 @@
     },
     {
       "timestamp": "2026-10-31T21:05:24.003068+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:53:11.125528+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "apple tv",
+      "content_preview": "Apple TV+ is the best streaming service right now and people only pretend to care about Netflix because they like paying",
+      "reason": "",
+      "duration_s": 83.24
+    },
+    {
+      "timestamp": "2026-10-31T21:53:12.536532+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Apple TV hardware running local quant models via MLX when? The unified memory bandwidth makes for a sneaky good edge inf",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T21:53:15.811831+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours benchmarking Apple TV hardware limits and edge inference loops",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:53:50.579541+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Honestly, Apple TV+ has quietly become home to some of the absolute best sci-fi ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:54:14.813575+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Apple TV+ is the best streaming service right now and people only pretend to car",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T21:55:34.955630+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
