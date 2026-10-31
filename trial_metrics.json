@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T18:05:17.716969+00:00",
+    "last_updated": "2026-10-31T19:05:15.252680+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 246,
-    "original_posts_attempted": 38,
-    "original_posts_succeeded": 30,
+    "total_cycles_executed": 252,
+    "original_posts_attempted": 39,
+    "original_posts_succeeded": 31,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 92,
+    "ai_generation_requests": 93,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-29T18:35:06.055105+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Google Search is now less than half of Alphabet\u2019s revenue",
-      "content_preview": "Google Search dropping below 50% of Alphabet's revenue just proves search is dying while cloud and ads keep them afloat.",
-      "reason": "Playwright compose failure",
-      "duration_s": 88.08
-    },
-    {
-      "timestamp": "2026-10-29T18:35:10.844671+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Search is officially <50% of Alphabet. The ad-funded web era is shifting. As compute pivots to inference and custom mode",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-29T18:35:55.076632+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Wild to think Google Search is officially making up less than half of Alphabet\u2019s",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T18:36:19.622773+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "Google Search dropping below 50% of Alphabet's revenue: architectural shift impl",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-29T19:08:34.852553+00:00",
-      "action_type": "quote_tweet",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/ANI/status/2115405724356661566",
-      "content_preview": "Bro we are literally in 2024 and they\u2019re already speedrunning 2027 UP election discourse. Give us a break. #UPElections ",
-      "reason": "Playwright quote-tweet failure",
-      "duration_s": 75.22
-    },
-    {
-      "timestamp": "2026-10-29T19:40:26.515873+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/ANI/status/2115405724356661566",
-      "content_preview": "bro we are barely through 2024 and people are already speedrunning 2027 UP election debates smh",
-      "reason": "",
-      "duration_s": 51.66
-    },
     {
       "timestamp": "2026-10-29T20:25:33.985789+00:00",
       "action_type": "quote_tweet",
@@ -1511,6 +1451,66 @@
     },
     {
       "timestamp": "2026-10-31T18:05:17.716935+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T19:03:00.261825+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "aishwarya rai",
+      "content_preview": "People treating Aishwarya Rai like she's a victim of her own life choices need to touch grass. She knew the deal, played",
+      "reason": "",
+      "duration_s": 84.45
+    },
+    {
+      "timestamp": "2026-10-31T19:03:01.388458+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "The hallucination gap in facial feature retention for fine-tuned open-source diffusion models is wild. Testing edge case",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T19:03:03.907838+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours testing 260+ model configurations for high-end multimodal appl",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T19:03:31.638557+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Can we talk about how Aishwarya Rai has literally not aged a single day since th",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T19:03:55.720594+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "People treating Aishwarya Rai like she's a victim of her own life choices need t",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T19:05:15.252646+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
