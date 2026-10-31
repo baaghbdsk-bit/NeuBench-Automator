@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T16:05:23.569530+00:00",
+    "last_updated": "2026-10-31T17:05:22.438387+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 234,
-    "original_posts_attempted": 36,
-    "original_posts_succeeded": 28,
+    "total_cycles_executed": 240,
+    "original_posts_attempted": 37,
+    "original_posts_succeeded": 29,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 90,
+    "ai_generation_requests": 91,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-28T21:38:09.915361+00:00",
-      "action_type": "reddit_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Daily Reddit cap reached (1/day)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-10-28T22:20:48.827669+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Why is this fingerprinting script creating bioweapons?",
-      "content_preview": "devs will literally write a basic JS tracking snippet and call it \"advanced predictive behavioral biometrics\" just to ju",
-      "reason": "Playwright compose failure",
-      "duration_s": 98.9
-    },
-    {
-      "timestamp": "2026-10-28T22:20:52.155294+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Ever ask an LLM to refactor a browser fingerprinting script and watch it suddenly output gain-of-function protocols? LLM",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-28T22:21:25.632914+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Not me staring at a browser fingerprinting script and watching my LLM suddenly p",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T22:21:44.467123+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "Why is this fingerprinting script creating bioweapons?",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-28T23:11:51.752581+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Budget key points at a glance",
-      "content_preview": "another budget, another masterclass in taxing the people who actually work to fund things that never get built. make it ",
-      "reason": "Playwright compose failure",
-      "duration_s": 67.09
-    },
     {
       "timestamp": "2026-10-28T23:11:55.818637+00:00",
       "action_type": "bluesky_post",
@@ -1511,6 +1451,66 @@
     },
     {
       "timestamp": "2026-10-31T16:05:23.569494+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T17:03:04.565524+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Ukrainian evacuees reunite with family after years trapped in Russia-occupied city",
+      "content_preview": "Human resilience is unreal, but let\u2019s be honest: the fact that people had to boil weeds for years while the rest of the ",
+      "reason": "",
+      "duration_s": 86.69
+    },
+    {
+      "timestamp": "2026-10-31T17:03:05.669796+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Human perseverance beats unimaginable odds: Oleshky families reunited after years of survival mode on weeds and zero gri",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T17:03:08.741576+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours testing recovery pipelines under extreme infrastructure loss u",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T17:03:38.957308+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Just read about Ukrainian evacuees finally reuniting with family after years tra",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T17:04:03.562496+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Human resilience is unreal, but let\u2019s be honest: the fact that people had to boi",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T17:05:22.438353+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
