@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T21:55:34.955666+00:00",
+    "last_updated": "2026-10-31T22:05:15.114839+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 270,
-    "original_posts_attempted": 42,
-    "original_posts_succeeded": 34,
+    "total_cycles_executed": 276,
+    "original_posts_attempted": 43,
+    "original_posts_succeeded": 35,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 96,
+    "ai_generation_requests": 97,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T14:25:54.822504+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/PopBase/status/2116174108040008033",
-      "content_preview": "bro that song is practically squatting in my brain rent-free at this point, how is it only at 178",
-      "reason": "",
-      "duration_s": 64.38
-    },
-    {
-      "timestamp": "2026-10-30T14:59:48.532374+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/narendramodi/status/2116149567267983689",
-      "content_preview": "the ground reality is that our rural women are carrying the entire agricultural economy on their backs while getting zer",
-      "reason": "",
-      "duration_s": 53.69
-    },
-    {
-      "timestamp": "2026-10-30T15:48:00.220116+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "\u0bb5\u0bbf\u0bb0\u0bbe\u0b9f\u0bcd \u0b95\u0bcb\u0bb2\u0bbf",
-      "content_preview": "Hot take: Indian cricket needs to move past the Kohli nostalgia cult if we actually want to win another ICC trophy. The ",
-      "reason": "Playwright compose failure",
-      "duration_s": 71.68
-    },
-    {
-      "timestamp": "2026-10-30T15:48:05.556106+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Fine-tuning multilingual LLMs to parse regional entities like \"\u0bb5\u0bbf\u0bb0\u0bbe\u0b9f\u0bcd \u0b95\u0bcb\u0bb2\u0bbf\" (Virat Kohli) without hallucinating translit",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T15:48:48.310079+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "\u0b95\u0bcd\u0bb0\u0bbf\u0bb8\u0bbf\u0bb2\u0bcd \u0bb5\u0bbf\u0bb0\u0bbe\u0b9f\u0bcd \u0b95\u0bcb\u0bb2\u0bbf \u0baa\u0bc7\u0b9f\u0bcd\u0b9f\u0bc8 \u0ba4\u0bc2\u0b95\u0bcd\u0b95\u0bbf \u0b95\u0bca\u0ba3\u0bcd\u0b9f\u0bbe\u0b9f\u0bbf\u0ba9\u0bbe\u0bb2\u0bc7 \u0ba4\u0ba9\u0bbf \u0bb5\u0bc8\u0baa\u0bcd \u0ba4\u0bbe\u0ba9\u0bcd! \ud83d\udd25 \u0b85\u0bb5\u0bb0\u0bcb\u0b9f \u0b8e\u0ba8\u0bcd\u0ba4 \u0b87\u0ba9\u0bcd\u0ba9",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T15:49:07.684111+00:00",
-      "action_type": "reddit_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "r/test",
-      "content_preview": "Analyzing Virat Kohli's batting metrics and performance consistency using NeuBen",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-30T16:14:28.673809+00:00",
       "action_type": "linkedin_post",
@@ -1511,6 +1451,66 @@
     },
     {
       "timestamp": "2026-10-31T21:55:34.955630+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T22:02:58.537583+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "app state vs ga southern",
+      "content_preview": "Imagine telling someone from outside the US that adults are ready to throw punches over a football game between App Stat",
+      "reason": "",
+      "duration_s": 82.91
+    },
+    {
+      "timestamp": "2026-10-31T22:02:59.909487+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "App State vs GA Southern tonight, but let's be real: the only state I care about is model convergence & streaming infere",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T22:03:02.891834+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing the data and running cross-comparisons on App State ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T22:03:32.617039+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Nothing quite like App State vs Ga Southern rivalry week! \ud83c\udfc8\u2728 Who\u2019s taking this o",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T22:03:56.475250+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Imagine telling someone from outside the US that adults are ready to throw punch",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T22:05:15.114806+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
