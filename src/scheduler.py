@@ -646,13 +646,20 @@ class AutomaterEngine:
 
 
 
-        # Attach visual infographic slide so the post isn't plain dry text
+        # Attach visual infographic slide ONLY if the post topic is explicitly AI/tech-related
         visual_path = None
         try:
-            import glob, random
-            slides = sorted(glob.glob("AI_SERIES/CAROUSELS/*/*.png"))
-            if slides:
-                visual_path = random.choice(slides)
+            from src.series_manager import AISeriesManager
+            series_mgr = AISeriesManager()
+            next_topic = series_mgr.get_next_unpublished_day()
+            current_day = next_topic["day"] if next_topic else 3
+            
+            # Contextual Relevance Guard: Only attach graphic if tweet discusses AI/tech/models
+            ai_keywords = ["ai", "model", "llm", "neural", "benchmark", "learning", "deep learning", "weights", "data science", "algorithm", "gpt", "claude", "gemini"]
+            if any(k in hot_take.lower() for k in ai_keywords):
+                day_slide = Path(f"AI_SERIES/CAROUSELS/DAY_{current_day:03d}/slide_01.png")
+                if day_slide.exists():
+                    visual_path = str(day_slide)
         except Exception:
             pass
 
@@ -753,20 +760,22 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Threads dispatch note: {e}[/dim]")
 
-        # 5. Cross-post to Pinterest Pin (Visual Cover)
+        # 5. Cross-post to Pinterest Pin (Dedicated Day Curriculum Visual)
         try:
             from src.pinterest_automater import PinterestAutomater
-            import glob
+            from src.series_manager import AISeriesManager
             pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
             if pin_automater.is_session_available():
-                slides_found = sorted(glob.glob("AI_SERIES/CAROUSELS/*/*.png"))
-                cover_img = visual_path if visual_path else (slides_found[0] if slides_found else None)
-                if cover_img:
-                    console.print("[bold magenta]📌 Also publishing Visual Pin to Pinterest...[/bold magenta]")
-                    p_desc = f"{hot_take[:490]}\n\nLive benchmarks: https://neubench.netlify.app"
+                p_topic = AISeriesManager().get_next_unpublished_day()
+                p_day = p_topic["day"] if p_topic else 3
+                p_title = p_topic["title"] if p_topic else "How Computers Actually Learn"
+                cover_img = f"AI_SERIES/CAROUSELS/DAY_{p_day:03d}/slide_01.png"
+                if Path(cover_img).exists():
+                    console.print(f"[bold magenta]📌 Publishing Day {p_day:02d} Pin to Pinterest...[/bold magenta]")
+                    p_desc = f"Day {p_day:02d}: {p_title}\n\n90 Days. 90 Concepts. One AI Journey 🎓\n\nLive Benchmarks: https://neubench.netlify.app"
                     p_ok, p_msg = pin_automater.create_pin(
                         image_path=cover_img,
-                        title=f"{selected_trend['title'][:95]}",
+                        title=f"Day {p_day:02d}: {p_title[:80]}",
                         description=p_desc,
                         link="https://neubench.netlify.app"
                     )
