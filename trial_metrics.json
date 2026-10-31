@@ -1,104 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-30T23:01:42.699699+00:00",
+    "last_updated": "2026-10-31T00:07:29.249013+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 165,
-    "original_posts_attempted": 26,
-    "original_posts_succeeded": 18,
+    "total_cycles_executed": 173,
+    "original_posts_attempted": 27,
+    "original_posts_succeeded": 19,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 22,
     "reposts_succeeded": 9,
     "actions_skipped": 13,
     "failed_operations": 21,
-    "ai_generation_requests": 79,
+    "ai_generation_requests": 80,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-22T17:43:30.750380+00:00",
-      "action_type": "quote_tweet",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/ylecun/status/1862598063275061484",
-      "content_preview": "bro is literally just a human RSS feed and acts like he cracked the code",
-      "reason": "",
-      "duration_s": 64.56
-    },
-    {
-      "timestamp": "2026-10-22T18:54:10.524862+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/zomato/status/2110348030662873333",
-      "content_preview": "bro tried to dodge the 10-minute delivery penalty by offering free chai",
-      "reason": "",
-      "duration_s": 98.86
-    },
-    {
-      "timestamp": "2026-10-22T20:03:46.213718+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/ANI/status/2113261591239983530",
-      "content_preview": "Bro nobody is watching a podcast on CIA history at this hour, we are all just trying to survive Bengaluru traffic",
-      "reason": "",
-      "duration_s": 95.1
-    },
-    {
-      "timestamp": "2026-10-22T23:21:58.444835+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/sama/status/2112652656602923366",
-      "content_preview": "bro hired a firefighter while pouring gasoline on the living room rug",
-      "reason": "",
-      "duration_s": 102.87
-    },
-    {
-      "timestamp": "2026-10-23T00:10:02.608926+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/thetanmay/status/777804085772771328",
-      "content_preview": "Bro we\u2019ve been trying to imagine you going to the gym for years and it still doesn't help",
-      "reason": "",
-      "duration_s": 64.11
-    },
-    {
-      "timestamp": "2026-10-27T19:23:08.003070+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Ghostty 1.4.0",
-      "content_preview": "ghostty is just alacritty for people who spend more time configuring dots than writing code",
-      "reason": "",
-      "duration_s": 9.21
-    },
-    {
-      "timestamp": "2026-10-27T19:23:09.496292+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Ghostty 1.4.0 dropped. Clean rendering, fast startup, and native performance that makes terminal work actually enjoyable",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-27T19:23:40.482646+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (AT Protocol)",
-      "content_preview": "Local test bluesky post from dashboard API",
-      "reason": "",
-      "duration_s": 2.51
-    },
     {
       "timestamp": "2026-10-27T19:24:49.636382+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1438,86 @@
       "content_preview": "",
       "reason": "Total daily limit reached (29/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-10-31T00:03:18.325440+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Infinite Mac: BeOS",
+      "content_preview": "beos was miles ahead of its time and modern operating systems are just now slowly reinventing it while making everything",
+      "reason": "",
+      "duration_s": 91.66
+    },
+    {
+      "timestamp": "2026-10-31T00:03:19.991684+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Booting BeOS R5 entirely in the browser via Infinite Mac is pure pre-emptive multitasking wizardry. Remembering why the ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-10-31T00:03:23.531161+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running classic OS emulation and retro-benchmarking through In",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T00:03:53.593736+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Just discovered Infinite Mac now runs BeOS right in the browser, and the nostalg",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T00:04:17.680065+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "beos was miles ahead of its time and modern operating systems are just now slowl",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-10-31T00:05:44.865712+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Carousel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-10-31T00:07:26.278636+00:00",
+      "action_type": "instagram_reel",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Instagram Reel Day 3",
+      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "reason": "",
+      "duration_s": 25.0
+    },
+    {
+      "timestamp": "2026-10-31T00:07:29.248980+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
