@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T05:01:34.782036+00:00",
+    "last_updated": "2026-11-01T06:04:09.201728+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 304,
-    "original_posts_attempted": 48,
-    "original_posts_succeeded": 40,
+    "total_cycles_executed": 309,
+    "original_posts_attempted": 49,
+    "original_posts_succeeded": 41,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 105,
+    "ai_generation_requests": 106,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T20:03:14.201140+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Interesting shift in the Central European AI landscape: Poland\u2019s open-weights research is quietly accelerating, with tea",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T20:03:17.230111+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours benchmarking Poland's top localized LLM workloads and region-s",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T20:03:49.532181+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Okay, I need to know why Poland isn't on everyone's bucket list yet?! \ud83e\udd5f\ud83c\udff0 \n\nThe a",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T20:04:14.902168+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "poland is lowkey becoming the tech and defense powerhouse of europe while wester",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T20:05:42.007497+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 20.0
-    },
     {
       "timestamp": "2026-10-30T20:07:24.238675+00:00",
       "action_type": "instagram_reel",
@@ -1518,6 +1468,56 @@
       "content_preview": "Stop guessing if the frontier API is actually down or if it's just your prompt. NeuBench now tracks real-time endpoint r",
       "reason": "",
       "duration_s": 3.64
+    },
+    {
+      "timestamp": "2026-11-01T06:03:01.780935+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
+      "content_preview": "people out here acting like a 3% accuracy drop on quantized FP8 matters for your glorified python script that just write",
+      "reason": "",
+      "duration_s": 86.34
+    },
+    {
+      "timestamp": "2026-11-01T06:03:03.082564+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "FP8 quantization vs dense weights for coding agents: does the accuracy drop on complex AST manipulation outweigh the inf",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T06:03:06.549364+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running autonomous coding agents against 260+ models using Neu",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T06:03:45.323987+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Curious how you're balancing speed vs accuracy for local coding agents. Are you ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T06:04:09.201695+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "people out here acting like a 3% accuracy drop on quantized FP8 matters for your",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
