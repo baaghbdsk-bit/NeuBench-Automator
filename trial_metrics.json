@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T11:03:57.720459+00:00",
+    "last_updated": "2026-11-01T12:01:49.283569+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 337,
+    "total_cycles_executed": 338,
     "original_posts_attempted": 55,
     "original_posts_succeeded": 47,
     "replies_attempted": 25,
@@ -13,22 +13,12 @@
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
-    "failed_operations": 21,
+    "failed_operations": 22,
     "ai_generation_requests": 112,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T02:07:09.466960+00:00",
-      "action_type": "instagram_reel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Reel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 25.0
-    },
     {
       "timestamp": "2026-10-31T03:03:17.762097+00:00",
       "action_type": "original_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Democrats genuinely think a new face will magically change the math in Texas whi",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T12:01:49.283512+00:00",
+      "action_type": "youtube",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "YouTube API upload error",
+      "duration_s": 10.46
     }
   ]
 }
