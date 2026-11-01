@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T08:03:59.398607+00:00",
+    "last_updated": "2026-11-01T09:04:05.719361+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 324,
-    "original_posts_attempted": 52,
-    "original_posts_succeeded": 44,
+    "total_cycles_executed": 329,
+    "original_posts_attempted": 53,
+    "original_posts_succeeded": 45,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 109,
+    "ai_generation_requests": 110,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T01:03:04.543196+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Curious what architecture will take Worlds 2026? Scaling laws are shifting toward inference-time compute and efficient a",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-31T01:03:07.376120+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours stress-testing the architecture limits for \ud835\uddea\ud835\uddfc\ud835\uddff\ud835\uddf9\ud835\uddf1\ud835\ude00 \ud835\udfee\ud835\udfec\ud835\udfee\ud835\udff2 using t",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T01:03:31.659290+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Is anyone else already thinking about Worlds 2026? \ud83d\uddfa\ufe0f\u2728 \n\nDrop your boldest predi",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T01:03:54.837339+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Hot take: half the people screaming about worlds 2026 haven't shipped a single l",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T01:05:20.952677+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 20.0
-    },
     {
       "timestamp": "2026-10-31T01:07:01.911367+00:00",
       "action_type": "instagram_reel",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "Imagine paying a stupid tax every week just to fund a retirement plan that relie",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T09:03:01.545723+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "rockstar games gta vi",
+      "content_preview": "GTA VI is going to cost $100+ and people will still line up like brainwashed sheep just to drive digital cars at 30fps. ",
+      "reason": "",
+      "duration_s": 81.06
+    },
+    {
+      "timestamp": "2026-11-01T09:03:02.913383+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Curious what systems-level architecture Rockstar is using to handle GTA VI's rumored AI-driven NPC memory and dynamic be",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T09:03:05.754192+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours stress-testing massive open-world rendering pipelines against ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T09:03:41.486670+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Still can't get over how wild GTA VI is gonna be when it finally drops. Are you ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T09:04:05.719328+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "GTA VI is going to cost $100+ and people will still line up like brainwashed she",
       "reason": "",
       "duration_s": 15.0
     }
