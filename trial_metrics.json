@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T13:58:58.007232+00:00",
+    "last_updated": "2026-11-01T14:01:35.893476+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 346,
+    "total_cycles_executed": 347,
     "original_posts_attempted": 57,
     "original_posts_succeeded": 49,
     "replies_attempted": 25,
@@ -13,22 +13,12 @@
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
-    "failed_operations": 22,
+    "failed_operations": 23,
     "ai_generation_requests": 114,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T07:29:52.930532+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-10-31T08:01:40.198142+00:00",
       "action_type": "repost",
@@ -1518,6 +1508,16 @@
       "content_preview": "people still pretend Scottish football is competitive when it\u2019s just a two-horse",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T14:01:35.893447+00:00",
+      "action_type": "youtube",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "YouTube API upload error",
+      "duration_s": 0.65
     }
   ]
 }
