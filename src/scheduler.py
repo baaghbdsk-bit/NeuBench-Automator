@@ -1281,11 +1281,12 @@ class AutomaterEngine:
                         console.print(f"[bold green]🎯 Algorithmic Selection: '{action_key}' for {win['name']}[/bold green]")
                         return action_key
 
-        # Outside peak windows: interleave sniper replies and high-signal LinkedIn peer comments
-        console.print("[dim]Outside peak broadcast windows: Running active sniper engagement...[/dim]")
+        # Outside peak windows: Opportunity-Driven Viral Engagement (Sniper replies on X + Viral LinkedIn discussions)
+        console.print("[dim]Outside peak broadcast windows: Scanning for active viral discussions on LinkedIn & X...[/dim]")
         can_li_peer, _ = self.safety.can_perform_action("linkedin-peers", today_counts)
         can_reply, _ = self.safety.can_perform_action("reply", today_counts)
-        if can_li_peer and today_counts.get("linkedin_peer_comments", 0) < today_counts.get("replies", 0) // 2:
+        # Balance viral peer comments on LinkedIn alongside X sniper replies
+        if can_li_peer and (today_counts.get("linkedin_peer_comments", 0) <= today_counts.get("replies", 0)):
             return "linkedin-peers"
         if can_reply:
             return "reply"
