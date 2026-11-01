@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T16:03:23.606409+00:00",
+    "last_updated": "2026-11-01T17:08:57.515959+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 353,
-    "original_posts_attempted": 58,
-    "original_posts_succeeded": 50,
+    "total_cycles_executed": 358,
+    "original_posts_attempted": 59,
+    "original_posts_succeeded": 51,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 23,
     "failed_operations": 23,
-    "ai_generation_requests": 115,
+    "ai_generation_requests": 116,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T12:13:21.788648+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Anyone else planning to fine-tune a model to predict optimal pacing strategies for the 2026 NYC Marathon? Time-series fo",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-31T12:13:25.863590+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing peak endurance architectures and peak predictive loads",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T12:13:56.112683+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Is anyone already starting to think about the 2026 NYC Marathon? \ud83d\uddfd\ud83c\udfc3\u200d\u2642\ufe0f \n\nWhether",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T12:14:20.413412+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Paying thousands of dollars to sweat through the boroughs just so finance bros c",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T13:02:50.588152+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "marco palestra",
-      "content_preview": "bro really thought he could just copy-paste some generic motivation and charge people thousands for it. the online coach",
-      "reason": "",
-      "duration_s": 78.28
-    },
     {
       "timestamp": "2026-10-31T13:02:52.185013+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1468,56 @@
       "content_preview": "Engaged with 0 peer posts on LinkedIn.",
       "reason": "",
       "duration_s": 108.69
+    },
+    {
+      "timestamp": "2026-11-01T17:04:47.635466+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Here\u2019s what \u2018renoa\u2019 \u2014 the first new fiber in 25 years \u2014 feels like",
+      "content_preview": "So a startup spent millions inventing the \"first new fiber in 25 years\" just to admit it feels exactly like the stuff we",
+      "reason": "",
+      "duration_s": 187.48
+    },
+    {
+      "timestamp": "2026-11-01T17:05:59.708759+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "First new fiber in 25 years just dropped: \"renoa\" from Everbloom. Feels oddly familiar despite the novelty. Material sci",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T17:07:14.254228+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Everbloom just dropped \u2018renoa\u2019\u2014literally the first new fiber in 25 years. Wild r",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T17:07:37.867042+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "So a startup spent millions inventing the \"first new fiber in 25 years\" just to ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T17:08:57.515920+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
