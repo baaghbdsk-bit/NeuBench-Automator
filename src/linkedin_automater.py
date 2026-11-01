@@ -111,26 +111,61 @@ class LinkedInAutomater:
             print("[LinkedInAutomater] 🚀 Publishing via Official LinkedIn REST API...")
             try:
                 import requests
-                post_url = "https://api.linkedin.com/v2/ugcPosts"
-                post_payload = {
-                    "author": person_urn,
-                    "lifecycleState": "PUBLISHED",
-                    "specificContent": {
-                        "com.linkedin.ugc.ShareContent": {
-                            "shareCommentary": {
-                                "text": text
-                            },
-                            "shareMediaCategory": "NONE"
-                        }
-                    },
-                    "visibility": {
-                        "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
-                    }
-                }
                 headers = {
                     "Authorization": f"Bearer {access_token}",
                     "X-Restli-Protocol-Version": "2.0.0",
                     "Content-Type": "application/json"
+                }
+
+                # Check if we should attach a visual animation or image
+                asset_urn = None
+                media_category = "NONE"
+                media_items = []
+
+                if image_path and os.path.exists(image_path):
+                    is_video = image_path.lower().endswith((".mp4", ".mov"))
+                    recipe = "urn:li:digitalmediaRecipe:feedshare-video" if is_video else "urn:li:digitalmediaRecipe:feedshare-image"
+                    reg_url = "https://api.linkedin.com/v2/assets?action=registerUpload"
+                    reg_payload = {
+                        "registerUploadRequest": {
+                            "recipes": [recipe],
+                            "owner": person_urn,
+                            "serviceRelationships": [{"relationshipType": "OWNER", "identifier": "urn:li:userGeneratedContent"}]
+                        }
+                    }
+                    reg_res = requests.post(reg_url, headers=headers, json=reg_payload, timeout=15)
+                    if reg_res.status_code in (200, 201):
+                        upload_url = reg_res.json()['value']['uploadMechanism']['com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest']['uploadUrl']
+                        asset_urn = reg_res.json()['value']['asset']
+                        with open(image_path, "rb") as mf:
+                            mbytes = mf.read()
+                        up_mime = "video/mp4" if is_video else ("image/gif" if image_path.endswith(".gif") else "image/png")
+                        requests.put(upload_url, headers={"Authorization": f"Bearer {access_token}", "Content-Type": up_mime}, data=mbytes, timeout=30)
+                        media_category = "VIDEO" if is_video else "IMAGE"
+                        media_items = [{
+                            "status": "READY",
+                            "description": {"text": "NeuBench Technical Architecture & Continuous LLM Benchmarking Visualizer"},
+                            "media": asset_urn,
+                            "title": {"text": "NeuBench Architecture Breakdown"}
+                        }]
+
+                post_url = "https://api.linkedin.com/v2/ugcPosts"
+                share_content = {
+                    "shareCommentary": {"text": text},
+                    "shareMediaCategory": media_category
+                }
+                if media_items:
+                    share_content["media"] = media_items
+
+                post_payload = {
+                    "author": person_urn,
+                    "lifecycleState": "PUBLISHED",
+                    "specificContent": {
+                        "com.linkedin.ugc.ShareContent": share_content
+                    },
+                    "visibility": {
+                        "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
+                    }
                 }
                 resp = requests.post(post_url, json=post_payload, headers=headers, timeout=20)
                 if resp.status_code in [200, 201]:

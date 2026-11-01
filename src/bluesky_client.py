@@ -71,8 +71,32 @@ class BlueskyClient:
         except Exception as e:
             return False, f"Bluesky network error: {e}"
 
-    def post(self, text: str) -> Tuple[bool, str]:
-        """Publishes a text post to Bluesky AT Protocol with automatic clickable URL facets."""
+    def upload_blob(self, file_path: str, mime_type: str = "image/png") -> Optional[Dict[str, Any]]:
+        """Uploads a media blob (image/GIF/video) to Bluesky XRPC endpoint."""
+        if not self.session:
+            ok, _ = self.login()
+            if not ok:
+                return None
+        url = "https://bsky.social/xrpc/com.atproto.repo.uploadBlob"
+        headers = {
+            "Authorization": f"Bearer {self.session['accessJwt']}",
+            "Content-Type": mime_type
+        }
+        try:
+            with open(file_path, "rb") as f:
+                data = f.read()
+            res = requests.post(url, data=data, headers=headers, timeout=25)
+            if res.status_code == 200:
+                return res.json().get("blob")
+            else:
+                print(f"[BlueskyClient] Blob upload failed ({res.status_code}): {res.text}")
+                return None
+        except Exception as e:
+            print(f"[BlueskyClient] Blob upload error: {e}")
+            return None
+
+    def post(self, text: str, media_path: Optional[str] = None) -> Tuple[bool, str]:
+        """Publishes a post to Bluesky AT Protocol with optional media embed and automatic URL facets."""
         if self.dry_run:
             return True, f"[DRY RUN] Bluesky post simulated: {text[:60]}..."
 
@@ -97,6 +121,21 @@ class BlueskyClient:
         facets = detect_facets(text)
         if facets:
             record["facets"] = facets
+
+        # Attach image/GIF if provided
+        if media_path and os.path.exists(media_path):
+            mime = "image/gif" if media_path.endswith(".gif") else "image/png"
+            blob = self.upload_blob(media_path, mime_type=mime)
+            if blob:
+                record["embed"] = {
+                    "$type": "app.bsky.embed.images",
+                    "images": [
+                        {
+                            "alt": "NeuBench Technical Architecture and Benchmark Visualizer",
+                            "image": blob
+                        }
+                    ]
+                }
 
         payload = {
             "repo": self.session["did"],

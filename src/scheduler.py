@@ -682,7 +682,16 @@ class AutomaterEngine:
         else:
             console.print("[yellow]⚠️ 𝕏 post could not be published. Continuing with remaining platforms...[/yellow]")
 
-        # 2. Cross-post to Bluesky (Independent)
+        # Generate Autonomous Visual Animation (MP4 & GIF) for maximum dwell-time engagement
+        gif_visual, mp4_visual = None, None
+        try:
+            from src.autonomous_visual_engine import generate_visual_for_post
+            gif_visual, mp4_visual = generate_visual_for_post(selected_trend["title"])
+            console.print(f"[bold magenta]🎬 Generated visual animations: {gif_visual} & {mp4_visual}[/bold magenta]")
+        except Exception as e:
+            console.print(f"[dim]Visual engine note: {e}[/dim]")
+
+        # 2. Cross-post to Bluesky (Independent, attaching GIF loop)
         if config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD:
             try:
                 from src.bluesky_client import BlueskyClient
@@ -695,9 +704,9 @@ class AutomaterEngine:
                     selected_trend["title"],
                     selected_trend.get("summary", "")
                 )
-                bsky_ok, bsky_msg = bsky_client.post(bsky_take)
+                bsky_ok, bsky_msg = bsky_client.post(bsky_take, media_path=gif_visual)
                 if bsky_ok:
-                    console.print("[bold cyan]🦋 Also published to Bluesky (@neubench.bsky.social)![/bold cyan]")
+                    console.print("[bold cyan]🦋 Also published to Bluesky (@neubench.bsky.social) with animation![/bold cyan]")
                     self.tracker.record_event(
                         action_type="bluesky_post",
                         status="success",
@@ -711,7 +720,7 @@ class AutomaterEngine:
             except Exception as e:
                 console.print(f"[dim]Bluesky dispatch note: {e}[/dim]")
 
-        # 3. Cross-post to LinkedIn (Strictly capped at 2-3 posts/day)
+        # 3. Cross-post to LinkedIn (Strictly capped at 2-3 posts/day, attaching MP4/GIF loop)
         try:
             can_li, li_reason = self.safety.can_perform_action("linkedin_post", today_counts)
             if can_li:
@@ -723,7 +732,8 @@ class AutomaterEngine:
                         selected_trend.get("summary", ""),
                         company=selected_trend.get("company", "NeuBench")
                     )
-                    li_ok, li_msg = li_automater.post(li_take)
+                    li_visual = mp4_visual or gif_visual
+                    li_ok, li_msg = li_automater.post(li_take, image_path=li_visual)
                     if li_ok:
                         console.print("[bold blue]💼 Also published to LinkedIn![/bold blue]")
                         self.tracker.record_event(
