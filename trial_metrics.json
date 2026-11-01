@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T14:01:35.893476+00:00",
+    "last_updated": "2026-11-01T15:05:18.789415+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 347,
-    "original_posts_attempted": 57,
-    "original_posts_succeeded": 49,
+    "total_cycles_executed": 352,
+    "original_posts_attempted": 58,
+    "original_posts_succeeded": 50,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 23,
-    "ai_generation_requests": 114,
+    "ai_generation_requests": 115,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T08:01:40.198142+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-31T09:01:34.913100+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-31T10:01:37.303441+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-31T11:01:34.310154+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-31T12:01:37.892846+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-10-31T12:13:20.370646+00:00",
       "action_type": "original_post",
@@ -1518,6 +1468,56 @@
       "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
       "reason": "YouTube API upload error",
       "duration_s": 0.65
+    },
+    {
+      "timestamp": "2026-11-01T15:03:00.839036+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "\u091d\u093f\u092e\u094d\u092c\u093e\u092c\u094d\u0935\u0947 \u0935\u093f \u0905\u092b\u0917\u093e\u0923\u093f\u0938\u094d\u0924\u093e\u0928",
+      "content_preview": "bro honestly nobody outside of diehard cricket nerds is watching Zimbabwe vs Afghanistan and pretending otherwise is pur",
+      "reason": "",
+      "duration_s": 88.3
+    },
+    {
+      "timestamp": "2026-11-01T15:03:06.109229+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "\u091d\u093f\u092e\u094d\u092c\u093e\u092c\u094d\u0935\u0947 \u0935\u093f \u0905\u092b\u0917\u093e\u0923\u093f\u0938\u094d\u0924\u093e\u0928 match analytics running hot today. Anyone parsing live telemetry or feeding score streams into",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T15:03:36.623737+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "\u091d\u093f\u092e\u094d\u092c\u093e\u092c\u094d\u0935\u0947 \u0906\u0923\u093f \u0905\u092b\u0917\u093e\u0923\u093f\u0938\u094d\u0924\u093e\u0928\u091a\u093e \u0938\u093e\u092e\u0928\u093e \u092e\u094d\u0939\u0923\u091c\u0947 \u0928\u0947\u0939\u092e\u0940\u091a \u0915\u093e\u0939\u0940\u0924\u0930\u0940 \u0930\u094b\u092e\u0939\u0930\u094d\u0937\u0915! \u0906\u091c\u091a\u094d\u092f\u093e \u092e\u0945\u091a\u092e\u0927\u094d",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T15:03:59.933542+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "bro honestly nobody outside of diehard cricket nerds is watching Zimbabwe vs Afg",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T15:05:18.789378+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
