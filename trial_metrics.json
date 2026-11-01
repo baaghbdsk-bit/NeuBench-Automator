@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T22:28:56.925597+00:00",
+    "last_updated": "2026-11-01T23:03:26.163577+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 373,
+    "total_cycles_executed": 374,
     "original_posts_attempted": 61,
     "original_posts_succeeded": 53,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 27,
+    "actions_skipped": 28,
     "failed_operations": 23,
     "ai_generation_requests": 119,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T15:03:11.230778+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Took two phones on vacation expecting to hate the dual setup. The Duo format actually won me over\u2014frustrating at times, ",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-31T15:03:13.914452+00:00",
       "action_type": "linkedin_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Engaged with 0 peer posts on LinkedIn.",
       "reason": "",
       "duration_s": 102.92
+    },
+    {
+      "timestamp": "2026-11-01T23:03:26.163541+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 peer posts on LinkedIn.",
+      "reason": "",
+      "duration_s": 102.45
     }
   ]
 }
