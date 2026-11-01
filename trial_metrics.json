@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T07:03:36.401649+00:00",
+    "last_updated": "2026-11-01T08:03:59.398607+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 319,
-    "original_posts_attempted": 51,
-    "original_posts_succeeded": 43,
+    "total_cycles_executed": 324,
+    "original_posts_attempted": 52,
+    "original_posts_succeeded": 44,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 108,
+    "ai_generation_requests": 109,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T00:04:17.680065+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "beos was miles ahead of its time and modern operating systems are just now slowl",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T00:05:44.865712+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 20.0
-    },
-    {
-      "timestamp": "2026-10-31T00:07:26.278636+00:00",
-      "action_type": "instagram_reel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Reel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 25.0
-    },
-    {
-      "timestamp": "2026-10-31T00:07:29.248980+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T01:03:03.164666+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "worlds 2026",
-      "content_preview": "Hot take: half the people screaming about worlds 2026 haven't shipped a single line of production code in their lives. Y",
-      "reason": "",
-      "duration_s": 86.26
-    },
     {
       "timestamp": "2026-10-31T01:03:04.543196+00:00",
       "action_type": "bluesky_post",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "Imagine living in Brooklyn, complaining about rent and subway delays, and then h",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T08:03:02.306664+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "powerball winning numbers",
+      "content_preview": "Imagine paying a stupid tax every week just to fund a retirement plan that relies on guessing magic numbers while the od",
+      "reason": "",
+      "duration_s": 87.3
+    },
+    {
+      "timestamp": "2026-11-01T08:03:03.821687+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Can we fine-tune a model to predict the Powerball winning numbers, or is pseudorandom number generation still undefeated",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T08:03:06.564592+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours testing high-throughput inference and distributed random-sampl",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T08:03:35.117976+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Checking those powerball numbers tonight like I actually have a shot at winning ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T08:03:59.398575+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Imagine paying a stupid tax every week just to fund a retirement plan that relie",
       "reason": "",
       "duration_s": 15.0
     }
