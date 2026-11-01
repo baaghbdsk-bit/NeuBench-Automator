@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T04:01:43.272717+00:00",
+    "last_updated": "2026-11-01T05:01:34.782036+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 303,
+    "total_cycles_executed": 304,
     "original_posts_attempted": 48,
     "original_posts_succeeded": 40,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 104,
+    "ai_generation_requests": 105,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T20:03:12.320524+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "poland",
-      "content_preview": "poland is lowkey becoming the tech and defense powerhouse of europe while western europe is just arguing on twitter abou",
-      "reason": "",
-      "duration_s": 91.29
-    },
     {
       "timestamp": "2026-10-30T20:03:14.201140+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Looking into the Altoids Project. Interesting approaches to compact model routing and quantization trade-offs. Worth ana",
       "reason": "",
       "duration_s": 3.15
+    },
+    {
+      "timestamp": "2026-11-01T05:01:34.781903+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM API Outage Frequency & Degradation Index",
+      "content_preview": "Stop guessing if the frontier API is actually down or if it's just your prompt. NeuBench now tracks real-time endpoint r",
+      "reason": "",
+      "duration_s": 3.64
     }
   ]
 }
