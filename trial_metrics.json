@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T20:03:21.458156+00:00",
+    "last_updated": "2026-11-01T21:03:24.499666+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 370,
+    "total_cycles_executed": 371,
     "original_posts_attempted": 61,
     "original_posts_succeeded": 53,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 24,
+    "actions_skipped": 25,
     "failed_operations": 23,
     "ai_generation_requests": 119,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T14:03:45.482355+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "There\u2019s nothing quite like the stress of jury duty. Walking into that courtroom ",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T14:04:09.434741+00:00",
       "action_type": "pinterest_pin",
@@ -1518,6 +1508,16 @@
       "content_preview": "Engaged with 0 peer posts on LinkedIn.",
       "reason": "",
       "duration_s": 102.77
+    },
+    {
+      "timestamp": "2026-11-01T21:03:24.499630+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 peer posts on LinkedIn.",
+      "reason": "",
+      "duration_s": 101.75
     }
   ]
 }
