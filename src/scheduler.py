@@ -244,6 +244,16 @@ class AutomaterEngine:
 
 
 
+        # Always check and reply to incoming LinkedIn comments on our posts before main action
+        try:
+            if os.getenv("LINKEDIN_ENABLED", "true").lower() in ("true", "1"):
+                from src.linkedin_automater import LinkedInAutomater
+                li_checker = LinkedInAutomater(headless=True, dry_run=self.safety.dry_run)
+                if li_checker.is_session_available():
+                    li_checker.reply_to_own_post_comments(max_replies=3)
+        except Exception as _e:
+            console.print(f"[dim]LinkedIn comment auto-check notice: {_e}[/dim]")
+
         # 5. Dispatch chosen action
         if action_choice == "reply":
             ok = self._execute_sniper_reply(start_time)
