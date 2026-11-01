@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T15:05:18.789415+00:00",
+    "last_updated": "2026-11-01T16:03:23.606409+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 352,
+    "total_cycles_executed": 353,
     "original_posts_attempted": 58,
     "original_posts_succeeded": 50,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
-    "actions_skipped": 22,
+    "actions_skipped": 23,
     "failed_operations": 23,
     "ai_generation_requests": 115,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T12:13:20.370646+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "new york marathon 2026",
-      "content_preview": "Paying thousands of dollars to sweat through the boroughs just so finance bros can flex their Garmin stats on LinkedIn i",
-      "reason": "",
-      "duration_s": 38.89
-    },
     {
       "timestamp": "2026-10-31T12:13:21.788648+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T16:03:23.606372+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 peer posts on LinkedIn.",
+      "reason": "",
+      "duration_s": 108.69
     }
   ]
 }
