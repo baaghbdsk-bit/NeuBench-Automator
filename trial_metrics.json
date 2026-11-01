@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T10:06:42.980449+00:00",
+    "last_updated": "2026-11-01T11:03:57.720459+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 333,
-    "original_posts_attempted": 54,
-    "original_posts_succeeded": 46,
+    "total_cycles_executed": 337,
+    "original_posts_attempted": 55,
+    "original_posts_succeeded": 47,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 111,
+    "ai_generation_requests": 112,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T02:03:08.381612+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing Samsung's hardware capabilities alongside NeuBench acr",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T02:03:38.447625+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "\u0938\u0948\u092e\u0938\u0902\u0917 \u0915\u093e \u0915\u094c\u0928 \u0938\u093e \u092b\u094b\u0928 \u0907\u0938 \u0938\u092e\u092f \u0906\u092a\u0915\u093e \u092b\u0947\u0935\u0930\u0947\u091f \u0939\u0948? \ud83e\udd14 \n\n\u092a\u0941\u0930\u093e\u0928\u0947 \u092e\u0949\u0921\u0932\u094d\u0938 \u0938\u0947 \u0932\u0947\u0915\u0930 \u0932\u0947\u091f\u0947\u0938\u094d\u091f S ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T02:04:01.978366+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Samsung still making you sit through unskippable ads on a phone you paid a lakh ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T02:05:28.534773+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 20.0
-    },
     {
       "timestamp": "2026-10-31T02:07:09.466960+00:00",
       "action_type": "instagram_reel",
@@ -1516,6 +1476,46 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "academic institutions will lock down their labs and NDA you to death, but a rese",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T11:03:02.765509+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Democrats are used to heartbreak in Texas - could Talarico turn the tide?",
+      "content_preview": "Democrats genuinely think a new face will magically change the math in Texas while ignoring why working-class voters kee",
+      "reason": "",
+      "duration_s": 88.81
+    },
+    {
+      "timestamp": "2026-11-01T11:03:04.645521+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Political data pipelines in Texas are getting stress-tested. Whether you're modeling voter turnout or weight matrices, s",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T11:03:33.790177+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Texans and heartbreak go way back when it comes to elections. But could James Ta",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T11:03:57.720425+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Democrats genuinely think a new face will magically change the math in Texas whi",
       "reason": "",
       "duration_s": 15.0
     }
