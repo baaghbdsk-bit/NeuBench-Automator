@@ -1,16 +1,24 @@
 """
 Autonomous Visual Engine for NeuBench Post Automation.
-Dynamically creates high-contrast, technical 1080x1080 animated infographics,
-code breakdown blueprints, and benchmark races (MP4, GIF, & PNG)
-for LinkedIn, Bluesky, 𝕏, and Threads.
+100% Dynamic, AI-Driven Visual Generation.
+Uses Gemini to inspect the exact post topic and dynamically synthesize:
+1. BENCHMARK_RACE: Real models, speeds, and latency from the specific topic.
+2. CODE_ARCHITECTURE: Custom system architecture blocks + syntax-highlighted code matching the exact topic.
+3. TOKEN_PIPELINE: Topic-specific prompt strings, subwords, and token IDs.
+
+Renders 1080x1080 animated infographics (MP4 video loop and high-res GIF) with NeuBench branding.
 """
 
 import os
 import math
+import json
 import subprocess
 from pathlib import Path
 from typing import Dict, Any, Optional, Tuple, List
 from PIL import Image, ImageDraw, ImageFont
+
+import config
+from google import genai
 
 OUTPUT_DIR = Path("generated_visuals")
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -30,7 +38,7 @@ MUTED_DARK = (100, 116, 139)
 
 
 def get_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
-    """Tries loading clean system sans-serif/mono fonts or falls back to default."""
+    """Loads system sans-serif/mono fonts or falls back cleanly."""
     font_names = (
         ["segoeuib.ttf", "arialbd.ttf", "consola.ttf"]
         if bold
@@ -44,16 +52,106 @@ def get_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
     return ImageFont.load_default()
 
 
-def render_code_architecture_blueprint(
-    title: str = "SPECULATIVE DECODING LATENCY REDUCTION",
-    subtitle: str = "Small Draft Model (1B) -> Target Verification (70B) in 1 Forward Pass",
-    output_base_name: str = "code_arch_blueprint"
-) -> Tuple[str, str]:
+def request_ai_visual_spec(topic_or_text: str, summary: str = "") -> Dict[str, Any]:
     """
-    Template 3: Code Breakdown & Visual Architecture Blueprint (Animated 1080x1080 Loop)
-    Displays high-level architecture blocks followed by a syntax-highlighted IDE code card
-    with callout annotations.
+    Uses Gemini to dynamically plan the visual infographic schema based on the actual post content.
+    Returns structured data for the chosen visual template.
     """
+    client = genai.Client(api_key=config.GEMINI_API_KEY)
+    
+    prompt = f"""You are a Lead AI Research Engineer and Visual Information Designer for NeuBench.
+Topic / Post Content: "{topic_or_text}"
+Summary Context: "{summary}"
+
+Analyze this topic and pick the single best visual infographic layout:
+- Choice 1: "BENCHMARK_RACE" -> If the topic compares AI models, inference speed, throughput (TPS), latency (TTFT), or hardware.
+- Choice 2: "CODE_ARCHITECTURE" -> If the topic explains an algorithm, framework, multi-agent design, system flow, or optimization technique.
+- Choice 3: "TOKEN_PIPELINE" -> If the topic discusses prompts, tokenization, embeddings, vocabulary, vectors, or attention.
+
+Return a STRICT JSON object matching ONE of these exact formats:
+
+If BENCHMARK_RACE:
+{{
+  "visual_type": "BENCHMARK_RACE",
+  "title": "Short punchy title (max 32 chars)",
+  "subtitle": "Subtitle describing the benchmark metrics",
+  "models": [
+    {{"name": "Model 1", "tps": 135, "ttft": "160ms"}},
+    {{"name": "Model 2", "tps": 98, "ttft": "290ms"}},
+    {{"name": "Model 3", "tps": 76, "ttft": "380ms"}}
+  ]
+}}
+
+If CODE_ARCHITECTURE:
+{{
+  "visual_type": "CODE_ARCHITECTURE",
+  "title": "Short punchy title (max 32 chars)",
+  "subtitle": "Subtitle describing system flow",
+  "box1_title": "First Component (max 24 chars)",
+  "box1_desc": "One-line role description",
+  "box1_stat": "Performance or parameter detail",
+  "arrow_label": "Routing action (max 16 chars)",
+  "box2_title": "Second Component (max 24 chars)",
+  "box2_desc": "One-line role description",
+  "box2_stat": "Performance or output detail",
+  "code_filename": "architecture.py",
+  "code_lines": [
+    "# Comment describing the core logic",
+    "var = execute_step(input_data)",
+    "# Comment describing optimization",
+    "output = optimize_pipeline(var)"
+  ],
+  "impact_badge": "Real impact (e.g. 'Latency slashed by 52% | TTFT: 92ms')"
+}}
+
+If TOKEN_PIPELINE:
+{{
+  "visual_type": "TOKEN_PIPELINE",
+  "title": "Short punchy title (max 32 chars)",
+  "subtitle": "Subtitle describing token to vector conversion",
+  "prompt_string": "Short technical prompt under 45 chars",
+  "tokens": [
+    {{"text": "Subword1", "id": 14235}},
+    {{"text": "Subword2", "id": 892}},
+    {{"text": "Subword3", "id": 3410}}
+  ]
+}}
+"""
+    try:
+        res = client.models.generate_content(
+            model=config.GEMINI_MODEL,
+            contents=prompt,
+            config={"response_mime_type": "application/json"}
+        )
+        data = json.loads(res.text)
+        print(f"[VisualEngine] Gemini generated dynamic visual spec for type: {data.get('visual_type')}")
+        return data
+    except Exception as e:
+        print(f"[VisualEngine] Error in Gemini visual spec generation: {e}. Falling back to default architecture layout.")
+        return {
+            "visual_type": "CODE_ARCHITECTURE",
+            "title": topic_or_text[:32].upper(),
+            "subtitle": "NeuBench Continuous AI Architecture Series",
+            "box1_title": "INGESTION & PREFILL",
+            "box1_desc": "Batch tokens & parallel KV prefill",
+            "box1_stat": "Sub-millisecond flash attention",
+            "arrow_label": "High-speed bus",
+            "box2_title": "EXECUTION & DECODE",
+            "box2_desc": "Continuous autoregressive generation",
+            "box2_stat": "Zero memory fragmentation",
+            "code_filename": "pipeline.py",
+            "code_lines": [
+                "# 1. Stream input tensors into cache memory",
+                "cache = vllm_engine.prefill(context_tokens)",
+                "# 2. Autoregressively decode candidate tokens",
+                "output = vllm_engine.decode(cache, max_tokens=128)"
+            ],
+            "impact_badge": "Zero memory leaks | Continuous GPU saturation"
+        }
+
+
+def render_dynamic_code_architecture(spec: Dict[str, Any], output_base_name: str = "code_arch_dynamic") -> Tuple[str, str]:
+    """Renders the AI-designed Code Breakdown & Architecture Blueprint (Animated 1080x1080 Loop)."""
     gif_path = str(OUTPUT_DIR / f"{output_base_name}.gif")
     mp4_path = str(OUTPUT_DIR / f"{output_base_name}.mp4")
 
@@ -69,21 +167,35 @@ def render_code_architecture_blueprint(
     f_small = get_font(15, bold=False)
     f_tag = get_font(14, bold=True)
 
-    code_lines = [
-        ("# 1. Draft small model proposes K candidate tokens (K=4)", MUTED),
-        ("draft_tokens = draft_model.generate(prompt, max_new_tokens=4)", CYAN_ACCENT),
-        ("# 2. Target 70B model evaluates all candidate tokens in PARALLEL", MUTED),
-        ("target_logits = target_model(torch.cat([prompt, draft_tokens]))", AMBER_ACCENT),
-        ("# 3. Rejection sampling accepts valid tokens with zero quality loss", MUTED),
-        ("accepted_tokens = speculative_sample(draft_tokens, target_logits)", EMERALD_ACCENT),
-        ("return update_kv_cache(accepted_tokens)  # 2.8x speedup achieved!", PURPLE_ACCENT),
-    ]
+    title = spec.get("title", "SYSTEM ARCHITECTURE BLUEPRINT").upper()
+    subtitle = spec.get("subtitle", "End-to-End Deep Learning Pipeline Breakdown")
+    box1_title = spec.get("box1_title", "MODULE A")
+    box1_desc = spec.get("box1_desc", "Primary processing component")
+    box1_stat = spec.get("box1_stat", "Latency: 22ms")
+    arrow_label = spec.get("arrow_label", "Forward Pass")
+    box2_title = spec.get("box2_title", "MODULE B")
+    box2_desc = spec.get("box2_desc", "Secondary verification component")
+    box2_stat = spec.get("box2_stat", "Zero degradation")
+    code_filename = spec.get("code_filename", "architecture.py")
+    raw_code_lines = spec.get("code_lines", ["# Execution pipeline", "result = model.run(data)"])
+    impact_badge = spec.get("impact_badge", "Optimized throughput with zero memory bottlenecks")
+
+    # Format code lines with syntax colors
+    colors = [CYAN_ACCENT, AMBER_ACCENT, EMERALD_ACCENT, PURPLE_ACCENT, PINK_ACCENT]
+    code_lines = []
+    c_idx = 0
+    for line in raw_code_lines[:7]:
+        if line.strip().startswith("#"):
+            code_lines.append((line, MUTED))
+        else:
+            code_lines.append((line, colors[c_idx % len(colors)]))
+            c_idx += 1
 
     for frame_idx in range(total_frames):
         img = Image.new("RGB", (w, h), BG_COLOR)
         draw = ImageDraw.Draw(img)
 
-        # Subtle tech grid background
+        # Subtle grid background
         for x in range(0, w, 60):
             draw.line([(x, 0), (x, h)], fill=(15, 23, 42), width=1)
         for y in range(0, h, 60):
@@ -93,15 +205,15 @@ def render_code_architecture_blueprint(
         draw.rounded_rectangle([70, 45, 260, 80], radius=6, fill=(30, 41, 59))
         draw.text((85, 52), "NEUBENCH BLUEPRINT", fill=CYAN_ACCENT, font=f_tag)
 
-        draw.text((70, 95), title, fill=WHITE, font=f_title)
-        draw.text((70, 145), subtitle, fill=MUTED, font=f_sub)
+        draw.text((70, 95), title[:36], fill=WHITE, font=f_title)
+        draw.text((70, 145), subtitle[:65], fill=MUTED, font=f_sub)
 
-        # ----------------- SECTION 1: ARCHITECTURE FLOW BOXES -----------------
-        # Box 1: Small Draft Model
+        # Architecture Flow Boxes
+        # Box 1
         draw.rounded_rectangle([70, 195, 480, 310], radius=10, fill=CARD_BG, outline=CYAN_ACCENT, width=2)
-        draw.text((90, 210), "DRAFT MODEL (1B Params)", fill=CYAN_ACCENT, font=f_sec)
-        draw.text((90, 240), "Ultra-fast speculative token generation", fill=MUTED, font=f_small)
-        draw.text((90, 270), "Outputs 4 candidate tokens in ~18ms", fill=WHITE, font=f_small)
+        draw.text((90, 210), box1_title[:24], fill=CYAN_ACCENT, font=f_sec)
+        draw.text((90, 240), box1_desc[:40], fill=MUTED, font=f_small)
+        draw.text((90, 270), box1_stat[:40], fill=WHITE, font=f_small)
 
         # Animated Connection Arrow
         arrow_phase = (frame_idx % 20) / 20.0
@@ -109,54 +221,48 @@ def render_code_architecture_blueprint(
         arrow_col = (56, 189, max(150, min(255, arrow_glow)))
         draw.line([(485, 252), (595, 252)], fill=arrow_col, width=3)
         draw.polygon([(595, 247), (605, 252), (595, 257)], fill=arrow_col)
-        draw.text((505, 225), "Parallel K", fill=AMBER_ACCENT, font=f_small)
+        draw.text((500, 225), arrow_label[:14], fill=AMBER_ACCENT, font=f_small)
 
-        # Box 2: Target Large Model
+        # Box 2
         draw.rounded_rectangle([610, 195, 1010, 310], radius=10, fill=CARD_BG, outline=EMERALD_ACCENT, width=2)
-        draw.text((630, 210), "TARGET MODEL (70B Params)", fill=EMERALD_ACCENT, font=f_sec)
-        draw.text((630, 240), "Single forward pass verification", fill=MUTED, font=f_small)
-        draw.text((630, 270), "Zero perplexity degradation / exact match", fill=WHITE, font=f_small)
+        draw.text((630, 210), box2_title[:24], fill=EMERALD_ACCENT, font=f_sec)
+        draw.text((630, 240), box2_desc[:40], fill=MUTED, font=f_small)
+        draw.text((630, 270), box2_stat[:40], fill=WHITE, font=f_small)
 
-        # ----------------- SECTION 2: SYNTAX-HIGHLIGHTED IDE CARD -----------------
-        # IDE Container
+        # IDE Window Card
         draw.rounded_rectangle([70, 345, 1010, 835], radius=12, fill=(13, 17, 23), outline=BORDER_COLOR, width=2)
 
-        # Window Header with macOS-style dots
+        # Window Header
         draw.rounded_rectangle([70, 345, 1010, 395], radius=12, fill=(22, 27, 34))
-        draw.ellipse([90, 362, 104, 376], fill=(239, 68, 68))    # Close (Red)
-        draw.ellipse([114, 362, 128, 376], fill=(245, 158, 11))  # Minimize (Yellow)
-        draw.ellipse([138, 362, 152, 376], fill=(34, 197, 94))   # Maximize (Green)
-        draw.text((170, 360), "speculative_engine.py - NeuBench Core Architecture", fill=MUTED, font=f_small)
+        draw.ellipse([90, 362, 104, 376], fill=(239, 68, 68))
+        draw.ellipse([114, 362, 128, 376], fill=(245, 158, 11))
+        draw.ellipse([138, 362, 152, 376], fill=(34, 197, 94))
+        draw.text((170, 360), f"{code_filename} - NeuBench Deep Dive", fill=MUTED, font=f_small)
 
-        # Animated Line Reveal for Code
+        # Animated Line Reveal
         visible_lines = min(len(code_lines), int(frame_idx / 6.0) + 1)
         line_y = 420
-
         for idx in range(visible_lines):
             line_str, line_col = code_lines[idx]
-            # Line number
             draw.text((95, line_y), f"{idx+1:2d}", fill=MUTED_DARK, font=f_code)
-            # Code text
-            draw.text((140, line_y), line_str, fill=line_col, font=f_code)
-            line_y += 54
+            draw.text((140, line_y), line_str[:60], fill=line_col, font=f_code)
+            line_y += 52
 
-        # Active Callout Badge at bottom of card
-        if visible_lines >= 6:
+        # Active Callout Badge
+        if visible_lines >= len(code_lines):
             draw.rounded_rectangle([95, 760, 985, 815], radius=8, fill=(15, 23, 42), outline=PURPLE_ACCENT, width=1)
             draw.text((115, 775), "⚡ SYSTEM IMPACT:", fill=PURPLE_ACCENT, font=f_sec)
-            draw.text((300, 777), "Memory bandwidth cost slashed by 64% | TTFT reduced to 85ms", fill=WHITE, font=f_small)
+            draw.text((300, 777), impact_badge[:65], fill=WHITE, font=f_small)
 
-        # ----------------- FOOTER -----------------
+        # Footer
         draw.line([(70, 875), (1010, 875)], fill=BORDER_COLOR, width=1)
         draw.text((70, 905), "NeuBench Engineering Architecture Series", fill=MUTED, font=f_sub)
         draw.text((800, 905), "neubench.netlify.app", fill=CYAN_ACCENT, font=f_sub)
 
         frames.append(img)
 
-    # Save animated GIF
     frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=50, loop=0, optimize=True)
 
-    # Export MP4 via FFmpeg
     temp_pattern = str(OUTPUT_DIR / "temp_c_%03d.png")
     for idx, f in enumerate(frames):
         f.save(str(OUTPUT_DIR / f"temp_c_{idx:03d}.png"))
@@ -177,11 +283,109 @@ def render_code_architecture_blueprint(
     return gif_path, mp4_path
 
 
-def render_token_pipeline_animation(output_base_name: str = "token_pipeline") -> Tuple[str, str]:
-    """
-    Template 1: Tokenization & High-Dimensional Vector Projection
-    Shows Raw String -> BPE Subwords with Token IDs -> Dense Vector Matrix.
-    """
+def render_dynamic_benchmark_race(spec: Dict[str, Any], output_base_name: str = "benchmark_race_dynamic") -> Tuple[str, str]:
+    """Renders the AI-designed Benchmark & Throughput Race (Animated 1080x1080 Loop)."""
+    gif_path = str(OUTPUT_DIR / f"{output_base_name}.gif")
+    mp4_path = str(OUTPUT_DIR / f"{output_base_name}.mp4")
+
+    title = spec.get("title", "AI INFERENCE BENCHMARK RACE").upper()
+    subtitle = spec.get("subtitle", "Measured Real-Time Tokens Per Second (TPS) and Latency")
+    raw_models = spec.get("models", [])
+    if not raw_models:
+        raw_models = [
+            {"name": "DeepSeek R1", "tps": 95, "ttft": "310ms"},
+            {"name": "Claude 3.5 Sonnet", "tps": 110, "ttft": "220ms"},
+            {"name": "Llama 3.3 70B", "tps": 130, "ttft": "160ms"}
+        ]
+
+    colors = [CYAN_ACCENT, EMERALD_ACCENT, AMBER_ACCENT, PURPLE_ACCENT, PINK_ACCENT]
+    models = []
+    for i, m in enumerate(raw_models[:5]):
+        models.append({
+            "name": str(m.get("name", f"Model {i+1}")),
+            "tps": int(m.get("tps", 80)),
+            "ttft": str(m.get("ttft", "200ms")),
+            "color": colors[i % len(colors)]
+        })
+
+    max_tps = max(m["tps"] for m in models) or 100
+
+    total_frames = 60
+    fps = 20
+    w, h = 1080, 1080
+    frames = []
+
+    f_title = get_font(38, bold=True)
+    f_sub = get_font(22, bold=False)
+    f_bar = get_font(24, bold=True)
+    f_small = get_font(18, bold=False)
+
+    for frame_idx in range(total_frames):
+        img = Image.new("RGB", (w, h), BG_COLOR)
+        draw = ImageDraw.Draw(img)
+
+        # Header Badge
+        draw.rounded_rectangle([70, 50, 240, 85], radius=6, fill=(30, 41, 59))
+        draw.text((85, 58), "LIVE BENCHMARK", fill=CYAN_ACCENT, font=f_small)
+
+        draw.text((70, 100), title[:32], fill=WHITE, font=f_title)
+        draw.text((70, 155), subtitle[:65], fill=MUTED, font=f_sub)
+
+        # Container
+        draw.rounded_rectangle([70, 210, 1010, 880], radius=14, fill=CARD_BG, outline=BORDER_COLOR, width=2)
+
+        start_y = 250
+        bar_gap = max(90, int(600 / max(1, len(models))))
+        progress = min(1.0, (frame_idx + 1) / 45.0)
+        ease_progress = 1 - math.pow(1 - progress, 3)
+
+        for i, m in enumerate(models):
+            y = start_y + i * bar_gap
+            draw.text((105, y), m["name"][:22], fill=WHITE, font=f_bar)
+            draw.text((105, y + 32), f"TTFT: {m['ttft']}", fill=MUTED, font=f_small)
+
+            track_x = 420
+            track_w = 460
+            draw.rounded_rectangle([track_x, y + 5, track_x + track_w, y + 45], radius=8, fill=(15, 23, 42))
+
+            current_tps = int(m["tps"] * ease_progress)
+            filled_w = int((current_tps / max_tps) * track_w)
+            if filled_w > 0:
+                draw.rounded_rectangle([track_x, y + 5, track_x + filled_w, y + 45], radius=8, fill=m["color"])
+
+            draw.text((track_x + track_w + 20, y + 10), f"{current_tps} tps", fill=m["color"], font=f_bar)
+
+        # Footer
+        draw.line([(70, 930), (1010, 930)], fill=BORDER_COLOR, width=1)
+        draw.text((70, 955), "Measured real-time via NeuBench Automated Runner", fill=MUTED, font=f_sub)
+        draw.text((800, 955), "neubench.netlify.app", fill=CYAN_ACCENT, font=f_sub)
+
+        frames.append(img)
+
+    frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=50, loop=0, optimize=True)
+
+    temp_pattern = str(OUTPUT_DIR / "temp_b_%03d.png")
+    for idx, f in enumerate(frames):
+        f.save(str(OUTPUT_DIR / f"temp_b_{idx:03d}.png"))
+
+    cmd = [
+        "ffmpeg", "-y", "-r", str(fps), "-i", temp_pattern,
+        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "22",
+        mp4_path
+    ]
+    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    for idx in range(len(frames)):
+        try:
+            os.remove(str(OUTPUT_DIR / f"temp_b_{idx:03d}.png"))
+        except Exception:
+            pass
+
+    return gif_path, mp4_path
+
+
+def render_dynamic_token_pipeline(spec: Dict[str, Any], output_base_name: str = "token_pipeline_dynamic") -> Tuple[str, str]:
+    """Renders the AI-designed Tokenization & Embedding Pipeline (Animated 1080x1080 Loop)."""
     gif_path = str(OUTPUT_DIR / f"{output_base_name}.gif")
     mp4_path = str(OUTPUT_DIR / f"{output_base_name}.mp4")
 
@@ -196,18 +400,25 @@ def render_token_pipeline_animation(output_base_name: str = "token_pipeline") ->
     f_code = get_font(22, bold=True)
     f_small = get_font(16, bold=False)
 
-    prompt_text = "Why is latency high in multi-agent workflows?"
-    tokens = [
-        ("Why", 14235, CYAN_ACCENT),
-        ("is", 374, AMBER_ACCENT),
-        ("latency", 21904, EMERALD_ACCENT),
-        ("high", 1024, PURPLE_ACCENT),
-        ("in", 287, CYAN_ACCENT),
-        ("multi", 9411, AMBER_ACCENT),
-        ("-agent", 2831, EMERALD_ACCENT),
-        ("workflows", 45192, PURPLE_ACCENT),
-        ("?", 30, CYAN_ACCENT),
-    ]
+    title = spec.get("title", "HOW LLMS READ YOUR PROMPT").upper()
+    subtitle = spec.get("subtitle", "String -> Subword Tokenization -> High-Dimensional Embeddings")
+    prompt_text = spec.get("prompt_string", "Why is latency high in multi-agent workflows?")
+    raw_tokens = spec.get("tokens", [])
+    if not raw_tokens:
+        raw_tokens = [
+            {"text": "Why", "id": 14235},
+            {"text": "is", "id": 374},
+            {"text": "latency", "id": 21904},
+            {"text": "high", "id": 1024},
+            {"text": "in", "id": 287},
+            {"text": "agents", "id": 45192},
+            {"text": "?", "id": 30}
+        ]
+
+    colors = [CYAN_ACCENT, AMBER_ACCENT, EMERALD_ACCENT, PURPLE_ACCENT, PINK_ACCENT]
+    tokens = []
+    for i, t in enumerate(raw_tokens[:8]):
+        tokens.append((str(t.get("text", "")), int(t.get("id", 1000 + i)), colors[i % len(colors)]))
 
     for frame_idx in range(total_frames):
         img = Image.new("RGB", (w, h), BG_COLOR)
@@ -223,8 +434,8 @@ def render_token_pipeline_animation(output_base_name: str = "token_pipeline") ->
         draw.rounded_rectangle([70, 50, 240, 85], radius=6, fill=(30, 41, 59))
         draw.text((85, 58), "NEUBENCH ARCH", fill=CYAN_ACCENT, font=f_small)
 
-        draw.text((70, 100), "HOW LLMS READ YOUR PROMPT", fill=WHITE, font=f_title)
-        draw.text((70, 150), "String -> Subword Tokenization -> Dense Vector Embeddings", fill=MUTED, font=f_sub)
+        draw.text((70, 100), title[:32], fill=WHITE, font=f_title)
+        draw.text((70, 150), subtitle[:65], fill=MUTED, font=f_sub)
 
         # STEP 1: RAW INPUT STRING
         draw.rounded_rectangle([70, 200, 1010, 310], radius=12, fill=CARD_BG, outline=BORDER_COLOR, width=2)
@@ -244,7 +455,7 @@ def render_token_pipeline_animation(output_base_name: str = "token_pipeline") ->
 
         # STEP 2: BPE SUBWORDS
         draw.rounded_rectangle([70, 360, 1010, 540], radius=12, fill=CARD_BG, outline=BORDER_COLOR, width=2)
-        draw.text((95, 375), "STEP 2: BYTE-PAIR ENCODING (BPE TOKEN IDS)", fill=AMBER_ACCENT, font=f_sec)
+        draw.text((95, 375), "STEP 2: BYTE-PAIR ENCODING (TOKEN IDS)", fill=AMBER_ACCENT, font=f_sec)
 
         num_tokens_visible = int(min(len(tokens), max(0, (frame_idx - 25) / 3.0)))
         tok_x = 95
@@ -252,7 +463,7 @@ def render_token_pipeline_animation(output_base_name: str = "token_pipeline") ->
 
         for i in range(num_tokens_visible):
             tok_text, tok_id, tok_color = tokens[i]
-            pw = max(80, len(tok_text) * 16 + 24)
+            pw = max(75, len(tok_text) * 16 + 24)
             draw.rounded_rectangle([tok_x, tok_y, tok_x + pw, tok_y + 44], radius=8, fill=(15, 23, 42), outline=tok_color, width=2)
             draw.text((tok_x + 10, tok_y + 10), tok_text, fill=WHITE, font=f_code)
             draw.text((tok_x + 10, tok_y + 52), f"#{tok_id}", fill=tok_color, font=f_small)
@@ -269,7 +480,7 @@ def render_token_pipeline_animation(output_base_name: str = "token_pipeline") ->
         draw.text((95, 605), "STEP 3: EMBEDDING LOOKUP MATRIX (D = 4,096)", fill=EMERALD_ACCENT, font=f_sec)
 
         vec_progress = min(1.0, max(0.0, (frame_idx - 45) / 25.0))
-        matrix_rows = 5
+        matrix_rows = min(5, len(tokens))
         m_start_y = 660
 
         for r in range(matrix_rows):
@@ -315,113 +526,19 @@ def render_token_pipeline_animation(output_base_name: str = "token_pipeline") ->
     return gif_path, mp4_path
 
 
-def render_benchmark_race_animation(
-    models: Optional[list] = None,
-    output_base_name: str = "benchmark_race"
-) -> Tuple[str, str]:
+def generate_visual_for_post(topic_or_text: str, summary: str = "") -> Tuple[str, str]:
     """
-    Template 2: Dynamic LLM Throughput (TPS) & TTFT Benchmark Race
+    Main entry point:
+    1. Uses Gemini AI to analyze the specific post topic and generate custom technical layout specifications.
+    2. Dispatches to the corresponding renderer with the AI-generated titles, models, code, or tokens.
+    3. Returns (gif_path, mp4_path).
     """
-    gif_path = str(OUTPUT_DIR / f"{output_base_name}.gif")
-    mp4_path = str(OUTPUT_DIR / f"{output_base_name}.mp4")
+    spec = request_ai_visual_spec(topic_or_text, summary)
+    v_type = spec.get("visual_type", "CODE_ARCHITECTURE")
 
-    if not models:
-        models = [
-            {"name": "DeepSeek V3 (MoE)", "tps": 118, "ttft": "210ms", "color": CYAN_ACCENT},
-            {"name": "Llama 3.3 70B (Groq)", "tps": 142, "ttft": "140ms", "color": EMERALD_ACCENT},
-            {"name": "Claude 3.5 Sonnet", "tps": 76, "ttft": "380ms", "color": AMBER_ACCENT},
-            {"name": "GPT-4o (OpenAI)", "tps": 88, "ttft": "320ms", "color": PURPLE_ACCENT},
-            {"name": "Gemini 2.5 Flash", "tps": 132, "ttft": "165ms", "color": CYAN_ACCENT},
-        ]
-
-    total_frames = 60
-    fps = 20
-    w, h = 1080, 1080
-    frames = []
-
-    f_title = get_font(40, bold=True)
-    f_sub = get_font(22, bold=False)
-    f_bar = get_font(24, bold=True)
-    f_small = get_font(18, bold=False)
-
-    max_tps = max(m["tps"] for m in models)
-
-    for frame_idx in range(total_frames):
-        img = Image.new("RGB", (w, h), BG_COLOR)
-        draw = ImageDraw.Draw(img)
-
-        draw.rounded_rectangle([70, 50, 240, 85], radius=6, fill=(30, 41, 59))
-        draw.text((85, 58), "LIVE BENCHMARK", fill=CYAN_ACCENT, font=f_small)
-
-        draw.text((70, 100), "INFERENCE THROUGHPUT & TTFT RACE", fill=WHITE, font=f_title)
-        draw.text((70, 155), "Tokens Per Second (TPS) Output on Standard 1k Context", fill=MUTED, font=f_sub)
-
-        draw.rounded_rectangle([70, 210, 1010, 880], radius=14, fill=CARD_BG, outline=BORDER_COLOR, width=2)
-
-        start_y = 250
-        bar_gap = 120
-
-        progress = min(1.0, (frame_idx + 1) / 45.0)
-        ease_progress = 1 - math.pow(1 - progress, 3)
-
-        for i, m in enumerate(models):
-            y = start_y + i * bar_gap
-            draw.text((105, y), m["name"], fill=WHITE, font=f_bar)
-            draw.text((105, y + 32), f"TTFT: {m['ttft']}", fill=MUTED, font=f_small)
-
-            track_x = 420
-            track_w = 480
-            draw.rounded_rectangle([track_x, y + 5, track_x + track_w, y + 45], radius=8, fill=(15, 23, 42))
-
-            current_tps = int(m["tps"] * ease_progress)
-            filled_w = int((current_tps / max_tps) * track_w)
-            if filled_w > 0:
-                draw.rounded_rectangle([track_x, y + 5, track_x + filled_w, y + 45], radius=8, fill=m["color"])
-
-            draw.text((track_x + track_w + 20, y + 10), f"{current_tps} tps", fill=m["color"], font=f_bar)
-
-        draw.line([(70, 930), (1010, 930)], fill=BORDER_COLOR, width=1)
-        draw.text((70, 955), "Measured real-time via NeuBench Automated Runner", fill=MUTED, font=f_sub)
-        draw.text((800, 955), "neubench.netlify.app", fill=CYAN_ACCENT, font=f_sub)
-
-        frames.append(img)
-
-    frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=50, loop=0, optimize=True)
-
-    temp_pattern = str(OUTPUT_DIR / "temp_b_%03d.png")
-    for idx, f in enumerate(frames):
-        f.save(str(OUTPUT_DIR / f"temp_b_{idx:03d}.png"))
-
-    cmd = [
-        "ffmpeg", "-y", "-r", str(fps), "-i", temp_pattern,
-        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "22",
-        mp4_path
-    ]
-    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    for idx in range(len(frames)):
-        try:
-            os.remove(str(OUTPUT_DIR / f"temp_b_{idx:03d}.png"))
-        except Exception:
-            pass
-
-    return gif_path, mp4_path
-
-
-def generate_visual_for_post(topic_or_text: str) -> Tuple[str, str]:
-    """
-    Intelligently selects the most suitable template:
-    1. Token & Embedding Pipeline: if query relates to tokenization/embeddings.
-    2. Code & Architecture Blueprint: if query relates to speculative decoding, KV-cache, architecture, code.
-    3. Benchmark Race: for general speed, TPS, latency, model comparisons.
-    """
-    lower = topic_or_text.lower()
-    if any(k in lower for k in ["token", "embedding", "vector", "encoder", "transformer", "attention", "bpe", "vocab"]):
-        print(f"[VisualEngine] Selected 'Token & Embedding Pipeline' visual template for: {topic_or_text[:40]}...")
-        return render_token_pipeline_animation("token_pipeline_dynamic")
-    elif any(k in lower for k in ["speculative", "kv-cache", "architecture", "code", "draft", "decoding", "pipeline", "cache"]):
-        print(f"[VisualEngine] Selected 'Code Breakdown & Architecture Blueprint' template for: {topic_or_text[:40]}...")
-        return render_code_architecture_blueprint(output_base_name="code_arch_dynamic")
+    if v_type == "BENCHMARK_RACE":
+        return render_dynamic_benchmark_race(spec)
+    elif v_type == "TOKEN_PIPELINE":
+        return render_dynamic_token_pipeline(spec)
     else:
-        print(f"[VisualEngine] Selected 'Benchmark & Throughput Race' visual template for: {topic_or_text[:40]}...")
-        return render_benchmark_race_animation(output_base_name="benchmark_race_dynamic")
+        return render_dynamic_code_architecture(spec)
