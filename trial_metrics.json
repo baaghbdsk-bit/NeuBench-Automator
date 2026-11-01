@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T09:04:05.719361+00:00",
+    "last_updated": "2026-11-01T10:06:42.980449+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 329,
-    "original_posts_attempted": 53,
-    "original_posts_succeeded": 45,
+    "total_cycles_executed": 333,
+    "original_posts_attempted": 54,
+    "original_posts_succeeded": 46,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 110,
+    "ai_generation_requests": 111,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T01:07:01.911367+00:00",
-      "action_type": "instagram_reel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Reel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 25.0
-    },
-    {
-      "timestamp": "2026-10-31T01:07:05.011751+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T02:03:04.353869+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "\u0938\u0948\u092e\u0938\u0902\u0917",
-      "content_preview": "Samsung still making you sit through unskippable ads on a phone you paid a lakh for is the ultimate corporate scam. Appl",
-      "reason": "",
-      "duration_s": 89.99
-    },
-    {
-      "timestamp": "2026-10-31T02:03:05.335169+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Interesting shifts happening in Samsung's mobile AI stack. Curious to see how their on-device quantization handles edge ",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-31T02:03:08.381612+00:00",
       "action_type": "linkedin_post",
@@ -1516,6 +1476,46 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "GTA VI is going to cost $100+ and people will still line up like brainwashed she",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T10:04:40.515923+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Cambridge scientist dies in Spanish train crash",
+      "content_preview": "academic institutions will lock down their labs and NDA you to death, but a researcher just vanishes abroad and the syst",
+      "reason": "",
+      "duration_s": 180.27
+    },
+    {
+      "timestamp": "2026-11-01T10:05:27.123069+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Tragic loss to the research community. A stark reminder of the human cost behind the systems we build. Rest in peace.\n\nL",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T10:06:18.955564+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Such heartbreaking news about the Cambridge scientist whose body was found after",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T10:06:42.980414+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "academic institutions will lock down their labs and NDA you to death, but a rese",
       "reason": "",
       "duration_s": 15.0
     }
