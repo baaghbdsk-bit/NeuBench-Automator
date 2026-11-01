@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T13:04:13.339371+00:00",
+    "last_updated": "2026-11-01T13:58:58.007232+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 342,
-    "original_posts_attempted": 56,
-    "original_posts_succeeded": 48,
+    "total_cycles_executed": 346,
+    "original_posts_attempted": 57,
+    "original_posts_succeeded": 49,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 22,
-    "ai_generation_requests": 113,
+    "ai_generation_requests": 114,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T04:01:43.872578+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "darryl mcdaniels",
-      "content_preview": "Darryl McDaniels (DMC) using AI to clone his voice for mental health advocacy shows how generative audio can be leverage",
-      "reason": "",
-      "duration_s": 8.63
-    },
-    {
-      "timestamp": "2026-10-31T05:01:30.133238+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-31T06:01:35.009734+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-31T07:01:39.563895+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (28/28).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-10-31T07:29:52.930532+00:00",
       "action_type": "repost",
@@ -1516,6 +1476,46 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "another month, another massive gathering at ramlila maidan promising to change t",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T13:58:02.492028+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "celtic fc",
+      "content_preview": "people still pretend Scottish football is competitive when it\u2019s just a two-horse race where everyone else is basically p",
+      "reason": "",
+      "duration_s": 81.44
+    },
+    {
+      "timestamp": "2026-11-01T13:58:03.952506+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Can we fine-tune an open-weights LLM to debate Scottish football tactics as passionately as a Celtic FC matchday thread?",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T13:58:34.168468+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Nothing quite like a European night under the lights at Celtic Park. The atmosph",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T13:58:58.007202+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "people still pretend Scottish football is competitive when it\u2019s just a two-horse",
       "reason": "",
       "duration_s": 15.0
     }
