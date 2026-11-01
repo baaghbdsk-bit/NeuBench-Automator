@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-10-31T23:03:59.117611+00:00",
+    "last_updated": "2026-11-01T00:03:52.382339+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 281,
-    "original_posts_attempted": 44,
-    "original_posts_succeeded": 36,
+    "total_cycles_executed": 286,
+    "original_posts_attempted": 45,
+    "original_posts_succeeded": 37,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 98,
+    "ai_generation_requests": 99,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T17:44:05.310926+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours benchmarking emerging sports-tech intelligence frameworks and ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:44:06.988537+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Threads Community",
-      "content_preview": "Is anyone else super impressed by Jiri Lehecka\u2019s recent matches? \ud83c\udfbe His game is j",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:44:06.997328+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Jiri Lehecka is literally just a random name tennis media drops to sound like th",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:44:14.002421+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Instagram Carousel Day 1",
-      "content_preview": "Day 1: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior)",
-      "reason": "",
-      "duration_s": 20.0
-    },
-    {
-      "timestamp": "2026-10-30T17:44:14.009411+00:00",
-      "action_type": "instagram_reel",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Instagram Reel Day 1",
-      "content_preview": "Day 1: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior)",
-      "reason": "",
-      "duration_s": 25.0
-    },
     {
       "timestamp": "2026-10-30T17:44:22.147781+00:00",
       "action_type": "youtube_short",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "People keep throwing billions at raw compute while completely ignoring that memo",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T00:03:01.053947+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "OpenAI reportedly lowers funding target for new round",
+      "content_preview": "The AI bubble is leaking air much faster than anyone in Silicon Valley wants to admit. Turns out burning billions on vib",
+      "reason": "",
+      "duration_s": 80.07
+    },
+    {
+      "timestamp": "2026-11-01T00:03:03.072257+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "OpenAI reportedly scaling back their funding targets. Capital intensity meets diminishing returns at the frontier? Meanw",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T00:03:05.919492+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing the shifting economics of foundation models and mark",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T00:03:29.125567+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Curious why OpenAI had to dial back their funding target for this latest round. ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T00:03:52.382312+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "The AI bubble is leaking air much faster than anyone in Silicon Valley wants to ",
       "reason": "",
       "duration_s": 15.0
     }
