@@ -23,10 +23,12 @@ on:
           - repost
           - omnichannel
           - bluesky
+          - bluesky-replies
           - linkedin
           - linkedin-replies
           - linkedin-peers
           - threads
+          - threads-replies
           - instagram
           - devto
           - pinterest

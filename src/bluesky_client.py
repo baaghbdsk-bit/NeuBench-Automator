@@ -119,3 +119,75 @@ class BlueskyClient:
                 return False, f"Bluesky posting error: {res.text}"
         except Exception as e:
             return False, f"Bluesky network error: {e}"
+
+
+    def search_viral_posts(self, query: str = "AI LLM benchmark", limit: int = 5) -> List[Dict[str, Any]]:
+        """Searches top relevant posts on Bluesky via XRPC API."""
+        if not self.session:
+            ok, _ = self.login()
+            if not ok:
+                return []
+        url = "https://bsky.social/xrpc/app.bsky.feed.searchPosts"
+        headers = {"Authorization": f"Bearer {self.session['accessJwt']}"}
+        try:
+            res = requests.get(url, params={"q": query, "limit": limit, "sort": "top"}, headers=headers, timeout=10)
+            if res.status_code == 200:
+                return res.json().get("posts", [])
+        except Exception:
+            pass
+        return []
+
+    def reply(self, parent_post: Dict[str, Any], reply_text: str) -> Tuple[bool, str]:
+        """
+        Replies to a specific Bluesky post using official AT Protocol thread refs (root and parent).
+        """
+        if self.dry_run:
+            return True, f"[DRY RUN] Bluesky reply simulated: {reply_text[:60]}..."
+        if not self.session:
+            ok, msg = self.login()
+            if not ok:
+                return False, msg
+
+        parent_uri = parent_post.get("uri", "")
+        parent_cid = parent_post.get("cid", "")
+        if not parent_uri or not parent_cid:
+            return False, "Invalid parent post details (missing uri or cid)."
+
+        # Determine root: if the post is already a reply, use its record.reply.root, otherwise it is the root
+        record_reply = parent_post.get("record", {}).get("reply", {})
+        root_ref = record_reply.get("root", {"uri": parent_uri, "cid": parent_cid})
+
+        url = "https://bsky.social/xrpc/com.atproto.repo.createRecord"
+        now_iso = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+        record: Dict[str, Any] = {
+            "$type": "app.bsky.feed.post",
+            "text": reply_text,
+            "createdAt": now_iso,
+            "reply": {
+                "root": root_ref,
+                "parent": {"uri": parent_uri, "cid": parent_cid}
+            }
+        }
+
+        facets = detect_facets(reply_text)
+        if facets:
+            record["facets"] = facets
+
+        payload = {
+            "repo": self.session["did"],
+            "collection": "app.bsky.feed.post",
+            "record": record
+        }
+        headers = {
+            "Authorization": f"Bearer {self.session['accessJwt']}",
+            "Content-Type": "application/json"
+        }
+        try:
+            res = requests.post(url, json=payload, headers=headers, timeout=10)
+            if res.status_code == 200:
+                return True, "Reply posted to Bluesky successfully!"
+            else:
+                return False, f"Bluesky reply error: {res.text}"
+        except Exception as e:
+            return False, f"Bluesky network error: {e}"

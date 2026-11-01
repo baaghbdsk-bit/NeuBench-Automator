@@ -189,7 +189,7 @@ class AutomaterEngine:
 
 
         # 3. Determine action type
-        valid_forces = ("post", "reply", "repost", "bluesky", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
+        valid_forces = ("post", "reply", "repost", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "threads-replies", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
         if force_action in valid_forces:
             action_choice = force_action
         else:
@@ -293,6 +293,10 @@ class AutomaterEngine:
             return self._execute_linkedin_comment_replies(start_time)
         elif action_choice == "linkedin-peers":
             return self._execute_linkedin_peer_engagement(start_time)
+        elif action_choice == "bluesky-replies":
+            return self._execute_bluesky_sniper_replies(start_time)
+        elif action_choice == "threads-replies":
+            return self._execute_threads_sniper_replies(start_time)
         else:
             return self._execute_original_post(start_time)
 
@@ -1595,6 +1599,54 @@ class AutomaterEngine:
             action_type="linkedin_peer_comment",
             status="success" if count > 0 else "skipped",
             target_identifier="LinkedIn Peers",
+            content_preview=msg,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run
+        )
+        return count > 0
+
+
+    def _execute_bluesky_sniper_replies(self, start_time: float) -> bool:
+        """Finds viral AI discussions on Bluesky and posts sharp, high-signal replies."""
+        console.print("[bold cyan]🌌 Mode: Bluesky Viral Discussion Sniper Replies[/bold cyan]")
+        if not self.bluesky.is_configured():
+            console.print("[yellow]Bluesky credentials not configured. Skipping.[/yellow]")
+            return False
+        posts = self.bluesky.search_viral_posts(query="AI LLM benchmark OR #AI", limit=4)
+        if not posts:
+            console.print("[yellow]No relevant viral Bluesky posts found. Falling back...[/yellow]")
+            return False
+        target_p = posts[0]
+        author = target_p.get("author", {}).get("handle", "user")
+        text = target_p.get("record", {}).get("text", "")
+        reply_take = self.ai.generate_sniper_reply(author, text)
+        ok, msg = self.bluesky.reply(target_p, reply_take)
+        if ok:
+            console.print(f"[bold green]✅ Replied on Bluesky to @{author}: {reply_take[:60]}...[/bold green]")
+            self.tracker.record_event(
+                action_type="bluesky_reply",
+                status="success",
+                target_identifier=f"@{author}",
+                content_preview=reply_take,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return True
+        return False
+
+    def _execute_threads_sniper_replies(self, start_time: float) -> bool:
+        """Finds trending AI discussions on Threads and posts high-signal replies."""
+        console.print("[bold magenta]🧵 Mode: Threads Viral Discussion Sniper Replies[/bold magenta]")
+        from src.threads_automater import ThreadsAutomater
+        th = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
+        if not th.is_session_available():
+            console.print("[yellow]Threads session not available for replying. Skipping.[/yellow]")
+            return False
+        count, msg = th.reply_to_viral_threads(query="AI LLM", max_replies=1)
+        self.tracker.record_event(
+            action_type="threads_reply",
+            status="success" if count > 0 else "skipped",
+            target_identifier="Threads Viral",
             content_preview=msg,
             duration_seconds=time.time() - start_time,
             is_dry_run=self.safety.dry_run
