@@ -82,11 +82,11 @@ class SafetyEngine:
             if today_counts.get("youtube_shorts", 0) >= limit:
                 return False, f"YouTube daily cap reached ({today_counts.get('youtube_shorts')}/{limit}) to protect algorithmic impressions."
 
-        # LinkedIn Posts (Strict anti-cannibalization: max 1-2/day)
-        elif action_type == "linkedin":
-            limit = self.caps.get("linkedin_posts", 1)
-            if today_counts.get("linkedin_posts", 0) >= limit:
-                return False, f"LinkedIn daily cap reached ({today_counts.get('linkedin_posts')}/{limit}) to prevent reach decay."
+        # LinkedIn Posts (Strict anti-cannibalization: 2-3 high-value posts/day)
+        elif action_type in ("linkedin", "linkedin_post"):
+            limit = self.caps.get("linkedin_posts", 3)
+            if today_counts.get("linkedin_posts", 0) >= limit:
+                return False, f"LinkedIn daily cap reached ({today_counts.get('linkedin_posts')}/{limit}) to protect organic algorithmic distribution."
 
         # Instagram Carousels
         elif action_type == "instagram":

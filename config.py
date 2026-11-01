@@ -62,7 +62,7 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "17:30 - 18:30 (5:30 PM) IST",
         "est_display": "08:00 - 09:00 AM EST",
         "name": "YouTube Shorts Evening Drop #1 (5:30 PM IST)",
-        "primary_actions": ["youtube", "linkedin", "devto"],
+        "primary_actions": ["youtube", "linkedin", "linkedin-replies", "devto"],
         "description": "First prime YouTube Short drop (5:30 PM IST) + LinkedIn & Dev.to thought leadership."
     },
     # Window 3: Peak Prime Evening Video Slot (7:30 PM IST / 14:00 UTC)
@@ -82,7 +82,7 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "23:00 - 01:30 IST",
         "est_display": "13:30 - 16:00 EST",
         "name": "Tech Debate & Viral Commentary",
-        "primary_actions": ["repost", "threads", "reply"],
+        "primary_actions": ["repost", "threads", "linkedin-peers", "reply"],
         "description": "𝕏 Quote-Tweet with spicy engineering masala, Threads discussion, and sniper replies."
     },
     # Window 5: US Evening Relaxation & Mobile Feed Scroll
@@ -104,7 +104,7 @@ CAPS_PER_PLATFORM = {
     "youtube_shorts": int(os.getenv("MAX_DAILY_YOUTUBE_SHORTS", "2")),    # 1-2/day max to prevent self-cannibalization
     "instagram_carousels": int(os.getenv("MAX_DAILY_IG_CAROUSELS", "1")), # 1 deep cheatsheet/day
     "instagram_reels": int(os.getenv("MAX_DAILY_IG_REELS", "2")),         # 1-2 reels/day
-    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "1")),          # 1/business day (strict anti-cannibalization)
+    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "3")),          # 2-3 high-value B2B posts/day
     "devto_articles": int(os.getenv("MAX_DAILY_DEVTO", "1")),             # 1 comprehensive article/day
     "pinterest_pins": int(os.getenv("MAX_DAILY_PINTEREST", "3")),         # 2-3 pins/day spaced out
     "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", "4")),    # 3-4 original posts/threads

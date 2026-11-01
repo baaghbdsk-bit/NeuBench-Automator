@@ -472,3 +472,52 @@ Rules:
                 "title": f"[Discussion] {title}: Benchmark analysis & takeaways",
                 "body": f"**TL;DR:** {summary}\n\nKey analysis on {title} by {company}.\n\nWhat are you seeing in your real-world workloads?{link_str}"
             }
+
+
+    def generate_linkedin_comment_reply(self, post_text: str, commenter_name: str, comment_text: str) -> str:
+        """
+        Generates a courteous, authoritative, and professional B2B engineering reply
+        to a comment on our own LinkedIn posts.
+        """
+        prompt = f"""
+Our LinkedIn Post Context:
+"{post_text[:350]}..."
+
+Commenter: {commenter_name}
+Comment: "{comment_text}"
+
+You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (neubench.netlify.app).
+Write a professional, warm, and technically sharp reply to this comment.
+Guidelines:
+- Tone: High-caliber B2B engineering professional, courteous, collegial, and insightful.
+- If they asked for a PDF or cheatsheet, tell them you appreciate their interest and will send it over via DM, or invite them to test the live benchmarks directly on NeuBench.
+- If they asked a technical or skeptical question, provide a concise, respectful engineering clarification with practical nuance.
+- If they simply gave praise or agreement, acknowledge them politely with a brief thought-provoking follow-up question or gratitude.
+- Length: 1-3 sentences. Never use generic bot phrases ("Thanks for reaching out!", "Great post!").
+- Address them by their first name naturally if available.
+- Output ONLY the reply text.
+"""
+        system_p = "You are a senior AI systems founder on LinkedIn. You write courteous, polished, and technically authoritative B2B responses."
+        res = self._generate_with_fallback(prompt, system_p, temperature=0.7)
+        return res.strip('"').strip()
+
+    def generate_linkedin_peer_comment(self, post_author: str, post_text: str) -> str:
+        """
+        Generates a high-signal, professional thought-leadership comment on an external industry leader's LinkedIn post.
+        """
+        prompt = f"""
+LinkedIn Post by {post_author}:
+"{post_text[:600]}..."
+
+You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench.
+Write a thoughtful, high-value comment adding technical depth to this discussion.
+Guidelines:
+- Tone: Professional, collegial, thought-provoking, and constructive (Silicon Valley tech founder style).
+- Add a concrete perspective or observation relating to real-world latency, inference economics, evaluation benchmarks, or production reliability.
+- Be genuinely supportive of their insight while adding a distinct value-add angle or question.
+- Length: 2-4 sentences. Do NOT pitch or overtly plug links unless directly relevant to benchmark data.
+- Output ONLY the comment text.
+"""
+        system_p = "You are a recognized AI systems engineer engaging thoughtfully on LinkedIn. Never sound promotional; always add technical substance."
+        res = self._generate_with_fallback(prompt, system_p, temperature=0.75)
+        return res.strip('"').strip()
