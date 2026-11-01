@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T06:04:09.201728+00:00",
+    "last_updated": "2026-11-01T06:52:45.841988+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 309,
-    "original_posts_attempted": 49,
-    "original_posts_succeeded": 41,
+    "total_cycles_executed": 314,
+    "original_posts_attempted": 50,
+    "original_posts_succeeded": 42,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 106,
+    "ai_generation_requests": 107,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T20:07:24.238675+00:00",
-      "action_type": "instagram_reel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Reel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 25.0
-    },
-    {
-      "timestamp": "2026-10-30T20:07:27.858854+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T21:01:35.189074+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (29/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-30T21:02:47.342947+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (29/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-10-30T22:01:38.680552+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (29/28).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-10-30T23:01:42.699672+00:00",
       "action_type": "repost",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "people out here acting like a 3% accuracy drop on quantized FP8 matters for your",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T06:51:54.292200+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "aus vs afg",
+      "content_preview": "Australia acts like losing to Afghanistan in cricket is some kind of moral injury instead of just getting outplayed. The",
+      "reason": "",
+      "duration_s": 81.27
+    },
+    {
+      "timestamp": "2026-11-01T06:51:55.590131+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Watching this AUS vs AFG collapse unfold like an unpruned model hitting OOM on epoch 1. Brutal efficiency.\n\nLive benchma",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T06:51:58.351326+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running heavy evaluation workflows through NeuBench to compare",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T06:52:22.008248+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "That AUS vs AFG match was pure chaos! \ud83e\udd2f Still trying to process how that finish ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T06:52:45.841958+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Australia acts like losing to Afghanistan in cricket is some kind of moral injur",
       "reason": "",
       "duration_s": 15.0
     }
