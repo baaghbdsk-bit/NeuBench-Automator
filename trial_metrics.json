@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T12:01:49.283569+00:00",
+    "last_updated": "2026-11-01T13:04:13.339371+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 338,
-    "original_posts_attempted": 55,
-    "original_posts_succeeded": 47,
+    "total_cycles_executed": 342,
+    "original_posts_attempted": 56,
+    "original_posts_succeeded": 48,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 22,
-    "ai_generation_requests": 112,
+    "ai_generation_requests": 113,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T03:03:17.762097+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Intel\u2019s stock crashes, knocking $12B from government\u2019s stake",
-      "content_preview": "Wild how billions are being incinerated just because the entire tech world decided every toaster needs an LLM while nobo",
-      "reason": "",
-      "duration_s": 88.14
-    },
-    {
-      "timestamp": "2026-10-31T03:03:22.425479+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing the silicon market collapse and benchmarking hardwar",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T03:03:54.586818+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Oof, Intel just took a massive hit as AI steals all the hardware spotlight and P",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T03:04:18.574994+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Wild how billions are being incinerated just because the entire tech world decid",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T04:01:43.872578+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1478,46 @@
       "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
       "reason": "YouTube API upload error",
       "duration_s": 10.46
+    },
+    {
+      "timestamp": "2026-11-01T13:03:15.234739+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "\u0930\u093e\u092e\u0932\u0940\u0932\u093e \u092e\u0948\u0926\u093e\u0928, \u0926\u093f\u0932\u094d\u0932\u0940",
+      "content_preview": "another month, another massive gathering at ramlila maidan promising to change the system while the rent in delhi keeps ",
+      "reason": "",
+      "duration_s": 91.9
+    },
+    {
+      "timestamp": "2026-11-01T13:03:16.687631+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "From massive political rallies at \u0930\u093e\u092e\u0932\u0940\u0932\u093e \u092e\u0948\u0926\u093e\u0928, \u0926\u093f\u0932\u094d\u0932\u0940 to localized context handling in Indic LLMs\u2014evaluation datasets ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T13:03:49.040869+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "\u0926\u093f\u0932\u094d\u0932\u0940 \u0915\u0947 \u0930\u093e\u092e\u0932\u0940\u0932\u093e \u092e\u0948\u0926\u093e\u0928 \u0915\u0940 \u092c\u093e\u0924 \u0939\u0940 \u0905\u0932\u0917 \u0939\u0948! \u0915\u092d\u0940 \u0915\u093f\u0938\u0940 \u092c\u095c\u0940 \u0930\u0948\u0932\u0940, \u0910\u0924\u093f\u0939\u093e\u0938\u093f\u0915 \u092d\u093e\u0937\u0923 \u092f\u093e \u092c\u091a",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T13:04:13.339334+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "another month, another massive gathering at ramlila maidan promising to change t",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
