@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T00:03:52.382339+00:00",
+    "last_updated": "2026-11-01T00:37:25.411501+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 286,
-    "original_posts_attempted": 45,
-    "original_posts_succeeded": 37,
+    "total_cycles_executed": 291,
+    "original_posts_attempted": 46,
+    "original_posts_succeeded": 38,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 99,
+    "ai_generation_requests": 100,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T17:44:22.147781+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "YouTube Short",
-      "content_preview": "Day 01: What is Artificial Intelligence? (Rules-based Code vs. Learned Behavior) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:45:24.649411+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "US Army practices digging temporary battlefield graves",
-      "content_preview": "Nothing screams \"we're totally at peace, guys\" quite like practicing mass graves. They aren't preparing for defense, the",
-      "reason": "",
-      "duration_s": 8.99
-    },
-    {
-      "timestamp": "2026-10-30T17:45:26.090447+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Simulating high-attrition logistics pipelines requires robust edge compute. When real-world inference fails in critical ",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T17:45:30.747707+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing high-throughput systems under extreme edge constraints",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:45:31.881643+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Threads Community",
-      "content_preview": "Wild seeing the latest updates on how the US Army is practicing digging temporar",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-30T17:45:31.890135+00:00",
       "action_type": "pinterest_pin",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "The AI bubble is leaking air much faster than anyone in Silicon Valley wants to ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T00:36:33.825225+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "'We came back from hell', say Ukrainians after years in Russia-occupied front-line city",
+      "content_preview": "crossing minefields just to find food while the rest of the world debates geopolitics from comfortable couches. makes yo",
+      "reason": "",
+      "duration_s": 81.95
+    },
+    {
+      "timestamp": "2026-11-01T00:36:35.137528+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Raw survival data often defies simulation, but human resilience under extreme constraints remains unmatched. Thinking ab",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T00:36:38.052905+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours stress-testing LLM routing resilience under extreme latency an",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T00:37:01.412687+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Heartbreaking to read about the couple who crossed minefields just to find food ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T00:37:25.411470+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "crossing minefields just to find food while the rest of the world debates geopol",
       "reason": "",
       "duration_s": 15.0
     }
