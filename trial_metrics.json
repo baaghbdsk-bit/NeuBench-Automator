@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T17:08:57.515959+00:00",
+    "last_updated": "2026-11-01T18:05:24.938957+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 358,
-    "original_posts_attempted": 59,
-    "original_posts_succeeded": 51,
+    "total_cycles_executed": 363,
+    "original_posts_attempted": 60,
+    "original_posts_succeeded": 52,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 23,
     "failed_operations": 23,
-    "ai_generation_requests": 116,
+    "ai_generation_requests": 117,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T13:02:52.185013+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Marco Palestra's work on efficient transformer architectures and scaling laws keeps pushing the needle for open research",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-31T13:02:55.641703+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing Marco Palestra's latest NeuBench benchmarking framewor",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T13:03:26.368655+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Anyone else keeping an eye on Marco Palestra lately? Curious how their recent wo",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T13:03:50.301653+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "bro really thought he could just copy-paste some generic motivation and charge p",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T13:54:59.860182+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "\u0cb0\u0ccb\u0cb9\u0cbf\u0ca4\u0ccd \u0cb6\u0cb0\u0ccd\u0cae\u0cbe",
-      "content_preview": "Hot take: Indian cricket media is petrified of the day Rohit Sharma actually retires because half the \"experts\" will los",
-      "reason": "",
-      "duration_s": 91.91
-    },
     {
       "timestamp": "2026-10-31T13:55:01.192332+00:00",
       "action_type": "bluesky_post",
@@ -1511,6 +1461,56 @@
     },
     {
       "timestamp": "2026-11-01T17:08:57.515920+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T18:03:00.738501+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Proving and improving the Platonic Representation Hypothesis with JEPAs",
+      "content_preview": "we\u2019re really out here writing entire academic papers trying to prove AI is stumbling into human concepts like it's some ",
+      "reason": "",
+      "duration_s": 84.6
+    },
+    {
+      "timestamp": "2026-11-01T18:03:13.762870+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "The Platonic Representation Hypothesis suggests different models converge on a shared statistical reality. Testing this ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T18:03:42.406152+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Really diving into the Platonic Representation Hypothesis lately, especially how",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T18:04:06.183889+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "we\u2019re really out here writing entire academic papers trying to prove AI is stumb",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T18:05:24.938924+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
