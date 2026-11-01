@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T01:04:02.242119+00:00",
+    "last_updated": "2026-11-01T02:03:57.862985+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 296,
-    "original_posts_attempted": 47,
-    "original_posts_succeeded": 39,
+    "total_cycles_executed": 301,
+    "original_posts_attempted": 48,
+    "original_posts_succeeded": 40,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 101,
+    "ai_generation_requests": 102,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T19:03:14.883130+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Can we talk about Daniel Vogelbach as the ultimate architectural metaphor for LLMs? Absolute unit of compute, zero waste",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-30T19:03:17.956033+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours running heavy compute benchmarks on Daniel Vogelbach-style pow",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T19:03:53.235836+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Okay, I need to know. Are we all still secretly rooting for Daniel Vogelbach to ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T19:04:17.175797+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Daniel Vogelbach playing professional baseball while half of twitter acts like h",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T19:05:44.691012+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Instagram Carousel Day 3",
-      "content_preview": "Day 3: How Computers Actually \"Learn\" (The Function Approximation Analogy)",
-      "reason": "",
-      "duration_s": 20.0
-    },
     {
       "timestamp": "2026-10-30T19:07:25.916565+00:00",
       "action_type": "instagram_reel",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "90% of prime time news isn't journalism anymore, it's just a daily rage-bait sub",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T02:03:06.000586+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "colorado vs chicago",
+      "content_preview": "People acting like Colorado vs Chicago is even a debate when half of Chicago is just trying to relocate to Denver anyway",
+      "reason": "",
+      "duration_s": 86.47
+    },
+    {
+      "timestamp": "2026-11-01T02:03:07.700518+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Colorado vs Chicago: weighing regional infra vs dense urban hubs for cluster deployments. Latency and power costs tell c",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T02:03:10.773657+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours running heavy inference loads through NeuBench to settle the u",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T02:03:34.123945+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Okay, serious question: Colorado vs. Chicago. \ud83c\udfd4\ufe0f\u2744\ufe0f \n\nAre you taking the mountain",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T02:03:57.862950+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "People acting like Colorado vs Chicago is even a debate when half of Chicago is ",
       "reason": "",
       "duration_s": 15.0
     }
