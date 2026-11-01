@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T00:37:25.411501+00:00",
+    "last_updated": "2026-11-01T01:04:02.242119+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 291,
-    "original_posts_attempted": 46,
-    "original_posts_succeeded": 38,
+    "total_cycles_executed": 296,
+    "original_posts_attempted": 47,
+    "original_posts_succeeded": 39,
     "replies_attempted": 24,
     "replies_succeeded": 20,
     "reposts_attempted": 31,
     "reposts_succeeded": 9,
     "actions_skipped": 22,
     "failed_operations": 21,
-    "ai_generation_requests": 100,
+    "ai_generation_requests": 101,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-30T17:45:31.890135+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Nothing screams \"we're totally at peace, guys\" quite like practicing mass graves",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T17:45:38.472996+00:00",
-      "action_type": "instagram_carousel",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Instagram Carousel Day 2",
-      "content_preview": "Day 2: The Big Picture: AI vs. Machine Learning vs. Deep Learning",
-      "reason": "",
-      "duration_s": 20.0
-    },
-    {
-      "timestamp": "2026-10-30T17:45:38.480592+00:00",
-      "action_type": "instagram_reel",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "Instagram Reel Day 2",
-      "content_preview": "Day 2: The Big Picture: AI vs. Machine Learning vs. Deep Learning",
-      "reason": "",
-      "duration_s": 25.0
-    },
-    {
-      "timestamp": "2026-10-30T17:45:45.642951+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": true,
-      "target": "YouTube Short",
-      "content_preview": "Day 02: The Big Picture: AI vs. Machine Learning vs. Deep Learning #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-30T19:03:12.844140+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "daniel vogelbach",
-      "content_preview": "Daniel Vogelbach playing professional baseball while half of twitter acts like hitting a 95mph fastball is easy because ",
-      "reason": "",
-      "duration_s": 89.36
-    },
     {
       "timestamp": "2026-10-30T19:03:14.883130+00:00",
       "action_type": "bluesky_post",
@@ -1516,6 +1466,56 @@
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
       "content_preview": "crossing minefields just to find food while the rest of the world debates geopol",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T01:03:03.351933+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "\u0938\u092e\u093e\u091a\u093e\u0930 \u0916\u092c\u0930\u0947\u0902",
+      "content_preview": "90% of prime time news isn't journalism anymore, it's just a daily rage-bait subscription you didn't ask for. We traded ",
+      "reason": "",
+      "duration_s": 84.24
+    },
+    {
+      "timestamp": "2026-11-01T01:03:04.563960+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Evaluating Hindi NLP capabilities (\u0938\u092e\u093e\u091a\u093e\u0930 \u0916\u092c\u0930\u0947\u0902) across open models reveals fascinating divergence in tokenization and c",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T01:03:07.301641+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours benchmarking real-time news aggregation pipelines and \"\u0938\u092e\u093e\u091a\u093e\u0930 ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T01:03:38.451436+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "\u0906\u091c\u0915\u0932 \u0916\u092c\u0930\u0947\u0902 \u092a\u0922\u093c\u0928\u0947 \u0915\u093e \u0905\u0902\u0926\u093e\u0632 \u0939\u0940 \u092c\u0926\u0932 \u0917\u092f\u093e \u0939\u0948! \ud83d\udcf1 \n\n\u0906\u092a \u0932\u094b\u0917 \u0926\u093f\u0928\u092d\u0930 \u0915\u0940 '\u0938\u092e\u093e\u091a\u093e\u0930 \u0916\u092c\u0930\u0947\u0902' \u091c\u093e\u0928\u0928",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T01:04:02.242089+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "90% of prime time news isn't journalism anymore, it's just a daily rage-bait sub",
       "reason": "",
       "duration_s": 15.0
     }
