@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-01T18:43:47.813628+00:00",
+    "last_updated": "2026-11-01T19:05:15.535495+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 364,
-    "original_posts_attempted": 60,
-    "original_posts_succeeded": 52,
+    "total_cycles_executed": 369,
+    "original_posts_attempted": 61,
+    "original_posts_succeeded": 53,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 23,
     "failed_operations": 23,
-    "ai_generation_requests": 118,
+    "ai_generation_requests": 119,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T13:55:04.220377+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing 260+ model configurations using NeuBench to optimize e",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T13:55:35.319848+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "\u0cb0\u0ccb\u0cb9\u0cbf\u0ca4\u0ccd \u0cb6\u0cb0\u0ccd\u0cae\u0cbe \u0cac\u0ccd\u0caf\u0cbe\u0c9f\u0cbf\u0c82\u0c97\u0ccd \u0c85\u0c82\u0ca6\u0ccd\u0cb0\u0cc6\u0ca8\u0cc7 \u0cb0\u0ccb\u0cae\u0cbe\u0c82\u0c9a\u0ca8! \ud83c\udfcf \u0c85\u0cb5\u0cb0 \u0cb8\u0cbf\u0c95\u0ccd\u0cb8\u0cb0\u0ccd \u0cae\u0cb3\u0cc6 \u0ca8\u0ccb\u0ca1\u0ccd\u0ca4\u0cbf\u0ca6\u0ccd\u0cb0\u0cc6 \u0c95\u0ca3\u0ccd\u0ca3\u0cc1\u0c97\u0cb3\u0cc7 \u0cb9",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T13:56:00.994543+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Hot take: Indian cricket media is petrified of the day Rohit Sharma actually ret",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T14:03:07.447765+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "court",
-      "content_preview": "Most court battles today are just expensive software subscription updates for lawyers. We are literally paying hourly ra",
-      "reason": "",
-      "duration_s": 88.36
-    },
-    {
-      "timestamp": "2026-10-31T14:03:10.910437+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "When every new weights drop faces the bench of public evaluation, reproducibility is the only defense that matters. Stop",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-31T14:03:16.001526+00:00",
       "action_type": "linkedin_post",
@@ -1518,6 +1468,56 @@
       "content_preview": "like arguing with PMs about why the button needs to be blue instead of cyan. #AI",
       "reason": "",
       "duration_s": 34.39
+    },
+    {
+      "timestamp": "2026-11-01T19:02:58.797863+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "tuten",
+      "content_preview": "naming your startup \"tuten\" in 2026 is honestly brave. sounds like a pharaoh who got fired from his pyramid for missing ",
+      "reason": "",
+      "duration_s": 76.87
+    },
+    {
+      "timestamp": "2026-11-01T19:03:09.114344+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Anyone playing with 'tuten' tokenizers in their local pipelines yet? Curious how it compares to tiktoken on multilingual",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-01T19:03:32.347655+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Okay wait, who else has been down the rabbit hole with tuten lately? \ud83c\udf00 \n\nCurious",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T19:03:55.793804+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "naming your startup \"tuten\" in 2026 is honestly brave. sounds like a pharaoh who",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-01T19:05:15.535462+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
