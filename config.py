@@ -52,7 +52,7 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "09:30 - 11:30 IST",
         "est_display": "00:00 - 02:00 EST",
         "name": "Morning Tech Wake-Up Take",
-        "primary_actions": ["post", "bluesky", "reply"],
+        "primary_actions": ["post", "bluesky", "linkedin-peers", "reply"],
         "description": "Short, punchy tech take on 𝕏 and Bluesky, plus early morning engagement replies."
     },
     # Window 2: Early Evening Video Slot (5:30 PM IST / 12:00 UTC)
@@ -92,7 +92,7 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "03:30 - 05:30 IST",
         "est_display": "18:00 - 20:00 EST",
         "name": "Prime Evening Video & Visual Pin",
-        "primary_actions": ["youtube_reel", "pinterest", "reply"],
+        "primary_actions": ["youtube_reel", "pinterest", "linkedin-peers", "reply"],
         "description": "Evening video upload / Reel review and Pinterest graphic pin."
     }
 }
@@ -105,6 +105,7 @@ CAPS_PER_PLATFORM = {
     "instagram_carousels": int(os.getenv("MAX_DAILY_IG_CAROUSELS", "1")), # 1 deep cheatsheet/day
     "instagram_reels": int(os.getenv("MAX_DAILY_IG_REELS", "2")),         # 1-2 reels/day
     "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "3")),          # 2-3 high-value B2B posts/day
+    "linkedin_peer_comments": int(os.getenv("MAX_DAILY_LINKEDIN_PEER_COMMENTS", "10")), # 8-10 high-signal viral comments/day
     "devto_articles": int(os.getenv("MAX_DAILY_DEVTO", "1")),             # 1 comprehensive article/day
     "pinterest_pins": int(os.getenv("MAX_DAILY_PINTEREST", "3")),         # 2-3 pins/day spaced out
     "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", "4")),    # 3-4 original posts/threads

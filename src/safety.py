@@ -86,7 +86,13 @@ class SafetyEngine:
         elif action_type in ("linkedin", "linkedin_post"):
             limit = self.caps.get("linkedin_posts", 3)
             if today_counts.get("linkedin_posts", 0) >= limit:
-                return False, f"LinkedIn daily cap reached ({today_counts.get('linkedin_posts')}/{limit}) to protect organic algorithmic distribution."
+                return False, f"LinkedIn daily cap reached ({today_counts.get('linkedin_posts')}/{limit}) to protect organic algorithmic distribution."
+
+        # LinkedIn Viral Peer Comments (8-10 high-signal comments/day across different posts)
+        elif action_type in ("linkedin-peers", "linkedin_peer_comment"):
+            limit = self.caps.get("linkedin_peer_comments", 10)
+            if today_counts.get("linkedin_peer_comments", 0) >= limit:
+                return False, f"LinkedIn peer comments daily limit reached ({today_counts.get('linkedin_peer_comments')}/{limit})."
 
         # Instagram Carousels
         elif action_type == "instagram":
