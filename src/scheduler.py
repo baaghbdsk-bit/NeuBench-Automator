@@ -53,12 +53,11 @@ console = Console()
 
 
 
-# Target high-engagement accounts for explosive reach (Indian + Global tech giants)
-
+# Target high-engagement accounts for explosive reach across Tech, Viral Culture, Finance, and Global Discourse
 VIRAL_ACCOUNTS = [
-    # Mega-reach Indian National & Tech Accounts (Highest impression velocity & Modi replies)
-    "narendramodi",       # Highest view velocity
-    "AshwiniVaishnaw",    # Union Minister for IT & Electronics / IndiaAI
+    # Mega-reach Indian National & Viral Culture (Highest impression velocity)
+    "narendramodi",
+    "AshwiniVaishnaw",
     "IndianTechGuide",
     "peakbengaluru",
     "ANI",
@@ -67,7 +66,8 @@ VIRAL_ACCOUNTS = [
     "kunalb11",
     "Zomato",
     "swiggy",
-    # Global Tech & AI Heavyweights
+    "Bhaiyyaji_Kahin",
+    # Global Tech, AI, & Founders
     "elonmusk",
     "sama",
     "satyanadella",
@@ -76,8 +76,14 @@ VIRAL_ACCOUNTS = [
     "ylecun",
     "mkbhd",
     "levelsio",
+    "paulg",
+    "naval",
+    # Viral Finance, Markets & Breaking News
     "WatcherGuru",
-    "unusual_whales"
+    "unusual_whales",
+    "zerohedge",
+    "DeItaone",
+    "TrungTPhan"
 ]
 
 
@@ -1382,15 +1388,31 @@ class AutomaterEngine:
                         console.print(f"[bold green]🎯 Algorithmic Selection: '{action_key}' for {win['name']}[/bold green]")
                         return action_key
 
-        # Outside peak windows: Opportunity-Driven Viral Engagement (Sniper replies on X + Viral LinkedIn discussions)
-        console.print("[dim]Outside peak broadcast windows: Scanning for active viral discussions on LinkedIn & X...[/dim]")
-        can_li_peer, _ = self.safety.can_perform_action("linkedin-peers", today_counts)
+        # Outside peak windows: Opportunity-Driven Viral Engagement across X, Threads, Bluesky & LinkedIn
+        console.print("[dim]Outside peak broadcast windows: Scanning for active viral discussions across X, Threads, Bluesky & LinkedIn...[/dim]")
+        
+        reply_candidates = []
         can_reply, _ = self.safety.can_perform_action("reply", today_counts)
-        # Balance viral peer comments on LinkedIn alongside X sniper replies
-        if can_li_peer and (today_counts.get("linkedin_peer_comments", 0) <= today_counts.get("replies", 0)):
-            return "linkedin-peers"
         if can_reply:
-            return "reply"
+            reply_candidates.append("reply")
+
+        can_bs_reply, _ = self.safety.can_perform_action("bluesky-replies", today_counts)
+        if can_bs_reply and self.bluesky.is_configured():
+            reply_candidates.append("bluesky-replies")
+
+        can_th_reply, _ = self.safety.can_perform_action("threads-replies", today_counts)
+        if can_th_reply:
+            reply_candidates.append("threads-replies")
+
+        can_li_peer, _ = self.safety.can_perform_action("linkedin-peers", today_counts)
+        if can_li_peer:
+            reply_candidates.append("linkedin-peers")
+
+        if reply_candidates:
+            # Randomize or pick least executed to evenly distribute high-signal replies
+            selected_reply = random.choice(reply_candidates)
+            console.print(f"[bold magenta]💬 Multi-Platform Sniper Reply Selected: '{selected_reply}'[/bold magenta]")
+            return selected_reply
 
         can_post, _ = self.safety.can_perform_action("post", today_counts)
         if can_post:
@@ -1704,16 +1726,19 @@ class AutomaterEngine:
 
 
     def _execute_bluesky_sniper_replies(self, start_time: float) -> bool:
-        """Finds viral AI discussions on Bluesky and posts sharp, high-signal replies."""
+        """Finds viral discussions across tech, finance, and culture on Bluesky and posts sharp, witty replies."""
         console.print("[bold cyan]🌌 Mode: Bluesky Viral Discussion Sniper Replies[/bold cyan]")
         if not self.bluesky.is_configured():
             console.print("[yellow]Bluesky credentials not configured. Skipping.[/yellow]")
             return False
-        posts = self.bluesky.search_viral_posts(query="AI LLM benchmark OR #AI", limit=4)
+        
+        search_queries = ["AI OR LLM", "tech OR startup", "coding OR developer", "news OR viral", "crypto OR market"]
+        q = random.choice(search_queries)
+        posts = self.bluesky.search_viral_posts(query=q, limit=6)
         if not posts:
-            console.print("[yellow]No relevant viral Bluesky posts found. Falling back...[/yellow]")
+            console.print(f"[yellow]No relevant viral Bluesky posts found for '{q}'. Falling back...[/yellow]")
             return False
-        target_p = posts[0]
+        target_p = random.choice(posts[:3])
         author = target_p.get("author", {}).get("handle", "user")
         text = target_p.get("record", {}).get("text", "")
         reply_take = self.ai.generate_sniper_reply(author, text)
@@ -1732,18 +1757,20 @@ class AutomaterEngine:
         return False
 
     def _execute_threads_sniper_replies(self, start_time: float) -> bool:
-        """Finds trending AI discussions on Threads and posts high-signal replies."""
+        """Finds trending viral discussions across tech, work-life, and culture on Threads and replies."""
         console.print("[bold magenta]🧵 Mode: Threads Viral Discussion Sniper Replies[/bold magenta]")
         from src.threads_automater import ThreadsAutomater
         th = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
         if not th.is_session_available():
             console.print("[yellow]Threads session not available for replying. Skipping.[/yellow]")
             return False
-        count, msg = th.reply_to_viral_threads(query="AI LLM", max_replies=1)
+        queries = ["AI tech", "software engineer", "startup life", "remote work", "coding tips"]
+        q = random.choice(queries)
+        count, msg = th.reply_to_viral_threads(query=q, max_replies=1)
         self.tracker.record_event(
             action_type="threads_reply",
             status="success" if count > 0 else "skipped",
-            target_identifier="Threads Viral",
+            target_identifier=f"Threads Viral ({q})",
             content_preview=msg,
             duration_seconds=time.time() - start_time,
             is_dry_run=self.safety.dry_run
