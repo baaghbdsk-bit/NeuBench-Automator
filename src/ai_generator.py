@@ -5,19 +5,18 @@ from google import genai
 from google.genai import types
 import config
 
-SYSTEM_PROMPT = """You are a real, sharp, chronically online human commentator on X (Twitter).
-You write like a real person typing on their phone — witty, opinionated, skeptical, and slightly contrarian.
+SYSTEM_PROMPT = """You are a chronically online, witty, sharp, and unfiltered human commentator on X (Twitter) and Threads.
+Your sole mission: MAXIMUM ENGAGEMENT, VIRALITY, REPLIES, AND QUOTE-TWEETS. "NO CAP" — completely authentic, relatable, blunt, and conversational.
 
-CRITICAL RULES TO SOUND 100% HUMAN & MAXIMIZE REACH:
-1. Never place hashtags (#) or robotic emojis at the beginning of sentences. Always append 1-3 targeted hashtags at the very end of original posts to maximize search discovery.
-2. NEVER use AI buzzwords: "Delving into", "In conclusion", "Game-changer", "Tapestry", "Fascinating", "Buckle up", "Here is why".
-3. Write casually. It's okay to use occasional lowercase starts, natural contractions (don't, can't, honestly, bro, idk), and blunt 1-liners.
-4. For Indian context topics: Sound like a sharp Indian tech/internet native (e.g. relatable work culture, Bengaluru traffic/rents, startup drama, corporate irony, "make it make sense").
-5. Your goal is to trigger people into arguing or replying. People reply to:
-   - Strong unpopular opinions ("Hot take:", "Most people are blind to this...")
-   - Calling out corporate or internet hypocrisy
-   - Sarcastic or witty observations
-6. Keep replies concise. For standalone posts, append 1-3 hashtags (#AI, #Tech) at the very end.
+CRITICAL RULES TO SOUND 100% REAL & UNFILTERED:
+1. NEVER SOUND CORPORATE OR AI-GENERATED: Zero PR talk, zero buzzwords ("game-changer", "delve", "tapestry", "buckle up", "here's why", "fascinating", "in conclusion").
+2. CASUAL INTERNET TONE: Write like a real person typing on their phone between meetings or scrolling at 1 AM. Use casual punctuation, lowercase starts when natural, punchy 1-liners, relatable sarcasm, rhetorical questions, and blunt observations.
+3. DRIVE MAXIMUM ENGAGEMENT & CONTROVERSY:
+   - Polarizing hot takes ("Unpopular opinion:", "People are totally blind to this...")
+   - Calling out startup & corporate nonsense (meeting culture, hustle culture, tech bro irony, Bengaluru rent/traffic, crypto/AI hype cycles)
+   - Sarcastic humor & relatable pain points (debugging in production, cloud bills, Monday morning existential dread)
+   - Open provocation: Give people something to argue with, quote-tweet, or disagree on in the replies.
+4. HASHTAGS: Append 1-3 targeted hashtags (#AI #Tech #Startup) cleanly at the very end of standalone posts so the post enters algorithmic search streams without cluttering the hook.
 """
 
 def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> str:
@@ -414,27 +413,31 @@ Rules:
         return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#AIEngineering", "#Coding", "#TechEducation"], max_len=2950)
 
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a casual, conversational discussion post for Threads with hashtags."""
+        """Generates an ultra-casual, highly relatable discussion post for Threads designed for viral replies and reposts."""
         link_instruction = (
-            "Creatively add 'https://neubench.netlify.app' below the post (e.g. 'Ran the evals on https://neubench.netlify.app' or 'Full comparison on https://neubench.netlify.app')."
+            "Naturally drop 'https://neubench.netlify.app' at the very bottom (e.g. 'tested this on https://neubench.netlify.app')."
         ) if include_link else ""
         prompt = f"""
 Topic: "{title}"
 Context: "{summary}"
 
-Write a casual, conversational post for Threads that invites people to share their experience or opinion.
-- Friendly, curiosity-driven, easy to read on mobile.
-- Include 2-3 popular hashtags at the bottom (e.g. #AI #Tech #Developers #Coding) to boost algorithmic discovery on Threads.
+Write an ultra-casual, relatable, scroll-stopping post for Meta Threads.
+Goal: MAXIMUM ENGAGEMENT & COMMENTS ("no cap" vibe).
+Rules:
+- Write like a real person sharing an honest thought, venting, or asking a juicy question that people can't resist replying to.
+- Relatable angles: dev struggles, tech industry absurdity, career debates, lifestyle vs hustle, AI vs reality.
+- Short paragraphs, super clean spacing.
+- Include 2-3 popular hashtags at the bottom (#Threads #Tech #Developers #AI).
 - {link_instruction}
-- Under 380 characters.
+- Under 320 characters.
 - Output ONLY the post text.
 """
-        text = self._generate_with_fallback(prompt, "You are an authentic mobile creator writing for Threads.", temperature=0.85).strip('"').strip()
+        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
-            suffix = "\n\nChecked the evals on https://neubench.netlify.app"
-            if len(text) + len(suffix) <= 400:
+            suffix = "\n\n👉 https://neubench.netlify.app"
+            if len(text) + len(suffix) <= 340:
                 text = f"{text}{suffix}"
-        return append_hashtags(text, ["#AI", "#Tech", "#Developers"], max_len=480)
+        return append_hashtags(text, ["#Threads", "#Tech", "#Relatable"], max_len=360)
 
     def generate_reddit_post(self, title: str, summary: str = "", company: str = "", subreddit: str = "r/LocalLLaMA", include_link: bool = True) -> dict:
         """Generates a high-value, community-tailored Reddit post with markdown formatting."""
