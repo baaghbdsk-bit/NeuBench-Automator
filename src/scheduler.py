@@ -783,66 +783,85 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Threads dispatch note: {e}[/dim]")
 
-        # 5. Cross-post to Pinterest Pin (Dedicated Day Curriculum Visual)
+        # 5. Cross-post to Pinterest Pin (Guarded by quota & fallback to dynamic visual)
         try:
-            from src.pinterest_automater import PinterestAutomater
-            from src.series_manager import AISeriesManager
-            pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
-            if pin_automater.is_session_available():
-                p_topic = AISeriesManager().get_next_unpublished_day()
-                p_day = p_topic["day"] if p_topic else 3
-                p_title = p_topic["title"] if p_topic else "How Computers Actually Learn"
-                cover_img = f"AI_SERIES/CAROUSELS/DAY_{p_day:03d}/slide_01.png"
-                if Path(cover_img).exists():
-                    console.print(f"[bold magenta]📌 Publishing Day {p_day:02d} Pin to Pinterest...[/bold magenta]")
-                    p_desc = f"Day {p_day:02d}: {p_title}\n\n90 Days. 90 Concepts. One AI Journey 🎓\n\nLive Benchmarks: https://neubench.netlify.app"
-                    p_ok, p_msg = pin_automater.create_pin(
-                        image_path=cover_img,
-                        title=f"Day {p_day:02d}: {p_title[:80]}",
-                        description=p_desc,
-                        link="https://neubench.netlify.app"
-                    )
-                    if p_ok:
-                        console.print("[bold green]✅ Pinterest Pin published![/bold green]")
-                        self.tracker.record_event(
-                            action_type="pinterest_pin",
-                            status="success",
-                            target_identifier="Pinterest Visual Pin",
-                            content_preview=hot_take[:80],
-                            duration_seconds=15.0,
-                            is_dry_run=self.safety.dry_run
+            can_pin, pin_reason = self.safety.can_perform_action("pinterest", today_counts)
+            if can_pin:
+                from src.pinterest_automater import PinterestAutomater
+                from src.series_manager import AISeriesManager
+                pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
+                if pin_automater.is_session_available():
+                    p_topic = AISeriesManager().get_next_unpublished_day()
+                    p_day = p_topic["day"] if p_topic else 3
+                    p_title = p_topic["title"] if p_topic else "How Computers Actually Learn"
+                    cover_img = Path(f"AI_SERIES/CAROUSELS/DAY_{p_day:03d}/slide_01.png")
+                    if not cover_img.exists() and image_path and Path(image_path).exists():
+                        cover_img = Path(image_path)
+                        p_title = selected_trend.get("title", p_title)
+
+                    if cover_img.exists():
+                        console.print(f"[bold magenta]📌 Publishing Pin to Pinterest: {p_title[:60]}...[/bold magenta]")
+                        p_desc = f"{p_title}\n\n{hot_take}\n\nLive AI Benchmarks: https://neubench.netlify.app\n\n#AI #Tech #MachineLearning"
+                        p_ok, p_msg = pin_automater.create_pin(
+                            image_path=str(cover_img),
+                            title=p_title[:80],
+                            description=p_desc,
+                            link="https://neubench.netlify.app"
                         )
+                        if p_ok:
+                            console.print("[bold green]✅ Pinterest Pin published![/bold green]")
+                            self.tracker.record_event(
+                                action_type="pinterest_pin",
+                                status="success",
+                                target_identifier="Pinterest Visual Pin",
+                                content_preview=p_title[:80],
+                                duration_seconds=15.0,
+                                is_dry_run=self.safety.dry_run
+                            )
+            else:
+                console.print(f"[dim]Pinterest skipped: {pin_reason}[/dim]")
         except Exception as ex:
             console.print(f"[dim]Pinterest broadcast note: {ex}[/dim]")
 
-        # 6. Cross-post to Instagram Carousel (Dynamic Curriculum Progression)
+        # 6. Cross-post to Instagram Carousel (Strict quota check + dynamic fallback)
         try:
-            from src.instagram_carousel import InstagramCarouselGenerator
-            from src.instagram_automater import InstagramAutomater
-            from src.series_manager import AISeriesManager
-            
-            series_mgr = AISeriesManager()
-            next_topic = series_mgr.get_next_unpublished_day()
-            current_day = next_topic["day"] if next_topic else 2
-            day_title = next_topic["title"] if next_topic else "AI vs. Machine Learning vs. Deep Learning"
+            can_ig, ig_reason = self.safety.can_perform_action("instagram", today_counts)
+            if can_ig:
+                from src.instagram_carousel import InstagramCarouselGenerator
+                from src.instagram_automater import InstagramAutomater
+                from src.series_manager import AISeriesManager
+                
+                series_mgr = AISeriesManager()
+                next_topic = series_mgr.get_next_unpublished_day()
+                current_day = next_topic["day"] if next_topic else 2
+                day_title = next_topic["title"] if next_topic else "AI vs. Machine Learning vs. Deep Learning"
 
-            ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-            if ig_automater.is_session_available():
-                console.print(f"[bold magenta]📸 Publishing Day {current_day:02d} Carousel to Instagram (@neubench)...[/bold magenta]")
-                ig_gen = InstagramCarouselGenerator()
-                slides = ig_gen.generate_day_carousel(current_day)
-                ig_caption = f"Day {current_day:02d}: {day_title}\n\n{hot_take}\n\n90 Days. 90 Concepts. One AI Journey. 🎓\n\n📌 Save for revision!\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#AI #MachineLearning #DeepLearning #AIEngineering #Coding"
-                ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
-                if ig_ok:
-                    console.print(f"[bold green]✅ Instagram Day {current_day:02d} carousel published![/bold green]")
-                    self.tracker.record_event(
-                        action_type="instagram_carousel",
-                        status="success",
-                        target_identifier=f"Instagram Carousel Day {current_day}",
-                        content_preview=f"Day {current_day}: {day_title}",
-                        duration_seconds=20.0,
-                        is_dry_run=self.safety.dry_run
-                    )
+                ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
+                if ig_automater.is_session_available():
+                    carousel_dir = Path(f"AI_SERIES/CAROUSELS/DAY_{current_day:03d}")
+                    slides = []
+                    if carousel_dir.exists() and list(carousel_dir.glob("*.png")):
+                        slides = sorted([str(p) for p in carousel_dir.glob("*.png")])
+                    else:
+                        ig_gen = InstagramCarouselGenerator()
+                        slides = ig_gen.generate_day_carousel(current_day)
+
+                    if slides:
+                        console.print(f"[bold magenta]📸 Publishing Day {current_day:02d} Carousel to Instagram (@neubench)...[/bold magenta]")
+                        ig_caption = f"Day {current_day:02d}: {day_title}\n\n{hot_take}\n\n90 Days. 90 Concepts. One AI Journey. 🎓\n\n📌 Save for revision!\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#AI #MachineLearning #DeepLearning #AIEngineering #Coding"
+                        ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
+                        if ig_ok:
+                            console.print(f"[bold green]✅ Instagram Day {current_day:02d} carousel published![/bold green]")
+                            self.tracker.record_event(
+                                action_type="instagram_carousel",
+                                status="success",
+                                target_identifier=f"Instagram Carousel Day {current_day}",
+                                content_preview=f"Day {current_day}: {day_title}",
+                                duration_seconds=20.0,
+                                is_dry_run=self.safety.dry_run
+                            )
+            else:
+                console.print(f"[dim]Instagram Carousel skipped: {ig_reason}[/dim]")
         except Exception as ex:
             console.print(f"[dim]Instagram broadcast note: {ex}[/dim]")
 
