@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T01:50:25.159748+00:00",
+    "last_updated": "2026-11-02T02:03:22.274050+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 377,
+    "total_cycles_executed": 378,
     "original_posts_attempted": 61,
     "original_posts_succeeded": 53,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 31,
+    "actions_skipped": 32,
     "failed_operations": 23,
     "ai_generation_requests": 119,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T15:05:27.025115+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T16:03:04.448827+00:00",
       "action_type": "original_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Engaged with 0 peer posts on LinkedIn.",
       "reason": "",
       "duration_s": 108.69
+    },
+    {
+      "timestamp": "2026-11-02T02:03:22.274016+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 peer posts on LinkedIn.",
+      "reason": "",
+      "duration_s": 102.36
     }
   ]
 }
