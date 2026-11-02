@@ -1726,25 +1726,25 @@ class AutomaterEngine:
 
 
     def _execute_bluesky_sniper_replies(self, start_time: float) -> bool:
-        """Finds viral discussions across tech, finance, and culture on Bluesky and posts sharp, witty replies."""
-        console.print("[bold cyan]🌌 Mode: Bluesky Viral Discussion Sniper Replies[/bold cyan]")
+        """Finds discussions across tech and AI engineering on Bluesky and posts professional, insightful replies."""
+        console.print("[bold cyan]🌌 Mode: Bluesky Professional Technical Replies[/bold cyan]")
         if not self.bluesky.is_configured():
             console.print("[yellow]Bluesky credentials not configured. Skipping.[/yellow]")
             return False
         
-        search_queries = ["AI OR LLM", "tech OR startup", "coding OR developer", "news OR viral", "crypto OR market"]
+        search_queries = ["AI benchmark OR LLM", "machine learning architecture", "inference latency", "open source model", "deep learning"]
         q = random.choice(search_queries)
         posts = self.bluesky.search_viral_posts(query=q, limit=6)
         if not posts:
-            console.print(f"[yellow]No relevant viral Bluesky posts found for '{q}'. Falling back...[/yellow]")
+            console.print(f"[yellow]No relevant technical Bluesky posts found for '{q}'. Falling back...[/yellow]")
             return False
         target_p = random.choice(posts[:3])
         author = target_p.get("author", {}).get("handle", "user")
         text = target_p.get("record", {}).get("text", "")
-        reply_take = self.ai.generate_sniper_reply(author, text)
+        reply_take = self.ai.generate_bluesky_sniper_reply(author, text)
         ok, msg = self.bluesky.reply(target_p, reply_take)
         if ok:
-            console.print(f"[bold green]✅ Replied on Bluesky to @{author}: {reply_take[:60]}...[/bold green]")
+            console.print(f"[bold green]✅ Replied professionally on Bluesky to @{author}: {reply_take[:60]}...[/bold green]")
             self.tracker.record_event(
                 action_type="bluesky_reply",
                 status="success",

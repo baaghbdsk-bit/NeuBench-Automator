@@ -5,18 +5,25 @@ from google import genai
 from google.genai import types
 import config
 
-SYSTEM_PROMPT = """You are a chronically online, witty, sharp, and unfiltered human commentator on X (Twitter) and Threads.
-Your sole mission: MAXIMUM ENGAGEMENT, VIRALITY, REPLIES, AND QUOTE-TWEETS. "NO CAP" — completely authentic, relatable, blunt, and conversational.
+SYSTEM_PROMPT = """You are a chronically online, witty, sharp, and unfiltered internet native on X (Twitter) and Meta Threads.
+You actively participate in heated debates across tech, startup drama, work culture, and current events.
+Your sole mission: MAXIMUM ENGAGEMENT, VIRALITY, HEATED DISCUSSIONS, AND QUOTE-TWEETS. "NO CAP" — completely authentic, relatable, contrarian, and bold.
 
-CRITICAL RULES TO SOUND 100% REAL & UNFILTERED:
-1. NEVER SOUND CORPORATE OR AI-GENERATED: Zero PR talk, zero buzzwords ("game-changer", "delve", "tapestry", "buckle up", "here's why", "fascinating", "in conclusion").
-2. CASUAL INTERNET TONE: Write like a real person typing on their phone between meetings or scrolling at 1 AM. Use casual punctuation, lowercase starts when natural, punchy 1-liners, relatable sarcasm, rhetorical questions, and blunt observations.
-3. DRIVE MAXIMUM ENGAGEMENT & CONTROVERSY:
-   - Polarizing hot takes ("Unpopular opinion:", "People are totally blind to this...")
-   - Calling out startup & corporate nonsense (meeting culture, hustle culture, tech bro irony, Bengaluru rent/traffic, crypto/AI hype cycles)
-   - Sarcastic humor & relatable pain points (debugging in production, cloud bills, Monday morning existential dread)
-   - Open provocation: Give people something to argue with, quote-tweet, or disagree on in the replies.
-4. HASHTAGS: Append 1-3 targeted hashtags (#AI #Tech #Startup) cleanly at the very end of standalone posts so the post enters algorithmic search streams without cluttering the hook.
+CRITICAL RULES FOR HEATED DEBATES & CASUAL TONE:
+1. NEVER SOUND CORPORATE OR AI-GENERATED: Zero PR speak, zero generic praise, zero buzzwords ("game-changer", "delve", "tapestry", "buckle up", "here's why", "fascinating", "in conclusion").
+2. REAL PERSON TYPING ON MOBILE: Write like someone tweeting during their commute or arguing in a thread at 1 AM. Use casual punctuation, lowercase starts when natural, punchy 1-liners, relatable sarcasm, rhetorical questions, and blunt observations.
+3. TAKE AN OPINIONATED STANCE IN EVERY DEBATE:
+   - Polarizing hot takes ("Unpopular opinion:", "People are totally blind to this...", "Can we stop pretending that...")
+   - Sarcastic roasts of corporate & tech bro tropes (70-hour hustle culture, meetings that could be emails, VC hype, AI wrapper companies, rent/commute struggles)
+   - Spark passionate agreement or disagreement: Leave an open provocation that compels people to quote-tweet or reply.
+4. HASHTAGS: Append 1-3 targeted hashtags (#AI #Tech #Startup #Debate) cleanly at the very end of standalone posts so the post enters algorithmic search streams without cluttering the hook.
+"""
+
+BLUESKY_SYSTEM_PROMPT = """You are a senior AI research engineer and open-source systems architect writing on Bluesky (AT Protocol).
+Audience: Elite software engineers, distributed systems builders, and AI researchers.
+Tone: Thoughtful, collegial, technically rigorous, and deeply respectful of open-weights & open benchmarks.
+Values: Real-world latency, inference economics, memory hierarchies, reproducibility, and transparent evaluations.
+Formatting: Clear, concise (under 280 characters), accompanied by technical hashtags (#AI #MachineLearning #OpenSource). Zero cringe, zero clickbait.
 """
 
 def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> str:
@@ -247,7 +254,7 @@ Rules:
         return append_hashtags(text, ["#AI", "#LLMs", "#Tech"], max_len=278)
 
     def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a technical, developer-friendly post for Bluesky with custom-feed hashtags (under 300 chars)."""
+        """Generates a professional, technically rigorous post for Bluesky with custom-feed hashtags (under 300 chars)."""
         link_instruction = (
             "Include 'https://neubench.netlify.app' creatively at the end (e.g. 'Live benchmarks: https://neubench.netlify.app' or 'Comparing 260+ models on https://neubench.netlify.app')."
         ) if include_link else "Do not include URLs."
@@ -256,16 +263,16 @@ Topic: "{title}"
 Company/Developer: "{company}"
 Context: "{summary}"
 
-Write a Bluesky post about this AI development.
+Write an authoritative, professional Bluesky post about this AI architecture or model breakthrough.
 Rules:
-- Audience: Open-source developers, researchers, tech builders.
-- Tone: Curious, technical, direct, respectful of open standards, zero corporate cringe.
-- Include 2-3 targeted technical hashtags at the end (e.g. #AI #MachineLearning #OpenSource) so the post is indexed by Bluesky algorithmic feeds.
+- Audience: Senior software engineers, AI systems architects, open-source contributors.
+- Tone: Professional, objective, insightful, and focused on systems design, latency, or model evaluation.
+- Include 2-3 targeted technical hashtags at the end (e.g. #AI #MachineLearning #OpenSource) for custom feeds.
 - {link_instruction}
 - Length: strictly under 255 characters so hashtags and links fit within Bluesky's 300-char limit.
 - Output ONLY the post text.
 """
-        text = self._generate_with_fallback(prompt, "You write for tech-savvy developers on Bluesky.", temperature=0.8).strip('"').strip()
+        text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             suffix = " | Benchmarks: https://neubench.netlify.app"
             if len(text) + len(suffix) <= 255:
@@ -273,6 +280,22 @@ Rules:
             else:
                 text = f"{text[:255 - len(suffix) - 1]}…{suffix}"
         return append_hashtags(text, ["#AI", "#MachineLearning", "#OpenSource"], max_len=295)
+
+    def generate_bluesky_sniper_reply(self, target_author: str, target_text: str) -> str:
+        """Generates a professional, thoughtful, and technically rigorous reply on Bluesky."""
+        prompt = f"""
+Bluesky Post by @{target_author}:
+"{target_text[:400]}"
+
+Write a professional, technically insightful 1-2 sentence reply.
+Guidelines:
+- Audience: Open-source engineers, systems builders, AI researchers.
+- Tone: Professional, collegial, intellectually curious, and grounded in engineering facts or latency/inference trade-offs.
+- Do NOT sound casual or snarky. Maintain high technical standards.
+- Output ONLY the reply text. Do NOT include @mentions or quotes.
+"""
+        text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72)
+        return text.strip('"').strip()
 
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a viral, high-save LinkedIn Technical Cheatsheet & Visual Study Note in the style of top tech creators (90k+ reach playbook)."""
