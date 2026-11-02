@@ -530,15 +530,23 @@ def generate_visual_for_post(topic_or_text: str, summary: str = "") -> Tuple[str
     """
     Main entry point:
     1. Uses Gemini AI to analyze the specific post topic and generate custom technical layout specifications.
-    2. Dispatches to the corresponding renderer with the AI-generated titles, models, code, or tokens.
-    3. Returns (gif_path, mp4_path).
+    2. Ensures unique, uncollided file names so each post gets its own distinct attachment.
+    3. Dispatches to the corresponding renderer with the AI-generated titles, models, code, or tokens.
+    4. Returns (gif_path, mp4_path).
     """
+    import hashlib, re
+    # Create a unique slug for this specific topic to prevent file reuse or collisions
+    raw_slug = re.sub(r'[^a-zA-Z0-9_]', '_', topic_or_text.strip().lower())
+    clean_slug = re.sub(r'_+', '_', raw_slug)[:25].strip('_')
+    content_hash = hashlib.md5(f"{topic_or_text}_{summary[:100]}".encode()).hexdigest()[:8]
+    unique_base_name = f"{clean_slug}_{content_hash}" if clean_slug else f"visual_{content_hash}"
+
     spec = request_ai_visual_spec(topic_or_text, summary)
     v_type = spec.get("visual_type", "CODE_ARCHITECTURE")
 
     if v_type == "BENCHMARK_RACE":
-        return render_dynamic_benchmark_race(spec)
+        return render_dynamic_benchmark_race(spec, output_base_name=unique_base_name)
     elif v_type == "TOKEN_PIPELINE":
-        return render_dynamic_token_pipeline(spec)
+        return render_dynamic_token_pipeline(spec, output_base_name=unique_base_name)
     else:
-        return render_dynamic_code_architecture(spec)
+        return render_dynamic_code_architecture(spec, output_base_name=unique_base_name)
