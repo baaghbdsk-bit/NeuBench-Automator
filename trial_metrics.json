@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T20:02:07.541992+00:00",
+    "last_updated": "2026-11-02T21:02:08.809701+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 411,
+    "total_cycles_executed": 412,
     "original_posts_attempted": 65,
     "original_posts_succeeded": 57,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 42,
+    "actions_skipped": 43,
     "failed_operations": 24,
     "ai_generation_requests": 128,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T21:03:40.745512+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "11.2 million viewers?! \ud83e\udd2f Honestly so glad the Traitors winners can finally breat",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T21:04:04.683927+00:00",
       "action_type": "pinterest_pin",
@@ -1518,6 +1508,16 @@
       "content_preview": "Engaged with 0 viral posts on LinkedIn feed.",
       "reason": "",
       "duration_s": 24.07
+    },
+    {
+      "timestamp": "2026-11-02T21:02:08.809658+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 viral posts on LinkedIn feed.",
+      "reason": "",
+      "duration_s": 21.5
     }
   ]
 }
