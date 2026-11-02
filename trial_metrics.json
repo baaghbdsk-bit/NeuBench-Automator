@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T18:01:58.404534+00:00",
+    "last_updated": "2026-11-02T19:02:00.050805+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 409,
+    "total_cycles_executed": 410,
     "original_posts_attempted": 65,
     "original_posts_succeeded": 57,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 41,
     "failed_operations": 24,
-    "ai_generation_requests": 127,
+    "ai_generation_requests": 128,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T21:03:08.511702+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "11.2M live viewers keeping a zero-leak state for months? Harder than maintaining strict determinism in distributed train",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-31T21:03:11.511762+00:00",
       "action_type": "linkedin_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the best AI algorithm in the world, but feed it garbage data",
       "reason": "",
       "duration_s": 12.98
+    },
+    {
+      "timestamp": "2026-11-02T19:02:00.050568+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the most advanced neural network in the world, but if your d",
+      "reason": "",
+      "duration_s": 18.02
     }
   ]
 }
