@@ -579,8 +579,9 @@ class LinkedInAutomater:
 
     def engage_with_peer_posts(self, max_comments: int = 2) -> Tuple[int, str]:
         """
-        Visits high-signal AI accounts from network, finds their latest post, and leaves
-        a professional, authoritative B2B comment to drive profile traffic.
+        Navigates to the live LinkedIn feed (https://www.linkedin.com/feed/),
+        identifies top trending posts in your network, and leaves an authoritative,
+        thought-leadership comment to drive profile discovery.
         """
         if self.dry_run:
             print(f"[LinkedInAutomater] [DRY RUN] Would engage with peer AI posts.")
@@ -589,29 +590,6 @@ class LinkedInAutomater:
         if not self.is_session_available():
             return 0, "LinkedIn session not available for peer engagement."
 
-        import json, random
-        net_file = config.BASE_DIR / "linkedin_network.json"
-        targets = []
-        if net_file.exists():
-            try:
-                with open(net_file, "r", encoding="utf-8") as f:
-                    net_data = json.load(f)
-                    targets = net_data.get("followed", [])
-            except Exception:
-                pass
-
-        if not targets:
-            targets = [
-                "https://www.linkedin.com/company/anthropic/",
-                "https://www.linkedin.com/company/openai/",
-                "https://www.linkedin.com/company/googledeepmind/",
-                "https://www.linkedin.com/company/together-ai/",
-                "https://www.linkedin.com/company/mistralai/",
-                "https://www.linkedin.com/in/sebastianraschka/",
-                "https://www.linkedin.com/company/langchain/"
-            ]
-
-        random.shuffle(targets)
         commented_count = 0
 
         with sync_playwright() as p:
@@ -644,57 +622,67 @@ class LinkedInAutomater:
                 from src.ai_generator import AIGenerator
                 ai = AIGenerator()
 
-                for target_url in targets:
+                feed_url = "https://www.linkedin.com/feed/"
+                print(f"[LinkedInAutomater] Navigating to live feed: {feed_url} ...")
+                page.goto(feed_url, wait_until="domcontentloaded", timeout=45000)
+                page.wait_for_timeout(5000)
+
+                # Scroll down slightly to trigger lazy-loaded feed items
+                page.mouse.wheel(0, 800)
+                page.wait_for_timeout(3000)
+
+                # Find top active feed post cards
+                post_cards = page.locator('div[data-view-name="feed-full-update"], div.feed-shared-update-v2, article').all()
+                print(f"[LinkedInAutomater] Found {len(post_cards)} candidate feed posts.")
+
+                for idx, post_elem in enumerate(post_cards[:8]):
                     if commented_count >= max_comments:
                         break
                     try:
-                        target_posts_url = target_url.rstrip("/") + "/posts/" if "company" in target_url else target_url.rstrip("/") + "/recent-activity/all/"
-                        print(f"[LinkedInAutomater] Checking posts on {target_posts_url} ...")
-                        page.goto(target_posts_url, wait_until="domcontentloaded", timeout=35000)
-                        page.wait_for_timeout(3500)
-
-                        post_elem = page.locator('.feed-shared-update-v2, article').first
-                        if not post_elem.is_visible():
-                            continue
-
                         post_text = post_elem.inner_text().strip()
-                        if len(post_text) < 40:
+                        if len(post_text) < 60:
                             continue
 
-                        # Check if we already commented
+                        # Check if we already commented or it's our own post
                         if "Vishnu Gupta" in post_text or "NeuBench" in post_text:
                             continue
 
+                        # Find Comment button on this update
                         comment_btn = post_elem.locator('button[aria-label*="comment" i], button:has-text("Comment")').first
                         if not comment_btn.is_visible():
                             continue
 
+                        comment_btn.scroll_into_view_if_needed(timeout=3000)
                         comment_btn.click(timeout=3000)
-                        page.wait_for_timeout(1500)
+                        page.wait_for_timeout(2000)
 
+                        # Locate comment text box
                         box = post_elem.locator('div[role="textbox"][contenteditable="true"]').first
                         if not box.is_visible():
                             box = page.locator('div[role="textbox"][contenteditable="true"]').last
 
                         if box.is_visible():
-                            author_slug = target_url.split("/")[-2] if "/" in target_url else "AI Community"
+                            # Extract author or subject matter for context
+                            author_slug = "Tech Leader"
                             comm_text = ai.generate_linkedin_peer_comment(post_author=author_slug, post_text=post_text)
+                            print(f"[LinkedInAutomater] Drafted thought-leadership comment: {comm_text[:70]}...")
+                            
                             box.click()
                             page.keyboard.insert_text(comm_text)
-                            page.wait_for_timeout(1500)
+                            page.wait_for_timeout(2000)
 
                             submit = post_elem.locator('button.comments-comment-box__submit-button, button:has-text("Comment")').first
                             if submit.is_visible():
                                 submit.click(timeout=4000)
                                 commented_count += 1
-                                print(f"[LinkedInAutomater] ✅ Successfully commented on {author_slug}'s post!")
-                                page.wait_for_timeout(3500)
-                    except Exception as e:
-                        print(f"[LinkedInAutomater] Error commenting on {target_url}: {e}")
+                                print(f"[LinkedInAutomater] ✅ Successfully commented on viral feed post #{idx+1}!")
+                                page.wait_for_timeout(4000)
+                    except Exception as ex:
+                        print(f"[LinkedInAutomater] Error on post #{idx+1}: {ex}")
                         continue
 
-                return commented_count, f"Engaged with {commented_count} peer posts on LinkedIn."
+                return commented_count, f"Engaged with {commented_count} viral posts on LinkedIn feed."
             except Exception as e:
-                return commented_count, f"LinkedIn peer engagement error: {e}"
+                return commented_count, f"LinkedIn feed engagement error: {e}"
             finally:
                 context.close()
