@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T22:05:59.197019+00:00",
+    "last_updated": "2026-11-02T22:53:44.115918+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 415,
+    "total_cycles_executed": 416,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 43,
+    "actions_skipped": 44,
     "failed_operations": 24,
     "ai_generation_requests": 129,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T21:53:12.536532+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Apple TV hardware running local quant models via MLX when? The unified memory bandwidth makes for a sneaky good edge inf",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-31T21:53:15.811831+00:00",
       "action_type": "linkedin_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "media companies suing brave now?? like bro the entire internet is just robots sc",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T22:53:44.115885+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 viral posts on LinkedIn feed.",
+      "reason": "",
+      "duration_s": 22.11
     }
   ]
 }
