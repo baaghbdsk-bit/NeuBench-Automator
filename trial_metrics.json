@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T04:04:37.458151+00:00",
+    "last_updated": "2026-11-02T05:04:27.119819+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 384,
-    "original_posts_attempted": 62,
-    "original_posts_succeeded": 54,
+    "total_cycles_executed": 389,
+    "original_posts_attempted": 63,
+    "original_posts_succeeded": 55,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 33,
     "failed_operations": 23,
-    "ai_generation_requests": 120,
+    "ai_generation_requests": 121,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T17:03:04.565524+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Ukrainian evacuees reunite with family after years trapped in Russia-occupied city",
-      "content_preview": "Human resilience is unreal, but let\u2019s be honest: the fact that people had to boil weeds for years while the rest of the ",
-      "reason": "",
-      "duration_s": 86.69
-    },
-    {
-      "timestamp": "2026-10-31T17:03:05.669796+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Human perseverance beats unimaginable odds: Oleshky families reunited after years of survival mode on weeds and zero gri",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-31T17:03:08.741576+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing recovery pipelines under extreme infrastructure loss u",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T17:03:38.957308+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Just read about Ukrainian evacuees finally reuniting with family after years tra",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T17:04:03.562496+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Human resilience is unreal, but let\u2019s be honest: the fact that people had to boi",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T17:05:22.438353+00:00",
       "action_type": "youtube_short",
@@ -1511,6 +1461,56 @@
     },
     {
       "timestamp": "2026-11-02T04:04:37.458114+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T05:02:06.520303+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "austin reaves",
+      "content_preview": "Austin Reaves is just white Alex Caruso with a better PR team and y'all act like he's Luka Doncic. Make it make sense. #",
+      "reason": "",
+      "duration_s": 23.43
+    },
+    {
+      "timestamp": "2026-11-02T05:02:14.282461+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Austin Reaves is hitting clutch shots in the NBA, but how would he fine-tune an LLM on sparse rewards? Still waiting for",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-02T05:02:45.007033+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Is it just me, or does Austin Reaves just *always* make the right play when the ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T05:03:08.270059+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Austin Reaves is just white Alex Caruso with a better PR team and y'all act like",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T05:04:27.119787+00:00",
       "action_type": "youtube_short",
       "status": "success",
       "is_dry_run": false,
