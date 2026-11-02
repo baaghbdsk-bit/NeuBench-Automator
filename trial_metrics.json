@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T08:42:08.060825+00:00",
+    "last_updated": "2026-11-02T09:03:35.447198+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 393,
+    "total_cycles_executed": 394,
     "original_posts_attempted": 63,
     "original_posts_succeeded": 55,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 37,
+    "actions_skipped": 38,
     "failed_operations": 23,
     "ai_generation_requests": 121,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T18:03:34.061378+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Ever wonder what the *actual* money behind VCs is thinking right now? Turns out ",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T18:03:58.333200+00:00",
       "action_type": "pinterest_pin",
@@ -1518,6 +1508,16 @@
       "content_preview": "Engaged with 0 peer posts on LinkedIn.",
       "reason": "",
       "duration_s": 104.88
+    },
+    {
+      "timestamp": "2026-11-02T09:03:35.447167+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 peer posts on LinkedIn.",
+      "reason": "",
+      "duration_s": 107.79
     }
   ]
 }
