@@ -102,6 +102,7 @@ class ActivityTracker:
             "reposts": 0,
             "youtube_shorts": 0,
             "instagram_carousels": 0,
+            "instagram_reels": 0,
             "linkedin_posts": 0,
             "linkedin_peer_comments": 0,
             "devto_articles": 0,
@@ -124,6 +125,8 @@ class ActivityTracker:
                     counts["youtube_shorts"] += 1
                 elif atype in ("instagram", "instagram_carousel"):
                     counts["instagram_carousels"] += 1
+                elif atype in ("instagram_reel", "instagram_reels"):
+                    counts["instagram_reels"] = counts.get("instagram_reels", 0) + 1
                 elif atype in ("linkedin", "linkedin_post"):
                     counts["linkedin_posts"] += 1
                 elif atype == "linkedin_peer_comment":

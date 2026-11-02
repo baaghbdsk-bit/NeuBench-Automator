@@ -846,28 +846,51 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Instagram broadcast note: {ex}[/dim]")
 
-        # 7. Cross-post to Instagram Reel (Vertical Video with Andrew Neural voice)
+        # 7. Cross-post to Instagram Reel (Guarded against duplicate videos & quota enforced)
         try:
-            from src.instagram_automater import InstagramAutomater
-            ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-            if ig_automater.is_session_available():
-                reel_video = f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4"
-                if not Path(reel_video).exists():
-                    reel_video = "AI_SERIES/VIDEOS/DAY_002/animated_short_day2.mp4"
-                if Path(reel_video).exists():
-                    console.print(f"[bold magenta]🎥 Publishing Day {current_day:02d} Reel to Instagram (@neubench)...[/bold magenta]")
-                    reel_caption = f"Day {current_day:02d}: {day_title}\n\n{hot_take}\n\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#Reels #AI #MachineLearning #DeepLearning #Coding"
-                    r_ok, r_msg = ig_automater.post_reel(reel_video, reel_caption)
-                    if r_ok:
-                        console.print(f"[bold green]✅ Instagram Day {current_day:02d} Reel published![/bold green]")
-                        self.tracker.record_event(
-                            action_type="instagram_reel",
-                            status="success",
-                            target_identifier=f"Instagram Reel Day {current_day}",
-                            content_preview=f"Day {current_day}: {day_title}",
-                            duration_seconds=25.0,
-                            is_dry_run=self.safety.dry_run
+            can_reel, reel_reason = self.safety.can_perform_action("instagram_reel", today_counts)
+            if can_reel:
+                from src.instagram_automater import InstagramAutomater
+                ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
+                if ig_automater.is_session_available():
+                    reel_video = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4")
+                    
+                    if reel_video.exists():
+                        reel_caption = (
+                            f"Day {current_day:02d}: {day_title}\n\n"
+                            f"{hot_take}\n\n"
+                            f"90 Days. 90 Concepts. One AI Journey. 🎓\n\n"
+                            f"📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
+                            "#Reels #AI #MachineLearning #DeepLearning #Coding"
                         )
+                    else:
+                        # Use dynamic trending visual video instead of reusing older day's video
+                        dyn_video = Path("generated_visuals/benchmark_race_dynamic.mp4")
+                        if mp4_visual and Path(mp4_visual).exists():
+                            dyn_video = Path(mp4_visual)
+                        reel_video = dyn_video
+                        reel_caption = (
+                            f"{selected_trend['title']}\n\n"
+                            f"{hot_take}\n\n"
+                            f"📊 Continuous AI evaluations & benchmarks: neubench.netlify.app\n\n"
+                            "#Reels #AI #Tech #MachineLearning #DeepLearning"
+                        )
+
+                    if reel_video.exists():
+                        console.print(f"[bold magenta]🎥 Publishing unique Reel to Instagram (@neubench)...[/bold magenta]")
+                        r_ok, r_msg = ig_automater.post_reel(str(reel_video), reel_caption)
+                        if r_ok:
+                            console.print(f"[bold green]✅ Instagram Reel published![/bold green]")
+                            self.tracker.record_event(
+                                action_type="instagram_reel",
+                                status="success",
+                                target_identifier=f"Instagram Reel Day {current_day}",
+                                content_preview=f"Day {current_day}: {day_title}",
+                                duration_seconds=25.0,
+                                is_dry_run=self.safety.dry_run
+                            )
+            else:
+                console.print(f"[dim]Instagram Reel skipped: {reel_reason}[/dim]")
         except Exception as ex:
             console.print(f"[dim]Instagram Reel broadcast note: {ex}[/dim]")
 
