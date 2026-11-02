@@ -92,7 +92,7 @@ class LinkedInAutomater:
 
 
 
-    def post(self, text: str) -> Tuple[bool, str]:
+    def post(self, text: str, image_path: Optional[str] = None) -> Tuple[bool, str]:
 
         """Publishes an update to LinkedIn via automated browser session."""
 

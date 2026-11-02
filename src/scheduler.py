@@ -1078,7 +1078,17 @@ class AutomaterEngine:
             )
             return False
 
-        ok, msg = automater.post(li_text)
+        # Generate custom dynamic AI visual for LinkedIn Master Series
+        li_visual = None
+        try:
+            from src.autonomous_visual_engine import generate_visual_for_post
+            gif_v, mp4_v = generate_visual_for_post(topic_title, summary=li_text[:200])
+            li_visual = mp4_v or gif_v
+            console.print(f"[bold magenta]🎬 Generated Series Lesson visual: {li_visual}[/bold magenta]")
+        except Exception as e:
+            console.print(f"[dim]Series visual generation note: {e}[/dim]")
+
+        ok, msg = automater.post(li_text, image_path=li_visual)
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="linkedin_post",
