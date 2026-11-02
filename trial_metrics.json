@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T16:02:04.209571+00:00",
+    "last_updated": "2026-11-02T17:04:12.780893+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 405,
-    "original_posts_attempted": 64,
-    "original_posts_succeeded": 56,
+    "total_cycles_executed": 408,
+    "original_posts_attempted": 65,
+    "original_posts_succeeded": 57,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 41,
     "failed_operations": 24,
-    "ai_generation_requests": 125,
+    "ai_generation_requests": 126,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T20:03:30.732870+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Is it just me, or is Wednesday always that weird limbo where you\u2019re way too far ",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T20:03:54.944108+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "The middle of the week is a total scam. You\u2019re already exhausted from Monday and",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T20:05:14.368523+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T21:03:07.157272+00:00",
       "action_type": "original_post",
@@ -1518,6 +1488,36 @@
       "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nMost developers think AI is all about complex code.\nIn reality, the algor",
       "reason": "",
       "duration_s": 16.7
+    },
+    {
+      "timestamp": "2026-11-02T17:03:41.623650+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Think Twice: The Metis-1.6 Technical Report",
+      "content_preview": "A lone researcher just dropped a sub-3B model that actually slaps while entire VC-funded labs burn millions on 400B para",
+      "reason": "",
+      "duration_s": 96.88
+    },
+    {
+      "timestamp": "2026-11-02T17:03:43.584957+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Metis-1.6 proves parameter count isn't destiny. Built by a single researcher, Praxis (2.94B, 0.46B active) shows how arc",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-02T17:04:12.780855+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "a single researcher literally built a 3B model from scratch while big labs are w",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
