@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T23:02:11.984335+00:00",
+    "last_updated": "2026-11-02T23:10:31.019161+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 417,
+    "total_cycles_executed": 418,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 45,
+    "actions_skipped": 46,
     "failed_operations": 24,
     "ai_generation_requests": 129,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T21:53:50.579541+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Honestly, Apple TV+ has quietly become home to some of the absolute best sci-fi ",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T21:54:14.813575+00:00",
       "action_type": "pinterest_pin",
@@ -1518,6 +1508,16 @@
       "content_preview": "Replied to 0 Threads post(s).",
       "reason": "",
       "duration_s": 28.26
+    },
+    {
+      "timestamp": "2026-11-02T23:10:31.019127+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 viral posts on LinkedIn feed.",
+      "reason": "",
+      "duration_s": 16.15
     }
   ]
 }
