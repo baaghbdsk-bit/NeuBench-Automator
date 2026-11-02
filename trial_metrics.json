@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T15:02:15.415480+00:00",
+    "last_updated": "2026-11-02T16:02:04.209571+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 404,
+    "total_cycles_executed": 405,
     "original_posts_attempted": 64,
     "original_posts_succeeded": 56,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 41,
     "failed_operations": 24,
-    "ai_generation_requests": 124,
+    "ai_generation_requests": 125,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T20:03:02.925007+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing model routing architectures under the new \"\ud835\uddea\ud835\uddf2\ud835\uddf1\ud835\uddfb\ud835\uddf2\ud835\ude00\ud835\uddf1\ud835\uddee\ud835\ude06\" ",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T20:03:30.732870+00:00",
       "action_type": "threads_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the best AI algorithm in the world, \nbut if your data is gar",
       "reason": "",
       "duration_s": 24.1
+    },
+    {
+      "timestamp": "2026-11-02T16:02:04.209399+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nMost developers think AI is all about complex code.\nIn reality, the algor",
+      "reason": "",
+      "duration_s": 16.7
     }
   ]
 }
