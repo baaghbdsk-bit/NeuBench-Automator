@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T22:53:44.115918+00:00",
+    "last_updated": "2026-11-02T23:02:11.984335+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 416,
+    "total_cycles_executed": 417,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 44,
+    "actions_skipped": 45,
     "failed_operations": 24,
     "ai_generation_requests": 129,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T21:53:15.811831+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours benchmarking Apple TV hardware limits and edge inference loops",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T21:53:50.579541+00:00",
       "action_type": "threads_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Engaged with 0 viral posts on LinkedIn feed.",
       "reason": "",
       "duration_s": 22.11
+    },
+    {
+      "timestamp": "2026-11-02T23:02:11.983145+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (coding tips)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 28.26
     }
   ]
 }
