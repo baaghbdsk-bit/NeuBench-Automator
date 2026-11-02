@@ -9,8 +9,8 @@ on:
     # - 15:30 UTC = 09:00 PM IST
     # - 18:30 UTC = 12:00 AM (Midnight) IST
     - cron: '30 3,7,11,15,18 * * *'
-    # 2. Continuous omnichannel rotation & viral engagement heartbeat (every hour)
-    - cron: '0 * * * *'
+    # 2. Continuous omnichannel rotation & viral engagement heartbeat (every 45 minutes)
+    - cron: '*/45 * * * *'
   workflow_dispatch:
     inputs:
       dry_run:

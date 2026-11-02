@@ -664,9 +664,18 @@ class AutomaterEngine:
 
 
 
-        # Standard original tweets: Post text-only so unrelated slides/graphics are never attached.
-        # Dedicated curriculum graphics and videos are handled exclusively by their respective pipeline modules.
-        success = self.twitter.post_tweet(hot_take)
+        # Generate Autonomous Visual Animation (MP4 & GIF) for maximum dwell-time engagement whenever applicable
+        gif_visual, mp4_visual = None, None
+        try:
+            from src.autonomous_visual_engine import generate_visual_for_post
+            gif_visual, mp4_visual = generate_visual_for_post(selected_trend["title"], selected_trend.get("summary", ""))
+            console.print(f"[bold magenta]🎬 Generated visual animations: {gif_visual} & {mp4_visual}[/bold magenta]")
+        except Exception as e:
+            console.print(f"[dim]Visual engine note: {e}[/dim]")
+
+        # 1. Post to X (Twitter) - Attach looping visual whenever available for 10x timeline dwell time
+        twitter_media = gif_visual if (gif_visual and Path(gif_visual).exists()) else None
+        success = self.twitter.post_tweet(hot_take, media_path=twitter_media)
         status = "success" if success else "failed"
         self.tracker.record_event(
             action_type="original_post",
@@ -681,15 +690,6 @@ class AutomaterEngine:
             console.print("[bold green]✅ Successfully published tweet on 𝕏![/bold green]")
         else:
             console.print("[yellow]⚠️ 𝕏 post could not be published. Continuing with remaining platforms...[/yellow]")
-
-        # Generate Autonomous Visual Animation (MP4 & GIF) for maximum dwell-time engagement
-        gif_visual, mp4_visual = None, None
-        try:
-            from src.autonomous_visual_engine import generate_visual_for_post
-            gif_visual, mp4_visual = generate_visual_for_post(selected_trend["title"])
-            console.print(f"[bold magenta]🎬 Generated visual animations: {gif_visual} & {mp4_visual}[/bold magenta]")
-        except Exception as e:
-            console.print(f"[dim]Visual engine note: {e}[/dim]")
 
         # 2. Cross-post to Bluesky (Independent, attaching GIF loop)
         if config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD:

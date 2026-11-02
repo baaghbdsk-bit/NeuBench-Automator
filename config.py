@@ -108,10 +108,11 @@ CAPS_PER_PLATFORM = {
     "linkedin_peer_comments": int(os.getenv("MAX_DAILY_LINKEDIN_PEER_COMMENTS", "0")), # 0 = Uncapped opportunity-driven (replies whenever viral post found)
     "devto_articles": int(os.getenv("MAX_DAILY_DEVTO", "1")),             # 1 comprehensive article/day
     "pinterest_pins": int(os.getenv("MAX_DAILY_PINTEREST", "3")),         # 2-3 pins/day spaced out
-    "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", "4")),    # 3-4 original posts/threads
-    "twitter_replies": int(os.getenv("MAX_DAILY_X_REPLIES", "16")),       # 12-16 high-signal sniper replies
-    "twitter_reposts": int(os.getenv("MAX_DAILY_X_REPOSTS", "5")),        # 4-5 quote-tweets with commentary
-    "threads_posts": int(os.getenv("MAX_DAILY_THREADS", "3")),            # 2-3 conversational posts
+    "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", "8")),    # 6-8 original posts spaced across active windows
+    "twitter_replies": int(os.getenv("MAX_DAILY_X_REPLIES", "24")),       # 20-25 high-signal sniper replies on viral tweets
+    "twitter_reposts": int(os.getenv("MAX_DAILY_X_REPOSTS", "6")),        # 5-6 quote-tweets with commentary
+    "threads_posts": int(os.getenv("MAX_DAILY_THREADS", "5")),            # 4-5 conversational posts
+    "bluesky_posts": int(os.getenv("MAX_DAILY_BLUESKY", "6")),            # 5-6 tech takes
 }
 
 # Real-Time Push Alerts (Optional: Discord / Telegram)
