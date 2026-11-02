@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T11:03:33.136722+00:00",
+    "last_updated": "2026-11-02T12:07:55.873085+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 396,
-    "original_posts_attempted": 63,
-    "original_posts_succeeded": 55,
+    "total_cycles_executed": 402,
+    "original_posts_attempted": 64,
+    "original_posts_succeeded": 56,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 40,
-    "failed_operations": 23,
-    "ai_generation_requests": 121,
+    "failed_operations": 24,
+    "ai_generation_requests": 123,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T19:03:00.261825+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "aishwarya rai",
-      "content_preview": "People treating Aishwarya Rai like she's a victim of her own life choices need to touch grass. She knew the deal, played",
-      "reason": "",
-      "duration_s": 84.45
-    },
-    {
-      "timestamp": "2026-10-31T19:03:01.388458+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "The hallucination gap in facial feature retention for fine-tuned open-source diffusion models is wild. Testing edge case",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-31T19:03:03.907838+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing 260+ model configurations for high-end multimodal appl",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T19:03:31.638557+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Can we talk about how Aishwarya Rai has literally not aged a single day since th",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T19:03:55.720594+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "People treating Aishwarya Rai like she's a victim of her own life choices need t",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T19:05:15.252646+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T20:02:58.804992+00:00",
       "action_type": "original_post",
@@ -1518,6 +1458,66 @@
       "content_preview": "Engaged with 0 peer posts on LinkedIn.",
       "reason": "",
       "duration_s": 104.18
+    },
+    {
+      "timestamp": "2026-11-02T12:02:27.245236+00:00",
+      "action_type": "linkedin_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 03/90]\nMachine learning isn't magic. It's just curve-fitting on a massive scale.",
+      "reason": "Session expired or logged out. Please re-run 'python scripts/login_linkedin.py'.",
+      "duration_s": 43.12
+    },
+    {
+      "timestamp": "2026-11-02T12:03:21.600975+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "month",
+      "content_preview": "February is the only month that actually feels like a 3-day free trial we never signed up for. Make it make sense. #Life",
+      "reason": "",
+      "duration_s": 97.48
+    },
+    {
+      "timestamp": "2026-11-02T12:05:03.055881+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Fastest month in AI engineering history. Context windows doubled, quantization dropped to sub-2-bit, and evals are const",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-02T12:06:13.044300+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Can we talk about how this month completely flew by? \ud83d\ude05 \n\nIt feels like it starte",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T12:06:36.962492+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "February is the only month that actually feels like a 3-day free trial we never ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T12:07:55.873051+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
