@@ -871,47 +871,70 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Instagram Reel broadcast note: {ex}[/dim]")
 
-        # 8. Cross-post to YouTube Shorts (Shared 9:16 Video + Dual Subtitles)
+        # 8. Cross-post to YouTube Shorts (Guarded against duplicates & strictly checks daily quota)
         try:
-            from src.youtube_automater import YouTubeAutomater
-            yt_automater = YouTubeAutomater()
-            if yt_automater.is_authenticated:
-                console.print(f"[bold magenta]🎬 Publishing Day {current_day:02d} Short to YouTube Shorts (@neubench)...[/bold magenta]")
-                yt_video = f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4"
-                yt_srt = f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/subtitles_day_{current_day:03d}.srt"
-                if not Path(yt_video).exists():
-                    yt_video = "AI_SERIES/VIDEOS/DAY_002/animated_short_day2.mp4"
-                    yt_srt = "AI_SERIES/VIDEOS/DAY_002/subtitles_day_002.srt"
-                yt_title = f"Day {current_day:02d}: {day_title} #Shorts"
-                if len(yt_title) > 95:
-                    yt_title = yt_title[:90] + "... #Shorts"
-                yt_desc = f"Day {current_day:02d}: {day_title}\n\n{hot_take}\n\n📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n#Shorts #AI #MachineLearning #DeepLearning #Coding"
-                yt_res = yt_automater.upload_short(video_path=yt_video, title=yt_title, description=yt_desc, srt_path=yt_srt)
-                if yt_res:
-                    console.print(f"[bold green]✅ YouTube Short published: {yt_res['url']}[/bold green]")
-                    self.tracker.record_event(
-                        action_type="youtube_short",
-                        status="success",
-                        target_identifier="YouTube Short",
-                        content_preview=yt_title,
-                        duration_seconds=15.0,
-                        is_dry_run=self.safety.dry_run
-                    )
-                    # Mark day published in series manager so tomorrow naturally advances to Day 3
-                    try:
-                        from src.series_manager import AISeriesManager
-                        AISeriesManager().record_published_day(
-                            day=current_day,
-                            topic_title=day_title,
-                            content=yt_desc,
-                            live_url=yt_res.get("url", "")
+            can_yt, yt_reason = self.safety.can_perform_action("youtube", today_counts)
+            if can_yt:
+                from src.youtube_automater import YouTubeAutomater
+                yt_automater = YouTubeAutomater()
+                if yt_automater.is_authenticated:
+                    yt_video = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4")
+                    yt_srt = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/subtitles_day_{current_day:03d}.srt")
+                    
+                    if yt_video.exists():
+                        yt_title = f"Day {current_day:02d}: {day_title} #Shorts"
+                        yt_desc = (
+                            f"Day {current_day:02d} of the 90-Day Master Series: AI Explained: Zero to Advanced.\n\n"
+                            f"{hot_take}\n\n"
+                            f"Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+                            "#Shorts #AI #MachineLearning #DeepLearning #Coding"
                         )
-                        console.print(f"[bold cyan]🎯 Curriculum progress updated: Day {current_day:02d} marked published! Tomorrow will advance to Day {current_day+1:02d}.[/bold cyan]")
-                    except Exception as p_ex:
-                        console.print(f"[dim]Progress tracker note: {p_ex}[/dim]")
+                    else:
+                        dyn_video = Path(f"generated_visuals/benchmark_race_dynamic.mp4")
+                        if mp4_visual and Path(mp4_visual).exists():
+                            dyn_video = Path(mp4_visual)
+                        yt_video = dyn_video
+                        yt_srt = None
+                        yt_title = f"{selected_trend['title'][:80]} #Shorts"
+                        yt_desc = (
+                            f"{hot_take}\n\n"
+                            f"Continuous AI evaluations & model benchmarks: https://neubench.netlify.app\n\n"
+                            "#Shorts #AI #Tech #MachineLearning #DeepLearning"
+                        )
+
+                    if len(yt_title) > 95:
+                        yt_title = yt_title[:90] + "... #Shorts"
+
+                    if yt_video.exists():
+                        console.print(f"[bold magenta]Publishing unique video to YouTube Shorts: {yt_title}...[/bold magenta]")
+                        yt_res = yt_automater.upload_short(video_path=str(yt_video), title=yt_title, description=yt_desc, srt_path=str(yt_srt) if (yt_srt and yt_srt.exists()) else None)
+                        if yt_res:
+                            console.print(f"[bold green]YouTube Short published: {yt_res['url']}[/bold green]")
+                            self.tracker.record_event(
+                                action_type="youtube_short",
+                                status="success",
+                                target_identifier="YouTube Short",
+                                content_preview=yt_title,
+                                duration_seconds=15.0,
+                                is_dry_run=self.safety.dry_run
+                            )
+                            if "Day " in yt_title:
+                                try:
+                                    from src.series_manager import AISeriesManager
+                                    AISeriesManager().record_published_day(
+                                        day=current_day,
+                                        topic_title=day_title,
+                                        content=yt_desc,
+                                        live_url=yt_res.get("url", "")
+                                    )
+                                    console.print(f"[bold cyan]Curriculum progress updated: Day {current_day:02d} recorded![/bold cyan]")
+                                except Exception as p_ex:
+                                    console.print(f"[dim]Progress tracker note: {p_ex}[/dim]")
+            else:
+                console.print(f"[dim]YouTube Short skipped: {yt_reason}[/dim]")
         except Exception as ex:
             console.print(f"[dim]YouTube broadcast note: {ex}[/dim]")
-
+        
         return success
 
     def _execute_bluesky_post(self, start_time: float) -> bool:
