@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T12:07:55.873085+00:00",
+    "last_updated": "2026-11-02T14:03:41.873758+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 402,
+    "total_cycles_executed": 403,
     "original_posts_attempted": 64,
     "original_posts_succeeded": 56,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 40,
+    "actions_skipped": 41,
     "failed_operations": 24,
     "ai_generation_requests": 123,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T20:02:58.804992+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "wednesday",
-      "content_preview": "The middle of the week is a total scam. You\u2019re already exhausted from Monday and Tuesday, but Friday is still a whole li",
-      "reason": "",
-      "duration_s": 81.72
-    },
     {
       "timestamp": "2026-10-31T20:03:00.427395+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T14:03:41.873720+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Peers",
+      "content_preview": "Engaged with 0 peer posts on LinkedIn.",
+      "reason": "",
+      "duration_s": 108.86
     }
   ]
 }
