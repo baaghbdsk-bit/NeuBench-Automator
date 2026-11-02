@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T17:04:12.780893+00:00",
+    "last_updated": "2026-11-02T18:01:58.404534+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 408,
+    "total_cycles_executed": 409,
     "original_posts_attempted": 65,
     "original_posts_succeeded": 57,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 41,
     "failed_operations": 24,
-    "ai_generation_requests": 126,
+    "ai_generation_requests": 127,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T21:03:07.157272+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "'It's been killing me!' Celebrity Traitors winners relieved the secret is out",
-      "content_preview": "people actually sitting through an entire reality TV season just to care about who won a game of digital lying needs to ",
-      "reason": "",
-      "duration_s": 85.85
-    },
     {
       "timestamp": "2026-10-31T21:03:08.511702+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "a single researcher literally built a 3B model from scratch while big labs are w",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T18:01:58.404378+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the best AI algorithm in the world, but feed it garbage data",
+      "reason": "",
+      "duration_s": 12.98
     }
   ]
 }
