@@ -121,13 +121,38 @@ class TrendHunter:
         ]
         return curated[:limit]
 
+    def get_huggingface_daily_papers(self, limit: int = 4) -> List[Dict[str, Any]]:
+        """Pulls breaking research papers from Hugging Face Daily Papers API."""
+        papers = []
+        try:
+            res = requests.get("https://huggingface.co/api/daily_papers", timeout=6)
+            if res.status_code == 200:
+                data = res.json()
+                for item in data[:limit]:
+                    p = item.get("paper", item)
+                    title = p.get("title", "")
+                    summary = p.get("summary", title)
+                    if title:
+                        papers.append({
+                            "title": title,
+                            "summary": summary[:300],
+                            "source": "Hugging Face Daily Papers",
+                            "traffic": "Frontier AI Research",
+                            "category": "frontier_paper",
+                            "url": f"https://huggingface.co/papers/{p.get('id', '')}"
+                        })
+        except Exception as e:
+            print(f"[TrendHunter] Hugging Face Daily Papers error: {e}")
+        return papers
+
     def get_curated_trending_topics(self) -> List[Dict[str, Any]]:
         """Combines and ranks all trends by engagement potential."""
         all_trends = []
         all_trends.extend(self.get_neubench_stories())
-        all_trends.extend(self.get_google_trends())
+        all_trends.extend(self.get_huggingface_daily_papers())
         all_trends.extend(self.get_tech_news())
         all_trends.extend(self.get_breaking_rss())
+        all_trends.extend(self.get_google_trends())
         
         random.shuffle(all_trends)
         return all_trends

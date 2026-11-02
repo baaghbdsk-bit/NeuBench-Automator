@@ -733,7 +733,13 @@ class AutomaterEngine:
                         company=selected_trend.get("company", "NeuBench")
                     )
                     li_visual = mp4_visual or gif_visual
-                    li_ok, li_msg = li_automater.post(li_take, image_path=li_visual)
+                    # Generate dynamic first-comment value drop to maximize LinkedIn dwell time
+                    first_comm = None
+                    try:
+                        first_comm = self.ai.generate_first_comment_value_drop(selected_trend["title"], li_take)
+                    except Exception:
+                        pass
+                    li_ok, li_msg = li_automater.post(li_take, image_path=li_visual, first_comment=first_comm)
                     if li_ok:
                         console.print("[bold blue]💼 Also published to LinkedIn![/bold blue]")
                         self.tracker.record_event(
@@ -1088,7 +1094,13 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Series visual generation note: {e}[/dim]")
 
-        ok, msg = automater.post(li_text, image_path=li_visual)
+        # Generate dynamic first-comment value drop to maximize LinkedIn dwell time
+        first_comm = None
+        try:
+            first_comm = self.ai.generate_first_comment_value_drop(topic_title, li_text)
+        except Exception:
+            pass
+        ok, msg = automater.post(li_text, image_path=li_visual, first_comment=first_comm)
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="linkedin_post",

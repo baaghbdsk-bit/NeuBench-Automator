@@ -92,7 +92,43 @@ class LinkedInAutomater:
 
 
 
-    def post(self, text: str, image_path: Optional[str] = None) -> Tuple[bool, str]:
+    def add_comment_to_post(self, post_urn: str, comment_text: str) -> Tuple[bool, str]:
+        """
+        Adds a first comment (takeaway, code snippet, or interactive question)
+        to a published LinkedIn post via Official REST API or browser session.
+        """
+        if self.dry_run:
+            print(f"[LinkedInAutomater] [DRY RUN] Would comment on {post_urn}: {comment_text[:60]}...")
+            return True, "[DRY RUN] Comment simulated"
+
+        access_token = os.getenv("LINKEDIN_ACCESS_TOKEN")
+        person_urn = os.getenv("LINKEDIN_PERSON_URN")
+        if access_token and person_urn:
+            try:
+                import urllib.parse
+                encoded_parent = urllib.parse.quote(post_urn)
+                comment_url = f"https://api.linkedin.com/v2/socialActions/{encoded_parent}/comments"
+                headers = {
+                    "Authorization": f"Bearer {access_token}",
+                    "X-Restli-Protocol-Version": "2.0.0",
+                    "Content-Type": "application/json"
+                }
+                payload = {
+                    "actor": person_urn,
+                    "message": {"text": comment_text}
+                }
+                res = requests.post(comment_url, headers=headers, json=payload, timeout=15)
+                if res.status_code in (200, 201):
+                    c_id = res.json().get("id", "comment_created")
+                    print(f"[LinkedInAutomater] 💬 First-comment successfully added to post! ({c_id})")
+                    return True, f"Comment added: {c_id}"
+                else:
+                    print(f"[LinkedInAutomater] Comment API error: {res.status_code} - {res.text}")
+            except Exception as e:
+                print(f"[LinkedInAutomater] Failed to add comment via API: {e}")
+        return False, "Could not add comment via API"
+
+    def post(self, text: str, image_path: Optional[str] = None, first_comment: Optional[str] = None) -> Tuple[bool, str]:
 
         """Publishes an update to LinkedIn via automated browser session."""
 
@@ -171,6 +207,11 @@ class LinkedInAutomater:
                 if resp.status_code in [200, 201]:
                     share_id = resp.json().get("id", "urn:li:share:published")
                     print(f"[LinkedInAutomater] ✅ Successfully published post to LinkedIn via Official API! ({share_id})")
+                    if first_comment:
+                        try:
+                            self.add_comment_to_post(share_id, first_comment)
+                        except Exception as ce:
+                            print(f"[LinkedInAutomater] Note on first-comment: {ce}")
                     return True, f"Published via Official LinkedIn API: {share_id}"
                 else:
                     print(f"[LinkedInAutomater] API returned {resp.status_code}: {resp.text}. Falling back to browser...")

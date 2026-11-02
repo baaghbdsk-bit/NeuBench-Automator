@@ -521,3 +521,29 @@ Guidelines:
         system_p = "You are a recognized AI systems engineer engaging thoughtfully on LinkedIn. Never sound promotional; always add technical substance."
         res = self._generate_with_fallback(prompt, system_p, temperature=0.75)
         return res.strip('"').strip()
+
+    def generate_first_comment_value_drop(self, post_topic: str, post_text: str) -> str:
+        """
+        Generates an algorithmic high-engagement 'first-comment' value drop
+        (clean takeaway, actionable code tip, or open question linking to NeuBench).
+        """
+        prompt = f"""
+Post Topic: "{post_topic}"
+Post Content:
+"{post_text[:400]}..."
+
+You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (https://neubench.netlify.app).
+Generate a high-value 'first comment' to be posted directly under this LinkedIn post.
+
+Guidelines:
+- Goal: Spark meaningful technical discussions in the comments while directing readers to live benchmark tools.
+- Structure:
+  1. A sharp 1-2 sentence engineering takeaway or code implementation tip.
+  2. An open question asking developers how they handle this in production.
+  3. A natural pointer to test live LLM latency & cost telemetry on NeuBench: https://neubench.netlify.app
+- Keep it under 60-80 words. Professional, collegial, and high signal.
+- Output ONLY the comment text.
+"""
+        system_p = "You are a senior AI systems engineer writing an insightful first-comment resource drop on LinkedIn."
+        res = self._generate_with_fallback(prompt, system_p, temperature=0.7)
+        return res.strip('"').strip()
