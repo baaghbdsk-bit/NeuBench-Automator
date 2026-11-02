@@ -1,4 +1,5 @@
 import os
+import requests
 """
 
 Autonomous LinkedIn Browser Automater for NeuBench.
