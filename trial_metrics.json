@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-02T03:03:25.506583+00:00",
+    "last_updated": "2026-11-02T04:04:37.458151+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 379,
-    "original_posts_attempted": 61,
-    "original_posts_succeeded": 53,
+    "total_cycles_executed": 384,
+    "original_posts_attempted": 62,
+    "original_posts_succeeded": 54,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 33,
     "failed_operations": 23,
-    "ai_generation_requests": 119,
+    "ai_generation_requests": 120,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T16:03:05.818608+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Real-time LLM inference performance just got a serious kick. Measuring TTFT and throughput across variants is wild right",
-      "reason": "",
-      "duration_s": 1.2
-    },
-    {
-      "timestamp": "2026-10-31T16:03:08.347268+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours testing how the \"kick\" mechanics work under extreme loads usin",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T16:03:37.140899+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Nothing beats that instant dopamine kick when your code finally works on the fir",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T16:04:02.899849+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "Most streamers complaining about Twitch terms are just mad they can't farm drama",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T16:05:23.569494+00:00",
-      "action_type": "youtube_short",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "YouTube Short",
-      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T17:03:04.565524+00:00",
       "action_type": "original_post",
@@ -1518,6 +1468,56 @@
       "content_preview": "Engaged with 0 peer posts on LinkedIn.",
       "reason": "",
       "duration_s": 102.99
+    },
+    {
+      "timestamp": "2026-11-02T04:02:14.660339+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Ask HN: Which TV do you recommend for privacy?",
+      "content_preview": "Asking for a \"privacy TV\" in 2026 is peak techno-copium. Just buy a dumb monitor or accept that your living room is a da",
+      "reason": "",
+      "duration_s": 35.54
+    },
+    {
+      "timestamp": "2026-11-02T04:02:25.842810+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "The definitive answer to \"Which TV for privacy?\" is still: dumb monitor + AppleTV/Shield with network-level sinkholing, ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-02T04:02:53.537129+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "Down the rabbit hole trying to find a \"dumb\" TV or one that doesn't track every ",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T04:03:17.705423+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Asking for a \"privacy TV\" in 2026 is peak techno-copium. Just buy a dumb monitor",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-02T04:04:37.458114+00:00",
+      "action_type": "youtube_short",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short",
+      "content_preview": "Day 03: How Computers Actually \"Learn\" (The Function Approximation Analogy) #Shorts",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
