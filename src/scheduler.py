@@ -1353,6 +1353,10 @@ class AutomaterEngine:
                                 duration_seconds=15.0,
                                 is_dry_run=self.safety.dry_run
                             )
+                        else:
+                            console.print(f"[yellow]Pinterest note: {p_msg}[/yellow]")
+                else:
+                    console.print("[yellow]Pinterest skipped: session cookies not found. Run 'python main.py login-pinterest'.[/yellow]")
             else:
                 console.print(f"[dim]Pinterest skipped: {pin_reason}[/dim]")
         except Exception as ex:
@@ -1407,6 +1411,8 @@ class AutomaterEngine:
                                 duration_seconds=20.0,
                                 is_dry_run=self.safety.dry_run
                             )
+                else:
+                    console.print("[yellow]⚠️ Instagram Carousel skipped: session not authenticated. Run 'python main.py login-instagram'.[/yellow]")
             else:
                 console.print(f"[dim]Instagram Carousel skipped: {ig_reason}[/dim]")
         except Exception as ex:
@@ -1423,8 +1429,6 @@ class AutomaterEngine:
                     vid_gen = VideoGenerator()
                     v_res = vid_gen.generate_dynamic_short(broadcast_topic, dry_run=self.safety.dry_run)
                     reel_video = Path(v_res.get("video_path") or "")
-                    if not reel_video.exists() and mp4_visual and Path(mp4_visual).exists():
-                        reel_video = Path(mp4_visual)
 
                     reel_caption = (
                         f"⚡ {b_title}\n\n"
@@ -1463,6 +1467,10 @@ class AutomaterEngine:
                                 duration_seconds=25.0,
                                 is_dry_run=self.safety.dry_run
                             )
+                    else:
+                        console.print("[yellow]Instagram Reel skipped: dynamic video generation failed.[/yellow]")
+                else:
+                    console.print("[yellow]⚠️ Instagram Reel skipped: session not authenticated. Run 'python main.py login-instagram'.[/yellow]")
             else:
                 console.print(f"[dim]Instagram Reel skipped: {reel_reason}[/dim]")
         except Exception as ex:
@@ -1482,9 +1490,6 @@ class AutomaterEngine:
                     v_res = vid_gen.generate_dynamic_short(broadcast_topic, dry_run=self.safety.dry_run)
                     yt_video = Path(v_res.get("video_path") or "")
                     yt_srt = Path(v_res.get("srt_path") or "") if v_res.get("srt_path") else None
-                    if not yt_video.exists() and mp4_visual and Path(mp4_visual).exists():
-                        yt_video = Path(mp4_visual)
-                        yt_srt = None
 
                     yt_title = f"{b_title} Explained #Shorts"[:90]
                     yt_desc = (
@@ -1529,6 +1534,8 @@ class AutomaterEngine:
                                 duration_seconds=30.0,
                                 is_dry_run=self.safety.dry_run
                             )
+                    else:
+                        console.print("[yellow]YouTube Short skipped: VideoGenerator could not produce valid video file.[/yellow]")
             else:
                 console.print(f"[dim]YouTube Short skipped: {yt_reason}[/dim]")
         except Exception as ex:

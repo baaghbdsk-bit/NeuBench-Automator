@@ -128,14 +128,43 @@ class PinterestAutomater:
                     page.wait_for_timeout(1000)
 
                 publish_btn.click()
-                try:
-                    page.wait_for_selector(
-                        '[data-test-id="toast"], [role="alert"]:has-text("published"), text="Your Pin is live"',
-                        timeout=30000,
-                    )
-                except Exception:
+                print("[PinterestAutomater] Clicked Publish. Awaiting network confirmation...")
+
+                # Wait up to 30s for URL change or live pin confirmation
+                published = False
+                for _ in range(30):
+                    page.wait_for_timeout(1000)
+                    cur_url = page.url
+                    if "/pin/" in cur_url and "pin-creation-tool" not in cur_url and "pin-builder" not in cur_url:
+                        published = True
+                        break
+
+                    confirmations = [
+                        '[data-test-id="toast"]',
+                        '[role="alert"]:has-text("published")',
+                        'text="Your Pin is live"',
+                        'text="See your Pin"',
+                        'button:has-text("View")',
+                        'a:has-text("View")'
+                    ]
+                    for sel in confirmations:
+                        try:
+                            if page.locator(sel).first.is_visible():
+                                published = True
+                                break
+                        except Exception:
+                            pass
+                    if published:
+                        break
+
+                if not published:
+                    debug_img = config.BASE_DIR / "generated_visuals" / "pinterest_publish_debug.png"
+                    try:
+                        page.screenshot(path=str(debug_img))
+                    except Exception:
+                        pass
                     self.last_outcome_unknown = True
-                    self.last_message = "Pinterest submission was not confirmed; retry blocked."
+                    self.last_message = f"Pinterest submission confirmation timed out (URL: {page.url}). Debug screenshot saved."
                     return False, self.last_message
 
                 print("[PinterestAutomater] ✅ Successfully published Pin to Pinterest!")

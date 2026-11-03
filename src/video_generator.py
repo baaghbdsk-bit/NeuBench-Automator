@@ -39,6 +39,71 @@ class VideoGenerator:
         communicate = edge_tts.Communicate(script_text, self.VOICE, rate=self.RATE)
         await communicate.save(output_audio)
 
+    def _get_audio_duration(self, audio_path: str) -> float:
+        """Determines the duration in seconds of the synthesized audio file."""
+        import subprocess, json
+        try:
+            res = subprocess.run(
+                ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "json", str(audio_path)],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                timeout=10
+            )
+            if res.returncode == 0:
+                data = json.loads(res.stdout)
+                return float(data.get("format", {}).get("duration", 36.0))
+        except Exception:
+            pass
+        return 36.0
+
+    def _assemble_video_ffmpeg(self, scene_images: List[Any], audio_path: str, output_path: str) -> bool:
+        """
+        High-performance direct FFmpeg assembly.
+        Renders multi-scene vertical 1080x1920 video with voiceover in seconds.
+        """
+        import subprocess
+        concat_file = Path(output_path).parent / "concat_list.txt"
+        try:
+            with open(concat_file, "w", encoding="utf-8") as f:
+                for img_path, duration in scene_images:
+                    p_str = Path(img_path).resolve().as_posix()
+                    f.write(f"file '{p_str}'\n")
+                    f.write(f"duration {duration:.2f}\n")
+                if scene_images:
+                    last_img = Path(scene_images[-1][0]).resolve().as_posix()
+                    f.write(f"file '{last_img}'\n")
+
+            cmd = [
+                "ffmpeg", "-y",
+                "-f", "concat",
+                "-safe", "0",
+                "-i", str(concat_file),
+                "-i", str(audio_path),
+                "-c:v", "libx264",
+                "-pix_fmt", "yuv420p",
+                "-c:a", "aac",
+                "-shortest",
+                "-preset", "ultrafast",
+                "-r", "24",
+                str(output_path)
+            ]
+
+            proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=120)
+            if proc.returncode != 0:
+                print(f"[VideoGenerator] FFmpeg error: {proc.stderr[:300]}")
+                return False
+            return Path(output_path).exists() and Path(output_path).stat().st_size > 50000
+        except Exception as ex:
+            print(f"[VideoGenerator] FFmpeg execution exception: {ex}")
+            return False
+        finally:
+            if concat_file.exists():
+                try:
+                    concat_file.unlink()
+                except Exception:
+                    pass
+
     def _generate_srt_file(self, scenes: List[Dict[str, Any]], srt_path: str):
         """Builds standard SubRip (.srt) subtitle track for YouTube Captions."""
         def format_timestamp(seconds: float) -> str:
@@ -127,28 +192,31 @@ class VideoGenerator:
 
             browser.close()
 
-        # 4. Assemble video with MoviePy
-        print(f"[VideoGenerator] Assembling video track with audio...")
-        clips = []
-        for img_path, duration in scene_images:
-            clip = ImageClip(img_path).with_duration(duration)
-            clips.append(clip)
+        # 4. Assemble video with FFmpeg
+        print(f"[VideoGenerator] Assembling video track with audio via FFmpeg...")
+        assembled = self._assemble_video_ffmpeg(scene_images, audio_path, video_path)
+        if not assembled:
+            print(f"[VideoGenerator] FFmpeg assembly fallback to MoviePy...")
+            clips = []
+            for img_path, duration in scene_images:
+                clip = ImageClip(img_path).with_duration(duration)
+                clips.append(clip)
 
-        final_video = concatenate_videoclips(clips, method="compose")
-        audio_clip = AudioFileClip(audio_path)
-        final_video = final_video.with_audio(audio_clip)
+            final_video = concatenate_videoclips(clips, method="compose")
+            audio_clip = AudioFileClip(audio_path)
+            final_video = final_video.with_audio(audio_clip)
 
-        print(f"[VideoGenerator] Encoding vertical Short to: {video_path}...")
-        final_video.write_videofile(
-            video_path,
-            fps=24,
-            codec="libx264",
-            audio_codec="aac",
-            preset="ultrafast",
-            logger=None
-        )
-        audio_clip.close()
-        final_video.close()
+            print(f"[VideoGenerator] Encoding vertical Short to: {video_path}...")
+            final_video.write_videofile(
+                video_path,
+                fps=24,
+                codec="libx264",
+                audio_codec="aac",
+                preset="ultrafast",
+                logger=None
+            )
+            audio_clip.close()
+            final_video.close()
         print(f"[VideoGenerator] Done! Short generated: {video_path}")
 
         return {
@@ -159,8 +227,8 @@ class VideoGenerator:
 
     def generate_dynamic_short(self, topic_data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Optional[str]]:
         """
-        Dynamically renders a vertical animated Short/Reel (1080x1920) with voiceover and captions.
-        Gracefully falls back to autonomous visual engine MP4 if audio/rendering pipeline fails.
+        Dynamically renders a full-duration vertical animated Short/Reel (1080x1920) with voiceover and captions.
+        Uses direct FFmpeg rendering for maximum speed and reliability.
         """
         import re
         title = topic_data.get("title", "AI Breakthrough")
@@ -169,7 +237,16 @@ class VideoGenerator:
         problem = topic_data.get("problem", "Traditional models run into severe compute bottlenecks.")
         solution = topic_data.get("solution", "Dynamic routing and memory optimization accelerate throughput.")
         pro_tip = topic_data.get("pro_tip", "Always benchmark real latency on live workloads.")
-        narration = topic_data.get("narration", f"{title}. {summary}. The key breakthrough is {solution}. Benchmarked live on NeuBench.")
+        narration = topic_data.get("narration")
+        if not narration or len(narration.split()) < 35:
+            narration = (
+                f"In this engineering breakdown, we analyze {title}. "
+                f"{summary}. "
+                f"Why does this matter in production? {problem}. "
+                f"The architectural unlock is {solution}. "
+                f"As a production engineering rule: {pro_tip}. "
+                f"Continuous 260-plus model evaluations are benchmarked live on NeuBench at neubench.netlify.app."
+            )
 
         slug = re.sub(r'[^a-zA-Z0-9]+', '_', title.lower()).strip('_')[:40]
         video_dir = self.base_dir / "generated_visuals" / "videos" / slug
@@ -240,15 +317,27 @@ class VideoGenerator:
         ]
 
         try:
-            # 1. Synthesize voiceover with 15s timeout
+            # 1. Synthesize voiceover with 45s timeout
             async def _timed_synth():
                 await self._synthesize_speech(narration, audio_path)
-            asyncio.run(asyncio.wait_for(_timed_synth(), timeout=15.0))
+            asyncio.run(asyncio.wait_for(_timed_synth(), timeout=45.0))
 
-            # 2. Build SRT
+            # 2. Match scene durations to synthesized audio length
+            audio_dur = self._get_audio_duration(audio_path)
+            total_dur = max(audio_dur, 32.0)
+            d1 = round(total_dur * 0.22, 1)
+            d2 = round(total_dur * 0.28, 1)
+            d3 = round(total_dur * 0.28, 1)
+            d4 = round(total_dur - (d1 + d2 + d3), 1)
+            scenes[0]["duration"] = d1
+            scenes[1]["duration"] = d2
+            scenes[2]["duration"] = d3
+            scenes[3]["duration"] = d4
+
+            # 3. Build SRT matching precise timing
             self._generate_srt_file(scenes, srt_path)
 
-            # 3. Render frames with Playwright
+            # 4. Render frames with Playwright
             with open(self.template_path, "r", encoding="utf-8") as f:
                 html_template = f.read()
 
@@ -275,38 +364,33 @@ class VideoGenerator:
                     scene_images.append((frame_img, sc["duration"]))
                 browser.close()
 
-            # 4. Assemble video with MoviePy
-            clips = [ImageClip(img_path).with_duration(dur) for img_path, dur in scene_images]
-            final_video = concatenate_videoclips(clips, method="compose")
-            audio_clip = AudioFileClip(audio_path)
-            final_video = final_video.with_audio(audio_clip)
-            final_video.write_videofile(
-                video_path,
-                fps=24,
-                codec="libx264",
-                audio_codec="aac",
-                preset="ultrafast",
-                logger=None
-            )
-            audio_clip.close()
-            final_video.close()
-            return {
-                "video_path": video_path,
-                "srt_path": srt_path,
-                "audio_path": audio_path
-            }
+            # 5. Fast FFmpeg assembly with MoviePy fallback
+            assembled = self._assemble_video_ffmpeg(scene_images, audio_path, video_path)
+            if not assembled:
+                print("[VideoGenerator] FFmpeg failed, falling back to MoviePy...")
+                clips = [ImageClip(img_path).with_duration(dur) for img_path, dur in scene_images]
+                final_video = concatenate_videoclips(clips, method="compose")
+                audio_clip = AudioFileClip(audio_path)
+                final_video = final_video.with_audio(audio_clip)
+                final_video.write_videofile(
+                    video_path,
+                    fps=24,
+                    codec="libx264",
+                    audio_codec="aac",
+                    preset="ultrafast",
+                    logger=None
+                )
+                audio_clip.close()
+                final_video.close()
+
+            if Path(video_path).exists() and Path(video_path).stat().st_size > 50000:
+                print(f"[VideoGenerator] ✅ Dynamic Short assembled successfully: {video_path}")
+                return {
+                    "video_path": video_path,
+                    "srt_path": srt_path,
+                    "audio_path": audio_path
+                }
         except Exception as e:
-            print(f"[VideoGenerator] Primary render note: {e}. Falling back to visual engine MP4.")
-            try:
-                from src.autonomous_visual_engine import generate_visual_for_post
-                _gif, fallback_mp4 = generate_visual_for_post(title, summary)
-                if fallback_mp4 and Path(fallback_mp4).exists():
-                    return {
-                        "video_path": str(fallback_mp4),
-                        "srt_path": None,
-                        "audio_path": None
-                    }
-            except Exception as fb_err:
-                print(f"[VideoGenerator] Visual engine fallback error: {fb_err}")
+            print(f"[VideoGenerator] Dynamic short render error: {e}")
 
         return {"video_path": None, "srt_path": None, "audio_path": None}
