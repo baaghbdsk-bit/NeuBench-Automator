@@ -38,11 +38,23 @@ MUTED_DARK = (100, 116, 139)
 
 
 def get_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
-    """Loads system sans-serif/mono fonts or falls back cleanly."""
+    """Loads system sans-serif/mono fonts across Windows/macOS/Linux or falls back cleanly."""
     font_names = (
-        ["segoeuib.ttf", "arialbd.ttf", "consola.ttf"]
+        [
+            "segoeuib.ttf",
+            "arialbd.ttf",
+            "DejaVuSans-Bold.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        ]
         if bold
-        else ["segoeui.ttf", "arial.ttf", "consola.ttf"]
+        else [
+            "segoeui.ttf",
+            "arial.ttf",
+            "DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        ]
     )
     for name in font_names:
         try:

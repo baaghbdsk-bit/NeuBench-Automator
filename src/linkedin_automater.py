@@ -1,22 +1,29 @@
+"""Autonomous LinkedIn Browser Automater: posting, media upload, and viral engagement."""
+import hashlib
+import json
 import os
-import requests
-"""
-
-Autonomous LinkedIn Browser Automater for NeuBench.
-
-Uses Playwright with persistent session context to post high-value B2B updates.
-
-"""
-
-import sys
-
-import time
-
 import random
-
+import re
+import sys
+import time
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
-from typing import Tuple, Optional, List, Dict, Any
+import requests
+
+ACHIEVEMENT_KEYWORDS = (
+    "congratulations", "congrats", "promoted", "promotion", "new role",
+    "new chapter", "new journey", "excited to announce", "excited to share",
+    "happy to share", "proud to share", "proud to announce", "joined",
+    "graduated", "graduation", "certification", "certified", "award",
+    "funding", "raised", "milestone", "hired", "new job", "first day",
+    "work anniversary", "speaker", "launched", "launching",
+)
+
+SUITABILITY_BLOCKLIST = (
+    "election", "political", "politics", "religion", "nsfw", "gambling",
+    "crypto scam", "adult content",
+)
 
 
 
@@ -93,6 +100,123 @@ class LinkedInAutomater:
 
 
 
+    def _api_headers(self, include_content_type: bool = True) -> Dict[str, str]:
+
+        headers = {
+            "Authorization": f"Bearer {os.getenv('LINKEDIN_ACCESS_TOKEN', '').strip()}",
+            "X-Restli-Protocol-Version": "2.0.0",
+            "Linkedin-Version": config.LINKEDIN_API_VERSION,
+        }
+        if include_content_type:
+            headers["Content-Type"] = "application/json"
+        return headers
+
+
+    def _upload_video(self, image_path: str, person_urn: str) -> str:
+
+        """Uploads an MP4 through LinkedIn's current versioned Videos API."""
+
+        file_size = os.path.getsize(image_path)
+        init_res = requests.post(
+            "https://api.linkedin.com/rest/videos?action=initializeUpload",
+            headers=self._api_headers(),
+            json={
+                "initializeUploadRequest": {
+                    "owner": person_urn,
+                    "fileSizeBytes": file_size,
+                    "uploadCaptions": False,
+                    "uploadThumbnail": False,
+                }
+            },
+            timeout=30,
+        )
+        if init_res.status_code not in (200, 201):
+            raise RuntimeError(f"video initialize returned {init_res.status_code}: {init_res.text[:300]}")
+
+        value = init_res.json().get("value", {})
+        video_urn = value.get("video")
+        instructions = value.get("uploadInstructions") or []
+        upload_token = value.get("uploadToken", "")
+        if not video_urn or not instructions:
+            raise RuntimeError("video initialize response did not include an upload target")
+
+        uploaded_part_ids = []
+        with open(image_path, "rb") as media_file:
+            for instruction in instructions:
+                first_byte = int(instruction["firstByte"])
+                last_byte = int(instruction["lastByte"])
+                media_file.seek(first_byte)
+                part = media_file.read(last_byte - first_byte + 1)
+                upload_res = requests.put(
+                    instruction["uploadUrl"],
+                    headers={
+                        "Content-Type": "application/octet-stream",
+                        "Content-Range": f"bytes {first_byte}-{last_byte}/{file_size}",
+                    },
+                    data=part,
+                    timeout=120,
+                )
+                if upload_res.status_code not in (200, 201, 204):
+                    raise RuntimeError(f"video part upload returned {upload_res.status_code}: {upload_res.text[:300]}")
+                etag = upload_res.headers.get("ETag") or upload_res.headers.get("etag")
+                if not etag:
+                    raise RuntimeError("video part upload did not return an ETag")
+                uploaded_part_ids.append(etag.strip('"'))
+
+        finalize_res = requests.post(
+            "https://api.linkedin.com/rest/videos?action=finalizeUpload",
+            headers=self._api_headers(),
+            json={
+                "finalizeUploadRequest": {
+                    "video": video_urn,
+                    "uploadToken": upload_token,
+                    "uploadedPartIds": uploaded_part_ids,
+                }
+            },
+            timeout=30,
+        )
+        if finalize_res.status_code not in (200, 201):
+            raise RuntimeError(f"video finalize returned {finalize_res.status_code}: {finalize_res.text[:300]}")
+        return video_urn
+
+
+    def _upload_image(self, image_path: str, person_urn: str) -> str:
+        """Uploads a PNG/JPG/GIF through LinkedIn's versioned Images API."""
+        ext = os.path.splitext(image_path)[1].lower()
+        content_type = {
+            ".png": "image/png",
+            ".jpg": "image/jpeg",
+            ".jpeg": "image/jpeg",
+            ".gif": "image/gif",
+        }.get(ext, "application/octet-stream")
+
+        init_res = requests.post(
+            "https://api.linkedin.com/rest/images?action=initializeUpload",
+            headers=self._api_headers(),
+            json={"initializeUploadRequest": {"owner": person_urn}},
+            timeout=30,
+        )
+        if init_res.status_code not in (200, 201):
+            raise RuntimeError(f"image initialize returned {init_res.status_code}: {init_res.text[:300]}")
+
+        value = init_res.json().get("value", {})
+        upload_url = value.get("uploadUrl")
+        image_urn = value.get("image")
+        if not upload_url or not image_urn:
+            raise RuntimeError("image initialize response did not include an upload target")
+
+        with open(image_path, "rb") as media_file:
+            upload_res = requests.put(
+                upload_url,
+                headers={"Content-Type": content_type},
+                data=media_file,
+                timeout=120,
+            )
+        if upload_res.status_code not in (200, 201, 204):
+            raise RuntimeError(f"image upload returned {upload_res.status_code}: {upload_res.text[:300]}")
+        return image_urn
+
+
     def add_comment_to_post(self, post_urn: str, comment_text: str) -> Tuple[bool, str]:
         """
         Adds a first comment (takeaway, code snippet, or interactive question)
@@ -108,14 +232,11 @@ class LinkedInAutomater:
             try:
                 import urllib.parse
                 encoded_parent = urllib.parse.quote(post_urn)
-                comment_url = f"https://api.linkedin.com/v2/socialActions/{encoded_parent}/comments"
-                headers = {
-                    "Authorization": f"Bearer {access_token}",
-                    "X-Restli-Protocol-Version": "2.0.0",
-                    "Content-Type": "application/json"
-                }
+                comment_url = f"https://api.linkedin.com/rest/socialActions/{encoded_parent}/comments"
+                headers = self._api_headers()
                 payload = {
                     "actor": person_urn,
+                    "object": post_urn,
                     "message": {"text": comment_text}
                 }
                 res = requests.post(comment_url, headers=headers, json=payload, timeout=15)
@@ -146,78 +267,89 @@ class LinkedInAutomater:
         person_urn = os.getenv("LINKEDIN_PERSON_URN")
         if access_token and person_urn:
             print("[LinkedInAutomater] 🚀 Publishing via Official LinkedIn REST API...")
-            try:
-                import requests
-                headers = {
-                    "Authorization": f"Bearer {access_token}",
-                    "X-Restli-Protocol-Version": "2.0.0",
-                    "Content-Type": "application/json"
-                }
-
-                # Check if we should attach a visual animation or image
-                asset_urn = None
-                media_category = "NONE"
-                media_items = []
-
-                if image_path and os.path.exists(image_path):
-                    is_video = image_path.lower().endswith((".mp4", ".mov"))
-                    recipe = "urn:li:digitalmediaRecipe:feedshare-video" if is_video else "urn:li:digitalmediaRecipe:feedshare-image"
-                    reg_url = "https://api.linkedin.com/v2/assets?action=registerUpload"
-                    reg_payload = {
-                        "registerUploadRequest": {
-                            "recipes": [recipe],
-                            "owner": person_urn,
-                            "serviceRelationships": [{"relationshipType": "OWNER", "identifier": "urn:li:userGeneratedContent"}]
-                        }
-                    }
-                    reg_res = requests.post(reg_url, headers=headers, json=reg_payload, timeout=15)
-                    if reg_res.status_code in (200, 201):
-                        upload_url = reg_res.json()['value']['uploadMechanism']['com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest']['uploadUrl']
-                        asset_urn = reg_res.json()['value']['asset']
-                        with open(image_path, "rb") as mf:
-                            mbytes = mf.read()
-                        up_mime = "video/mp4" if is_video else ("image/gif" if image_path.endswith(".gif") else "image/png")
-                        requests.put(upload_url, headers={"Authorization": f"Bearer {access_token}", "Content-Type": up_mime}, data=mbytes, timeout=30)
-                        media_category = "VIDEO" if is_video else "IMAGE"
-                        media_items = [{
-                            "status": "READY",
-                            "description": {"text": "NeuBench Technical Architecture & Continuous LLM Benchmarking Visualizer"},
-                            "media": asset_urn,
-                            "title": {"text": "NeuBench Architecture Breakdown"}
-                        }]
-
-                post_url = "https://api.linkedin.com/v2/ugcPosts"
-                share_content = {
-                    "shareCommentary": {"text": text},
-                    "shareMediaCategory": media_category
-                }
-                if media_items:
-                    share_content["media"] = media_items
-
-                post_payload = {
-                    "author": person_urn,
-                    "lifecycleState": "PUBLISHED",
-                    "specificContent": {
-                        "com.linkedin.ugc.ShareContent": share_content
-                    },
-                    "visibility": {
-                        "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
-                    }
-                }
-                resp = requests.post(post_url, json=post_payload, headers=headers, timeout=20)
-                if resp.status_code in [200, 201]:
-                    share_id = resp.json().get("id", "urn:li:share:published")
-                    print(f"[LinkedInAutomater] ✅ Successfully published post to LinkedIn via Official API! ({share_id})")
-                    if first_comment:
+            media_urn = None
+            media_kind = None
+            media_title = "NeuBench Technical Visual"
+            if image_path and os.path.exists(image_path):
+                ext = os.path.splitext(image_path)[1].lower()
+                try:
+                    if ext == ".mp4":
+                        media_urn = self._upload_video(image_path, person_urn)
+                        media_kind = "video"
+                    else:
+                        media_urn = self._upload_image(image_path, person_urn)
+                        media_kind = "image"
+                except Exception as media_error:
+                    print(f"[LinkedInAutomater] Media upload note: {media_error}. Trying fallback...")
+                    if ext == ".mp4":
                         try:
-                            self.add_comment_to_post(share_id, first_comment)
-                        except Exception as ce:
-                            print(f"[LinkedInAutomater] Note on first-comment: {ce}")
-                    return True, f"Published via Official LinkedIn API: {share_id}"
+                            gif_sibling = os.path.splitext(image_path)[0] + ".gif"
+                            if os.path.exists(gif_sibling):
+                                media_urn = self._upload_image(gif_sibling, person_urn)
+                                media_kind = "image"
+                        except Exception as gif_error:
+                            print(f"[LinkedInAutomater] Video-to-GIF fallback skipped: {gif_error}")
+                    elif ext == ".gif":
+                        try:
+                            from PIL import Image
+                            still_path = os.path.splitext(image_path)[0] + "_still.png"
+                            with Image.open(image_path) as frame:
+                                frame.convert("RGB").save(still_path)
+                            media_urn = self._upload_image(still_path, person_urn)
+                            media_kind = "image"
+                        except Exception as still_error:
+                            print(f"[LinkedInAutomater] GIF still-frame fallback skipped: {still_error}")
+
+            post_payload = {
+                "author": person_urn,
+                "commentary": text,
+                "visibility": "PUBLIC",
+                "distribution": {
+                    "feedDistribution": "MAIN_FEED",
+                    "targetEntities": [],
+                    "thirdPartyDistributionChannels": []
+                },
+                "lifecycleState": "PUBLISHED",
+                "isReshareDisabledByAuthor": False
+            }
+            if media_urn:
+                if media_kind == "video":
+                    media_obj = {"id": media_urn, "title": media_title}
                 else:
-                    print(f"[LinkedInAutomater] API returned {resp.status_code}: {resp.text}. Falling back to browser...")
+                    media_obj = {"id": media_urn, "altText": media_title}
+                post_payload["content"] = {"media": media_obj}
+
+            post_url = "https://api.linkedin.com/rest/posts"
+            headers = self._api_headers()
+            try:
+                resp = requests.post(post_url, json=post_payload, headers=headers, timeout=20)
             except Exception as e:
-                print(f"[LinkedInAutomater] API dispatch error: {e}. Falling back to browser...")
+                msg = f"LinkedIn API outcome unknown ({e}); skipped browser fallback to avoid a duplicate post."
+                print(f"[LinkedInAutomater] {msg}")
+                return False, msg
+
+            if resp.status_code in [200, 201]:
+                share_id = resp.headers.get("X-RestLi-Id") or resp.headers.get("x-restli-id")
+                if not share_id:
+                    try:
+                        share_id = resp.json().get("id")
+                    except ValueError:
+                        share_id = None
+                share_id = share_id or "published"
+                print(f"[LinkedInAutomater] ✅ Successfully published post to LinkedIn via Official API! ({share_id})")
+                if first_comment:
+                    try:
+                        self.add_comment_to_post(share_id, first_comment)
+                    except Exception as ce:
+                        print(f"[LinkedInAutomater] Note on first-comment: {ce}")
+                return True, f"Published via Official LinkedIn API: {share_id}"
+
+            if resp.status_code in (401, 403):
+                print(f"[LinkedInAutomater] API auth error {resp.status_code}. Falling back to browser...")
+            else:
+                msg = f"LinkedIn API returned {resp.status_code}: {resp.text[:300]}"
+                print(f"[LinkedInAutomater] {msg}")
+                return False, msg
 
         if not self.is_session_available():
 
@@ -279,7 +411,7 @@ class LinkedInAutomater:
 
                 # Check if logged in
 
-                if "login" in page.url.lower() or "checkpoint" in page.url.lower():
+                if any(marker in page.url.lower() for marker in ("login", "checkpoint", "challenge", "authwall")):
 
                     return False, "Session expired or logged out. Please re-run 'python scripts/login_linkedin.py'."
 
@@ -505,7 +637,7 @@ class LinkedInAutomater:
                 page.goto("https://www.linkedin.com/in/me/recent-activity/all/", wait_until="domcontentloaded", timeout=40000)
                 page.wait_for_timeout(3500)
 
-                if "login" in page.url.lower() or "checkpoint" in page.url.lower():
+                if any(marker in page.url.lower() for marker in ("login", "checkpoint", "challenge", "authwall")):
                     return 0, "LinkedIn session expired or requires login."
 
                 # Find comment buttons to expand comments on recent posts
@@ -577,15 +709,154 @@ class LinkedInAutomater:
             finally:
                 context.close()
 
-    def engage_with_peer_posts(self, max_comments: int = 2) -> Tuple[int, str]:
+    def _extract_post_key(self, post_elem) -> str:
+        """Returns a stable identifier for a feed post (permalink/activity URN or text hash)."""
+        try:
+            link = post_elem.locator('a[href*="/feed/update/"], a[href*="urn:li:activity"]').first
+            href = link.get_attribute("href") or ""
+            if href:
+                return href.split("?")[0].rstrip("/")
+        except Exception:
+            pass
+        try:
+            text = post_elem.inner_text().strip()
+            if text:
+                return "text:" + hashlib.md5(text[:400].encode("utf-8")).hexdigest()
+        except Exception:
+            pass
+        return ""
+
+    def _extract_social_counts(self, post_elem) -> Tuple[int, int, bool]:
+        """Parses reactions/comments from a feed card. Returns (reactions, comments, parsed)."""
+        counts_text = ""
+        try:
+            counts_text = post_elem.locator(
+                '.social-details-social-counts, .social-details-social-counts__social-proof-container, [data-view-name="feed-social-counts"]'
+            ).first.inner_text(timeout=1000)
+        except Exception:
+            counts_text = ""
+
+        if not counts_text:
+            return 0, 0, False
+
+        text = counts_text.lower().replace(",", "")
+        reactions = 0
+        comments = 0
+        m = re.search(r"(\d+)\s+(?:reactions?|likes?)", text)
+        if m:
+            reactions = int(m.group(1))
+        m = re.search(r"(\d+)\s+comments?", text)
+        if m:
+            comments = int(m.group(1))
+        return reactions, comments, bool(m or reactions)
+
+    def _extract_author_name(self, post_elem) -> str:
+        for sel in (
+            '.update-components-actor__title span[aria-hidden="true"]',
+            '.feed-shared-actor__name',
+            'a[data-field="actor_name"]',
+            '.update-components-actor__name',
+        ):
+            try:
+                name = post_elem.locator(sel).first.inner_text(timeout=800).strip()
+                if name:
+                    return name.split("\n")[0][:60]
+            except Exception:
+                continue
+        return "there"
+
+    def _is_suitable_post(self, post_text: str) -> bool:
+        lower = post_text.lower()
+        if len(post_text.strip()) < 80:
+            return False
+        if any(bad in lower for bad in SUITABILITY_BLOCKLIST):
+            return False
+        if "vishnu gupta" in lower or "neubench" in lower:
+            return False
+        return True
+
+    def _is_achievement_post(self, post_text: str) -> bool:
+        lower = post_text.lower()
+        return any(keyword in lower for keyword in ACHIEVEMENT_KEYWORDS)
+
+    def _try_reply_to_question(self, page, post_elem, ai) -> Optional[str]:
+        """Best-effort reply to a genuine question in the comments. Returns a reply key on success."""
+        try:
+            comments = post_elem.locator(
+                'article.comments-comment-item, div.comments-comment-item, article.comments-comment-entity'
+            ).all()
+        except Exception:
+            return None
+
+        for comment in comments[:4]:
+            try:
+                body_elem = comment.locator(
+                    '.comments-comment-item__main-content, .update-components-text, .comments-comment-entity__content'
+                ).first
+                body = body_elem.inner_text(timeout=1000).strip()
+                if not body or "?" not in body or len(body) < 15:
+                    continue
+                if "vishnu gupta" in body.lower() or "neubench" in body.lower():
+                    continue
+
+                author = "there"
+                try:
+                    author_elem = comment.locator('.comments-post-meta__name-text, a[data-field="actor_name"]').first
+                    if author_elem.is_visible():
+                        author = author_elem.inner_text().strip().split("\n")[0][:50] or "there"
+                except Exception:
+                    pass
+
+                reply_btn = comment.locator('button[aria-label*="Reply" i], button:has-text("Reply")').first
+                if not reply_btn.is_visible():
+                    continue
+
+                reply_btn.click(timeout=3000)
+                page.wait_for_timeout(1000)
+
+                box = page.locator('div[role="textbox"][contenteditable="true"]').last
+                if not box.is_visible():
+                    continue
+
+                reply_text = ai.generate_linkedin_comment_reply(
+                    post_text=body, commenter_name=author, comment_text=body
+                )
+                box.click()
+                page.keyboard.insert_text(reply_text)
+                page.wait_for_timeout(1500)
+
+                submit = page.locator('button.comments-comment-box__submit-button, button:has-text("Reply")').last
+                if submit.is_visible():
+                    submit.click(timeout=4000)
+                    page.wait_for_timeout(3000)
+                    reply_key = f"reply:{hashlib.md5((body[:200] + author).encode('utf-8')).hexdigest()[:16]}"
+                    return reply_key
+            except Exception:
+                continue
+        return None
+
+    def engage_with_peer_posts(
+        self,
+        max_comments: int = 2,
+        max_replies: int = 1,
+        already_commented: Optional[set] = None,
+        commented_ids: Optional[List[str]] = None,
+        replied_ids: Optional[List[str]] = None,
+    ) -> Tuple[int, str]:
         """
-        Navigates to the live LinkedIn feed (https://www.linkedin.com/feed/),
-        identifies top trending posts in your network, and leaves an authoritative,
-        thought-leadership comment to drive profile discovery.
+        Navigates to the live LinkedIn feed, finds genuinely viral posts, and leaves
+        suitable comments (congratulations for milestones, insight otherwise). Also
+        replies to a genuine question in the comments when one is available.
         """
         if self.dry_run:
-            print(f"[LinkedInAutomater] [DRY RUN] Would engage with peer AI posts.")
-            return 0, "[DRY RUN] Simulated peer engagement"
+            print(f"[LinkedInAutomater] [DRY RUN] Would engage with viral LinkedIn posts and commenters.")
+            return 0, "[DRY RUN] Simulated viral engagement"
+
+        already_commented = already_commented or set()
+        if commented_ids is None:
+            commented_ids = []
+        if replied_ids is None:
+            replied_ids = []
 
         if not self.is_session_available():
             return 0, "LinkedIn session not available for peer engagement."
@@ -627,6 +898,9 @@ class LinkedInAutomater:
                 page.goto(feed_url, wait_until="domcontentloaded", timeout=45000)
                 page.wait_for_timeout(5000)
 
+                if any(marker in page.url.lower() for marker in ("login", "checkpoint", "challenge", "authwall")):
+                    return 0, "LinkedIn browser session expired or requires login."
+
                 # Scroll down slightly to trigger lazy-loaded feed items
                 page.mouse.wheel(0, 800)
                 page.wait_for_timeout(3000)
@@ -635,16 +909,25 @@ class LinkedInAutomater:
                 post_cards = page.locator('div[data-view-name="feed-full-update"], div.feed-shared-update-v2, article').all()
                 print(f"[LinkedInAutomater] Found {len(post_cards)} candidate feed posts.")
 
-                for idx, post_elem in enumerate(post_cards[:8]):
-                    if commented_count >= max_comments:
+                replies_count = 0
+                for idx, post_elem in enumerate(post_cards[:12]):
+                    if commented_count >= max_comments and replies_count >= max_replies:
                         break
                     try:
                         post_text = post_elem.inner_text().strip()
-                        if len(post_text) < 60:
+                        if not self._is_suitable_post(post_text):
                             continue
 
-                        # Check if we already commented or it's our own post
-                        if "Vishnu Gupta" in post_text or "NeuBench" in post_text:
+                        post_key = self._extract_post_key(post_elem)
+                        if not post_key or post_key in already_commented:
+                            continue
+
+                        reactions, comment_count, parsed = self._extract_social_counts(post_elem)
+                        if parsed and reactions < 50 and comment_count < 10:
+                            print(f"[LinkedInAutomater] Skipping low-engagement post ({reactions} reactions, {comment_count} comments).")
+                            continue
+
+                        if commented_count >= max_comments:
                             continue
 
                         # Find Comment button on this update
@@ -661,27 +944,43 @@ class LinkedInAutomater:
                         if not box.is_visible():
                             box = page.locator('div[role="textbox"][contenteditable="true"]').last
 
-                        if box.is_visible():
-                            # Extract author or subject matter for context
-                            author_slug = "Tech Leader"
-                            comm_text = ai.generate_linkedin_peer_comment(post_author=author_slug, post_text=post_text)
-                            print(f"[LinkedInAutomater] Drafted thought-leadership comment: {comm_text[:70]}...")
-                            
-                            box.click()
-                            page.keyboard.insert_text(comm_text)
-                            page.wait_for_timeout(2000)
+                        if not box.is_visible():
+                            continue
 
-                            submit = post_elem.locator('button.comments-comment-box__submit-button, button:has-text("Comment")').first
-                            if submit.is_visible():
-                                submit.click(timeout=4000)
-                                commented_count += 1
-                                print(f"[LinkedInAutomater] ✅ Successfully commented on viral feed post #{idx+1}!")
-                                page.wait_for_timeout(4000)
+                        author_name = self._extract_author_name(post_elem)
+                        if self._is_achievement_post(post_text):
+                            comm_text = ai.generate_linkedin_congrats_comment(post_author=author_name, post_text=post_text)
+                            kind = "congratulations"
+                        else:
+                            comm_text = ai.generate_linkedin_peer_comment(post_author=author_name, post_text=post_text)
+                            kind = "insight"
+
+                        print(f"[LinkedInAutomater] Drafted {kind} comment for {author_name}: {comm_text[:70]}...")
+
+                        box.click()
+                        page.keyboard.insert_text(comm_text)
+                        page.wait_for_timeout(2000)
+
+                        submit = post_elem.locator('button.comments-comment-box__submit-button, button:has-text("Comment")').first
+                        if submit.is_visible():
+                            submit.click(timeout=4000)
+                            commented_count += 1
+                            commented_ids.append(post_key)
+                            already_commented.add(post_key)
+                            print(f"[LinkedInAutomater] ✅ {kind.title()} comment posted on viral feed post #{idx+1}!")
+                            page.wait_for_timeout(4000)
+
+                            if replies_count < max_replies:
+                                reply_key = self._try_reply_to_question(page, post_elem, ai)
+                                if reply_key:
+                                    replies_count += 1
+                                    replied_ids.append(reply_key)
+                                    print("[LinkedInAutomater] ✅ Replied to a question in that post's comments.")
                     except Exception as ex:
                         print(f"[LinkedInAutomater] Error on post #{idx+1}: {ex}")
                         continue
 
-                return commented_count, f"Engaged with {commented_count} viral posts on LinkedIn feed."
+                return commented_count, f"Commented on {commented_count} viral posts and replied to {replies_count} comments."
             except Exception as e:
                 return commented_count, f"LinkedIn feed engagement error: {e}"
             finally:

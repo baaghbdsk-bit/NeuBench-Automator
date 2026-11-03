@@ -1,11 +1,12 @@
 """
 LinkedIn Client & Helper for NeuBench-Automator.
 Provides 1-click browser dispatching, formatted B2B thought-leadership generation,
-and optional direct REST API publishing via LinkedIn UGC Posts API.
+and optional direct REST API publishing via LinkedIn's versioned Posts API.
 """
 import urllib.parse
 from typing import Dict, Any, Optional, Tuple
 import requests
+import config
 
 
 class LinkedInClient:
@@ -30,7 +31,7 @@ class LinkedInClient:
 
     def post_via_api(self, text: str) -> Tuple[bool, str]:
         """
-        Publishes directly to LinkedIn using the UGC Posts API (if access token is provided).
+        Publishes directly to LinkedIn using the versioned Posts API (if access token is provided).
         Requires standard 'w_member_social' or 'w_organization_social' scope.
         """
         if self.dry_run:
@@ -39,27 +40,25 @@ class LinkedInClient:
         if not self.is_api_configured():
             return False, "LinkedIn API token not configured. Use 1-click share URL or add LINKEDIN_ACCESS_TOKEN in .env."
 
-        endpoint = "https://api.linkedin.com/v2/ugcPosts"
+        endpoint = "https://api.linkedin.com/rest/posts"
         headers = {
             "Authorization": f"Bearer {self.access_token}",
             "X-Restli-Protocol-Version": "2.0.0",
+            "Linkedin-Version": config.LINKEDIN_API_VERSION,
             "Content-Type": "application/json"
         }
 
         payload = {
             "author": self.author_urn,
-            "lifecycleState": "PUBLISHED",
-            "specificContent": {
-                "com.linkedin.ugc.ShareContent": {
-                    "shareCommentary": {
-                        "text": text
-                    },
-                    "shareMediaCategory": "NONE"
-                }
+            "commentary": text,
+            "visibility": "PUBLIC",
+            "distribution": {
+                "feedDistribution": "MAIN_FEED",
+                "targetEntities": [],
+                "thirdPartyDistributionChannels": []
             },
-            "visibility": {
-                "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
-            }
+            "lifecycleState": "PUBLISHED",
+            "isReshareDisabledByAuthor": False
         }
 
         try:
@@ -71,4 +70,3 @@ class LinkedInClient:
                 return False, f"LinkedIn API returned {res.status_code}: {res.text}"
         except Exception as e:
             return False, f"LinkedIn network error: {e}"
-

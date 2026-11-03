@@ -157,3 +157,20 @@ class TrendHunter:
         random.shuffle(all_trends)
         return all_trends
 
+    def get_linkedin_topics(self) -> List[Dict[str, Any]]:
+        """Professional tech/AI topics only, excluding generic viral Google Trends."""
+        all_topics = []
+        for source in (
+            self.get_neubench_stories,
+            self.get_huggingface_daily_papers,
+            self.get_tech_news,
+            self.get_breaking_rss,
+        ):
+            try:
+                all_topics.extend(source())
+            except Exception:
+                continue
+
+        random.shuffle(all_topics)
+        return all_topics
+

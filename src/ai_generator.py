@@ -548,6 +548,28 @@ Guidelines:
         res = self._generate_with_fallback(prompt, system_p, temperature=0.75)
         return res.strip('"').strip()
 
+    def generate_linkedin_congrats_comment(self, post_author: str, post_text: str) -> str:
+        """
+        Generates a warm, specific congratulation comment for a LinkedIn milestone
+        (new role, promotion, launch, funding, certification, graduation, award).
+        """
+        prompt = f"""
+LinkedIn Post by {post_author}:
+"{post_text[:600]}..."
+
+You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench.
+Write a genuine, warm congratulation comment for this milestone.
+Guidelines:
+- Acknowledge the specific achievement mentioned (role, launch, funding, award, certification, graduation).
+- Tone: Sincere, professional, and human. No corporate cliches ("Congrats on the well-deserved success!!!") and no over-the-top hype.
+- Add one short, thoughtful sentence connecting it to their craft, growth, or the impact they will create.
+- Optionally end with a light forward-looking line or question, but do not pitch or share links.
+- Length: 2-3 sentences. Output ONLY the comment text.
+"""
+        system_p = "You are a respected AI systems founder who writes warm, specific, and credible LinkedIn congratulations."
+        res = self._generate_with_fallback(prompt, system_p, temperature=0.7)
+        return res.strip('"').strip()
+
     def generate_first_comment_value_drop(self, post_topic: str, post_text: str) -> str:
         """
         Generates an algorithmic high-engagement 'first-comment' value drop

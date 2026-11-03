@@ -1,0 +1,118 @@
+name: NeuBench LinkedIn Autopilot (Every 3 Hours)
+
+on:
+  schedule:
+    # One detailed LinkedIn post every 3 hours (staggered to avoid clashing with the omnichannel heartbeat).
+    - cron: '15 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run mode (simulate without publishing)'
+        required: false
+        default: 'false'
+        type: string
+
+concurrency:
+  group: neubench-linkedin-engine
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish-linkedin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Cache Playwright Browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
+
+      - name: Install Playwright Chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: playwright install chromium --with-deps
+
+      - name: Restore LinkedIn Browser Session
+        env:
+          LINKEDIN_COOKIES_BASE64: ${{ secrets.LINKEDIN_COOKIES_BASE64 }}
+        run: |
+          mkdir -p linkedin_session
+          if [ -n "$LINKEDIN_COOKIES_BASE64" ]; then
+            echo "$LINKEDIN_COOKIES_BASE64" | base64 --decode > linkedin_session/cookies.json
+          fi
+
+      - name: Publish LinkedIn Post
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.5-flash-lite
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_API_VERSION: '202610'
+          PYTHONIOENCODING: utf-8
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          TRIAL_ENABLED: 'true'
+          MAX_DAILY_ORIGINAL_POSTS: '0'
+          MAX_DAILY_REPLIES: '0'
+          MAX_DAILY_REPOSTS: '0'
+          MAX_DAILY_TOTAL: '0'
+          MAX_DAILY_LINKEDIN: '8'
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            python main.py linkedin --dry-run
+          else
+            python main.py linkedin
+          fi
+
+      - name: Persist LinkedIn Post History
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add linkedin_post_history.json || true
+          git commit -m "chore(cloud): linkedin post history [skip ci]" || echo "No history changes"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && break
+            sleep 5
+          done
+
+      - name: Persist Metrics
+        if: always()
+        run: |
+          git add trial_metrics.json post_history.json linkedin_network.json || true
+          git commit -m "chore(cloud): linkedin autopilot metrics [skip ci]" || echo "No metrics changes"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && break
+            sleep 5
+          done
+
+      - name: Generate Run Summary
+        if: always()
+        run: |
+          echo "## 💼 NeuBench LinkedIn Autopilot" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Cadence:** Every 3 hours" >> $GITHUB_STEP_SUMMARY
+          echo "- **One detailed post with hashtags and an auto-selected visual**" >> $GITHUB_STEP_SUMMARY
+          echo "- **Execution Time (UTC):** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          if [ -f "linkedin_post_history.json" ]; then
+            TOTAL=$(python -c "import json; data=json.load(open('linkedin_post_history.json')); print(len(data.get('posted_titles', [])))" 2>/dev/null || echo "N/A")
+            echo "- **Tracked LinkedIn Topics:** $TOTAL" >> $GITHUB_STEP_SUMMARY
+          fi

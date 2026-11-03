@@ -2,14 +2,8 @@ name: NeuBench-Automator 24/7 Cloud Autopilot
 
 on:
   schedule:
-    # 1. Targeted 5-slot drops for LinkedIn (9 AM, 1 PM, 5 PM, 9 PM, 12 AM IST):
-    # - 03:30 UTC = 09:00 AM IST
-    # - 07:30 UTC = 01:00 PM IST
-    # - 11:30 UTC = 05:00 PM IST
-    # - 15:30 UTC = 09:00 PM IST
-    # - 18:30 UTC = 12:00 AM (Midnight) IST
-    - cron: '30 3,7,11,15,18 * * *'
-    # 2. Continuous omnichannel rotation & viral engagement heartbeat (every 45 minutes)
+    # Continuous omnichannel rotation & viral engagement heartbeat (every 45 minutes).
+    # LinkedIn now runs in its own dedicated workflow every 3 hours.
     - cron: '*/45 * * * *'
   workflow_dispatch:
     inputs:
@@ -118,6 +112,7 @@ jobs:
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
           LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_API_VERSION: '202610'
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
           YOUTUBE_TOKEN_BASE64: ${{ secrets.YOUTUBE_TOKEN_BASE64 }}
           PYTHONIOENCODING: utf-8

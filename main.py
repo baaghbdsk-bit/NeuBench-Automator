@@ -81,7 +81,7 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-threads", "login-instagram", "login-youtube", "login-pinterest", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "threads", "instagram", "devto", "pinterest", "youtube", "render-video", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
+        choices=["login", "login-linkedin", "login-threads", "login-instagram", "login-youtube", "login-pinterest", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "linkedin-peers", "threads", "instagram", "devto", "pinterest", "youtube", "render-video", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
         help="Action: 'dashboard', 'youtube', 'render-video', 'login-youtube', 'bluesky', 'linkedin', 'threads', 'instagram', 'devto', 'pinterest', 'run-once', 'post', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
@@ -142,45 +142,20 @@ def main():
         login_linkedin()
 
     elif args.action == "linkedin":
-        import webbrowser
-        from src.ai_generator import AIGenerator
-        from src.linkedin_client import LinkedInClient
-        from src.linkedin_automater import LinkedInAutomater
-
-        automater = LinkedInAutomater(headless=True, dry_run=args.dry_run)
-        client = LinkedInClient()
-
+        from src.scheduler import AutomaterEngine
+        engine = AutomaterEngine(dry_run=args.dry_run)
         if args.text:
-            text = args.text
+            from src.linkedin_automater import LinkedInAutomater
+            automater = LinkedInAutomater(headless=True, dry_run=args.dry_run)
+            ok, msg = automater.post(args.text)
+            console.print(f"[bold green]✅ {msg}[/bold green]" if ok else f"[bold red]❌ {msg}[/bold red]")
         else:
-            ai = AIGenerator()
-            console.print("[cyan]Generating high-authority B2B thought-leadership post for LinkedIn...[/cyan]")
-            text = ai.generate_linkedin_take(
-                title="Frontier Reasoning Drift & Token Efficiency across Claude 3.5, Gemini 2.0 & DeepSeek-V3",
-                summary="NeuBench telemetry reveals significant latency and cost differences when evaluating long-horizon coding tasks on quantized vs dense weights.",
-                company="NeuBench"
-            )
+            engine.run_single_cycle(force_action="linkedin")
 
-        console.print(Panel(text, title="[bold blue]LinkedIn B2B Thought-Leadership Draft[/bold blue]", border_style="blue"))
-
-        # If autonomous session exists, publish autonomously!
-        if automater.is_session_available():
-            console.print("\n[bold cyan]🤖 Saved LinkedIn session detected! Publishing autonomously...[/bold cyan]")
-            ok, msg = automater.post(text)
-            if ok:
-                console.print(f"[bold green]✅ {msg}[/bold green]")
-            else:
-                console.print(f"[yellow]⚠️ Autonomous attempt note: {msg}[/yellow]")
-                share_url = client.generate_share_url(text)
-                console.print(f"[dim]Falling back to 1-Click Composer URL: {share_url}[/dim]")
-        else:
-            share_url = client.generate_share_url(text)
-            console.print(f"[bold green]🚀 1-Click LinkedIn Composer URL:[/bold green]\n{share_url}\n")
-            try:
-                webbrowser.open(share_url)
-                console.print("[dim]Opened LinkedIn composer in your default browser.[/dim]")
-            except Exception:
-                pass
+    elif args.action == "linkedin-peers":
+        from src.scheduler import AutomaterEngine
+        engine = AutomaterEngine(dry_run=args.dry_run)
+        engine.run_single_cycle(force_action="linkedin-peers")
 
     elif args.action == "login":
         from scripts.login_browser import login_and_save_session

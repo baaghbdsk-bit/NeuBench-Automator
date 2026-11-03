@@ -59,6 +59,8 @@ In her GitHub repository, navigate to **Settings** $\rightarrow$ **Secrets and v
 | `LINKEDIN_ACCESS_TOKEN` *(Optional)* | Official LinkedIn OAuth token | Enables direct REST API video publishing |
 | `LINKEDIN_PERSON_URN` *(Optional)* | e.g. `urn:li:person:XXXXX` | Account URN for API publishing |
 
+The current code uses LinkedIn's versioned Posts API for member publishing when the access token and person URN are present. The browser cookie is still needed for browser-only comment replies and peer engagement.
+
 ### Step 5: Enable the GitHub Action
 1. Go to the **Actions** tab in GitHub.
 2. Click **NeuBench-Automator 24/7 Cloud Autopilot** $\rightarrow$ Click **Enable workflow**.
@@ -92,8 +94,10 @@ Create a `.env` file in the root directory:
 GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL=gemini-3.5-flash-lite
 LINKEDIN_ENABLED=true
-MAX_DAILY_LINKEDIN=3
-MAX_DAILY_LINKEDIN_PEER_COMMENTS=0
+MAX_DAILY_LINKEDIN=8
+MAX_DAILY_LINKEDIN_PEER_COMMENTS=10
+# Current LinkedIn Marketing API version (YYYYMM)
+LINKEDIN_API_VERSION=202610
 ```
 
 ### 3. Log In to LinkedIn Once
@@ -107,6 +111,10 @@ A browser will pop up. Enter the LinkedIn login details and complete 2FA once. T
   ```bash
   python main.py linkedin
   ```
+- **Comment on viral posts + reply to genuine questions**:
+  ```bash
+  python main.py linkedin-peers
+  ```
 - **Check and reply to comments on own posts**:
   ```bash
   python main.py linkedin-replies
@@ -115,3 +123,7 @@ A browser will pop up. Enter the LinkedIn login details and complete 2FA once. T
   ```bash
   python main.py start
   ```
+
+In GitHub Actions the LinkedIn flows run on two dedicated schedules:
+- `.github/workflows/linkedin_automater.yml` — one detailed post every 3 hours (`15 */3 * * *`).
+- `.github/workflows/linkedin_engagement.yml` — viral comments/replies every 2 hours (`30 */2 * * *`, capped at 10/day).
