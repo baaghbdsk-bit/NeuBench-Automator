@@ -162,6 +162,35 @@ If TOKEN_PIPELINE:
         }
 
 
+def compile_frames_to_mp4(frames: List[Image.Image], temp_prefix: str, fps: int, mp4_path: str) -> Optional[str]:
+    """Compiles Pillow frames into an MP4 video using ffmpeg with safe cleanup and fallback."""
+    temp_pattern = str(OUTPUT_DIR / f"{temp_prefix}_%03d.png")
+    created_temps = []
+    try:
+        for idx, f in enumerate(frames):
+            p = str(OUTPUT_DIR / f"{temp_prefix}_{idx:03d}.png")
+            f.save(p)
+            created_temps.append(p)
+
+        cmd = [
+            "ffmpeg", "-y", "-r", str(fps), "-i", temp_pattern,
+            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "22",
+            mp4_path
+        ]
+        res = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=90)
+        if res.returncode == 0 and Path(mp4_path).exists() and Path(mp4_path).stat().st_size > 0:
+            return mp4_path
+    except Exception as e:
+        print(f"[VisualEngine] FFmpeg compilation note: {e}. Falling back to GIF.")
+    finally:
+        for p in created_temps:
+            try:
+                os.remove(p)
+            except Exception:
+                pass
+    return None
+
+
 def render_dynamic_code_architecture(spec: Dict[str, Any], output_base_name: str = "code_arch_dynamic") -> Tuple[str, str]:
     """Renders the AI-designed Code Breakdown & Architecture Blueprint (Animated 1080x1080 Loop)."""
     gif_path = str(OUTPUT_DIR / f"{output_base_name}.gif")
@@ -275,24 +304,8 @@ def render_dynamic_code_architecture(spec: Dict[str, Any], output_base_name: str
 
     frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=50, loop=0, optimize=True)
 
-    temp_pattern = str(OUTPUT_DIR / "temp_c_%03d.png")
-    for idx, f in enumerate(frames):
-        f.save(str(OUTPUT_DIR / f"temp_c_{idx:03d}.png"))
-
-    cmd = [
-        "ffmpeg", "-y", "-r", str(fps), "-i", temp_pattern,
-        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "22",
-        mp4_path
-    ]
-    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    for idx in range(len(frames)):
-        try:
-            os.remove(str(OUTPUT_DIR / f"temp_c_{idx:03d}.png"))
-        except Exception:
-            pass
-
-    return gif_path, mp4_path
+    compiled_mp4 = compile_frames_to_mp4(frames, "temp_c", fps, mp4_path)
+    return gif_path, (compiled_mp4 or "")
 
 
 def render_dynamic_benchmark_race(spec: Dict[str, Any], output_base_name: str = "benchmark_race_dynamic") -> Tuple[str, str]:
@@ -376,24 +389,8 @@ def render_dynamic_benchmark_race(spec: Dict[str, Any], output_base_name: str = 
 
     frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=50, loop=0, optimize=True)
 
-    temp_pattern = str(OUTPUT_DIR / "temp_b_%03d.png")
-    for idx, f in enumerate(frames):
-        f.save(str(OUTPUT_DIR / f"temp_b_{idx:03d}.png"))
-
-    cmd = [
-        "ffmpeg", "-y", "-r", str(fps), "-i", temp_pattern,
-        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "22",
-        mp4_path
-    ]
-    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    for idx in range(len(frames)):
-        try:
-            os.remove(str(OUTPUT_DIR / f"temp_b_{idx:03d}.png"))
-        except Exception:
-            pass
-
-    return gif_path, mp4_path
+    compiled_mp4 = compile_frames_to_mp4(frames, "temp_b", fps, mp4_path)
+    return gif_path, (compiled_mp4 or "")
 
 
 def render_dynamic_token_pipeline(spec: Dict[str, Any], output_base_name: str = "token_pipeline_dynamic") -> Tuple[str, str]:
@@ -518,24 +515,8 @@ def render_dynamic_token_pipeline(spec: Dict[str, Any], output_base_name: str = 
 
     frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=50, loop=0, optimize=True)
 
-    temp_pattern = str(OUTPUT_DIR / "temp_f_%03d.png")
-    for idx, f in enumerate(frames):
-        f.save(str(OUTPUT_DIR / f"temp_f_{idx:03d}.png"))
-
-    cmd = [
-        "ffmpeg", "-y", "-r", str(fps), "-i", temp_pattern,
-        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "22",
-        mp4_path
-    ]
-    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    for idx in range(len(frames)):
-        try:
-            os.remove(str(OUTPUT_DIR / f"temp_f_{idx:03d}.png"))
-        except Exception:
-            pass
-
-    return gif_path, mp4_path
+    compiled_mp4 = compile_frames_to_mp4(frames, "temp_f", fps, mp4_path)
+    return gif_path, (compiled_mp4 or "")
 
 
 def generate_visual_for_post(topic_or_text: str, summary: str = "") -> Tuple[str, str]:

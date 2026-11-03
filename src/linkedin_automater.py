@@ -136,6 +136,29 @@ class LinkedInAutomater:
         return headers
 
 
+    def _wait_for_media_available(self, media_urn: str, media_kind: str, max_seconds: int = 60) -> bool:
+        """Polls LinkedIn REST API until uploaded image/video achieves AVAILABLE status."""
+        import urllib.parse
+        encoded_urn = urllib.parse.quote(media_urn, safe="")
+        endpoint = f"https://api.linkedin.com/rest/{'videos' if media_kind == 'video' else 'images'}/{encoded_urn}"
+        headers = self._api_headers(include_content_type=False)
+        start = time.time()
+        while time.time() - start < max_seconds:
+            try:
+                res = requests.get(endpoint, headers=headers, timeout=15)
+                if res.status_code == 200:
+                    status = res.json().get("status")
+                    if status == "AVAILABLE":
+                        return True
+                    if status in ("CLIENT_ERROR", "PROCESSING_FAILED"):
+                        print(f"[LinkedInAutomater] Media processing failed: {res.text[:200]}")
+                        return False
+            except Exception as e:
+                print(f"[LinkedInAutomater] Media status poll notice: {e}")
+            time.sleep(2.5)
+        print(f"[LinkedInAutomater] Media did not reach AVAILABLE status within {max_seconds}s.")
+        return False
+
     def _upload_video(self, image_path: str, person_urn: str) -> str:
 
         """Uploads an MP4 through LinkedIn's current versioned Videos API."""
@@ -325,6 +348,14 @@ class LinkedInAutomater:
                             media_kind = "image"
                         except Exception as still_error:
                             print(f"[LinkedInAutomater] GIF still-frame fallback skipped: {still_error}")
+
+                if media_urn and media_kind:
+                    print(f"[LinkedInAutomater] ⏳ Verifying LinkedIn {media_kind} availability ({media_urn})...")
+                    is_ready = self._wait_for_media_available(media_urn, media_kind, max_seconds=45)
+                    if not is_ready:
+                        print(f"[LinkedInAutomater] ⚠️ Media {media_urn} not ready in time. Posting text-only to ensure delivery.")
+                        media_urn = None
+                        media_kind = None
 
             post_payload = {
                 "author": person_urn,
@@ -556,6 +587,23 @@ class LinkedInAutomater:
                 page.keyboard.insert_text(text)
 
                 page.wait_for_timeout(1500)
+
+                # Attach media if available
+                if image_path and os.path.exists(image_path):
+                    try:
+                        print(f"[LinkedInAutomater] Attaching media to LinkedIn post via browser: {image_path}...")
+                        resolved_media = str(Path(image_path).resolve())
+                        file_input = page.locator('input[type="file"]').first
+                        if file_input.count():
+                            file_input.set_input_files(resolved_media)
+                            page.wait_for_timeout(4000)
+                            next_btn = page.locator('button:has-text("Next"), button.share-box-footer__primary-btn, button[aria-label*="Next" i]').first
+                            if next_btn.is_visible():
+                                print("[LinkedInAutomater] Clicking 'Next' in media modal...")
+                                next_btn.click()
+                                page.wait_for_timeout(3000)
+                    except Exception as media_err:
+                        print(f"[LinkedInAutomater] Browser media attach note: {media_err}")
 
 
 

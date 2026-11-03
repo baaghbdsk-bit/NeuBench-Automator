@@ -1799,9 +1799,11 @@ class AutomaterEngine:
             li_text = ""
             if custom_text and custom_text.strip():
                 li_text = custom_text.strip()
+                first_line = li_text.splitlines()[0].strip() if li_text else ""
+                clean_title = re.sub(r'^[#*\-•\s]+', '', first_line)[:60].strip()
                 selected_trend = {
-                    "title": f"Custom LinkedIn post {content_hash(li_text)[:16]}",
-                    "summary": "",
+                    "title": clean_title if len(clean_title) >= 10 else f"Custom LinkedIn post {content_hash(li_text)[:16]}",
+                    "summary": li_text[:300],
                     "company": "NeuBench",
                     "url": "",
                 }
