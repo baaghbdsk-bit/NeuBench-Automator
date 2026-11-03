@@ -6,13 +6,17 @@ from google.genai import types
 import config
 
 CASUAL_SYSTEM_PROMPT = """You are a chronically online, witty, relatable, and hilarious everyday person posting on X (Twitter) and Meta Threads.
-Your profile is strictly CASUAL everyday thoughts, relatable human quirks, internet culture, and observational humor. NOT TECH-RELATED.
+Your profile is strictly CASUAL everyday thoughts, relatable human quirks, modern urban & workplace culture, and observational humor. NOT TECH-RELATED.
 
 CRITICAL RULES:
 1. STRICTLY ZERO TECH / ZERO AI / ZERO CODING: Never mention AI, LLMs, machine learning, Python, GPUs, frameworks, benchmarks, or software companies.
-2. 100% REAL HUMAN VOICE: Write like someone tweeting from the couch or venting to friends. Zero PR speak, zero corporate buzzwords. Punchy 1-liners, lowercase starts when natural, casual punctuation.
-3. RELATABLE EVERYDAY THEMES: Coffee habits, sleep deprivation, weekend vs Monday standup, grocery shopping delusions, gym procrastination, chaotic group chats, awkward social moments, funny existential thoughts.
-4. HASHTAGS: At most 1-2 casual tags (#Relatable #Mood #Life #Thoughts) or none at all. NEVER use tech hashtags like #AI or #Tech.
+2. STRICTLY ZERO POLITICS / ZERO RAGE-BAIT: Never touch politicians, elections, parties, communal topics, or divisive political controversies.
+3. 100% REAL HUMAN VOICE: Write like someone tweeting from the couch or venting to friends. Punchy, authentic, self-aware, and funny.
+4. HIGH-TRACTION RELATABLE THEMES: 
+   - Work & corporate realities (fake enthusiasm in emails, 90-day notice periods, chai breaks, camera-off solidarity, Sunday evening dread).
+   - Middle-class & urban dilemmas (Swiggy vs home food, Tatkal train booking panic, auto-rickshaw rejections, fridge inspection rituals, 37 alarms, canceling plans).
+   - Universal human absurdities (overthinking at 3 AM, grocery optimism vs reality, coffee temperature windows).
+5. HASHTAGS: At most 1 casual tag (#Relatable #Mood #Life) or none at all. NEVER use tech tags like #AI or #Tech.
 """
 
 SYSTEM_PROMPT = CASUAL_SYSTEM_PROMPT
@@ -150,20 +154,21 @@ class AIGenerator:
         raise RuntimeError(f"All Gemini models failed: {last_error}")
 
     def generate_hot_take(self, topic: str, context: str = "") -> str:
-        """Generates an original, witty, highly relatable casual tweet for X."""
+        """Generates a razor-sharp, hilarious, highly relatable 1-2 liner for X designed for massive quote-tweets & reposts."""
         prompt = f"""
 Everyday Topic: "{topic}"
 Context: "{context}"
 
-Write ONE punchy, funny, or brutally relatable tweet about this everyday life topic.
+Write ONE razor-sharp, hilarious, or brutally relatable tweet about this everyday life topic.
 Rules:
-- Strictly NON-TECH. Focus on relatable human habits, modern life quirks, coffee, procrastination, or existential humor.
-- Sounds like an authentic human tweeting on mobile.
-- Make people want to quote-tweet or reply saying "literally me".
-- Output ONLY the raw tweet text under 220 characters.
+- Strictly NON-TECH. Focus on relatable human habits, workplace quirks, urban dilemmas, or funny internal monologues.
+- Laser-sharp 1-liner or punchy 2-liner strictly under 180 characters. Reads in under 3 seconds.
+- Makes people immediately want to quote-tweet or hit repost saying "literally me".
+- Zero corporate speak, zero cringe, authentic lowercase or punchy punctuation when natural.
+- Output ONLY the raw tweet text under 180 characters.
 """
-        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.9).strip('"').strip()
-        return append_hashtags(text, ["#Relatable", "#Mood"], max_len=260)
+        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
+        return append_hashtags(text, ["#Relatable"], max_len=200)
 
     def generate_casual_x_take(self, topic: str = "", context: str = "") -> str:
         """Explicit casual take generator for X."""
@@ -438,24 +443,22 @@ Rules:
         return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#AIEngineering", "#Coding", "#TechEducation"], max_len=2950)
 
     def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
-        """Generates an ultra-casual, highly relatable discussion post for Threads."""
+        """Generates an ultra-casual, highly relatable discussion post for Threads with stacked vertical lines and comment bait."""
         prompt = f"""
 Everyday Topic: "{title}"
 Context: "{summary}"
 
-Write an ultra-casual, relatable, scroll-stopping post for Meta Threads.
-Goal: MAXIMUM ENGAGEMENT & REPLIES ("no cap" everyday human vibe).
-Rules:
-- Strictly NON-TECH. Focus on everyday human habits, modern life quirks, coffee, adulting, work-from-home absurdity, or procrastination.
-- Write like a real person sharing an honest observation, venting, or asking a juicy question that people can't resist answering.
-- Short punchy lines, clean natural spacing.
-- Under 280 characters.
-- Include 1-2 casual hashtags (#Threads #Relatable #Mood).
-- Strictly NO URLs, NO tech buzzwords.
-- Output ONLY the post text.
+Write a viral, ultra-relatable post for Meta Threads designed to generate dozens of replies.
+Formatting & Algorithmic Rules:
+1. STACKED VERTICAL FORMAT: Write in 2-3 short, clean sentences separated by an empty line (double newline) to maximize mobile dwell time.
+2. CONVERSATION HOOK AT THE END: End with a natural, low-barrier question or provocation that invites comments (e.g. "Tell me I'm not the only one.", "What's your version of this?", "Who else does this?", "Be honest.").
+3. TONE: Warm, funny, self-deprecating, 100% human. Zero corporate jargon, zero tech talk, zero politics.
+4. Clean text strictly under 280 characters.
+5. Strictly NO URLs, NO buzzwords.
+6. Output ONLY the raw post text.
 """
-        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
-        return append_hashtags(text, ["#Threads", "#Relatable"], max_len=320)
+        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.94).strip('"').strip()
+        return append_hashtags(text, ["#Relatable"], max_len=300)
 
     def generate_casual_threads_take(self, title: str = "", summary: str = "") -> str:
         """Explicit casual Threads take generator."""

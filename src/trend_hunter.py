@@ -203,8 +203,34 @@ class TrendHunter:
         return filtered
 
     def get_casual_topics(self) -> List[Dict[str, Any]]:
-        """Return non-tech, everyday relatable, witty, and humorous topics for X and Threads."""
+        """Return non-tech, everyday relatable, witty, and humorous topics for X and Threads (Indian & global urban lifestyle)."""
         evergreen_casual = [
+            # High-Traction Desi / Indian Urban & Workplace Culture
+            {"title": "Bengaluru traffic & Silk Board signals", "context": "Spending 45 minutes moving 200 meters in Bangalore traffic while watching your Swiggy delivery guy overtake you on a bicycle."},
+            {"title": "The 90-day notice period trauma", "context": "Indian HR enforcing a 90-day notice period like you are an astronaut on an interplanetary mission to Mars."},
+            {"title": "Swiggy/Zomato vs 'Ghar pe daal bani hai'", "context": "Carefully customizing your Swiggy cart for 20 minutes only for mom to announce 'Ghar pe daal roti bani hai'."},
+            {"title": "Auto-rickshaw 'Nahi jaayega'", "context": "Auto driver looking at you, hearing your destination, and saying 'Nahi jaayega' with the supreme confidence of a billionaire declining an investment."},
+            {"title": "The bag of 300 plastic bags", "context": "Every Indian household having one giant master polythene bag under the sink whose sole purpose is to store 300 other polythene bags."},
+            {"title": "Mom's cookie tin betrayal", "context": "Opening a Royal Dansk butter cookies tin expecting cookies, only to find needles, buttons, and mom's sewing kit."},
+            {"title": "Tatkal booking adrenaline rush at 10:00 AM", "context": "Forget bungee jumping, the real near-death experience is watching the IRCTC Tatkal timer hit 10:00:00 AM while waiting for the OTP."},
+            {"title": "The Paytm sound box emotional relief", "context": "Staring intensely at the shopkeeper's QR sound box waiting for the robotic voice to confirm 'Dus rupaye praapt hue'."},
+            {"title": "Wedding relatives asking 'Aage ka kya plan hai?'", "context": "A distant uncle you haven't seen in 9 years cornering you near the gulab jamun counter asking 'Aur beta, aage ka kya socha hai?'"},
+            {"title": "Surviving corporate shifts on 5 cutting chais", "context": "Running an entire 9-hour corporate workday on 4 cups of cutting chai, two Parle-G biscuits, and pure spite."},
+            {"title": "Free dhaniya and mirchi entitlement", "context": "Spending 800 rupees on vegetables and then refusing to leave until the bhaiya gives you free coriander and green chillies."},
+            {"title": "Bangalore landlord demands", "context": "Bangalore landlord demanding 10 months security deposit, your 10th-grade board marksheet, and a LinkedIn recommendation."},
+            {"title": "Salary credited vs 18th of the month", "context": "Salary credited message on the 1st: 'I will invest in real estate.' Bank balance on the 18th: 'Is tap water a meal?'"},
+            {"title": "Typing 'Per my last email'", "context": "Typing 'Per my previous email' when what you really want to say is 'I already answered this, can you please read?'"},
+            {"title": "Family WhatsApp 'Good Morning' GIFs", "context": "Waking up to 18 glittery animated roses with quotes like 'Life is a precious gift' in the family WhatsApp group."},
+            
+            # High-Engagement Conversation & Debate Bait (Massive for Threads Comments)
+            {"title": "Everyday scams we normalized", "context": "What is an everyday expense that is a total and complete scam, but society just normalized it?"},
+            {"title": "Unwritten public rules broken casually", "context": "What is one unwritten social rule that people break way too casually in public?"},
+            {"title": "Unpopular opinion for family dinners", "context": "What is an unpopular opinion that would get you immediately disowned at a family dinner?"},
+            {"title": "The age you realized adulthood is a trap", "context": "Drop the exact age you were when you realized adulthood is just being permanently exhausted and doing laundry."},
+            {"title": "Overhyped social media purchases", "context": "What is something you bought that was 100% hyped by social media influencers but turned out to be completely useless?"},
+            {"title": "Work habits to look busy", "context": "What is a work habit you pretend to have just so nobody gives you extra work?"},
+
+            # Universal Everyday Quirks & Internal Monologues
             {"title": "Second iced coffee at 4 PM", "context": "Drinking cold brew late in the afternoon and then acting shocked when you can't sleep at 2 AM."},
             {"title": "The fridge inspection ritual", "context": "Opening the fridge 12 times in an evening as if new gourmet snacks spawned by magic."},
             {"title": "Canceling weekend plans", "context": "The instantaneous, unrivaled wave of relief when someone cancels the social plans you agreed to 3 weeks ago."},
@@ -216,15 +242,9 @@ class TrendHunter:
             {"title": "Work email exclamation marks", "context": "Typing 'Sounds great! No worries at all!' with maximum enthusiasm while looking like an emotionless statue in front of your screen."},
             {"title": "Late-night life motivation", "context": "Deciding at 11:45 PM on a Tuesday that you are going to wake up at 5 AM, run a marathon, and master French, only to hit snooze at 7:30."},
             {"title": "The unread messages spiral", "context": "Having 50 unread messages because answering just one feels like initiating a live hostage negotiation."},
-            {"title": "Day pajamas vs night pajamas", "context": "Taking a shower at 3 PM on Saturday just to transition from daytime loungewear into nighttime loungewear."},
             {"title": "Shopping cart abandonment therapy", "context": "Adding $600 worth of luxury items to an online cart just to feel something, then closing the tab."},
-            {"title": "The hallway passing shuffle", "context": "Making accidental eye contact with someone 40 feet away and trying to figure out the exact socially acceptable moment to nod."},
-            {"title": "Bedtime comeback formulation", "context": "Coming up with the single most devastating, articulate rebuttal to an argument that ended in 2019 while staring at your ceiling."},
             {"title": "Camera-off telepathy", "context": "The unspoken brotherhood of turning off your camera in a group call the second you see one other person did it."},
-            {"title": "The to-do list staring contest", "context": "Opening your to-do list, staring at the top item for 15 seconds, and immediately deciding your kitchen counter needs deep cleaning."},
-            {"title": "Coffee temperature window", "context": "Coffee has exactly a 45-second window where it is the perfect temperature. Before that it is magma, after that it is liquid disappointment."},
-            {"title": "Buying books as interior design", "context": "Buying books under the impression you will read them, but really you just bought them so they can look intellectual on your desk."},
-            {"title": "The 'we should totally catch up' lie", "context": "Saying 'we need to catch up soon!' to someone you like, knowing full well both of you will protect your peace and never schedule it."}
+            {"title": "Bedtime comeback formulation", "context": "Coming up with the single most devastating, articulate rebuttal to an argument that ended in 2019 while staring at your ceiling."}
         ]
         
         # Try to mix in some lighthearted Google Trends if non-tech
