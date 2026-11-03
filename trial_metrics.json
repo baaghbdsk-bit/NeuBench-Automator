@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T10:01:58.409306+00:00",
+    "last_updated": "2026-11-03T11:01:48.386617+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 433,
+    "total_cycles_executed": 434,
     "original_posts_attempted": 67,
     "original_posts_succeeded": 59,
     "replies_attempted": 25,
@@ -13,22 +13,12 @@
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 48,
-    "failed_operations": 24,
+    "failed_operations": 25,
     "ai_generation_requests": 136,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-01T00:03:05.919492+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing the shifting economics of foundation models and mark",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-11-01T00:03:29.125567+00:00",
       "action_type": "threads_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Replied to 0 Threads post(s).",
       "reason": "",
       "duration_s": 18.3
+    },
+    {
+      "timestamp": "2026-11-03T11:01:48.386577+00:00",
+      "action_type": "youtube",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Day 4: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code) #Shorts",
+      "reason": "YouTube API upload error",
+      "duration_s": 5.93
     }
   ]
 }
