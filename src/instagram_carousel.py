@@ -320,6 +320,8 @@ class InstagramCarouselGenerator:
             return self._build_day2_slides()
         elif day == 3:
             return self._build_day3_slides()
+        elif day == 4:
+            return self._build_day4_slides()
         else:
             custom_dir = CAROUSEL_OUTPUT_DIR / f"DAY_{day:03d}"
             if custom_dir.exists() and list(custom_dir.glob("*.png")):
@@ -759,6 +761,143 @@ class InstagramCarouselGenerator:
             }
         ]
         return self.render_slides(day=3, topic="How Computers Actually Learn", slides_data=slides)
+
+    def _build_day4_slides(self) -> List[str]:
+        """Builds high-impact enlarged slides for Day 04: What is a Dataset?"""
+        slides = [
+            # Slide 1: Cover
+            {
+                "cta": "Swipe to Learn ➔",
+                "html": """
+                <div class="category-pill pill-cyan">DAY 04 • DATA-CENTRIC AI</div>
+                <h1 class="hero-heading">What is a Dataset?</h1>
+                <div class="hero-subheading">
+                  Inputs, Targets, and why data quality matters 10x more than model code.
+                </div>
+
+                <div class="glass-card" style="margin-top: 24px;">
+                  <div style="font-size: 24px; font-weight: 700; color: #38BDF8; margin-bottom: 10px;">
+                    📊 The Foundation of All Machine Learning
+                  </div>
+                  <div style="font-size: 22px; color: #E2E8F0; line-height: 1.6;">
+                    Code is deterministic logic. A machine learning model is an empty shell with zero intelligence until it is shaped by a structured dataset.
+                  </div>
+                </div>
+                """
+            },
+            # Slide 2: Inputs vs Targets (X and Y)
+            {
+                "cta": "Swipe for The Law ➔",
+                "html": """
+                <div class="category-pill pill-purple">THE CORE ANATOMY</div>
+                <h1 class="hero-heading" style="font-size: 44px;">Inputs (X) vs. Targets (Y)</h1>
+
+                <div class="flow-grid">
+                  <div class="flow-panel" style="border-color: rgba(56, 189, 248, 0.4);">
+                    <div class="flow-title" style="color: #38BDF8;">📥 Inputs (Features X)</div>
+                    <div style="font-size: 21px; color: #E2E8F0; line-height: 1.6;">
+                      The raw signals the model observes: house square footage, image pixels, token sequences, or sensor voltages.
+                    </div>
+                  </div>
+                  <div class="flow-panel" style="border-color: rgba(52, 211, 153, 0.4);">
+                    <div class="flow-title" style="color: #34D399;">🎯 Targets (Ground Truth Y)</div>
+                    <div style="font-size: 21px; color: #E2E8F0; line-height: 1.6;">
+                      The desired true answer: sale price ($540k), sentiment (Positive), tumor diagnosis (Benign), or next token.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="takeaway-banner">
+                  📌 <b>The Machine Learning Pair:</b> Every supervised example is a tuple <code>(X, Y)</code>.
+                </div>
+                """
+            },
+            # Slide 3: Garbage In, Garbage Out
+            {
+                "cta": "Swipe for Data-Centric AI ➔",
+                "html": """
+                <div class="category-pill pill-pink">THE GOLDEN RULE</div>
+                <h1 class="hero-heading" style="font-size: 44px;">Garbage In, Garbage Out (GIGO)</h1>
+
+                <div class="flow-grid">
+                  <div class="flow-panel" style="border-color: rgba(244, 63, 94, 0.4);">
+                    <div class="flow-title" style="color: #FB7185;">⚠️ Noisy / Biased Data</div>
+                    <ul style="font-size: 21px; color: #E2E8F0; line-height: 1.6; margin-left: 20px;">
+                      <li>Mislabeled training rows</li>
+                      <li>Sampling bias in audience</li>
+                      <li>Missing critical edge cases</li>
+                      <li>High loss & hallucinations</li>
+                    </ul>
+                  </div>
+
+                  <div class="flow-panel" style="border-color: rgba(52, 211, 153, 0.4);">
+                    <div class="flow-title" style="color: #34D399;">✨ Curated High-Signal Data</div>
+                    <ul style="font-size: 21px; color: #E2E8F0; line-height: 1.6; margin-left: 20px;">
+                      <li>Verified expert annotations</li>
+                      <li>Deduplicated tokens</li>
+                      <li>Balanced edge-case sampling</li>
+                      <li>Rapid loss convergence</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="takeaway-banner">
+                  💡 <b>Fact:</b> A smaller model with clean data beats a massive model trained on corrupted garbage every time.
+                </div>
+                """
+            },
+            # Slide 4: Data-Centric vs Model-Centric AI
+            {
+                "cta": "Swipe for Cheatsheet ➔",
+                "html": """
+                <div class="category-pill pill-emerald">INDUSTRY SHIFT</div>
+                <h1 class="hero-heading" style="font-size: 44px;">Data-Centric AI Movement</h1>
+
+                <div class="glass-card">
+                  <div style="font-size: 24px; font-weight: 700; color: #F1F5F9; margin-bottom: 8px;">
+                    Model-Centric vs Data-Centric
+                  </div>
+                  <div style="font-size: 22px; line-height: 1.5; color: #CBD5E1;">
+                    🔬 <b>Model-Centric (Old):</b> Keep data fixed. Spend months tuning learning rate, layers, and dropout.<br><br>
+                    🚀 <b>Data-Centric (Modern):</b> Keep model architecture fixed. Systematically clean labels, augment outliers, and filter noise.
+                  </div>
+                </div>
+
+                <div class="takeaway-banner" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3);">
+                  📈 <b>Andrew Ng's Principle:</b> 80% of real-world AI breakthroughs come from data iteration, not code tweaks.
+                </div>
+                """
+            },
+            # Slide 5: Recap & Next Day
+            {
+                "cta": "📌 Save for Revision",
+                "html": """
+                <div class="category-pill pill-cyan">DAY 04 RECAP • 1-PAGE SUMMARY</div>
+                <h1 class="hero-heading" style="font-size: 46px;">Day 04 Cheatsheet</h1>
+
+                <div class="glass-card">
+                  <div style="font-size: 24px; line-height: 1.6; color: #F1F5F9; display: flex; flex-direction: column; gap: 14px;">
+                    <div>1️⃣ <b>Datasets are the Code:</b> Data writes the weights; engineers only design the harness.</div>
+                    <div>2️⃣ <b>Inputs (X) & Targets (Y):</b> The fundamental pair defining supervised learning.</div>
+                    <div>3️⃣ <b>Quality > Quantity:</b> Clean curated data outperforms bloated noisy datasets.</div>
+                  </div>
+                </div>
+
+                <div class="glass-card" style="border-color: #38BDF8; background: rgba(56, 189, 248, 0.08); text-align: center;">
+                  <div style="font-size: 25px; font-weight: 800; color: #38BDF8; margin-bottom: 8px;">
+                    Tomorrow: Day 05
+                  </div>
+                  <div style="font-size: 22px; color: #F8FAFC;">
+                    Features and Labels: Translating Real-World Problems into Numbers.
+                  </div>
+                </div>
+                """
+            }
+        ]
+        return self.render_slides(day=4, topic="What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)", slides_data=slides)
+
+
+InstagramCarousel = InstagramCarouselGenerator
 
 
 if __name__ == "__main__":

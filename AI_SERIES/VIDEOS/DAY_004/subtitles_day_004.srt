@@ -1,0 +1,15 @@
+1
+00:00:00,000 --> 00:00:14,000
+A machine learning model is an empty shell with zero intelligence until it is trained on a dataset. Datasets are not just tables of numbers, they are the actual code that writes the model's weights.
+
+2
+00:00:14,000 --> 00:00:28,000
+Every supervised dataset consists of pairs: inputs called X and ground truth targets called Y. The model observes X and tries to guess Y correctly across millions of examples.
+
+3
+00:00:28,000 --> 00:00:42,000
+If you feed a multi-billion parameter neural network corrupted or mislabeled data, it learns to hallucinate mistakes with absolute mathematical confidence. Clean data trumps model size every time.
+
+4
+00:00:42,000 --> 00:00:56,000
+Datasets are the curriculum your AI studies. Tomorrow in Day five, we break down features and labels in modern engineering. Follow NeuBench for the complete ninety-day AI masterclass.

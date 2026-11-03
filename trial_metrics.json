@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T11:26:48.542053+00:00",
+    "last_updated": "2026-11-03T19:05:20.063405+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 435,
+    "total_cycles_executed": 445,
     "original_posts_attempted": 67,
     "original_posts_succeeded": 59,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 48,
+    "actions_skipped": 49,
     "failed_operations": 26,
-    "ai_generation_requests": 136,
+    "ai_generation_requests": 138,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -84,7 +84,7 @@
       "action_type": "original_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "\u0938\u092e\u093e\u091a\u093e\u0930 \u0916\u092c\u0930\u0947\u0902",
+      "target": "समाचार खबरें",
       "content_preview": "90% of prime time news isn't journalism anymore, it's just a daily rage-bait subscription you didn't ask for. We traded ",
       "reason": "",
       "duration_s": 84.24
@@ -95,7 +95,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Evaluating Hindi NLP capabilities (\u0938\u092e\u093e\u091a\u093e\u0930 \u0916\u092c\u0930\u0947\u0902) across open models reveals fascinating divergence in tokenization and c",
+      "content_preview": "Evaluating Hindi NLP capabilities (समाचार खबरें) across open models reveals fascinating divergence in tokenization and c",
       "reason": "",
       "duration_s": 1.2
     },
@@ -105,7 +105,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours benchmarking real-time news aggregation pipelines and \"\u0938\u092e\u093e\u091a\u093e\u0930 ",
+      "content_preview": "I spent 40+ hours benchmarking real-time news aggregation pipelines and \"समाचार ",
       "reason": "",
       "duration_s": 15.0
     },
@@ -115,7 +115,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "\u0906\u091c\u0915\u0932 \u0916\u092c\u0930\u0947\u0902 \u092a\u0922\u093c\u0928\u0947 \u0915\u093e \u0905\u0902\u0926\u093e\u0632 \u0939\u0940 \u092c\u0926\u0932 \u0917\u092f\u093e \u0939\u0948! \ud83d\udcf1 \n\n\u0906\u092a \u0932\u094b\u0917 \u0926\u093f\u0928\u092d\u0930 \u0915\u0940 '\u0938\u092e\u093e\u091a\u093e\u0930 \u0916\u092c\u0930\u0947\u0902' \u091c\u093e\u0928\u0928",
+      "content_preview": "आजकल खबरें पढ़ने का अंदाز ही बदल गया है! 📱 \n\nआप लोग दिनभर की 'समाचार खबरें' जानन",
       "reason": "",
       "duration_s": 15.0
     },
@@ -165,7 +165,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "Okay, serious question: Colorado vs. Chicago. \ud83c\udfd4\ufe0f\u2744\ufe0f \n\nAre you taking the mountain",
+      "content_preview": "Okay, serious question: Colorado vs. Chicago. 🏔️❄️ \n\nAre you taking the mountain",
       "reason": "",
       "duration_s": 15.0
     },
@@ -295,7 +295,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "That AUS vs AFG match was pure chaos! \ud83e\udd2f Still trying to process how that finish ",
+      "content_preview": "That AUS vs AFG match was pure chaos! 🤯 Still trying to process how that finish ",
       "reason": "",
       "duration_s": 15.0
     },
@@ -335,7 +335,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing why AI infrastructure just hijacked local politics\u2014f",
+      "content_preview": "I spent 40+ hours analyzing why AI infrastructure just hijacked local politics—f",
       "reason": "",
       "duration_s": 15.0
     },
@@ -554,7 +554,7 @@
       "action_type": "original_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "\u0930\u093e\u092e\u0932\u0940\u0932\u093e \u092e\u0948\u0926\u093e\u0928, \u0926\u093f\u0932\u094d\u0932\u0940",
+      "target": "रामलीला मैदान, दिल्ली",
       "content_preview": "another month, another massive gathering at ramlila maidan promising to change the system while the rent in delhi keeps ",
       "reason": "",
       "duration_s": 91.9
@@ -565,7 +565,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "From massive political rallies at \u0930\u093e\u092e\u0932\u0940\u0932\u093e \u092e\u0948\u0926\u093e\u0928, \u0926\u093f\u0932\u094d\u0932\u0940 to localized context handling in Indic LLMs\u2014evaluation datasets ",
+      "content_preview": "From massive political rallies at रामलीला मैदान, दिल्ली to localized context handling in Indic LLMs—evaluation datasets ",
       "reason": "",
       "duration_s": 1.2
     },
@@ -575,7 +575,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "\u0926\u093f\u0932\u094d\u0932\u0940 \u0915\u0947 \u0930\u093e\u092e\u0932\u0940\u0932\u093e \u092e\u0948\u0926\u093e\u0928 \u0915\u0940 \u092c\u093e\u0924 \u0939\u0940 \u0905\u0932\u0917 \u0939\u0948! \u0915\u092d\u0940 \u0915\u093f\u0938\u0940 \u092c\u095c\u0940 \u0930\u0948\u0932\u0940, \u0910\u0924\u093f\u0939\u093e\u0938\u093f\u0915 \u092d\u093e\u0937\u0923 \u092f\u093e \u092c\u091a",
+      "content_preview": "दिल्ली के रामलीला मैदान की बात ही अलग है! कभी किसी बड़ी रैली, ऐतिहासिक भाषण या बच",
       "reason": "",
       "duration_s": 15.0
     },
@@ -595,7 +595,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "celtic fc",
-      "content_preview": "people still pretend Scottish football is competitive when it\u2019s just a two-horse race where everyone else is basically p",
+      "content_preview": "people still pretend Scottish football is competitive when it’s just a two-horse race where everyone else is basically p",
       "reason": "",
       "duration_s": 81.44
     },
@@ -625,7 +625,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
-      "content_preview": "people still pretend Scottish football is competitive when it\u2019s just a two-horse",
+      "content_preview": "people still pretend Scottish football is competitive when it’s just a two-horse",
       "reason": "",
       "duration_s": 15.0
     },
@@ -644,7 +644,7 @@
       "action_type": "original_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "\u091d\u093f\u092e\u094d\u092c\u093e\u092c\u094d\u0935\u0947 \u0935\u093f \u0905\u092b\u0917\u093e\u0923\u093f\u0938\u094d\u0924\u093e\u0928",
+      "target": "झिम्बाब्वे वि अफगाणिस्तान",
       "content_preview": "bro honestly nobody outside of diehard cricket nerds is watching Zimbabwe vs Afghanistan and pretending otherwise is pur",
       "reason": "",
       "duration_s": 88.3
@@ -655,7 +655,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "\u091d\u093f\u092e\u094d\u092c\u093e\u092c\u094d\u0935\u0947 \u0935\u093f \u0905\u092b\u0917\u093e\u0923\u093f\u0938\u094d\u0924\u093e\u0928 match analytics running hot today. Anyone parsing live telemetry or feeding score streams into",
+      "content_preview": "झिम्बाब्वे वि अफगाणिस्तान match analytics running hot today. Anyone parsing live telemetry or feeding score streams into",
       "reason": "",
       "duration_s": 1.2
     },
@@ -665,7 +665,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "\u091d\u093f\u092e\u094d\u092c\u093e\u092c\u094d\u0935\u0947 \u0906\u0923\u093f \u0905\u092b\u0917\u093e\u0923\u093f\u0938\u094d\u0924\u093e\u0928\u091a\u093e \u0938\u093e\u092e\u0928\u093e \u092e\u094d\u0939\u0923\u091c\u0947 \u0928\u0947\u0939\u092e\u0940\u091a \u0915\u093e\u0939\u0940\u0924\u0930\u0940 \u0930\u094b\u092e\u0939\u0930\u094d\u0937\u0915! \u0906\u091c\u091a\u094d\u092f\u093e \u092e\u0945\u091a\u092e\u0927\u094d",
+      "content_preview": "झिम्बाब्वे आणि अफगाणिस्तानचा सामना म्हणजे नेहमीच काहीतरी रोमहर्षक! आजच्या मॅचमध्",
       "reason": "",
       "duration_s": 15.0
     },
@@ -704,7 +704,7 @@
       "action_type": "original_post",
       "status": "success",
       "is_dry_run": false,
-      "target": "Here\u2019s what \u2018renoa\u2019 \u2014 the first new fiber in 25 years \u2014 feels like",
+      "target": "Here’s what ‘renoa’ — the first new fiber in 25 years — feels like",
       "content_preview": "So a startup spent millions inventing the \"first new fiber in 25 years\" just to admit it feels exactly like the stuff we",
       "reason": "",
       "duration_s": 187.48
@@ -725,7 +725,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "Everbloom just dropped \u2018renoa\u2019\u2014literally the first new fiber in 25 years. Wild r",
+      "content_preview": "Everbloom just dropped ‘renoa’—literally the first new fiber in 25 years. Wild r",
       "reason": "",
       "duration_s": 15.0
     },
@@ -755,7 +755,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Proving and improving the Platonic Representation Hypothesis with JEPAs",
-      "content_preview": "we\u2019re really out here writing entire academic papers trying to prove AI is stumbling into human concepts like it's some ",
+      "content_preview": "we’re really out here writing entire academic papers trying to prove AI is stumbling into human concepts like it's some ",
       "reason": "",
       "duration_s": 84.6
     },
@@ -785,7 +785,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Pinterest Visual Pin",
-      "content_preview": "we\u2019re really out here writing entire academic papers trying to prove AI is stumb",
+      "content_preview": "we’re really out here writing entire academic papers trying to prove AI is stumb",
       "reason": "",
       "duration_s": 15.0
     },
@@ -835,7 +835,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "Okay wait, who else has been down the rabbit hole with tuten lately? \ud83c\udf00 \n\nCurious",
+      "content_preview": "Okay wait, who else has been down the rabbit hole with tuten lately? 🌀 \n\nCurious",
       "reason": "",
       "duration_s": 15.0
     },
@@ -1135,7 +1135,7 @@
       "status": "failed",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 03/90]\nMachine learning isn't magic. It's just curve-fitting on a massive scale.",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 03/90]\nMachine learning isn't magic. It's just curve-fitting on a massive scale.",
       "reason": "Session expired or logged out. Please re-run 'python scripts/login_linkedin.py'.",
       "duration_s": 43.12
     },
@@ -1165,7 +1165,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "Can we talk about how this month completely flew by? \ud83d\ude05 \n\nIt feels like it starte",
+      "content_preview": "Can we talk about how this month completely flew by? 😅 \n\nIt feels like it starte",
       "reason": "",
       "duration_s": 15.0
     },
@@ -1205,7 +1205,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the best AI algorithm in the world, \nbut if your data is gar",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 04/90]\nYou can have the best AI algorithm in the world, \nbut if your data is gar",
       "reason": "",
       "duration_s": 24.1
     },
@@ -1215,7 +1215,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nMost developers think AI is all about complex code.\nIn reality, the algor",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 04/90]\nMost developers think AI is all about complex code.\nIn reality, the algor",
       "reason": "",
       "duration_s": 16.7
     },
@@ -1255,7 +1255,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the best AI algorithm in the world, but feed it garbage data",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 04/90]\nYou can have the best AI algorithm in the world, but feed it garbage data",
       "reason": "",
       "duration_s": 12.98
     },
@@ -1265,7 +1265,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the most advanced neural network in the world, but if your d",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 04/90]\nYou can have the most advanced neural network in the world, but if your d",
       "reason": "",
       "duration_s": 18.02
     },
@@ -1375,7 +1375,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "@theapexarchive.bsky.social",
-      "content_preview": "Ah, the classic biological baseline\u2014fascinating architecture, but good luck profiling memory bandwidth or reproducing th",
+      "content_preview": "Ah, the classic biological baseline—fascinating architecture, but good luck profiling memory bandwidth or reproducing th",
       "reason": "",
       "duration_s": 18.24
     },
@@ -1385,7 +1385,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the most advanced neural network architecture in the world, ",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 04/90]\nYou can have the most advanced neural network architecture in the world, ",
       "reason": "",
       "duration_s": 28.66
     },
@@ -1395,7 +1395,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nMost beginners think building AI is about writing complex algorithms. \nIn",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 04/90]\nMost beginners think building AI is about writing complex algorithms. \nIn",
       "reason": "",
       "duration_s": 28.37
     },
@@ -1405,7 +1405,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "LinkedIn B2B",
-      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nStop writing complex algorithms. \nIf your data is garbage, your AI will b",
+      "content_preview": "🎓 [AI Explained: Zero to Advanced — Day 04/90]\nStop writing complex algorithms. \nIf your data is garbage, your AI will b",
       "reason": "",
       "duration_s": 27.35
     },
@@ -1425,7 +1425,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "@1minutesignal.bsky.social",
-      "content_preview": "Spot on. True generalization requires treating evaluation harnesses like production systems\u2014version-controlled, isolated",
+      "content_preview": "Spot on. True generalization requires treating evaluation harnesses like production systems—version-controlled, isolated",
       "reason": "",
       "duration_s": 18.11
     },
@@ -1445,7 +1445,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "Threads Community",
-      "content_preview": "paying full price for an LLM API just to watch it bottleneck 40% slower depending on which cloud it\u2019s sitting on is peak",
+      "content_preview": "paying full price for an LLM API just to watch it bottleneck 40% slower depending on which cloud it’s sitting on is peak",
       "reason": "",
       "duration_s": 25.73
     },
@@ -1465,7 +1465,7 @@
       "status": "success",
       "is_dry_run": false,
       "target": "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
-      "content_preview": "we are really out here inventing 2004 technology like it\u2019s a web3 breakthrough. next y'all are gonna drop a hot new star",
+      "content_preview": "we are really out here inventing 2004 technology like it’s a web3 breakthrough. next y'all are gonna drop a hot new star",
       "reason": "",
       "duration_s": 84.39
     },
@@ -1518,6 +1518,106 @@
       "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code) #Shorts",
       "reason": "YouTube API upload error",
       "duration_s": 7.12
+    },
+    {
+      "timestamp": "2026-11-03T18:47:56.122655+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
+      "content_preview": "Evaluating execution capability is straightforward; quantifying research taste—problem selection and methodological intu",
+      "reason": "",
+      "duration_s": 9.78
+    },
+    {
+      "timestamp": "2026-11-03T18:48:12.068364+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Threads Community",
+      "content_preview": "can we stop pretending ai has \"research taste\" just because it can regurgitate arxiv abstracts at 3 am? \n\ngive me a bot ",
+      "reason": "",
+      "duration_s": 9.2
+    },
+    {
+      "timestamp": "2026-11-03T18:48:21.791555+00:00",
+      "action_type": "pinterest",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "reason": "",
+      "duration_s": 0.03
+    },
+    {
+      "timestamp": "2026-11-03T18:48:32.194534+00:00",
+      "action_type": "devto",
+      "status": "dry_run",
+      "is_dry_run": true,
+      "target": "Day 4: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "reason": "",
+      "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-03T18:48:38.880697+00:00",
+      "action_type": "youtube",
+      "status": "dry_run",
+      "is_dry_run": true,
+      "target": "Day 4: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code) #Shorts",
+      "reason": "",
+      "duration_s": 0.3
+    },
+    {
+      "timestamp": "2026-11-03T18:48:55.641732+00:00",
+      "action_type": "reddit_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "r/LocalLLaMA",
+      "content_preview": "Ran some real-world TTFT and throughput benchmarks across major hosted LLM endpoints — token variance is wild (up to 40%",
+      "reason": "",
+      "duration_s": 10.62
+    },
+    {
+      "timestamp": "2026-11-03T18:49:07.026584+00:00",
+      "action_type": "instagram",
+      "status": "skipped",
+      "is_dry_run": true,
+      "target": "Day 4: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "",
+      "reason": "Instagram Day 04 carousel assets are not available; skipping without reusing another day.",
+      "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-03T19:05:14.305427+00:00",
+      "action_type": "youtube",
+      "status": "dry_run",
+      "is_dry_run": true,
+      "target": "Day 4: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code) #Shorts",
+      "reason": "",
+      "duration_s": 0.28
+    },
+    {
+      "timestamp": "2026-11-03T19:05:17.268045+00:00",
+      "action_type": "pinterest",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "reason": "",
+      "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-03T19:05:20.063383+00:00",
+      "action_type": "instagram",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Day 4: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)",
+      "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)\n\n90 Days. 90 Concepts",
+      "reason": "",
+      "duration_s": 0.02
     }
   ]
 }
