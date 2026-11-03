@@ -12,6 +12,8 @@ class DevToAutomater:
 
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or config.DEVTO_API_KEY
+        self.last_outcome_unknown = False
+        self.last_message = ""
 
     def is_configured(self) -> bool:
         return bool(self.api_key and self.api_key.strip())
@@ -29,8 +31,11 @@ class DevToAutomater:
         Publishes a markdown article to Dev.to.
         Returns: (success: bool, message: str, article_url: Optional[str])
         """
+        self.last_outcome_unknown = False
+        self.last_message = ""
         if not self.is_configured():
-            return False, "DEVTO_API_KEY is not configured.", None
+            self.last_message = "DEVTO_API_KEY is not configured."
+            return False, self.last_message, None
 
         if tags is None:
             tags = ["ai", "machinelearning", "programming", "datascience"]
@@ -66,11 +71,15 @@ class DevToAutomater:
                 res_data = json.loads(resp.read().decode("utf-8"))
                 article_url = res_data.get("url") or res_data.get("canonical_url", "")
                 print(f"[DevToAutomater] ✅ Successfully published article: {article_url}")
-                return True, "Published to Dev.to", article_url
+                self.last_message = "Published to Dev.to"
+                return True, self.last_message, article_url
         except urllib.error.HTTPError as e:
             error_body = e.read().decode("utf-8")
             print(f"[DevToAutomater] ❌ HTTP error {e.code}: {error_body}")
-            return False, f"Dev.to HTTP {e.code}: {error_body}", None
+            self.last_message = f"Dev.to HTTP {e.code}: {error_body}"
+            return False, self.last_message, None
         except Exception as e:
             print(f"[DevToAutomater] ❌ Error: {e}")
-            return False, f"Dev.to error: {e}", None
+            self.last_outcome_unknown = True
+            self.last_message = f"Dev.to request outcome is unknown: {e}"
+            return False, self.last_message, None

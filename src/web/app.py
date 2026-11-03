@@ -62,9 +62,7 @@ from src.scheduler import AutomaterEngine
 
 from src.ai_generator import AIGenerator
 
-from src.twitter_client import TwitterClient
 
-from src.bluesky_client import BlueskyClient
 
 
 
@@ -548,7 +546,7 @@ async def publish_custom_tweet(req: PublishCustomRequest):
 
 
 
-    tracker = ActivityTracker(config.BASE_DIR / "trial_metrics.json", config.BASE_DIR / "post_history.json")
+    # State/event persistence is handled by AutomaterEngine for this route.
 
     start_time = time.time()
 
@@ -556,31 +554,13 @@ async def publish_custom_tweet(req: PublishCustomRequest):
 
     try:
 
-        client = TwitterClient(headless=True, dry_run=is_dry)
+        engine = AutomaterEngine(dry_run=is_dry)
 
-        success = client.post_tweet(req.text)
+        success = engine.execute_x_custom_post(req.text)
 
 
 
         status = "success" if success else "failed"
-
-        tracker.record_event(
-
-            action_type="original_post",
-
-            status=status,
-
-            target_identifier="NeuBench Radar",
-
-            content_preview=req.text[:80],
-
-            skip_or_error_reason="" if success else "Playwright selector failure",
-
-            duration_seconds=time.time() - start_time,
-
-            is_dry_run=is_dry
-
-        )
 
         return {
 
@@ -588,7 +568,10 @@ async def publish_custom_tweet(req: PublishCustomRequest):
 
             "dry_run": is_dry,
 
-            "message": "Tweet published successfully!" if not is_dry else "[DRY RUN] Tweet simulated successfully."
+            "message": engine.last_x_message or (
+                "Tweet published successfully!" if success else "Tweet was not published."
+            ),
+            "duration_seconds": round(time.time() - start_time, 2)
 
         }
 
@@ -864,47 +847,15 @@ async def publish_bluesky_post(req: PublishBlueskyRequest):
 
 
 
-    tracker = ActivityTracker(config.BASE_DIR / "trial_metrics.json", config.BASE_DIR / "post_history.json")
-
     start_time = time.time()
 
 
 
     try:
 
-        client = BlueskyClient(
-
-            handle=config.BLUESKY_HANDLE,
-
-            app_password=config.BLUESKY_APP_PASSWORD,
-
-            dry_run=is_dry
-
-        )
-
-        success, message = client.post(req.text)
-
+        engine = AutomaterEngine(dry_run=is_dry)
+        success = engine.execute_bluesky_custom_post(req.text)
         status = "success" if success else "failed"
-
-
-
-        tracker.record_event(
-
-            action_type="bluesky_post",
-
-            status=status,
-
-            target_identifier="Bluesky (AT Protocol)",
-
-            content_preview=req.text[:80],
-
-            skip_or_error_reason="" if success else message,
-
-            duration_seconds=time.time() - start_time,
-
-            is_dry_run=is_dry
-
-        )
 
         return {
 
@@ -912,7 +863,10 @@ async def publish_bluesky_post(req: PublishBlueskyRequest):
 
             "dry_run": is_dry,
 
-            "message": message
+            "message": engine.bluesky.last_message or (
+                "Bluesky post published." if success else "Bluesky post was not published."
+            ),
+            "duration_seconds": round(time.time() - start_time, 2)
 
         }
 
@@ -1291,11 +1245,7 @@ class PublishLinkedInRequest(BaseModel):
 
 @app.post("/api/action/publish-linkedin")
 async def publish_linkedin_action(req: PublishLinkedInRequest):
-    from src.linkedin_automater import LinkedInAutomater
     from src.scheduler import AutomaterEngine
-
-    if not LinkedInAutomater(headless=True, dry_run=False).is_session_available():
-        return {"status": "not_logged_in", "message": "Please connect your LinkedIn account first."}
 
     try:
         engine = AutomaterEngine(dry_run=False)
@@ -1338,77 +1288,26 @@ class PublishThreadsRequest(BaseModel):
 @app.post("/api/action/publish-reddit")
 
 async def publish_reddit_action(req: PublishRedditRequest):
-
-    from src.reddit_automater import RedditAutomater
-
-    automater = RedditAutomater(headless=False, dry_run=False)
-
-    if not automater.is_session_available():
-
-        return {"status": "not_logged_in", "message": "Please connect your Reddit account first."}
-
-
-    ok, msg = automater.post(req.subreddit, req.title, req.text)
-
+    from src.scheduler import AutomaterEngine
+    engine = AutomaterEngine(dry_run=False)
+    ok = engine.execute_reddit_custom_post(req.subreddit, req.title, req.text)
     status = "success" if ok else "failed"
-
-    tracker.record_event(
-
-        action_type="reddit_post",
-
-        status=status,
-
-        target_identifier=req.subreddit,
-
-        content_preview=req.title[:80],
-
-        skip_or_error_reason="" if ok else msg,
-
-        duration_seconds=4.0,
-
-        is_dry_run=False
-
-    )
-
-    return {"status": status, "message": msg}
+    return {
+        "status": status,
+        "message": "Reddit post completed by the guarded automation path." if ok else "Reddit post was not sent; see the automation log.",
+    }
 
 
 @app.post("/api/action/publish-threads")
 
 async def publish_threads_action(req: PublishThreadsRequest):
-
-    from src.threads_automater import ThreadsAutomater
-
-    automater = ThreadsAutomater(headless=True, dry_run=False)
-
-    if not automater.is_session_available():
-
-        return {"status": "not_logged_in", "message": "Please connect your Threads account first."}
-
-
-    ok, msg = automater.post(req.text)
-
-    status = "success" if ok else "failed"
-
-    tracker.record_event(
-
-        action_type="threads_post",
-
-        status=status,
-
-        target_identifier="Threads Community",
-
-        content_preview=req.text[:80],
-
-        skip_or_error_reason="" if ok else msg,
-
-        duration_seconds=4.0,
-
-        is_dry_run=False
-
-    )
-
-    return {"status": status, "message": msg}
+    from src.scheduler import AutomaterEngine
+    engine = AutomaterEngine(dry_run=False)
+    ok = engine.execute_threads_custom_post(req.text)
+    return {
+        "status": "success" if ok else "failed",
+        "message": "Threads post completed by the guarded automation path." if ok else "Threads post was not sent; see the automation log.",
+    }
 
 
 

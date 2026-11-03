@@ -41,6 +41,7 @@ DEVTO_API_KEY = os.getenv("DEVTO_API_KEY", "")
 DEVTO_ENABLED = os.getenv("DEVTO_ENABLED", "true").lower() in ("true", "1")
 PINTEREST_ENABLED = os.getenv("PINTEREST_ENABLED", "true").lower() in ("true", "1")
 YOUTUBE_ENABLED = os.getenv("YOUTUBE_ENABLED", "true").lower() in ("true", "1")
+REDDIT_ENABLED = os.getenv("REDDIT_ENABLED", "true").lower() in ("true", "1")
 
 # ==============================================================================
 # ALGORITHMIC TIME-SLOT DISTRIBUTION MATRIX (Global Developer & Tech Audience)
@@ -111,11 +112,14 @@ CAPS_PER_PLATFORM = {
     "linkedin_peer_comments": int(os.getenv("MAX_DAILY_LINKEDIN_PEER_COMMENTS", "10")), # Max viral comments/replies per day (commenting on others' posts)
     "devto_articles": int(os.getenv("MAX_DAILY_DEVTO", "1")),             # 1 comprehensive article/day
     "pinterest_pins": int(os.getenv("MAX_DAILY_PINTEREST", "3")),         # 2-3 pins/day spaced out
-    "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", "8")),    # 6-8 original posts spaced across active windows
-    "twitter_replies": int(os.getenv("MAX_DAILY_X_REPLIES", "24")),       # 20-25 high-signal sniper replies on viral tweets
-    "twitter_reposts": int(os.getenv("MAX_DAILY_X_REPOSTS", "6")),        # 5-6 quote-tweets with commentary
+    # Accept both the current X-specific names and the legacy names used by
+    # the workflow/README so the configured caps are actually enforced.
+    "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", os.getenv("MAX_DAILY_ORIGINAL_POSTS", "8"))),
+    "twitter_replies": int(os.getenv("MAX_DAILY_X_REPLIES", os.getenv("MAX_DAILY_REPLIES", "24"))),
+    "twitter_reposts": int(os.getenv("MAX_DAILY_X_REPOSTS", os.getenv("MAX_DAILY_REPOSTS", "6"))),
     "threads_posts": int(os.getenv("MAX_DAILY_THREADS", "5")),            # 4-5 conversational posts
     "bluesky_posts": int(os.getenv("MAX_DAILY_BLUESKY", "6")),            # 5-6 tech takes
+    "reddit_posts": int(os.getenv("MAX_DAILY_REDDIT", "1")),              # 1 high-signal technical discussion/day
 }
 
 # Real-Time Push Alerts (Optional: Discord / Telegram)

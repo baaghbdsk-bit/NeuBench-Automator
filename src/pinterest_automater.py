@@ -20,6 +20,8 @@ class PinterestAutomater:
         self.headless = headless
         self.dry_run = dry_run
         self.user_data_dir = config.BASE_DIR / "pinterest_session"
+        self.last_outcome_unknown = False
+        self.last_message = ""
 
     def is_session_available(self) -> bool:
         cookie_file = self.user_data_dir / "cookies.json"
@@ -34,6 +36,8 @@ class PinterestAutomater:
         board_name: Optional[str] = "Social"
     ) -> Tuple[bool, str]:
         """Uploads an image as a Pin on Pinterest with title, description, and website destination link."""
+        self.last_outcome_unknown = False
+        self.last_message = ""
         if self.dry_run:
             print(f"[PinterestAutomater] [DRY RUN] Would pin '{title}' to board '{board_name}' linking to {link}")
             return True, f"Simulated Pinterest Pin: {title}"
@@ -124,14 +128,24 @@ class PinterestAutomater:
                     page.wait_for_timeout(1000)
 
                 publish_btn.click()
-                page.wait_for_timeout(10000)
+                try:
+                    page.wait_for_selector(
+                        '[data-test-id="toast"], [role="alert"]:has-text("published"), text="Your Pin is live"',
+                        timeout=30000,
+                    )
+                except Exception:
+                    self.last_outcome_unknown = True
+                    self.last_message = "Pinterest submission was not confirmed; retry blocked."
+                    return False, self.last_message
 
                 print("[PinterestAutomater] ✅ Successfully published Pin to Pinterest!")
-                return True, "Published Pin to Pinterest"
+                self.last_message = "Published Pin to Pinterest"
+                return True, self.last_message
 
             except Exception as e:
                 print(f"[PinterestAutomater] ❌ Pin creation error: {e}")
-                return False, f"Pinterest error: {e}"
+                self.last_message = f"Pinterest error: {e}"
+                return False, self.last_message
             finally:
                 context.close()
                 browser.close()

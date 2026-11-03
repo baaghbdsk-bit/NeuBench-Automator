@@ -5,6 +5,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, List
 
+from src.x_state import atomic_write_json, load_x_history, x_history_lock
+
 class ActivityTracker:
     """
     Durable metrics & activity tracker designed for ephemeral CI runners
@@ -53,45 +55,46 @@ class ActivityTracker:
         return default_metrics
 
     def _load_history(self) -> Dict[str, List[str]]:
-        default_history = {
-            "posted_tweets": [],
-            "replied_urls": [],
-            "reposted_urls": []
-        }
-        if self.history_file.exists():
-            try:
-                with open(self.history_file, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    data.setdefault("posted_tweets", [])
-                    data.setdefault("replied_urls", [])
-                    data.setdefault("reposted_urls", [])
-                    return data
-            except Exception:
-                pass
-        return default_history
+        return load_x_history(self.history_file)
 
     def save(self):
         """Persists metrics and post history atomically with smart disk-state merging."""
         self.metrics["trial_meta"]["last_updated"] = datetime.now(timezone.utc).isoformat()
         try:
-            # Re-read and merge any newly added items from disk (e.g. from Cloud GitHub Actions)
-            if self.history_file.exists():
-                try:
-                    with open(self.history_file, "r", encoding="utf-8") as hf:
-                        disk_hist = json.load(hf)
-                    for key in ["posted_tweets", "replied_urls", "reposted_urls"]:
-                        disk_list = disk_hist.get(key, [])
-                        combined = list(dict.fromkeys(self.history.get(key, []) + disk_list))
-                        self.history[key] = combined
-                except Exception:
-                    pass
+            # Re-read and merge state written by another local process or a
+            # browser reservation immediately before this event was recorded.
+            # Unknown X outcomes must never be overwritten by a stale object.
+            with x_history_lock(self.history_file):
+                disk_hist = load_x_history(self.history_file)
+                for key in [
+                    "posted_tweets",
+                    "replied_urls",
+                    "reposted_urls",
+                    "posted_tweet_hashes",
+                ]:
+                    combined = list(dict.fromkeys(
+                        disk_hist.get(key, []) + self.history.get(key, [])
+                    ))
+                    self.history[key] = combined[-500:]
 
-            with open(self.metrics_file, "w", encoding="utf-8") as f:
-                json.dump(self.metrics, f, indent=2)
-            with open(self.history_file, "w", encoding="utf-8") as f:
-                json.dump(self.history, f, indent=2)
+                # Reservations are created/finalized under x_state's lock.
+                # Treat the current disk list as authoritative so a tracker
+                # object loaded before a reservation cannot resurrect a
+                # completed or failed action from stale memory.
+                self.history["pending_x_actions"] = disk_hist.get("pending_x_actions", [])
+                # Non-X reservations are managed by platform_state under the
+                # same lock; keep the latest disk value intact.
+                self.history["platform_history"] = disk_hist.get("platform_history", {})
+
+                atomic_write_json(self.history_file, self.history)
+                atomic_write_json(self.metrics_file, self.metrics)
         except Exception as e:
             print(f"[ActivityTracker] Error saving metrics/history: {e}")
+
+    def save_history(self):
+        """Backward-compatible history-only entry point used by platform flows."""
+
+        self.save()
 
     def get_today_counts(self) -> Dict[str, int]:
         """Calculates successful actions completed in the current UTC day across all platforms."""
@@ -109,6 +112,7 @@ class ActivityTracker:
             "pinterest_pins": 0,
             "threads_posts": 0,
             "bluesky_posts": 0,
+            "reddit_posts": 0,
             "total_actions": 0
         }
         for event in self.metrics.get("recent_events", []):
@@ -139,6 +143,8 @@ class ActivityTracker:
                     counts["threads_posts"] += 1
                 elif atype in ("bluesky", "bluesky_post"):
                     counts["bluesky_posts"] += 1
+                elif atype in ("reddit", "reddit_post"):
+                    counts["reddit_posts"] += 1
         return counts
 
     def record_event(
@@ -194,15 +200,16 @@ class ActivityTracker:
             "duration_s": round(duration_seconds, 2)
         }
 
-        # Keep rolling 150 events in metrics
+        # Keep enough events for daily quota calculations after several
+        # platform runs while keeping the metrics file bounded.
         events = self.metrics.get("recent_events", [])
         events.append(event_record)
-        if len(events) > 150:
-            events = events[-150:]
+        if len(events) > 500:
+            events = events[-500:]
         self.metrics["recent_events"] = events
 
         # Keep rolling 500 entries per history list to keep storage tiny over 30 days
-        for k in ["posted_tweets", "replied_urls", "reposted_urls"]:
+        for k in ["posted_tweets", "replied_urls", "reposted_urls", "posted_tweet_hashes"]:
             if len(self.history.get(k, [])) > 500:
                 self.history[k] = self.history[k][-500:]
 
@@ -220,4 +227,3 @@ class ActivityTracker:
             )
         except Exception:
             pass
-

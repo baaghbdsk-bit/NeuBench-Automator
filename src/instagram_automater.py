@@ -20,6 +20,8 @@ class InstagramAutomater:
         self.headless = headless
         self.dry_run = dry_run
         self.user_data_dir = config.BASE_DIR / "instagram_session"
+        self.last_outcome_unknown = False
+        self.last_message = ""
 
     def is_session_available(self) -> bool:
         """Checks if a saved Instagram session with valid cookies exists."""
@@ -28,6 +30,8 @@ class InstagramAutomater:
 
     def post_carousel(self, image_paths: List[str], caption: str) -> Tuple[bool, str]:
         """Publishes multi-slide carousel images to Instagram (@neubench)."""
+        self.last_outcome_unknown = False
+        self.last_message = ""
         if self.dry_run:
             print(f"[InstagramAutomater] [DRY RUN] Would post {len(image_paths)} slides with caption: {caption[:60]}...")
             return True, f"Simulated Instagram carousel ({len(image_paths)} slides)"
@@ -73,6 +77,8 @@ class InstagramAutomater:
                 print("[InstagramAutomater] Navigating to https://www.instagram.com/ ...")
                 page.goto("https://www.instagram.com/", wait_until="domcontentloaded", timeout=40000)
                 page.wait_for_timeout(4000)
+                if "login" in page.url.lower():
+                    return False, "Instagram session expired or requires login."
 
                 # Dismiss 'Not Now' notification popups
                 for dismiss_text in ["Not Now", "Cancel", "Decline optional cookies"]:
@@ -148,20 +154,26 @@ class InstagramAutomater:
                 try:
                     page.wait_for_selector('text="Your post has been shared.", text="Post shared."', timeout=45000)
                 except Exception:
-                    page.wait_for_timeout(10000)
+                    self.last_outcome_unknown = True
+                    self.last_message = "Instagram carousel submission was not confirmed; retry blocked."
+                    return False, self.last_message
 
                 print("[InstagramAutomater] ✅ Successfully published carousel to Instagram (@neubench)!")
-                return True, "Published carousel to Instagram (@neubench)"
+                self.last_message = "Published carousel to Instagram (@neubench)"
+                return True, self.last_message
 
             except Exception as e:
                 print(f"[InstagramAutomater] ❌ Publish failed: {e}")
-                return False, f"Instagram publish error: {e}"
+                self.last_message = f"Instagram publish error: {e}"
+                return False, self.last_message
             finally:
                 context.close()
                 browser.close()
 
     def post_reel(self, video_path: str, caption: str) -> Tuple[bool, str]:
         """Publishes a 9:16 vertical video reel directly to Instagram (@neubench)."""
+        self.last_outcome_unknown = False
+        self.last_message = ""
         if self.dry_run:
             print(f"[InstagramAutomater] [DRY RUN] Would post Reel: {video_path} with caption: {caption[:60]}...")
             return True, "Simulated Instagram Reel"
@@ -206,6 +218,8 @@ class InstagramAutomater:
                 print("[InstagramAutomater] Navigating to https://www.instagram.com/ ...")
                 page.goto("https://www.instagram.com/", wait_until="domcontentloaded", timeout=40000)
                 page.wait_for_timeout(4000)
+                if "login" in page.url.lower():
+                    return False, "Instagram session expired or requires login."
 
                 for dismiss_text in ["Not Now", "Cancel", "Decline optional cookies"]:
                     try:
@@ -288,14 +302,18 @@ class InstagramAutomater:
                 try:
                     page.wait_for_selector('text="Your reel has been shared.", text="Your post has been shared.", text="Post shared."', timeout=60000)
                 except Exception:
-                    page.wait_for_timeout(12000)
+                    self.last_outcome_unknown = True
+                    self.last_message = "Instagram Reel submission was not confirmed; retry blocked."
+                    return False, self.last_message
 
                 print("[InstagramAutomater] ✅ Successfully published Reel to Instagram (@neubench)!")
-                return True, "Published Reel to Instagram (@neubench)"
+                self.last_message = "Published Reel to Instagram (@neubench)"
+                return True, self.last_message
 
             except Exception as e:
                 print(f"[InstagramAutomater] ❌ Reel publish failed: {e}")
-                return False, f"Instagram Reel error: {e}"
+                self.last_message = f"Instagram Reel error: {e}"
+                return False, self.last_message
             finally:
                 context.close()
                 browser.close()

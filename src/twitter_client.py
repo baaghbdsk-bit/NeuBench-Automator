@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Optional, List, Dict, Any
 from playwright.sync_api import sync_playwright, BrowserContext
 import config
+from src.x_state import prepare_x_text
 
 class TwitterClient:
     """Automates X interactions safely with stealth, human typing jitter, and storage state."""
@@ -21,6 +22,72 @@ class TwitterClient:
         self.headless = headless
         self.dry_run = dry_run
         self.user_data_dir = str(config.USER_DATA_DIR)
+        self.last_outcome = "not_attempted"
+        self.last_outcome_unknown = False
+        self.last_message = ""
+
+    def _reset_outcome(self):
+        self.last_outcome = "not_attempted"
+        self.last_outcome_unknown = False
+        self.last_message = ""
+
+    def _finish_outcome(self, outcome: str, message: str) -> bool:
+        self.last_outcome = outcome
+        self.last_outcome_unknown = outcome == "unknown"
+        self.last_message = message
+        return outcome in {"success", "dry_run"}
+
+    @staticmethod
+    def _response_confirms_tweet(response) -> bool:
+        """Return true only for a successful CreateTweet response."""
+
+        if "CreateTweet" not in getattr(response, "url", ""):
+            return False
+        if getattr(response, "status", 0) != 200:
+            return False
+        try:
+            payload = response.json()
+        except Exception:
+            # Some Playwright response doubles and X responses do not expose a
+            # JSON body. A 200 CreateTweet response is still a valid signal.
+            return True
+        return not (isinstance(payload, dict) and payload.get("errors"))
+
+    def _install_tweet_response_listener(self, page):
+        state = {"confirmed": False, "failed": False}
+
+        def on_response(response):
+            if "CreateTweet" not in getattr(response, "url", ""):
+                return
+            if getattr(response, "status", 0) == 200:
+                if self._response_confirms_tweet(response):
+                    state["confirmed"] = True
+                else:
+                    state["failed"] = True
+
+        page.on("response", on_response)
+        return state
+
+    @staticmethod
+    def _page_has_success_toast(page) -> bool:
+        try:
+            messages = page.locator('[role="alert"], [data-testid="toast"]').all_inner_texts()
+            text = " ".join(messages).lower()
+            return any(
+                phrase in text
+                for phrase in ("post was sent", "post sent", "tweet sent", "your post was sent")
+            )
+        except Exception:
+            return False
+
+    def _wait_for_tweet_confirmation(self, page, state, timeout_ms: int = 15000) -> bool:
+        for _ in range(max(1, timeout_ms // 500)):
+            if state["confirmed"] or self._page_has_success_toast(page):
+                return True
+            if state["failed"]:
+                return False
+            page.wait_for_timeout(500)
+        return state["confirmed"] or self._page_has_success_toast(page)
 
     def _get_context_and_browser(self, p):
         """Launches context with anti-detect flags and saved storage state."""
@@ -85,26 +152,23 @@ class TwitterClient:
 
     def post_tweet(self, text: str, media_path: Optional[str] = None) -> bool:
         """Publishes an original tweet."""
+        self._reset_outcome()
         if self.dry_run:
             print(f"[TwitterClient] [DRY RUN] Would publish original tweet: {text}")
-            return True
+            return self._finish_outcome("dry_run", "[DRY RUN] Tweet simulated.")
 
-        # Strict character limit clamp for X free tier (max 280)
-        if len(text) > 275:
-            print(f"[TwitterClient] ⚠️ Tweet length ({len(text)}) exceeds 275 chars. Clamping before posting...")
-            text = text[:270].rsplit(' ', 1)[0].rstrip('.,:;') + '...'
+        text = prepare_x_text(text)
+        if not text:
+            return self._finish_outcome("failed", "X post text is empty.")
 
         with sync_playwright() as p:
-            context, browser = self._get_context_and_browser(p)
-            page = context.pages[0] if context.pages else context.new_page()
+            context = None
+            browser = None
+            submission_started = False
             try:
-                tweet_sent = False
-                def on_response(response):
-                    nonlocal tweet_sent
-                    if "CreateTweet" in response.url and response.status == 200:
-                        tweet_sent = True
-
-                page.on("response", on_response)
+                context, browser = self._get_context_and_browser(p)
+                page = context.pages[0] if context.pages else context.new_page()
+                response_state = self._install_tweet_response_listener(page)
 
                 print(f"[TwitterClient] Navigating to compose tweet...")
                 page.goto("https://x.com/compose/post", wait_until="domcontentloaded", timeout=35000)
@@ -135,9 +199,12 @@ class TwitterClient:
                 if is_disabled:
                     print("[TwitterClient] ⚠️ Post button is disabled. Retrying with ultra-concise text...")
                     textarea.fill("")
-                    short_text = text[:230].rsplit(' ', 1)[0] + '...'
+                    short_text = prepare_x_text(text[:230])
                     self._human_type(textarea, short_text)
                     page.wait_for_timeout(1000)
+                    is_disabled = post_btn.get_attribute("aria-disabled") == "true" or post_btn.is_disabled()
+                    if is_disabled:
+                        return self._finish_outcome("failed", "X post button remained disabled.")
 
                 # Submit via native Control+Enter keyboard shortcut to bypass overlay pointer intercepts
                 print("[TwitterClient] Submitting tweet via Control+Enter keyboard shortcut...")
@@ -145,46 +212,64 @@ class TwitterClient:
                     textarea.focus()
                 except Exception:
                     pass
+                submission_started = True
                 page.keyboard.press("Control+Enter")
 
                 # Fallback: attempt direct button click and dispatch_event
                 time.sleep(1.0)
-                if not tweet_sent:
+                if not response_state["confirmed"] and not response_state["failed"]:
                     try:
+                        submission_started = True
                         post_btn.click(force=True, timeout=3000)
                     except Exception:
                         try:
+                            submission_started = True
                             post_btn.dispatch_event("click")
                         except Exception:
                             pass
 
                 # Await network confirmation
-                for _ in range(12):
-                    if tweet_sent:
-                        break
-                    page.wait_for_timeout(1000)
-
-                page.wait_for_timeout(2000)
-                print(f"[TwitterClient] ✅ Tweet posted successfully (network verified): {text[:60]}...")
-                return True
+                confirmed = self._wait_for_tweet_confirmation(page, response_state)
+                if confirmed:
+                    print(f"[TwitterClient] ✅ Tweet posted successfully (network verified): {text[:60]}...")
+                    return self._finish_outcome("success", "Tweet published and confirmed by X.")
+                if response_state["failed"]:
+                    return self._finish_outcome("failed", "X rejected the tweet submission.")
+                if submission_started:
+                    return self._finish_outcome(
+                        "unknown",
+                        "X submission timed out after the browser sent it; retry blocked to prevent duplicates.",
+                    )
+                return self._finish_outcome("failed", "X did not confirm the tweet submission.")
             except Exception as e:
                 print(f"[TwitterClient] ❌ Failed to post tweet: {e}")
-                return False
+                outcome = "unknown" if submission_started else "failed"
+                return self._finish_outcome(outcome, str(e))
             finally:
-                context.close()
+                if context:
+                    context.close()
                 if browser:
                     browser.close()
 
     def post_reply(self, tweet_url: str, reply_text: str) -> bool:
         """Publishes a reply under a target viral tweet."""
+        self._reset_outcome()
         if self.dry_run:
             print(f"[TwitterClient] [DRY RUN] Would reply to {tweet_url}: {reply_text}")
-            return True
+            return self._finish_outcome("dry_run", "[DRY RUN] Reply simulated.")
+
+        reply_text = prepare_x_text(reply_text)
+        if not tweet_url or not reply_text:
+            return self._finish_outcome("failed", "X reply URL or text is empty.")
 
         with sync_playwright() as p:
-            context, browser = self._get_context_and_browser(p)
-            page = context.pages[0] if context.pages else context.new_page()
+            context = None
+            browser = None
+            submission_started = False
             try:
+                context, browser = self._get_context_and_browser(p)
+                page = context.pages[0] if context.pages else context.new_page()
+                response_state = self._install_tweet_response_listener(page)
                 print(f"[TwitterClient] Opening tweet for reply: {tweet_url}")
                 page.goto(tweet_url, wait_until="domcontentloaded", timeout=35000)
                 
@@ -201,31 +286,56 @@ class TwitterClient:
                 reply_btn = page.locator('div[role="dialog"] [data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(0.8, 1.8))
                 try:
+                    submission_started = True
                     reply_btn.click(force=True, timeout=10000)
                 except Exception:
-                    reply_btn.dispatch_event("click")
+                    try:
+                        submission_started = True
+                        reply_btn.dispatch_event("click")
+                    except Exception:
+                        pass
                 
-                page.wait_for_timeout(5000)
-                print(f"[TwitterClient] ✅ Reply posted successfully!")
-                return True
+                confirmed = self._wait_for_tweet_confirmation(page, response_state)
+                if confirmed:
+                    print(f"[TwitterClient] ✅ Reply posted successfully!")
+                    return self._finish_outcome("success", "Reply published and confirmed by X.")
+                if response_state["failed"]:
+                    return self._finish_outcome("failed", "X rejected the reply submission.")
+                if submission_started:
+                    return self._finish_outcome(
+                        "unknown",
+                        "X reply submission timed out; retry blocked to prevent duplicates.",
+                    )
+                return self._finish_outcome("failed", "X did not confirm the reply submission.")
             except Exception as e:
                 print(f"[TwitterClient] ❌ Failed to reply: {e}")
-                return False
+                outcome = "unknown" if submission_started else "failed"
+                return self._finish_outcome(outcome, str(e))
             finally:
-                context.close()
+                if context:
+                    context.close()
                 if browser:
                     browser.close()
 
     def post_quote_tweet(self, tweet_url: str, quote_text: str) -> bool:
         """Publishes a Quote-Tweet ('repost with masala on top')."""
+        self._reset_outcome()
         if self.dry_run:
             print(f"[TwitterClient] [DRY RUN] Would quote-tweet {tweet_url}: {quote_text}")
-            return True
+            return self._finish_outcome("dry_run", "[DRY RUN] Quote-tweet simulated.")
+
+        quote_text = prepare_x_text(quote_text)
+        if not tweet_url or not quote_text:
+            return self._finish_outcome("failed", "X quote-tweet URL or text is empty.")
 
         with sync_playwright() as p:
-            context, browser = self._get_context_and_browser(p)
-            page = context.pages[0] if context.pages else context.new_page()
+            context = None
+            browser = None
+            submission_started = False
             try:
+                context, browser = self._get_context_and_browser(p)
+                page = context.pages[0] if context.pages else context.new_page()
+                response_state = self._install_tweet_response_listener(page)
                 print(f"[TwitterClient] Opening tweet for quote: {tweet_url}")
                 page.goto(tweet_url, wait_until="domcontentloaded", timeout=35000)
 
@@ -249,18 +359,34 @@ class TwitterClient:
                 post_btn = page.locator('div[role="dialog"] [data-testid="tweetButton"], [data-testid="tweetButtonInline"]').first
                 time.sleep(random.uniform(1.0, 2.0))
                 try:
+                    submission_started = True
                     post_btn.click(force=True, timeout=10000)
                 except Exception:
-                    post_btn.dispatch_event("click")
+                    try:
+                        submission_started = True
+                        post_btn.dispatch_event("click")
+                    except Exception:
+                        pass
 
-                page.wait_for_timeout(5000)
-                print(f"[TwitterClient] ✅ Quote-Tweet posted successfully!")
-                return True
+                confirmed = self._wait_for_tweet_confirmation(page, response_state)
+                if confirmed:
+                    print(f"[TwitterClient] ✅ Quote-Tweet posted successfully!")
+                    return self._finish_outcome("success", "Quote-tweet published and confirmed by X.")
+                if response_state["failed"]:
+                    return self._finish_outcome("failed", "X rejected the quote-tweet submission.")
+                if submission_started:
+                    return self._finish_outcome(
+                        "unknown",
+                        "X quote-tweet submission timed out; retry blocked to prevent duplicates.",
+                    )
+                return self._finish_outcome("failed", "X did not confirm the quote-tweet submission.")
             except Exception as e:
                 print(f"[TwitterClient] ❌ Failed to quote tweet: {e}")
-                return False
+                outcome = "unknown" if submission_started else "failed"
+                return self._finish_outcome(outcome, str(e))
             finally:
-                context.close()
+                if context:
+                    context.close()
                 if browser:
                     browser.close()
 

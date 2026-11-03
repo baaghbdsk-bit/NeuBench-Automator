@@ -48,6 +48,8 @@ class ThreadsAutomater:
         self.dry_run = dry_run
 
         self.user_data_dir = config.BASE_DIR / "threads_session"
+        self.last_outcome_unknown = False
+        self.last_message = ""
 
 
 
@@ -86,6 +88,9 @@ class ThreadsAutomater:
 
 
     def post(self, text: str) -> Tuple[bool, str]:
+
+        self.last_outcome_unknown = False
+        self.last_message = ""
 
         if self.dry_run:
 
@@ -146,6 +151,8 @@ class ThreadsAutomater:
                 page.goto("https://www.threads.net/", wait_until="domcontentloaded", timeout=40000)
 
                 page.wait_for_timeout(6000)
+                if "login" in page.url.lower():
+                    return False, "Threads session expired or requires login."
 
 
 
@@ -219,15 +226,24 @@ class ThreadsAutomater:
                 print("[ThreadsAutomater] Clicking 'Post' button...")
                 post_btn.click(force=True)
 
-                page.wait_for_timeout(7000)
+                try:
+                    page.wait_for_selector(
+                        'text="Your thread was posted", text="Thread posted", [role="alert"]:has-text("posted")',
+                        timeout=20000,
+                    )
+                except Exception:
+                    self.last_outcome_unknown = True
+                    self.last_message = "Threads submission was not confirmed; retry is blocked for this run."
+                    return False, self.last_message
 
                 print("[ThreadsAutomater] ✅ Successfully published post to Threads!")
-
-                return True, "Published to Threads successfully!"
+                self.last_message = "Published to Threads successfully!"
+                return True, self.last_message
 
             except Exception as e:
 
-                return False, f"Threads browser automation error: {e}"
+                self.last_message = f"Threads browser automation error: {e}"
+                return False, self.last_message
 
             finally:
 
@@ -315,9 +331,15 @@ class ThreadsAutomater:
                             post_btn = page.locator('div[role="button"]:has-text("Post"), button:has-text("Post")').last
                             if post_btn.is_visible():
                                 post_btn.click(timeout=4000)
+                                try:
+                                    page.wait_for_selector(
+                                        'text="Your reply was posted", text="Reply posted", [role="alert"]:has-text("posted")',
+                                        timeout=15000,
+                                    )
+                                except Exception:
+                                    continue
                                 replied += 1
                                 print("[ThreadsAutomater] ✅ Successfully replied on Threads!")
-                                page.wait_for_timeout(4000)
                     except Exception as ex:
                         print(f"[ThreadsAutomater] Error replying to item: {ex}")
                         continue

@@ -37,6 +37,8 @@ class YouTubeAutomater:
         self.base_dir = Path(__file__).resolve().parent.parent
         self.token_path = Path(token_path) if token_path else self.base_dir / "youtube_token.json"
         self.service = None
+        self.last_outcome_unknown = False
+        self.last_message = ""
         self._initialize_service()
 
     def _initialize_service(self):
@@ -100,6 +102,8 @@ class YouTubeAutomater:
         """
         Uploads a vertical Short to YouTube and attaches CC subtitles if provided.
         """
+        self.last_outcome_unknown = False
+        self.last_message = ""
         if not self.is_authenticated:
             logger.error("Cannot upload video: YouTube service is not authenticated.")
             return None
@@ -154,6 +158,9 @@ class YouTubeAutomater:
                     print(f"[YouTube Upload] Progress: {progress}%", end="\r")
 
             video_id = response.get("id")
+            if not video_id:
+                self.last_message = "YouTube returned no uploaded video ID."
+                return None
             video_url = f"https://youtube.com/shorts/{video_id}"
             logger.info(f"Successfully uploaded YouTube Short: {video_url}")
 
@@ -169,6 +176,8 @@ class YouTubeAutomater:
 
         except Exception as e:
             logger.error(f"YouTube upload failed: {e}")
+            self.last_outcome_unknown = True
+            self.last_message = f"YouTube upload outcome is unknown: {e}"
             return None
 
     def _upload_captions(self, video_id: str, srt_path: str, language: str = "en", name: str = "English"):

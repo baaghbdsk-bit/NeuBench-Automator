@@ -66,6 +66,18 @@ from src.linkedin_state import (
     save_post_history,
     utc_now_iso,
 )
+from src.x_state import (
+    complete_reservation,
+    content_hash as x_content_hash,
+    prepare_x_text,
+    reserve_original,
+    reserve_target,
+)
+from src.platform_state import (
+    complete_platform_action,
+    reserve_platform_action,
+    stable_hash,
+)
 
 
 
@@ -147,6 +159,383 @@ class AutomaterEngine:
         self.metrics_file = config.BASE_DIR / "trial_metrics.json"
 
         self.tracker = ActivityTracker(self.metrics_file, self.history_file)
+        self.last_x_message = ""
+
+    def _x_guard(self, action_type: str, start_time: float) -> bool:
+        """Apply the normal trial and daily-cap policy to direct X actions."""
+
+        trial_start = self.tracker.metrics.get("trial_meta", {}).get("trial_start_utc", "")
+        active, reason = self.safety.check_trial_status(trial_start)
+        if not active:
+            self.last_x_message = reason
+            self.tracker.record_event(
+                action_type=action_type,
+                status="skipped",
+                target_identifier="X safety guard",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+
+        allowed, reason = self.safety.can_perform_action(
+            "post" if action_type == "original_post" else action_type,
+            self.tracker.get_today_counts(),
+        )
+        if not allowed:
+            self.last_x_message = reason
+            self.tracker.record_event(
+                action_type=action_type,
+                status="skipped",
+                target_identifier="X daily cap",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+        return True
+
+    def _reserve_platform(
+        self,
+        platform: str,
+        action_type: str,
+        identity: str,
+        target: str = "",
+        preview: str = "",
+    ) -> tuple[Optional[str], str]:
+        if self.safety.dry_run:
+            return None, "Dry run"
+        try:
+            return reserve_platform_action(
+                self.history_file,
+                platform=platform,
+                action_type=action_type,
+                identity=identity,
+                target=target,
+                preview=preview,
+            )
+        except Exception as error:
+            return None, f"Could not reserve {platform} state: {error}"
+
+    def _complete_platform(
+        self,
+        reservation_id: Optional[str],
+        *,
+        ok: bool,
+        unknown: bool = False,
+        reason: str = "",
+    ) -> str:
+        outcome = "success" if ok else "unknown" if unknown else "failed"
+        if reservation_id:
+            complete_platform_action(
+                self.history_file,
+                reservation_id,
+                outcome=outcome,
+                reason=reason,
+            )
+        return outcome
+
+    def execute_x_custom_post(self, text: str, media_path: Optional[str] = None) -> bool:
+        """Publish a custom X post through the same guarded path as autopilot."""
+
+        start_time = time.time()
+        self.last_x_message = ""
+        text = prepare_x_text(text)
+        if not text:
+            self.last_x_message = "X post text is empty."
+            self.tracker.record_event(
+                action_type="original_post",
+                status="skipped",
+                target_identifier="X input",
+                skip_or_error_reason=self.last_x_message,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+        if not self._x_guard("original_post", start_time):
+            return False
+
+        target = f"X custom post {x_content_hash(text)[:16]}"
+        reservation_id = None
+        if not self.safety.dry_run:
+            try:
+                reservation_id, reason = reserve_original(
+                    self.history_file,
+                    target_identifier=target,
+                    text=text,
+                )
+            except Exception as error:
+                reason = f"Could not reserve X post state: {error}"
+            if not reservation_id:
+                self.last_x_message = reason
+                self.tracker.record_event(
+                    action_type="original_post",
+                    status="skipped",
+                    target_identifier=target,
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
+        try:
+            ok = self.twitter.post_tweet(text, media_path=media_path)
+        except Exception as error:
+            self.twitter.last_outcome_unknown = False
+            self.twitter.last_message = f"X post client error: {error}"
+            ok = False
+        outcome = "success" if ok else "unknown" if self.twitter.last_outcome_unknown else "failed"
+        if reservation_id:
+            complete_reservation(
+                self.history_file,
+                reservation_id,
+                outcome=outcome,
+                target_identifier=target,
+                text=text,
+                reason=self.twitter.last_message,
+            )
+        self.last_x_message = self.twitter.last_message or (
+            "X post published." if ok else "X post failed."
+        )
+        self.tracker.record_event(
+            action_type="original_post",
+            status="success" if ok else "failed",
+            target_identifier=target,
+            content_preview=text,
+            skip_or_error_reason="" if ok else self.last_x_message,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run,
+        )
+        return ok
+
+    def execute_x_reply(self, tweet_url: str, target_text: str = "Viral debate") -> bool:
+        """Publish a direct X reply with target reservation and cap checks."""
+
+        start_time = time.time()
+        self.last_x_message = ""
+        if not tweet_url:
+            self.last_x_message = "X reply URL is empty."
+            self.tracker.record_event(
+                action_type="reply",
+                status="skipped",
+                target_identifier="X input",
+                skip_or_error_reason=self.last_x_message,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+        if not self._x_guard("reply", start_time):
+            return False
+        try:
+            reply_text = self.ai.generate_sniper_reply("tweet_author", target_text or "Viral debate")
+        except Exception as error:
+            self.last_x_message = f"X reply generation failed: {error}"
+            self.tracker.record_event(
+                action_type="reply",
+                status="failed",
+                target_identifier=tweet_url,
+                skip_or_error_reason=self.last_x_message,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+
+        reservation_id = None
+        if not self.safety.dry_run:
+            try:
+                reservation_id, reason = reserve_target(
+                    self.history_file,
+                    action_type="reply",
+                    target_identifier=tweet_url,
+                    text=reply_text,
+                )
+            except Exception as error:
+                reason = f"Could not reserve X reply state: {error}"
+            if not reservation_id:
+                self.last_x_message = reason
+                self.tracker.record_event(
+                    action_type="reply",
+                    status="skipped",
+                    target_identifier=tweet_url,
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
+        try:
+            ok = self.twitter.post_reply(tweet_url, reply_text)
+        except Exception as error:
+            self.twitter.last_outcome_unknown = False
+            self.twitter.last_message = f"X reply client error: {error}"
+            ok = False
+        outcome = "success" if ok else "unknown" if self.twitter.last_outcome_unknown else "failed"
+        if reservation_id:
+            complete_reservation(
+                self.history_file,
+                reservation_id,
+                outcome=outcome,
+                target_identifier=tweet_url,
+                text=reply_text,
+                reason=self.twitter.last_message,
+            )
+        self.last_x_message = self.twitter.last_message or ("X reply published." if ok else "X reply failed.")
+        self.tracker.record_event(
+            action_type="reply",
+            status="success" if ok else "failed",
+            target_identifier=tweet_url,
+            content_preview=reply_text,
+            skip_or_error_reason="" if ok else self.last_x_message,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run,
+        )
+        return ok
+
+    def execute_x_quote(self, tweet_url: str, target_text: str = "Viral debate") -> bool:
+        """Publish a direct X quote-tweet with target reservation and caps."""
+
+        start_time = time.time()
+        self.last_x_message = ""
+        if not tweet_url:
+            self.last_x_message = "X quote-tweet URL is empty."
+            self.tracker.record_event(
+                action_type="quote_tweet",
+                status="skipped",
+                target_identifier="X input",
+                skip_or_error_reason=self.last_x_message,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+        if not self._x_guard("quote_tweet", start_time):
+            return False
+        try:
+            quote_text = self.ai.generate_quote_tweet_commentary("tweet_author", target_text or "Viral debate")
+        except Exception as error:
+            self.last_x_message = f"X quote-tweet generation failed: {error}"
+            self.tracker.record_event(
+                action_type="quote_tweet",
+                status="failed",
+                target_identifier=tweet_url,
+                skip_or_error_reason=self.last_x_message,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+
+        reservation_id = None
+        if not self.safety.dry_run:
+            try:
+                reservation_id, reason = reserve_target(
+                    self.history_file,
+                    action_type="repost",
+                    target_identifier=tweet_url,
+                    text=quote_text,
+                )
+            except Exception as error:
+                reason = f"Could not reserve X quote-tweet state: {error}"
+            if not reservation_id:
+                self.last_x_message = reason
+                self.tracker.record_event(
+                    action_type="quote_tweet",
+                    status="skipped",
+                    target_identifier=tweet_url,
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
+        try:
+            ok = self.twitter.post_quote_tweet(tweet_url, quote_text)
+        except Exception as error:
+            self.twitter.last_outcome_unknown = False
+            self.twitter.last_message = f"X quote-tweet client error: {error}"
+            ok = False
+        outcome = "success" if ok else "unknown" if self.twitter.last_outcome_unknown else "failed"
+        if reservation_id:
+            complete_reservation(
+                self.history_file,
+                reservation_id,
+                outcome=outcome,
+                target_identifier=tweet_url,
+                text=quote_text,
+                reason=self.twitter.last_message,
+            )
+        self.last_x_message = self.twitter.last_message or ("X quote-tweet published." if ok else "X quote-tweet failed.")
+        self.tracker.record_event(
+            action_type="quote_tweet",
+            status="success" if ok else "failed",
+            target_identifier=tweet_url,
+            content_preview=quote_text,
+            skip_or_error_reason="" if ok else self.last_x_message,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run,
+        )
+        return ok
+
+    def execute_bluesky_custom_post(self, text: str) -> bool:
+        """Publish a direct Bluesky draft with the same cap/idempotency policy."""
+
+        start_time = time.time()
+        if not text or not str(text).strip():
+            self.tracker.record_event(
+                action_type="bluesky_post",
+                status="skipped",
+                target_identifier="Bluesky input",
+                skip_or_error_reason="Bluesky post text is empty.",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+        allowed, reason = self.safety.can_perform_action("bluesky", self.tracker.get_today_counts())
+        if not allowed:
+            self.tracker.record_event(
+                action_type="bluesky_post",
+                status="skipped",
+                target_identifier="Bluesky safety guard",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+
+        identity = f"post:{stable_hash(text)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "bluesky", "post", identity, target="Bluesky direct post", preview=text
+        )
+        if not self.safety.dry_run and not reservation_id:
+            self.tracker.record_event(
+                action_type="bluesky_post",
+                status="skipped",
+                target_identifier="Bluesky direct post",
+                content_preview=text,
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+
+        try:
+            ok, msg = self.bluesky.post(text)
+        except Exception as error:
+            ok, msg = False, f"Bluesky client error: {error}"
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(self.bluesky, "last_outcome_unknown", False),
+            reason=msg,
+        )
+        self.tracker.record_event(
+            action_type="bluesky_post",
+            status="success" if ok else "failed",
+            target_identifier="Bluesky direct post",
+            content_preview=text,
+            skip_or_error_reason="" if ok else msg,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run,
+        )
+        return ok
 
 
 
@@ -215,7 +604,7 @@ class AutomaterEngine:
 
 
         # 3. Determine action type
-        valid_forces = ("post", "reply", "repost", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "threads-replies", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
+        valid_forces = ("post", "reply", "repost", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "threads-replies", "reddit", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
         if force_action in valid_forces:
             action_choice = force_action
         else:
@@ -231,7 +620,7 @@ class AutomaterEngine:
             # Attempt fallback to alternative action if total limit is not exceeded
 
             linkedin_only = action_choice in ("linkedin", "linkedin-replies", "linkedin-peers")
-            if not linkedin_only and today_counts.get("total_actions", 0) < self.safety.max_daily_total:
+            if force_action == "auto" and not linkedin_only and today_counts.get("total_actions", 0) < self.safety.max_daily_total:
 
                 fallbacks = [a for a in ["reply", "post", "repost"] if a != action_choice]
 
@@ -275,12 +664,18 @@ class AutomaterEngine:
         if action_choice == "reply":
             ok = self._execute_sniper_reply(start_time)
             if not ok:
+                if self.twitter.last_outcome_unknown:
+                    console.print("[red]X reply outcome is unknown; stopping without retry to prevent a duplicate.[/red]")
+                    return False
                 console.print("[yellow]Reply mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
                 return self._execute_original_post(start_time)
             return ok
         elif action_choice == "repost":
             ok = self._execute_quote_tweet(start_time)
             if not ok:
+                if self.twitter.last_outcome_unknown:
+                    console.print("[red]X quote-tweet outcome is unknown; stopping without retry to prevent a duplicate.[/red]")
+                    return False
                 console.print("[yellow]Quote tweet mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
                 return self._execute_original_post(start_time)
             return ok
@@ -289,11 +684,9 @@ class AutomaterEngine:
         elif action_choice == "linkedin":
             return self._execute_linkedin_post(start_time)
         elif action_choice == "threads":
-            ok = self._execute_threads_post(start_time)
-            if not ok:
-                console.print("[yellow]Threads mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
-                return self._execute_original_post(start_time)
-            return ok
+            # A direct Threads request must never silently publish an X post
+            # when Threads is unavailable or its result is uncertain.
+            return self._execute_threads_post(start_time)
         elif action_choice == "youtube":
             return self._execute_youtube_upload(start_time)
         elif action_choice == "instagram":
@@ -302,6 +695,8 @@ class AutomaterEngine:
             return self._execute_devto_post(start_time)
         elif action_choice == "pinterest":
             return self._execute_pinterest_pin(start_time)
+        elif action_choice == "reddit":
+            return self._execute_reddit_post(start_time)
         elif action_choice == "linkedin-replies":
             return self._execute_linkedin_comment_replies(start_time)
         elif action_choice == "linkedin-peers":
@@ -320,6 +715,7 @@ class AutomaterEngine:
         """Finds a viral account, extracts latest tweet, and replies with high-engagement AI take."""
 
         console.print("[bold yellow]🎯 Mode: Sniper Reply on Viral Account[/bold yellow]")
+        self.twitter.last_outcome_unknown = False
 
         
 
@@ -411,9 +807,44 @@ class AutomaterEngine:
 
 
 
-        # Post reply
+        reservation_id = None
+        if not self.safety.dry_run:
+            try:
+                reservation_id, reservation_reason = reserve_target(
+                    self.history_file,
+                    action_type="reply",
+                    target_identifier=tweet_url,
+                    text=reply_content,
+                )
+            except Exception as error:
+                reservation_reason = f"Could not reserve X reply state: {error}"
+            if not reservation_id:
+                self.tracker.record_event(
+                    action_type="reply",
+                    status="skipped",
+                    target_identifier=tweet_url,
+                    skip_or_error_reason=reservation_reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
 
-        success = self.twitter.post_reply(tweet_url, reply_content)
+        try:
+            success = self.twitter.post_reply(tweet_url, reply_content)
+        except Exception as error:
+            self.twitter.last_outcome_unknown = False
+            self.twitter.last_message = f"X reply client error: {error}"
+            success = False
+        outcome = "success" if success else "unknown" if self.twitter.last_outcome_unknown else "failed"
+        if reservation_id:
+            complete_reservation(
+                self.history_file,
+                reservation_id,
+                outcome=outcome,
+                target_identifier=tweet_url,
+                text=reply_content,
+                reason=self.twitter.last_message,
+            )
 
         status = "success" if success else "failed"
 
@@ -427,7 +858,7 @@ class AutomaterEngine:
 
             content_preview=reply_content,
 
-            skip_or_error_reason="" if success else "Playwright selector or network failure",
+            skip_or_error_reason="" if success else self.twitter.last_message or "Playwright selector or network failure",
 
             duration_seconds=time.time() - start_time,
 
@@ -448,6 +879,7 @@ class AutomaterEngine:
         """Finds a viral tweet and Quote-Tweets it with commentary ('masala on top')."""
 
         console.print("[bold blue]🔁 Mode: Quote-Tweet ('Repost with Masala')[/bold blue]")
+        self.twitter.last_outcome_unknown = False
 
         
 
@@ -537,7 +969,44 @@ class AutomaterEngine:
 
 
 
-        success = self.twitter.post_quote_tweet(tweet_url, commentary)
+        reservation_id = None
+        if not self.safety.dry_run:
+            try:
+                reservation_id, reservation_reason = reserve_target(
+                    self.history_file,
+                    action_type="repost",
+                    target_identifier=tweet_url,
+                    text=commentary,
+                )
+            except Exception as error:
+                reservation_reason = f"Could not reserve X quote-tweet state: {error}"
+            if not reservation_id:
+                self.tracker.record_event(
+                    action_type="quote_tweet",
+                    status="skipped",
+                    target_identifier=tweet_url,
+                    skip_or_error_reason=reservation_reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
+        try:
+            success = self.twitter.post_quote_tweet(tweet_url, commentary)
+        except Exception as error:
+            self.twitter.last_outcome_unknown = False
+            self.twitter.last_message = f"X quote-tweet client error: {error}"
+            success = False
+        outcome = "success" if success else "unknown" if self.twitter.last_outcome_unknown else "failed"
+        if reservation_id:
+            complete_reservation(
+                self.history_file,
+                reservation_id,
+                outcome=outcome,
+                target_identifier=tweet_url,
+                text=commentary,
+                reason=self.twitter.last_message,
+            )
 
         status = "success" if success else "failed"
 
@@ -551,7 +1020,7 @@ class AutomaterEngine:
 
             content_preview=commentary,
 
-            skip_or_error_reason="" if success else "Playwright quote-tweet failure",
+            skip_or_error_reason="" if success else self.twitter.last_message or "Playwright quote-tweet failure",
 
             duration_seconds=time.time() - start_time,
 
@@ -575,7 +1044,10 @@ class AutomaterEngine:
 
 
 
-        trends = self.hunter.get_curated_trending_topics()
+        # X original posts are part of the AI/technology channel. Do not feed
+        # the general Google/BBC trend pool (sports, politics, weather, etc.)
+        # into the NeuBench account.
+        trends = self.hunter.get_linkedin_topics()
 
         if not trends:
 
@@ -613,23 +1085,18 @@ class AutomaterEngine:
 
 
 
-        if not selected_trend and trends:
-
-            # Re-engage with a fresh take on the top trending item
-
-            selected_trend = random.choice(trends)
-
-            console.print(f"[dim]Re-analyzing top trending topic with fresh angle: {selected_trend['title']}[/dim]")
-
-        elif not selected_trend:
-
-            selected_trend = {
-
-                "title": "Frontier AI Benchmark Discrepancies",
-
-                "summary": "Tracking model performance drift and benchmark evaluations across LLMs on NeuBench."
-
-            }
+        if not selected_trend:
+            reason = "All discovered AI/technology topics are already reserved or published."
+            console.print(f"[yellow]{reason}[/yellow]")
+            self.tracker.record_event(
+                action_type="original_post",
+                status="skipped",
+                target_identifier="X topic dedupe",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
 
 
 
@@ -688,14 +1155,53 @@ class AutomaterEngine:
 
         # 1. Post to X (Twitter) - Attach looping visual whenever available for 10x timeline dwell time
         twitter_media = gif_visual if (gif_visual and Path(gif_visual).exists()) else None
-        success = self.twitter.post_tweet(hot_take, media_path=twitter_media)
+        reservation_id = None
+        if not self.safety.dry_run:
+            try:
+                reservation_id, reservation_reason = reserve_original(
+                    self.history_file,
+                    target_identifier=selected_trend["title"],
+                    text=hot_take,
+                )
+            except Exception as error:
+                reservation_reason = f"Could not reserve X post state: {error}"
+            if not reservation_id:
+                self.tracker.record_event(
+                    action_type="original_post",
+                    status="skipped",
+                    target_identifier=selected_trend["title"],
+                    skip_or_error_reason=reservation_reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
+        try:
+            success = self.twitter.post_tweet(hot_take, media_path=twitter_media)
+        except Exception as error:
+            self.twitter.last_outcome_unknown = False
+            self.twitter.last_message = f"X post client error: {error}"
+            success = False
+        outcome = "success" if success else "unknown" if self.twitter.last_outcome_unknown else "failed"
+        if reservation_id:
+            complete_reservation(
+                self.history_file,
+                reservation_id,
+                outcome=outcome,
+                target_identifier=selected_trend["title"],
+                text=hot_take,
+                reason=self.twitter.last_message,
+            )
         status = "success" if success else "failed"
+        self.last_x_message = self.twitter.last_message or (
+            "X post published." if success else "X post failed."
+        )
         self.tracker.record_event(
             action_type="original_post",
             status=status,
             target_identifier=selected_trend["title"],
             content_preview=hot_take,
-            skip_or_error_reason="" if success else "Playwright compose failure",
+            skip_or_error_reason="" if success else self.twitter.last_message or "Playwright compose failure",
             duration_seconds=time.time() - start_time,
             is_dry_run=self.safety.dry_run
         )
@@ -704,8 +1210,12 @@ class AutomaterEngine:
         else:
             console.print("[yellow]⚠️ 𝕏 post could not be published. Continuing with remaining platforms...[/yellow]")
 
+        if not success and self.twitter.last_outcome_unknown:
+            console.print("[red]X post outcome is unknown; stopping without another X attempt.[/red]")
+            return False
+
         # 2. Cross-post to Bluesky (Independent, attaching GIF loop)
-        if config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD:
+        if self.safety.dry_run or (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD):
             try:
                 from src.bluesky_client import BlueskyClient
                 bsky_client = BlueskyClient(
@@ -717,7 +1227,24 @@ class AutomaterEngine:
                     selected_trend["title"],
                     selected_trend.get("summary", "")
                 )
-                bsky_ok, bsky_msg = bsky_client.post(bsky_take, media_path=gif_visual)
+                bsky_reservation, bsky_reason = self._reserve_platform(
+                    "bluesky",
+                    "post",
+                    f"post:{stable_hash(bsky_take)}",
+                    target=selected_trend["title"],
+                    preview=bsky_take,
+                )
+                if not self.safety.dry_run and not bsky_reservation:
+                    console.print(f"[dim]Bluesky duplicate guard: {bsky_reason}[/dim]")
+                    bsky_ok, bsky_msg = False, bsky_reason
+                else:
+                    bsky_ok, bsky_msg = bsky_client.post(bsky_take, media_path=gif_visual)
+                    self._complete_platform(
+                        bsky_reservation,
+                        ok=bsky_ok,
+                        unknown=getattr(bsky_client, "last_outcome_unknown", False),
+                        reason=bsky_msg,
+                    )
                 if bsky_ok:
                     console.print("[bold cyan]🦋 Also published to Bluesky (@neubench.bsky.social) with animation![/bold cyan]")
                     self.tracker.record_event(
@@ -739,13 +1266,29 @@ class AutomaterEngine:
         try:
             from src.threads_automater import ThreadsAutomater
             th_automater = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
-            if th_automater.is_session_available():
+            if self.safety.dry_run or th_automater.is_session_available():
                 th_take = self.ai.generate_threads_take(
                     selected_trend["title"],
                     selected_trend.get("summary", ""),
                     company=selected_trend.get("company", "NeuBench")
                 )
-                th_ok, th_msg = th_automater.post(th_take)
+                th_reservation, th_reason = self._reserve_platform(
+                    "threads",
+                    "post",
+                    f"post:{stable_hash(th_take)}",
+                    target=selected_trend["title"],
+                    preview=th_take,
+                )
+                if not self.safety.dry_run and not th_reservation:
+                    th_ok, th_msg = False, th_reason
+                else:
+                    th_ok, th_msg = th_automater.post(th_take)
+                    self._complete_platform(
+                        th_reservation,
+                        ok=th_ok,
+                        unknown=getattr(th_automater, "last_outcome_unknown", False),
+                        reason=th_msg,
+                    )
                 if th_ok:
                     console.print("[bold magenta]🧵 Also published to Threads (@neubench)![/bold magenta]")
                     self.tracker.record_event(
@@ -768,24 +1311,37 @@ class AutomaterEngine:
                 from src.pinterest_automater import PinterestAutomater
                 from src.series_manager import AISeriesManager
                 pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
-                if pin_automater.is_session_available():
+                if self.safety.dry_run or pin_automater.is_session_available():
                     p_topic = AISeriesManager().get_next_unpublished_day()
                     p_day = p_topic["day"] if p_topic else 3
                     p_title = p_topic["title"] if p_topic else "How Computers Actually Learn"
                     cover_img = Path(f"AI_SERIES/CAROUSELS/DAY_{p_day:03d}/slide_01.png")
-                    if not cover_img.exists() and image_path and Path(image_path).exists():
-                        cover_img = Path(image_path)
-                        p_title = selected_trend.get("title", p_title)
 
                     if cover_img.exists():
                         console.print(f"[bold magenta]📌 Publishing Pin to Pinterest: {p_title[:60]}...[/bold magenta]")
                         p_desc = f"{p_title}\n\n{hot_take}\n\nLive AI Benchmarks: https://neubench.netlify.app\n\n#AI #Tech #MachineLearning"
-                        p_ok, p_msg = pin_automater.create_pin(
-                            image_path=str(cover_img),
-                            title=p_title[:80],
-                            description=p_desc,
-                            link="https://neubench.netlify.app"
+                        pin_reservation, pin_reason = self._reserve_platform(
+                            "pinterest",
+                            "pin",
+                            f"pin:{stable_hash(p_title + chr(10) + p_desc)}",
+                            target=p_title,
+                            preview=p_title,
                         )
+                        if not self.safety.dry_run and not pin_reservation:
+                            p_ok, p_msg = False, pin_reason
+                        else:
+                            p_ok, p_msg = pin_automater.create_pin(
+                                image_path=str(cover_img),
+                                title=p_title[:80],
+                                description=p_desc,
+                                link="https://neubench.netlify.app"
+                            )
+                            self._complete_platform(
+                                pin_reservation,
+                                ok=p_ok,
+                                unknown=getattr(pin_automater, "last_outcome_unknown", False),
+                                reason=p_msg,
+                            )
                         if p_ok:
                             console.print("[bold green]✅ Pinterest Pin published![/bold green]")
                             self.tracker.record_event(
@@ -803,19 +1359,20 @@ class AutomaterEngine:
 
         # 6. Cross-post to Instagram Carousel (Strict quota check + dynamic fallback)
         try:
+            from src.series_manager import AISeriesManager
+            broadcast_topic = AISeriesManager().get_next_unpublished_day()
+            current_day = broadcast_topic["day"] if broadcast_topic else 2
+            day_title = broadcast_topic["title"] if broadcast_topic else "AI vs. Machine Learning vs. Deep Learning"
+        except Exception:
+            current_day = 2
+            day_title = "AI vs. Machine Learning vs. Deep Learning"
+        try:
             can_ig, ig_reason = self.safety.can_perform_action("instagram", today_counts)
             if can_ig:
                 from src.instagram_carousel import InstagramCarouselGenerator
                 from src.instagram_automater import InstagramAutomater
-                from src.series_manager import AISeriesManager
-                
-                series_mgr = AISeriesManager()
-                next_topic = series_mgr.get_next_unpublished_day()
-                current_day = next_topic["day"] if next_topic else 2
-                day_title = next_topic["title"] if next_topic else "AI vs. Machine Learning vs. Deep Learning"
-
                 ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-                if ig_automater.is_session_available():
+                if self.safety.dry_run or ig_automater.is_session_available():
                     carousel_dir = Path(f"AI_SERIES/CAROUSELS/DAY_{current_day:03d}")
                     slides = []
                     if carousel_dir.exists() and list(carousel_dir.glob("*.png")):
@@ -827,7 +1384,23 @@ class AutomaterEngine:
                     if slides:
                         console.print(f"[bold magenta]📸 Publishing Day {current_day:02d} Carousel to Instagram (@neubench)...[/bold magenta]")
                         ig_caption = f"Day {current_day:02d}: {day_title}\n\n{hot_take}\n\n90 Days. 90 Concepts. One AI Journey. 🎓\n\n📌 Save for revision!\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#AI #MachineLearning #DeepLearning #AIEngineering #Coding"
-                        ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
+                        ig_reservation, ig_reason = self._reserve_platform(
+                            "instagram",
+                            "carousel",
+                            f"carousel:{current_day}:{stable_hash(ig_caption)}",
+                            target=f"Day {current_day}",
+                            preview=ig_caption,
+                        )
+                        if not self.safety.dry_run and not ig_reservation:
+                            ig_ok, ig_msg = False, ig_reason
+                        else:
+                            ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
+                            self._complete_platform(
+                                ig_reservation,
+                                ok=ig_ok,
+                                unknown=getattr(ig_automater, "last_outcome_unknown", False),
+                                reason=ig_msg,
+                            )
                         if ig_ok:
                             console.print(f"[bold green]✅ Instagram Day {current_day:02d} carousel published![/bold green]")
                             self.tracker.record_event(
@@ -849,7 +1422,7 @@ class AutomaterEngine:
             if can_reel:
                 from src.instagram_automater import InstagramAutomater
                 ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-                if ig_automater.is_session_available():
+                if self.safety.dry_run or ig_automater.is_session_available():
                     reel_video = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4")
                     
                     if reel_video.exists():
@@ -875,7 +1448,23 @@ class AutomaterEngine:
 
                     if reel_video.exists():
                         console.print(f"[bold magenta]🎥 Publishing unique Reel to Instagram (@neubench)...[/bold magenta]")
-                        r_ok, r_msg = ig_automater.post_reel(str(reel_video), reel_caption)
+                        reel_reservation, reel_reason = self._reserve_platform(
+                            "instagram",
+                            "reel",
+                            f"reel:{stable_hash(reel_caption + chr(10) + str(reel_video))}",
+                            target=f"Day {current_day}",
+                            preview=reel_caption,
+                        )
+                        if not self.safety.dry_run and not reel_reservation:
+                            r_ok, r_msg = False, reel_reason
+                        else:
+                            r_ok, r_msg = ig_automater.post_reel(str(reel_video), reel_caption)
+                            self._complete_platform(
+                                reel_reservation,
+                                ok=r_ok,
+                                unknown=getattr(ig_automater, "last_outcome_unknown", False),
+                                reason=r_msg,
+                            )
                         if r_ok:
                             console.print(f"[bold green]✅ Instagram Reel published![/bold green]")
                             self.tracker.record_event(
@@ -896,8 +1485,10 @@ class AutomaterEngine:
             can_yt, yt_reason = self.safety.can_perform_action("youtube", today_counts)
             if can_yt:
                 from src.youtube_automater import YouTubeAutomater
-                yt_automater = YouTubeAutomater()
-                if yt_automater.is_authenticated:
+                yt_automater = None if self.safety.dry_run else YouTubeAutomater()
+                if self.safety.dry_run:
+                    console.print("[yellow][DRY RUN] Would publish the generated video to YouTube Shorts.[/yellow]")
+                elif yt_automater and yt_automater.is_authenticated:
                     yt_video = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4")
                     yt_srt = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/subtitles_day_{current_day:03d}.srt")
                     
@@ -927,7 +1518,23 @@ class AutomaterEngine:
 
                     if yt_video.exists():
                         console.print(f"[bold magenta]Publishing unique video to YouTube Shorts: {yt_title}...[/bold magenta]")
-                        yt_res = yt_automater.upload_short(video_path=str(yt_video), title=yt_title, description=yt_desc, srt_path=str(yt_srt) if (yt_srt and yt_srt.exists()) else None)
+                        yt_reservation, yt_reservation_reason = self._reserve_platform(
+                            "youtube",
+                            "short",
+                            f"short:{stable_hash(yt_title + chr(10) + str(yt_video))}",
+                            target=yt_title,
+                            preview=yt_title,
+                        )
+                        if not yt_reservation:
+                            yt_res = None
+                        else:
+                            yt_res = yt_automater.upload_short(video_path=str(yt_video), title=yt_title, description=yt_desc, srt_path=str(yt_srt) if (yt_srt and yt_srt.exists()) else None)
+                            self._complete_platform(
+                                yt_reservation,
+                                ok=bool(yt_res),
+                                unknown=getattr(yt_automater, "last_outcome_unknown", False),
+                                reason=getattr(yt_automater, "last_message", "YouTube upload failed"),
+                            )
                         if yt_res:
                             console.print(f"[bold green]YouTube Short published: {yt_res['url']}[/bold green]")
                             self.tracker.record_event(
@@ -961,7 +1568,7 @@ class AutomaterEngine:
         """Generates a developer-focused Bluesky take from a trending topic and publishes it."""
         console.print("[bold cyan]🦋 Mode: Bluesky Auto Post (AT Protocol)[/bold cyan]")
 
-        trends = self.hunter.get_curated_trending_topics()
+        trends = self.hunter.get_linkedin_topics()
         if not trends:
             console.print("[red]No trends discovered. Skipping Bluesky post...[/red]")
             self.tracker.record_event(
@@ -980,14 +1587,18 @@ class AutomaterEngine:
                 selected_trend = t
                 break
 
-        if not selected_trend and trends:
-            selected_trend = random.choice(trends)
-            console.print(f"[dim]Re-analyzing top trending topic with fresh angle: {selected_trend['title']}[/dim]")
-        elif not selected_trend:
-            selected_trend = {
-                "title": "Frontier AI Benchmark Discrepancies",
-                "summary": "Tracking model performance drift and benchmark evaluations across LLMs on NeuBench."
-            }
+        if not selected_trend:
+            reason = "All discovered Bluesky topics are already reserved or published."
+            console.print(f"[yellow]{reason}[/yellow]")
+            self.tracker.record_event(
+                action_type="bluesky_post",
+                status="skipped",
+                target_identifier="Bluesky dedupe",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
 
         console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
@@ -1012,7 +1623,7 @@ class AutomaterEngine:
 
         console.print(f"[green]Generated Bluesky Draft:[/green] {bsky_take}")
 
-        if not self.bluesky.is_configured():
+        if not self.safety.dry_run and not self.bluesky.is_configured():
             console.print("[yellow]⚠️ Bluesky credentials not configured. Skipping publish.[/yellow]")
             self.tracker.record_event(
                 action_type="bluesky_post",
@@ -1025,7 +1636,36 @@ class AutomaterEngine:
             )
             return False
 
-        ok, msg = self.bluesky.post(bsky_take)
+        identity = f"post:{stable_hash(bsky_take)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "bluesky",
+            "post",
+            identity,
+            target=selected_trend["title"],
+            preview=bsky_take,
+        )
+        if not self.safety.dry_run and not reservation_id:
+            self.tracker.record_event(
+                action_type="bluesky_post",
+                status="skipped",
+                target_identifier=selected_trend["title"],
+                content_preview=bsky_take,
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+
+        try:
+            ok, msg = self.bluesky.post(bsky_take)
+        except Exception as error:
+            ok, msg = False, f"Bluesky client error: {error}"
+        outcome = self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(self.bluesky, "last_outcome_unknown", False),
+            reason=msg,
+        )
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="bluesky_post",
@@ -1054,6 +1694,12 @@ class AutomaterEngine:
         """Publish dashboard/CLI text through the same LinkedIn safety policy."""
 
         return self._execute_linkedin_post(time.time(), custom_text=text)
+
+
+    def execute_threads_custom_post(self, text: str) -> bool:
+        """Publish dashboard/CLI text through the guarded Threads path."""
+
+        return self._execute_threads_post(time.time(), custom_text=text)
 
 
     def _execute_linkedin_post(self, start_time: float, custom_text: Optional[str] = None) -> bool:
@@ -1132,7 +1778,11 @@ class AutomaterEngine:
                         )
                         return False
 
-            if not self.safety.dry_run and not automater.is_session_available():
+            has_linkedin_api = bool(
+                os.getenv("LINKEDIN_ACCESS_TOKEN")
+                and os.getenv("LINKEDIN_PERSON_URN")
+            )
+            if not self.safety.dry_run and not has_linkedin_api and not automater.is_session_available():
                 reason = "LinkedIn session/API credentials are not authenticated"
                 console.print(f"[yellow]⚠️ {reason}. Skipping.[/yellow]")
                 self.tracker.record_event(
@@ -1320,25 +1970,29 @@ class AutomaterEngine:
 
 
 
-    def _execute_threads_post(self, start_time: float) -> bool:
+    def _execute_threads_post(self, start_time: float, custom_text: Optional[str] = None) -> bool:
         """Generates a casual Threads post and publishes it via saved session."""
         console.print("[bold magenta]Mode: Threads Auto Post (Community)[/bold magenta]")
 
-        today_th = sum(
-            1 for e in self.tracker.metrics.get("recent_events", [])
-            if e.get("timestamp", "").startswith(datetime.now(timezone.utc).strftime("%Y-%m-%d"))
-            and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "threads_post"
+        can_threads, threads_reason = self.safety.can_perform_action(
+            "threads", self.tracker.get_today_counts()
         )
-        if today_th >= 10:
-            console.print("[yellow]⚠️ Threads daily cap reached (10/day). Falling back to Omnichannel broadcast...[/yellow]")
-            return self._execute_original_post(start_time)
+        if not can_threads:
+            console.print(f"[yellow]Threads skipped: {threads_reason}[/yellow]")
+            return False
 
         from src.threads_automater import ThreadsAutomater
         automater = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
 
-        trends = self.hunter.get_curated_trending_topics()
+        trends = self.hunter.get_linkedin_topics() if custom_text is None else []
         pool = trends or []
-        if not pool:
+        if custom_text is not None:
+            selected_trend = {
+                "title": "Custom Threads post",
+                "summary": "",
+                "company": "NeuBench",
+            }
+        elif not pool:
             selected_trend = {
                 "title": "Frontier Reasoning Drift & Token Efficiency across Claude, Gemini & DeepSeek",
                 "summary": "NeuBench telemetry reveals latency and cost differences on long-horizon coding tasks.",
@@ -1352,33 +2006,55 @@ class AutomaterEngine:
                     selected_trend = t
                     break
             if not selected_trend:
-                selected_trend = random.choice(pool)
+                reason = "All discovered Threads topics are already reserved or published."
+                console.print(f"[yellow]{reason}[/yellow]")
+                self.tracker.record_event(
+                    action_type="threads_post",
+                    status="skipped",
+                    target_identifier="Threads dedupe",
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run,
+                )
+                return False
 
         console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
-        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-
-        try:
-            th_text = self.ai.generate_threads_take(
-                selected_trend["title"],
-                selected_trend.get("summary", ""),
-                company=selected_trend.get("company", "NeuBench")
-            )
-        except Exception as e:
-            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-            console.print(f"[red]AI Generation Error: {e}[/red]")
-            self.tracker.record_event(
-                action_type="threads_post",
-                status="failed",
-                target_identifier=selected_trend["title"],
-                skip_or_error_reason=f"AI generation failed: {e}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+        if custom_text is not None:
+            th_text = str(custom_text).strip()
+            if not th_text:
+                self.tracker.record_event(
+                    action_type="threads_post",
+                    status="skipped",
+                    target_identifier="Threads input",
+                    skip_or_error_reason="Custom Threads text is empty.",
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run,
+                )
+                return False
+        else:
+            self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+            try:
+                th_text = self.ai.generate_threads_take(
+                    selected_trend["title"],
+                    selected_trend.get("summary", ""),
+                    company=selected_trend.get("company", "NeuBench")
+                )
+            except Exception as e:
+                self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+                console.print(f"[red]AI Generation Error: {e}[/red]")
+                self.tracker.record_event(
+                    action_type="threads_post",
+                    status="failed",
+                    target_identifier=selected_trend["title"],
+                    skip_or_error_reason=f"AI generation failed: {e}",
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run
+                )
+                return False
 
         console.print(f"[green]Generated Threads Draft:[/green] {th_text[:120]}...")
 
-        if not automater.is_session_available():
+        if not self.safety.dry_run and not automater.is_session_available():
             console.print("[yellow]Threads session not available. Run 'python main.py login-threads'. Skipping.[/yellow]")
             self.tracker.record_event(
                 action_type="threads_post",
@@ -1391,7 +2067,36 @@ class AutomaterEngine:
             )
             return False
 
-        ok, msg = automater.post(th_text)
+        identity = f"post:{stable_hash(th_text)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "threads",
+            "post",
+            identity,
+            target=selected_trend["title"],
+            preview=th_text,
+        )
+        if not self.safety.dry_run and not reservation_id:
+            self.tracker.record_event(
+                action_type="threads_post",
+                status="skipped",
+                target_identifier=selected_trend["title"],
+                content_preview=th_text,
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+
+        try:
+            ok, msg = automater.post(th_text)
+        except Exception as error:
+            ok, msg = False, f"Threads client error: {error}"
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(automater, "last_outcome_unknown", False),
+            reason=msg,
+        )
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="threads_post",
@@ -1474,6 +2179,19 @@ class AutomaterEngine:
         topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
 
         yt = YouTubeAutomater()
+        if self.safety.dry_run:
+            title = f"Day {day_num:02d}: {topic_title} #Shorts"
+            console.print(f"[bold yellow][DRY RUN] Would upload YouTube Short: {title}[/bold yellow]")
+            self.tracker.record_event(
+                action_type="youtube",
+                status="dry_run",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                content_preview=title,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=True,
+            )
+            return True
+
         if not yt.is_authenticated:
             console.print("[yellow]YouTube service not authenticated. Run 'python main.py login-youtube'. Skipping.[/yellow]")
             self.tracker.record_event(
@@ -1490,12 +2208,27 @@ class AutomaterEngine:
         yt_srt = config.BASE_DIR / f"AI_SERIES/VIDEOS/DAY_{day_num:03d}/subtitles_day_{day_num:03d}.srt"
         
         if not yt_video.exists():
-            console.print(f"[cyan]Rendering Day {day_num} animated short video...[/cyan]")
+            console.print(f"[cyan]No Day {day_num:02d} video asset found; generating a topic-specific visual...[/cyan]")
             try:
-                from scripts.render_animated_demo import render_animated_demo
-                render_animated_demo()
-            except Exception as e:
-                console.print(f"[red]Error rendering animated video: {e}[/red]")
+                from src.autonomous_visual_engine import generate_visual_for_post
+                _gif, generated_mp4 = generate_visual_for_post(topic_title, "AI curriculum topic")
+                if generated_mp4 and Path(generated_mp4).exists():
+                    yt_video = Path(generated_mp4)
+                    yt_srt = None
+            except Exception as error:
+                console.print(f"[dim]YouTube visual generation note: {error}[/dim]")
+
+        if not yt_video.exists():
+            reason = f"YouTube video asset for Day {day_num:02d} is unavailable; skipping without uploading another day."
+            self.tracker.record_event(
+                action_type="youtube",
+                status="skipped",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
 
         title = f"Day {day_num:02d}: {topic_title} #Shorts"
         desc = (
@@ -1505,20 +2238,35 @@ class AutomaterEngine:
             "#Shorts #AI #MachineLearning #DeepLearning #Python #SoftwareEngineering #DataScience"
         )
 
-        if self.safety.dry_run:
-            console.print(f"[bold yellow][DRY RUN] Would upload YouTube Short: {title}[/bold yellow]")
+        identity = f"short:{stable_hash(title + chr(10) + str(yt_video))}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "youtube", "short", identity, target=title, preview=title
+        )
+        if not reservation_id:
             self.tracker.record_event(
                 action_type="youtube",
-                status="dry_run",
+                status="skipped",
                 target_identifier=f"Day {day_num}: {topic_title}",
                 content_preview=title,
+                skip_or_error_reason=reservation_reason,
                 duration_seconds=time.time() - start_time,
-                is_dry_run=True
+                is_dry_run=False,
             )
-            return True
+            return False
 
-        res = yt.upload_short(video_path=str(yt_video), title=title, description=desc, srt_path=str(yt_srt) if yt_srt.exists() else None)
+        try:
+            res = yt.upload_short(video_path=str(yt_video), title=title, description=desc, srt_path=str(yt_srt) if yt_srt and yt_srt.exists() else None)
+        except Exception as error:
+            res = None
+            yt.last_outcome_unknown = True
+            yt.last_message = f"YouTube client error: {error}"
         ok = res is not None
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(yt, "last_outcome_unknown", False),
+            reason=getattr(yt, "last_message", "YouTube upload failed"),
+        )
         status = "success" if ok else "failed"
         url = res.get("url", "") if res else ""
         
@@ -1533,13 +2281,22 @@ class AutomaterEngine:
         )
         if ok:
             console.print(f"[bold green]✅ YouTube Short live: {url}[/bold green]")
+            try:
+                series_mgr.record_published_day(
+                    day=day_num,
+                    topic_title=topic_title,
+                    content=desc,
+                    live_url=url,
+                )
+            except Exception as progress_error:
+                console.print(f"[dim]Series progress note: {progress_error}[/dim]")
             
             # Re-use the EXACT same rendered video across 𝕏 and Pinterest without re-rendering:
             # 1. 𝕏 (Twitter) Native Video Post
             try:
                 x_text = f"Day {day_num:02d}: {topic_title}\n\nThe core mental model of modern AI engineering. 🧵👇\n\nLive benchmarks: https://neubench.netlify.app\n#AI #Dev"
                 console.print("[bold cyan]Syndicating same video to 𝕏 (Twitter)...[/bold cyan]")
-                self.twitter.post_tweet(x_text, media_path=str(yt_video))
+                self.execute_x_custom_post(x_text, media_path=str(yt_video))
             except Exception as e:
                 console.print(f"[dim]𝕏 video syndication notice: {e}[/dim]")
 
@@ -1573,7 +2330,7 @@ class AutomaterEngine:
         topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
 
         automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-        if not automater.is_session_available():
+        if not self.safety.dry_run and not automater.is_session_available():
             console.print("[yellow]Instagram session not available. Run 'python main.py login-instagram'. Skipping.[/yellow]")
             self.tracker.record_event(
                 action_type="instagram",
@@ -1586,7 +2343,21 @@ class AutomaterEngine:
             return False
 
         gen = InstagramCarouselGenerator()
-        slides = gen.build_day1_sample()
+        carousel_dir = config.BASE_DIR / f"AI_SERIES/CAROUSELS/DAY_{day_num:03d}"
+        slides = sorted(str(path) for path in carousel_dir.glob("*.png")) if carousel_dir.exists() else []
+        if not slides:
+            slides = gen.generate_day_carousel(day_num)
+        if not slides:
+            reason = f"Instagram Day {day_num:02d} carousel assets are not available; skipping without reusing another day."
+            self.tracker.record_event(
+                action_type="instagram",
+                status="skipped",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
         caption = (
             f"Day {day_num:02d}: {topic_title}\n\n"
             "90 Days. 90 Concepts. One AI Journey. 🎓\n\n"
@@ -1595,7 +2366,31 @@ class AutomaterEngine:
             "📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
             "#AI #MachineLearning #AIEngineering #Coding #Developers #Tech"
         )
-        ok, msg = automater.post_carousel(slides, caption)
+        identity = f"carousel:{day_num}:{stable_hash(caption)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "instagram", "carousel", identity, target=f"Day {day_num}", preview=caption
+        )
+        if not self.safety.dry_run and not reservation_id:
+            self.tracker.record_event(
+                action_type="instagram",
+                status="skipped",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                content_preview=caption[:100],
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+        try:
+            ok, msg = automater.post_carousel(slides, caption)
+        except Exception as error:
+            ok, msg = False, f"Instagram client error: {error}"
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(automater, "last_outcome_unknown", False),
+            reason=msg,
+        )
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="instagram",
@@ -1624,18 +2419,64 @@ class AutomaterEngine:
         chapter_name = next_day.get("chapter", "The Core Mental Model") if next_day else "Core"
 
         devto = DevToAutomater()
+        if self.safety.dry_run:
+            self.tracker.record_event(
+                action_type="devto",
+                status="dry_run",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                content_preview=f"Day {day_num:02d}: {topic_title}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=True,
+            )
+            return True
+
         if not devto.is_configured():
             console.print("[yellow]Dev.to API key not configured. Skipping.[/yellow]")
             return False
 
-        lesson_body = self.ai.generate_ai_series_lesson(
-            day=day_num,
-            topic=topic_title,
-            level=level_name,
-            chapter=chapter_name
-        )
+        try:
+            lesson_body = self.ai.generate_ai_series_lesson(
+                day=day_num,
+                topic=topic_title,
+                level=level_name,
+                chapter=chapter_name
+            )
+        except Exception as error:
+            self.tracker.record_event(
+                action_type="devto",
+                status="failed",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                skip_or_error_reason=f"Dev.to article generation failed: {error}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
         title = f"Day {day_num:02d}: {topic_title}"
-        ok, msg, url = devto.create_article(title=title, body_markdown=lesson_body, series="AI Explained: Zero to Advanced")
+        identity = f"article:{stable_hash(title + chr(10) + lesson_body)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "devto", "article", identity, target=title, preview=title
+        )
+        if not reservation_id:
+            self.tracker.record_event(
+                action_type="devto",
+                status="skipped",
+                target_identifier=title,
+                content_preview=title,
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+        try:
+            ok, msg, url = devto.create_article(title=title, body_markdown=lesson_body, series="AI Explained: Zero to Advanced")
+        except Exception as error:
+            ok, msg, url = False, f"Dev.to client error: {error}", None
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(devto, "last_outcome_unknown", False),
+            reason=msg,
+        )
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="devto",
@@ -1663,16 +2504,51 @@ class AutomaterEngine:
         topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
 
         pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
-        if not pin_automater.is_session_available():
+        if not self.safety.dry_run and not pin_automater.is_session_available():
             console.print("[yellow]Pinterest session not available. Skipping.[/yellow]")
             return False
 
         slides = sorted(glob.glob(f"AI_SERIES/CAROUSELS/DAY_{day_num:03d}/*.png"))
-        cover_img = slides[0] if slides else "AI_SERIES/CAROUSELS/DAY_001/slide_01.png"
+        if not slides and not self.safety.dry_run:
+            reason = f"Pinterest Day {day_num:02d} cover asset is not available; skipping without reusing another day."
+            self.tracker.record_event(
+                action_type="pinterest",
+                status="skipped",
+                target_identifier=f"Day {day_num}: {topic_title}",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+        cover_img = slides[0] if slides else ""
         pin_title = f"Day {day_num:02d}: {topic_title}"
         pin_desc = f"Part of the 90-Day Master Series: AI Explained by NeuBench. Save for revision! Live model benchmarks at neubench.netlify.app"
         
-        ok, msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://neubench.netlify.app")
+        identity = f"pin:{stable_hash(pin_title + chr(10) + pin_desc)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "pinterest", "pin", identity, target=pin_title, preview=pin_title
+        )
+        if not self.safety.dry_run and not reservation_id:
+            self.tracker.record_event(
+                action_type="pinterest",
+                status="skipped",
+                target_identifier=pin_title,
+                content_preview=pin_title,
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+        try:
+            ok, msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://neubench.netlify.app")
+        except Exception as error:
+            ok, msg = False, f"Pinterest client error: {error}"
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(pin_automater, "last_outcome_unknown", False),
+            reason=msg,
+        )
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="pinterest",
@@ -1685,6 +2561,144 @@ class AutomaterEngine:
         )
         if ok:
             console.print(f"[bold green]✅ Pinterest Pin live![/bold green]")
+        return ok
+
+    def _execute_reddit_post(self, start_time: float) -> bool:
+        """Publishes one technical discussion to a configured Reddit community."""
+
+        console.print("[bold orange3]🤖 Mode: Reddit Technical Discussion[/bold orange3]")
+        from src.reddit_automater import RedditAutomater
+        from src.reddit_client import RedditClient
+
+        allowed, reason = self.safety.can_perform_action("reddit", self.tracker.get_today_counts())
+        if not allowed:
+            self.tracker.record_event(
+                action_type="reddit_post",
+                status="skipped",
+                target_identifier="Reddit safety guard",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+
+        subreddit = RedditClient().get_target_subreddits()[0]
+        trends = self.hunter.get_linkedin_topics()
+        topic = trends[0] if trends else {
+            "title": "Real-world LLM latency and throughput tradeoffs",
+            "summary": "Comparing latency, throughput, and cost across production model endpoints.",
+            "company": "NeuBench",
+        }
+        try:
+            data = self.ai.generate_reddit_post(
+                title=topic["title"],
+                summary=topic.get("summary", ""),
+                company=topic.get("company", "NeuBench"),
+                subreddit=subreddit,
+            )
+        except Exception as error:
+            self.tracker.record_event(
+                action_type="reddit_post",
+                status="failed",
+                target_identifier=subreddit,
+                skip_or_error_reason=f"Reddit generation failed: {error}",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+
+        title = data.get("title", topic["title"])
+        body = data.get("body", topic.get("summary", ""))
+        identity = f"post:{stable_hash(subreddit + chr(10) + title + chr(10) + body)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "reddit", "post", identity, target=subreddit, preview=title
+        )
+        if not self.safety.dry_run and not reservation_id:
+            self.tracker.record_event(
+                action_type="reddit_post",
+                status="skipped",
+                target_identifier=subreddit,
+                content_preview=title,
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+
+        automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
+        try:
+            ok, msg = automater.post(subreddit, title, body)
+        except Exception as error:
+            ok, msg = False, f"Reddit client error: {error}"
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(automater, "last_outcome_unknown", False),
+            reason=msg,
+        )
+        self.tracker.record_event(
+            action_type="reddit_post",
+            status="success" if ok else "failed",
+            target_identifier=subreddit,
+            content_preview=title,
+            skip_or_error_reason="" if ok else msg,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run,
+        )
+        return ok
+
+    def execute_reddit_custom_post(self, subreddit: str, title: str, body: str) -> bool:
+        """Publish a manually drafted Reddit post through guarded state."""
+
+        start_time = time.time()
+        allowed, reason = self.safety.can_perform_action("reddit", self.tracker.get_today_counts())
+        if not allowed:
+            self.last_x_message = reason
+            self.tracker.record_event(
+                action_type="reddit_post",
+                status="skipped",
+                target_identifier=subreddit,
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+        identity = f"post:{stable_hash(subreddit + chr(10) + title + chr(10) + body)}"
+        reservation_id, reservation_reason = self._reserve_platform(
+            "reddit", "post", identity, target=subreddit, preview=title
+        )
+        if not self.safety.dry_run and not reservation_id:
+            self.tracker.record_event(
+                action_type="reddit_post",
+                status="skipped",
+                target_identifier=subreddit,
+                content_preview=title,
+                skip_or_error_reason=reservation_reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False,
+            )
+            return False
+        from src.reddit_automater import RedditAutomater
+        automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
+        try:
+            ok, msg = automater.post(subreddit, title, body)
+        except Exception as error:
+            ok, msg = False, f"Reddit client error: {error}"
+        self._complete_platform(
+            reservation_id,
+            ok=ok,
+            unknown=getattr(automater, "last_outcome_unknown", False),
+            reason=msg,
+        )
+        self.tracker.record_event(
+            action_type="reddit_post",
+            status="success" if ok else "failed",
+            target_identifier=subreddit,
+            content_preview=title,
+            skip_or_error_reason="" if ok else msg,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run,
+        )
         return ok
 
     def start_scheduler(self):

@@ -1,6 +1,7 @@
 import os
 from datetime import datetime, timezone
 from typing import Tuple, Dict
+import config
 from config import CAPS_PER_PLATFORM
 
 class SafetyEngine:
@@ -57,7 +58,7 @@ class SafetyEngine:
             if not self.enable_original:
                 return False, "Original posts disabled via ENABLE_ORIGINAL_POSTS=false."
             limit = self.caps.get("twitter_originals", 4)
-            if today_counts.get("original_posts", 0) >= limit:
+            if limit > 0 and today_counts.get("original_posts", 0) >= limit:
                 return False, f"Daily original posts limit reached ({today_counts.get('original_posts')}/{limit})."
 
         # Twitter Sniper Replies
@@ -65,7 +66,7 @@ class SafetyEngine:
             if not self.enable_replies:
                 return False, "Replies disabled via ENABLE_REPLIES=false."
             limit = self.caps.get("twitter_replies", 16)
-            if today_counts.get("replies", 0) >= limit:
+            if limit > 0 and today_counts.get("replies", 0) >= limit:
                 return False, f"Daily replies limit reached ({today_counts.get('replies')}/{limit})."
 
         # Quote-Tweets / Reposts
@@ -73,19 +74,31 @@ class SafetyEngine:
             if not self.enable_reposts:
                 return False, "Reposts disabled via ENABLE_REPOSTS=false."
             limit = self.caps.get("twitter_reposts", 5)
-            if today_counts.get("reposts", 0) >= limit:
+            if limit > 0 and today_counts.get("reposts", 0) >= limit:
                 return False, f"Daily reposts limit reached ({today_counts.get('reposts')}/{limit})."
 
         # YouTube Shorts (Anti-cannibalization: max 2/day)
         elif action_type == "youtube":
+            if not config.YOUTUBE_ENABLED:
+                return False, "YouTube automation is disabled via YOUTUBE_ENABLED=false."
             limit = self.caps.get("youtube_shorts", 2)
-            if today_counts.get("youtube_shorts", 0) >= limit:
+            if limit > 0 and today_counts.get("youtube_shorts", 0) >= limit:
                 return False, f"YouTube daily cap reached ({today_counts.get('youtube_shorts')}/{limit}) to protect algorithmic impressions."
+
+        # Bluesky posts
+        elif action_type in ("bluesky", "bluesky_post"):
+            if not self.dry_run and not (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD):
+                return False, "Bluesky credentials are not configured."
+            limit = self.caps.get("bluesky_posts", 6)
+            if limit > 0 and today_counts.get("bluesky_posts", 0) >= limit:
+                return False, f"Bluesky daily cap reached ({today_counts.get('bluesky_posts')}/{limit})."
 
         # LinkedIn Posts (one post every three hours by default)
         elif action_type in ("linkedin", "linkedin_post"):
+            if not config.LINKEDIN_ENABLED:
+                return False, "LinkedIn automation is disabled via LINKEDIN_ENABLED=false."
             limit = self.caps.get("linkedin_posts", 8)
-            if today_counts.get("linkedin_posts", 0) >= limit:
+            if limit > 0 and today_counts.get("linkedin_posts", 0) >= limit:
                 return False, f"LinkedIn daily cap reached ({today_counts.get('linkedin_posts')}/{limit}) to protect organic algorithmic distribution."
 
         # LinkedIn engagement includes own-post replies, peer comments, and peer replies.
@@ -96,31 +109,48 @@ class SafetyEngine:
 
         # Instagram Carousels & Reels
         elif action_type in ("instagram", "instagram_carousel"):
+            if not config.INSTAGRAM_ENABLED:
+                return False, "Instagram automation is disabled via INSTAGRAM_ENABLED=false."
             limit = self.caps.get("instagram_carousels", 1)
-            if today_counts.get("instagram_carousels", 0) >= limit:
+            if limit > 0 and today_counts.get("instagram_carousels", 0) >= limit:
                 return False, f"Instagram daily carousel cap reached ({today_counts.get('instagram_carousels')}/{limit})."
 
         elif action_type in ("instagram_reel", "instagram_reels"):
+            if not config.INSTAGRAM_ENABLED:
+                return False, "Instagram automation is disabled via INSTAGRAM_ENABLED=false."
             limit = self.caps.get("instagram_reels", 2)
-            if today_counts.get("instagram_reels", 0) >= limit:
+            if limit > 0 and today_counts.get("instagram_reels", 0) >= limit:
                 return False, f"Instagram daily reel cap reached ({today_counts.get('instagram_reels')}/{limit})."
 
         # Dev.to Technical Articles
         elif action_type == "devto":
+            if not config.DEVTO_ENABLED:
+                return False, "Dev.to automation is disabled via DEVTO_ENABLED=false."
             limit = self.caps.get("devto_articles", 1)
-            if today_counts.get("devto_articles", 0) >= limit:
+            if limit > 0 and today_counts.get("devto_articles", 0) >= limit:
                 return False, f"Dev.to daily cap reached ({today_counts.get('devto_articles')}/{limit}) for 24h freshness."
 
         # Pinterest Pins
         elif action_type == "pinterest":
+            if not config.PINTEREST_ENABLED:
+                return False, "Pinterest automation is disabled via PINTEREST_ENABLED=false."
             limit = self.caps.get("pinterest_pins", 3)
-            if today_counts.get("pinterest_pins", 0) >= limit:
+            if limit > 0 and today_counts.get("pinterest_pins", 0) >= limit:
                 return False, f"Pinterest daily cap reached ({today_counts.get('pinterest_pins')}/{limit})."
 
         # Threads
         elif action_type == "threads":
-            limit = self.caps.get("threads_posts", 3)
-            if today_counts.get("threads_posts", 0) >= limit:
+            if not config.THREADS_ENABLED:
+                return False, "Threads automation is disabled via THREADS_ENABLED=false."
+            limit = self.caps.get("threads_posts", 5)
+            if limit > 0 and today_counts.get("threads_posts", 0) >= limit:
                 return False, f"Threads daily cap reached ({today_counts.get('threads_posts')}/{limit})."
+
+        elif action_type == "reddit":
+            if not config.REDDIT_ENABLED:
+                return False, "Reddit automation is disabled via REDDIT_ENABLED=false."
+            limit = self.caps.get("reddit_posts", 1)
+            if limit > 0 and today_counts.get("reddit_posts", 0) >= limit:
+                return False, f"Reddit daily cap reached ({today_counts.get('reddit_posts')}/{limit})."
 
         return True, "Approved"
