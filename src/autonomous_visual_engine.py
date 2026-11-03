@@ -64,17 +64,28 @@ def get_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
     return ImageFont.load_default()
 
 
-def request_ai_visual_spec(topic_or_text: str, summary: str = "") -> Dict[str, Any]:
+_LAST_VISUAL_TYPE: Optional[str] = None
+
+def request_ai_visual_spec(topic_or_text: str, summary: str = "", avoid_type: Optional[str] = None) -> Dict[str, Any]:
     """
     Uses Gemini to dynamically plan the visual infographic schema based on the actual post content.
     Returns structured data for the chosen visual template.
     """
     client = genai.Client(api_key=config.GEMINI_API_KEY)
     
+    avoid_instruction = ""
+    if avoid_type:
+        avoid_instruction = f"""
+IMPORTANT VARIETY RULE:
+The previous post already used layout "{avoid_type}".
+To keep our feed visually diverse and prevent repetitive visuals, DO NOT select "{avoid_type}".
+Select between the other two visual types that best fit the topic.
+"""
+
     prompt = f"""You are a Lead AI Research Engineer and Visual Information Designer for NeuBench.
 Topic / Post Content: "{topic_or_text}"
 Summary Context: "{summary}"
-
+{avoid_instruction}
 Analyze this topic and pick the single best visual infographic layout:
 - Choice 1: "BENCHMARK_RACE" -> If the topic compares AI models, inference speed, throughput (TPS), latency (TTFT), or hardware.
 - Choice 2: "CODE_ARCHITECTURE" -> If the topic explains an algorithm, framework, multi-agent design, system flow, or optimization technique.
@@ -629,7 +640,7 @@ def generate_casual_visual_card(
     return png_path, gif_path
 
 
-def generate_visual_for_post(topic_or_text: str, summary: str = "") -> Tuple[str, str]:
+def generate_visual_for_post(topic_or_text: str, summary: str = "", avoid_type: Optional[str] = None) -> Tuple[str, str]:
     """
     Main entry point:
     1. Uses Gemini AI to analyze the specific post topic and generate custom technical layout specifications.
@@ -637,6 +648,7 @@ def generate_visual_for_post(topic_or_text: str, summary: str = "") -> Tuple[str
     3. Dispatches to the corresponding renderer with the AI-generated titles, models, code, or tokens.
     4. Guarantees non-empty (gif_path, mp4_path) with local fallbacks if network fails.
     """
+    global _LAST_VISUAL_TYPE
     import hashlib, re
     raw_slug = re.sub(r'[^a-zA-Z0-9_]', '_', topic_or_text.strip().lower())
     clean_slug = re.sub(r'_+', '_', raw_slug)[:25].strip('_')
@@ -644,8 +656,10 @@ def generate_visual_for_post(topic_or_text: str, summary: str = "") -> Tuple[str
     unique_base_name = f"{clean_slug}_{content_hash}" if clean_slug else f"visual_{content_hash}"
 
     try:
-        spec = request_ai_visual_spec(topic_or_text, summary)
+        effective_avoid = avoid_type or _LAST_VISUAL_TYPE
+        spec = request_ai_visual_spec(topic_or_text, summary, avoid_type=effective_avoid)
         v_type = spec.get("visual_type", "CODE_ARCHITECTURE")
+        _LAST_VISUAL_TYPE = v_type
 
         if v_type == "BENCHMARK_RACE":
             return render_dynamic_benchmark_race(spec, output_base_name=unique_base_name)

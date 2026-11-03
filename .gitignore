@@ -8,6 +8,8 @@ linkedin_session/
 threads_session/
 reddit_session/
 twitter_session/
+instagram_session/
+pinterest_session/
 *.log
 logs/
 daemon.err

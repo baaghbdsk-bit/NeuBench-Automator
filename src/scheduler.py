@@ -1190,8 +1190,19 @@ class AutomaterEngine:
                     app_password=config.BLUESKY_APP_PASSWORD,
                     dry_run=self.safety.dry_run
                 )
-                b_topics = self.hunter.get_linkedin_topics()
-                b_trend = b_topics[0] if b_topics else {"title": "Continuous Speculative Decoding", "summary": "Latency analysis on modern open-weights"}
+                used_bsky = self.tracker.history.get("posted_bluesky_topics", [])
+                available_topics = [t for t in self.hunter.get_linkedin_topics() if t.get("title") not in used_bsky]
+                if available_topics:
+                    b_trend = random.choice(available_topics[:5])
+                else:
+                    b_trend = self.hunter.get_dynamic_ai_topic(used_topics=used_bsky)
+
+                try:
+                    self.tracker.history.setdefault("posted_bluesky_topics", []).append(b_trend.get("title", ""))
+                    self.tracker.save_history()
+                except Exception:
+                    pass
+
                 bsky_take = self.ai.generate_bluesky_take(
                     b_trend["title"],
                     b_trend.get("summary", "")
@@ -1316,10 +1327,10 @@ class AutomaterEngine:
                 if self.safety.dry_run or pin_automater.is_session_available():
                     ig_gen = InstagramCarouselGenerator()
                     dynamic_slides = ig_gen.generate_dynamic_carousel(broadcast_topic)
-                    cover_img = Path(dynamic_slides[0]) if dynamic_slides else None
+                    slides_to_pin = [str(p) for p in dynamic_slides if Path(p).exists()] if dynamic_slides else []
 
-                    if cover_img and cover_img.exists():
-                        console.print(f"[bold magenta]📌 Publishing Pin to Pinterest: {b_title[:60]}...[/bold magenta]")
+                    if slides_to_pin:
+                        console.print(f"[bold magenta]📌 Publishing {len(slides_to_pin)}-Slide Carousel Pin to Pinterest: {b_title[:60]}...[/bold magenta]")
                         p_desc = f"{b_title}\n\n{b_summary}\n\n💡 Pro-Tip: {b_pro_tip}\n\nLive AI Benchmarks: https://neubench.netlify.app\n\n#AI #Tech #MachineLearning"
                         pin_reservation, pin_reason = self._reserve_platform(
                             "pinterest",
@@ -1332,7 +1343,7 @@ class AutomaterEngine:
                             p_ok, p_msg = False, pin_reason
                         else:
                             p_ok, p_msg = pin_automater.create_pin(
-                                image_path=str(cover_img),
+                                image_path=slides_to_pin,
                                 title=f"{b_title} • AI Cheatsheet"[:80],
                                 description=p_desc,
                                 link="https://neubench.netlify.app"

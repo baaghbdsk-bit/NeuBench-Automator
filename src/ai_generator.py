@@ -462,7 +462,12 @@ Formatting & Algorithmic Rules:
 6. Output ONLY the raw post text.
 """
         text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.94).strip('"').strip()
-        return append_hashtags(text, ["#Relatable"], max_len=300)
+        import re
+        # Strictly remove any URLs and NeuBench branding from casual Threads takes
+        clean = re.sub(r'https?://\S+', '', text).strip()
+        clean = re.sub(r'(?i)\bneubench(\.netlify\.app)?\b', '', clean).strip()
+        clean = re.sub(r'\s+', ' ', clean).strip()
+        return append_hashtags(clean, ["#Relatable"], max_len=300)
 
     def generate_casual_threads_take(self, title: str = "", summary: str = "") -> str:
         """Explicit casual Threads take generator."""

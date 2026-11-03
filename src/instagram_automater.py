@@ -28,6 +28,28 @@ class InstagramAutomater:
         cookie_file = self.user_data_dir / "cookies.json"
         return cookie_file.exists()
 
+    def _select_crop_ratio(self, page, preferred_ratios: List[str]):
+        """Selects aspect ratio in Instagram web composer to avoid automatic square cropping."""
+        try:
+            crop_trigger = page.locator('div[role="dialog"] svg[aria-label="Select crop"], div[role="dialog"] button:has(svg[aria-label="Select crop"]), div[role="dialog"] svg[aria-label="Crop"]').first
+            if crop_trigger.is_visible(timeout=3000):
+                crop_trigger.click()
+                page.wait_for_timeout(800)
+                selected = False
+                for ratio in preferred_ratios:
+                    opt = page.locator(f'div[role="dialog"] span:text-is("{ratio}"), div[role="dialog"] button:has-text("{ratio}"), div[role="dialog"] div:text-is("{ratio}")').first
+                    if opt.is_visible(timeout=1500):
+                        opt.click()
+                        page.wait_for_timeout(800)
+                        print(f"[InstagramAutomater] ✅ Set aspect ratio to {ratio}")
+                        selected = True
+                        break
+                if not selected:
+                    crop_trigger.click()
+                    page.wait_for_timeout(400)
+        except Exception as ex:
+            print(f"[InstagramAutomater] Aspect ratio selection note: {ex}")
+
     def post_carousel(self, image_paths: List[str], caption: str) -> Tuple[bool, str]:
         """Publishes multi-slide carousel images to Instagram (@neubench)."""
         self.last_outcome_unknown = False
@@ -108,6 +130,9 @@ class InstagramAutomater:
                 file_input.wait_for(state="attached", timeout=15000)
                 file_input.set_input_files(valid_images)
                 page.wait_for_timeout(4000)
+
+                # 3b. Select Original / 4:5 aspect ratio so slides are never cropped
+                self._select_crop_ratio(page, ["Original", "4:5"])
 
                 # 4. First 'Next' button (Top right of dialog: Crop step)
                 next_btn = page.locator('div[role="dialog"] div:text-is("Next"), div[role="dialog"] button:has-text("Next")').last
@@ -257,6 +282,9 @@ class InstagramAutomater:
                         page.wait_for_timeout(1500)
                 except Exception:
                     pass
+
+                # 3b. Select 9:16 / Original vertical aspect ratio so Reel is never cropped to square
+                self._select_crop_ratio(page, ["9:16", "Original"])
 
                 # 4. First 'Next' button (Crop/Ratio step)
                 next_btn = page.locator('div[role="dialog"] div:text-is("Next"), div[role="dialog"] button:has-text("Next")').last

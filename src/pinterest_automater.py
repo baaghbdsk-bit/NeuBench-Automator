@@ -2,7 +2,7 @@ import sys
 import time
 import json
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union, List
 from playwright.sync_api import sync_playwright
 import config
 
@@ -29,13 +29,13 @@ class PinterestAutomater:
 
     def create_pin(
         self,
-        image_path: str,
+        image_path: Union[str, List[str]],
         title: str,
         description: str,
         link: str = "https://neubench.netlify.app",
         board_name: Optional[str] = "Social"
     ) -> Tuple[bool, str]:
-        """Uploads an image as a Pin on Pinterest with title, description, and website destination link."""
+        """Uploads an image or multi-slide carousel as a Pin on Pinterest with title, description, and website destination link."""
         self.last_outcome_unknown = False
         self.last_message = ""
         if self.dry_run:
@@ -45,9 +45,14 @@ class PinterestAutomater:
         if not self.is_session_available():
             return False, "Pinterest session not authenticated. Run 'python main.py login-pinterest'."
 
-        img_file = Path(image_path).resolve()
-        if not img_file.exists():
-            return False, f"Image file not found: {image_path}"
+        if isinstance(image_path, (list, tuple)):
+            valid_files = [str(Path(p).resolve()) for p in image_path if Path(p).exists()]
+        else:
+            p_res = Path(image_path).resolve()
+            valid_files = [str(p_res)] if p_res.exists() else []
+
+        if not valid_files:
+            return False, f"Image file(s) not found: {image_path}"
 
         cookie_file = self.user_data_dir / "cookies.json"
 
@@ -82,11 +87,18 @@ class PinterestAutomater:
                 if "login" in page.url:
                     return False, "Pinterest session expired or invalid. Please re-run 'python main.py login-pinterest'."
 
-                # 1. Upload Pin media
-                print(f"[PinterestAutomater] Uploading pin image: {img_file.name}...")
+                # 1. Upload Pin media (single image or multi-slide carousel)
                 file_input = page.locator("input[type='file']").first
                 file_input.wait_for(state="attached", timeout=15000)
-                file_input.set_input_files(str(img_file))
+                if len(valid_files) > 1:
+                    print(f"[PinterestAutomater] Uploading {len(valid_files)} carousel slides...")
+                    try:
+                        file_input.set_input_files(valid_files)
+                    except Exception:
+                        file_input.set_input_files(valid_files[0])
+                else:
+                    print(f"[PinterestAutomater] Uploading pin image: {Path(valid_files[0]).name}...")
+                    file_input.set_input_files(valid_files[0])
                 page.wait_for_timeout(3000)
 
                 # 2. Enter Title

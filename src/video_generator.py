@@ -74,16 +74,18 @@ class VideoGenerator:
                     last_img = Path(scene_images[-1][0]).resolve().as_posix()
                     f.write(f"file '{last_img}'\n")
 
+            total_scene_dur = min(sum(dur for _, dur in scene_images), 58.0) if scene_images else 55.0
+
             cmd = [
                 "ffmpeg", "-y",
                 "-f", "concat",
                 "-safe", "0",
                 "-i", str(concat_file),
                 "-i", str(audio_path),
+                "-t", f"{total_scene_dur:.2f}",
                 "-c:v", "libx264",
                 "-pix_fmt", "yuv420p",
                 "-c:a", "aac",
-                "-shortest",
                 "-preset", "ultrafast",
                 "-r", "24",
                 str(output_path)
@@ -238,14 +240,15 @@ class VideoGenerator:
         solution = topic_data.get("solution", "Dynamic routing and memory optimization accelerate throughput.")
         pro_tip = topic_data.get("pro_tip", "Always benchmark real latency on live workloads.")
         narration = topic_data.get("narration")
-        if not narration or len(narration.split()) < 35:
+        if not narration or len(narration.split()) < 60:
             narration = (
                 f"In this engineering breakdown, we analyze {title}. "
                 f"{summary}. "
-                f"Why does this matter in production? {problem}. "
-                f"The architectural unlock is {solution}. "
-                f"As a production engineering rule: {pro_tip}. "
-                f"Continuous 260-plus model evaluations are benchmarked live on NeuBench at neubench.netlify.app."
+                f"Why does this matter so much for production deployments? "
+                f"Under conventional architectures, {problem}. As batch throughput scales, memory transfer creates a severe latency bottleneck. "
+                f"The core technical unlock is {solution}. This achieves dramatic acceleration without degrading precision. "
+                f"Here is your production engineering rule: {pro_tip}. "
+                f"To inspect live latency, memory, and token economics across 260-plus frontier models, explore NeuBench at neubench.netlify.app."
             )
 
         slug = re.sub(r'[^a-zA-Z0-9]+', '_', title.lower()).strip('_')[:40]
@@ -317,14 +320,14 @@ class VideoGenerator:
         ]
 
         try:
-            # 1. Synthesize voiceover with 45s timeout
+            # 1. Synthesize voiceover with 60s timeout
             async def _timed_synth():
                 await self._synthesize_speech(narration, audio_path)
-            asyncio.run(asyncio.wait_for(_timed_synth(), timeout=45.0))
+            asyncio.run(asyncio.wait_for(_timed_synth(), timeout=60.0))
 
-            # 2. Match scene durations to synthesized audio length
+            # 2. Match scene durations to synthesized audio length (targeting 50-60s)
             audio_dur = self._get_audio_duration(audio_path)
-            total_dur = max(audio_dur, 32.0)
+            total_dur = min(max(audio_dur, 48.0), 59.0)
             d1 = round(total_dur * 0.22, 1)
             d2 = round(total_dur * 0.28, 1)
             d3 = round(total_dur * 0.28, 1)

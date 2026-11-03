@@ -210,19 +210,23 @@ class ThreadsAutomater:
                 editor_selectors = [
                     'div[role="dialog"] div[contenteditable="true"]',
                     'div[contenteditable="true"][role="textbox"]',
+                    'div[data-lexical-editor="true"]',
+                    'p[data-placeholder]',
                     'div[contenteditable="true"]',
                     'div[role="textbox"]'
                 ]
                 editor = None
-                for sel in editor_selectors:
-                    ed = page.locator(sel).first
-                    if ed.count() > 0 and ed.is_visible():
-                        editor = ed
+                for _ in range(15):
+                    for sel in editor_selectors:
+                        ed = page.locator(sel).first
+                        if ed.count() > 0 and ed.is_visible():
+                            editor = ed
+                            break
+                    if editor:
                         break
+                    page.wait_for_timeout(500)
 
                 if not editor:
-                    return False, "Could not locate Threads text editor."
-
                     return False, "Could not locate Threads text editor."
 
                 editor.click()
