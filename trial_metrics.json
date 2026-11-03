@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T08:02:07.051068+00:00",
+    "last_updated": "2026-11-03T09:03:39.045730+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 429,
-    "original_posts_attempted": 66,
-    "original_posts_succeeded": 58,
+    "total_cycles_executed": 432,
+    "original_posts_attempted": 67,
+    "original_posts_succeeded": 59,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 47,
     "failed_operations": 24,
-    "ai_generation_requests": 135,
+    "ai_generation_requests": 136,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T23:03:34.878927+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Everyone\u2019s obsessed with raw compute and parameter counts, but when real-world p",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-10-31T23:03:59.117581+00:00",
-      "action_type": "pinterest_pin",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Pinterest Visual Pin",
-      "content_preview": "People keep throwing billions at raw compute while completely ignoring that memo",
-      "reason": "",
-      "duration_s": 15.0
-    },
-    {
-      "timestamp": "2026-11-01T00:03:01.053947+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "OpenAI reportedly lowers funding target for new round",
-      "content_preview": "The AI bubble is leaking air much faster than anyone in Silicon Valley wants to admit. Turns out burning billions on vib",
-      "reason": "",
-      "duration_s": 80.07
-    },
     {
       "timestamp": "2026-11-01T00:03:03.072257+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1488,36 @@
       "content_preview": "wild how we keep inventing elaborate enterprise names like \"CoworkOS\" just to avoid admitting our actual job is now baby",
       "reason": "",
       "duration_s": 25.65
+    },
+    {
+      "timestamp": "2026-11-03T09:03:13.922424+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
+      "content_preview": "we are really out here inventing 2004 technology like it\u2019s a web3 breakthrough. next y'all are gonna drop a hot new star",
+      "reason": "",
+      "duration_s": 84.39
+    },
+    {
+      "timestamp": "2026-11-03T09:03:15.493509+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Fascinating intersection of legacy optical storage and deterministic physical rendering. Burn-side image modulation requ",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-03T09:03:39.045695+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "we are really out here inventing software to burn custom anime waifus onto physi",
+      "reason": "",
+      "duration_s": 15.0
     }
   ]
 }
