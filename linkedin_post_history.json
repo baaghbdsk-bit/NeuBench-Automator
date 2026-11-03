@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-03T20:14:53.660441+00:00",
+  "last_success_at": "2026-11-03T23:26:35.883073+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -29,11 +29,21 @@
       "status": "success",
       "posted_at": "2026-11-03T20:14:53.660441+00:00",
       "post_urn": "urn:li:ugcPost:7523477819604287488"
+    },
+    {
+      "topic_key": "url:https://huggingface.co/papers/2611.02112",
+      "title": "Order-Only On-Policy Distillation",
+      "url": "https://huggingface.co/papers/2611.02112",
+      "content_hash": "bef27322a6824af4c5c3557149f9f367",
+      "status": "success",
+      "posted_at": "2026-11-03T23:26:35.883073+00:00",
+      "post_urn": "urn:li:ugcPost:7523526068436164608"
     }
   ],
   "posted_titles": [
     "li:Can Large Language Model Agents Learn by Watching Tutorial Videos?",
     "li:Google will let schools disable its AI tools, but not without sacrificing Search",
-    "li:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?"
+    "li:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
+    "li:Order-Only On-Policy Distillation"
   ]
 }
