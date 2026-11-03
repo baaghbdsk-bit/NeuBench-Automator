@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T03:02:17.679210+00:00",
+    "last_updated": "2026-11-03T03:46:27.872840+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 422,
+    "total_cycles_executed": 423,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 46,
     "failed_operations": 24,
-    "ai_generation_requests": 130,
+    "ai_generation_requests": 131,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T22:03:02.891834+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours analyzing the data and running cross-comparisons on App State ",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T22:03:32.617039+00:00",
       "action_type": "threads_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nYou can have the most advanced neural network architecture in the world, ",
       "reason": "",
       "duration_s": 28.66
+    },
+    {
+      "timestamp": "2026-11-03T03:46:27.872495+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nMost beginners think building AI is about writing complex algorithms. \nIn",
+      "reason": "",
+      "duration_s": 28.37
     }
   ]
 }
