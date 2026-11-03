@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T06:41:24.290597+00:00",
+    "last_updated": "2026-11-03T07:02:06.806462+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 427,
+    "total_cycles_executed": 428,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 47,
     "failed_operations": 24,
-    "ai_generation_requests": 133,
+    "ai_generation_requests": 134,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T23:03:08.527411+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "Forget raw FLOPS. When scaling inference on modern hardware, memory bandwidth and latency are the real bottlenecks. Stop",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-10-31T23:03:11.758551+00:00",
       "action_type": "linkedin_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "I spent 40+ hours evaluating geopolitical stress testing and defense telemetry through NeuBench. Here is the 1-page visu",
       "reason": "",
       "duration_s": 4.23
+    },
+    {
+      "timestamp": "2026-11-03T07:02:06.806432+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "paying full price for an LLM API just to watch it bottleneck 40% slower depending on which cloud it\u2019s sitting on is peak",
+      "reason": "",
+      "duration_s": 25.73
     }
   ]
 }
