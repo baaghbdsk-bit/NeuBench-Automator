@@ -1169,6 +1169,11 @@ class AutomaterEngine:
         )
         if success:
             console.print("[bold green]✅ Successfully published tweet on 𝕏![/bold green]")
+            try:
+                self.tracker.history.setdefault("posted_tweets", []).append(selected_trend["title"])
+                self.tracker.save_history()
+            except Exception:
+                pass
         else:
             console.print("[yellow]⚠️ 𝕏 post could not be published. Continuing with remaining platforms...[/yellow]")
 
@@ -1271,6 +1276,11 @@ class AutomaterEngine:
                     )
                 if th_ok:
                     console.print("[bold magenta]🧵 Also published to Threads (@neubench)![/bold magenta]")
+                    try:
+                        self.tracker.history.setdefault("posted_tweets", []).append(f"th:{c_topic['title']}")
+                        self.tracker.save_history()
+                    except Exception:
+                        pass
                     self.tracker.record_event(
                         action_type="threads_post",
                         status="success",
@@ -1284,11 +1294,17 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Threads dispatch note: {e}[/dim]")
 
-        # Fetch dynamic AI topic for visual/video syndication
-        broadcast_topic = self.hunter.get_dynamic_ai_topic()
+        # Fetch dynamic AI topic for visual/video syndication (deduped across runs)
+        used_ai = self.tracker.history.get("posted_ai_topics", [])
+        broadcast_topic = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         b_title = broadcast_topic.get("title", "AI Systems")
         b_summary = broadcast_topic.get("summary", "")
         b_pro_tip = broadcast_topic.get("pro_tip", "")
+        try:
+            self.tracker.history.setdefault("posted_ai_topics", []).append(b_title)
+            self.tracker.save_history()
+        except Exception:
+            pass
 
         # 5. Cross-post to Pinterest Pin (Dynamic Cheatsheet)
         try:
@@ -2146,7 +2162,8 @@ class AutomaterEngine:
         from src.youtube_automater import YouTubeAutomater
         from src.video_generator import VideoGenerator
 
-        topic_data = self.hunter.get_dynamic_ai_topic()
+        used_ai = self.tracker.history.get("posted_ai_topics", [])
+        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         topic_title = topic_data.get("title", "AI Concept")
         title = f"{topic_title} Explained #Shorts"[:90]
         desc = (
@@ -2276,7 +2293,8 @@ class AutomaterEngine:
         from src.instagram_carousel import InstagramCarouselGenerator
         from src.instagram_automater import InstagramAutomater
 
-        topic_data = self.hunter.get_dynamic_ai_topic()
+        used_ai = self.tracker.history.get("posted_ai_topics", [])
+        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         topic_title = topic_data.get("title", "AI Concept")
 
         automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
@@ -2359,7 +2377,8 @@ class AutomaterEngine:
         console.print("[bold magenta]📝 Mode: Dev.to Deep-Dive Article Publishing[/bold magenta]")
         from src.devto_automater import DevToAutomater
 
-        topic_data = self.hunter.get_dynamic_ai_topic()
+        used_ai = self.tracker.history.get("posted_ai_topics", [])
+        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         topic_title = topic_data.get("title", "AI Architecture")
         title = f"{topic_title}: Deep Dive & Engineering Breakdown"
 
@@ -2437,7 +2456,8 @@ class AutomaterEngine:
         from src.pinterest_automater import PinterestAutomater
         from src.instagram_carousel import InstagramCarouselGenerator
 
-        topic_data = self.hunter.get_dynamic_ai_topic()
+        used_ai = self.tracker.history.get("posted_ai_topics", [])
+        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         topic_title = topic_data.get("title", "AI Architecture")
 
         pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)

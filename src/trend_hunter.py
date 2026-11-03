@@ -4,7 +4,7 @@ import feedparser
 import requests
 import random
 import re
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 class TrendHunter:
     """Discovers viral, debated, and breaking topics across the web 100% free with fast RSS & APIs."""
@@ -264,7 +264,7 @@ class TrendHunter:
         random.shuffle(evergreen_casual)
         return evergreen_casual
 
-    def get_dynamic_ai_topic(self) -> Dict[str, Any]:
+    def get_dynamic_ai_topic(self, used_topics: Optional[List[str]] = None) -> Dict[str, Any]:
         """
         Picks a random foundational or frontier AI topic (terminology, architecture, concept, or news)
         with structured components ready for Carousel slides, Shorts voiceover, and Pinterest infographics.
@@ -417,6 +417,12 @@ class TrendHunter:
                     })
         except Exception:
             pass
+
+        if used_topics:
+            used_set = set(t.lower().strip() for t in used_topics)
+            unseen = [item for item in ai_concept_bank if item.get("title", "").lower().strip() not in used_set]
+            if unseen:
+                return random.choice(unseen)
 
         return random.choice(ai_concept_bank)
 

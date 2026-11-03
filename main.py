@@ -1,5 +1,6 @@
 import sys
 import subprocess
+import time
 from pathlib import Path
 
 # Auto-switch to virtualenv python if invoked via global python without venv activated
@@ -256,9 +257,11 @@ def main():
     elif args.action in ("omnichannel", "post-all"):
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
-        console.print("[bold cyan]🚀 Triggering Omnichannel Broadcast Across All Platforms...[/bold cyan]")
+        console.print("[bold cyan]🚀 Triggering Omnichannel Broadcast Across All 7 Platforms...[/bold cyan]")
         ok = engine.run_single_cycle(force_action="post")
-        if not ok and not engine.safety.dry_run:
+        console.print("[bold blue]💼 Triggering LinkedIn Dedicated Native Post...[/bold blue]")
+        li_ok = engine.execute_linkedin_custom_post(text=args.text) if args.text else engine._execute_linkedin_post(time.time())
+        if not (ok or li_ok) and not engine.safety.dry_run:
             sys.exit(1)
 
     elif args.action in ("start", "run-once"):
