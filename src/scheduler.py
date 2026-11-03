@@ -1589,8 +1589,28 @@ class AutomaterEngine:
             )
             return False
 
+        media_path = None
+        if not self.safety.dry_run:
+            try:
+                from src.autonomous_visual_engine import generate_visual_for_post
+
+                gif_v, mp4_v = generate_visual_for_post(
+                    selected_trend["title"],
+                    selected_trend.get("summary", ""),
+                )
+                if gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
+                    media_path = gif_v
+                elif mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
+                    media_path = mp4_v
+                if media_path:
+                    console.print(f"[bold magenta]🎬 Bluesky visual attachment: {media_path}[/bold magenta]")
+            except Exception as error:
+                console.print(f"[dim]Bluesky visual generation note: {error}[/dim]")
+        else:
+            console.print("[dim]Bluesky visual: (dynamic visual attachment simulated in dry run)[/dim]")
+
         try:
-            ok, msg = self.bluesky.post(bsky_take)
+            ok, msg = self.bluesky.post(bsky_take, media_path=media_path)
         except Exception as error:
             ok, msg = False, f"Bluesky client error: {error}"
         outcome = self._complete_platform(
@@ -1847,6 +1867,8 @@ class AutomaterEngine:
             first_comm = None
             try:
                 first_comm = self.ai.generate_first_comment_value_drop(selected_trend["title"], li_text)
+                if first_comm:
+                    console.print(f"[bold cyan]💬 LinkedIn First Comment Ready (Zero-Link Body):[/bold cyan] {first_comm[:100]}...")
             except Exception as error:
                 console.print(f"[dim]First-comment generation note: {error}[/dim]")
 

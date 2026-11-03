@@ -304,9 +304,9 @@ class LinkedInAutomater:
         self.last_post_outcome_unknown = False
 
         if self.dry_run:
-
             print(f"[LinkedInAutomater] [DRY RUN] Simulated LinkedIn post: {text[:60]}...")
-
+            if first_comment:
+                print(f"[LinkedInAutomater] [DRY RUN] Simulated first comment: {first_comment[:60]}...")
             return True, f"[DRY RUN] Simulated post ({len(text)} chars)"
 
 
@@ -646,7 +646,24 @@ class LinkedInAutomater:
                 post_btn.click(force=True)
                 page.wait_for_timeout(6000)
 
-
+                if first_comment:
+                    try:
+                        print("[LinkedInAutomater] Posting first comment with value drop...")
+                        comment_btns = page.locator('button[aria-label*="Comment" i], button.comment-button, button:has-text("Comment")')
+                        if comment_btns.count() > 0:
+                            comment_btns.first.click()
+                            page.wait_for_timeout(2000)
+                            comm_box = page.locator('div[role="textbox"][contenteditable="true"], div.ql-editor, div[aria-label*="comment" i]').first
+                            if comm_box.is_visible():
+                                comm_box.fill(first_comment)
+                                page.wait_for_timeout(1000)
+                                submit_comm = page.locator('button.comments-comment-box__submit-button, button:has-text("Comment")').first
+                                if submit_comm.is_visible() and submit_comm.is_enabled():
+                                    submit_comm.click()
+                                    page.wait_for_timeout(3000)
+                                    print("[LinkedInAutomater] ✅ Successfully posted first comment via browser!")
+                    except Exception as ce:
+                        print(f"[LinkedInAutomater] Note on browser first-comment: {ce}")
 
                 print("[LinkedInAutomater] ✅ Successfully published post to LinkedIn!")
 

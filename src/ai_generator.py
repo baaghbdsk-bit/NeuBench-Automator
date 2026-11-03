@@ -23,9 +23,9 @@ SYSTEM_PROMPT = CASUAL_SYSTEM_PROMPT
 
 BLUESKY_SYSTEM_PROMPT = """You are a senior AI research engineer and open-source systems architect writing on Bluesky (AT Protocol).
 Audience: Elite software engineers, distributed systems builders, and AI researchers.
-Tone: Thoughtful, collegial, technically rigorous, and deeply respectful of open-weights & open benchmarks.
+Tone: Thoughtful, collegial, technically rigorous, and deeply respectful of open-weights, local inference, and open benchmarks.
 Values: Real-world latency, inference economics, memory hierarchies, reproducibility, and transparent evaluations.
-Formatting: Clear, concise (under 280 characters), accompanied by technical hashtags (#AI #MachineLearning #OpenSource). Zero cringe, zero clickbait.
+Formatting: Clear, concise (under 280 characters), accompanied by technical hashtags (#AI #MachineLearning #OpenSource #LocalLLMs). Zero corporate fluff, zero hype.
 """
 
 def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> str:
@@ -261,22 +261,22 @@ Rules:
         return append_hashtags(text, ["#AI", "#LLMs", "#Tech"], max_len=278)
 
     def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a professional, technically rigorous post for Bluesky with custom-feed hashtags (under 300 chars)."""
+        """Generates an authoritative, systems/open-weights focused post for Bluesky with AT Protocol custom feed tags (under 300 chars)."""
         link_instruction = (
-            "Include 'https://neubench.netlify.app' creatively at the end (e.g. 'Live benchmarks: https://neubench.netlify.app' or 'Comparing 260+ models on https://neubench.netlify.app')."
+            "Include 'https://neubench.netlify.app' concisely at the end (e.g. 'Benchmarks: https://neubench.netlify.app' or 'Compare live: https://neubench.netlify.app')."
         ) if include_link else "Do not include URLs."
         prompt = f"""
 Topic: "{title}"
 Company/Developer: "{company}"
 Context: "{summary}"
 
-Write an authoritative, professional Bluesky post about this AI architecture or model breakthrough.
+Write an authoritative, developer-first Bluesky post about this AI architecture, open-weights release, or inference milestone.
 Rules:
-- Audience: Senior software engineers, AI systems architects, open-source contributors.
-- Tone: Professional, objective, insightful, and focused on systems design, latency, or model evaluation.
-- Include 2-3 targeted technical hashtags at the end (e.g. #AI #MachineLearning #OpenSource) for custom feeds.
+- Audience: Senior systems engineers, open-source AI developers, and latency optimizers.
+- Tone: Technically sharp, intellectually honest, focused on real engineering trade-offs (VRAM, quantization, latency, inference costs, or architectures). Zero corporate PR fluff.
+- Include 2-3 targeted technical hashtags at the end (#AI #OpenSource #MachineLearning #LocalLLMs) to index into Bluesky's top custom feeds.
 - {link_instruction}
-- Length: strictly under 255 characters so hashtags and links fit within Bluesky's 300-char limit.
+- Length: strictly under 250 characters so hashtags and links fit within Bluesky's 300-char limit.
 - Output ONLY the post text.
 """
         text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72).strip('"').strip()
@@ -286,7 +286,7 @@ Rules:
                 text = f"{text}{suffix}"
             else:
                 text = f"{text[:255 - len(suffix) - 1]}…{suffix}"
-        return append_hashtags(text, ["#AI", "#MachineLearning", "#OpenSource"], max_len=295)
+        return append_hashtags(text, ["#AI", "#OpenSource", "#MachineLearning", "#LocalLLMs"], max_len=295)
 
     def generate_bluesky_sniper_reply(self, target_author: str, target_text: str) -> str:
         """Generates a professional, thoughtful, and technically rigorous reply on Bluesky."""
@@ -304,12 +304,12 @@ Guidelines:
         text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72)
         return text.strip('"').strip()
 
-    def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
+    def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
         """Generates a viral, high-save LinkedIn Technical Cheatsheet & Visual Study Note in the style of top tech creators (90k+ reach playbook)."""
         link_instruction = (
             "Naturally mention our real-time benchmark radar at https://neubench.netlify.app "
             "(e.g., '📊 Tracking real-time latency, token economics, and reasoning scores across 260+ models live on https://neubench.netlify.app')."
-        ) if include_link else ""
+        ) if include_link else "CRITICAL: Do NOT include ANY external links, URLs, or domains in the post body. LinkedIn's 360Brew algorithm cuts post reach by 40% when external links are in the body. The interactive benchmark link is dropped in the first comment."
         prompt = f"""
 Topic / Technology: "{title}"
 Ecosystem / Framework: "{company}"
@@ -347,30 +347,30 @@ Structure:
 3. ⚠️ 3 PRODUCTION PITFALLS / COMMON MISTAKES:
    - 3 numbered, high-signal lessons from real-world engineering (bold takeaway + 1 sentence why most developers get it wrong).
 
-4. 💡 2026 RECOMMENDED STACK (Vertical Flow Only):
+4. 💡 2026 RECOMMENDED ARCHITECTURE / STACK (Vertical Flow Only):
    Example:
    [1] 𝗜𝗻𝗰𝗼𝗺𝗶𝗻𝗴 𝗣𝗿𝗼𝗺𝗽𝘁 (Client / User)
      │
      ▼
-   [2] 𝗡𝗲𝘂𝗕𝗲𝗻𝗰𝗵 𝗜𝗻𝘁𝗲𝗹𝗹𝗶𝗴𝗲𝗻𝘁 𝗥𝗼𝘂𝘁𝗲𝗿
+   [2] 𝗜𝗻𝘁𝗲𝗹𝗹𝗶𝗴𝗲𝗻𝘁 𝗥𝗼𝘂𝘁𝗲𝗿
      ├─► Simple Q&A ➔ Fast Model ($0.14/1M)
      └─► Complex Logic ➔ Heavy Model ($3.00/1M)
      │
      ▼
    [3] 𝗢𝗽𝘁𝗶𝗺𝗶𝘇𝗲𝗱 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 (90% Cost Cut)
 
-5. 📌 SAVE & ENGAGEMENT CTA (Triggers Algorithm Saves & Reposts):
+5. 📌 SAVE & ENGAGEMENT CTA (Triggers Algorithm Saves & Dwell Time):
    - "📌 **Save this post** to reference during your next system design or benchmark review."
-   {link_instruction}
-   - "💬 **Comment 'BENCHMARK' or 'CHEATSHEET' below** and I'll send you the raw PDF comparison sheet."
+   - "💬 **What is your go-to stack for this?** Drop your thoughts below — and check the first comment for the interactive benchmark tracker! 👇"
 
 6. 🏷️ HASHTAGS:
-   - 4-5 high-traffic hashtags (e.g. #ArtificialIntelligence #MachineLearning #LLM #SoftwareEngineering #Python).
+   - 4-5 high-traffic engineering hashtags (e.g. #MachineLearning #ArtificialIntelligence #SoftwareEngineering #LLM #SystemDesign).
 
 Rules:
 - 100% actionable and authentic. Zero corporate fluff, PR marketing buzzwords, or textbook filler.
 - Clean spacing with emojis as bullet points for effortless mobile reading.
 - Maximum line width: 34 characters for any diagram or box so it NEVER wraps on mobile!
+- {link_instruction}
 - Output ONLY the raw post text.
 """
         text = self._generate_with_fallback(
@@ -380,8 +380,12 @@ Rules:
         ).strip('"').strip()
         if include_link and "neubench.netlify.app" not in text:
             text = f"{text}\n\n📊 Tracking real-time latency, cost, and reasoning benchmarks across 260+ models: https://neubench.netlify.app"
+        elif not include_link:
+            # Strip any accidental URLs to guarantee zero link reach penalty from LinkedIn's 360Brew algorithm
+            text = re.sub(r'https?://\S+', '', text).strip()
+            text = re.sub(r'\n{3,}', '\n\n', text)
         cleaned_text = clean_linkedin_formatting(text)
-        return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#LLM", "#TechInnovation", "#GenerativeAI"], max_len=2950)
+        return append_hashtags(cleaned_text, ["#MachineLearning", "#ArtificialIntelligence", "#SoftwareEngineering", "#LLM", "#SystemDesign"], max_len=2950)
 
     def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = True) -> str:
         """Generates an authoritative, mobile-first daily lesson for the 'AI Explained: Zero to Advanced' 90-day master curriculum."""
