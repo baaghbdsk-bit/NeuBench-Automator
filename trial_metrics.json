@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T03:46:27.872840+00:00",
+    "last_updated": "2026-11-03T04:02:13.217633+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 423,
+    "total_cycles_executed": 424,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 46,
     "failed_operations": 24,
-    "ai_generation_requests": 131,
+    "ai_generation_requests": 132,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T22:03:32.617039+00:00",
-      "action_type": "threads_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Threads Community",
-      "content_preview": "Nothing quite like App State vs Ga Southern rivalry week! \ud83c\udfc8\u2728 Who\u2019s taking this o",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T22:03:56.475250+00:00",
       "action_type": "pinterest_pin",
@@ -1518,6 +1508,16 @@
       "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nMost beginners think building AI is about writing complex algorithms. \nIn",
       "reason": "",
       "duration_s": 28.37
+    },
+    {
+      "timestamp": "2026-11-03T04:02:13.217286+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "\ud83c\udf93 [AI Explained: Zero to Advanced \u2014 Day 04/90]\nStop writing complex algorithms. \nIf your data is garbage, your AI will b",
+      "reason": "",
+      "duration_s": 27.35
     }
   ]
 }
