@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T07:02:06.806462+00:00",
+    "last_updated": "2026-11-03T08:02:07.051068+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 428,
+    "total_cycles_executed": 429,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 47,
     "failed_operations": 24,
-    "ai_generation_requests": 134,
+    "ai_generation_requests": 135,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T23:03:11.758551+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent 40+ hours running heavy profiling across 260+ LLM architectures with Neu",
-      "reason": "",
-      "duration_s": 15.0
-    },
     {
       "timestamp": "2026-10-31T23:03:34.878927+00:00",
       "action_type": "threads_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "paying full price for an LLM API just to watch it bottleneck 40% slower depending on which cloud it\u2019s sitting on is peak",
       "reason": "",
       "duration_s": 25.73
+    },
+    {
+      "timestamp": "2026-11-03T08:02:07.051036+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Threads Community",
+      "content_preview": "wild how we keep inventing elaborate enterprise names like \"CoworkOS\" just to avoid admitting our actual job is now baby",
+      "reason": "",
+      "duration_s": 25.65
     }
   ]
 }
