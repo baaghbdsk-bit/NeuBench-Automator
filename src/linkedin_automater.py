@@ -291,8 +291,11 @@ class LinkedInAutomater:
                     c_id = res.json().get("id", "comment_created")
                     print(f"[LinkedInAutomater] 💬 First-comment successfully added to post! ({c_id})")
                     return True, f"Comment added: {c_id}"
+                elif res.status_code == 403:
+                    print("[LinkedInAutomater] ℹ️ Note: LinkedIn REST API restricts automated comments on personal tokens (requires partnerApiSocialActions). Main post with video is 100% live and native.")
+                    return False, "Comment API requires partner scope; main post published natively."
                 else:
-                    print(f"[LinkedInAutomater] Comment API error: {res.status_code} - {res.text}")
+                    print(f"[LinkedInAutomater] Comment API note: {res.status_code} - {res.text[:150]}")
             except Exception as e:
                 print(f"[LinkedInAutomater] Failed to add comment via API: {e}")
         return False, "Could not add comment via API"

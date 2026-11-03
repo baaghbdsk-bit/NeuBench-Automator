@@ -68,7 +68,8 @@
     "New York Times and other outlets sue web browser Brave over alleged content scraping",
     "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
     "bsky:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
-    "th:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?"
+    "th:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
+    "Free dhaniya and mirchi entitlement"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -110,7 +111,45 @@
     "https://x.com/satyanadella/status/2115577764300693644",
     "https://x.com/levelsio/status/2116843791214629021"
   ],
-  "posted_tweet_hashes": [],
+  "posted_tweet_hashes": [
+    "11f42a9ddef263b8808ee39941519feb81f42c6eb9ac12f1324c64ef9bd72035"
+  ],
   "pending_x_actions": [],
-  "platform_history": {}
+  "platform_history": {
+    "bluesky": {
+      "completed": [
+        "post:9f0a70796a3cb58dc0b3bcbfde7413754793532d3a535aa729fa1921ed6b2b7d"
+      ],
+      "pending": []
+    },
+    "threads": {
+      "completed": [],
+      "pending": []
+    },
+    "pinterest": {
+      "completed": [],
+      "pending": [
+        {
+          "reservation_id": "3b895e1b46cb4c78b8515a852f08a16b",
+          "identity": "pin:55961c48e7a0ddfea04146663e05503ef887871701276e849b58c16901874d83",
+          "action_type": "pin",
+          "target": "FlashAttention Explained",
+          "preview": "FlashAttention Explained",
+          "status": "unknown",
+          "reserved_at": "2026-11-03T20:13:31.781434+00:00",
+          "unknown_at": "2026-11-03T20:13:48.349939+00:00",
+          "reason": "Pinterest submission was not confirmed; retry blocked."
+        }
+      ]
+    },
+    "youtube": {
+      "completed": [
+        "short:a5fbf7c41ddc45206e3e26dcb3fe35a882af0b5de6a32b04b9c74e06378a906a"
+      ],
+      "pending": []
+    }
+  },
+  "posted_ai_topics": [
+    "FlashAttention Explained"
+  ]
 }

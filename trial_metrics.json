@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T19:05:20.063405+00:00",
+    "last_updated": "2026-11-03T20:14:53.668421+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 445,
-    "original_posts_attempted": 67,
-    "original_posts_succeeded": 59,
+    "total_cycles_executed": 449,
+    "original_posts_attempted": 68,
+    "original_posts_succeeded": 60,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 49,
     "failed_operations": 26,
-    "ai_generation_requests": 138,
+    "ai_generation_requests": 140,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1618,6 +1618,46 @@
       "content_preview": "Day 04: What is a Dataset? (Inputs, Targets, and Why Data Quality Trumps Code)\n\n90 Days. 90 Concepts",
       "reason": "",
       "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-03T20:12:35.195041+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Free dhaniya and mirchi entitlement",
+      "content_preview": "spending 800 rupees on veggies and standing there silently waiting for the free dhaniya-mirchi like it’s a non-negotiabl",
+      "reason": "",
+      "duration_s": 33.45
+    },
+    {
+      "timestamp": "2026-11-03T20:13:08.014670+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Can LLMs replicate human research taste—deciding what problems actually matter vs. overfitted execution? IdeaTaste bench",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-03T20:14:22.749268+00:00",
+      "action_type": "youtube",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short: FlashAttention Explained",
+      "content_preview": "FlashAttention Explained Explained #Shorts",
+      "reason": "",
+      "duration_s": 30.0
+    },
+    {
+      "timestamp": "2026-11-03T20:14:53.668372+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours analyzing how modern LLMs evaluate scientific ideas. Here is the 1-page visual cheatsheet on 𝗜𝗱𝗲𝗮𝗧𝗮𝘀𝘁𝗲",
+      "reason": "",
+      "duration_s": 30.89
     }
   ]
 }

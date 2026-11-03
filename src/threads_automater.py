@@ -158,41 +158,70 @@ class ThreadsAutomater:
 
 
 
-                # Open composer
+                # Open composer with robust multi-selector fallback
+                trigger = None
+                nav_selectors = [
+                    'svg[aria-label*="Create" i]',
+                    'svg[aria-label*="New post" i]',
+                    'svg[aria-label*="New thread" i]',
+                    'div[role="button"]:has(svg[aria-label*="Create" i])',
+                    'a[href*="/create" i]',
+                    'button:has-text("Create")',
+                    'div[role="button"]:has-text("Create")',
+                ]
+                for sel in nav_selectors:
+                    elem = page.locator(sel).first
+                    if elem.count() > 0 and elem.is_visible():
+                        trigger = elem
+                        break
 
-                trigger = page.get_by_text("What’s new?", exact=False).first
+                if not trigger:
+                    feed_prompts = [
+                        page.get_by_text("What's new?", exact=False).first,
+                        page.get_by_text("What’s new?", exact=False).first,
+                        page.get_by_text("Start a thread", exact=False).first,
+                        page.get_by_text("Say more", exact=False).first,
+                    ]
+                    for p_elem in feed_prompts:
+                        if p_elem.count() > 0 and p_elem.is_visible():
+                            trigger = p_elem
+                            break
 
-                if not trigger.is_visible():
+                if trigger:
+                    try:
+                        clickable = trigger.evaluate_handle("""el => {
+                            let cur = el;
+                            while (cur && cur !== document.body) {
+                                const role = cur.getAttribute && cur.getAttribute('role');
+                                if (role === 'button' || cur.tagName === 'BUTTON' || cur.getAttribute('tabindex') === '0' || cur.tagName === 'A') return cur;
+                                cur = cur.parentElement;
+                            }
+                            return el;
+                        }""")
+                        clickable.click()
+                    except Exception:
+                        trigger.click(force=True)
+                    page.wait_for_timeout(2500)
+                else:
+                    print("[ThreadsAutomater] Trying keyboard shortcut 'c' to open composer...")
+                    page.keyboard.press("c")
+                    page.wait_for_timeout(2500)
 
-                    return False, "Could not locate Threads composer trigger."
+                editor_selectors = [
+                    'div[role="dialog"] div[contenteditable="true"]',
+                    'div[contenteditable="true"][role="textbox"]',
+                    'div[contenteditable="true"]',
+                    'div[role="textbox"]'
+                ]
+                editor = None
+                for sel in editor_selectors:
+                    ed = page.locator(sel).first
+                    if ed.count() > 0 and ed.is_visible():
+                        editor = ed
+                        break
 
-                clickable = trigger.evaluate_handle("""el => {
-
-                    let cur = el;
-
-                    while (cur && cur !== document.body) {
-
-                        const role = cur.getAttribute && cur.getAttribute('role');
-
-                        if (role === 'button' || cur.tagName === 'BUTTON' || cur.getAttribute('tabindex') === '0') return cur;
-
-                        cur = cur.parentElement;
-
-                    }
-
-                    return el;
-
-                }""")
-
-                clickable.click()
-
-                page.wait_for_timeout(2500)
-
-
-
-                editor = page.locator('div[contenteditable="true"]').first
-
-                if not editor.is_visible():
+                if not editor:
+                    return False, "Could not locate Threads text editor."
 
                     return False, "Could not locate Threads text editor."
 
