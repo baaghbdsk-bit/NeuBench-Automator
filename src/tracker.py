@@ -112,7 +112,6 @@ class ActivityTracker:
             "pinterest_pins": 0,
             "threads_posts": 0,
             "bluesky_posts": 0,
-            "reddit_posts": 0,
             "total_actions": 0
         }
         for event in self.metrics.get("recent_events", []):
@@ -143,8 +142,6 @@ class ActivityTracker:
                     counts["threads_posts"] += 1
                 elif atype in ("bluesky", "bluesky_post"):
                     counts["bluesky_posts"] += 1
-                elif atype in ("reddit", "reddit_post"):
-                    counts["reddit_posts"] += 1
         return counts
 
     def record_event(

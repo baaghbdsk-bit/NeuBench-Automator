@@ -80,7 +80,7 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-reddit", "login-threads", "login-instagram", "login-youtube", "login-pinterest", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "reddit", "instagram", "devto", "pinterest", "youtube", "render-video", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"],
+        choices=["login", "login-linkedin", "login-threads", "login-instagram", "login-youtube", "login-pinterest", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "instagram", "devto", "pinterest", "youtube", "render-video", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"],
         help="Action: 'dashboard', 'youtube', 'render-video', 'login-youtube', 'bluesky', 'linkedin', 'threads', 'instagram', 'devto', 'pinterest', 'run-once', 'post', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
@@ -156,11 +156,6 @@ def main():
         from scripts.login_threads import login_threads
         login_threads()
 
-    elif args.action == "login-reddit":
-        from scripts.login_reddit import login_reddit
-        if not login_reddit():
-            sys.exit(1)
-
     elif args.action == "login-instagram":
         from scripts.login_instagram import login_instagram
         login_instagram()
@@ -213,13 +208,6 @@ def main():
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
         ok = engine.run_single_cycle(force_action="threads")
-        if not ok and not engine.safety.dry_run:
-            sys.exit(1)
-
-    elif args.action == "reddit":
-        from src.scheduler import AutomaterEngine
-        engine = AutomaterEngine(dry_run=args.dry_run)
-        ok = engine.run_single_cycle(force_action="reddit")
         if not ok and not engine.safety.dry_run:
             sys.exit(1)
 

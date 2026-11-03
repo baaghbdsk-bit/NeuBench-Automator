@@ -309,6 +309,190 @@ class InstagramCarouselGenerator:
 
         return generated_files
 
+    def generate_dynamic_carousel(self, topic_data: Dict[str, Any]) -> List[str]:
+        """
+        Dynamically renders a high-production 5-slide visual carousel for any AI topic, concept, or terminology.
+        Saves slides into generated_visuals/carousels/{slug}/ and returns file paths.
+        Guaranteed zero blocker: includes robust PIL fallback.
+        """
+        title = topic_data.get("title", "AI Concept")
+        category = topic_data.get("category", "SYSTEMS").upper()
+        tagline = topic_data.get("tagline", "The Core Engineering Paradigm")
+        summary = topic_data.get("summary", "Understanding modern artificial intelligence architecture.")
+        problem = topic_data.get("problem", "Traditional methods face compute and memory bandwidth bottlenecks under heavy loads.")
+        solution = topic_data.get("solution", "Modern optimization transforms data layouts and routing to accelerate throughput.")
+        takeaways = topic_data.get("key_takeaways", [
+            "Optimizes resource utilization and reduces latency.",
+            "Scales efficiently across distributed cluster architectures.",
+            "Benchmarked continuously on frontier workloads."
+        ])
+        while len(takeaways) < 3:
+            takeaways.append("Key engineering milestone in modern AI systems.")
+        pro_tip = topic_data.get("pro_tip", "Always measure real-world throughput and latency before scaling GPU clusters.")
+
+        slug = re.sub(r'[^a-zA-Z0-9]+', '_', title.lower()).strip('_')[:40]
+        out_dir = Path(__file__).resolve().parent.parent / "generated_visuals" / "carousels" / slug
+        out_dir.mkdir(parents=True, exist_ok=True)
+
+        slides_data = [
+            # Slide 1: Cover
+            {
+                "cta": "Swipe to Learn ➔",
+                "html": f"""
+                <div class="category-pill pill-cyan">{category} • DEEP DIVE</div>
+                <h1 class="hero-heading" style="font-size: 52px; line-height: 1.15;">{title}</h1>
+                <div style="font-size: 28px; line-height: 1.5; color: #CBD5E1;">{tagline}</div>
+                <div class="glass-card" style="margin-top: 15px;">
+                  <div style="font-size: 24px; color: #E2E8F0; line-height: 1.55;">{summary}</div>
+                </div>
+                """
+            },
+            # Slide 2: The Bottleneck
+            {
+                "cta": "Swipe for Solution ➔",
+                "html": f"""
+                <div class="category-pill pill-red">THE BOTTLENECK</div>
+                <h1 class="hero-heading" style="font-size: 46px;">Why Traditional Systems Fail</h1>
+                <div class="glass-card">
+                  <div style="font-size: 24px; font-weight: 700; color: #FB7185; margin-bottom: 8px;">The Core Problem</div>
+                  <div style="font-size: 22px; line-height: 1.6; color: #E2E8F0;">{problem}</div>
+                </div>
+                <div class="takeaway-banner">
+                  ⚠️ <b>The Challenge:</b> Modern intelligence requires orders of magnitude more efficiency than brute-force scaling.
+                </div>
+                """
+            },
+            # Slide 3: The Architecture Breakthrough
+            {
+                "cta": "Swipe for Takeaways ➔",
+                "html": f"""
+                <div class="category-pill pill-emerald">HOW IT WORKS</div>
+                <h1 class="hero-heading" style="font-size: 46px;">The Architecture Breakthrough</h1>
+                <div class="glass-card">
+                  <div style="font-size: 24px; font-weight: 700; color: #34D399; margin-bottom: 8px;">The Engineering Solution</div>
+                  <div style="font-size: 22px; line-height: 1.6; color: #E2E8F0;">{solution}</div>
+                </div>
+                <div class="takeaway-banner" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3);">
+                  ⚡ <b>Key Inversion:</b> Re-architecting computation and data movement unlocks massive throughput gains.
+                </div>
+                """
+            },
+            # Slide 4: Core Takeaways
+            {
+                "cta": "Swipe for Cheatsheet ➔",
+                "html": f"""
+                <div class="category-pill pill-cyan">CORE TAKEAWAYS</div>
+                <h1 class="hero-heading" style="font-size: 46px;">What Engineers Must Know</h1>
+                <div class="glass-card">
+                  <div style="font-size: 22px; line-height: 1.65; color: #F1F5F9; display: flex; flex-direction: column; gap: 14px;">
+                    <div>1️⃣ {takeaways[0]}</div>
+                    <div>2️⃣ {takeaways[1]}</div>
+                    <div>3️⃣ {takeaways[2]}</div>
+                  </div>
+                </div>
+                <div class="takeaway-banner">
+                  💡 <b>Pro-Tip:</b> {pro_tip}
+                </div>
+                """
+            },
+            # Slide 5: Summary Cheatsheet
+            {
+                "cta": "📌 Save for Revision",
+                "html": f"""
+                <div class="category-pill pill-cyan">1-PAGE SUMMARY • CHEATSHEET</div>
+                <h1 class="hero-heading" style="font-size: 46px;">{title} Cheatsheet</h1>
+                <div class="glass-card">
+                  <div style="font-size: 22px; line-height: 1.6; color: #CBD5E1;">
+                    <b>Summary:</b> {summary}<br><br>
+                    <b>Engineering Rule:</b> {pro_tip}
+                  </div>
+                </div>
+                <div class="glass-card" style="border-color: #38BDF8; background: rgba(56, 189, 248, 0.08); text-align: center;">
+                  <div style="font-size: 24px; font-weight: 800; color: #38BDF8; margin-bottom: 6px;">Live AI Benchmarks & Evals</div>
+                  <div style="font-size: 20px; color: #F8FAFC;">Track latency, throughput & costs across 260+ models on <b>neubench.netlify.app</b></div>
+                </div>
+                """
+            }
+        ]
+
+        # Try Playwright rendering
+        try:
+            generated_files = []
+            total_slides = len(slides_data)
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                page = browser.new_page(viewport={"width": 1080, "height": 1350})
+
+                for idx, slide in enumerate(slides_data, start=1):
+                    cta = slide.get("cta", "Swipe to Learn ➔" if idx < total_slides else "📌 Save for Revision")
+                    full_html = HTML_TEMPLATE.format(
+                        series_title=f"AI Concepts • {category}",
+                        current_slide=f"{idx:02d}",
+                        total_slides=f"{total_slides:02d}",
+                        content_html=slide["html"],
+                        cta_text=cta
+                    )
+                    page.set_content(full_html)
+                    page.wait_for_timeout(700)
+                    output_path = out_dir / f"slide_{idx:02d}.png"
+                    page.screenshot(path=str(output_path), type="png")
+                    generated_files.append(str(output_path))
+                browser.close()
+
+            if len(generated_files) == 5:
+                return generated_files
+        except Exception as e:
+            print(f"[InstagramCarousel] Playwright dynamic render note: {e}, using PIL fallback.")
+
+        # Robust PIL fallback
+        return self._render_dynamic_slides_pil_fallback(out_dir, title, category, summary, takeaways, pro_tip)
+
+    def _render_dynamic_slides_pil_fallback(self, out_dir: Path, title: str, category: str, summary: str, takeaways: List[str], pro_tip: str) -> List[str]:
+        """PIL emergency fallback to render 5 1080x1350 dark mode carousel slides."""
+        from PIL import Image, ImageDraw, ImageFont
+        import textwrap
+
+        slides_info = [
+            ("AI DEEP DIVE", title, summary, "Swipe to Learn ➔"),
+            ("THE BOTTLENECK", "Why Traditional Systems Fail", "Modern AI workloads encounter severe compute and memory bandwidth bottlenecks under scaling.", "Swipe for Solution ➔"),
+            ("HOW IT WORKS", "The Engineering Mechanism", "Dynamic architectures reorganize compute graphs and memory hierarchies to boost token throughput.", "Swipe for Takeaways ➔"),
+            ("CORE TAKEAWAYS", "What Engineers Must Know", "\n\n".join(f"{i+1}. {t}" for i, t in enumerate(takeaways[:3])), "Swipe for Cheatsheet ➔"),
+            ("1-PAGE CHEATSHEET", f"{title} Summary", f"{summary}\n\nPro-Tip: {pro_tip}\n\nLive Benchmarks: neubench.netlify.app", "📌 Save for Revision")
+        ]
+
+        files = []
+        for idx, (pill, heading, body_text, cta) in enumerate(slides_info, start=1):
+            img = Image.new("RGB", (1080, 1350), color=(10, 15, 30))
+            draw = ImageDraw.Draw(img)
+
+            # Glowing top and bottom accents
+            draw.rectangle([0, 0, 1080, 12], fill=(56, 189, 248))
+            draw.rectangle([0, 1338, 1080, 1350], fill=(99, 102, 241))
+
+            # Header pill
+            draw.rectangle([70, 70, 400, 125], fill=(20, 35, 60), outline=(56, 189, 248), width=2)
+            draw.text((95, 85), f"⚡ {pill}", fill=(56, 189, 248))
+            draw.text((920, 85), f"{idx:02d}/05", fill=(148, 163, 184))
+
+            # Heading
+            wrapped_heading = textwrap.fill(heading, width=30)
+            draw.text((70, 220), wrapped_heading, fill=(248, 250, 252))
+
+            # Card
+            draw.rectangle([70, 480, 1010, 1150], fill=(15, 23, 42), outline=(71, 85, 105), width=2)
+            wrapped_body = textwrap.fill(body_text, width=42)
+            draw.text((105, 520), wrapped_body, fill=(226, 232, 240))
+
+            # Footer
+            draw.text((70, 1220), "NeuBench • Continuous AI Evals", fill=(148, 163, 184))
+            draw.text((750, 1220), cta, fill=(56, 189, 248))
+
+            out_path = out_dir / f"slide_{idx:02d}.png"
+            img.save(str(out_path))
+            files.append(str(out_path))
+
+        return files
+
     def build_day1_sample(self) -> List[str]:
         return self.generate_day_carousel(1)
 

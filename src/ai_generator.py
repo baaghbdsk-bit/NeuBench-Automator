@@ -5,19 +5,17 @@ from google import genai
 from google.genai import types
 import config
 
-SYSTEM_PROMPT = """You are a chronically online, witty, sharp, and unfiltered internet native on X (Twitter) and Meta Threads.
-You actively participate in heated debates across tech, startup drama, work culture, and current events.
-Your sole mission: MAXIMUM ENGAGEMENT, VIRALITY, HEATED DISCUSSIONS, AND QUOTE-TWEETS. "NO CAP" — completely authentic, relatable, contrarian, and bold.
+CASUAL_SYSTEM_PROMPT = """You are a chronically online, witty, relatable, and hilarious everyday person posting on X (Twitter) and Meta Threads.
+Your profile is strictly CASUAL everyday thoughts, relatable human quirks, internet culture, and observational humor. NOT TECH-RELATED.
 
-CRITICAL RULES FOR HEATED DEBATES & CASUAL TONE:
-1. NEVER SOUND CORPORATE OR AI-GENERATED: Zero PR speak, zero generic praise, zero buzzwords ("game-changer", "delve", "tapestry", "buckle up", "here's why", "fascinating", "in conclusion").
-2. REAL PERSON TYPING ON MOBILE: Write like someone tweeting during their commute or arguing in a thread at 1 AM. Use casual punctuation, lowercase starts when natural, punchy 1-liners, relatable sarcasm, rhetorical questions, and blunt observations.
-3. TAKE AN OPINIONATED STANCE IN EVERY DEBATE:
-   - Polarizing hot takes ("Unpopular opinion:", "People are totally blind to this...", "Can we stop pretending that...")
-   - Sarcastic roasts of corporate & tech bro tropes (70-hour hustle culture, meetings that could be emails, VC hype, AI wrapper companies, rent/commute struggles)
-   - Spark passionate agreement or disagreement: Leave an open provocation that compels people to quote-tweet or reply.
-4. HASHTAGS: Append 1-3 targeted hashtags (#AI #Tech #Startup #Debate) cleanly at the very end of standalone posts so the post enters algorithmic search streams without cluttering the hook.
+CRITICAL RULES:
+1. STRICTLY ZERO TECH / ZERO AI / ZERO CODING: Never mention AI, LLMs, machine learning, Python, GPUs, frameworks, benchmarks, or software companies.
+2. 100% REAL HUMAN VOICE: Write like someone tweeting from the couch or venting to friends. Zero PR speak, zero corporate buzzwords. Punchy 1-liners, lowercase starts when natural, casual punctuation.
+3. RELATABLE EVERYDAY THEMES: Coffee habits, sleep deprivation, weekend vs Monday standup, grocery shopping delusions, gym procrastination, chaotic group chats, awkward social moments, funny existential thoughts.
+4. HASHTAGS: At most 1-2 casual tags (#Relatable #Mood #Life #Thoughts) or none at all. NEVER use tech hashtags like #AI or #Tech.
 """
+
+SYSTEM_PROMPT = CASUAL_SYSTEM_PROMPT
 
 BLUESKY_SYSTEM_PROMPT = """You are a senior AI research engineer and open-source systems architect writing on Bluesky (AT Protocol).
 Audience: Elite software engineers, distributed systems builders, and AI researchers.
@@ -152,51 +150,55 @@ class AIGenerator:
         raise RuntimeError(f"All Gemini models failed: {last_error}")
 
     def generate_hot_take(self, topic: str, context: str = "") -> str:
-        """Generates an original high-engagement polarizing hot take with relevant hashtags."""
+        """Generates an original, witty, highly relatable casual tweet for X."""
         prompt = f"""
-Trending topic: "{topic}"
+Everyday Topic: "{topic}"
 Context: "{context}"
 
-Write ONE punchy, controversial or thought-provoking tweet about this topic.
-The tweet must trigger people to reply in the comments (either to agree strongly or disagree passionately).
-Include 1-2 relevant, high-traffic hashtags at the end (e.g. #AI #Tech) to maximize reach.
-Output ONLY the raw tweet text. Total length strictly under 260 characters.
+Write ONE punchy, funny, or brutally relatable tweet about this everyday life topic.
+Rules:
+- Strictly NON-TECH. Focus on relatable human habits, modern life quirks, coffee, procrastination, or existential humor.
+- Sounds like an authentic human tweeting on mobile.
+- Make people want to quote-tweet or reply saying "literally me".
+- Output ONLY the raw tweet text under 220 characters.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.9).strip('"').strip()
-        return append_hashtags(text, ["#AI", "#Tech"], max_len=275)
+        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.9).strip('"').strip()
+        return append_hashtags(text, ["#Relatable", "#Mood"], max_len=260)
+
+    def generate_casual_x_take(self, topic: str = "", context: str = "") -> str:
+        """Explicit casual take generator for X."""
+        return self.generate_hot_take(topic, context)
 
     def generate_sniper_reply(self, target_tweet_author: str, target_tweet_text: str) -> str:
-        """Generates a sharp, witty or contrarian reply to a viral tweet."""
+        """Generates a sharp, witty or funny reply to a viral tweet on X."""
         prompt = f"""
-Viral Tweet by @{target_tweet_author}:
+Tweet by @{target_tweet_author}:
 "{target_tweet_text}"
 
-Generate a sharp, witty, or insightful 1-2 sentence reply.
-It must:
+Generate a sharp, witty, or funny 1-sentence reply.
+Rules:
+- Strictly casual, human, and entertaining.
+- Zero tech jargon, zero corporate speak.
 - Stand out in a crowded comment section.
-- Feel 100% human and casual.
-- Provoke users reading the thread to like or reply to your comment.
 - Output ONLY the reply text. Do NOT include @mention or quotes.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.85)
+        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.88)
         return text.strip('"')
 
     def generate_quote_tweet_commentary(self, target_tweet_author: str, target_tweet_text: str) -> str:
-        """Generates sharp, opinionated Quote-Tweet commentary with hashtag for reach."""
+        """Generates sharp, witty casual Quote-Tweet commentary."""
         prompt = f"""
-Viral Tweet by @{target_tweet_author}:
+Tweet by @{target_tweet_author}:
 "{target_tweet_text}"
 
-Generate a punchy, sharp, or witty 1-2 sentence Quote-Tweet commentary.
-It must:
-- Add a unique, polarizing, or cynical angle to the quoted tweet.
-- Make followers want to quote-tweet or debate in your thread.
-- Sound 100% human, confident, and concise (under 160 characters).
-- Include 1 relevant hashtag at the end (e.g. #AI) if space allows.
+Generate a punchy, sharp, or funny 1-sentence Quote-Tweet reaction.
+Rules:
+- Casual, human, observational humor.
+- Under 140 characters.
 - Output ONLY the commentary text. No quotes.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
-        return append_hashtags(text, ["#AI"], max_len=180)
+        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
+        return append_hashtags(text, ["#Relatable"], max_len=180)
 
     def generate_poll_tweet(self, topic: str) -> dict:
         """Generates a poll question and 2-4 options."""
@@ -435,69 +437,64 @@ Rules:
         cleaned_text = clean_linkedin_formatting(text)
         return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#AIEngineering", "#Coding", "#TechEducation"], max_len=2950)
 
-    def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates an ultra-casual, highly relatable discussion post for Threads designed for viral replies and reposts."""
-        link_instruction = (
-            "Naturally drop 'https://neubench.netlify.app' at the very bottom (e.g. 'tested this on https://neubench.netlify.app')."
-        ) if include_link else ""
+    def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
+        """Generates an ultra-casual, highly relatable discussion post for Threads."""
         prompt = f"""
-Topic: "{title}"
+Everyday Topic: "{title}"
 Context: "{summary}"
 
 Write an ultra-casual, relatable, scroll-stopping post for Meta Threads.
-Goal: MAXIMUM ENGAGEMENT & COMMENTS ("no cap" vibe).
+Goal: MAXIMUM ENGAGEMENT & REPLIES ("no cap" everyday human vibe).
 Rules:
-- Write like a real person sharing an honest thought, venting, or asking a juicy question that people can't resist replying to.
-- Relatable angles: dev struggles, tech industry absurdity, career debates, lifestyle vs hustle, AI vs reality.
-- Short paragraphs, super clean spacing.
-- Include 2-3 popular hashtags at the bottom (#Threads #Tech #Developers #AI).
-- {link_instruction}
-- Under 320 characters.
+- Strictly NON-TECH. Focus on everyday human habits, modern life quirks, coffee, adulting, work-from-home absurdity, or procrastination.
+- Write like a real person sharing an honest observation, venting, or asking a juicy question that people can't resist answering.
+- Short punchy lines, clean natural spacing.
+- Under 280 characters.
+- Include 1-2 casual hashtags (#Threads #Relatable #Mood).
+- Strictly NO URLs, NO tech buzzwords.
 - Output ONLY the post text.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
-        if include_link and "neubench.netlify.app" not in text:
-            suffix = "\n\n👉 https://neubench.netlify.app"
-            if len(text) + len(suffix) <= 340:
-                text = f"{text}{suffix}"
-        return append_hashtags(text, ["#Threads", "#Tech", "#Relatable"], max_len=360)
+        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
+        return append_hashtags(text, ["#Threads", "#Relatable"], max_len=320)
 
-    def generate_reddit_post(self, title: str, summary: str = "", company: str = "", subreddit: str = "r/LocalLLaMA", include_link: bool = True) -> dict:
-        """Generates a high-value, community-tailored Reddit post with markdown formatting."""
-        link_str = "\n\n*Benchmarks tracked on [NeuBench](https://neubench.netlify.app) • Open source engine on [GitHub](https://github.com/baaghbdsk-bit/NeuBench-Automator)*" if include_link else ""
+    def generate_casual_threads_take(self, title: str = "", summary: str = "") -> str:
+        """Explicit casual Threads take generator."""
+        return self.generate_threads_take(title, summary)
+
+    def generate_dynamic_technical_article(self, topic_data: dict) -> str:
+        """Generates a high-value, comprehensive technical article for Dev.to based on a dynamic AI topic."""
+        title = topic_data.get("title", "AI Architecture")
+        category = topic_data.get("category", "SYSTEMS")
+        summary = topic_data.get("summary", "")
+        pro_tip = topic_data.get("pro_tip", "")
+        key_takeaways = topic_data.get("key_takeaways", [])
+        takeaways_str = "\n".join(f"- {t}" for t in key_takeaways)
+
         prompt = f"""
 Topic: "{title}"
-Developer/Company: "{company}"
-Context: "{summary}"
-Target Subreddit: "{subreddit}"
+Category: "{category}"
+Overview: "{summary}"
+Key Takeaways:
+{takeaways_str}
+Engineering Pro-Tip: "{pro_tip}"
 
-Write an authentic, highly engaging Reddit post for this subreddit.
+Write a comprehensive, highly educational technical article for senior software engineers on Dev.to.
 Format:
-Return a JSON object with:
-1. "title": An informative, natural Reddit post title (no buzzwords, no clickbait, fits {subreddit} style).
-2. "body": Markdown formatted body with:
-   - **TL;DR:** 1-2 sentence core takeaway.
-   - **Key Findings & Benchmark Analysis:** 2-3 clear analytical paragraphs or bullet points explaining what this means for developers/builders.
-   - **Community Discussion:** 1 provocative question asking the community about their experience or real-world benchmarks.
-   {link_str}
+- Engaging introduction explaining the mental model and why this concept matters.
+- **The Core Architecture & Mechanism**: Deep-dive explanation with clear technical precision.
+- **Python / Pseudo-Code Implementation**: A realistic code snippet illustrating the concept or implementation pattern.
+- **Key Engineering Trade-offs**: Latency vs memory vs throughput vs accuracy analysis.
+- **Production Takeaways & Best Practices**: Actionable advice for engineers deploying in production.
+- Include continuous evaluation note linking to NeuBench (https://neubench.netlify.app) for real-world model latency and cost benchmarks.
 
-Rules:
-- Sound like an active, genuine technical community member. Zero corporate PR fluff.
-- Output ONLY valid JSON with keys "title" and "body".
+Tone: Authoritative, crystal-clear, deep engineering rigor. Zero fluff. Markdown formatted with clean headings (#, ##, ###).
+Output ONLY the markdown article body.
 """
-        raw = self._generate_with_fallback(prompt, "You are a respected technical developer writing on Reddit. Output ONLY valid JSON.", temperature=0.75)
-        try:
-            cleaned = raw.strip()
-            if cleaned.startswith("```json"):
-                cleaned = cleaned[7:-3].strip()
-            elif cleaned.startswith("```"):
-                cleaned = cleaned[3:-3].strip()
-            return json.loads(cleaned)
-        except Exception:
-            return {
-                "title": f"[Discussion] {title}: Benchmark analysis & takeaways",
-                "body": f"**TL;DR:** {summary}\n\nKey analysis on {title} by {company}.\n\nWhat are you seeing in your real-world workloads?{link_str}"
-            }
+        return self._generate_with_fallback(
+            prompt,
+            "You are a distinguished AI systems architect writing for software engineers on Dev.to.",
+            temperature=0.72
+        ).strip('"').strip()
 
 
     def generate_linkedin_comment_reply(self, post_text: str, commenter_name: str, comment_text: str) -> str:

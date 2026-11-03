@@ -52,6 +52,7 @@ scripts/test_*.py
 !scripts/test_post_all.py
 
 cloud_exports/
+generated_visuals/
 
 *.mp4
 *.mp3

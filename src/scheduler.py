@@ -604,7 +604,7 @@ class AutomaterEngine:
 
 
         # 3. Determine action type
-        valid_forces = ("post", "reply", "repost", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "threads-replies", "reddit", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
+        valid_forces = ("post", "reply", "repost", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "threads-replies", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
         if force_action in valid_forces:
             action_choice = force_action
         else:
@@ -695,8 +695,6 @@ class AutomaterEngine:
             return self._execute_devto_post(start_time)
         elif action_choice == "pinterest":
             return self._execute_pinterest_pin(start_time)
-        elif action_choice == "reddit":
-            return self._execute_reddit_post(start_time)
         elif action_choice == "linkedin-replies":
             return self._execute_linkedin_comment_replies(start_time)
         elif action_choice == "linkedin-peers":
@@ -1040,80 +1038,41 @@ class AutomaterEngine:
 
         """Discovers trending topics and posts a polarizing hot take."""
 
-        console.print("[bold magenta]🚀 Mode: Original Debate Hot Take[/bold magenta]")
+        console.print("[bold magenta]🚀 Mode: Casual Relatable Post (X)[/bold magenta]")
 
-
-
-        # X original posts are part of the AI/technology channel. Do not feed
-        # the general Google/BBC trend pool (sports, politics, weather, etc.)
-        # into the NeuBench account.
-        trends = self.hunter.get_linkedin_topics()
+        # X is a casual profile: focus on everyday human humor, coffee, adulting, remote work quirks.
+        trends = self.hunter.get_casual_topics()
 
         if not trends:
-
-            console.print("[red]No trends discovered. Skipping...[/red]")
-
+            console.print("[red]No casual topics discovered. Skipping...[/red]")
             self.tracker.record_event(
-
                 action_type="original_post",
-
                 status="skipped",
-
                 skip_or_error_reason="Trend discovery returned 0 items",
-
                 duration_seconds=time.time() - start_time,
-
                 is_dry_run=self.safety.dry_run
-
             )
-
             return False
 
-
-
-        # Select an unused trend
-
+        # Select an unused topic
         selected_trend = None
-
         for t in trends:
-
             if t["title"] not in self.tracker.history["posted_tweets"]:
-
                 selected_trend = t
-
                 break
 
-
-
         if not selected_trend:
-            reason = "All discovered AI/technology topics are already reserved or published."
-            console.print(f"[yellow]{reason}[/yellow]")
-            self.tracker.record_event(
-                action_type="original_post",
-                status="skipped",
-                target_identifier="X topic dedupe",
-                skip_or_error_reason=reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run,
-            )
-            return False
+            selected_trend = trends[0]
 
-
-
-        console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
+        console.print(f"[bold]Casual Topic:[/bold] {selected_trend['title']}")
 
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
 
         try:
-
-            hot_take = self.ai.generate_hot_take(
-
+            hot_take = self.ai.generate_casual_x_take(
                 selected_trend["title"],
-
-                selected_trend.get("summary", "")
-
+                selected_trend.get("context", selected_trend.get("summary", ""))
             )
-
         except Exception as e:
 
             self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
@@ -1262,21 +1221,19 @@ class AutomaterEngine:
 
         today_counts = self.tracker.get_today_counts()
 
-        # 4. Cross-post to Threads (Independent)
+        # 4. Cross-post to Threads (Casual Profile)
         try:
             from src.threads_automater import ThreadsAutomater
             th_automater = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
             if self.safety.dry_run or th_automater.is_session_available():
-                th_take = self.ai.generate_threads_take(
-                    selected_trend["title"],
-                    selected_trend.get("summary", ""),
-                    company=selected_trend.get("company", "NeuBench")
-                )
+                casual_threads_topics = self.hunter.get_casual_topics()
+                c_topic = casual_threads_topics[0] if casual_threads_topics else {"title": "The Sunday evening shift", "context": "When the weekend evaporates"}
+                th_take = self.ai.generate_casual_threads_take(c_topic["title"], c_topic.get("context", ""))
                 th_reservation, th_reason = self._reserve_platform(
                     "threads",
                     "post",
                     f"post:{stable_hash(th_take)}",
-                    target=selected_trend["title"],
+                    target=c_topic["title"],
                     preview=th_take,
                 )
                 if not self.safety.dry_run and not th_reservation:
@@ -1304,35 +1261,40 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Threads dispatch note: {e}[/dim]")
 
-        # 5. Cross-post to Pinterest Pin (Guarded by quota & fallback to dynamic visual)
+        # Fetch dynamic AI topic for visual/video syndication
+        broadcast_topic = self.hunter.get_dynamic_ai_topic()
+        b_title = broadcast_topic.get("title", "AI Systems")
+        b_summary = broadcast_topic.get("summary", "")
+        b_pro_tip = broadcast_topic.get("pro_tip", "")
+
+        # 5. Cross-post to Pinterest Pin (Dynamic Cheatsheet)
         try:
             can_pin, pin_reason = self.safety.can_perform_action("pinterest", today_counts)
             if can_pin:
                 from src.pinterest_automater import PinterestAutomater
-                from src.series_manager import AISeriesManager
+                from src.instagram_carousel import InstagramCarouselGenerator
                 pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
                 if self.safety.dry_run or pin_automater.is_session_available():
-                    p_topic = AISeriesManager().get_next_unpublished_day()
-                    p_day = p_topic["day"] if p_topic else 3
-                    p_title = p_topic["title"] if p_topic else "How Computers Actually Learn"
-                    cover_img = Path(f"AI_SERIES/CAROUSELS/DAY_{p_day:03d}/slide_01.png")
+                    ig_gen = InstagramCarouselGenerator()
+                    dynamic_slides = ig_gen.generate_dynamic_carousel(broadcast_topic)
+                    cover_img = Path(dynamic_slides[0]) if dynamic_slides else None
 
-                    if cover_img.exists():
-                        console.print(f"[bold magenta]📌 Publishing Pin to Pinterest: {p_title[:60]}...[/bold magenta]")
-                        p_desc = f"{p_title}\n\n{hot_take}\n\nLive AI Benchmarks: https://neubench.netlify.app\n\n#AI #Tech #MachineLearning"
+                    if cover_img and cover_img.exists():
+                        console.print(f"[bold magenta]📌 Publishing Pin to Pinterest: {b_title[:60]}...[/bold magenta]")
+                        p_desc = f"{b_title}\n\n{b_summary}\n\n💡 Pro-Tip: {b_pro_tip}\n\nLive AI Benchmarks: https://neubench.netlify.app\n\n#AI #Tech #MachineLearning"
                         pin_reservation, pin_reason = self._reserve_platform(
                             "pinterest",
                             "pin",
-                            f"pin:{stable_hash(p_title + chr(10) + p_desc)}",
-                            target=p_title,
-                            preview=p_title,
+                            f"pin:{stable_hash(b_title + chr(10) + p_desc)}",
+                            target=b_title,
+                            preview=b_title,
                         )
                         if not self.safety.dry_run and not pin_reservation:
                             p_ok, p_msg = False, pin_reason
                         else:
                             p_ok, p_msg = pin_automater.create_pin(
                                 image_path=str(cover_img),
-                                title=p_title[:80],
+                                title=f"{b_title} • AI Cheatsheet"[:80],
                                 description=p_desc,
                                 link="https://neubench.netlify.app"
                             )
@@ -1348,7 +1310,7 @@ class AutomaterEngine:
                                 action_type="pinterest_pin",
                                 status="success",
                                 target_identifier="Pinterest Visual Pin",
-                                content_preview=p_title[:80],
+                                content_preview=b_title[:80],
                                 duration_seconds=15.0,
                                 is_dry_run=self.safety.dry_run
                             )
@@ -1357,15 +1319,7 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Pinterest broadcast note: {ex}[/dim]")
 
-        # 6. Cross-post to Instagram Carousel (Strict quota check + dynamic fallback)
-        try:
-            from src.series_manager import AISeriesManager
-            broadcast_topic = AISeriesManager().get_next_unpublished_day()
-            current_day = broadcast_topic["day"] if broadcast_topic else 2
-            day_title = broadcast_topic["title"] if broadcast_topic else "AI vs. Machine Learning vs. Deep Learning"
-        except Exception:
-            current_day = 2
-            day_title = "AI vs. Machine Learning vs. Deep Learning"
+        # 6. Cross-post to Instagram Carousel (Dynamic 5-Slide Cheatsheet)
         try:
             can_ig, ig_reason = self.safety.can_perform_action("instagram", today_counts)
             if can_ig:
@@ -1373,22 +1327,25 @@ class AutomaterEngine:
                 from src.instagram_automater import InstagramAutomater
                 ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
                 if self.safety.dry_run or ig_automater.is_session_available():
-                    carousel_dir = Path(f"AI_SERIES/CAROUSELS/DAY_{current_day:03d}")
-                    slides = []
-                    if carousel_dir.exists() and list(carousel_dir.glob("*.png")):
-                        slides = sorted([str(p) for p in carousel_dir.glob("*.png")])
-                    else:
-                        ig_gen = InstagramCarouselGenerator()
-                        slides = ig_gen.generate_day_carousel(current_day)
+                    ig_gen = InstagramCarouselGenerator()
+                    slides = ig_gen.generate_dynamic_carousel(broadcast_topic)
 
                     if slides:
-                        console.print(f"[bold magenta]📸 Publishing Day {current_day:02d} Carousel to Instagram (@neubench)...[/bold magenta]")
-                        ig_caption = f"Day {current_day:02d}: {day_title}\n\n{hot_take}\n\n90 Days. 90 Concepts. One AI Journey. 🎓\n\n📌 Save for revision!\n📊 Live 260+ model benchmarks: neubench.netlify.app\n\n#AI #MachineLearning #DeepLearning #AIEngineering #Coding"
+                        console.print(f"[bold magenta]📸 Publishing Dynamic Carousel to Instagram: {b_title}...[/bold magenta]")
+                        ig_caption = (
+                            f"🧠 {b_title} • Engineering Cheatsheet\n\n"
+                            f"⚡ {b_summary}\n\n"
+                            "Swipe through the 1-page breakdown ➡️\n\n"
+                            f"💡 Pro-Tip: {b_pro_tip}\n\n"
+                            "📌 Save for revision!\n"
+                            "📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
+                            "#AI #MachineLearning #DeepLearning #AIEngineering #Coding"
+                        )
                         ig_reservation, ig_reason = self._reserve_platform(
                             "instagram",
                             "carousel",
-                            f"carousel:{current_day}:{stable_hash(ig_caption)}",
-                            target=f"Day {current_day}",
+                            f"carousel:{stable_hash(b_title + chr(10) + ig_caption)}",
+                            target=b_title,
                             preview=ig_caption,
                         )
                         if not self.safety.dry_run and not ig_reservation:
@@ -1402,12 +1359,12 @@ class AutomaterEngine:
                                 reason=ig_msg,
                             )
                         if ig_ok:
-                            console.print(f"[bold green]✅ Instagram Day {current_day:02d} carousel published![/bold green]")
+                            console.print(f"[bold green]✅ Instagram carousel published![/bold green]")
                             self.tracker.record_event(
                                 action_type="instagram_carousel",
                                 status="success",
-                                target_identifier=f"Instagram Carousel Day {current_day}",
-                                content_preview=f"Day {current_day}: {day_title}",
+                                target_identifier=f"Instagram Carousel: {b_title}",
+                                content_preview=b_title,
                                 duration_seconds=20.0,
                                 is_dry_run=self.safety.dry_run
                             )
@@ -1416,43 +1373,35 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Instagram broadcast note: {ex}[/dim]")
 
-        # 7. Cross-post to Instagram Reel (Guarded against duplicate videos & quota enforced)
+        # 7. Cross-post to Instagram Reel (Dynamic Video)
         try:
             can_reel, reel_reason = self.safety.can_perform_action("instagram_reel", today_counts)
             if can_reel:
                 from src.instagram_automater import InstagramAutomater
+                from src.video_generator import VideoGenerator
                 ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
                 if self.safety.dry_run or ig_automater.is_session_available():
-                    reel_video = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4")
-                    
-                    if reel_video.exists():
-                        reel_caption = (
-                            f"Day {current_day:02d}: {day_title}\n\n"
-                            f"{hot_take}\n\n"
-                            f"90 Days. 90 Concepts. One AI Journey. 🎓\n\n"
-                            f"📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
-                            "#Reels #AI #MachineLearning #DeepLearning #Coding"
-                        )
-                    else:
-                        # Use dynamic trending visual video instead of reusing older day's video
-                        dyn_video = Path("generated_visuals/benchmark_race_dynamic.mp4")
-                        if mp4_visual and Path(mp4_visual).exists():
-                            dyn_video = Path(mp4_visual)
-                        reel_video = dyn_video
-                        reel_caption = (
-                            f"{selected_trend['title']}\n\n"
-                            f"{hot_take}\n\n"
-                            f"📊 Continuous AI evaluations & benchmarks: neubench.netlify.app\n\n"
-                            "#Reels #AI #Tech #MachineLearning #DeepLearning"
-                        )
+                    vid_gen = VideoGenerator()
+                    v_res = vid_gen.generate_dynamic_short(broadcast_topic, dry_run=self.safety.dry_run)
+                    reel_video = Path(v_res.get("video_path") or "")
+                    if not reel_video.exists() and mp4_visual and Path(mp4_visual).exists():
+                        reel_video = Path(mp4_visual)
+
+                    reel_caption = (
+                        f"⚡ {b_title}\n\n"
+                        f"{b_summary}\n\n"
+                        f"💡 {b_pro_tip}\n\n"
+                        f"📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
+                        "#Reels #AI #MachineLearning #DeepLearning #Coding"
+                    )
 
                     if reel_video.exists():
-                        console.print(f"[bold magenta]🎥 Publishing unique Reel to Instagram (@neubench)...[/bold magenta]")
+                        console.print(f"[bold magenta]🎥 Publishing Reel to Instagram (@neubench)...[/bold magenta]")
                         reel_reservation, reel_reason = self._reserve_platform(
                             "instagram",
                             "reel",
                             f"reel:{stable_hash(reel_caption + chr(10) + str(reel_video))}",
-                            target=f"Day {current_day}",
+                            target=b_title,
                             preview=reel_caption,
                         )
                         if not self.safety.dry_run and not reel_reservation:
@@ -1470,8 +1419,8 @@ class AutomaterEngine:
                             self.tracker.record_event(
                                 action_type="instagram_reel",
                                 status="success",
-                                target_identifier=f"Instagram Reel Day {current_day}",
-                                content_preview=f"Day {current_day}: {day_title}",
+                                target_identifier=f"Instagram Reel: {b_title}",
+                                content_preview=b_title,
                                 duration_seconds=25.0,
                                 is_dry_run=self.safety.dry_run
                             )
@@ -1480,83 +1429,67 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Instagram Reel broadcast note: {ex}[/dim]")
 
-        # 8. Cross-post to YouTube Shorts (Guarded against duplicates & strictly checks daily quota)
+        # 8. Cross-post to YouTube Shorts (Dynamic Short)
         try:
             can_yt, yt_reason = self.safety.can_perform_action("youtube", today_counts)
             if can_yt:
                 from src.youtube_automater import YouTubeAutomater
+                from src.video_generator import VideoGenerator
                 yt_automater = None if self.safety.dry_run else YouTubeAutomater()
                 if self.safety.dry_run:
-                    console.print("[yellow][DRY RUN] Would publish the generated video to YouTube Shorts.[/yellow]")
+                    console.print("[yellow][DRY RUN] Would publish the dynamic video to YouTube Shorts.[/yellow]")
                 elif yt_automater and yt_automater.is_authenticated:
-                    yt_video = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/animated_short_day{current_day}.mp4")
-                    yt_srt = Path(f"AI_SERIES/VIDEOS/DAY_{current_day:03d}/subtitles_day_{current_day:03d}.srt")
-                    
-                    if yt_video.exists():
-                        yt_title = f"Day {current_day:02d}: {day_title} #Shorts"
-                        yt_desc = (
-                            f"Day {current_day:02d} of the 90-Day Master Series: AI Explained: Zero to Advanced.\n\n"
-                            f"{hot_take}\n\n"
-                            f"Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
-                            "#Shorts #AI #MachineLearning #DeepLearning #Coding"
-                        )
-                    else:
-                        dyn_video = Path(f"generated_visuals/benchmark_race_dynamic.mp4")
-                        if mp4_visual and Path(mp4_visual).exists():
-                            dyn_video = Path(mp4_visual)
-                        yt_video = dyn_video
+                    vid_gen = VideoGenerator()
+                    v_res = vid_gen.generate_dynamic_short(broadcast_topic, dry_run=self.safety.dry_run)
+                    yt_video = Path(v_res.get("video_path") or "")
+                    yt_srt = Path(v_res.get("srt_path") or "") if v_res.get("srt_path") else None
+                    if not yt_video.exists() and mp4_visual and Path(mp4_visual).exists():
+                        yt_video = Path(mp4_visual)
                         yt_srt = None
-                        yt_title = f"{selected_trend['title'][:80]} #Shorts"
-                        yt_desc = (
-                            f"{hot_take}\n\n"
-                            f"Continuous AI evaluations & model benchmarks: https://neubench.netlify.app\n\n"
-                            "#Shorts #AI #Tech #MachineLearning #DeepLearning"
-                        )
 
-                    if len(yt_title) > 95:
-                        yt_title = yt_title[:90] + "... #Shorts"
+                    yt_title = f"{b_title} Explained #Shorts"[:90]
+                    yt_desc = (
+                        f"⚡ {b_title}: {b_summary}\n\n"
+                        f"💡 Pro-Tip: {b_pro_tip}\n\n"
+                        f"Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+                        "#Shorts #AI #MachineLearning #DeepLearning #Coding"
+                    )
 
                     if yt_video.exists():
-                        console.print(f"[bold magenta]Publishing unique video to YouTube Shorts: {yt_title}...[/bold magenta]")
-                        yt_reservation, yt_reservation_reason = self._reserve_platform(
+                        console.print(f"[bold magenta]🎬 Uploading Short to YouTube: {yt_title}...[/bold magenta]")
+                        yt_reservation, yt_reason = self._reserve_platform(
                             "youtube",
                             "short",
                             f"short:{stable_hash(yt_title + chr(10) + str(yt_video))}",
-                            target=yt_title,
+                            target=b_title,
                             preview=yt_title,
                         )
-                        if not yt_reservation:
-                            yt_res = None
+                        if not self.safety.dry_run and not yt_reservation:
+                            y_ok, y_msg = False, yt_reason
                         else:
-                            yt_res = yt_automater.upload_short(video_path=str(yt_video), title=yt_title, description=yt_desc, srt_path=str(yt_srt) if (yt_srt and yt_srt.exists()) else None)
+                            yt_res = yt_automater.upload_short(
+                                video_path=str(yt_video),
+                                title=yt_title,
+                                description=yt_desc,
+                                srt_path=str(yt_srt) if yt_srt and yt_srt.exists() else None
+                            )
+                            y_ok = yt_res is not None
                             self._complete_platform(
                                 yt_reservation,
-                                ok=bool(yt_res),
+                                ok=y_ok,
                                 unknown=getattr(yt_automater, "last_outcome_unknown", False),
-                                reason=getattr(yt_automater, "last_message", "YouTube upload failed"),
+                                reason=getattr(yt_automater, "last_message", "YouTube upload error"),
                             )
-                        if yt_res:
-                            console.print(f"[bold green]YouTube Short published: {yt_res['url']}[/bold green]")
+                        if y_ok:
+                            console.print(f"[bold green]✅ YouTube Short live![/bold green]")
                             self.tracker.record_event(
-                                action_type="youtube_short",
+                                action_type="youtube",
                                 status="success",
-                                target_identifier="YouTube Short",
+                                target_identifier=f"YouTube Short: {b_title}",
                                 content_preview=yt_title,
-                                duration_seconds=15.0,
+                                duration_seconds=30.0,
                                 is_dry_run=self.safety.dry_run
                             )
-                            if "Day " in yt_title:
-                                try:
-                                    from src.series_manager import AISeriesManager
-                                    AISeriesManager().record_published_day(
-                                        day=current_day,
-                                        topic_title=day_title,
-                                        content=yt_desc,
-                                        live_url=yt_res.get("url", "")
-                                    )
-                                    console.print(f"[bold cyan]Curriculum progress updated: Day {current_day:02d} recorded![/bold cyan]")
-                                except Exception as p_ex:
-                                    console.print(f"[dim]Progress tracker note: {p_ex}[/dim]")
             else:
                 console.print(f"[dim]YouTube Short skipped: {yt_reason}[/dim]")
         except Exception as ex:
@@ -1986,19 +1919,17 @@ class AutomaterEngine:
         from src.threads_automater import ThreadsAutomater
         automater = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
 
-        trends = self.hunter.get_linkedin_topics() if custom_text is None else []
+        trends = self.hunter.get_casual_topics() if custom_text is None else []
         pool = trends or []
         if custom_text is not None:
             selected_trend = {
                 "title": "Custom Threads post",
                 "summary": "",
-                "company": "NeuBench",
             }
         elif not pool:
             selected_trend = {
-                "title": "Frontier Reasoning Drift & Token Efficiency across Claude, Gemini & DeepSeek",
-                "summary": "NeuBench telemetry reveals latency and cost differences on long-horizon coding tasks.",
-                "company": "NeuBench"
+                "title": "Second iced coffee at 4 PM",
+                "summary": "Drinking cold brew late in the afternoon and acting shocked when you can't sleep at 2 AM.",
             }
         else:
             selected_trend = None
@@ -2008,19 +1939,9 @@ class AutomaterEngine:
                     selected_trend = t
                     break
             if not selected_trend:
-                reason = "All discovered Threads topics are already reserved or published."
-                console.print(f"[yellow]{reason}[/yellow]")
-                self.tracker.record_event(
-                    action_type="threads_post",
-                    status="skipped",
-                    target_identifier="Threads dedupe",
-                    skip_or_error_reason=reason,
-                    duration_seconds=time.time() - start_time,
-                    is_dry_run=self.safety.dry_run,
-                )
-                return False
+                selected_trend = pool[0]
 
-        console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
+        console.print(f"[bold]Casual Topic:[/bold] {selected_trend['title']}")
         if custom_text is not None:
             th_text = str(custom_text).strip()
             if not th_text:
@@ -2036,10 +1957,9 @@ class AutomaterEngine:
         else:
             self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
             try:
-                th_text = self.ai.generate_threads_take(
+                th_text = self.ai.generate_casual_threads_take(
                     selected_trend["title"],
-                    selected_trend.get("summary", ""),
-                    company=selected_trend.get("company", "NeuBench")
+                    selected_trend.get("context", selected_trend.get("summary", ""))
                 )
             except Exception as e:
                 self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
@@ -2170,24 +2090,28 @@ class AutomaterEngine:
         return "repost"
 
     def _execute_youtube_upload(self, start_time: float) -> bool:
-        """Publishes the current AI Series lesson as an animated Short with dual subtitles."""
-        console.print("[bold magenta]🎬 Mode: YouTube Shorts Animated Publishing[/bold magenta]")
+        """Publishes an on-demand, dynamic AI topic Short with voiceover and dual subtitles."""
+        console.print("[bold magenta]🎬 Mode: YouTube Shorts Dynamic Publishing[/bold magenta]")
         from src.youtube_automater import YouTubeAutomater
-        from src.series_manager import AISeriesManager
+        from src.video_generator import VideoGenerator
 
-        series_mgr = AISeriesManager()
-        next_day = series_mgr.get_next_unpublished_day()
-        day_num = next_day["day"] if next_day else 1
-        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
+        topic_data = self.hunter.get_dynamic_ai_topic()
+        topic_title = topic_data.get("title", "AI Concept")
+        title = f"{topic_title} Explained #Shorts"[:90]
+        desc = (
+            f"⚡ {topic_title}: {topic_data.get('summary', '')}\n\n"
+            f"💡 Engineering Rule: {topic_data.get('pro_tip', '')}\n\n"
+            "📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+            "#Shorts #AI #MachineLearning #DeepLearning #Python #SoftwareEngineering #DataScience"
+        )
 
         yt = YouTubeAutomater()
         if self.safety.dry_run:
-            title = f"Day {day_num:02d}: {topic_title} #Shorts"
-            console.print(f"[bold yellow][DRY RUN] Would upload YouTube Short: {title}[/bold yellow]")
+            console.print(f"[bold yellow][DRY RUN] Would generate & upload YouTube Short: {title}[/bold yellow]")
             self.tracker.record_event(
                 action_type="youtube",
                 status="dry_run",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 content_preview=title,
                 duration_seconds=time.time() - start_time,
                 is_dry_run=True,
@@ -2199,21 +2123,24 @@ class AutomaterEngine:
             self.tracker.record_event(
                 action_type="youtube",
                 status="skipped",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 skip_or_error_reason="YouTube credentials not authenticated",
                 duration_seconds=time.time() - start_time,
                 is_dry_run=self.safety.dry_run
             )
             return False
 
-        yt_video = config.BASE_DIR / f"AI_SERIES/VIDEOS/DAY_{day_num:03d}/animated_short_day{day_num}.mp4"
-        yt_srt = config.BASE_DIR / f"AI_SERIES/VIDEOS/DAY_{day_num:03d}/subtitles_day_{day_num:03d}.srt"
-        
+        # Dynamically generate vertical short
+        vid_gen = VideoGenerator()
+        res_paths = vid_gen.generate_dynamic_short(topic_data, dry_run=self.safety.dry_run)
+        yt_video = Path(res_paths.get("video_path") or "")
+        yt_srt = Path(res_paths.get("srt_path") or "") if res_paths.get("srt_path") else None
+
         if not yt_video.exists():
-            console.print(f"[cyan]No Day {day_num:02d} video asset found; generating a topic-specific visual...[/cyan]")
+            console.print("[cyan]Video generation failed; generating dynamic visual MP4...[/cyan]")
             try:
                 from src.autonomous_visual_engine import generate_visual_for_post
-                _gif, generated_mp4 = generate_visual_for_post(topic_title, "AI curriculum topic")
+                _gif, generated_mp4 = generate_visual_for_post(topic_title, topic_data.get("summary", ""))
                 if generated_mp4 and Path(generated_mp4).exists():
                     yt_video = Path(generated_mp4)
                     yt_srt = None
@@ -2221,24 +2148,16 @@ class AutomaterEngine:
                 console.print(f"[dim]YouTube visual generation note: {error}[/dim]")
 
         if not yt_video.exists():
-            reason = f"YouTube video asset for Day {day_num:02d} is unavailable; skipping without uploading another day."
+            reason = "Failed to render video asset for YouTube Short."
             self.tracker.record_event(
                 action_type="youtube",
                 status="skipped",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 skip_or_error_reason=reason,
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
             return False
-
-        title = f"Day {day_num:02d}: {topic_title} #Shorts"
-        desc = (
-            f"Day {day_num:02d} of the 90-Day Master Series: AI Explained: Zero to Advanced.\n\n"
-            f"Understand the core engineering foundations of modern AI systems.\n\n"
-            "📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
-            "#Shorts #AI #MachineLearning #DeepLearning #Python #SoftwareEngineering #DataScience"
-        )
 
         identity = f"short:{stable_hash(title + chr(10) + str(yt_video))}"
         reservation_id, reservation_reason = self._reserve_platform(
@@ -2248,7 +2167,7 @@ class AutomaterEngine:
             self.tracker.record_event(
                 action_type="youtube",
                 status="skipped",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 content_preview=title,
                 skip_or_error_reason=reservation_reason,
                 duration_seconds=time.time() - start_time,
@@ -2275,42 +2194,23 @@ class AutomaterEngine:
         self.tracker.record_event(
             action_type="youtube",
             status=status,
-            target_identifier=f"Day {day_num}: {topic_title}",
+            target_identifier=topic_title,
             content_preview=title,
-            skip_or_error_reason="" if ok else "YouTube API upload error",
+            skip_or_error_reason="" if ok else getattr(yt, "last_message", "YouTube API upload error"),
             duration_seconds=time.time() - start_time,
             is_dry_run=self.safety.dry_run
         )
         if ok:
             console.print(f"[bold green]✅ YouTube Short live: {url}[/bold green]")
-            try:
-                series_mgr.record_published_day(
-                    day=day_num,
-                    topic_title=topic_title,
-                    content=desc,
-                    live_url=url,
-                )
-            except Exception as progress_error:
-                console.print(f"[dim]Series progress note: {progress_error}[/dim]")
-            
-            # Re-use the EXACT same rendered video across 𝕏 and Pinterest without re-rendering:
-            # 1. 𝕏 (Twitter) Native Video Post
-            try:
-                x_text = f"Day {day_num:02d}: {topic_title}\n\nThe core mental model of modern AI engineering. 🧵👇\n\nLive benchmarks: https://neubench.netlify.app\n#AI #Dev"
-                console.print("[bold cyan]Syndicating same video to 𝕏 (Twitter)...[/bold cyan]")
-                self.execute_x_custom_post(x_text, media_path=str(yt_video))
-            except Exception as e:
-                console.print(f"[dim]𝕏 video syndication notice: {e}[/dim]")
-
-            # 2. Pinterest Video Pin
+            # Syndicate to Pinterest video pin
             try:
                 from src.pinterest_automater import PinterestAutomater
                 pin_auto = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
                 if pin_auto.is_session_available():
-                    console.print("[bold cyan]Syndicating same video to Pinterest...[/bold cyan]")
+                    console.print("[bold cyan]Syndicating video to Pinterest...[/bold cyan]")
                     pin_auto.create_pin(
                         image_path=str(yt_video),
-                        title=f"Day {day_num:02d}: {topic_title}",
+                        title=title[:80],
                         description=desc,
                         link="https://neubench.netlify.app"
                     )
@@ -2320,16 +2220,13 @@ class AutomaterEngine:
         return ok
 
     def _execute_instagram_carousel(self, start_time: float) -> bool:
-        """Renders and publishes the enriched 5-slide technical carousel to Instagram."""
-        console.print("[bold magenta]📸 Mode: Instagram Technical Carousel Publishing[/bold magenta]")
+        """Renders and publishes a dynamic 5-slide technical carousel to Instagram."""
+        console.print("[bold magenta]📸 Mode: Instagram Dynamic Carousel Publishing[/bold magenta]")
         from src.instagram_carousel import InstagramCarouselGenerator
         from src.instagram_automater import InstagramAutomater
-        from src.series_manager import AISeriesManager
 
-        series_mgr = AISeriesManager()
-        next_day = series_mgr.get_next_unpublished_day()
-        day_num = next_day["day"] if next_day else 1
-        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
+        topic_data = self.hunter.get_dynamic_ai_topic()
+        topic_title = topic_data.get("title", "AI Concept")
 
         automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
         if not self.safety.dry_run and not automater.is_session_available():
@@ -2337,7 +2234,7 @@ class AutomaterEngine:
             self.tracker.record_event(
                 action_type="instagram",
                 status="skipped",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 skip_or_error_reason="Instagram session not authenticated",
                 duration_seconds=time.time() - start_time,
                 is_dry_run=self.safety.dry_run
@@ -2345,38 +2242,37 @@ class AutomaterEngine:
             return False
 
         gen = InstagramCarouselGenerator()
-        carousel_dir = config.BASE_DIR / f"AI_SERIES/CAROUSELS/DAY_{day_num:03d}"
-        slides = sorted(str(path) for path in carousel_dir.glob("*.png")) if carousel_dir.exists() else []
+        slides = gen.generate_dynamic_carousel(topic_data)
         if not slides:
-            slides = gen.generate_day_carousel(day_num)
-        if not slides:
-            reason = f"Instagram Day {day_num:02d} carousel assets are not available; skipping without reusing another day."
+            reason = "Failed to render dynamic carousel slides."
             self.tracker.record_event(
                 action_type="instagram",
                 status="skipped",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 skip_or_error_reason=reason,
                 duration_seconds=time.time() - start_time,
                 is_dry_run=self.safety.dry_run,
             )
             return False
+
         caption = (
-            f"Day {day_num:02d}: {topic_title}\n\n"
-            "90 Days. 90 Concepts. One AI Journey. 🎓\n\n"
-            "Swipe through the 1-page engineering cheatsheet ➡️\n\n"
+            f"🧠 {topic_title} • Engineering Cheatsheet\n\n"
+            f"⚡ {topic_data.get('summary', '')}\n\n"
+            "Swipe through the 1-page breakdown ➡️\n\n"
+            f"💡 Pro-Tip: {topic_data.get('pro_tip', '')}\n\n"
             "📌 Save this post for your revision!\n"
             "📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
             "#AI #MachineLearning #AIEngineering #Coding #Developers #Tech"
         )
-        identity = f"carousel:{day_num}:{stable_hash(caption)}"
+        identity = f"carousel:{stable_hash(topic_title + chr(10) + caption)}"
         reservation_id, reservation_reason = self._reserve_platform(
-            "instagram", "carousel", identity, target=f"Day {day_num}", preview=caption
+            "instagram", "carousel", identity, target=topic_title, preview=caption
         )
         if not self.safety.dry_run and not reservation_id:
             self.tracker.record_event(
                 action_type="instagram",
                 status="skipped",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 content_preview=caption[:100],
                 skip_or_error_reason=reservation_reason,
                 duration_seconds=time.time() - start_time,
@@ -2397,7 +2293,7 @@ class AutomaterEngine:
         self.tracker.record_event(
             action_type="instagram",
             status=status,
-            target_identifier=f"Day {day_num}: {topic_title}",
+            target_identifier=topic_title,
             content_preview=caption[:100],
             skip_or_error_reason="" if ok else msg,
             duration_seconds=time.time() - start_time,
@@ -2408,25 +2304,21 @@ class AutomaterEngine:
         return ok
 
     def _execute_devto_post(self, start_time: float) -> bool:
-        """Publishes the current lesson as a comprehensive article on Dev.to."""
+        """Publishes a comprehensive deep-dive AI article dynamically to Dev.to."""
         console.print("[bold magenta]📝 Mode: Dev.to Deep-Dive Article Publishing[/bold magenta]")
         from src.devto_automater import DevToAutomater
-        from src.series_manager import AISeriesManager
 
-        series_mgr = AISeriesManager()
-        next_day = series_mgr.get_next_unpublished_day()
-        day_num = next_day["day"] if next_day else 1
-        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
-        level_name = next_day.get("level", "Level 1: AI Fundamentals") if next_day else "Level 1"
-        chapter_name = next_day.get("chapter", "The Core Mental Model") if next_day else "Core"
+        topic_data = self.hunter.get_dynamic_ai_topic()
+        topic_title = topic_data.get("title", "AI Architecture")
+        title = f"{topic_title}: Deep Dive & Engineering Breakdown"
 
         devto = DevToAutomater()
         if self.safety.dry_run:
             self.tracker.record_event(
                 action_type="devto",
                 status="dry_run",
-                target_identifier=f"Day {day_num}: {topic_title}",
-                content_preview=f"Day {day_num:02d}: {topic_title}",
+                target_identifier=topic_title,
+                content_preview=title,
                 duration_seconds=time.time() - start_time,
                 is_dry_run=True,
             )
@@ -2437,23 +2329,18 @@ class AutomaterEngine:
             return False
 
         try:
-            lesson_body = self.ai.generate_ai_series_lesson(
-                day=day_num,
-                topic=topic_title,
-                level=level_name,
-                chapter=chapter_name
-            )
+            lesson_body = self.ai.generate_dynamic_technical_article(topic_data)
         except Exception as error:
             self.tracker.record_event(
                 action_type="devto",
                 status="failed",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 skip_or_error_reason=f"Dev.to article generation failed: {error}",
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
             return False
-        title = f"Day {day_num:02d}: {topic_title}"
+
         identity = f"article:{stable_hash(title + chr(10) + lesson_body)}"
         reservation_id, reservation_reason = self._reserve_platform(
             "devto", "article", identity, target=title, preview=title
@@ -2470,7 +2357,7 @@ class AutomaterEngine:
             )
             return False
         try:
-            ok, msg, url = devto.create_article(title=title, body_markdown=lesson_body, series="AI Explained: Zero to Advanced")
+            ok, msg, url = devto.create_article(title=title, body_markdown=lesson_body, series="AI Engineering & Architectures")
         except Exception as error:
             ok, msg, url = False, f"Dev.to client error: {error}", None
         self._complete_platform(
@@ -2494,37 +2381,36 @@ class AutomaterEngine:
         return ok
 
     def _execute_pinterest_pin(self, start_time: float) -> bool:
-        """Publishes an infographic pin to Pinterest."""
+        """Publishes an infographic pin to Pinterest dynamically."""
         console.print("[bold magenta]📌 Mode: Pinterest Infographic Pin Publishing[/bold magenta]")
         from src.pinterest_automater import PinterestAutomater
-        from src.series_manager import AISeriesManager
-        import glob
+        from src.instagram_carousel import InstagramCarouselGenerator
 
-        series_mgr = AISeriesManager()
-        next_day = series_mgr.get_next_unpublished_day()
-        day_num = next_day["day"] if next_day else 1
-        topic_title = next_day["title"] if next_day else "What is Artificial Intelligence?"
+        topic_data = self.hunter.get_dynamic_ai_topic()
+        topic_title = topic_data.get("title", "AI Architecture")
 
         pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
         if not self.safety.dry_run and not pin_automater.is_session_available():
             console.print("[yellow]Pinterest session not available. Skipping.[/yellow]")
             return False
 
-        slides = sorted(glob.glob(f"AI_SERIES/CAROUSELS/DAY_{day_num:03d}/*.png"))
+        gen = InstagramCarouselGenerator()
+        slides = gen.generate_dynamic_carousel(topic_data)
         if not slides and not self.safety.dry_run:
-            reason = f"Pinterest Day {day_num:02d} cover asset is not available; skipping without reusing another day."
+            reason = "Failed to render dynamic visual cover for Pinterest."
             self.tracker.record_event(
                 action_type="pinterest",
                 status="skipped",
-                target_identifier=f"Day {day_num}: {topic_title}",
+                target_identifier=topic_title,
                 skip_or_error_reason=reason,
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
             return False
+
         cover_img = slides[0] if slides else ""
-        pin_title = f"Day {day_num:02d}: {topic_title}"
-        pin_desc = f"Part of the 90-Day Master Series: AI Explained by NeuBench. Save for revision! Live model benchmarks at neubench.netlify.app"
+        pin_title = f"{topic_title} • AI Cheatsheet"[:80]
+        pin_desc = f"{topic_title}: {topic_data.get('summary', '')} 💡 Pro-Tip: {topic_data.get('pro_tip', '')}. Save for revision! Live benchmarks at https://neubench.netlify.app"
         
         identity = f"pin:{stable_hash(pin_title + chr(10) + pin_desc)}"
         reservation_id, reservation_reason = self._reserve_platform(
@@ -2563,144 +2449,6 @@ class AutomaterEngine:
         )
         if ok:
             console.print(f"[bold green]✅ Pinterest Pin live![/bold green]")
-        return ok
-
-    def _execute_reddit_post(self, start_time: float) -> bool:
-        """Publishes one technical discussion to a configured Reddit community."""
-
-        console.print("[bold orange3]🤖 Mode: Reddit Technical Discussion[/bold orange3]")
-        from src.reddit_automater import RedditAutomater
-        from src.reddit_client import RedditClient
-
-        allowed, reason = self.safety.can_perform_action("reddit", self.tracker.get_today_counts())
-        if not allowed:
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="skipped",
-                target_identifier="Reddit safety guard",
-                skip_or_error_reason=reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run,
-            )
-            return False
-
-        subreddit = RedditClient().get_target_subreddits()[0]
-        trends = self.hunter.get_linkedin_topics()
-        topic = trends[0] if trends else {
-            "title": "Real-world LLM latency and throughput tradeoffs",
-            "summary": "Comparing latency, throughput, and cost across production model endpoints.",
-            "company": "NeuBench",
-        }
-        try:
-            data = self.ai.generate_reddit_post(
-                title=topic["title"],
-                summary=topic.get("summary", ""),
-                company=topic.get("company", "NeuBench"),
-                subreddit=subreddit,
-            )
-        except Exception as error:
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="failed",
-                target_identifier=subreddit,
-                skip_or_error_reason=f"Reddit generation failed: {error}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run,
-            )
-            return False
-
-        title = data.get("title", topic["title"])
-        body = data.get("body", topic.get("summary", ""))
-        identity = f"post:{stable_hash(subreddit + chr(10) + title + chr(10) + body)}"
-        reservation_id, reservation_reason = self._reserve_platform(
-            "reddit", "post", identity, target=subreddit, preview=title
-        )
-        if not self.safety.dry_run and not reservation_id:
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="skipped",
-                target_identifier=subreddit,
-                content_preview=title,
-                skip_or_error_reason=reservation_reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            return False
-
-        automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
-        try:
-            ok, msg = automater.post(subreddit, title, body)
-        except Exception as error:
-            ok, msg = False, f"Reddit client error: {error}"
-        self._complete_platform(
-            reservation_id,
-            ok=ok,
-            unknown=getattr(automater, "last_outcome_unknown", False),
-            reason=msg,
-        )
-        self.tracker.record_event(
-            action_type="reddit_post",
-            status="success" if ok else "failed",
-            target_identifier=subreddit,
-            content_preview=title,
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run,
-        )
-        return ok
-
-    def execute_reddit_custom_post(self, subreddit: str, title: str, body: str) -> bool:
-        """Publish a manually drafted Reddit post through guarded state."""
-
-        start_time = time.time()
-        allowed, reason = self.safety.can_perform_action("reddit", self.tracker.get_today_counts())
-        if not allowed:
-            self.last_x_message = reason
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="skipped",
-                target_identifier=subreddit,
-                skip_or_error_reason=reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run,
-            )
-            return False
-        identity = f"post:{stable_hash(subreddit + chr(10) + title + chr(10) + body)}"
-        reservation_id, reservation_reason = self._reserve_platform(
-            "reddit", "post", identity, target=subreddit, preview=title
-        )
-        if not self.safety.dry_run and not reservation_id:
-            self.tracker.record_event(
-                action_type="reddit_post",
-                status="skipped",
-                target_identifier=subreddit,
-                content_preview=title,
-                skip_or_error_reason=reservation_reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            return False
-        from src.reddit_automater import RedditAutomater
-        automater = RedditAutomater(headless=True, dry_run=self.safety.dry_run)
-        try:
-            ok, msg = automater.post(subreddit, title, body)
-        except Exception as error:
-            ok, msg = False, f"Reddit client error: {error}"
-        self._complete_platform(
-            reservation_id,
-            ok=ok,
-            unknown=getattr(automater, "last_outcome_unknown", False),
-            reason=msg,
-        )
-        self.tracker.record_event(
-            action_type="reddit_post",
-            status="success" if ok else "failed",
-            target_identifier=subreddit,
-            content_preview=title,
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run,
-        )
         return ok
 
     def start_scheduler(self):

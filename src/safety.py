@@ -146,11 +146,4 @@ class SafetyEngine:
             if limit > 0 and today_counts.get("threads_posts", 0) >= limit:
                 return False, f"Threads daily cap reached ({today_counts.get('threads_posts')}/{limit})."
 
-        elif action_type == "reddit":
-            if not config.REDDIT_ENABLED:
-                return False, "Reddit automation is disabled via REDDIT_ENABLED=false."
-            limit = self.caps.get("reddit_posts", 1)
-            if limit > 0 and today_counts.get("reddit_posts", 0) >= limit:
-                return False, f"Reddit daily cap reached ({today_counts.get('reddit_posts')}/{limit})."
-
         return True, "Approved"

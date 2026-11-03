@@ -41,7 +41,6 @@ DEVTO_API_KEY = os.getenv("DEVTO_API_KEY", "")
 DEVTO_ENABLED = os.getenv("DEVTO_ENABLED", "true").lower() in ("true", "1")
 PINTEREST_ENABLED = os.getenv("PINTEREST_ENABLED", "true").lower() in ("true", "1")
 YOUTUBE_ENABLED = os.getenv("YOUTUBE_ENABLED", "true").lower() in ("true", "1")
-REDDIT_ENABLED = os.getenv("REDDIT_ENABLED", "true").lower() in ("true", "1")
 
 # ==============================================================================
 # ALGORITHMIC TIME-SLOT DISTRIBUTION MATRIX (Global Developer & Tech Audience)
@@ -66,8 +65,8 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "12:30 - 02:00 PM IST (Target 1:00 PM IST)",
         "est_display": "02:30 - 04:00 AM EST / 08:30 - 10:00 AM CET",
         "name": "Midday Engineering Masterclass & Benchmark Race",
-        "primary_actions": ["threads", "devto", "reply"],
-        "description": "Midday engineering masterclass across Threads, Dev.to, and viral replies."
+        "primary_actions": ["devto", "threads", "reply"],
+        "description": "Midday engineering masterclass across Dev.to, Threads, and viral replies."
     },
     # Slot 3: 5:00 PM IST (11:30 UTC) - Evening Transition & YouTube Drop
     "W3_EVENING_TRANSITION": {
@@ -86,8 +85,8 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "08:30 - 10:00 PM IST (Target 9:00 PM IST)",
         "est_display": "10:30 - 12:00 PM EST (US Peak Hours)",
         "name": "Peak US Prime Discourse & Technical Blueprint",
-        "primary_actions": ["repost", "instagram", "threads"],
-        "description": "Peak US prime discourse with quote posts, Instagram, and Threads."
+        "primary_actions": ["instagram", "threads", "repost"],
+        "description": "Peak US prime discourse with Instagram carousels, Threads, and quote posts."
     },
     # Slot 5: 12:00 AM (Midnight) IST (18:30 UTC) - Silicon Valley Afternoon / Midnight Drop
     "W5_MIDNIGHT_SV_DROP": {
@@ -119,7 +118,6 @@ CAPS_PER_PLATFORM = {
     "twitter_reposts": int(os.getenv("MAX_DAILY_X_REPOSTS", os.getenv("MAX_DAILY_REPOSTS", "6"))),
     "threads_posts": int(os.getenv("MAX_DAILY_THREADS", "5")),            # 4-5 conversational posts
     "bluesky_posts": int(os.getenv("MAX_DAILY_BLUESKY", "6")),            # 5-6 tech takes
-    "reddit_posts": int(os.getenv("MAX_DAILY_REDDIT", "1")),              # 1 high-signal technical discussion/day
 }
 
 # Real-Time Push Alerts (Optional: Discord / Telegram)
