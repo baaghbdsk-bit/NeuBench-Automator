@@ -47,7 +47,7 @@ permissions:
 jobs:
   run-automater:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -139,13 +139,80 @@ jobs:
             fi
           fi
 
+      - name: Automated LinkedIn Post (every 3 hours)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.5-flash-lite
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_API_VERSION: '202610'
+          PYTHONIOENCODING: utf-8
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          LINKEDIN_ENABLED: 'true'
+          MAX_DAILY_LINKEDIN: '8'
+          LINKEDIN_MIN_INTERVAL_MINUTES: '180'
+          LINKEDIN_SCHEDULE_GRACE_MINUTES: '60'
+          MAX_DAILY_ORIGINAL_POSTS: '0'
+          MAX_DAILY_REPLIES: '0'
+          MAX_DAILY_REPOSTS: '0'
+          MAX_DAILY_TOTAL: '0'
+        run: |
+          ACTION="${{ inputs.action || 'auto' }}"
+          if [ "$ACTION" != "auto" ]; then
+            echo "Skipping automatic LinkedIn post (requested action: $ACTION)."
+            exit 0
+          fi
+          HOUR=$(date -u +%H)
+          if [ $((10#$HOUR % 3)) -ne 0 ]; then
+            echo "LinkedIn post runs every 3 hours; hour $HOUR UTC is not a slot."
+            exit 0
+          fi
+          if [ "$DRY_RUN" = "true" ]; then
+            python main.py linkedin --dry-run || echo "LinkedIn post skipped/failed; state preserved."
+          else
+            python main.py linkedin || echo "LinkedIn post skipped/failed; state preserved."
+          fi
+
+      - name: Automated LinkedIn Engagement (every 2 hours)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.5-flash-lite
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          LINKEDIN_API_VERSION: '202610'
+          PYTHONIOENCODING: utf-8
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          LINKEDIN_ENABLED: 'true'
+          MAX_DAILY_LINKEDIN: '0'
+          MAX_DAILY_LINKEDIN_PEER_COMMENTS: '10'
+          MAX_DAILY_ORIGINAL_POSTS: '0'
+          MAX_DAILY_REPLIES: '0'
+          MAX_DAILY_REPOSTS: '0'
+          MAX_DAILY_TOTAL: '0'
+        run: |
+          ACTION="${{ inputs.action || 'auto' }}"
+          if [ "$ACTION" != "auto" ]; then
+            echo "Skipping automatic LinkedIn engagement (requested action: $ACTION)."
+            exit 0
+          fi
+          HOUR=$(date -u +%H)
+          if [ $((10#$HOUR % 2)) -ne 0 ]; then
+            echo "LinkedIn engagement runs every 2 hours; hour $HOUR UTC is not a slot."
+            exit 0
+          fi
+          if [ "$DRY_RUN" = "true" ]; then
+            python main.py linkedin-peers --dry-run || echo "LinkedIn engagement skipped/failed; state preserved."
+          else
+            python main.py linkedin-peers || echo "LinkedIn engagement skipped/failed; state preserved."
+          fi
+
       - name: Persist Trial Metrics and Post History
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add post_history.json trial_metrics.json linkedin_network.json || true
+          git add post_history.json trial_metrics.json linkedin_network.json linkedin_post_history.json linkedin_engagement_history.json || true
           git commit -m "chore(cloud): autonomous update post metrics [skip ci]" || echo "No changes to commit"
-          git pull --rebase origin main || true
+          git pull --rebase --autostash origin main || true
           git push origin main || echo "Push skipped or non-fast-forward"
 
       - name: Generate Run Summary
