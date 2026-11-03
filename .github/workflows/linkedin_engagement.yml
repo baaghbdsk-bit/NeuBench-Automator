@@ -84,25 +84,19 @@ jobs:
             python main.py linkedin-peers
           fi
 
-      - name: Persist LinkedIn Engagement History
+      - name: Persist LinkedIn Engagement and Metrics
         if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add linkedin_engagement_history.json || true
-          git commit -m "chore(cloud): linkedin engagement history [skip ci]" || echo "No history changes"
+          git add linkedin_engagement_history.json trial_metrics.json post_history.json linkedin_network.json || true
+          git commit -m "chore(cloud): linkedin engagement state [skip ci]" || echo "No state changes"
           for i in 1 2 3; do
-            git pull --rebase origin main && git push origin main && break
-            sleep 5
-          done
-
-      - name: Persist Metrics
-        if: always()
-        run: |
-          git add trial_metrics.json post_history.json linkedin_network.json || true
-          git commit -m "chore(cloud): linkedin engagement metrics [skip ci]" || echo "No metrics changes"
-          for i in 1 2 3; do
-            git pull --rebase origin main && git push origin main && break
+            if git pull --rebase --autostash -X theirs origin main; then
+              git push origin main && break
+            else
+              git rebase --abort || true
+            fi
             sleep 5
           done
 
