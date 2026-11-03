@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "last_success_at": "2026-11-03T10:56:00.592398+00:00",
+  "last_unknown_at": null,
+  "posts": [
+    {
+      "topic_key": "url:https://huggingface.co/papers/2611.01460",
+      "title": "Can Large Language Model Agents Learn by Watching Tutorial Videos?",
+      "url": "https://huggingface.co/papers/2611.01460",
+      "content_hash": "879f00e7be4b49449ec691336259b41b",
+      "status": "success",
+      "posted_at": "2026-11-03T10:56:00.592398+00:00",
+      "post_urn": "urn:li:share:7523337176386891778"
+    }
+  ],
+  "posted_titles": [
+    "li:Can Large Language Model Agents Learn by Watching Tutorial Videos?"
+  ]
+}
