@@ -13,7 +13,7 @@ on:
         type: string
 
 concurrency:
-  group: neubench-linkedin-engagement
+  group: neubench-linkedin-state
   cancel-in-progress: false
 
 permissions:
@@ -84,21 +84,37 @@ jobs:
             python main.py linkedin-peers
           fi
 
-      - name: Persist LinkedIn Engagement and Metrics
+      - name: Persist LinkedIn Engagement State
         if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add linkedin_engagement_history.json trial_metrics.json post_history.json linkedin_network.json || true
-          git commit -m "chore(cloud): linkedin engagement state [skip ci]" || echo "No state changes"
+          for state_file in linkedin_engagement_history.json; do
+            if [ -f "$state_file" ]; then
+              git add "$state_file"
+            fi
+          done
+          if git diff --cached --quiet; then
+            echo "No LinkedIn engagement state changes to commit"
+          else
+            git commit -m "chore(cloud): linkedin engagement state [skip ci]"
+          fi
+          pushed=false
           for i in 1 2 3; do
             if git pull --rebase --autostash -X theirs origin main; then
-              git push origin main && break
+              if git push origin main; then
+                pushed=true
+                break
+              fi
             else
               git rebase --abort || true
             fi
             sleep 5
           done
+          if [ "$pushed" != "true" ]; then
+            echo "LinkedIn engagement state could not be synchronized with origin/main"
+            exit 1
+          fi
 
       - name: Generate Run Summary
         if: always()
@@ -106,7 +122,7 @@ jobs:
           echo "## 💬 NeuBench LinkedIn Viral Engagement" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Cadence:** Every 2 hours" >> $GITHUB_STEP_SUMMARY
-          echo "- **Comments on viral posts + replies to genuine questions**" >> $GITHUB_STEP_SUMMARY
+          echo "- **Replies to our comments + comments on viral posts + genuine question replies**" >> $GITHUB_STEP_SUMMARY
           echo "- **Daily Cap:** 10 comments/replies" >> $GITHUB_STEP_SUMMARY
           echo "- **Execution Time (UTC):** $(date -u)" >> $GITHUB_STEP_SUMMARY
           if [ -f "linkedin_engagement_history.json" ]; then

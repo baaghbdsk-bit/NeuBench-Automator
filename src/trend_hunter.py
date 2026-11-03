@@ -3,6 +3,7 @@ socket.setdefaulttimeout(10)
 import feedparser
 import requests
 import random
+import re
 from typing import List, Dict, Any
 
 class TrendHunter:
@@ -50,6 +51,7 @@ class TrendHunter:
                             "summary": item.get("title", ""),
                             "comments_count": item.get("descendants", 0),
                             "score": item.get("score", 0),
+                            "url": item.get("url", ""),
                             "source": "HackerNews",
                             "category": "ai_tech"
                         })
@@ -71,6 +73,7 @@ class TrendHunter:
                     items.append({
                         "title": entry.title,
                         "summary": getattr(entry, "summary", entry.title)[:200],
+                        "url": getattr(entry, "link", ""),
                         "source": source_name,
                         "traffic": "Breaking",
                         "category": category
@@ -158,7 +161,7 @@ class TrendHunter:
         return all_trends
 
     def get_linkedin_topics(self) -> List[Dict[str, Any]]:
-        """Professional tech/AI topics only, excluding generic viral Google Trends."""
+        """Return current professional AI/technology topics for LinkedIn."""
         all_topics = []
         for source in (
             self.get_neubench_stories,
@@ -171,6 +174,15 @@ class TrendHunter:
             except Exception:
                 continue
 
+        ai_terms = (
+            "artificial intelligence", "machine learning", "deep learning",
+            "large language model", "llm", "generative", "foundation model",
+            "inference", "transformer", "neural", "robot", "agent",
+            "openai", "anthropic", "gemini", "claude", "deepseek", "qwen",
+            "mistral", "hugging face", "computer vision", "embedding", "rag",
+            "diffusion", "gpu", "benchmark", "model", "token",
+        )
+
         filtered = []
         seen = set()
         for topic in all_topics:
@@ -178,9 +190,14 @@ class TrendHunter:
             summary = (topic.get("summary") or "").replace("\ufffd", "'")
             if not title or title.lower() in seen:
                 continue
+            haystack = f"{title} {summary}".lower()
+            source_name = str(topic.get("source", "")).lower()
+            has_ai_signal = bool(re.search(r"\bai\b", haystack)) or any(term in haystack for term in ai_terms)
+            trusted_ai_source = "neubench" in source_name or "hugging face" in source_name
+            if not trusted_ai_source and not has_ai_signal:
+                continue
             seen.add(title.lower())
             filtered.append({**topic, "title": title, "summary": summary})
 
         random.shuffle(filtered)
         return filtered
-

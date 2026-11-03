@@ -81,7 +81,7 @@ def main():
     parser = argparse.ArgumentParser(description="NeuBench Automater: Omnichannel Social Growth Suite for NeuBench (𝕏, Bluesky, LinkedIn, Threads)")
     parser.add_argument(
         "action", 
-        choices=["login", "login-linkedin", "login-threads", "login-instagram", "login-youtube", "login-pinterest", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "linkedin-peers", "threads", "instagram", "devto", "pinterest", "youtube", "render-video", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"], 
+        choices=["login", "login-linkedin", "login-threads", "login-instagram", "login-youtube", "login-pinterest", "test", "run-once", "start", "post", "reply", "repost", "bluesky", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "instagram", "devto", "pinterest", "youtube", "render-video", "update-profile", "metrics", "dashboard", "ui", "omnichannel", "post-all"],
         help="Action: 'dashboard', 'youtube', 'render-video', 'login-youtube', 'bluesky', 'linkedin', 'threads', 'instagram', 'devto', 'pinterest', 'run-once', 'post', 'start'"
     )
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
@@ -145,17 +145,25 @@ def main():
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
         if args.text:
-            from src.linkedin_automater import LinkedInAutomater
-            automater = LinkedInAutomater(headless=True, dry_run=args.dry_run)
-            ok, msg = automater.post(args.text)
-            console.print(f"[bold green]✅ {msg}[/bold green]" if ok else f"[bold red]❌ {msg}[/bold red]")
+            ok = engine.execute_linkedin_custom_post(args.text)
         else:
-            engine.run_single_cycle(force_action="linkedin")
+            ok = engine.run_single_cycle(force_action="linkedin")
+        if not ok and not engine.safety.dry_run:
+            sys.exit(1)
+
+    elif args.action == "linkedin-replies":
+        from src.scheduler import AutomaterEngine
+        engine = AutomaterEngine(dry_run=args.dry_run)
+        ok = engine.run_single_cycle(force_action="linkedin-replies")
+        if not ok and not engine.safety.dry_run:
+            sys.exit(1)
 
     elif args.action == "linkedin-peers":
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=args.dry_run)
-        engine.run_single_cycle(force_action="linkedin-peers")
+        ok = engine.run_single_cycle(force_action="linkedin-peers")
+        if not ok and not engine.safety.dry_run:
+            sys.exit(1)
 
     elif args.action == "login":
         from scripts.login_browser import login_and_save_session

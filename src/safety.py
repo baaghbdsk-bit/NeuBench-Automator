@@ -82,13 +82,13 @@ class SafetyEngine:
             if today_counts.get("youtube_shorts", 0) >= limit:
                 return False, f"YouTube daily cap reached ({today_counts.get('youtube_shorts')}/{limit}) to protect algorithmic impressions."
 
-        # LinkedIn Posts (Strict anti-cannibalization: 2-3 high-value posts/day)
+        # LinkedIn Posts (one post every three hours by default)
         elif action_type in ("linkedin", "linkedin_post"):
-            limit = self.caps.get("linkedin_posts", 3)
+            limit = self.caps.get("linkedin_posts", 8)
             if today_counts.get("linkedin_posts", 0) >= limit:
                 return False, f"LinkedIn daily cap reached ({today_counts.get('linkedin_posts')}/{limit}) to protect organic algorithmic distribution."
 
-        # LinkedIn Viral Peer Comments: Opportunity-driven mode (no artificial daily cap, natural cadence per cycle)
+        # LinkedIn engagement includes own-post replies, peer comments, and peer replies.
         elif action_type in ("linkedin-peers", "linkedin_peer_comment"):
             limit = self.caps.get("linkedin_peer_comments", 0)
             if limit > 0 and today_counts.get("linkedin_peer_comments", 0) >= limit:

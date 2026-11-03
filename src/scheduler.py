@@ -6,7 +6,9 @@ import json
 
 import random
 
-from datetime import datetime, timezone
+import re
+
+from datetime import datetime, timedelta, timezone
 
 from pathlib import Path
 from typing import Dict, List, Optional, Any
@@ -46,6 +48,24 @@ from src.bluesky_client import BlueskyClient
 from src.tracker import ActivityTracker
 
 from src.safety import SafetyEngine
+
+from src.linkedin_state import (
+    ENGAGEMENT_HISTORY_FILE,
+    POST_HISTORY_FILE,
+    append_post_entry,
+    cadence_slot_key,
+    content_hash,
+    count_posts_on_date,
+    engagement_count_on_date,
+    last_post_at,
+    linkedin_state_lock,
+    load_engagement_history,
+    load_post_history,
+    post_is_duplicate,
+    save_engagement_history,
+    save_post_history,
+    utc_now_iso,
+)
 
 
 
@@ -1030,159 +1050,272 @@ class AutomaterEngine:
         return ok
 
 
-    def _execute_linkedin_post(self, start_time: float) -> bool:
-        """Publishes one detailed, hashtagged LinkedIn post with an auto-selected visual."""
+    def execute_linkedin_custom_post(self, text: str) -> bool:
+        """Publish dashboard/CLI text through the same LinkedIn safety policy."""
+
+        return self._execute_linkedin_post(time.time(), custom_text=text)
+
+
+    def _execute_linkedin_post(self, start_time: float, custom_text: Optional[str] = None) -> bool:
+        """Publish one current AI/tech topic with cadence and durable dedupe guards."""
+
         console.print("[bold blue]💼 Mode: Dedicated LinkedIn Post (Standalone)[/bold blue]")
 
         if not config.LINKEDIN_ENABLED:
             console.print("[yellow]LinkedIn automation is disabled via LINKEDIN_ENABLED. Skipping.[/yellow]")
             return False
 
-        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        today_li = sum(
-            1 for e in self.tracker.metrics.get("recent_events", [])
-            if e.get("timestamp", "").startswith(today_str)
-            and e.get("status") == "success" and not e.get("is_dry_run", False) and e.get("action_type") == "linkedin_post"
-        )
-        max_li = config.CAPS_PER_PLATFORM.get("linkedin_posts", 8)
-        if today_li >= max_li:
-            console.print(f"[yellow]🔔 LinkedIn daily cap reached ({today_li}/{max_li}). Skipping this slot.[/yellow]")
-            self.tracker.record_event(
-                action_type="linkedin_post",
-                status="skipped",
-                target_identifier="LinkedIn daily cap",
-                skip_or_error_reason=f"LinkedIn daily cap reached ({today_li}/{max_li})",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
         from src.linkedin_automater import LinkedInAutomater
+
         automater = LinkedInAutomater(headless=True, dry_run=self.safety.dry_run)
-
-        if not automater.is_session_available():
-            console.print("[yellow]⚠️ LinkedIn session not available. Run 'python main.py login-linkedin'. Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="linkedin_post",
-                status="skipped",
-                target_identifier="LinkedIn session",
-                skip_or_error_reason="LinkedIn session not authenticated",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
+        with linkedin_state_lock():
+            post_state = load_post_history(POST_HISTORY_FILE)
+            today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            max_li = config.CAPS_PER_PLATFORM.get("linkedin_posts", 8)
+            event_count = sum(
+                1
+                for event in self.tracker.metrics.get("recent_events", [])
+                if event.get("timestamp", "").startswith(today_str)
+                and event.get("status") == "success"
+                and not event.get("is_dry_run", False)
+                and event.get("action_type") == "linkedin_post"
             )
-            return False
+            today_li = max(count_posts_on_date(post_state, today_str), event_count)
 
-        trends = self.hunter.get_linkedin_topics()
-        if not trends:
-            console.print("[red]No trends discovered. Skipping LinkedIn post...[/red]")
-            self.tracker.record_event(
-                action_type="linkedin_post",
-                status="skipped",
-                target_identifier="LinkedIn trends",
-                skip_or_error_reason="Trend discovery returned 0 items",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+            # Dry runs are previews and never reserve a cadence slot or history entry.
+            if not self.safety.dry_run:
+                if today_li >= max_li:
+                    reason = f"LinkedIn daily cap reached ({today_li}/{max_li})"
+                    console.print(f"[yellow]🔔 {reason}. Skipping this slot.[/yellow]")
+                    self.tracker.record_event(
+                        action_type="linkedin_post",
+                        status="skipped",
+                        target_identifier="LinkedIn daily cap",
+                        skip_or_error_reason=reason,
+                        duration_seconds=time.time() - start_time,
+                        is_dry_run=False,
+                    )
+                    return False
 
-        li_history_file = config.BASE_DIR / "linkedin_post_history.json"
-        li_history = []
-        if li_history_file.exists():
-            try:
-                with open(li_history_file, "r", encoding="utf-8") as f:
-                    li_data = json.load(f)
-                    li_history = li_data.get("posted_titles", []) if isinstance(li_data, dict) else li_data
-            except Exception:
-                li_history = []
-
-        recent_li_keys = li_history[-24:]
-        selected_trend = None
-        for t in trends:
-            if f"li:{t['title']}" not in recent_li_keys:
-                selected_trend = t
-                break
-
-        if not selected_trend:
-            console.print("[yellow]All current trends were already posted recently. Skipping to avoid duplicates.[/yellow]")
-            self.tracker.record_event(
-                action_type="linkedin_post",
-                status="skipped",
-                target_identifier="LinkedIn dedupe",
-                skip_or_error_reason="All discovered trends already posted recently",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        console.print(f"[bold]LinkedIn Topic:[/bold] {selected_trend['title']}")
-        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-        try:
-            li_text = self.ai.generate_linkedin_take(
-                selected_trend["title"],
-                selected_trend.get("summary", ""),
-                company=selected_trend.get("company", "NeuBench")
-            )
-        except Exception as e:
-            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-            console.print(f"[red]AI Generation Error: {e}[/red]")
-            self.tracker.record_event(
-                action_type="linkedin_post",
-                status="failed",
-                target_identifier=selected_trend["title"],
-                skip_or_error_reason=f"AI generation failed: {e}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
-
-        media_path = None
-        if not self.safety.dry_run:
-            try:
-                from src.autonomous_visual_engine import generate_visual_for_post
-                gif_v, mp4_v = generate_visual_for_post(
-                    selected_trend["title"],
-                    selected_trend.get("summary", "")
+                last_post = last_post_at(
+                    post_state,
+                    self.tracker.metrics.get("recent_events", []),
                 )
-                if mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
-                    media_path = mp4_v
-                elif gif_v and Path(gif_v).exists():
-                    media_path = gif_v
-                console.print(f"[bold magenta]🎬 LinkedIn visual: {media_path}[/bold magenta]")
-            except Exception as e:
-                console.print(f"[dim]LinkedIn visual generation note: {e}[/dim]")
+                if last_post:
+                    now_utc = datetime.now(timezone.utc)
+                    elapsed_seconds = (now_utc - last_post).total_seconds()
+                    minimum_seconds = max(
+                        0,
+                        config.LINKEDIN_MIN_INTERVAL_MINUTES
+                        - config.LINKEDIN_SCHEDULE_GRACE_MINUTES,
+                    ) * 60
+                    same_slot = cadence_slot_key(last_post) == cadence_slot_key(now_utc)
+                    if same_slot or elapsed_seconds < minimum_seconds:
+                        if same_slot:
+                            slot_start = datetime.fromisoformat(cadence_slot_key(now_utc))
+                            remaining_seconds = max(
+                                60,
+                                (slot_start + timedelta(hours=3) - now_utc).total_seconds(),
+                            )
+                        else:
+                            remaining_seconds = max(60, minimum_seconds - elapsed_seconds)
+                        remaining_minutes = max(1, int((remaining_seconds + 59) // 60))
+                        reason = f"LinkedIn cadence guard active; next post allowed in about {remaining_minutes} minute(s)"
+                        console.print(f"[yellow]⏳ {reason}.[/yellow]")
+                        self.tracker.record_event(
+                            action_type="linkedin_post",
+                            status="skipped",
+                            target_identifier="LinkedIn cadence guard",
+                            skip_or_error_reason=reason,
+                            duration_seconds=time.time() - start_time,
+                            is_dry_run=False,
+                        )
+                        return False
 
-        first_comm = None
-        try:
-            first_comm = self.ai.generate_first_comment_value_drop(selected_trend["title"], li_text)
-        except Exception:
-            pass
-        ok, msg = automater.post(li_text, image_path=media_path, first_comment=first_comm)
-        status = "success" if ok else "failed"
-        self.tracker.record_event(
-            action_type="linkedin_post",
-            status=status,
-            target_identifier="LinkedIn B2B",
-            content_preview=li_text,
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
+            if not self.safety.dry_run and not automater.is_session_available():
+                reason = "LinkedIn session/API credentials are not authenticated"
+                console.print(f"[yellow]⚠️ {reason}. Skipping.[/yellow]")
+                self.tracker.record_event(
+                    action_type="linkedin_post",
+                    status="skipped",
+                    target_identifier="LinkedIn session",
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
 
-        if ok:
-            console.print(f"[bold blue]✅ {msg}[/bold blue]")
+            selected_trend: Dict[str, Any]
+            li_text = ""
+            if custom_text and custom_text.strip():
+                li_text = custom_text.strip()
+                selected_trend = {
+                    "title": f"Custom LinkedIn post {content_hash(li_text)[:16]}",
+                    "summary": "",
+                    "company": "NeuBench",
+                    "url": "",
+                }
+                if post_is_duplicate(post_state, title=selected_trend["title"], content=li_text):
+                    reason = "This LinkedIn post body was already published recently"
+                    console.print(f"[yellow]♻️ {reason}. Skipping.[/yellow]")
+                    self.tracker.record_event(
+                        action_type="linkedin_post",
+                        status="skipped",
+                        target_identifier="LinkedIn dedupe",
+                        skip_or_error_reason=reason,
+                        duration_seconds=time.time() - start_time,
+                        is_dry_run=self.safety.dry_run,
+                    )
+                    return False
+            elif custom_text is not None:
+                reason = "Custom LinkedIn text is empty"
+                self.tracker.record_event(
+                    action_type="linkedin_post",
+                    status="skipped",
+                    target_identifier="LinkedIn input",
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run,
+                )
+                return False
+            else:
+                trends = self.hunter.get_linkedin_topics()
+                if not trends:
+                    console.print("[red]No current AI/tech trends discovered. Skipping LinkedIn post...[/red]")
+                    self.tracker.record_event(
+                        action_type="linkedin_post",
+                        status="skipped",
+                        target_identifier="LinkedIn trends",
+                        skip_or_error_reason="Trend discovery returned 0 current AI/tech items",
+                        duration_seconds=time.time() - start_time,
+                        is_dry_run=self.safety.dry_run,
+                    )
+                    return False
+
+                selected_trend = {}
+                for trend in trends:
+                    title = str(trend.get("title", "")).strip()
+                    if not title or post_is_duplicate(
+                        post_state,
+                        title=title,
+                        url=trend.get("url", ""),
+                    ):
+                        continue
+                    console.print(f"[bold]LinkedIn Topic:[/bold] {title}")
+                    self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+                    try:
+                        candidate_text = self.ai.generate_linkedin_take(
+                            title,
+                            trend.get("summary", ""),
+                            company=trend.get("company", "NeuBench"),
+                        )
+                    except Exception as error:
+                        self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+                        console.print(f"[red]AI Generation Error: {error}[/red]")
+                        self.tracker.record_event(
+                            action_type="linkedin_post",
+                            status="failed",
+                            target_identifier=title,
+                            skip_or_error_reason=f"AI generation failed: {error}",
+                            duration_seconds=time.time() - start_time,
+                            is_dry_run=self.safety.dry_run,
+                        )
+                        return False
+                    if post_is_duplicate(post_state, title=title, url=trend.get("url", ""), content=candidate_text):
+                        console.print("[dim]Generated body matched recent LinkedIn content; trying another topic.[/dim]")
+                        continue
+                    selected_trend = trend
+                    li_text = candidate_text
+                    break
+
+                if not selected_trend:
+                    reason = "All discovered LinkedIn topics or generated bodies were already posted recently"
+                    console.print(f"[yellow]♻️ {reason}. Skipping.[/yellow]")
+                    self.tracker.record_event(
+                        action_type="linkedin_post",
+                        status="skipped",
+                        target_identifier="LinkedIn dedupe",
+                        skip_or_error_reason=reason,
+                        duration_seconds=time.time() - start_time,
+                        is_dry_run=self.safety.dry_run,
+                    )
+                    return False
+
+            console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
+            media_path = None
             if not self.safety.dry_run:
                 try:
-                    li_history.append(f"li:{selected_trend['title']}")
-                    with open(li_history_file, "w", encoding="utf-8") as f:
-                        json.dump({"posted_titles": li_history[-500:]}, f, indent=2)
-                except Exception as hist_err:
-                    console.print(f"[dim]LinkedIn history save note: {hist_err}[/dim]")
-        else:
-            console.print(f"[red]LinkedIn publish failed: {msg}[/red]")
+                    from src.autonomous_visual_engine import generate_visual_for_post
 
-        return ok
+                    gif_v, mp4_v = generate_visual_for_post(
+                        selected_trend["title"],
+                        selected_trend.get("summary", ""),
+                    )
+                    if mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
+                        media_path = mp4_v
+                    elif gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
+                        media_path = gif_v
+                    console.print(f"[bold magenta]🎬 LinkedIn visual: {media_path}[/bold magenta]")
+                except Exception as error:
+                    console.print(f"[dim]LinkedIn visual generation note: {error}[/dim]")
+
+            first_comm = None
+            try:
+                first_comm = self.ai.generate_first_comment_value_drop(selected_trend["title"], li_text)
+            except Exception as error:
+                console.print(f"[dim]First-comment generation note: {error}[/dim]")
+
+            ok, msg = automater.post(li_text, image_path=media_path, first_comment=first_comm)
+            now_iso = utc_now_iso()
+            post_urn_match = re.search(r"urn:li:[^\s,)]+", msg or "")
+            post_urn = post_urn_match.group(0) if post_urn_match else ""
+
+            if ok and not self.safety.dry_run:
+                try:
+                    append_post_entry(
+                        post_state,
+                        title=selected_trend["title"],
+                        url=selected_trend.get("url", ""),
+                        content=li_text,
+                        status="success",
+                        posted_at=now_iso,
+                        post_urn=post_urn,
+                    )
+                    save_post_history(post_state, POST_HISTORY_FILE)
+                except Exception as error:
+                    console.print(f"[red]LinkedIn history persistence error after successful post: {error}[/red]")
+            elif not ok and not self.safety.dry_run and getattr(automater, "last_post_outcome_unknown", False):
+                # A timeout after submission may mean LinkedIn accepted the post. Reserve
+                # the topic/body so the next CI runner cannot publish a duplicate.
+                try:
+                    append_post_entry(
+                        post_state,
+                        title=selected_trend["title"],
+                        url=selected_trend.get("url", ""),
+                        content=li_text,
+                        status="unknown",
+                        posted_at=now_iso,
+                    )
+                    save_post_history(post_state, POST_HISTORY_FILE)
+                except Exception as error:
+                    console.print(f"[red]Unknown-outcome history persistence error: {error}[/red]")
+
+            status = "success" if ok else "failed"
+            self.tracker.record_event(
+                action_type="linkedin_post",
+                status=status,
+                target_identifier="LinkedIn B2B",
+                content_preview=li_text,
+                skip_or_error_reason="" if ok else msg,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+
+            if ok:
+                console.print(f"[bold blue]✅ {msg}[/bold blue]")
+            else:
+                console.print(f"[red]LinkedIn publish failed: {msg}[/red]")
+            return ok
 
 
 
@@ -1598,20 +1731,67 @@ class AutomaterEngine:
         console.print("[bold blue]💬 Mode: LinkedIn Comment Replies (Professional B2B)[/bold blue]")
         from src.linkedin_automater import LinkedInAutomater
         automater = LinkedInAutomater(headless=True, dry_run=self.safety.dry_run)
-        if not automater.is_session_available():
-            console.print("[yellow]LinkedIn session not authenticated for commenting. Skipping.[/yellow]")
-            return False
-        count, msg = automater.reply_to_own_post_comments(max_replies=5)
-        console.print(f"[bold green]✅ {msg}[/bold green]")
-        self.tracker.record_event(
-            action_type="linkedin_reply",
-            status="success" if count > 0 else "skipped",
-            target_identifier="LinkedIn Comments",
-            content_preview=msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-        return count > 0
+        with linkedin_state_lock():
+            engagements = load_engagement_history(ENGAGEMENT_HISTORY_FILE)
+            today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            max_daily = config.CAPS_PER_PLATFORM.get("linkedin_peer_comments", 10)
+            remaining = max_daily - engagement_count_on_date(engagements, today_str)
+            if remaining <= 0:
+                msg = f"LinkedIn engagement daily cap reached ({max_daily}/{max_daily})."
+                self.tracker.record_event(
+                    action_type="linkedin_reply",
+                    status="skipped",
+                    target_identifier="LinkedIn Comments",
+                    skip_or_error_reason=msg,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run,
+                )
+                return False
+
+            if not self.safety.dry_run and not automater.is_browser_session_available():
+                msg = "LinkedIn browser session not authenticated for comment replies."
+                console.print(f"[yellow]{msg}[/yellow]")
+                self.tracker.record_event(
+                    action_type="linkedin_reply",
+                    status="skipped",
+                    target_identifier="LinkedIn session",
+                    skip_or_error_reason=msg,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
+            already_replied = {
+                entry.get("key")
+                for entry in engagements
+                if entry.get("type") in {"own_reply", "reply"} and entry.get("key")
+            }
+            replied_ids: List[str] = []
+            count, msg = automater.reply_to_own_post_comments(
+                max_replies=min(remaining, 5),
+                already_replied=already_replied,
+                replied_ids=replied_ids,
+            )
+            now_iso = utc_now_iso()
+            new_entries = [
+                {"key": key, "type": "own_reply", "ts": now_iso}
+                for key in replied_ids
+            ]
+            if new_entries and not self.safety.dry_run:
+                engagements.extend(new_entries)
+                save_engagement_history(engagements, ENGAGEMENT_HISTORY_FILE)
+
+            actual = len(new_entries)
+            console.print(f"[bold green]✅ {msg}[/bold green]")
+            self.tracker.record_event(
+                action_type="linkedin_reply",
+                status="success" if actual > 0 else "skipped",
+                target_identifier="LinkedIn Comments",
+                content_preview=msg,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return actual > 0
 
     def _execute_linkedin_peer_engagement(self, start_time: float) -> bool:
         """Comments on viral LinkedIn posts and replies to suitable questions, within a daily cap."""
@@ -1620,84 +1800,108 @@ class AutomaterEngine:
             console.print("[yellow]LinkedIn automation is disabled via LINKEDIN_ENABLED. Skipping.[/yellow]")
             return False
 
-        history_file = config.BASE_DIR / "linkedin_engagement_history.json"
-        engagements = []
-        if history_file.exists():
-            try:
-                with open(history_file, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    engagements = data.get("engagements", []) if isinstance(data, dict) else data
-            except Exception:
-                engagements = []
-
-        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        today_count = sum(1 for e in engagements if e.get("ts", "").startswith(today_str))
-        max_daily = config.CAPS_PER_PLATFORM.get("linkedin_peer_comments", 10)
-        remaining = max_daily - today_count
-        if remaining <= 0:
-            console.print(f"[yellow]LinkedIn engagement daily cap reached ({today_count}/{max_daily}). Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="linkedin_peer_comment",
-                status="skipped",
-                target_identifier="LinkedIn daily cap",
-                skip_or_error_reason=f"LinkedIn engagement cap reached ({today_count}/{max_daily})",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
         from src.linkedin_automater import LinkedInAutomater
         automater = LinkedInAutomater(headless=True, dry_run=self.safety.dry_run)
-        if not automater.is_session_available():
-            console.print("[yellow]LinkedIn session not authenticated for engagement. Skipping.[/yellow]")
+        with linkedin_state_lock():
+            engagements = load_engagement_history(ENGAGEMENT_HISTORY_FILE)
+            today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            today_count = engagement_count_on_date(engagements, today_str)
+            max_daily = config.CAPS_PER_PLATFORM.get("linkedin_peer_comments", 10)
+            remaining = max_daily - today_count
+            if remaining <= 0:
+                msg = f"LinkedIn engagement daily cap reached ({today_count}/{max_daily})."
+                console.print(f"[yellow]{msg} Skipping.[/yellow]")
+                self.tracker.record_event(
+                    action_type="linkedin_peer_comment",
+                    status="skipped",
+                    target_identifier="LinkedIn daily cap",
+                    skip_or_error_reason=msg,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run,
+                )
+                return False
+
+            if not self.safety.dry_run and not automater.is_browser_session_available():
+                msg = "LinkedIn browser session not authenticated for engagement."
+                console.print(f"[yellow]{msg} Skipping.[/yellow]")
+                self.tracker.record_event(
+                    action_type="linkedin_peer_comment",
+                    status="skipped",
+                    target_identifier="LinkedIn session",
+                    skip_or_error_reason=msg,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
+            already_commented = {
+                entry.get("key")
+                for entry in engagements
+                if entry.get("type") == "comment" and entry.get("key")
+            }
+            already_replied = {
+                entry.get("key")
+                for entry in engagements
+                if entry.get("type") in {"own_reply", "reply"} and entry.get("key")
+            }
+            commented_ids: List[str] = []
+            replied_ids: List[str] = []
+            messages: List[str] = []
+
+            # Answer comments on our own posts first, then spend any remaining
+            # budget on high-signal peer comments/replies.
+            own_count, own_msg = automater.reply_to_own_post_comments(
+                max_replies=min(remaining, 2),
+                already_replied=already_replied,
+                replied_ids=replied_ids,
+            )
+            if own_msg:
+                messages.append(own_msg)
+            remaining -= len(replied_ids)
+
+            if remaining > 0:
+                _, peer_msg = automater.engage_with_peer_posts(
+                    max_comments=min(remaining, 2),
+                    max_replies=min(remaining, 1),
+                    max_total=remaining,
+                    already_commented=already_commented,
+                    already_replied=already_replied,
+                    commented_ids=commented_ids,
+                    replied_ids=replied_ids,
+                )
+                if peer_msg:
+                    messages.append(peer_msg)
+
+            now_iso = utc_now_iso()
+            # The first reply IDs are own-post replies; preserve their type.
+            own_reply_count = min(own_count, len(replied_ids))
+            new_entries = [
+                {"key": key, "type": "own_reply", "ts": now_iso}
+                for key in replied_ids[:own_reply_count]
+            ] + [
+                {"key": key, "type": "reply", "ts": now_iso}
+                for key in replied_ids[own_reply_count:]
+            ] + [
+                {"key": key, "type": "comment", "ts": now_iso}
+                for key in commented_ids
+            ]
+
+            if new_entries and not self.safety.dry_run:
+                engagements.extend(new_entries)
+                save_engagement_history(engagements, ENGAGEMENT_HISTORY_FILE)
+
+            actual = len(new_entries)
+            msg = " ".join(messages) or "No suitable LinkedIn engagement targets found."
+            console.print(f"[bold green]✅ {msg}[/bold green]")
             self.tracker.record_event(
                 action_type="linkedin_peer_comment",
-                status="skipped",
-                target_identifier="LinkedIn session",
-                skip_or_error_reason="LinkedIn session not authenticated",
+                status="success" if actual > 0 else "skipped",
+                target_identifier="LinkedIn Viral Engagement",
+                content_preview=msg,
                 duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
+                is_dry_run=self.safety.dry_run,
             )
-            return False
-
-        already = {e.get("key", "") for e in engagements if e.get("key")}
-        commented_ids: List[str] = []
-        replied_ids: List[str] = []
-
-        count, msg = automater.engage_with_peer_posts(
-            max_comments=min(remaining, 2),
-            max_replies=min(remaining, 1),
-            already_commented=already,
-            commented_ids=commented_ids,
-            replied_ids=replied_ids,
-        )
-        console.print(f"[bold green]✅ {msg}[/bold green]")
-
-        new_entries = []
-        now_iso = datetime.now(timezone.utc).isoformat()
-        for key in commented_ids:
-            new_entries.append({"key": key, "type": "comment", "ts": now_iso})
-        for key in replied_ids:
-            new_entries.append({"key": key, "type": "reply", "ts": now_iso})
-
-        if new_entries and not self.safety.dry_run:
-            engagements.extend(new_entries)
-            try:
-                with open(history_file, "w", encoding="utf-8") as f:
-                    json.dump({"engagements": engagements[-1000:]}, f, indent=2)
-            except Exception as hist_err:
-                console.print(f"[dim]LinkedIn engagement history save note: {hist_err}[/dim]")
-
-        actual = len(new_entries)
-        self.tracker.record_event(
-            action_type="linkedin_peer_comment",
-            status="success" if actual > 0 else "skipped",
-            target_identifier="LinkedIn Viral Engagement",
-            content_preview=msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-        return actual > 0
+            return actual > 0
 
 
     def _execute_bluesky_sniper_replies(self, start_time: float) -> bool:

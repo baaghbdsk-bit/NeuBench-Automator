@@ -37,7 +37,8 @@ on:
           - render-video
 
 concurrency:
-  group: neubench-automator-cloud-engine
+  group: >-
+    ${{ (inputs.action == 'linkedin' || inputs.action == 'linkedin-replies' || inputs.action == 'linkedin-peers') && 'neubench-linkedin-state' || 'neubench-automator-cloud-engine' }}
   cancel-in-progress: false
 
 permissions:

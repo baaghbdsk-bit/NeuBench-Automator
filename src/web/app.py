@@ -1290,42 +1290,22 @@ class PublishLinkedInRequest(BaseModel):
 
 
 @app.post("/api/action/publish-linkedin")
-
 async def publish_linkedin_action(req: PublishLinkedInRequest):
-
     from src.linkedin_automater import LinkedInAutomater
+    from src.scheduler import AutomaterEngine
 
-    automater = LinkedInAutomater(headless=True, dry_run=False)
-
-    if not automater.is_session_available():
-
+    if not LinkedInAutomater(headless=True, dry_run=False).is_session_available():
         return {"status": "not_logged_in", "message": "Please connect your LinkedIn account first."}
 
-    
-
-    ok, msg = automater.post(req.text)
-
-    status = "success" if ok else "failed"
-
-    tracker.record_event(
-
-        action_type="linkedin_post",
-
-        status=status,
-
-        target_identifier="LinkedIn B2B",
-
-        content_preview=req.text[:80],
-
-        skip_or_error_reason="" if ok else msg,
-
-        duration_seconds=4.0,
-
-        is_dry_run=False
-
-    )
-
-    return {"status": status, "message": msg}
+    try:
+        engine = AutomaterEngine(dry_run=False)
+        ok = engine.execute_linkedin_custom_post(req.text)
+        return {
+            "status": "success" if ok else "failed",
+            "message": "LinkedIn post completed by the guarded automation path." if ok else "LinkedIn post was not sent; see the automation log for the guard or error reason.",
+        }
+    except Exception as error:
+        return {"status": "failed", "message": f"LinkedIn publish error: {error}"}
 
 
 @app.post("/api/action/follow-linkedin-network")
@@ -1958,4 +1938,3 @@ async def cloud_deploy(req: CloudDeployRequest):
     except Exception as e:
 
         return {"status": "error", "message": f"Deployment error: {e}"}
-

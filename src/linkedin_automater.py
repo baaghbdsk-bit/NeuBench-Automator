@@ -31,6 +31,8 @@ from playwright.sync_api import sync_playwright
 
 import config
 
+from src.linkedin_state import engagement_key
+
 
 
 if sys.platform == "win32":
@@ -59,6 +61,10 @@ class LinkedInAutomater:
 
         self.user_data_dir = config.LINKEDIN_USER_DATA_DIR
 
+        # Set when a submission may have been accepted but its final response
+        # could not be observed. Callers must not blindly retry that attempt.
+        self.last_post_outcome_unknown = False
+
 
 
     def is_session_available(self) -> bool:
@@ -68,13 +74,31 @@ class LinkedInAutomater:
         if os.getenv("LINKEDIN_ACCESS_TOKEN") and os.getenv("LINKEDIN_PERSON_URN"):
             return True
 
-        if (self.user_data_dir / "cookies.json").exists():
-            return True
+        return self.is_browser_session_available()
+
+
+    def is_browser_session_available(self) -> bool:
+        """Check browser credentials separately from REST API credentials."""
+
+        cookie_file = self.user_data_dir / "cookies.json"
+        if cookie_file.exists():
+            try:
+                with cookie_file.open("r", encoding="utf-8") as handle:
+                    data = json.load(handle)
+                raw_cookies = data.get("cookies", data) if isinstance(data, dict) else data
+                if isinstance(raw_cookies, list):
+                    return any(
+                        item.get("name") == "li_at" and item.get("value")
+                        for item in raw_cookies
+                        if isinstance(item, dict)
+                    )
+            except (OSError, TypeError, ValueError):
+                return False
 
         cookie_db = self.user_data_dir / "Default" / "Network" / "Cookies"
 
         if not cookie_db.exists():
-            return self.user_data_dir.exists() and any(self.user_data_dir.iterdir())
+            return False
 
         try:
 
@@ -96,7 +120,7 @@ class LinkedInAutomater:
 
         except Exception:
 
-            return self.user_data_dir.exists() and any(self.user_data_dir.iterdir())
+            return False
 
 
 
@@ -254,6 +278,8 @@ class LinkedInAutomater:
 
         """Publishes an update to LinkedIn via automated browser session."""
 
+        self.last_post_outcome_unknown = False
+
         if self.dry_run:
 
             print(f"[LinkedInAutomater] [DRY RUN] Simulated LinkedIn post: {text[:60]}...")
@@ -324,6 +350,7 @@ class LinkedInAutomater:
             try:
                 resp = requests.post(post_url, json=post_payload, headers=headers, timeout=20)
             except Exception as e:
+                self.last_post_outcome_unknown = True
                 msg = f"LinkedIn API outcome unknown ({e}); skipped browser fallback to avoid a duplicate post."
                 print(f"[LinkedInAutomater] {msg}")
                 return False, msg
@@ -397,6 +424,7 @@ class LinkedInAutomater:
 
             page = context.pages[0] if context.pages else context.new_page()
 
+            submission_started = False
 
 
             try:
@@ -566,6 +594,7 @@ class LinkedInAutomater:
                     return False, "Could not locate the 'Post' button in the post modal."
 
                 print("[LinkedInAutomater] Clicking 'Post' button...")
+                submission_started = True
                 post_btn.click(force=True)
                 page.wait_for_timeout(6000)
 
@@ -578,7 +607,12 @@ class LinkedInAutomater:
 
 
             except Exception as e:
-
+                if submission_started:
+                    self.last_post_outcome_unknown = True
+                    return False, (
+                        "LinkedIn browser submission outcome is unknown after clicking Post; "
+                        "the topic was reserved to prevent an automatic duplicate."
+                    )
                 return False, f"LinkedIn browser automation error: {e}"
 
             finally:
@@ -589,7 +623,12 @@ class LinkedInAutomater:
 
 
 
-    def reply_to_own_post_comments(self, max_replies: int = 5) -> Tuple[int, str]:
+    def reply_to_own_post_comments(
+        self,
+        max_replies: int = 5,
+        already_replied: Optional[set] = None,
+        replied_ids: Optional[List[str]] = None,
+    ) -> Tuple[int, str]:
         """
         Scans the user's recent LinkedIn posts for unreplied comments,
         generates professional B2B engineering replies using AIGenerator, and posts them.
@@ -598,7 +637,12 @@ class LinkedInAutomater:
             print(f"[LinkedInAutomater] [DRY RUN] Would scan and reply to comments on recent posts.")
             return 0, "[DRY RUN] Simulated comment replies"
 
-        if not self.is_session_available():
+        if already_replied is None:
+            already_replied = set()
+        if replied_ids is None:
+            replied_ids = []
+
+        if not self.is_browser_session_available():
             return 0, "LinkedIn session not available for browser commenting."
 
         replied_count = 0
@@ -657,10 +701,13 @@ class LinkedInAutomater:
                 for comment in comments:
                     if replied_count >= max_replies:
                         break
+                    reply_id = ""
+                    reply_submission_started = False
                     try:
-                        # Check if already replied by us
+                        # Check if already replied by us in the visible DOM.
                         nested_replies = comment.locator('.comments-reply-item, .comments-comment-item__nested-comments').inner_text(timeout=1000)
-                        if "Vishnu Gupta" in nested_replies or "NeuBench" in nested_replies:
+                        nested_lower = nested_replies.lower()
+                        if "vishnu gupta" in nested_lower or "neubench" in nested_lower:
                             continue
                     except Exception:
                         pass
@@ -676,8 +723,36 @@ class LinkedInAutomater:
                         if not comment_text or len(comment_text) < 3:
                             continue
 
+                        parent_key = ""
+                        post_context = "NeuBench LinkedIn post"
+                        for parent_selector in (
+                            "xpath=ancestor::article[1]",
+                            "xpath=ancestor::div[contains(@class, 'feed-shared-update-v2')][1]",
+                        ):
+                            try:
+                                parent = comment.locator(parent_selector).first
+                                parent_key = self._extract_post_key(parent)
+                                try:
+                                    post_context = parent.inner_text(timeout=1000)[:350]
+                                except Exception:
+                                    pass
+                                if parent_key:
+                                    break
+                            except Exception:
+                                continue
+                        parent_key = parent_key or "own-post"
+                        reply_id = engagement_key(
+                            "own_reply", parent_key, author_name, comment_text
+                        )
+                        if reply_id in already_replied:
+                            continue
+
                         print(f"[LinkedInAutomater] Replying to comment by {author_name}: \"{comment_text[:50]}...\"")
-                        reply_text = ai.generate_linkedin_comment_reply(post_text="NeuBench AI Benchmarks & 90 Days of AI Engineering", commenter_name=author_name, comment_text=comment_text)
+                        reply_text = ai.generate_linkedin_comment_reply(
+                            post_text=post_context,
+                            commenter_name=author_name,
+                            comment_text=comment_text,
+                        )
 
                         # Click Reply button inside this comment
                         reply_btn = comment.locator('button[aria-label*="Reply" i], button:has-text("Reply")').first
@@ -695,11 +770,19 @@ class LinkedInAutomater:
                                 # Submit reply
                                 submit_btn = page.locator('button.comments-comment-box__submit-button, button:has-text("Reply")').last
                                 if submit_btn.is_visible():
+                                    reply_submission_started = True
                                     submit_btn.click(timeout=4000)
                                     replied_count += 1
+                                    replied_ids.append(reply_id)
+                                    already_replied.add(reply_id)
                                     print(f"[LinkedInAutomater] ✅ Successfully replied to {author_name}!")
                                     page.wait_for_timeout(3000)
                     except Exception as e:
+                        if reply_submission_started and reply_id and reply_id not in replied_ids:
+                            replied_count += 1
+                            replied_ids.append(reply_id)
+                            already_replied.add(reply_id)
+                            print(f"[LinkedInAutomater] Reply submission outcome unknown for {author_name}; reserving target.")
                         print(f"[LinkedInAutomater] Error handling comment: {e}")
                         continue
 
@@ -711,6 +794,13 @@ class LinkedInAutomater:
 
     def _extract_post_key(self, post_elem) -> str:
         """Returns a stable identifier for a feed post (permalink/activity URN or text hash)."""
+        for attr in ("data-urn", "data-activity-urn", "data-id"):
+            try:
+                value = post_elem.get_attribute(attr) or ""
+                if value:
+                    return value.strip()
+            except Exception:
+                continue
         try:
             link = post_elem.locator('a[href*="/feed/update/"], a[href*="urn:li:activity"]').first
             href = link.get_attribute("href") or ""
@@ -779,8 +869,16 @@ class LinkedInAutomater:
         lower = post_text.lower()
         return any(keyword in lower for keyword in ACHIEVEMENT_KEYWORDS)
 
-    def _try_reply_to_question(self, page, post_elem, ai) -> Optional[str]:
+    def _try_reply_to_question(
+        self,
+        page,
+        post_elem,
+        ai,
+        already_replied: Optional[set] = None,
+    ) -> Optional[str]:
         """Best-effort reply to a genuine question in the comments. Returns a reply key on success."""
+        if already_replied is None:
+            already_replied = set()
         try:
             comments = post_elem.locator(
                 'article.comments-comment-item, div.comments-comment-item, article.comments-comment-entity'
@@ -789,6 +887,8 @@ class LinkedInAutomater:
             return None
 
         for comment in comments[:4]:
+            reply_key = ""
+            reply_submission_started = False
             try:
                 body_elem = comment.locator(
                     '.comments-comment-item__main-content, .update-components-text, .comments-comment-entity__content'
@@ -806,6 +906,11 @@ class LinkedInAutomater:
                         author = author_elem.inner_text().strip().split("\n")[0][:50] or "there"
                 except Exception:
                     pass
+
+                post_key = self._extract_post_key(post_elem) or "peer-post"
+                reply_key = engagement_key("reply", post_key, author, body)
+                if reply_key in already_replied:
+                    continue
 
                 reply_btn = comment.locator('button[aria-label*="Reply" i], button:has-text("Reply")').first
                 if not reply_btn.is_visible():
@@ -827,11 +932,14 @@ class LinkedInAutomater:
 
                 submit = page.locator('button.comments-comment-box__submit-button, button:has-text("Reply")').last
                 if submit.is_visible():
+                    reply_submission_started = True
                     submit.click(timeout=4000)
                     page.wait_for_timeout(3000)
-                    reply_key = f"reply:{hashlib.md5((body[:200] + author).encode('utf-8')).hexdigest()[:16]}"
                     return reply_key
             except Exception:
+                if reply_submission_started and reply_key:
+                    already_replied.add(reply_key)
+                    return reply_key
                 continue
         return None
 
@@ -839,7 +947,9 @@ class LinkedInAutomater:
         self,
         max_comments: int = 2,
         max_replies: int = 1,
+        max_total: Optional[int] = None,
         already_commented: Optional[set] = None,
+        already_replied: Optional[set] = None,
         commented_ids: Optional[List[str]] = None,
         replied_ids: Optional[List[str]] = None,
     ) -> Tuple[int, str]:
@@ -852,13 +962,16 @@ class LinkedInAutomater:
             print(f"[LinkedInAutomater] [DRY RUN] Would engage with viral LinkedIn posts and commenters.")
             return 0, "[DRY RUN] Simulated viral engagement"
 
-        already_commented = already_commented or set()
+        if already_commented is None:
+            already_commented = set()
+        if already_replied is None:
+            already_replied = set()
         if commented_ids is None:
             commented_ids = []
         if replied_ids is None:
             replied_ids = []
 
-        if not self.is_session_available():
+        if not self.is_browser_session_available():
             return 0, "LinkedIn session not available for peer engagement."
 
         commented_count = 0
@@ -911,8 +1024,12 @@ class LinkedInAutomater:
 
                 replies_count = 0
                 for idx, post_elem in enumerate(post_cards[:12]):
+                    if max_total is not None and commented_count + replies_count >= max_total:
+                        break
                     if commented_count >= max_comments and replies_count >= max_replies:
                         break
+                    post_key = ""
+                    comment_submission_started = False
                     try:
                         post_text = post_elem.inner_text().strip()
                         if not self._is_suitable_post(post_text):
@@ -963,6 +1080,7 @@ class LinkedInAutomater:
 
                         submit = post_elem.locator('button.comments-comment-box__submit-button, button:has-text("Comment")').first
                         if submit.is_visible():
+                            comment_submission_started = True
                             submit.click(timeout=4000)
                             commented_count += 1
                             commented_ids.append(post_key)
@@ -970,13 +1088,26 @@ class LinkedInAutomater:
                             print(f"[LinkedInAutomater] ✅ {kind.title()} comment posted on viral feed post #{idx+1}!")
                             page.wait_for_timeout(4000)
 
-                            if replies_count < max_replies:
-                                reply_key = self._try_reply_to_question(page, post_elem, ai)
+                            if replies_count < max_replies and (
+                                max_total is None or commented_count + replies_count < max_total
+                            ):
+                                reply_key = self._try_reply_to_question(
+                                    page,
+                                    post_elem,
+                                    ai,
+                                    already_replied=already_replied,
+                                )
                                 if reply_key:
                                     replies_count += 1
                                     replied_ids.append(reply_key)
+                                    already_replied.add(reply_key)
                                     print("[LinkedInAutomater] ✅ Replied to a question in that post's comments.")
                     except Exception as ex:
+                        if comment_submission_started and post_key and post_key not in commented_ids:
+                            commented_count += 1
+                            commented_ids.append(post_key)
+                            already_commented.add(post_key)
+                            print(f"[LinkedInAutomater] Comment submission outcome unknown; reserving post #{idx+1}.")
                         print(f"[LinkedInAutomater] Error on post #{idx+1}: {ex}")
                         continue
 
