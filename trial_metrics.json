@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T06:02:04.724985+00:00",
+    "last_updated": "2026-11-03T06:41:24.290597+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 426,
+    "total_cycles_executed": 427,
     "original_posts_attempted": 66,
     "original_posts_succeeded": 58,
     "replies_attempted": 25,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 10,
     "actions_skipped": 47,
     "failed_operations": 24,
-    "ai_generation_requests": 132,
+    "ai_generation_requests": 133,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-10-31T23:03:07.227901+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "It's the Memory Latency, Stupid",
-      "content_preview": "People keep throwing billions at raw compute while completely ignoring that memory latency is the actual bottleneck chok",
-      "reason": "",
-      "duration_s": 85.04
-    },
     {
       "timestamp": "2026-10-31T23:03:08.527411+00:00",
       "action_type": "bluesky_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "Spot on. True generalization requires treating evaluation harnesses like production systems\u2014version-controlled, isolated",
       "reason": "",
       "duration_s": 18.11
+    },
+    {
+      "timestamp": "2026-11-03T06:41:24.290572+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours evaluating geopolitical stress testing and defense telemetry through NeuBench. Here is the 1-page visu",
+      "reason": "",
+      "duration_s": 4.23
     }
   ]
 }
