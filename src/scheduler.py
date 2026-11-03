@@ -1103,17 +1103,20 @@ class AutomaterEngine:
 
 
 
-        # Generate Autonomous Visual Animation (MP4 & GIF) for maximum dwell-time engagement whenever applicable
-        gif_visual, mp4_visual = None, None
+        # Generate Visual Media: For casual X posts, generate aesthetic dark-mode card & looping GIF for maximum engagement
+        twitter_media = None
         try:
-            from src.autonomous_visual_engine import generate_visual_for_post
-            gif_visual, mp4_visual = generate_visual_for_post(selected_trend["title"], selected_trend.get("summary", ""))
-            console.print(f"[bold magenta]🎬 Generated visual animations: {gif_visual} & {mp4_visual}[/bold magenta]")
+            from src.autonomous_visual_engine import generate_casual_visual_card
+            casual_png, casual_gif = generate_casual_visual_card(selected_trend["title"], hot_take)
+            if casual_gif and Path(casual_gif).exists() and Path(casual_gif).stat().st_size > 0:
+                twitter_media = casual_gif
+            elif casual_png and Path(casual_png).exists() and Path(casual_png).stat().st_size > 0:
+                twitter_media = casual_png
+            console.print(f"[bold magenta]🎬 X Visual Media Attachment: {twitter_media}[/bold magenta]")
         except Exception as e:
-            console.print(f"[dim]Visual engine note: {e}[/dim]")
+            console.print(f"[dim]X visual card note: {e}[/dim]")
 
-        # 1. Post to X (Twitter) - Attach looping visual whenever available for 10x timeline dwell time
-        twitter_media = gif_visual if (gif_visual and Path(gif_visual).exists()) else None
+        # 1. Post to X (Twitter) - Always attach visual card/looping GIF for 10x timeline dwell time
         reservation_id = None
         if not self.safety.dry_run:
             try:
@@ -1173,7 +1176,7 @@ class AutomaterEngine:
             console.print("[red]X post outcome is unknown; stopping without another X attempt.[/red]")
             return False
 
-        # 2. Cross-post to Bluesky (Independent, attaching GIF loop)
+        # 2. Cross-post to Bluesky (Technical Take, attaching GIF loop)
         if self.safety.dry_run or (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD):
             try:
                 from src.bluesky_client import BlueskyClient
@@ -1182,22 +1185,33 @@ class AutomaterEngine:
                     app_password=config.BLUESKY_APP_PASSWORD,
                     dry_run=self.safety.dry_run
                 )
+                b_topics = self.hunter.get_linkedin_topics()
+                b_trend = b_topics[0] if b_topics else {"title": "Continuous Speculative Decoding", "summary": "Latency analysis on modern open-weights"}
                 bsky_take = self.ai.generate_bluesky_take(
-                    selected_trend["title"],
-                    selected_trend.get("summary", "")
+                    b_trend["title"],
+                    b_trend.get("summary", "")
                 )
+                bsky_visual = None
+                try:
+                    from src.autonomous_visual_engine import generate_visual_for_post
+                    b_gif, _ = generate_visual_for_post(b_trend["title"], b_trend.get("summary", ""))
+                    if b_gif and Path(b_gif).exists() and Path(b_gif).stat().st_size > 0:
+                        bsky_visual = b_gif
+                except Exception as bve:
+                    console.print(f"[dim]Bluesky visual note: {bve}[/dim]")
+
                 bsky_reservation, bsky_reason = self._reserve_platform(
                     "bluesky",
                     "post",
                     f"post:{stable_hash(bsky_take)}",
-                    target=selected_trend["title"],
+                    target=b_trend["title"],
                     preview=bsky_take,
                 )
                 if not self.safety.dry_run and not bsky_reservation:
                     console.print(f"[dim]Bluesky duplicate guard: {bsky_reason}[/dim]")
                     bsky_ok, bsky_msg = False, bsky_reason
                 else:
-                    bsky_ok, bsky_msg = bsky_client.post(bsky_take, media_path=gif_visual)
+                    bsky_ok, bsky_msg = bsky_client.post(bsky_take, media_path=bsky_visual)
                     self._complete_platform(
                         bsky_reservation,
                         ok=bsky_ok,
@@ -1239,7 +1253,16 @@ class AutomaterEngine:
                 if not self.safety.dry_run and not th_reservation:
                     th_ok, th_msg = False, th_reason
                 else:
-                    th_ok, th_msg = th_automater.post(th_take)
+                    th_media = None
+                    try:
+                        from src.autonomous_visual_engine import generate_casual_visual_card
+                        th_png, _ = generate_casual_visual_card(c_topic["title"], th_take, square=True)
+                        if th_png and Path(th_png).exists() and Path(th_png).stat().st_size > 0:
+                            th_media = th_png
+                            console.print(f"[bold magenta]🎬 Threads visual card: {th_media}[/bold magenta]")
+                    except Exception as ve:
+                        console.print(f"[dim]Threads visual note: {ve}[/dim]")
+                    th_ok, th_msg = th_automater.post(th_take, image_path=th_media)
                     self._complete_platform(
                         th_reservation,
                         ok=th_ok,
@@ -1590,24 +1613,21 @@ class AutomaterEngine:
             return False
 
         media_path = None
-        if not self.safety.dry_run:
-            try:
-                from src.autonomous_visual_engine import generate_visual_for_post
+        try:
+            from src.autonomous_visual_engine import generate_visual_for_post
 
-                gif_v, mp4_v = generate_visual_for_post(
-                    selected_trend["title"],
-                    selected_trend.get("summary", ""),
-                )
-                if gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
-                    media_path = gif_v
-                elif mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
-                    media_path = mp4_v
-                if media_path:
-                    console.print(f"[bold magenta]🎬 Bluesky visual attachment: {media_path}[/bold magenta]")
-            except Exception as error:
-                console.print(f"[dim]Bluesky visual generation note: {error}[/dim]")
-        else:
-            console.print("[dim]Bluesky visual: (dynamic visual attachment simulated in dry run)[/dim]")
+            gif_v, mp4_v = generate_visual_for_post(
+                selected_trend["title"],
+                selected_trend.get("summary", ""),
+            )
+            if gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
+                media_path = gif_v
+            elif mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
+                media_path = mp4_v
+            if media_path:
+                console.print(f"[bold magenta]🎬 Bluesky visual attachment: {media_path}[/bold magenta]")
+        except Exception as error:
+            console.print(f"[dim]Bluesky visual generation note: {error}[/dim]")
 
         try:
             ok, msg = self.bluesky.post(bsky_take, media_path=media_path)
@@ -1848,21 +1868,20 @@ class AutomaterEngine:
 
             console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
             media_path = None
-            if not self.safety.dry_run:
-                try:
-                    from src.autonomous_visual_engine import generate_visual_for_post
+            try:
+                from src.autonomous_visual_engine import generate_visual_for_post
 
-                    gif_v, mp4_v = generate_visual_for_post(
-                        selected_trend["title"],
-                        selected_trend.get("summary", ""),
-                    )
-                    if mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
-                        media_path = mp4_v
-                    elif gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
-                        media_path = gif_v
-                    console.print(f"[bold magenta]🎬 LinkedIn visual: {media_path}[/bold magenta]")
-                except Exception as error:
-                    console.print(f"[dim]LinkedIn visual generation note: {error}[/dim]")
+                gif_v, mp4_v = generate_visual_for_post(
+                    selected_trend["title"],
+                    selected_trend.get("summary", ""),
+                )
+                if mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
+                    media_path = mp4_v
+                elif gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
+                    media_path = gif_v
+                console.print(f"[bold magenta]🎬 LinkedIn visual attachment: {media_path}[/bold magenta]")
+            except Exception as error:
+                console.print(f"[dim]LinkedIn visual generation note: {error}[/dim]")
 
             first_comm = None
             try:
@@ -2031,8 +2050,18 @@ class AutomaterEngine:
             )
             return False
 
+        th_media = None
         try:
-            ok, msg = automater.post(th_text)
+            from src.autonomous_visual_engine import generate_casual_visual_card
+            casual_png, _ = generate_casual_visual_card(selected_trend["title"], th_text, square=True)
+            if casual_png and Path(casual_png).exists() and Path(casual_png).stat().st_size > 0:
+                th_media = casual_png
+                console.print(f"[bold magenta]🎬 Threads visual card attachment: {th_media}[/bold magenta]")
+        except Exception as ve:
+            console.print(f"[dim]Threads visual note: {ve}[/dim]")
+
+        try:
+            ok, msg = automater.post(th_text, image_path=th_media)
         except Exception as error:
             ok, msg = False, f"Threads client error: {error}"
         self._complete_platform(

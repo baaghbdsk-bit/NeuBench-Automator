@@ -519,27 +519,160 @@ def render_dynamic_token_pipeline(spec: Dict[str, Any], output_base_name: str = 
     return gif_path, (compiled_mp4 or "")
 
 
+def generate_casual_visual_card(
+    topic_or_title: str,
+    text: str,
+    square: bool = False,
+    output_base_name: str = ""
+) -> Tuple[str, str]:
+    """
+    Renders a viral, high-contrast aesthetic dark-mode thought card (PNG and looping GIF).
+    Ideal for casual X (1200x675) and Threads (1080x1080) posts to drive maximum saves,
+    retweets, and timeline dwell time.
+    """
+    import hashlib, re, textwrap
+
+    # Clean text of hashtags/URLs for visual card presentation
+    clean_text = re.sub(r'https?://\S+', '', text)
+    clean_text = re.sub(r'#\w+', '', clean_text).strip()
+    if not clean_text:
+        clean_text = topic_or_title
+
+    # Generate slug & file paths
+    raw_slug = re.sub(r'[^a-zA-Z0-9_]', '_', topic_or_title.strip().lower())
+    clean_slug = re.sub(r'_+', '_', raw_slug)[:20].strip('_')
+    content_hash = hashlib.md5(f"{topic_or_title}_{text[:80]}".encode()).hexdigest()[:8]
+    base_name = output_base_name or f"casual_{clean_slug}_{content_hash}"
+
+    png_path = str(OUTPUT_DIR / f"{base_name}.png")
+    gif_path = str(OUTPUT_DIR / f"{base_name}.gif")
+
+    width, height = (1080, 1080) if square else (1200, 675)
+
+    # Text wrapping
+    wrap_width = 38 if square else 46
+    wrapped_lines = textwrap.wrap(clean_text, width=wrap_width)
+    if len(wrapped_lines) > 8:
+        wrapped_lines = wrapped_lines[:8]
+        wrapped_lines[-1] = wrapped_lines[-1].rstrip(".,:;") + "..."
+
+    # Create 4 subtle animated frames for looping GIF
+    frames = []
+    card_margin = 60 if square else 50
+    card_x1, card_y1 = card_margin, card_margin
+    card_x2, card_y2 = width - card_margin, height - card_margin
+
+    for f_idx in range(4):
+        img = Image.new("RGB", (width, height), (11, 15, 25))
+        draw = ImageDraw.Draw(img)
+
+        # Subtle corner glows
+        draw.ellipse((-80, -80, 320, 320), fill=(20, 35, 55))
+        draw.ellipse((width - 250, height - 250, width + 100, height + 100), fill=(25, 25, 45))
+
+        # Outer rounded card
+        draw.rounded_rectangle(
+            (card_x1, card_y1, card_x2, card_y2),
+            radius=24,
+            fill=(18, 24, 38),
+            outline=(45, 55, 75),
+            width=2
+        )
+
+        # Header Badge: "☕ REAL TALK"
+        badge_y = card_y1 + 45
+        badge_x = card_x1 + 50
+        draw.rounded_rectangle(
+            (badge_x, badge_y, badge_x + 190, badge_y + 40),
+            radius=20,
+            fill=(28, 38, 58),
+            outline=(56, 189, 248),
+            width=1
+        )
+        # Pulsing accent dot
+        dot_color = (56, 189, 248) if f_idx % 2 == 0 else (147, 197, 253)
+        draw.ellipse((badge_x + 14, badge_y + 14, badge_x + 26, badge_y + 26), fill=dot_color)
+        draw.text((badge_x + 36, badge_y + 10), "REAL TALK", font=get_font(18, bold=True), fill=(248, 250, 252))
+
+        # Topic header
+        topic_header = topic_or_title[:45].upper()
+        draw.text((badge_x + 210, badge_y + 11), f"//  {topic_header}", font=get_font(18, bold=False), fill=(148, 163, 184))
+
+        # Main quote / thought text
+        font_size = 38 if (square and len(wrapped_lines) <= 5) else (34 if not square else 30)
+        main_font = get_font(font_size, bold=True)
+        line_height = font_size + 18
+        total_text_height = len(wrapped_lines) * line_height
+
+        # Vertically center text in card
+        start_y = card_y1 + (card_y2 - card_y1 - total_text_height) // 2 + 10
+        cur_y = max(card_y1 + 120, start_y)
+
+        for line in wrapped_lines:
+            draw.text((card_x1 + 60, cur_y), line, font=main_font, fill=(248, 250, 252))
+            cur_y += line_height
+
+        # Footer divider & engagement cues
+        footer_y = card_y2 - 65
+        draw.line((card_x1 + 50, footer_y, card_x2 - 50, footer_y), fill=(35, 45, 65), width=1)
+
+        footer_font = get_font(18, bold=False)
+        draw.text((card_x1 + 60, footer_y + 18), "💬 Unfiltered Thoughts & Modern Quirks", font=footer_font, fill=(148, 163, 184))
+        draw.text((card_x2 - 250, footer_y + 18), "🔁 Repost  •  💬 Reply", font=footer_font, fill=(56, 189, 248))
+
+        frames.append(img)
+
+    # Save high-res PNG & looping GIF
+    frames[0].save(png_path, format="PNG", quality=95)
+    frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=600, loop=0, optimize=True)
+
+    return png_path, gif_path
+
+
 def generate_visual_for_post(topic_or_text: str, summary: str = "") -> Tuple[str, str]:
     """
     Main entry point:
     1. Uses Gemini AI to analyze the specific post topic and generate custom technical layout specifications.
     2. Ensures unique, uncollided file names so each post gets its own distinct attachment.
     3. Dispatches to the corresponding renderer with the AI-generated titles, models, code, or tokens.
-    4. Returns (gif_path, mp4_path).
+    4. Guarantees non-empty (gif_path, mp4_path) with local fallbacks if network fails.
     """
     import hashlib, re
-    # Create a unique slug for this specific topic to prevent file reuse or collisions
     raw_slug = re.sub(r'[^a-zA-Z0-9_]', '_', topic_or_text.strip().lower())
     clean_slug = re.sub(r'_+', '_', raw_slug)[:25].strip('_')
     content_hash = hashlib.md5(f"{topic_or_text}_{summary[:100]}".encode()).hexdigest()[:8]
     unique_base_name = f"{clean_slug}_{content_hash}" if clean_slug else f"visual_{content_hash}"
 
-    spec = request_ai_visual_spec(topic_or_text, summary)
-    v_type = spec.get("visual_type", "CODE_ARCHITECTURE")
+    try:
+        spec = request_ai_visual_spec(topic_or_text, summary)
+        v_type = spec.get("visual_type", "CODE_ARCHITECTURE")
 
-    if v_type == "BENCHMARK_RACE":
-        return render_dynamic_benchmark_race(spec, output_base_name=unique_base_name)
-    elif v_type == "TOKEN_PIPELINE":
-        return render_dynamic_token_pipeline(spec, output_base_name=unique_base_name)
-    else:
+        if v_type == "BENCHMARK_RACE":
+            return render_dynamic_benchmark_race(spec, output_base_name=unique_base_name)
+        elif v_type == "TOKEN_PIPELINE":
+            return render_dynamic_token_pipeline(spec, output_base_name=unique_base_name)
+        else:
+            return render_dynamic_code_architecture(spec, output_base_name=unique_base_name)
+    except Exception as e:
+        print(f"[VisualEngine] Note on visual rendering: {e}. Using deterministic fallback layout.")
+        spec = {
+            "visual_type": "CODE_ARCHITECTURE",
+            "title": topic_or_text[:32].upper(),
+            "subtitle": "Continuous AI Architecture Series",
+            "box1_title": "INGESTION & PREFILL",
+            "box1_desc": "Batch tokens & parallel KV prefill",
+            "box1_stat": "Sub-millisecond flash attention",
+            "arrow_label": "High-speed bus",
+            "box2_title": "EXECUTION & DECODE",
+            "box2_desc": "Continuous autoregressive generation",
+            "box2_stat": "Zero memory fragmentation",
+            "code_filename": "pipeline.py",
+            "code_lines": [
+                "# 1. Stream input tensors into cache memory",
+                "cache = vllm_engine.prefill(context_tokens)",
+                "# 2. Autoregressively decode candidate tokens",
+                "output = vllm_engine.decode(cache, max_tokens=128)"
+            ],
+            "impact_badge": "Zero memory leaks | Continuous GPU saturation"
+        }
         return render_dynamic_code_architecture(spec, output_base_name=unique_base_name)

@@ -13,7 +13,7 @@ import re
 
 from pathlib import Path
 
-from typing import Tuple
+from typing import Tuple, Optional, List, Dict, Any
 
 
 
@@ -87,7 +87,7 @@ class ThreadsAutomater:
 
 
 
-    def post(self, text: str) -> Tuple[bool, str]:
+    def post(self, text: str, image_path: Optional[str] = None) -> Tuple[bool, str]:
 
         self.last_outcome_unknown = False
         self.last_message = ""
@@ -95,6 +95,8 @@ class ThreadsAutomater:
         if self.dry_run:
 
             print(f"[ThreadsAutomater] [DRY RUN] Simulated Threads post: {text[:60]}...")
+            if image_path:
+                print(f"[ThreadsAutomater] [DRY RUN] Would attach image: {image_path}")
 
             return True, f"[DRY RUN] Simulated post ({len(text)} chars)"
 
@@ -201,6 +203,16 @@ class ThreadsAutomater:
                 page.keyboard.insert_text(text)
 
                 page.wait_for_timeout(1500)
+
+                if image_path and os.path.exists(image_path):
+                    try:
+                        print(f"[ThreadsAutomater] Attaching visual card: {image_path}...")
+                        file_inputs = page.locator('input[type="file"]')
+                        if file_inputs.count() > 0:
+                            file_inputs.first.set_input_files(image_path)
+                            page.wait_for_timeout(4000)
+                    except Exception as ie:
+                        print(f"[ThreadsAutomater] Note on image upload: {ie}")
 
 
 
