@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T09:03:39.045730+00:00",
+    "last_updated": "2026-11-03T10:01:58.409306+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 432,
+    "total_cycles_executed": 433,
     "original_posts_attempted": 67,
     "original_posts_succeeded": 59,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 47,
+    "actions_skipped": 48,
     "failed_operations": 24,
     "ai_generation_requests": 136,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-01T00:03:03.072257+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Bluesky (@neubench.bsky.social)",
-      "content_preview": "OpenAI reportedly scaling back their funding targets. Capital intensity meets diminishing returns at the frontier? Meanw",
-      "reason": "",
-      "duration_s": 1.2
-    },
     {
       "timestamp": "2026-11-01T00:03:05.919492+00:00",
       "action_type": "linkedin_post",
@@ -1518,6 +1508,16 @@
       "content_preview": "we are really out here inventing software to burn custom anime waifus onto physi",
       "reason": "",
       "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-03T10:01:58.408474+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (remote work)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 18.3
     }
   ]
 }
