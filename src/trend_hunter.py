@@ -158,7 +158,7 @@ class TrendHunter:
         return all_trends
 
     def get_linkedin_topics(self) -> List[Dict[str, Any]]:
-        """Professional tech/AI topics only, excluding generic viral Google Trends and geopolitics."""
+        """Professional tech/AI topics only, excluding generic viral Google Trends."""
         all_topics = []
         for source in (
             self.get_neubench_stories,
@@ -171,22 +171,12 @@ class TrendHunter:
             except Exception:
                 continue
 
-        blocked_terms = (
-            "election", "iran", "israel", "gaza", "ukraine", "missile", "military",
-            "trump", "biden", "congress", "senate", "parliament", "politic",
-            "shooting", "murder", "crime", "celebrity", "box office", "football",
-            "cricket", "sports", "inflation", "stock market",
-        )
-
         filtered = []
         seen = set()
         for topic in all_topics:
             title = (topic.get("title") or "").replace("\ufffd", "'").strip()
             summary = (topic.get("summary") or "").replace("\ufffd", "'")
             if not title or title.lower() in seen:
-                continue
-            haystack = f"{title} {summary}".lower()
-            if any(term in haystack for term in blocked_terms):
                 continue
             seen.add(title.lower())
             filtered.append({**topic, "title": title, "summary": summary})
