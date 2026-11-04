@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-03T23:26:35.883073+00:00",
+  "last_success_at": "2026-11-04T06:24:48.983727+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -38,12 +38,22 @@
       "status": "success",
       "posted_at": "2026-11-03T23:26:35.883073+00:00",
       "post_urn": "urn:li:ugcPost:7523526068436164608"
+    },
+    {
+      "topic_key": "url:https://huggingface.co/papers/2611.05036",
+      "title": "ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+      "url": "https://huggingface.co/papers/2611.05036",
+      "content_hash": "c66b30fe13581f8f6d627ca0b4899e34",
+      "status": "success",
+      "posted_at": "2026-11-04T06:24:48.983727+00:00",
+      "post_urn": "urn:li:ugcPost:7523631316391890944"
     }
   ],
   "posted_titles": [
     "li:Can Large Language Model Agents Learn by Watching Tutorial Videos?",
     "li:Google will let schools disable its AI tools, but not without sacrificing Search",
     "li:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
-    "li:Order-Only On-Policy Distillation"
+    "li:Order-Only On-Policy Distillation",
+    "li:ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents"
   ]
 }
