@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T20:14:53.668421+00:00",
+    "last_updated": "2026-11-03T20:53:56.136276+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 449,
-    "original_posts_attempted": 68,
-    "original_posts_succeeded": 60,
+    "total_cycles_executed": 460,
+    "original_posts_attempted": 70,
+    "original_posts_succeeded": 62,
     "replies_attempted": 25,
     "replies_succeeded": 21,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 49,
+    "actions_skipped": 50,
     "failed_operations": 26,
-    "ai_generation_requests": 140,
+    "ai_generation_requests": 143,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1658,6 +1658,116 @@
       "content_preview": "I spent 40+ hours analyzing how modern LLMs evaluate scientific ideas. Here is the 1-page visual cheatsheet on 𝗜𝗱𝗲𝗮𝗧𝗮𝘀𝘁𝗲",
       "reason": "",
       "duration_s": 30.89
+    },
+    {
+      "timestamp": "2026-11-03T20:36:18.129089+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "The Paytm sound box emotional relief",
+      "content_preview": "staring into the soul of a Paytm sound box for 4 agonizing seconds to confirm my 10-rupee chai payment is the most stres",
+      "reason": "",
+      "duration_s": 37.64
+    },
+    {
+      "timestamp": "2026-11-03T20:36:45.120644+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Frontier API reliability remains a bottleneck for production distributed systems. NeuBench tracking shows cloud endpoint",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-03T20:37:53.092857+00:00",
+      "action_type": "pinterest_pin",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Pinterest Visual Pin",
+      "content_preview": "Quantization: FP16 vs INT8 vs INT4",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-03T20:41:31.975164+00:00",
+      "action_type": "youtube",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short: Quantization: FP16 vs INT8 vs INT4",
+      "content_preview": "Quantization: FP16 vs INT8 vs INT4 Explained #Shorts",
+      "reason": "",
+      "duration_s": 30.0
+    },
+    {
+      "timestamp": "2026-11-03T20:41:32.037887+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence guard",
+      "content_preview": "",
+      "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
+      "duration_s": 0.03
+    },
+    {
+      "timestamp": "2026-11-03T20:52:55.067573+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Late-night life motivation",
+      "content_preview": "me at 11:45 pm: tomorrow we become an elite disciplined athlete who speaks fluent french \n\nme at 7:30 am: [punches the s",
+      "reason": "",
+      "duration_s": 3.45
+    },
+    {
+      "timestamp": "2026-11-03T20:53:17.185872+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Standard OPD conflates teacher preference with calibration noise. Order-Only On-Policy Distillation isolates pure rankin",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-03T20:53:20.072252+00:00",
+      "action_type": "threads_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Threads Community",
+      "content_preview": "My current retirement plan is just hoping I get famous enough after I’m gone for",
+      "reason": "",
+      "duration_s": 15.0
+    },
+    {
+      "timestamp": "2026-11-03T20:53:30.336558+00:00",
+      "action_type": "instagram_carousel",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Instagram Carousel: Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs G",
+      "content_preview": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs G",
+      "reason": "",
+      "duration_s": 20.0
+    },
+    {
+      "timestamp": "2026-11-03T20:53:31.456274+00:00",
+      "action_type": "instagram_reel",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Instagram Reel: Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs G",
+      "content_preview": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs G",
+      "reason": "",
+      "duration_s": 25.0
+    },
+    {
+      "timestamp": "2026-11-03T20:53:56.136230+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent 40+ hours testing high-speed AI inference pipelines using NeuBench. \n\nWhile everyone fights over foundational tr",
+      "reason": "",
+      "duration_s": 24.64
     }
   ]
 }

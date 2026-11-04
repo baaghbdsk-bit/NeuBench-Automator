@@ -6,6 +6,78 @@ import random
 import re
 from typing import List, Dict, Any, Optional
 
+LINKEDIN_PILLAR_ROTATION = ["NEWS", "EXPLAINER", "NEWS", "SURVIVAL", "BENCHMARK"]
+
+LINKEDIN_EVERGREEN_TOPICS: Dict[str, List[Dict[str, Any]]] = {
+    "EXPLAINER": [
+        {
+            "title": "How retrieval augmented generation actually works",
+            "summary": "A practical explanation of chunking, embedding, retrieval, reranking, and the failure modes teams hit when they ship RAG without measuring retrieval quality.",
+            "category": "explainer",
+        },
+        {
+            "title": "What an inference token really costs",
+            "summary": "Input tokens, output tokens, cached tokens, and latency all carry different costs. A breakdown of where the bill comes from and which levers actually move it.",
+            "category": "explainer",
+        },
+        {
+            "title": "Why KV caching changes long context performance",
+            "summary": "A plain explanation of how key value caching avoids recomputing attention, where memory pressure appears, and why long prompts can slow down before they hit a limit.",
+            "category": "explainer",
+        },
+        {
+            "title": "What quantization does to model quality",
+            "summary": "FP16, INT8, and INT4 reduce memory and cost, but the quality loss is uneven across tasks. A practical guide to when quantization is safe and when it is not.",
+            "category": "explainer",
+        },
+        {
+            "title": "How rate limiting protects an API",
+            "summary": "Token buckets, concurrency caps, and retry budgets explained for teams that build on top of third party AI APIs.",
+            "category": "explainer",
+        },
+        {
+            "title": "What a vector index actually stores",
+            "summary": "Embeddings, distance metrics, HNSW graphs, and the tradeoffs between recall, memory, and query latency.",
+            "category": "explainer",
+        },
+    ],
+    "SURVIVAL": [
+        {
+            "title": "The skills that survive AI automation in 2026",
+            "summary": "A grounded look at which engineering and product skills still compound as models absorb routine work, and how to build evidence of those skills in public.",
+            "category": "career",
+        },
+        {
+            "title": "How to evaluate an AI tool before your company buys it",
+            "summary": "A short evaluation framework covering accuracy on your own data, latency, cost per task, data handling, and the exit path if the vendor changes terms.",
+            "category": "career",
+        },
+        {
+            "title": "The 2026 stack for shipping AI features without a platform team",
+            "summary": "A minimal stack for small teams: one model provider, one evaluation set, one logging layer, and one fallback path. No overbuilt infrastructure.",
+            "category": "career",
+        },
+        {
+            "title": "What to learn first if your role is moving toward AI",
+            "summary": "A practical order of study for engineers moving into AI work: evaluation, data quality, latency and cost, then model internals.",
+            "category": "career",
+        },
+        {
+            "title": "How to build a personal benchmark for AI tools",
+            "summary": "A repeatable way to test models on your own tasks instead of trusting public leaderboards. Includes a small scoring template and a review cadence.",
+            "category": "career",
+        },
+    ],
+}
+
+NEWS_SIGNAL_TERMS = (
+    "security", "breach", "hack", "cyber", "crypto", "binance", "exchange",
+    "regulation", "lawsuit", "antitrust", "outage", "layoff", "hiring",
+    "funding", "startup", "chip", "nvidia", "cloud", "data center", "privacy",
+    "open source", "acquisition", "ipo", "revenue", "earnings",
+)
+
+
 class TrendHunter:
     """Discovers viral, debated, and breaking topics across the web 100% free with fast RSS & APIs."""
 
@@ -92,7 +164,7 @@ class TrendHunter:
                 "source": "NeuBench Live Telemetry",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://neubench.netlify.app/"
+                "url": "https://app.neubench.workers.dev/"
             },
             {
                 "title": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
@@ -101,7 +173,7 @@ class TrendHunter:
                 "source": "NeuBench Latency Radar",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://neubench.netlify.app/"
+                "url": "https://app.neubench.workers.dev/"
             },
             {
                 "title": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
@@ -110,7 +182,7 @@ class TrendHunter:
                 "source": "NeuBench Model Index",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://neubench.netlify.app/"
+                "url": "https://app.neubench.workers.dev/"
             },
             {
                 "title": "LLM API Outage Frequency & Degradation Index",
@@ -119,7 +191,7 @@ class TrendHunter:
                 "source": "NeuBench Reliability Index",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://neubench.netlify.app/"
+                "url": "https://app.neubench.workers.dev/"
             }
         ]
         return curated[:limit]
@@ -160,15 +232,37 @@ class TrendHunter:
         random.shuffle(all_trends)
         return all_trends
 
-    def get_linkedin_topics(self) -> List[Dict[str, Any]]:
-        """Return current professional AI/technology topics for LinkedIn."""
+    def get_linkedin_topics(self, pillar: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Return professional LinkedIn topics, optionally filtered to one content pillar."""
+        selected = (pillar or "").upper()
+
+        if selected in LINKEDIN_EVERGREEN_TOPICS:
+            items = [
+                {
+                    **topic,
+                    "pillar": selected,
+                    "source": f"NeuBench {selected.title()} Desk",
+                    "url": "",
+                }
+                for topic in LINKEDIN_EVERGREEN_TOPICS[selected]
+            ]
+            random.shuffle(items)
+            return items
+
+        if selected == "BENCHMARK":
+            sources = (self.get_neubench_stories, self.get_huggingface_daily_papers)
+        elif selected == "NEWS":
+            sources = (self.get_tech_news, self.get_breaking_rss, self.get_neubench_stories)
+        else:
+            sources = (
+                self.get_neubench_stories,
+                self.get_huggingface_daily_papers,
+                self.get_tech_news,
+                self.get_breaking_rss,
+            )
+
         all_topics = []
-        for source in (
-            self.get_neubench_stories,
-            self.get_huggingface_daily_papers,
-            self.get_tech_news,
-            self.get_breaking_rss,
-        ):
+        for source in sources:
             try:
                 all_topics.extend(source())
             except Exception:
@@ -182,6 +276,7 @@ class TrendHunter:
             "mistral", "hugging face", "computer vision", "embedding", "rag",
             "diffusion", "gpu", "benchmark", "model", "token",
         )
+        signal_terms = ai_terms + NEWS_SIGNAL_TERMS if selected == "NEWS" else ai_terms
 
         filtered = []
         seen = set()
@@ -192,12 +287,19 @@ class TrendHunter:
                 continue
             haystack = f"{title} {summary}".lower()
             source_name = str(topic.get("source", "")).lower()
-            has_ai_signal = bool(re.search(r"\bai\b", haystack)) or any(term in haystack for term in ai_terms)
-            trusted_ai_source = "neubench" in source_name or "hugging face" in source_name
-            if not trusted_ai_source and not has_ai_signal:
+            has_signal = bool(re.search(r"\bai\b", haystack)) or any(term in haystack for term in signal_terms)
+            trusted_source = "neubench" in source_name or "hugging face" in source_name
+            if not trusted_source and not has_signal:
                 continue
             seen.add(title.lower())
-            filtered.append({**topic, "title": title, "summary": summary})
+            filtered.append(
+                {
+                    **topic,
+                    "title": title,
+                    "summary": summary,
+                    "pillar": selected or "NEWS",
+                }
+            )
 
         random.shuffle(filtered)
         return filtered
@@ -412,7 +514,7 @@ class TrendHunter:
                             "Benchmarked continuously on NeuBench live intelligence leaderboards.",
                             "Directly impacts production latency and token economics."
                         ],
-                        "pro_tip": "Track live benchmark scores and token speed across 260+ models on neubench.netlify.app.",
+                        "pro_tip": "Track live benchmark scores and token speed across 260+ models on app.neubench.workers.dev.",
                         "narration": f"Here is the latest breakthrough in artificial intelligence: {title}. {summary[:150]}. Evaluated live across top models on NeuBench!"
                     })
         except Exception:

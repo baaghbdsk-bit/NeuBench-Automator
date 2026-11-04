@@ -309,7 +309,7 @@ def render_dynamic_code_architecture(spec: Dict[str, Any], output_base_name: str
         # Footer
         draw.line([(70, 875), (1010, 875)], fill=BORDER_COLOR, width=1)
         draw.text((70, 905), "NeuBench Engineering Architecture Series", fill=MUTED, font=f_sub)
-        draw.text((800, 905), "neubench.netlify.app", fill=CYAN_ACCENT, font=f_sub)
+        draw.text((800, 905), "app.neubench.workers.dev", fill=CYAN_ACCENT, font=f_sub)
 
         frames.append(img)
 
@@ -394,7 +394,7 @@ def render_dynamic_benchmark_race(spec: Dict[str, Any], output_base_name: str = 
         # Footer
         draw.line([(70, 930), (1010, 930)], fill=BORDER_COLOR, width=1)
         draw.text((70, 955), "Measured real-time via NeuBench Automated Runner", fill=MUTED, font=f_sub)
-        draw.text((800, 955), "neubench.netlify.app", fill=CYAN_ACCENT, font=f_sub)
+        draw.text((800, 955), "app.neubench.workers.dev", fill=CYAN_ACCENT, font=f_sub)
 
         frames.append(img)
 
@@ -520,7 +520,7 @@ def render_dynamic_token_pipeline(spec: Dict[str, Any], output_base_name: str = 
         # Footer
         draw.line([(70, 930), (1010, 930)], fill=BORDER_COLOR, width=1)
         draw.text((70, 955), "NeuBench Research - Continuous AI LLM Benchmarking", fill=MUTED, font=f_sub)
-        draw.text((800, 955), "neubench.netlify.app", fill=CYAN_ACCENT, font=f_sub)
+        draw.text((800, 955), "app.neubench.workers.dev", fill=CYAN_ACCENT, font=f_sub)
 
         frames.append(img)
 

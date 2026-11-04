@@ -123,6 +123,32 @@ def clean_linkedin_formatting(text: str) -> str:
     return text.strip()
 
 
+_REVERSE_BOLD = {value: key for key, value in _UNICODE_BOLD_MAP.items()}
+
+
+def _plain_linkedin_text(value: object, strip_urls: bool = True) -> str:
+    if value is None:
+        return ""
+    text = str(value)
+    text = "".join(_REVERSE_BOLD.get(ch, ch) for ch in text)
+    text = text.replace("\u2014", ", ").replace("\u2013", "-").replace("\u2011", "-").replace("\u00a0", " ")
+    if strip_urls:
+        text = re.sub(r"https?://\S+", "", text)
+    text = text.replace("**", "").replace("__", "").replace("`", "").replace("*", "")
+    text = re.sub(r"^#{1,6}\s+", "", text, flags=re.MULTILINE)
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def _clamp_text(value: object, limit: int, strip_urls: bool = True) -> str:
+    text = _plain_linkedin_text(value, strip_urls=strip_urls)
+    if len(text) <= limit:
+        return text
+    clipped = text[:limit].rsplit(" ", 1)[0].rstrip(".,;:")
+    return clipped or text[:limit]
+
+
 FALLBACK_MODELS = [
     config.GEMINI_MODEL,
     "gemini-3.5-flash-lite",
@@ -233,8 +259,8 @@ Return ONLY valid JSON.
     def generate_neubench_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates a viral take on a NeuBench AI news story or benchmark model with hashtags & backlinks."""
         link_instruction = (
-            "Creatively and naturally include our platform URL 'https://neubench.netlify.app' at the end or within the take "
-            "(e.g., 'Tracked the latency & cost live on https://neubench.netlify.app' or 'Full eval breakdown on https://neubench.netlify.app'). "
+            "Creatively and naturally include our platform URL 'https://app.neubench.workers.dev' at the end or within the take "
+            "(e.g., 'Tracked the latency & cost live on https://app.neubench.workers.dev' or 'Full eval breakdown on https://app.neubench.workers.dev'). "
             "Make it relevant to the topic."
         ) if include_link else "Do not include URLs."
         prompt = f"""
@@ -252,8 +278,8 @@ Rules:
 - Output ONLY the raw tweet text.
 """
         text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
-        if include_link and "neubench.netlify.app" not in text:
-            suffix = " Live evals: https://neubench.netlify.app"
+        if include_link and "app.neubench.workers.dev" not in text:
+            suffix = " Live evals: https://app.neubench.workers.dev"
             if len(text) + len(suffix) <= 245:
                 text = f"{text}{suffix}"
             else:
@@ -263,7 +289,7 @@ Rules:
     def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
         """Generates an authoritative, systems/open-weights focused post for Bluesky with AT Protocol custom feed tags (under 300 chars)."""
         link_instruction = (
-            "Include 'https://neubench.netlify.app' concisely at the end (e.g. 'Benchmarks: https://neubench.netlify.app' or 'Compare live: https://neubench.netlify.app')."
+            "Include 'https://app.neubench.workers.dev' concisely at the end (e.g. 'Benchmarks: https://app.neubench.workers.dev' or 'Compare live: https://app.neubench.workers.dev')."
         ) if include_link else "Do not include URLs."
         prompt = f"""
 Topic: "{title}"
@@ -280,8 +306,8 @@ Rules:
 - Output ONLY the post text.
 """
         text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72).strip('"').strip()
-        if include_link and "neubench.netlify.app" not in text:
-            suffix = " | Benchmarks: https://neubench.netlify.app"
+        if include_link and "app.neubench.workers.dev" not in text:
+            suffix = " | Benchmarks: https://app.neubench.workers.dev"
             if len(text) + len(suffix) <= 255:
                 text = f"{text}{suffix}"
             else:
@@ -307,8 +333,8 @@ Guidelines:
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
         """Generates a viral, high-save LinkedIn Technical Cheatsheet & Visual Study Note in the style of top tech creators (90k+ reach playbook)."""
         link_instruction = (
-            "Naturally mention our real-time benchmark radar at https://neubench.netlify.app "
-            "(e.g., '📊 Tracking real-time latency, token economics, and reasoning scores across 260+ models live on https://neubench.netlify.app')."
+            "Naturally mention our real-time benchmark radar at https://app.neubench.workers.dev "
+            "(e.g., '📊 Tracking real-time latency, token economics, and reasoning scores across 260+ models live on https://app.neubench.workers.dev')."
         ) if include_link else "CRITICAL: Do NOT include ANY external links, URLs, or domains in the post body. LinkedIn's 360Brew algorithm cuts post reach by 40% when external links are in the body. The interactive benchmark link is dropped in the first comment."
         prompt = f"""
 Topic / Technology: "{title}"
@@ -378,8 +404,8 @@ Rules:
             "You are a top technical educator and systems architect crafting viral cheatsheets and notes on LinkedIn.",
             temperature=0.78
         ).strip('"').strip()
-        if include_link and "neubench.netlify.app" not in text:
-            text = f"{text}\n\n📊 Tracking real-time latency, cost, and reasoning benchmarks across 260+ models: https://neubench.netlify.app"
+        if include_link and "app.neubench.workers.dev" not in text:
+            text = f"{text}\n\n📊 Tracking real-time latency, cost, and reasoning benchmarks across 260+ models: https://app.neubench.workers.dev"
         elif not include_link:
             # Strip any accidental URLs to guarantee zero link reach penalty from LinkedIn's 360Brew algorithm
             text = re.sub(r'https?://\S+', '', text).strip()
@@ -387,9 +413,161 @@ Rules:
         cleaned_text = clean_linkedin_formatting(text)
         return append_hashtags(cleaned_text, ["#MachineLearning", "#ArtificialIntelligence", "#SoftwareEngineering", "#LLM", "#SystemDesign"], max_len=2950)
 
+    def _generate_json(self, prompt: str, system_instruction: str, temperature: float = 0.72) -> dict:
+        last_error = None
+        for model in FALLBACK_MODELS:
+            try:
+                response = self.client.models.generate_content(
+                    model=model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_instruction,
+                        temperature=temperature,
+                        response_mime_type="application/json",
+                    ),
+                )
+                if response and response.text:
+                    return json.loads(response.text)
+            except Exception as error:
+                last_error = error
+                continue
+        raise RuntimeError(f"All Gemini models failed: {last_error}")
+
+    def generate_linkedin_carousel_plan(
+        self,
+        title: str,
+        summary: str = "",
+        pillar: str = "NEWS",
+        recent_hooks: Optional[List[str]] = None,
+    ) -> dict:
+        """Builds a slide-by-slide carousel plan plus matching LinkedIn caption."""
+        avoided = "; ".join((recent_hooks or [])[:5]) or "none"
+        prompt = f"""
+Topic: "{title}"
+Context: "{summary}"
+Content pillar: {pillar}
+
+Recent posts opened with these lines. Do not reuse their opening structure:
+{avoided}
+
+You are the editor for NeuBench, a live AI benchmark site. Write for engineers, founders, and technical operators. The carousel should be specific, useful, and worth saving. It should not sound like an AI assistant or a growth hacker.
+
+Return ONLY valid JSON in this exact shape:
+{{
+  "pillar": "{pillar}",
+  "cover": {{"kicker": "SECURITY BRIEF", "headline": "...", "subhead": "..."}},
+  "slides": [
+    {{"kicker": "01 / WHAT HAPPENED", "title": "...", "body": "...", "takeaway": "..."}},
+    {{"kicker": "02 / WHY IT MATTERS", "title": "...", "body": "...", "takeaway": "..."}},
+    {{"kicker": "03 / WHAT TO DO", "title": "...", "body": "...", "takeaway": "..."}}
+  ],
+  "framework": {{"kicker": "THE CHECKLIST", "title": "...", "steps": [{{"label": "...", "detail": "..."}}, {{"label": "...", "detail": "..."}}, {{"label": "...", "detail": "..."}}]}},
+  "cta": {{"kicker": "ONE MORE THING", "headline": "...", "subtext": "...", "website": "app.neubench.workers.dev"}},
+  "post_text": "...",
+  "first_comment": "...",
+  "alt_text": "...",
+  "hashtags": ["#MachineLearning", "#ArtificialIntelligence", "#Engineering"]
+}}
+
+Rules:
+- Use only facts present in the topic or context. Never invent a number, date, name, quote, funding amount, or study result. If a metric is not provided, describe the risk or the action qualitatively instead.
+- Use the named company, product, model, or incident from the topic. Do not swap a provided name for a generic label like "a major exchange" or "a leading model".
+- Open the caption with the most concrete fact in the context, not a generic statement about the industry.
+- Never use em dashes or en dashes. Use a period, comma, or colon.
+- Do not open with "I spent", "Here is", "Let us dive in", "In today's", "Game changer", "Unlock", or "The future of".
+- Each slide makes one point. Cover headline <= 70 chars, subhead <= 120 chars.
+- Slide title <= 60 chars, body <= 240 chars, takeaway <= 120 chars.
+- Framework: 3 or 4 steps. Label <= 30 chars, detail <= 90 chars.
+- Cover subhead states the consequence for the reader, not a generic industry observation.
+- CTA headline <= 60 chars and gives one concrete action tied to this topic that the reader can do today. Do not use a generic "test your systems" or "benchmark your workflows" pitch unless the topic is about benchmarks. Keep the website field as app.neubench.workers.dev.
+- post_text: 600 to 1000 chars. Plain text only. No markdown, no bold, no tables, no URLs, no emoji bullets. Short lines. End with one specific question. Do not mention a first comment.
+- first_comment: <= 350 chars. Reference one specific step from the framework, then add https://app.neubench.workers.dev. No invented stats.
+- alt_text: <= 180 chars, describe what the carousel shows.
+- hashtags: 3 to 5 tags.
+"""
+        system = "You are a precise LinkedIn technical editor. You write plain, specific English and you never invent facts."
+        raw = self._generate_json(prompt, system)
+        plan = self._normalize_carousel_plan(raw, title, pillar)
+        if (
+            len(plan["slides"]) < 3
+            or len(plan["framework"]["steps"]) < 3
+            or not plan["post_text"]
+            or any(not slide["title"] or not slide["body"] for slide in plan["slides"])
+            or any(not step["label"] for step in plan["framework"]["steps"])
+        ):
+            raise RuntimeError("Gemini returned an incomplete carousel plan")
+        return plan
+
+    def _normalize_carousel_plan(self, raw: object, title: str, pillar: str) -> dict:
+        data = raw if isinstance(raw, dict) else {}
+        cover_raw = data.get("cover") if isinstance(data.get("cover"), dict) else {}
+        cover = {
+            "kicker": _clamp_text(cover_raw.get("kicker") or pillar, 40),
+            "headline": _clamp_text(cover_raw.get("headline") or title, 70),
+            "subhead": _clamp_text(cover_raw.get("subhead") or "", 120),
+        }
+
+        slides = []
+        for index, item in enumerate(data.get("slides") or []):
+            if not isinstance(item, dict):
+                continue
+            slides.append(
+                {
+                    "kicker": _clamp_text(item.get("kicker") or f"0{index + 1} / KEY POINT", 40),
+                    "title": _clamp_text(item.get("title") or "", 60),
+                    "body": _clamp_text(item.get("body") or "", 240),
+                    "takeaway": _clamp_text(item.get("takeaway") or "", 120),
+                }
+            )
+            if len(slides) == 3:
+                break
+
+        framework_raw = data.get("framework") if isinstance(data.get("framework"), dict) else {}
+        steps = []
+        for item in framework_raw.get("steps") or []:
+            if not isinstance(item, dict):
+                continue
+            steps.append(
+                {
+                    "label": _clamp_text(item.get("label") or "", 30),
+                    "detail": _clamp_text(item.get("detail") or "", 90),
+                }
+            )
+            if len(steps) == 4:
+                break
+        framework = {
+            "kicker": _clamp_text(framework_raw.get("kicker") or "THE CHECKLIST", 40),
+            "title": _clamp_text(framework_raw.get("title") or "A short checklist", 60),
+            "steps": steps,
+        }
+
+        cta_raw = data.get("cta") if isinstance(data.get("cta"), dict) else {}
+        cta = {
+            "kicker": _clamp_text(cta_raw.get("kicker") or "ONE MORE THING", 40),
+            "headline": _clamp_text(cta_raw.get("headline") or "Save this for your next review.", 70),
+            "subtext": _clamp_text(cta_raw.get("subtext") or "", 150),
+            "website": _clamp_text(cta_raw.get("website") or "app.neubench.workers.dev", 48),
+        }
+
+        hashtags = [str(tag).strip() for tag in (data.get("hashtags") or []) if str(tag).strip().startswith("#")]
+        if len(hashtags) < 3:
+            hashtags = ["#MachineLearning", "#ArtificialIntelligence", "#Engineering", "#LLM"]
+
+        return {
+            "pillar": _clamp_text(data.get("pillar") or pillar, 32),
+            "cover": cover,
+            "slides": slides,
+            "framework": framework,
+            "cta": cta,
+            "post_text": _clamp_text(data.get("post_text") or "", 1200),
+            "first_comment": _clamp_text(data.get("first_comment") or "", 350, strip_urls=False),
+            "alt_text": _clamp_text(data.get("alt_text") or cover["headline"], 180),
+            "hashtags": hashtags[:5],
+        }
+
     def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = True) -> str:
         """Generates an authoritative, mobile-first daily lesson for the 'AI Explained: Zero to Advanced' 90-day master curriculum."""
-        link_str = "📊 Live frontier benchmarks across 260+ models on NeuBench: https://neubench.netlify.app\n\n" if include_link else ""
+        link_str = "📊 Live frontier benchmarks across 260+ models on NeuBench: https://app.neubench.workers.dev\n\n" if include_link else ""
         prompt = f"""
 Series: AI Explained: Zero to Advanced (90 Days. 90 Concepts. One AI Journey)
 Current Day: Day {day:02d} / 90
@@ -497,7 +675,7 @@ Format:
 - **Python / Pseudo-Code Implementation**: A realistic code snippet illustrating the concept or implementation pattern.
 - **Key Engineering Trade-offs**: Latency vs memory vs throughput vs accuracy analysis.
 - **Production Takeaways & Best Practices**: Actionable advice for engineers deploying in production.
-- Include continuous evaluation note linking to NeuBench (https://neubench.netlify.app) for real-world model latency and cost benchmarks.
+- Include continuous evaluation note linking to NeuBench (https://app.neubench.workers.dev) for real-world model latency and cost benchmarks.
 
 Tone: Authoritative, crystal-clear, deep engineering rigor. Zero fluff. Markdown formatted with clean headings (#, ##, ###).
 Output ONLY the markdown article body.
@@ -521,7 +699,7 @@ Our LinkedIn Post Context:
 Commenter: {commenter_name}
 Comment: "{comment_text}"
 
-You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (neubench.netlify.app).
+You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (app.neubench.workers.dev).
 Write a professional, warm, and technically sharp reply to this comment.
 Guidelines:
 - Tone: High-caliber B2B engineering professional, courteous, collegial, and insightful.
@@ -589,7 +767,7 @@ Post Topic: "{post_topic}"
 Post Content:
 "{post_text[:400]}..."
 
-You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (https://neubench.netlify.app).
+You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (https://app.neubench.workers.dev).
 Generate a high-value 'first comment' to be posted directly under this LinkedIn post.
 
 Guidelines:
@@ -597,7 +775,7 @@ Guidelines:
 - Structure:
   1. A sharp 1-2 sentence engineering takeaway or code implementation tip.
   2. An open question asking developers how they handle this in production.
-  3. A natural pointer to test live LLM latency & cost telemetry on NeuBench: https://neubench.netlify.app
+  3. A natural pointer to test live LLM latency & cost telemetry on NeuBench: https://app.neubench.workers.dev
 - Keep it under 60-80 words. Professional, collegial, and high signal.
 - Output ONLY the comment text.
 """

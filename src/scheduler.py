@@ -37,7 +37,7 @@ from rich.console import Console
 
 import config
 
-from src.trend_hunter import TrendHunter
+from src.trend_hunter import TrendHunter, LINKEDIN_PILLAR_ROTATION
 
 from src.ai_generator import AIGenerator
 
@@ -1331,7 +1331,7 @@ class AutomaterEngine:
 
                     if slides_to_pin:
                         console.print(f"[bold magenta]📌 Publishing {len(slides_to_pin)}-Slide Carousel Pin to Pinterest: {b_title[:60]}...[/bold magenta]")
-                        p_desc = f"{b_title}\n\n{b_summary}\n\n💡 Pro-Tip: {b_pro_tip}\n\nLive AI Benchmarks: https://neubench.netlify.app\n\n#AI #Tech #MachineLearning"
+                        p_desc = f"{b_title}\n\n{b_summary}\n\n💡 Pro-Tip: {b_pro_tip}\n\nLive AI Benchmarks: https://app.neubench.workers.dev\n\n#AI #Tech #MachineLearning"
                         pin_reservation, pin_reason = self._reserve_platform(
                             "pinterest",
                             "pin",
@@ -1346,7 +1346,7 @@ class AutomaterEngine:
                                 image_path=slides_to_pin,
                                 title=f"{b_title} • AI Cheatsheet"[:80],
                                 description=p_desc,
-                                link="https://neubench.netlify.app"
+                                link="https://app.neubench.workers.dev"
                             )
                             self._complete_platform(
                                 pin_reservation,
@@ -1392,7 +1392,7 @@ class AutomaterEngine:
                             "Swipe through the 1-page breakdown ➡️\n\n"
                             f"💡 Pro-Tip: {b_pro_tip}\n\n"
                             "📌 Save for revision!\n"
-                            "📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
+                            "📊 Live 260+ model benchmarks: app.neubench.workers.dev\n\n"
                             "#AI #MachineLearning #DeepLearning #AIEngineering #Coding"
                         )
                         ig_reservation, ig_reason = self._reserve_platform(
@@ -1445,7 +1445,7 @@ class AutomaterEngine:
                         f"⚡ {b_title}\n\n"
                         f"{b_summary}\n\n"
                         f"💡 {b_pro_tip}\n\n"
-                        f"📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
+                        f"📊 Live 260+ model benchmarks: app.neubench.workers.dev\n\n"
                         "#Reels #AI #MachineLearning #DeepLearning #Coding"
                     )
 
@@ -1506,7 +1506,7 @@ class AutomaterEngine:
                     yt_desc = (
                         f"⚡ {b_title}: {b_summary}\n\n"
                         f"💡 Pro-Tip: {b_pro_tip}\n\n"
-                        f"Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+                        f"Live 260+ model benchmarks: https://app.neubench.workers.dev\n\n"
                         "#Shorts #AI #MachineLearning #DeepLearning #Coding"
                     )
 
@@ -1804,6 +1804,7 @@ class AutomaterEngine:
 
             selected_trend: Dict[str, Any]
             li_text = ""
+            carousel_plan: Optional[Dict[str, Any]] = None
             if custom_text and custom_text.strip():
                 li_text = custom_text.strip()
                 first_line = li_text.splitlines()[0].strip() if li_text else ""
@@ -1838,7 +1839,17 @@ class AutomaterEngine:
                 )
                 return False
             else:
-                trends = self.hunter.get_linkedin_topics()
+                total_li = len(post_state.get("posts", []))
+                pillar = LINKEDIN_PILLAR_ROTATION[total_li % len(LINKEDIN_PILLAR_ROTATION)]
+                console.print(f"[bold]LinkedIn Pillar:[/bold] {pillar}")
+                trends = self.hunter.get_linkedin_topics(pillar=pillar)
+                if pillar != "NEWS":
+                    seen_titles = {str(item.get("title", "")).strip().lower() for item in trends}
+                    for extra in self.hunter.get_linkedin_topics(pillar="NEWS"):
+                        if str(extra.get("title", "")).strip().lower() not in seen_titles:
+                            trends.append(extra)
+                if not trends:
+                    trends = self.hunter.get_linkedin_topics()
                 if not trends:
                     console.print("[red]No current AI/tech trends discovered. Skipping LinkedIn post...[/red]")
                     self.tracker.record_event(
@@ -1851,7 +1862,14 @@ class AutomaterEngine:
                     )
                     return False
 
+                recent_hooks = []
+                for entry in post_state.get("posts", [])[-6:]:
+                    content = str(entry.get("content") or "").strip()
+                    hook = content.splitlines()[0][:80] if content else str(entry.get("title", ""))[:80]
+                    if hook:
+                        recent_hooks.append(hook)
                 selected_trend = {}
+                generation_failures = 0
                 for trend in trends:
                     title = str(trend.get("title", "")).strip()
                     if not title or post_is_duplicate(
@@ -1862,33 +1880,39 @@ class AutomaterEngine:
                         continue
                     console.print(f"[bold]LinkedIn Topic:[/bold] {title}")
                     self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+                    plan = None
+                    candidate_text = ""
                     try:
-                        candidate_text = self.ai.generate_linkedin_take(
+                        plan = self.ai.generate_linkedin_carousel_plan(
                             title,
                             trend.get("summary", ""),
-                            company=trend.get("company", "NeuBench"),
+                            pillar=str(trend.get("pillar") or pillar),
+                            recent_hooks=recent_hooks,
                         )
-                    except Exception as error:
+                        candidate_text = str(plan.get("post_text") or "").strip()
+                    except Exception as plan_error:
+                        generation_failures += 1
                         self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-                        console.print(f"[red]AI Generation Error: {error}[/red]")
-                        self.tracker.record_event(
-                            action_type="linkedin_post",
-                            status="failed",
-                            target_identifier=title,
-                            skip_or_error_reason=f"AI generation failed: {error}",
-                            duration_seconds=time.time() - start_time,
-                            is_dry_run=self.safety.dry_run,
-                        )
-                        return False
+                        console.print(f"[yellow]Carousel plan failed ({plan_error}); trying another topic.[/yellow]")
+                        continue
+                    if not candidate_text:
+                        generation_failures += 1
+                        self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+                        console.print("[yellow]Carousel plan produced no caption; trying another topic.[/yellow]")
+                        continue
                     if post_is_duplicate(post_state, title=title, url=trend.get("url", ""), content=candidate_text):
                         console.print("[dim]Generated body matched recent LinkedIn content; trying another topic.[/dim]")
                         continue
                     selected_trend = trend
                     li_text = candidate_text
+                    carousel_plan = plan
                     break
 
                 if not selected_trend:
-                    reason = "All discovered LinkedIn topics or generated bodies were already posted recently"
+                    if generation_failures:
+                        reason = f"LinkedIn carousel generation failed for {generation_failures} candidate topic(s)"
+                    else:
+                        reason = "All discovered LinkedIn topics or generated bodies were already posted recently"
                     console.print(f"[yellow]♻️ {reason}. Skipping.[/yellow]")
                     self.tracker.record_event(
                         action_type="linkedin_post",
@@ -1900,32 +1924,69 @@ class AutomaterEngine:
                     )
                     return False
 
-            console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
             media_path = None
-            try:
-                from src.autonomous_visual_engine import generate_visual_for_post
+            media_title = ""
+            if carousel_plan:
+                tags = [
+                    str(tag).strip()
+                    for tag in carousel_plan.get("hashtags", [])
+                    if str(tag).strip()
+                ]
+                if tags and "#" not in li_text[-200:]:
+                    li_text = f"{li_text.rstrip()}\n\n{' '.join(tags[:5])}"
 
-                gif_v, mp4_v = generate_visual_for_post(
-                    selected_trend["title"],
-                    selected_trend.get("summary", ""),
-                )
-                if mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
-                    media_path = mp4_v
-                elif gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
-                    media_path = gif_v
-                console.print(f"[bold magenta]🎬 LinkedIn visual attachment: {media_path}[/bold magenta]")
-            except Exception as error:
-                console.print(f"[dim]LinkedIn visual generation note: {error}[/dim]")
+                try:
+                    from src.linkedin_visuals import render_linkedin_carousel, render_linkedin_hero
+                except Exception as import_error:
+                    console.print(f"[yellow]LinkedIn visual renderer unavailable: {import_error}[/yellow]")
+                    render_linkedin_carousel = None
+                    render_linkedin_hero = None
+
+                if render_linkedin_carousel:
+                    try:
+                        assets = render_linkedin_carousel(carousel_plan)
+                        media_path = assets["pdf_path"]
+                        media_title = str(
+                            carousel_plan.get("cover", {}).get("headline") or selected_trend["title"]
+                        )[:100]
+                        render_linkedin_hero(carousel_plan, base_name=assets["base"])
+                        console.print(
+                            f"[bold magenta]🎞️ LinkedIn carousel ready: {media_path} "
+                            f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
+                        )
+                    except Exception as error:
+                        console.print(
+                            f"[yellow]Carousel render failed ({error}); falling back to hero image.[/yellow]"
+                        )
+                        try:
+                            media_path = render_linkedin_hero(carousel_plan)
+                            media_title = str(
+                                carousel_plan.get("cover", {}).get("headline") or selected_trend["title"]
+                            )[:100]
+                        except Exception as hero_error:
+                            console.print(f"[dim]Hero render failed too: {hero_error}[/dim]")
+                            media_path = None
+
+            console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
 
             first_comm = None
-            try:
-                first_comm = self.ai.generate_first_comment_value_drop(selected_trend["title"], li_text)
+            if carousel_plan:
+                first_comm = str(carousel_plan.get("first_comment") or "").strip()
+                site = str((carousel_plan.get("cta") or {}).get("website") or "app.neubench.workers.dev").strip()
+                if first_comm and site and "http" not in first_comm:
+                    first_comm = f"{first_comm}\n\n{site if site.startswith('http') else 'https://' + site}"
                 if first_comm:
-                    console.print(f"[bold cyan]💬 LinkedIn First Comment Ready (Zero-Link Body):[/bold cyan] {first_comm[:100]}...")
-            except Exception as error:
-                console.print(f"[dim]First-comment generation note: {error}[/dim]")
+                    console.print(
+                        f"[dim]💬 First-comment fallback ready (LinkedIn may skip it on personal tokens):[/dim] "
+                        f"{first_comm[:100]}..."
+                    )
 
-            ok, msg = automater.post(li_text, image_path=media_path, first_comment=first_comm)
+            ok, msg = automater.post(
+                li_text,
+                image_path=media_path,
+                first_comment=first_comm,
+                media_title=media_title or None,
+            )
             now_iso = utc_now_iso()
             post_urn_match = re.search(r"urn:li:[^\s,)]+", msg or "")
             post_urn = post_urn_match.group(0) if post_urn_match else ""
@@ -2187,7 +2248,7 @@ class AutomaterEngine:
         desc = (
             f"⚡ {topic_title}: {topic_data.get('summary', '')}\n\n"
             f"💡 Engineering Rule: {topic_data.get('pro_tip', '')}\n\n"
-            "📊 Live 260+ model benchmarks: https://neubench.netlify.app\n\n"
+            "📊 Live 260+ model benchmarks: https://app.neubench.workers.dev\n\n"
             "#Shorts #AI #MachineLearning #DeepLearning #Python #SoftwareEngineering #DataScience"
         )
 
@@ -2298,7 +2359,7 @@ class AutomaterEngine:
                         image_path=str(yt_video),
                         title=title[:80],
                         description=desc,
-                        link="https://neubench.netlify.app"
+                        link="https://app.neubench.workers.dev"
                     )
             except Exception as e:
                 console.print(f"[dim]Pinterest video syndication notice: {e}[/dim]")
@@ -2348,7 +2409,7 @@ class AutomaterEngine:
             "Swipe through the 1-page breakdown ➡️\n\n"
             f"💡 Pro-Tip: {topic_data.get('pro_tip', '')}\n\n"
             "📌 Save this post for your revision!\n"
-            "📊 Live 260+ model benchmarks: neubench.netlify.app\n\n"
+            "📊 Live 260+ model benchmarks: app.neubench.workers.dev\n\n"
             "#AI #MachineLearning #AIEngineering #Coding #Developers #Tech"
         )
         identity = f"carousel:{stable_hash(topic_title + chr(10) + caption)}"
@@ -2499,7 +2560,7 @@ class AutomaterEngine:
 
         cover_img = slides[0] if slides else ""
         pin_title = f"{topic_title} • AI Cheatsheet"[:80]
-        pin_desc = f"{topic_title}: {topic_data.get('summary', '')} 💡 Pro-Tip: {topic_data.get('pro_tip', '')}. Save for revision! Live benchmarks at https://neubench.netlify.app"
+        pin_desc = f"{topic_title}: {topic_data.get('summary', '')} 💡 Pro-Tip: {topic_data.get('pro_tip', '')}. Save for revision! Live benchmarks at https://app.neubench.workers.dev"
         
         identity = f"pin:{stable_hash(pin_title + chr(10) + pin_desc)}"
         reservation_id, reservation_reason = self._reserve_platform(
@@ -2517,7 +2578,7 @@ class AutomaterEngine:
             )
             return False
         try:
-            ok, msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://neubench.netlify.app")
+            ok, msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://app.neubench.workers.dev")
         except Exception as error:
             ok, msg = False, f"Pinterest client error: {error}"
         self._complete_platform(

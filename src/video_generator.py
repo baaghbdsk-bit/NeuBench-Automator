@@ -248,7 +248,7 @@ class VideoGenerator:
                 f"Under conventional architectures, {problem}. As batch throughput scales, memory transfer creates a severe latency bottleneck. "
                 f"The core technical unlock is {solution}. This achieves dramatic acceleration without degrading precision. "
                 f"Here is your production engineering rule: {pro_tip}. "
-                f"To inspect live latency, memory, and token economics across 260-plus frontier models, explore NeuBench at neubench.netlify.app."
+                f"To inspect live latency, memory, and token economics across 260-plus frontier models, explore NeuBench at app.neubench.workers.dev."
             )
 
         slug = re.sub(r'[^a-zA-Z0-9]+', '_', title.lower()).strip('_')[:40]
@@ -313,7 +313,7 @@ class VideoGenerator:
                 <div style="background: rgba(15,23,42,0.85); border: 2px solid #818CF8; border-radius: 24px; padding: 40px; margin-top: 100px; text-align: center;">
                   <div style="font-size: 28px; color: #818CF8; font-weight: 700; margin-bottom: 20px;">📊 PRODUCTION RULE</div>
                   <div style="font-size: 32px; color: #F8FAFC; line-height: 1.6; margin-bottom: 30px;">{pro_tip}</div>
-                  <div style="font-size: 26px; color: #38BDF8; font-weight: 700;">Live benchmarks on neubench.netlify.app</div>
+                  <div style="font-size: 26px; color: #38BDF8; font-weight: 700;">Live benchmarks on app.neubench.workers.dev</div>
                 </div>
                 """
             }

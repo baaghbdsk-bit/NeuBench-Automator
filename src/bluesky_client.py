@@ -17,7 +17,7 @@ def detect_facets(text: str) -> List[Dict[str, Any]]:
     """
     facets = []
     
-    # URL pattern (http, https or bare domains like neubench.netlify.app)
+    # URL pattern (http, https or bare domains like app.neubench.workers.dev)
     url_regex = re.compile(r"(https?://[^\s()<>]+|neubench\.vercel\.app[^\s()<>]*)")
     for match in url_regex.finditer(text):
         raw_url = match.group(0).rstrip(".,!?:;)'\"")

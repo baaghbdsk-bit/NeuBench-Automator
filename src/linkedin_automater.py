@@ -264,6 +264,59 @@ class LinkedInAutomater:
         return image_urn
 
 
+    def _upload_document(self, pdf_path: str, person_urn: str) -> str:
+        """Uploads a PDF carousel through LinkedIn's versioned Documents API."""
+        init_res = requests.post(
+            "https://api.linkedin.com/rest/documents?action=initializeUpload",
+            headers=self._api_headers(),
+            json={"initializeUploadRequest": {"owner": person_urn}},
+            timeout=30,
+        )
+        if init_res.status_code not in (200, 201):
+            raise RuntimeError(f"document initialize returned {init_res.status_code}: {init_res.text[:300]}")
+
+        value = init_res.json().get("value", {})
+        upload_url = value.get("uploadUrl")
+        document_urn = value.get("document")
+        if not upload_url or not document_urn:
+            raise RuntimeError("document initialize response did not include an upload target")
+
+        with open(pdf_path, "rb") as media_file:
+            upload_res = requests.put(
+                upload_url,
+                headers={"Content-Type": "application/pdf"},
+                data=media_file,
+                timeout=180,
+            )
+        if upload_res.status_code not in (200, 201, 204):
+            raise RuntimeError(f"document upload returned {upload_res.status_code}: {upload_res.text[:300]}")
+        return document_urn
+
+
+    def _wait_for_document_available(self, document_urn: str, max_seconds: int = 45) -> bool:
+        """Polls the Documents API until the uploaded PDF is ready to attach."""
+        import urllib.parse
+        encoded_urn = urllib.parse.quote(document_urn, safe="")
+        endpoint = f"https://api.linkedin.com/rest/documents/{encoded_urn}"
+        headers = self._api_headers(include_content_type=False)
+        start = time.time()
+        while time.time() - start < max_seconds:
+            try:
+                res = requests.get(endpoint, headers=headers, timeout=15)
+                if res.status_code == 200:
+                    payload = res.json()
+                    if payload.get("status") == "AVAILABLE" or payload.get("downloadUrl"):
+                        return True
+                    if payload.get("status") in ("CLIENT_ERROR", "PROCESSING_FAILED"):
+                        print(f"[LinkedInAutomater] Document processing failed: {res.text[:200]}")
+                        return False
+            except Exception as error:
+                print(f"[LinkedInAutomater] Document status poll notice: {error}")
+            time.sleep(2.5)
+        print(f"[LinkedInAutomater] Document did not report AVAILABLE within {max_seconds}s; attaching anyway.")
+        return True
+
+
     def add_comment_to_post(self, post_urn: str, comment_text: str) -> Tuple[bool, str]:
         """
         Adds a first comment (takeaway, code snippet, or interactive question)
@@ -292,7 +345,7 @@ class LinkedInAutomater:
                     print(f"[LinkedInAutomater] 💬 First-comment successfully added to post! ({c_id})")
                     return True, f"Comment added: {c_id}"
                 elif res.status_code == 403:
-                    print("[LinkedInAutomater] ℹ️ Note: LinkedIn REST API restricts automated comments on personal tokens (requires partnerApiSocialActions). Main post with video is 100% live and native.")
+                    print("[LinkedInAutomater] Note: LinkedIn restricts automated comments on personal tokens (requires partnerApiSocialActions). The main post is still published.")
                     return False, "Comment API requires partner scope; main post published natively."
                 else:
                     print(f"[LinkedInAutomater] Comment API note: {res.status_code} - {res.text[:150]}")
@@ -300,7 +353,7 @@ class LinkedInAutomater:
                 print(f"[LinkedInAutomater] Failed to add comment via API: {e}")
         return False, "Could not add comment via API"
 
-    def post(self, text: str, image_path: Optional[str] = None, first_comment: Optional[str] = None) -> Tuple[bool, str]:
+    def post(self, text: str, image_path: Optional[str] = None, first_comment: Optional[str] = None, media_title: Optional[str] = None) -> Tuple[bool, str]:
 
         """Publishes an update to LinkedIn via automated browser session."""
 
@@ -321,11 +374,14 @@ class LinkedInAutomater:
             print("[LinkedInAutomater] 🚀 Publishing via Official LinkedIn REST API...")
             media_urn = None
             media_kind = None
-            media_title = "NeuBench Technical Visual"
+            resolved_title = (media_title or "NeuBench Brief").strip()[:120]
             if image_path and os.path.exists(image_path):
                 ext = os.path.splitext(image_path)[1].lower()
                 try:
-                    if ext == ".mp4":
+                    if ext == ".pdf":
+                        media_urn = self._upload_document(image_path, person_urn)
+                        media_kind = "document"
+                    elif ext == ".mp4":
                         media_urn = self._upload_video(image_path, person_urn)
                         media_kind = "video"
                     else:
@@ -333,7 +389,15 @@ class LinkedInAutomater:
                         media_kind = "image"
                 except Exception as media_error:
                     print(f"[LinkedInAutomater] Media upload note: {media_error}. Trying fallback...")
-                    if ext == ".mp4":
+                    if ext == ".pdf":
+                        try:
+                            hero_sibling = os.path.splitext(image_path)[0] + "_hero.png"
+                            if os.path.exists(hero_sibling):
+                                media_urn = self._upload_image(hero_sibling, person_urn)
+                                media_kind = "image"
+                        except Exception as hero_error:
+                            print(f"[LinkedInAutomater] PDF-to-hero fallback skipped: {hero_error}")
+                    elif ext == ".mp4":
                         try:
                             gif_sibling = os.path.splitext(image_path)[0] + ".gif"
                             if os.path.exists(gif_sibling):
@@ -352,7 +416,9 @@ class LinkedInAutomater:
                         except Exception as still_error:
                             print(f"[LinkedInAutomater] GIF still-frame fallback skipped: {still_error}")
 
-                if media_urn and media_kind:
+                if media_urn and media_kind == "document":
+                    self._wait_for_document_available(media_urn)
+                elif media_urn and media_kind in ("image", "video"):
                     print(f"[LinkedInAutomater] ⏳ Verifying LinkedIn {media_kind} availability ({media_urn})...")
                     is_ready = self._wait_for_media_available(media_urn, media_kind, max_seconds=45)
                     if not is_ready:
@@ -373,10 +439,10 @@ class LinkedInAutomater:
                 "isReshareDisabledByAuthor": False
             }
             if media_urn:
-                if media_kind == "video":
-                    media_obj = {"id": media_urn, "title": media_title}
+                if media_kind in ("video", "document"):
+                    media_obj = {"id": media_urn, "title": resolved_title}
                 else:
-                    media_obj = {"id": media_urn, "altText": media_title}
+                    media_obj = {"id": media_urn, "altText": resolved_title}
                 post_payload["content"] = {"media": media_obj}
 
             post_url = "https://api.linkedin.com/rest/posts"
@@ -388,6 +454,18 @@ class LinkedInAutomater:
                 msg = f"LinkedIn API outcome unknown ({e}); skipped browser fallback to avoid a duplicate post."
                 print(f"[LinkedInAutomater] {msg}")
                 return False, msg
+
+            if resp.status_code not in (200, 201) and media_kind == "document":
+                hero_sibling = os.path.splitext(image_path)[0] + "_hero.png" if image_path else ""
+                if hero_sibling and os.path.exists(hero_sibling):
+                    try:
+                        hero_urn = self._upload_image(hero_sibling, person_urn)
+                        post_payload["content"] = {"media": {"id": hero_urn, "altText": resolved_title}}
+                        media_kind = "image"
+                        print("[LinkedInAutomater] Document post failed; retrying with hero image...")
+                        resp = requests.post(post_url, json=post_payload, headers=headers, timeout=20)
+                    except Exception as fallback_error:
+                        print(f"[LinkedInAutomater] Document-to-hero retry skipped: {fallback_error}")
 
             if resp.status_code in [200, 201]:
                 share_id = resp.headers.get("X-RestLi-Id") or resp.headers.get("x-restli-id")

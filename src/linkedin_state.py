@@ -93,7 +93,7 @@ def topic_key(title: Any, url: Any = "") -> str:
     source_url = canonical_url(url)
     # NeuBench topics intentionally share the product homepage URL; their
     # titles are the meaningful identity in that case.
-    if source_url and "neubench.netlify.app" not in source_url:
+    if source_url and "app.neubench.workers.dev" not in source_url:
         return f"url:{source_url}"
     return f"title:{content_hash(title)}"
 
@@ -263,7 +263,7 @@ def post_is_duplicate(
             return True
         if normalized_title and normalize_text(entry.get("title")) == normalized_title:
             return True
-        if source_url and "neubench.netlify.app" not in source_url and canonical_url(entry.get("url")) == source_url:
+        if source_url and "app.neubench.workers.dev" not in source_url and canonical_url(entry.get("url")) == source_url:
             return True
         if generated_hash and entry.get("content_hash") == generated_hash:
             return True

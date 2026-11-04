@@ -409,7 +409,7 @@ class InstagramCarouselGenerator:
                 </div>
                 <div class="glass-card" style="border-color: #38BDF8; background: rgba(56, 189, 248, 0.08); text-align: center;">
                   <div style="font-size: 24px; font-weight: 800; color: #38BDF8; margin-bottom: 6px;">Live AI Benchmarks & Evals</div>
-                  <div style="font-size: 20px; color: #F8FAFC;">Track latency, throughput & costs across 260+ models on <b>neubench.netlify.app</b></div>
+                  <div style="font-size: 20px; color: #F8FAFC;">Track latency, throughput & costs across 260+ models on <b>app.neubench.workers.dev</b></div>
                 </div>
                 """
             }
@@ -457,7 +457,7 @@ class InstagramCarouselGenerator:
             ("THE BOTTLENECK", "Why Traditional Systems Fail", "Modern AI workloads encounter severe compute and memory bandwidth bottlenecks under scaling.", "Swipe for Solution ➔"),
             ("HOW IT WORKS", "The Engineering Mechanism", "Dynamic architectures reorganize compute graphs and memory hierarchies to boost token throughput.", "Swipe for Takeaways ➔"),
             ("CORE TAKEAWAYS", "What Engineers Must Know", "\n\n".join(f"{i+1}. {t}" for i, t in enumerate(takeaways[:3])), "Swipe for Cheatsheet ➔"),
-            ("1-PAGE CHEATSHEET", f"{title} Summary", f"{summary}\n\nPro-Tip: {pro_tip}\n\nLive Benchmarks: neubench.netlify.app", "📌 Save for Revision")
+            ("1-PAGE CHEATSHEET", f"{title} Summary", f"{summary}\n\nPro-Tip: {pro_tip}\n\nLive Benchmarks: app.neubench.workers.dev", "📌 Save for Revision")
         ]
 
         files = []

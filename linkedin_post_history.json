@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-04T17:18:16.037788+00:00",
+  "last_success_at": "2026-11-04T19:52:57.698333+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -56,14 +56,33 @@
       "status": "success",
       "posted_at": "2026-11-04T17:18:16.037788+00:00",
       "post_urn": "urn:li:ugcPost:7523795761315340288"
+    },
+    {
+      "topic_key": "title:9f928b83b8f9b9000b5416b9ac78704b",
+      "title": "How a Transformer Reads a Sentence",
+      "url": "",
+      "content_hash": "cc6aa641de6becb5cf84ad8be71d6504",
+      "status": "success",
+      "posted_at": "2026-11-04T19:32:45.871021+00:00",
+      "post_urn": "urn:li:share:7523829608782299136"
+    },
+    {
+      "topic_key": "title:9f928b83b8f9b9000b5416b9ac78704b",
+      "title": "How a Transformer Reads a Sentence",
+      "url": "",
+      "content_hash": "cc6aa641de6becb5cf84ad8be71d6504",
+      "status": "success",
+      "posted_at": "2026-11-04T19:52:57.698333+00:00",
+      "post_urn": "urn:li:share:7523834689913122816"
     }
   ],
   "posted_titles": [
+    "li:AI is forcing us to pay off 40 years of technical debt",
     "li:Can Large Language Model Agents Learn by Watching Tutorial Videos?",
     "li:Google will let schools disable its AI tools, but not without sacrificing Search",
+    "li:How a Transformer Reads a Sentence",
     "li:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
     "li:Order-Only On-Policy Distillation",
-    "li:ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
-    "li:AI is forcing us to pay off 40 years of technical debt"
+    "li:ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents"
   ]
 }

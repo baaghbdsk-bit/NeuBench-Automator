@@ -84,7 +84,7 @@ ECOSYSTEM_PRODUCTS = [
 
         "badge": "Live Web App",
 
-        "link": "https://neubench.netlify.app/",
+        "link": "https://app.neubench.workers.dev/",
 
         "icon": "bolt",
 
@@ -607,7 +607,7 @@ async def get_neubench_feed():
 
     try:
 
-        r_stories = requests.get("https://neubench.netlify.app/api/stories?limit=8", headers=headers, timeout=5)
+        r_stories = requests.get("https://app.neubench.workers.dev/api/stories?limit=8", headers=headers, timeout=5)
 
         if r_stories.status_code == 200:
 
@@ -631,9 +631,9 @@ async def get_neubench_feed():
 
                     "source": s.get("source", "NeuBench"),
 
-                    "sourceUrl": s.get("sourceUrl", "https://neubench.netlify.app/"),
+                    "sourceUrl": s.get("sourceUrl", "https://app.neubench.workers.dev/"),
 
-                    "neubenchUrl": f"https://neubench.netlify.app/"
+                    "neubenchUrl": f"https://app.neubench.workers.dev/"
 
                 })
 
@@ -649,7 +649,7 @@ async def get_neubench_feed():
 
     try:
 
-        r_bench = requests.get("https://neubench.netlify.app/api/benchmarks", headers=headers, timeout=5)
+        r_bench = requests.get("https://app.neubench.workers.dev/api/benchmarks", headers=headers, timeout=5)
 
         if r_bench.status_code == 200:
 
@@ -689,7 +689,7 @@ async def get_neubench_feed():
 
                     "highlights": highlight_scores,
 
-                    "neubenchUrl": "https://neubench.netlify.app/"
+                    "neubenchUrl": "https://app.neubench.workers.dev/"
 
                 })
 
@@ -703,7 +703,7 @@ async def get_neubench_feed():
 
         "status": "success",
 
-        "hub_url": "https://neubench.netlify.app/",
+        "hub_url": "https://app.neubench.workers.dev/",
 
         "total_models": total_models,
 
@@ -1231,7 +1231,7 @@ async def publish_omnichannel_endpoint(payload: Optional[Dict[str, Any]] = None)
         ok = engine.run_single_cycle(force_action="post")
         return {
             "success": ok,
-            "message": "Omnichannel broadcast published across all 5 platforms with https://neubench.netlify.app!"
+            "message": "Omnichannel broadcast published across all 5 platforms with https://app.neubench.workers.dev!"
         }
     except Exception as e:
         return {"success": False, "message": f"Omnichannel publish error: {e}"}

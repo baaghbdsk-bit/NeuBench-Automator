@@ -158,7 +158,7 @@ def render_llm_tokenization_loop(
 
         # 5. Footer CTA Bar
         draw.rounded_rectangle([(60, 930), (1020, 1020)], radius=14, fill=(15, 23, 42), outline=(37, 99, 235), width=2)
-        draw.text((85, 960), "⚡ Benchmarking 266+ LLM embeddings & latency: neubench.netlify.app", font=f_foot, fill=(147, 197, 253))
+        draw.text((85, 960), "⚡ Benchmarking 266+ LLM embeddings & latency: app.neubench.workers.dev", font=f_foot, fill=(147, 197, 253))
 
         frame_path = temp_dir / f"frame_{idx:04d}.png"
         img.save(frame_path, "PNG")

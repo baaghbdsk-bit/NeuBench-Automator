@@ -69,7 +69,10 @@
     "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
     "bsky:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
     "th:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
-    "Free dhaniya and mirchi entitlement"
+    "Free dhaniya and mirchi entitlement",
+    "The Paytm sound box emotional relief",
+    "Late-night life motivation",
+    "th:retirement"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -112,13 +115,15 @@
     "https://x.com/levelsio/status/2116843791214629021"
   ],
   "posted_tweet_hashes": [
-    "11f42a9ddef263b8808ee39941519feb81f42c6eb9ac12f1324c64ef9bd72035"
+    "11f42a9ddef263b8808ee39941519feb81f42c6eb9ac12f1324c64ef9bd72035",
+    "e5017a60cbf756d4bff759d32a408342c774f27edf647c5f97c8e7dcd7bbbe36"
   ],
   "pending_x_actions": [],
   "platform_history": {
     "bluesky": {
       "completed": [
-        "post:9f0a70796a3cb58dc0b3bcbfde7413754793532d3a535aa729fa1921ed6b2b7d"
+        "post:9f0a70796a3cb58dc0b3bcbfde7413754793532d3a535aa729fa1921ed6b2b7d",
+        "post:db8c8878c56f7779fc7cbdb485e934f5332dc8d41e859f6c88e5d453b1133e04"
       ],
       "pending": []
     },
@@ -127,7 +132,9 @@
       "pending": []
     },
     "pinterest": {
-      "completed": [],
+      "completed": [
+        "pin:6827e89f5f234c7ac0f16be2a22288ab088b11b21f0c0ee6911512a1fedb2911"
+      ],
       "pending": [
         {
           "reservation_id": "3b895e1b46cb4c78b8515a852f08a16b",
@@ -144,12 +151,45 @@
     },
     "youtube": {
       "completed": [
-        "short:a5fbf7c41ddc45206e3e26dcb3fe35a882af0b5de6a32b04b9c74e06378a906a"
+        "short:a5fbf7c41ddc45206e3e26dcb3fe35a882af0b5de6a32b04b9c74e06378a906a",
+        "short:4774e8f1f2ee1e1f6701d235021a1bc529e597086a4b312c7c8d31eb89812957"
       ],
       "pending": []
+    },
+    "instagram": {
+      "completed": [],
+      "pending": [
+        {
+          "reservation_id": "3f320b2af6ba4b4c8a4e239bd1b41831",
+          "identity": "carousel:da66ef86fbeb20e5df4aa80e0084262a520f5d5f80a473d175045622fcba9d0d",
+          "action_type": "carousel",
+          "target": "Quantization: FP16 vs INT8 vs INT4",
+          "preview": "🧠 Quantization: FP16 vs INT8 vs INT4 • Engineering Cheatsheet\n\n⚡ Quantization shrinks the numerical precision of neural network weights from 16-bit floating poi",
+          "status": "unknown",
+          "reserved_at": "2026-11-03T20:37:59.012978+00:00",
+          "unknown_at": "2026-11-03T20:39:10.967169+00:00",
+          "reason": "Instagram carousel submission was not confirmed; retry blocked."
+        },
+        {
+          "reservation_id": "181b440c24e045f099473e7a32ac5941",
+          "identity": "reel:b36666bdd53c5648ec8c642b8f3f5cb80d965d54ca61f0ad1864adcbe39f9e4d",
+          "action_type": "reel",
+          "target": "Quantization: FP16 vs INT8 vs INT4",
+          "preview": "⚡ Quantization: FP16 vs INT8 vs INT4\n\nQuantization shrinks the numerical precision of neural network weights from 16-bit floating point down to 8-bit or 4-bit i",
+          "status": "unknown",
+          "reserved_at": "2026-11-03T20:39:37.915003+00:00",
+          "unknown_at": "2026-11-03T20:41:15.009966+00:00",
+          "reason": "Instagram Reel submission was not confirmed; retry blocked."
+        }
+      ]
     }
   },
   "posted_ai_topics": [
-    "FlashAttention Explained"
+    "FlashAttention Explained",
+    "Quantization: FP16 vs INT8 vs INT4",
+    "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs G"
+  ],
+  "posted_bluesky_topics": [
+    "Order-Only On-Policy Distillation"
   ]
 }

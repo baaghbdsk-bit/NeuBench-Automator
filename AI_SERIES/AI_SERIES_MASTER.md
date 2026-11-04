@@ -6,7 +6,7 @@
 ## 📌 Master Series Specification
 
 - **Creator / Host:** Vishnu Gupta
-- **Ecosystem:** NeuBench (`https://neubench.netlify.app`)
+- **Ecosystem:** NeuBench (`https://app.neubench.workers.dev`)
 - **Cadence:** Daily (1 Concept Per Day)
 - **Primary Channels:** LinkedIn (Full Study Lessons) | 𝕏 (Bite-sized threads) | Bluesky & Threads (Community Radar)
 - **Target Audience:** Developers, QA Engineers, Tech Enthusiasts, CS Students, Future AI Builders.

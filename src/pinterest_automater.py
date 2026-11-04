@@ -32,7 +32,7 @@ class PinterestAutomater:
         image_path: Union[str, List[str]],
         title: str,
         description: str,
-        link: str = "https://neubench.netlify.app",
+        link: str = "https://app.neubench.workers.dev",
         board_name: Optional[str] = "Social"
     ) -> Tuple[bool, str]:
         """Uploads an image or multi-slide carousel as a Pin on Pinterest with title, description, and website destination link."""
