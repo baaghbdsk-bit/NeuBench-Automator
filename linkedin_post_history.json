@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-04T19:52:57.698333+00:00",
+  "last_success_at": "2026-11-04T23:41:26.287799+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -74,15 +74,26 @@
       "status": "success",
       "posted_at": "2026-11-04T19:52:57.698333+00:00",
       "post_urn": "urn:li:share:7523834689913122816"
+    },
+    {
+      "topic_key": "title:e4489868361ec850d00323e4c3e97561",
+      "title": "How to build a personal benchmark for AI tools",
+      "url": "",
+      "content_hash": "bc6207d2c58d0e3b0463c9ca9d0db7ba",
+      "status": "success",
+      "posted_at": "2026-11-04T23:41:26.287799+00:00",
+      "post_urn": "urn:li:ugcPost:7523892190222331904"
     }
   ],
   "posted_titles": [
-    "li:AI is forcing us to pay off 40 years of technical debt",
     "li:Can Large Language Model Agents Learn by Watching Tutorial Videos?",
     "li:Google will let schools disable its AI tools, but not without sacrificing Search",
-    "li:How a Transformer Reads a Sentence",
     "li:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
     "li:Order-Only On-Policy Distillation",
-    "li:ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents"
+    "li:ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+    "li:AI is forcing us to pay off 40 years of technical debt",
+    "li:How a Transformer Reads a Sentence",
+    "li:How a Transformer Reads a Sentence",
+    "li:How to build a personal benchmark for AI tools"
   ]
 }
