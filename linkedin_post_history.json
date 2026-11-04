@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-04T06:24:48.983727+00:00",
+  "last_success_at": "2026-11-04T17:18:16.037788+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -47,6 +47,15 @@
       "status": "success",
       "posted_at": "2026-11-04T06:24:48.983727+00:00",
       "post_urn": "urn:li:ugcPost:7523631316391890944"
+    },
+    {
+      "topic_key": "url:https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "title": "AI is forcing us to pay off 40 years of technical debt",
+      "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "content_hash": "a592d29f18e0d1efa837563c24a60a37",
+      "status": "success",
+      "posted_at": "2026-11-04T17:18:16.037788+00:00",
+      "post_urn": "urn:li:ugcPost:7523795761315340288"
     }
   ],
   "posted_titles": [
@@ -54,6 +63,7 @@
     "li:Google will let schools disable its AI tools, but not without sacrificing Search",
     "li:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
     "li:Order-Only On-Policy Distillation",
-    "li:ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents"
+    "li:ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+    "li:AI is forcing us to pay off 40 years of technical debt"
   ]
 }
