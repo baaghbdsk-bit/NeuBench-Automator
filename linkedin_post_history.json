@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-04T23:41:26.287799+00:00",
+  "last_success_at": "2026-11-05T06:47:48.590572+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -83,6 +83,15 @@
       "status": "success",
       "posted_at": "2026-11-04T23:41:26.287799+00:00",
       "post_urn": "urn:li:ugcPost:7523892190222331904"
+    },
+    {
+      "topic_key": "url:https://huggingface.co/papers/2611.05609",
+      "title": "On the Generalization Limitation of On-Policy Distillation for Post-RL Consolidation",
+      "url": "https://huggingface.co/papers/2611.05609",
+      "content_hash": "fdd688d950ba56d9c1e8e0fd8a0e1f38",
+      "status": "success",
+      "posted_at": "2026-11-05T06:47:48.590572+00:00",
+      "post_urn": "urn:li:ugcPost:7523999490362761216"
     }
   ],
   "posted_titles": [
@@ -94,6 +103,7 @@
     "li:AI is forcing us to pay off 40 years of technical debt",
     "li:How a Transformer Reads a Sentence",
     "li:How a Transformer Reads a Sentence",
-    "li:How to build a personal benchmark for AI tools"
+    "li:How to build a personal benchmark for AI tools",
+    "li:On the Generalization Limitation of On-Policy Distillation for Post-RL Consolidation"
   ]
 }
