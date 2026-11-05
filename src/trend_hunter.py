@@ -6,7 +6,7 @@ import random
 import re
 from typing import List, Dict, Any, Optional
 
-LINKEDIN_PILLAR_ROTATION = ["NEWS", "EXPLAINER", "DIFFERENCE", "DID_YOU_KNOW", "WHAT_IF", "SURVIVAL", "BENCHMARK"]
+LINKEDIN_PILLAR_ROTATION = ["NEWS", "EXPLAINER", "DIFFERENCE", "DID_YOU_KNOW", "WHAT_IF", "BEGINNER", "SURVIVAL", "BENCHMARK"]
 
 LINKEDIN_EVERGREEN_TOPICS: Dict[str, List[Dict[str, Any]]] = {
     "EXPLAINER": [
@@ -248,6 +248,48 @@ LINKEDIN_EVERGREEN_TOPICS: Dict[str, List[Dict[str, Any]]] = {
             "title": "What if your database has no index",
             "summary": "Queries may still work, but they can scan entire tables. Performance often degrades quietly until traffic grows.",
             "category": "scenario",
+        },
+    ],
+    "BEGINNER": [
+        {
+            "title": "What is an API in simple terms",
+            "summary": "An API is a way for two programs to talk to each other. A clear beginner explanation with a restaurant analogy and one real example.",
+            "category": "beginner",
+        },
+        {
+            "title": "What Git actually does",
+            "summary": "Git saves snapshots of your code so you can undo mistakes and collaborate. A simple explanation of commits, branches, and remotes.",
+            "category": "beginner",
+        },
+        {
+            "title": "What SQL is used for",
+            "summary": "SQL is how you ask questions of a database. A beginner-friendly explanation of tables, rows, columns, and simple queries.",
+            "category": "beginner",
+        },
+        {
+            "title": "What a variable is",
+            "summary": "A variable is a named box that stores a value. A simple explanation for people starting to code.",
+            "category": "beginner",
+        },
+        {
+            "title": "What debugging actually means",
+            "summary": "Debugging is finding why code does not behave as expected. A beginner guide to reading errors and testing one change at a time.",
+            "category": "beginner",
+        },
+        {
+            "title": "How to build your first portfolio",
+            "summary": "A first portfolio needs a few small projects, clear README files, and honest explanations. Quality matters more than quantity.",
+            "category": "beginner",
+        },
+        {
+            "title": "How to prepare for your first internship",
+            "summary": "A practical guide to applying, preparing projects, and talking about what you built without exaggerating.",
+            "category": "beginner",
+        },
+        {
+            "title": "How to answer 'tell me about yourself'",
+            "summary": "A simple structure for interviews: background, projects, skills, and what you want next. Keep it short and specific.",
+            "category": "beginner",
         },
     ],
     "SURVIVAL": [

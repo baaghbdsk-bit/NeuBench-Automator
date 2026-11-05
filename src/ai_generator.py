@@ -495,7 +495,7 @@ Rules:
 - post_text: 600 to 1000 chars. Plain text only. No markdown, no bold, no tables, no URLs, no emoji bullets. Short lines. End with one specific question. Do not mention a first comment.
 - first_comment: <= 350 chars. Reference one specific step from the framework, then add https://app.neubench.workers.dev. No invented stats.
 - alt_text: <= 180 chars, describe what the carousel shows.
-- hashtags: 3 to 5 tags.
+- hashtags: 3 to 5 specific tags. Mix one broad tag with two or three topic-specific tags. Avoid generic tags like #Tech or #Business. Do not repeat the same three tags on every post.
 """
         system = "You are a precise LinkedIn technical editor. You write plain, specific English and you never invent facts."
         raw = self._generate_json(prompt, system)
