@@ -107,6 +107,149 @@ LINKEDIN_EVERGREEN_TOPICS: Dict[str, List[Dict[str, Any]]] = {
             "category": "scenario",
         },
     ],
+    "EXPLAINER": [
+        {
+            "title": "What an API actually is",
+            "summary": "An API is a contract for how software components talk to each other. It defines inputs, outputs, errors, and rules, not just a URL.",
+            "category": "explainer",
+        },
+        {
+            "title": "What a framework actually does",
+            "summary": "A framework gives structure and conventions, while a library gives reusable functions. The difference is who controls the flow of the program.",
+            "category": "explainer",
+        },
+        {
+            "title": "What a database index does",
+            "summary": "An index helps a database find rows faster by organizing lookup data. It speeds reads but costs storage and write overhead.",
+            "category": "explainer",
+        },
+        {
+            "title": "What JSON is and is not",
+            "summary": "JSON is a text format for structured data. It is not a database, schema, or programming language, and it has no comments.",
+            "category": "explainer",
+        },
+        {
+            "title": "What an environment variable is",
+            "summary": "An environment variable is configuration passed to a process from outside the code. It is useful for secrets and deployment settings, but it is not automatically secure.",
+            "category": "explainer",
+        },
+        {
+            "title": "What a webhook is",
+            "summary": "A webhook is an HTTP callback triggered by an event. It lets one system notify another instead of polling repeatedly.",
+            "category": "explainer",
+        },
+        {
+            "title": "What Docker does",
+            "summary": "Docker packages an application with its dependencies into a container. It makes environments more repeatable, but it does not make code correct.",
+            "category": "explainer",
+        },
+        {
+            "title": "What Git tracks",
+            "summary": "Git tracks snapshots of files, not folders or empty directories. Understanding commits, branches, and remotes prevents common workflow mistakes.",
+            "category": "explainer",
+        },
+    ],
+    "DIFFERENCE": [
+        {
+            "title": "API vs SDK",
+            "summary": "An API is the interface. An SDK is a toolkit that helps you use that interface. One defines the contract; the other speeds up implementation.",
+            "category": "explainer",
+        },
+        {
+            "title": "Library vs framework",
+            "summary": "A library is called by your code. A framework calls your code. That inversion of control is the practical difference.",
+            "category": "explainer",
+        },
+        {
+            "title": "Training vs inference",
+            "summary": "Training changes model weights using data. Inference uses trained weights to produce outputs. They have different costs, hardware needs, and failure modes.",
+            "category": "explainer",
+        },
+        {
+            "title": "Model vs algorithm",
+            "summary": "An algorithm is the procedure. A model is the learned result of running that procedure on data. The same algorithm can produce different models.",
+            "category": "explainer",
+        },
+        {
+            "title": "Prompt vs context window",
+            "summary": "A prompt is what you send. The context window is how much the model can consider at once. A long prompt can crowd out useful context.",
+            "category": "explainer",
+        },
+        {
+            "title": "CPU vs GPU for AI",
+            "summary": "CPUs handle general sequential work well. GPUs handle many parallel matrix operations well. AI inference often benefits from GPU parallelism, but cost and latency still matter.",
+            "category": "explainer",
+        },
+        {
+            "title": "Batch processing vs streaming",
+            "summary": "Batching waits for a full set of work and processes it together. Streaming handles items as they arrive. The choice changes latency, throughput, and complexity.",
+            "category": "explainer",
+        },
+        {
+            "title": "Cache vs memory",
+            "summary": "Memory holds active data for a process. A cache keeps frequently used data closer for faster access. All caches use memory, but not all memory is a cache.",
+            "category": "explainer",
+        },
+        {
+            "title": "Git commit vs push",
+            "summary": "A commit saves a snapshot locally. A push sends commits to a remote repository. You can commit many times before pushing once.",
+            "category": "explainer",
+        },
+        {
+            "title": "JSON vs schema",
+            "summary": "JSON is data. A schema is the rulebook that says what that data should look like. Valid JSON can still violate a schema.",
+            "category": "explainer",
+        },
+    ],
+    "DID_YOU_KNOW": [
+        {
+            "title": "Did you know: an API is just a contract",
+            "summary": "Behind an API can be a database, a queue, or another service. The API hides implementation details and exposes only agreed inputs and outputs.",
+            "category": "fact",
+        },
+        {
+            "title": "Did you know: frameworks are libraries with opinions",
+            "summary": "Frameworks reduce decisions by enforcing structure. That can speed development, but it can also make unusual use cases harder.",
+            "category": "fact",
+        },
+        {
+            "title": "Did you know: Git does not track empty folders",
+            "summary": "Git tracks files, not directories. An empty folder disappears unless it contains a file such as .gitkeep.",
+            "category": "fact",
+        },
+        {
+            "title": "Did you know: environment variables are not secrets by default",
+            "summary": "Environment variables are convenient, but they can leak through logs, process listings, or child processes. Secret managers add stronger controls.",
+            "category": "fact",
+        },
+        {
+            "title": "Did you know: JSON has no comments",
+            "summary": "Standard JSON does not allow comments. Some tools accept JSON5 or JSONC, but strict parsers will reject them.",
+            "category": "fact",
+        },
+    ],
+    "WHAT_IF": [
+        {
+            "title": "What if your API has no rate limit",
+            "summary": "Without limits, one client can exhaust shared resources and make the service slow for everyone. Rate limits protect availability, not just billing.",
+            "category": "scenario",
+        },
+        {
+            "title": "What if you cache the wrong data",
+            "summary": "Caching stale or user-specific data can create subtle bugs. Cache keys and invalidation rules matter as much as cache speed.",
+            "category": "scenario",
+        },
+        {
+            "title": "What if your prompt is too vague",
+            "summary": "Vague prompts force the model to guess intent. Clear constraints, examples, and output formats usually improve results more than longer prompts.",
+            "category": "scenario",
+        },
+        {
+            "title": "What if your database has no index",
+            "summary": "Queries may still work, but they can scan entire tables. Performance often degrades quietly until traffic grows.",
+            "category": "scenario",
+        },
+    ],
     "SURVIVAL": [
         {
             "title": "The skills that survive AI automation in 2026",
