@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-05T17:26:27.778948+00:00",
+  "last_success_at": "2026-11-05T23:43:40.361006+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -101,6 +101,15 @@
       "status": "success",
       "posted_at": "2026-11-05T17:26:27.778948+00:00",
       "post_urn": "urn:li:ugcPost:7524160212677586944"
+    },
+    {
+      "topic_key": "title:8078109c38e58ed7c704d6d50c8034ad",
+      "title": "Did you know: environment variables are not secrets by default",
+      "url": "",
+      "content_hash": "883db15cfe705237d1fca2e33d56a145",
+      "status": "success",
+      "posted_at": "2026-11-05T23:43:40.361006+00:00",
+      "post_urn": "urn:li:ugcPost:7524255138874548224"
     }
   ],
   "posted_titles": [
@@ -114,6 +123,7 @@
     "li:How a Transformer Reads a Sentence",
     "li:How to build a personal benchmark for AI tools",
     "li:On the Generalization Limitation of On-Policy Distillation for Post-RL Consolidation",
-    "li:Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints"
+    "li:Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+    "li:Did you know: environment variables are not secrets by default"
   ]
 }
