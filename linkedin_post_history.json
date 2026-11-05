@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-05T06:47:48.590572+00:00",
+  "last_success_at": "2026-11-05T17:26:27.778948+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -92,6 +92,15 @@
       "status": "success",
       "posted_at": "2026-11-05T06:47:48.590572+00:00",
       "post_urn": "urn:li:ugcPost:7523999490362761216"
+    },
+    {
+      "topic_key": "title:7965fb14517959d68ca11d8ff930c7ed",
+      "title": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+      "url": "https://app.neubench.workers.dev/",
+      "content_hash": "a3b89c8a2cd5fe921baeedd84de9c80e",
+      "status": "success",
+      "posted_at": "2026-11-05T17:26:27.778948+00:00",
+      "post_urn": "urn:li:ugcPost:7524160212677586944"
     }
   ],
   "posted_titles": [
@@ -104,6 +113,7 @@
     "li:How a Transformer Reads a Sentence",
     "li:How a Transformer Reads a Sentence",
     "li:How to build a personal benchmark for AI tools",
-    "li:On the Generalization Limitation of On-Policy Distillation for Post-RL Consolidation"
+    "li:On the Generalization Limitation of On-Policy Distillation for Post-RL Consolidation",
+    "li:Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints"
   ]
 }
