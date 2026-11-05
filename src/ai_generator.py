@@ -296,11 +296,12 @@ Topic: "{title}"
 Company/Developer: "{company}"
 Context: "{summary}"
 
-Write an authoritative, developer-first Bluesky post about this AI architecture, open-weights release, or inference milestone.
+Write an authoritative, developer-first Bluesky post about this topic.
 Rules:
-- Audience: Senior systems engineers, open-source AI developers, and latency optimizers.
-- Tone: Technically sharp, intellectually honest, focused on real engineering trade-offs (VRAM, quantization, latency, inference costs, or architectures). Zero corporate PR fluff.
-- Include 2-3 targeted technical hashtags at the end (#AI #OpenSource #MachineLearning #LocalLLMs) to index into Bluesky's top custom feeds.
+- Audience: engineers, builders, and technical readers.
+- Tone: sharp, honest, and focused on the real trade-off, mechanism, or implication in the topic. Zero corporate PR fluff.
+- Match the topic: news, research, explainers, comparisons, scenarios, and career advice all need different framing.
+- Include 2-3 targeted technical hashtags at the end (#AI #MachineLearning #Engineering) to index into Bluesky's top custom feeds.
 - {link_instruction}
 - Length: strictly under 250 characters so hashtags and links fit within Bluesky's 300-char limit.
 - Output ONLY the post text.
@@ -447,10 +448,21 @@ Topic: "{title}"
 Context: "{summary}"
 Content pillar: {pillar}
 
+Write for the pillar above. Do not make the post about a brand.
+
 Recent posts opened with these lines. Do not reuse their opening structure:
 {avoided}
 
-You are the editor for NeuBench, a live AI benchmark site. Write for engineers, founders, and technical operators. The carousel should be specific, useful, and worth saving. It should not sound like an AI assistant or a growth hacker.
+You are a technical editor for a live AI benchmark site. Write for engineers, founders, and technical operators. The carousel should be specific, useful, and worth saving. It should not sound like an AI assistant or a growth hacker.
+
+Pillar guidance:
+- NEWS: explain what happened, why it matters, and what to do next.
+- EXPLAINER: define the mechanism in plain language.
+- DIFFERENCE: compare two terms or approaches and when to choose each.
+- DID_YOU_KNOW: lead with one surprising but accurate technical fact.
+- WHAT_IF: explore one realistic scenario and its engineering consequence.
+- SURVIVAL: give practical career or workflow advice.
+- BENCHMARK: explain how to measure or compare systems fairly.
 
 Return ONLY valid JSON in this exact shape:
 {{

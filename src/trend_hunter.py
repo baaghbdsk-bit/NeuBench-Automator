@@ -6,7 +6,7 @@ import random
 import re
 from typing import List, Dict, Any, Optional
 
-LINKEDIN_PILLAR_ROTATION = ["NEWS", "EXPLAINER", "NEWS", "SURVIVAL", "BENCHMARK"]
+LINKEDIN_PILLAR_ROTATION = ["NEWS", "EXPLAINER", "DIFFERENCE", "DID_YOU_KNOW", "WHAT_IF", "SURVIVAL", "BENCHMARK"]
 
 LINKEDIN_EVERGREEN_TOPICS: Dict[str, List[Dict[str, Any]]] = {
     "EXPLAINER": [
@@ -39,6 +39,72 @@ LINKEDIN_EVERGREEN_TOPICS: Dict[str, List[Dict[str, Any]]] = {
             "title": "What a vector index actually stores",
             "summary": "Embeddings, distance metrics, HNSW graphs, and the tradeoffs between recall, memory, and query latency.",
             "category": "explainer",
+        },
+    ],
+    "DIFFERENCE": [
+        {
+            "title": "RAG vs fine-tuning: which one to use",
+            "summary": "Retrieval augmented generation keeps knowledge outside the model and fetches it at request time. Fine-tuning changes model weights. A practical comparison of cost, freshness, control, and failure modes.",
+            "category": "explainer",
+        },
+        {
+            "title": "Latency vs throughput in LLM serving",
+            "summary": "Latency is how long one request takes. Throughput is how many requests a system handles per second. The two often trade off, and optimizing one can hurt the other.",
+            "category": "explainer",
+        },
+        {
+            "title": "Parameters vs tokens",
+            "summary": "Parameters are learned weights inside the model. Tokens are chunks of text processed during inference. A model can have billions of parameters and still bill by tokens.",
+            "category": "explainer",
+        },
+        {
+            "title": "Prompt caching vs fine-tuning",
+            "summary": "Prompt caching reuses repeated context to lower cost and latency. Fine-tuning changes behavior. They solve different problems and are often combined.",
+            "category": "explainer",
+        },
+    ],
+    "DID_YOU_KNOW": [
+        {
+            "title": "Did you know: attention is not memory",
+            "summary": "Attention lets a model weigh other tokens while producing one token. It does not store facts permanently; weights and context do different jobs.",
+            "category": "fact",
+        },
+        {
+            "title": "Did you know: temperature changes sampling, not knowledge",
+            "summary": "Temperature scales logits before sampling. It makes outputs more or less random, but it does not add facts or improve reasoning by itself.",
+            "category": "fact",
+        },
+        {
+            "title": "Did you know: a token is not a word",
+            "summary": "Tokenizers split text into subword pieces. Common words may be one token, while rare words become several. This affects cost, context limits, and multilingual performance.",
+            "category": "fact",
+        },
+        {
+            "title": "Did you know: quantization can change model behavior",
+            "summary": "Lower precision reduces memory and cost, but it can alter outputs unevenly across tasks. Quality should be measured on your own eval set.",
+            "category": "fact",
+        },
+    ],
+    "WHAT_IF": [
+        {
+            "title": "What if your RAG retriever is wrong",
+            "summary": "If retrieval returns the wrong chunks, the model can still produce a fluent answer. The fix is to measure recall and precision before blaming generation.",
+            "category": "scenario",
+        },
+        {
+            "title": "What if latency matters more than accuracy",
+            "summary": "Some products need fast answers more than perfect answers. Routing, caching, and smaller models can matter more than leaderboard rank.",
+            "category": "scenario",
+        },
+        {
+            "title": "What if your eval set is too easy",
+            "summary": "A benchmark that never fails makes every model look good. Hard cases, edge cases, and real user traces reveal where systems break.",
+            "category": "scenario",
+        },
+        {
+            "title": "What if context windows keep growing",
+            "summary": "Longer context helps, but cost, latency, and retrieval quality still matter. More tokens are not always better tokens.",
+            "category": "scenario",
         },
     ],
     "SURVIVAL": [
@@ -241,7 +307,7 @@ class TrendHunter:
                 {
                     **topic,
                     "pillar": selected,
-                    "source": f"NeuBench {selected.title()} Desk",
+                    "source": f"AI {selected.title()} Desk",
                     "url": "",
                 }
                 for topic in LINKEDIN_EVERGREEN_TOPICS[selected]
