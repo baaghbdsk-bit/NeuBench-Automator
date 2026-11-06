@@ -1,18 +1,18 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T08:02:30.567146+00:00",
+    "last_updated": "2026-11-06T09:02:22.066431+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 476,
+    "total_cycles_executed": 478,
     "original_posts_attempted": 70,
     "original_posts_succeeded": 62,
     "replies_attempted": 26,
     "replies_succeeded": 22,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 60,
+    "actions_skipped": 61,
     "failed_operations": 26,
     "ai_generation_requests": 146,
     "ai_generation_failures": 1,
@@ -1928,6 +1928,26 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 13.04
+    },
+    {
+      "timestamp": "2026-11-06T09:02:21.341834+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@realfeedapp.com",
+      "content_preview": "Essential tooling. Paged attention and continuous batching bridge the gap between theoretical memory bandwidth and produ",
+      "reason": "",
+      "duration_s": 2.21
+    },
+    {
+      "timestamp": "2026-11-06T09:02:22.066414+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence guard",
+      "content_preview": "",
+      "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
+      "duration_s": 0.01
     }
   ]
 }
