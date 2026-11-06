@@ -64,16 +64,22 @@ jobs:
         timeout-minutes: 5
         run: sudo timeout --signal=KILL 240 apt-get update -o Acquire::Retries=3
 
-      - name: Install System Dependencies (ffmpeg + Manim + fonts)
-        timeout-minutes: 10
+      - name: Install System Dependencies (ffmpeg + Manim runtime + fonts)
+        timeout-minutes: 20
         run: |
-          sudo timeout --signal=KILL 540 env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-            ffmpeg build-essential pkg-config libcairo2-dev libpango1.0-dev fonts-inter
+          sudo timeout --signal=KILL 900 env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            -o Acquire::Retries=5 \
+            -o Acquire::http::Timeout=30 \
+            -o Acquire::https::Timeout=30 \
+            ffmpeg libcairo2 libpango-1.0-0 libpangoft2-1.0-0 fonts-inter
 
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Verify Manim runtime
+        run: python -c "import manim, manimpango, cairo; print('Manim runtime OK')"
 
       - name: Cache Playwright Browsers
         id: playwright-cache
