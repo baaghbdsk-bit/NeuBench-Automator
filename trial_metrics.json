@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T14:45:19.160202+00:00",
+    "last_updated": "2026-11-06T15:48:00.720282+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 487,
-    "original_posts_attempted": 73,
-    "original_posts_succeeded": 65,
+    "total_cycles_executed": 491,
+    "original_posts_attempted": 75,
+    "original_posts_succeeded": 67,
     "replies_attempted": 26,
     "replies_succeeded": 22,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 62,
     "failed_operations": 26,
-    "ai_generation_requests": 153,
+    "ai_generation_requests": 157,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2038,6 +2038,46 @@
       "content_preview": "Merge keeps all 50 commits. Squash condenses them into 1 to keep `main` pristine. Cherry-pick pulls 1 precise commit for",
       "reason": "",
       "duration_s": 37.65
+    },
+    {
+      "timestamp": "2026-11-06T15:46:50.768071+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Moral policing uncle-aunt networks",
+      "content_preview": "The entire colony's infrastructure is crumbling into the abyss, but Sharma ji has called an emergency 3-hour UN General ",
+      "reason": "",
+      "duration_s": 2.34
+    },
+    {
+      "timestamp": "2026-11-06T15:46:56.956390+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "LinkedIn B2B",
+      "content_preview": "𝗚𝗶𝘁 𝗥𝗲𝗯𝗮𝘀𝗲 𝘃𝘀. 𝗚𝗶𝘁 𝗠𝗲𝗿𝗴𝗲: 𝗦𝘁𝗼𝗽 𝗴𝘂𝗲𝘀𝘀𝗶𝗻𝗴 𝗮𝗻𝗱 𝗺𝗮𝘀𝘁𝗲𝗿 𝘁𝗵𝗲 𝗼𝗻𝗹𝘆 𝘁𝘄𝗼 𝘄𝗮𝘆𝘀 𝗚𝗶𝘁 𝗰𝗼𝗺𝗯𝗶𝗻𝗲𝘀 𝗰𝗼𝗱𝗲.\n\nThe school-level intuition is s",
+      "reason": "",
+      "duration_s": 6.17
+    },
+    {
+      "timestamp": "2026-11-06T15:47:04.605968+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "LLM vs. SLM (Small Language Models)",
+      "content_preview": "Compute hierarchy in AI: Route simple intent parsing & syntax tasks to an SLM running locally, reserve frontier LLMs for",
+      "reason": "",
+      "duration_s": 7.64
+    },
+    {
+      "timestamp": "2026-11-06T15:48:00.715504+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "The AI bubble and pitch deck madness",
+      "content_preview": "Bro really threw a $20 UI on ChatGPT, slapped \"Autonomous Enterprise Neural Swarm\" in a Notion doc, and expects a $20M v",
+      "reason": "",
+      "duration_s": 55.6
     }
   ]
 }
