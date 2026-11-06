@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T17:03:44.417488+00:00",
+    "last_updated": "2026-11-06T18:03:32.759790+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 503,
-    "original_posts_attempted": 79,
-    "original_posts_succeeded": 71,
+    "total_cycles_executed": 507,
+    "original_posts_attempted": 81,
+    "original_posts_succeeded": 73,
     "replies_attempted": 28,
     "replies_succeeded": 24,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
-    "actions_skipped": 63,
+    "actions_skipped": 64,
     "failed_operations": 26,
-    "ai_generation_requests": 168,
+    "ai_generation_requests": 171,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2198,6 +2198,46 @@
       "content_preview": "Paying 35% so the government can fund a mysterious hole in the middle of the highway while I buy my own water, electrici",
       "reason": "",
       "duration_s": 76.31
+    },
+    {
+      "timestamp": "2026-11-06T18:02:08.393702+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Religious dogmatism vs basic human decency",
+      "content_preview": "Fighting for your religion on main while casually treating the highway like GTA V is peak modern hypocrisy. God sees you",
+      "reason": "",
+      "duration_s": 29.85
+    },
+    {
+      "timestamp": "2026-11-06T18:02:08.408985+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence guard",
+      "content_preview": "",
+      "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-06T18:02:18.553287+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Docker vs. Kubernetes vs. Podman",
+      "content_preview": "Build with Docker/Podman from Day 1; adopt Kubernetes only when multi-node orchestration is mandatory. \n\nAnalogy: Docker",
+      "reason": "",
+      "duration_s": 10.14
+    },
+    {
+      "timestamp": "2026-11-06T18:03:32.755798+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "The AI bubble and pitch deck madness",
+      "content_preview": "Bro really paid $40/month for Claude, slapped a dark mode landing page on it, and called it a \"Pre-Seed Autonomous Enter",
+      "reason": "",
+      "duration_s": 72.32
     }
   ]
 }

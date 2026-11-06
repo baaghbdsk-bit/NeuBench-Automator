@@ -91,7 +91,10 @@
     "bsky:RAG vs. Fine-Tuning",
     "Tech CEO return-to-office mandates",
     "bsky:REST vs. gRPC vs. GraphQL",
-    "Income tax vs public infrastructure"
+    "Income tax vs public infrastructure",
+    "Religious dogmatism vs basic human decency",
+    "bsky:Docker vs. Kubernetes vs. Podman",
+    "The AI bubble and pitch deck madness"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -145,7 +148,9 @@
     "d1579a14236a4bbfdcff580bc5f0a3bde71d3e5fcbd50226abd1800d1cc26d5a",
     "61b529dcdcfccdc8ccf59edb9da57559b43f017a4de325f22b6892ff14ccca31",
     "c77339b216cdc42a409a54ae1374252ee91b487425d41702d3e991d0c8d0ee6b",
-    "6d5cfb9ac6873fb7ca746ed74ab00bd4fdd4708fa8f8503fb9f3412f1fb3cf09"
+    "6d5cfb9ac6873fb7ca746ed74ab00bd4fdd4708fa8f8503fb9f3412f1fb3cf09",
+    "4750276e7d490d543fd99194918e51bc9559b1500cc24e040aa768768e5c546f",
+    "535679a2296276775f31ee1545d2872c7b82dd7cf25f41c80bba1586f92c2514"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -158,7 +163,8 @@
         "post:3cf47ab5bfb9fc94d1060a99cb2c3d0551999c789a888c0ef762ed7bc015d51d",
         "post:17c3a8494440787f72c55fdc0fbcb60267c118c3aa1b5b1ac60e87ab88d34d4c",
         "post:ba363ece96bed5b05ca392c8b2147813c4fe0bdfda24cdca7a76ccdb420cbda4",
-        "post:8082cf2eff481d8639ea37466d34bdebbb07707546cbd519e7f3447e8c36b263"
+        "post:8082cf2eff481d8639ea37466d34bdebbb07707546cbd519e7f3447e8c36b263",
+        "post:368a13cb2083c510eed2cbae5f13fa6fa10ecca72e3c5d1fd2508196d5336dfc"
       ],
       "pending": []
     },
