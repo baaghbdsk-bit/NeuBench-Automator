@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T21:03:40.230798+00:00",
+    "last_updated": "2026-11-06T21:11:19.760684+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 519,
-    "original_posts_attempted": 87,
-    "original_posts_succeeded": 79,
-    "replies_attempted": 28,
+    "total_cycles_executed": 523,
+    "original_posts_attempted": 88,
+    "original_posts_succeeded": 80,
+    "replies_attempted": 29,
     "replies_succeeded": 24,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
-    "actions_skipped": 66,
+    "actions_skipped": 68,
     "failed_operations": 26,
-    "ai_generation_requests": 181,
+    "ai_generation_requests": 183,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2358,6 +2358,46 @@
       "content_preview": "Nintendo really gonna make y'all pay $90 for a Switch 2 Pro Controller with \"Zelda gold\" plastic just so you can use sti",
       "reason": "",
       "duration_s": 74.3
+    },
+    {
+      "timestamp": "2026-11-06T21:11:05.925497+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Startup founders preaching hustle on LinkedIn",
+      "content_preview": "Bro raised $5M from his dad’s country club buddies, burns $200k a month on oat milk lattes for 3 interns, and has the au",
+      "reason": "",
+      "duration_s": 39.87
+    },
+    {
+      "timestamp": "2026-11-06T21:11:05.946486+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence guard",
+      "content_preview": "",
+      "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-06T21:11:18.912636+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Monolith vs. Microservices",
+      "content_preview": "Start with a modular monolith. Treat microservices as a last-resort scaling pattern for org boundaries, not code organiz",
+      "reason": "",
+      "duration_s": 12.96
+    },
+    {
+      "timestamp": "2026-11-06T21:11:19.760653+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (29/28).",
+      "duration_s": 0.01
     }
   ]
 }
