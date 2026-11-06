@@ -640,7 +640,7 @@ class AutomaterEngine:
         if force_action in valid_forces:
             action_choice = force_action
         else:
-            action_choice = self._resolve_algorithmic_action(today_counts)
+            action_choice = "omnichannel"
 
         # 4. Enforce quota check
         can_proceed, reason = self.safety.can_perform_action(action_choice, today_counts)
