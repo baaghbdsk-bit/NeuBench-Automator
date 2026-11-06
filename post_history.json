@@ -172,7 +172,9 @@
     "LoRA (Low-Rank Adaptation)",
     "Speculative Decoding",
     "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-    "Vector Embeddings & Cosine Similarity"
+    "Vector Embeddings & Cosine Similarity",
+    "KV Cache Optimization",
+    "Mixture of Experts (MoE)"
   ],
   "posted_bluesky_topics": [
     "Order-Only On-Policy Distillation"

@@ -219,7 +219,11 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add post_history.json trial_metrics.json linkedin_network.json linkedin_post_history.json linkedin_engagement_history.json || true
+          for file in post_history.json trial_metrics.json linkedin_network.json linkedin_post_history.json linkedin_engagement_history.json; do
+            if [ -f "$file" ]; then
+              git add "$file"
+            fi
+          done
           git commit -m "chore(cloud): autonomous update post metrics [skip ci]" || echo "No changes to commit"
           git pull --rebase --autostash origin main || true
           git push origin main || echo "Push skipped or non-fast-forward"
