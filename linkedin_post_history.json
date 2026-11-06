@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-05T23:43:40.361006+00:00",
+  "last_success_at": "2026-11-06T06:48:01.234725+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -110,6 +110,15 @@
       "status": "success",
       "posted_at": "2026-11-05T23:43:40.361006+00:00",
       "post_urn": "urn:li:ugcPost:7524255138874548224"
+    },
+    {
+      "topic_key": "title:4db1de71c49d552a6fa160636c3074b9",
+      "title": "What if your database has no index",
+      "url": "",
+      "content_hash": "18e632d57118b7e4e27ca5a2b5731423",
+      "status": "success",
+      "posted_at": "2026-11-06T06:48:01.234725+00:00",
+      "post_urn": "urn:li:ugcPost:7524361929369219072"
     }
   ],
   "posted_titles": [
@@ -124,6 +133,7 @@
     "li:How to build a personal benchmark for AI tools",
     "li:On the Generalization Limitation of On-Policy Distillation for Post-RL Consolidation",
     "li:Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-    "li:Did you know: environment variables are not secrets by default"
+    "li:Did you know: environment variables are not secrets by default",
+    "li:What if your database has no index"
   ]
 }
