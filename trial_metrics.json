@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T20:03:28.657516+00:00",
+    "last_updated": "2026-11-06T21:03:40.230798+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 515,
-    "original_posts_attempted": 85,
-    "original_posts_succeeded": 77,
+    "total_cycles_executed": 519,
+    "original_posts_attempted": 87,
+    "original_posts_succeeded": 79,
     "replies_attempted": 28,
     "replies_succeeded": 24,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
-    "actions_skipped": 65,
+    "actions_skipped": 66,
     "failed_operations": 26,
-    "ai_generation_requests": 178,
+    "ai_generation_requests": 181,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2318,6 +2318,46 @@
       "content_preview": "Imagine naming your kid Maverick Lyon like you’re trying to generate a main character for a straight-to-DVD Netflix acti",
       "reason": "",
       "duration_s": 68.45
+    },
+    {
+      "timestamp": "2026-11-06T21:02:11.734232+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "did the stock market crash today",
+      "content_preview": "People asking if the stock market crashed today like their $42 in fractional crypto shares are about to trigger a global",
+      "reason": "",
+      "duration_s": 35.15
+    },
+    {
+      "timestamp": "2026-11-06T21:02:11.756827+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence guard",
+      "content_preview": "",
+      "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-06T21:02:25.130814+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "TCP vs. UDP",
+      "content_preview": "TCP is a phone call: continuous state, sequential delivery, and explicit acknowledgments. UDP is a megaphone: optimized ",
+      "reason": "",
+      "duration_s": 13.37
+    },
+    {
+      "timestamp": "2026-11-06T21:03:40.225696+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "zelda switch 2 pro controller",
+      "content_preview": "Nintendo really gonna make y'all pay $90 for a Switch 2 Pro Controller with \"Zelda gold\" plastic just so you can use sti",
+      "reason": "",
+      "duration_s": 74.3
     }
   ]
 }
