@@ -1,22 +1,63 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T21:11:19.760684+00:00",
+    "last_updated": "2026-11-06T23:04:18.980033+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 523,
-    "original_posts_attempted": 88,
-    "original_posts_succeeded": 80,
+    "total_cycles_executed": 527,
+    "original_posts_attempted": 90,
+    "original_posts_succeeded": 82,
     "replies_attempted": 29,
     "replies_succeeded": 24,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
     "actions_skipped": 68,
     "failed_operations": 26,
-    "ai_generation_requests": 183,
+    "ai_generation_requests": 187,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
-  "recent_events": []
+  "recent_events": [
+    {
+      "timestamp": "2026-11-06T23:02:56.036697+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "wwe crown jewel 2026",
+      "content_preview": "Cant wait for WWE Crown Jewel 2026 where multi-millionaire athletes pretend to hate each other in front of literal royal",
+      "reason": "",
+      "duration_s": 30.96
+    },
+    {
+      "timestamp": "2026-11-06T23:03:07.400045+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "HashMap vs HashSet: Architectural Comparison\n\nKey-value associative mapping vs unique set membership under the hood.\n\nI ",
+      "reason": "",
+      "duration_s": 11.36
+    },
+    {
+      "timestamp": "2026-11-06T23:03:09.759693+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM API Outage Frequency & Degradation Index",
+      "content_preview": "Frontier LLM API degradation isn't just about hard 500s; silent context-window truncation and p99 latency spikes break d",
+      "reason": "",
+      "duration_s": 2.36
+    },
+    {
+      "timestamp": "2026-11-06T23:04:18.976986+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "jim caviezel",
+      "content_preview": "Jim Caviezel didn't just play Jesus, he decided to stay in character so long that his brain completely buffered out of r",
+      "reason": "",
+      "duration_s": 68.55
+    }
+  ]
 }
