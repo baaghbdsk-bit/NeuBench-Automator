@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-06T23:03:07.395797+00:00",
+  "last_success_at": "2026-11-06T23:10:09.985158+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -146,6 +146,15 @@
       "status": "success",
       "posted_at": "2026-11-06T23:03:07.395797+00:00",
       "post_urn": "urn:li:ugcPost:7524607324595007488"
+    },
+    {
+      "topic_key": "title:8eb5d665115edbb7ce1b5437c6dde025",
+      "title": "ArrayList vs. LinkedList",
+      "url": "",
+      "content_hash": "b2f627ce6eca8480f9af6e2f7dbb1c79",
+      "status": "success",
+      "posted_at": "2026-11-06T23:10:09.985158+00:00",
+      "post_urn": "urn:li:ugcPost:7524609097418321920"
     }
   ],
   "posted_titles": [
@@ -164,6 +173,7 @@
     "li:What if your database has no index",
     "li:Git Rebase vs. Git Merge",
     "li:Git Merge vs. Squash vs. Cherry-Pick",
-    "li:HashMap vs. HashSet"
+    "li:HashMap vs. HashSet",
+    "li:ArrayList vs. LinkedList"
   ]
 }
