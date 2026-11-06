@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T15:57:29.168824+00:00",
+    "last_updated": "2026-11-06T16:03:30.489945+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 495,
-    "original_posts_attempted": 76,
-    "original_posts_succeeded": 68,
+    "total_cycles_executed": 499,
+    "original_posts_attempted": 77,
+    "original_posts_succeeded": 69,
     "replies_attempted": 28,
     "replies_succeeded": 24,
-    "reposts_attempted": 33,
-    "reposts_succeeded": 11,
+    "reposts_attempted": 34,
+    "reposts_succeeded": 12,
     "actions_skipped": 62,
     "failed_operations": 26,
-    "ai_generation_requests": 161,
+    "ai_generation_requests": 165,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2118,6 +2118,46 @@
       "content_preview": "Step 1: Be born rich. Step 2: Write a 14-part Twitter thread telling everyone else they just lack a growth mindset.",
       "reason": "",
       "duration_s": 57.64
+    },
+    {
+      "timestamp": "2026-11-06T16:02:29.680477+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "treveyon henderson",
+      "content_preview": "Fantasy managers drafting TreVeyon Henderson in the 1st round just to watch him split carries with a guy named Brayden w",
+      "reason": "",
+      "duration_s": 35.12
+    },
+    {
+      "timestamp": "2026-11-06T16:02:39.535139+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "𝗠𝗲𝗿𝗴𝗲 𝗷𝗼𝗶𝗻𝘀 𝘁𝘄𝗼 𝘀𝗲𝗽𝗮𝗿𝗮𝘁𝗲 𝘁𝗶𝗺𝗲𝗹𝗶𝗻𝗲𝘀 𝗳𝗼𝗿𝗲𝘃𝗲𝗿. 𝗥𝗲𝗯𝗮𝘀𝗲 𝗲𝗿𝗮𝘀𝗲𝘀 𝗮𝗻𝗱 𝗿𝗲𝘄𝗿𝗶𝘁𝗲𝘀 𝘆𝗼𝘂𝗿𝘀 𝗮𝘀 𝗶𝗳 𝘆𝗼𝘂 𝘀𝘁𝗮𝗿𝘁𝗲𝗱 𝘆𝗲𝘀𝘁𝗲𝗿𝗱𝗮𝘆. \nWhich one bel",
+      "reason": "",
+      "duration_s": 9.85
+    },
+    {
+      "timestamp": "2026-11-06T16:02:49.999605+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "RAG vs. Fine-Tuning",
+      "content_preview": "RAG vs. Fine-Tuning:\n\nUse RAG when your system needs dynamic facts and ephemeral context. \n\nUse Fine-Tuning when you nee",
+      "reason": "",
+      "duration_s": 10.46
+    },
+    {
+      "timestamp": "2026-11-06T16:03:30.489917+00:00",
+      "action_type": "quote_tweet",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/ANI/status/2118657532034174998",
+      "content_preview": "Ah yes, nothing screams \"it takes a village\" quite like outsourcing the village to a $200/month nanny named Sunita while",
+      "reason": "",
+      "duration_s": 39.95
     }
   ]
 }

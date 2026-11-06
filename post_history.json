@@ -86,7 +86,9 @@
     "broadcom stock",
     "sumit nagal",
     "bsky:LLM vs. SLM (Small Language Models)",
-    "rinky hijikata"
+    "rinky hijikata",
+    "treveyon henderson",
+    "bsky:RAG vs. Fine-Tuning"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -130,13 +132,15 @@
     "https://x.com/kunalb11/status/2110987620113412597",
     "https://x.com/satyanadella/status/2115577764300693644",
     "https://x.com/levelsio/status/2116843791214629021",
-    "https://x.com/ndtv/status/2118729786621346069"
+    "https://x.com/ndtv/status/2118729786621346069",
+    "https://x.com/ANI/status/2118657532034174998"
   ],
   "posted_tweet_hashes": [
     "11f42a9ddef263b8808ee39941519feb81f42c6eb9ac12f1324c64ef9bd72035",
     "e5017a60cbf756d4bff759d32a408342c774f27edf647c5f97c8e7dcd7bbbe36",
     "98602857045acea9631847dca77a856906c490ef4369cf7f8a2028cd988f20ef",
-    "d1579a14236a4bbfdcff580bc5f0a3bde71d3e5fcbd50226abd1800d1cc26d5a"
+    "d1579a14236a4bbfdcff580bc5f0a3bde71d3e5fcbd50226abd1800d1cc26d5a",
+    "61b529dcdcfccdc8ccf59edb9da57559b43f017a4de325f22b6892ff14ccca31"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -147,7 +151,8 @@
         "post:9f7ab1b7f628d90949657ca6c68ffeacecd51d09c9801e1821f8529e94b9f9f6",
         "post:133808f66a0d56b5cc3ef9b0a841b936620e5091a0d359c68c73e44fe8e55ec9",
         "post:3cf47ab5bfb9fc94d1060a99cb2c3d0551999c789a888c0ef762ed7bc015d51d",
-        "post:17c3a8494440787f72c55fdc0fbcb60267c118c3aa1b5b1ac60e87ab88d34d4c"
+        "post:17c3a8494440787f72c55fdc0fbcb60267c118c3aa1b5b1ac60e87ab88d34d4c",
+        "post:ba363ece96bed5b05ca392c8b2147813c4fe0bdfda24cdca7a76ccdb420cbda4"
       ],
       "pending": []
     },
