@@ -86,7 +86,7 @@ jobs:
           echo "## Instagram Session Diagnostic" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           if [ -f generated_visuals/ig_diag_report.json ]; then
-            python - <<'PY'
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
             import json
             r = json.load(open("generated_visuals/ig_diag_report.json", encoding="utf-8"))
             print(f"- Classification: **{r.get('classification')}**")
@@ -101,7 +101,7 @@ jobs:
             print(f"- Checkpoint signals: {ev.get('checkpoint_signals')}")
             print(f"- 2FA signals: {ev.get('two_factor_signals')}")
             print(f"- Consent signals: {ev.get('consent_signals')}")
-            PY >> "$GITHUB_STEP_SUMMARY"
+PY
           else
             echo "- No report produced (script failed before writing)." >> "$GITHUB_STEP_SUMMARY"
           fi
