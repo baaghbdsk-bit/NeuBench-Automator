@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T06:55:40.717329+00:00",
+    "last_updated": "2026-11-06T07:20:47.412178+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 473,
+    "total_cycles_executed": 474,
     "original_posts_attempted": 70,
     "original_posts_succeeded": 62,
     "replies_attempted": 26,
@@ -1898,6 +1898,16 @@
       "content_preview": "Replied to 0 Threads post(s).",
       "reason": "",
       "duration_s": 29.64
+    },
+    {
+      "timestamp": "2026-11-06T07:20:47.412157+00:00",
+      "action_type": "youtube",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Ima",
+      "content_preview": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Ima Explained #Shorts",
+      "reason": "",
+      "duration_s": 182.81
     }
   ]
 }

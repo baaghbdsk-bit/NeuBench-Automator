@@ -151,7 +151,8 @@
       "completed": [
         "short:a5fbf7c41ddc45206e3e26dcb3fe35a882af0b5de6a32b04b9c74e06378a906a",
         "short:4774e8f1f2ee1e1f6701d235021a1bc529e597086a4b312c7c8d31eb89812957",
-        "short:1a3dad55c7769236bf616170ef56ceb3952d692b641a1062d0cc72d177378333"
+        "short:1a3dad55c7769236bf616170ef56ceb3952d692b641a1062d0cc72d177378333",
+        "short:2185129a9a7ad95a63a7793c16da89b99bf9636dac4a35e52e43c57aea9c63c2"
       ],
       "pending": []
     },
@@ -174,7 +175,8 @@
     "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
     "Vector Embeddings & Cosine Similarity",
     "KV Cache Optimization",
-    "Mixture of Experts (MoE)"
+    "Mixture of Experts (MoE)",
+    "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Ima"
   ],
   "posted_bluesky_topics": [
     "Order-Only On-Policy Distillation"
