@@ -1,8 +1,8 @@
 @echo off
-title NeuBench-Automator Omnichannel Dashboard
+title NeuBench-Automator Dashboard
 echo ========================================================
 echo   Launching NeuBench-Automator Dashboard...
-echo   Omnichannel OS for 𝕏, Bluesky, LinkedIn & Threads
+echo   Platforms: X, LinkedIn, Bluesky
 echo ========================================================
 
 cd /d "%~dp0"
@@ -13,6 +13,5 @@ if not exist "venv\Scripts\python.exe" (
 )
 
 echo Starting web server on http://127.0.0.1:8000
-.\venv\Scripts\python.exe main.py dashboard
+.\venv\Scripts\python.exe -m uvicorn src.web.app:app --host 127.0.0.1 --port 8000
 pause
-
