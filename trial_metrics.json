@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T19:04:02.207375+00:00",
+    "last_updated": "2026-11-06T20:03:28.657516+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 511,
-    "original_posts_attempted": 83,
-    "original_posts_succeeded": 75,
+    "total_cycles_executed": 515,
+    "original_posts_attempted": 85,
+    "original_posts_succeeded": 77,
     "replies_attempted": 28,
     "replies_succeeded": 24,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
-    "actions_skipped": 64,
+    "actions_skipped": 65,
     "failed_operations": 26,
-    "ai_generation_requests": 175,
+    "ai_generation_requests": 178,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2278,6 +2278,46 @@
       "content_preview": "Silicon Valley bros really think AI is replacing devs while an Ohio insurance company’s entire existence is currently du",
       "reason": "",
       "duration_s": 74.86
+    },
+    {
+      "timestamp": "2026-11-06T20:02:08.151248+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "tornado warning",
+      "content_preview": "Meteorologists: \"Seek immediate shelter, a Category 5 wedge tornado is ripping your neighborhood to shreds.\"\n\nDad in sho",
+      "reason": "",
+      "duration_s": 32.84
+    },
+    {
+      "timestamp": "2026-11-06T20:02:08.169811+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence guard",
+      "content_preview": "",
+      "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-06T20:02:19.615913+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Event Loop: Node.js & Python Asyncio",
+      "content_preview": "Imagine 1,000 idle waiters versus one rapid coordinator managing tables while the kitchen cooks. \n\nUse event loops (Node",
+      "reason": "",
+      "duration_s": 11.44
+    },
+    {
+      "timestamp": "2026-11-06T20:03:28.651062+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "maverick lyon",
+      "content_preview": "Imagine naming your kid Maverick Lyon like you’re trying to generate a main character for a straight-to-DVD Netflix acti",
+      "reason": "",
+      "duration_s": 68.45
     }
   ]
 }
