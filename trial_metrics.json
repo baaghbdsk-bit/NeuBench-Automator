@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T09:02:22.066431+00:00",
+    "last_updated": "2026-11-06T10:10:33.076517+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 478,
-    "original_posts_attempted": 70,
-    "original_posts_succeeded": 62,
+    "total_cycles_executed": 482,
+    "original_posts_attempted": 71,
+    "original_posts_succeeded": 63,
     "replies_attempted": 26,
     "replies_succeeded": 22,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 61,
+    "actions_skipped": 62,
     "failed_operations": 26,
-    "ai_generation_requests": 146,
+    "ai_generation_requests": 147,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1948,6 +1948,46 @@
       "content_preview": "",
       "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-06T10:04:00.944505+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "bath and body works advent calendar",
+      "content_preview": "buying a bath & body works advent calendar just to spend all of december smelling like a walking vanilla milkshake fuele",
+      "reason": "",
+      "duration_s": 84.07
+    },
+    {
+      "timestamp": "2026-11-06T10:04:15.015823+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Bluesky (@neubench.bsky.social)",
+      "content_preview": "Blender’s UI engine bypasses modern web-stack bloat by owning the full rendering loop down to the GPU pipeline. Raw thro",
+      "reason": "",
+      "duration_s": 1.2
+    },
+    {
+      "timestamp": "2026-11-06T10:10:18.501292+00:00",
+      "action_type": "youtube",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "YouTube Short: Decoupled Predictive Decision Making: A Shared Conditional Predictor f",
+      "content_preview": "Decoupled Predictive Decision Making: A Shared Conditional Predictor f Explained #Shorts",
+      "reason": "",
+      "duration_s": 30.0
+    },
+    {
+      "timestamp": "2026-11-06T10:10:33.076489+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 13.52
     }
   ]
 }
