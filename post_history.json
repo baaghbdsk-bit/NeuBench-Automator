@@ -162,6 +162,12 @@
         "reel:dc034e30830ac80b78ad88a4ba9ad4f24cf0c59210e717ed21b8b079e5b5a72d"
       ],
       "pending": []
+    },
+    "devto": {
+      "completed": [
+        "article:f1a021812d6acfb110ffbbb3073af32db417773bf3ede0cc3e49ecf6b13b891f"
+      ],
+      "pending": []
     }
   },
   "posted_ai_topics": [
@@ -176,7 +182,8 @@
     "Vector Embeddings & Cosine Similarity",
     "KV Cache Optimization",
     "Mixture of Experts (MoE)",
-    "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Ima"
+    "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Ima",
+    "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoi"
   ],
   "posted_bluesky_topics": [
     "Order-Only On-Policy Distillation"
