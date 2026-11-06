@@ -349,5 +349,30 @@ def main() -> int:
     return exit_code
 
 
+def print_summary() -> int:
+    if not REPORT_FILE.exists():
+        print("- No report produced (script failed before writing).")
+        return 0
+    try:
+        r = json.loads(REPORT_FILE.read_text(encoding="utf-8"))
+        print(f"- Classification: **{r.get('classification')}**")
+        print(f"- Exit code: {r.get('exit_code')}")
+        print(f"- Cookies restored: {r.get('cookie_count')}")
+        print(f"- Create available: {r.get('create_available')}")
+        print(f"- Create count: {r.get('create_count')}")
+        print(f"- Home count: {r.get('home_count')}")
+        ev = r.get("evidence") or {}
+        print(f"- Auth signals: {ev.get('auth_signals')}")
+        print(f"- Login signals: {ev.get('login_signals')}")
+        print(f"- Checkpoint signals: {ev.get('checkpoint_signals')}")
+        print(f"- 2FA signals: {ev.get('two_factor_signals')}")
+        print(f"- Consent signals: {ev.get('consent_signals')}")
+    except Exception as ex:
+        print(f"- Failed to read report: {ex}")
+    return 0
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "--summary":
+        sys.exit(print_summary())
     sys.exit(main())
