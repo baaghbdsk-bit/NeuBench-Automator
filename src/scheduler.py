@@ -636,7 +636,7 @@ class AutomaterEngine:
 
 
         # 3. Determine action type
-        valid_forces = ("post", "reply", "repost", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "threads", "threads-replies", "omnichannel", "post-all", "youtube", "instagram", "devto", "pinterest")
+        valid_forces = ("post", "reply", "repost", "mentions", "debate-sniper", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "omnichannel", "post-all")
         if force_action in valid_forces:
             action_choice = force_action
         else:
@@ -696,6 +696,10 @@ class AutomaterEngine:
         if action_choice in ("omnichannel", "post-all"):
             results = self.run_three_hour_omnichannel_cycle()
             return any(results.values())
+        elif action_choice == "mentions":
+            return self._execute_x_mentions_replies(start_time)
+        elif action_choice == "debate-sniper":
+            return self._execute_x_debate_sniper(start_time)
         elif action_choice == "reply":
             ok = self._execute_sniper_reply(start_time)
             if not ok:
@@ -1054,6 +1058,88 @@ class AutomaterEngine:
         return success
 
 
+
+
+    def _execute_x_mentions_replies(self, start_time: float) -> bool:
+        """Checks incoming mentions and replies wittily to build authentic community."""
+        console.print("[bold cyan]📬 Mode: 𝕏 Community Mentions & Audience Replies[/bold cyan]")
+        mentions = self.twitter.get_incoming_mentions(limit=3)
+        if not mentions:
+            console.print("[dim]No unreplied mentions found. All caught up![/dim]")
+            return True
+
+        replied_count = 0
+        for m in mentions:
+            tweet_url = m.get("tweet_url")
+            author = m.get("author")
+            text = m.get("tweet_text")
+            if not tweet_url or tweet_url in self.tracker.history.get("replied_urls", []):
+                continue
+
+            console.print(f"[bold]Mention from @{author}:[/bold] {text[:70]}...")
+            try:
+                reply = self.ai.generate_audience_reply(author, text)
+            except Exception as e:
+                console.print(f"[red]Reply AI error: {e}[/red]")
+                continue
+
+            console.print(f"[green]Audience Reply:[/green] {reply}")
+            if not self.safety.dry_run:
+                ok = self.twitter.post_reply(tweet_url, reply)
+                if ok:
+                    self.tracker.record_event(
+                        action_type="reply",
+                        status="success",
+                        target_identifier=tweet_url,
+                        content_preview=reply,
+                        duration_seconds=time.time() - start_time,
+                        is_dry_run=False
+                    )
+                    replied_count += 1
+            else:
+                print(f"[TwitterClient] [DRY RUN] Would reply to mention from @{author}: {reply}")
+                replied_count += 1
+
+        console.print(f"[green]✅ Processed {replied_count} mention reply(ies).[/green]")
+        return True
+
+    def _execute_x_debate_sniper(self, start_time: float) -> bool:
+        """Searches active debates across 𝕏 and drops a high-signal contrarian comment."""
+        console.print("[bold yellow]🔥 Mode: 𝕏 Live Debate Search & Sniper[/bold yellow]")
+        topics = self.hunter.get_x_unfiltered_topics()
+        topic = random.choice(topics) if topics else {"title": "Tech & AI debates"}
+        search_query = topic.get("title", "AI")
+        
+        results = self.twitter.search_public_tweets(search_query, limit=4)
+        target_tweet = None
+        for r in results:
+            url = r.get("tweet_url")
+            if url and url not in self.tracker.history.get("replied_urls", []):
+                target_tweet = r
+                break
+
+        if not target_tweet:
+            console.print("[dim]No unreplied debate tweets found in search. Falling back to account sniper...[/dim]")
+            return self._execute_sniper_reply(start_time)
+
+        console.print(f"[bold]Debate Target (@{target_tweet['author']}):[/bold] {target_tweet['tweet_text'][:80]}...")
+        reply_take = self.ai.generate_debate_comprehension(search_query, target_tweet["tweet_text"])
+        console.print(f"[green]Generated Debate Take:[/green] {reply_take}")
+
+        if not self.safety.dry_run:
+            ok = self.twitter.post_reply(target_tweet["tweet_url"], reply_take)
+            self.tracker.record_event(
+                action_type="reply",
+                status="success" if ok else "failed",
+                target_identifier=target_tweet["tweet_url"],
+                content_preview=reply_take,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=False
+            )
+            return ok
+        else:
+            print(f"[TwitterClient] [DRY RUN] Would reply to debate {target_tweet['tweet_url']}: {reply_take}")
+            return True
 
     def _execute_original_post(self, start_time: float) -> bool:
 

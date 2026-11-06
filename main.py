@@ -84,7 +84,7 @@ def main():
         "action", 
         choices=[
             "start", "run-once", "post-all", "omnichannel",
-            "post", "reply", "repost",
+            "post", "reply", "repost", "mentions", "debate-sniper",
             "linkedin", "linkedin-replies", "linkedin-peers",
             "bluesky", "bluesky-replies",
             "login", "login-linkedin", "test", "metrics",
@@ -171,6 +171,16 @@ def main():
             ok = engine.execute_x_quote(args.url, args.text or "Viral debate")
         else:
             ok = engine.run_single_cycle(force_action="repost")
+        if not ok and not engine.safety.dry_run:
+            sys.exit(1)
+
+    elif args.action == "mentions":
+        ok = engine.run_single_cycle(force_action="mentions")
+        if not ok and not engine.safety.dry_run:
+            sys.exit(1)
+
+    elif args.action == "debate-sniper":
+        ok = engine.run_single_cycle(force_action="debate-sniper")
         if not ok and not engine.safety.dry_run:
             sys.exit(1)
 

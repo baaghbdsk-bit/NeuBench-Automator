@@ -449,7 +449,7 @@ class TwitterClient:
                     pass
 
                 # Wait for tweets with fallback selector
-                page.wait_for_selector('article[data-testid="tweet"], article', timeout=12000)
+                page.locator('article[data-testid="tweet"], article').first.wait_for(state="attached", timeout=8000)
                 
                 tweets = page.locator('article[data-testid="tweet"], article')
                 if tweets.count() == 0:
@@ -475,3 +475,110 @@ class TwitterClient:
                 context.close()
                 if browser:
                     browser.close()
+
+    def search_public_tweets(self, query: str, limit: int = 5) -> list:
+        """Searches 𝕏 for active public discussions on trending debates or keywords."""
+        if not query:
+            return []
+        import urllib.parse
+        encoded_query = urllib.parse.quote(query)
+        search_url = f"https://x.com/search?q={encoded_query}&f=live"
+        
+        results = []
+        with sync_playwright() as p:
+            context, browser = self._get_context_and_browser(p)
+            page = context.pages[0] if context.pages else context.new_page()
+            try:
+                print(f"[TwitterClient] Searching 𝕏 discussions for: '{query}'...")
+                page.goto(search_url, wait_until="domcontentloaded", timeout=35000)
+                page.wait_for_timeout(3000)
+                
+                page.locator('article[data-testid="tweet"], article').first.wait_for(state="attached", timeout=8000)
+                tweets = page.locator('article[data-testid="tweet"], article')
+                count = min(tweets.count(), limit * 2)
+                
+                for i in range(count):
+                    try:
+                        tweet = tweets.nth(i)
+                        text_el = tweet.locator('[data-testid="tweetText"]').first
+                        tweet_text = text_el.inner_text() if text_el.is_visible() else ""
+                        
+                        link_el = tweet.locator('a[href*="/status/"]').first
+                        href = link_el.get_attribute("href") if link_el else None
+                        tweet_url = f"https://x.com{href}" if href and not href.startswith("http") else href
+                        
+                        user_el = tweet.locator('[data-testid="User-Name"]').first
+                        user_text = user_el.inner_text() if user_el.is_visible() else ""
+                        author = ""
+                        for part in user_text.split():
+                            if part.startswith("@"):
+                                author = part.lstrip("@")
+                                break
+                        
+                        if tweet_url and tweet_text and len(tweet_text) > 15:
+                            results.append({
+                                "author": author,
+                                "tweet_text": tweet_text,
+                                "tweet_url": tweet_url
+                            })
+                            if len(results) >= limit:
+                                break
+                    except Exception:
+                        continue
+            except Exception as e:
+                print(f"[TwitterClient] Search query '{query}' failed or empty: {e}")
+            finally:
+                context.close()
+                if browser:
+                    browser.close()
+        return results
+
+    def get_incoming_mentions(self, limit: int = 5) -> list:
+        """Reads incoming mentions to reply to audience interactions."""
+        results = []
+        with sync_playwright() as p:
+            context, browser = self._get_context_and_browser(p)
+            page = context.pages[0] if context.pages else context.new_page()
+            try:
+                print("[TwitterClient] Checking incoming mentions at https://x.com/notifications/mentions...")
+                page.goto("https://x.com/notifications/mentions", wait_until="domcontentloaded", timeout=35000)
+                page.wait_for_timeout(3000)
+                
+                page.locator('article[data-testid="tweet"], article').first.wait_for(state="attached", timeout=8000)
+                tweets = page.locator('article[data-testid="tweet"], article')
+                count = min(tweets.count(), limit)
+                
+                for i in range(count):
+                    try:
+                        tweet = tweets.nth(i)
+                        text_el = tweet.locator('[data-testid="tweetText"]').first
+                        tweet_text = text_el.inner_text() if text_el.is_visible() else ""
+                        
+                        link_el = tweet.locator('a[href*="/status/"]').first
+                        href = link_el.get_attribute("href") if link_el else None
+                        tweet_url = f"https://x.com{href}" if href and not href.startswith("http") else href
+                        
+                        user_el = tweet.locator('[data-testid="User-Name"]').first
+                        user_text = user_el.inner_text() if user_el.is_visible() else ""
+                        author = ""
+                        for part in user_text.split():
+                            if part.startswith("@"):
+                                author = part.lstrip("@")
+                                break
+                        
+                        if tweet_url and tweet_text:
+                            results.append({
+                                "author": author,
+                                "tweet_text": tweet_text,
+                                "tweet_url": tweet_url
+                            })
+                    except Exception:
+                        continue
+            except Exception as e:
+                print(f"[TwitterClient] Could not fetch mentions: {e}")
+            finally:
+                context.close()
+                if browser:
+                    browser.close()
+        return results
+

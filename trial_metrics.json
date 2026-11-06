@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T15:48:00.720282+00:00",
+    "last_updated": "2026-11-06T15:57:29.168824+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 491,
-    "original_posts_attempted": 75,
-    "original_posts_succeeded": 67,
-    "replies_attempted": 26,
-    "replies_succeeded": 22,
-    "reposts_attempted": 32,
-    "reposts_succeeded": 10,
+    "total_cycles_executed": 495,
+    "original_posts_attempted": 76,
+    "original_posts_succeeded": 68,
+    "replies_attempted": 28,
+    "replies_succeeded": 24,
+    "reposts_attempted": 33,
+    "reposts_succeeded": 11,
     "actions_skipped": 62,
     "failed_operations": 26,
-    "ai_generation_requests": 157,
+    "ai_generation_requests": 161,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2040,44 +2040,84 @@
       "duration_s": 37.65
     },
     {
-      "timestamp": "2026-11-06T15:46:50.768071+00:00",
+      "timestamp": "2026-11-06T15:39:28.630493+00:00",
       "action_type": "original_post",
       "status": "success",
       "is_dry_run": true,
-      "target": "Moral policing uncle-aunt networks",
-      "content_preview": "The entire colony's infrastructure is crumbling into the abyss, but Sharma ji has called an emergency 3-hour UN General ",
+      "target": "broadcom stock",
+      "content_preview": "People buying Broadcom stock thinking they’re tech moguls now, when your entire portfolio’s performance is literally jus",
       "reason": "",
-      "duration_s": 2.34
+      "duration_s": 4.88
     },
     {
-      "timestamp": "2026-11-06T15:46:56.956390+00:00",
+      "timestamp": "2026-11-06T15:42:36.319966+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "https://x.com/satyanadella/status/2115577764300693644",
+      "content_preview": "bro dropped \"agentic wave\" like y'all aren't just laying off 10,000 people so Clippy can manage a spreadsheet",
+      "reason": "",
+      "duration_s": 40.95
+    },
+    {
+      "timestamp": "2026-11-06T15:43:01.731276+00:00",
+      "action_type": "quote_tweet",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "https://x.com/ndtv/status/2118729786621346069",
+      "content_preview": "Nothing screams \"man of the people\" quite like rich journalists crying about losing access to elite Diwali parties.",
+      "reason": "",
+      "duration_s": 13.49
+    },
+    {
+      "timestamp": "2026-11-06T15:44:46.032789+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "sumit nagal",
+      "content_preview": "Indians waking up to tennis existing for 3 days once a year just to weaponize Sumit Nagal’s first-round exit as national",
+      "reason": "",
+      "duration_s": 4.59
+    },
+    {
+      "timestamp": "2026-11-06T15:44:56.335286+00:00",
       "action_type": "linkedin_post",
       "status": "success",
       "is_dry_run": true,
       "target": "LinkedIn B2B",
-      "content_preview": "𝗚𝗶𝘁 𝗥𝗲𝗯𝗮𝘀𝗲 𝘃𝘀. 𝗚𝗶𝘁 𝗠𝗲𝗿𝗴𝗲: 𝗦𝘁𝗼𝗽 𝗴𝘂𝗲𝘀𝘀𝗶𝗻𝗴 𝗮𝗻𝗱 𝗺𝗮𝘀𝘁𝗲𝗿 𝘁𝗵𝗲 𝗼𝗻𝗹𝘆 𝘁𝘄𝗼 𝘄𝗮𝘆𝘀 𝗚𝗶𝘁 𝗰𝗼𝗺𝗯𝗶𝗻𝗲𝘀 𝗰𝗼𝗱𝗲.\n\nThe school-level intuition is s",
+      "content_preview": "𝗠𝗲𝗿𝗴𝗲 𝗷𝗼𝗶𝗻𝘀 𝘁𝘄𝗼 𝗽𝗮𝘁𝗵𝘀 𝗼𝗳 𝗵𝗶𝘀𝘁𝗼𝗿𝘆 𝘁𝗼𝗴𝗲𝘁𝗵𝗲𝗿. 𝗥𝗲𝗯𝗮𝘀𝗲 𝗿𝗲𝘄𝗿𝗶𝘁𝗲𝘀 𝗵𝗶𝘀𝘁𝗼𝗿𝘆 𝗮𝘀 𝗶𝗳 𝘆𝗼𝘂 𝘀𝘁𝗮𝗿𝘁𝗲𝗱 𝘄𝗿𝗶𝘁𝗶𝗻𝗴 𝗰𝗼𝗱𝗲 𝗳𝗶𝘃𝗲 𝗺𝗶𝗻𝘂𝘁𝗲𝘀 𝗮𝗴𝗼. \nSto",
       "reason": "",
-      "duration_s": 6.17
+      "duration_s": 10.23
     },
     {
-      "timestamp": "2026-11-06T15:47:04.605968+00:00",
+      "timestamp": "2026-11-06T15:45:24.880689+00:00",
       "action_type": "bluesky_post",
       "status": "success",
       "is_dry_run": true,
       "target": "LLM vs. SLM (Small Language Models)",
-      "content_preview": "Compute hierarchy in AI: Route simple intent parsing & syntax tasks to an SLM running locally, reserve frontier LLMs for",
+      "content_preview": "Tiered inference is standard practice: route deterministic, low-entropy queries to an on-device SLM to preserve latency ",
       "reason": "",
-      "duration_s": 7.64
+      "duration_s": 28.5
     },
     {
-      "timestamp": "2026-11-06T15:48:00.715504+00:00",
+      "timestamp": "2026-11-06T15:55:08.940738+00:00",
       "action_type": "original_post",
       "status": "success",
       "is_dry_run": true,
-      "target": "The AI bubble and pitch deck madness",
-      "content_preview": "Bro really threw a $20 UI on ChatGPT, slapped \"Autonomous Enterprise Neural Swarm\" in a Notion doc, and expects a $20M v",
+      "target": "rinky hijikata",
+      "content_preview": "Bro sounds like a fake player auto-generated in career mode after your tennis game simulates 15 seasons into the future.",
       "reason": "",
-      "duration_s": 55.6
+      "duration_s": 5.44
+    },
+    {
+      "timestamp": "2026-11-06T15:57:29.168753+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "https://x.com/naval/status/1002103360646823936",
+      "content_preview": "Step 1: Be born rich. Step 2: Write a 14-part Twitter thread telling everyone else they just lack a growth mindset.",
+      "reason": "",
+      "duration_s": 57.64
     }
   ]
 }

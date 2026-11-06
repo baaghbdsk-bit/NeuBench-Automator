@@ -742,40 +742,7 @@ Formatting & Algorithmic Rules:
         """Explicit casual Threads take generator."""
         return self.generate_threads_take(title, summary)
 
-    def generate_dynamic_technical_article(self, topic_data: dict) -> str:
-        """Generates a high-value, comprehensive technical article for Dev.to based on a dynamic AI topic."""
-        title = topic_data.get("title", "AI Architecture")
-        category = topic_data.get("category", "SYSTEMS")
-        summary = topic_data.get("summary", "")
-        pro_tip = topic_data.get("pro_tip", "")
-        key_takeaways = topic_data.get("key_takeaways", [])
-        takeaways_str = "\n".join(f"- {t}" for t in key_takeaways)
 
-        prompt = f"""
-Topic: "{title}"
-Category: "{category}"
-Overview: "{summary}"
-Key Takeaways:
-{takeaways_str}
-Engineering Pro-Tip: "{pro_tip}"
-
-Write a comprehensive, highly educational technical article for senior software engineers on Dev.to.
-Format:
-- Engaging introduction explaining the mental model and why this concept matters.
-- **The Core Architecture & Mechanism**: Deep-dive explanation with clear technical precision.
-- **Python / Pseudo-Code Implementation**: A realistic code snippet illustrating the concept or implementation pattern.
-- **Key Engineering Trade-offs**: Latency vs memory vs throughput vs accuracy analysis.
-- **Production Takeaways & Best Practices**: Actionable advice for engineers deploying in production.
-- Include continuous evaluation note linking to NeuBench (https://app.neubench.workers.dev) for real-world model latency and cost benchmarks.
-
-Tone: Authoritative, crystal-clear, deep engineering rigor. Zero fluff. Markdown formatted with clean headings (#, ##, ###).
-Output ONLY the markdown article body.
-"""
-        return self._generate_with_fallback(
-            prompt,
-            "You are a distinguished AI systems architect writing for software engineers on Dev.to.",
-            temperature=0.72
-        ).strip('"').strip()
 
 
     def generate_linkedin_comment_reply(self, post_text: str, commenter_name: str, comment_text: str) -> str:
@@ -873,3 +840,44 @@ Guidelines:
         system_p = "You are a senior AI systems engineer writing an insightful first-comment resource drop on LinkedIn."
         res = self._generate_with_fallback(prompt, system_p, temperature=0.7)
         return res.strip('"').strip()
+
+    def generate_debate_comprehension(self, topic: str, context: str) -> str:
+        """Analyzes an ongoing heated debate (political, religious, cultural, tech) and generates a savage contrarian take."""
+        prompt = f"""
+Debate / Controversial Topic: "{topic}"
+Context & Ongoing Arguments: "{context}"
+
+Task:
+Analyze the opposing sides of this debate, pinpoint the hypocrisy, absurdity, or unspoken truth, and craft a devastatingly funny, sarcastic, or contrarian hot take.
+
+Rules:
+- Be unapologetically unfiltered, funny, and provocative.
+- Call out both extremes if applicable, or expose the core absurdity of human behavior.
+- Under 270 characters (strict X limit).
+- Absolutely NO corporate PR speak, NO disclaimers, NO fence-sitting.
+- Output ONLY the tweet text.
+"""
+        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.95).strip('"').strip()
+        import re
+        clean = re.sub(r'https?://\S+', '', text).strip()
+        return clean
+
+    def generate_audience_reply(self, mention_author: str, mention_text: str, our_post_context: str = "") -> str:
+        """Replies intelligently and wittily to incoming mentions/comments from our audience."""
+        prompt = f"""
+Our Original Tweet / Context: "{our_post_context[:200]}"
+User @{mention_author} replied:
+"{mention_text}"
+
+Task:
+Reply to @{mention_author}. Keep the conversation alive with sharp wit, sarcasm, playful banter, or agreement with an extra layer of humor.
+
+Rules:
+- Tone: Extremely sharp, funny, sarcastic creator who loves debating and roasting.
+- 1-2 punchy sentences (under 240 chars).
+- Do NOT include their @handle or quotes.
+- Output ONLY the reply text.
+"""
+        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
+        return text
+
