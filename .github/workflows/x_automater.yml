@@ -60,10 +60,15 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
+      - name: Update apt package lists
+        timeout-minutes: 5
+        run: sudo timeout --signal=KILL 240 apt-get update -o Acquire::Retries=3
+
       - name: Install System Dependencies (ffmpeg + Manim + fonts)
+        timeout-minutes: 10
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg build-essential pkg-config libcairo2-dev libpango1.0-dev fonts-inter
+          sudo timeout --signal=KILL 540 env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            ffmpeg build-essential pkg-config libcairo2-dev libpango1.0-dev fonts-inter
 
       - name: Install Dependencies
         run: |
