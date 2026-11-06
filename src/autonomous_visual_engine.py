@@ -690,3 +690,172 @@ def generate_visual_for_post(topic_or_text: str, summary: str = "", avoid_type: 
             "impact_badge": "Zero memory leaks | Continuous GPU saturation"
         }
         return render_dynamic_code_architecture(spec, output_base_name=unique_base_name)
+
+
+def render_dynamic_concept_comparison(concept: Dict[str, Any], output_base_name: str = "concept_comp") -> Tuple[str, str]:
+    """
+    Renders an animated 1080x1080 looping GIF comparing two software/AI concepts side-by-side.
+    High-contrast dark mode aesthetic with pulsating glows, scorecard metrics, and golden rules.
+    """
+    gif_path = str(OUTPUT_DIR / f"{output_base_name}.gif")
+    mp4_path = str(OUTPUT_DIR / f"{output_base_name}.mp4")
+
+    total_frames = 24
+    fps = 16
+    w, h = 1080, 1080
+    frames = []
+
+    f_title = get_font(34, bold=True)
+    f_sub = get_font(19, bold=False)
+    f_sec = get_font(21, bold=True)
+    f_bold = get_font(18, bold=True)
+    f_small = get_font(15, bold=False)
+    f_tag = get_font(14, bold=True)
+    f_rule = get_font(17, bold=True)
+
+    title = str(concept.get("title", "SYSTEM ARCHITECTURE")).upper()
+    category = str(concept.get("category", "ENGINEERING")).upper()
+    ca = concept.get("concept_a", {})
+    cb = concept.get("concept_b", {})
+    golden_rule = str(concept.get("golden_rule", "Choose the right tool for the engineering requirements."))
+    tradeoffs = concept.get("tradeoff_table", [])
+
+    name_a = str(ca.get("name", "Option A")).upper()
+    best_a = str(ca.get("best_for", "General use"))
+    analogy_a = str(ca.get("analogy", ""))
+
+    name_b = str(cb.get("name", "Option B")).upper()
+    best_b = str(cb.get("best_for", "Specialized use"))
+    analogy_b = str(cb.get("analogy", ""))
+
+    for frame_idx in range(total_frames):
+        img = Image.new("RGB", (w, h), BG_COLOR)
+        draw = ImageDraw.Draw(img)
+
+        # Subtle dark tech grid
+        for x in range(0, w, 60):
+            draw.line([(x, 0), (x, h)], fill=(15, 23, 42), width=1)
+        for y in range(0, h, 60):
+            draw.line([(0, y), (w, y)], fill=(15, 23, 42), width=1)
+
+        # Top Badge
+        draw.rounded_rectangle([70, 40, 310, 75], radius=6, fill=(30, 41, 59))
+        draw.text((85, 47), f"NEUBENCH • {category[:18]}", fill=CYAN_ACCENT, font=f_tag)
+
+        # Header Title
+        draw.text((70, 88), title[:40], fill=WHITE, font=f_title)
+        draw.text((70, 136), "Head-to-head architectural mechanics & production rules of thumb", fill=MUTED, font=f_sub)
+
+        # Alternating subtle glow phases
+        pulse_a = math.sin((frame_idx / total_frames) * math.pi * 2)
+        glow_a = int(180 + 75 * max(0, pulse_a))
+        col_a = (56, 189, max(140, min(255, glow_a)))
+
+        pulse_b = math.sin(((frame_idx + total_frames // 2) / total_frames) * math.pi * 2)
+        glow_b = int(180 + 75 * max(0, pulse_b))
+        col_b = (52, max(140, min(255, glow_b)), 153)
+
+        # Left Column Card (Concept A)
+        draw.rounded_rectangle([70, 180, 520, 480], radius=14, fill=CARD_BG, outline=col_a, width=2)
+        draw.rounded_rectangle([70, 180, 520, 230], radius=14, fill=(24, 32, 48))
+        draw.text((95, 192), f"⚡ {name_a[:22]}", fill=CYAN_ACCENT, font=f_sec)
+
+        draw.text((95, 245), "HOW IT WORKS:", fill=MUTED, font=f_tag)
+        # Wrap mechanism text
+        words_a = str(ca.get("how_it_works", ""))[:120].split()
+        line1_a = " ".join(words_a[:7])
+        line2_a = " ".join(words_a[7:14])
+        line3_a = " ".join(words_a[14:21])
+        draw.text((95, 270), line1_a, fill=WHITE, font=f_small)
+        draw.text((95, 292), line2_a, fill=WHITE, font=f_small)
+        draw.text((95, 314), line3_a, fill=WHITE, font=f_small)
+
+        draw.text((95, 350), "BEST FOR:", fill=AMBER_ACCENT, font=f_tag)
+        words_best_a = best_a[:90].split()
+        draw.text((95, 375), " ".join(words_best_a[:7]), fill=WHITE, font=f_small)
+        draw.text((95, 397), " ".join(words_best_a[7:14]), fill=WHITE, font=f_small)
+
+        # Right Column Card (Concept B)
+        draw.rounded_rectangle([560, 180, 1010, 480], radius=14, fill=CARD_BG, outline=col_b, width=2)
+        draw.rounded_rectangle([560, 180, 1010, 230], radius=14, fill=(20, 36, 32))
+        draw.text((585, 192), f"🌿 {name_b[:22]}", fill=EMERALD_ACCENT, font=f_sec)
+
+        draw.text((585, 245), "HOW IT WORKS:", fill=MUTED, font=f_tag)
+        words_b = str(cb.get("how_it_works", ""))[:120].split()
+        line1_b = " ".join(words_b[:7])
+        line2_b = " ".join(words_b[7:14])
+        line3_b = " ".join(words_b[14:21])
+        draw.text((585, 270), line1_b, fill=WHITE, font=f_small)
+        draw.text((585, 292), line2_b, fill=WHITE, font=f_small)
+        draw.text((585, 314), line3_b, fill=WHITE, font=f_small)
+
+        draw.text((585, 350), "BEST FOR:", fill=AMBER_ACCENT, font=f_tag)
+        words_best_b = best_b[:90].split()
+        draw.text((585, 375), " ".join(words_best_b[:7]), fill=WHITE, font=f_small)
+        draw.text((585, 397), " ".join(words_best_b[7:14]), fill=WHITE, font=f_small)
+
+        # Center Comparison Scorecard Table
+        draw.rounded_rectangle([70, 510, 1010, 830], radius=12, fill=(13, 17, 23), outline=BORDER_COLOR, width=2)
+        draw.rounded_rectangle([70, 510, 1010, 555], radius=12, fill=(22, 27, 34))
+        draw.text((95, 522), "METRIC / FACTOR", fill=MUTED, font=f_tag)
+        draw.text((430, 522), name_a[:16], fill=CYAN_ACCENT, font=f_tag)
+        draw.text((740, 522), name_b[:16], fill=EMERALD_ACCENT, font=f_tag)
+
+        row_y = 575
+        for r_idx, row in enumerate(tradeoffs[:4]):
+            metric_label = row[0] if len(row) > 0 else f"Metric {r_idx+1}"
+            val_a = row[1] if len(row) > 1 else "-"
+            val_b = row[2] if len(row) > 2 else "-"
+
+            # Alternate row background
+            if r_idx % 2 == 1:
+                draw.rectangle([72, row_y - 8, 1008, row_y + 44], fill=(17, 24, 39))
+
+            draw.text((95, row_y + 4), metric_label[:28], fill=WHITE, font=f_bold)
+            draw.text((430, row_y + 4), val_a[:24], fill=(186, 230, 253), font=f_small)
+            draw.text((740, row_y + 4), val_b[:24], fill=(167, 243, 208), font=f_small)
+            row_y += 56
+
+        # Bottom Golden Rule Bar (Animated pulse on border)
+        rule_border = (56, 189, 248) if (frame_idx % 8 < 4) else (52, 211, 153)
+        draw.rounded_rectangle([70, 860, 1010, 960], radius=12, fill=(15, 23, 42), outline=rule_border, width=2)
+        draw.text((95, 875), "💡 GOLDEN ENGINEERING RULE:", fill=AMBER_ACCENT, font=f_tag)
+        rule_words = golden_rule[:110].split()
+        draw.text((95, 905), " ".join(rule_words[:14]), fill=WHITE, font=f_rule)
+        if len(rule_words) > 14:
+            draw.text((95, 930), " ".join(rule_words[14:26]), fill=WHITE, font=f_small)
+
+        # Footer
+        draw.text((70, 995), "NeuBench Educational Architecture Series", fill=MUTED, font=f_sub)
+        draw.text((780, 995), "app.neubench.workers.dev", fill=CYAN_ACCENT, font=f_sub)
+
+        frames.append(img)
+
+    # Compile High-Quality Looping GIF
+    frames[0].save(
+        gif_path,
+        save_all=True,
+        append_images=frames[1:],
+        duration=65,
+        loop=0,
+        optimize=True
+    )
+
+    compiled_mp4 = compile_frames_to_mp4(frames, "temp_concept", fps, mp4_path)
+    return gif_path, (compiled_mp4 or "")
+
+
+def generate_concept_visual(concept: Dict[str, Any]) -> str:
+    """
+    Main helper to generate and return a crisp looping GIF for any educational concept.
+    """
+    import hashlib, re
+    title = concept.get("title", "concept")
+    raw_slug = re.sub(r'[^a-zA-Z0-9_]', '_', title.strip().lower())
+    clean_slug = re.sub(r'_+', '_', raw_slug)[:25].strip('_')
+    content_hash = hashlib.md5(f"{title}_{concept.get('category', '')}".encode()).hexdigest()[:8]
+    unique_base = f"{clean_slug}_{content_hash}" if clean_slug else f"concept_{content_hash}"
+
+    gif_path, mp4_path = render_dynamic_concept_comparison(concept, output_base_name=unique_base)
+    return gif_path
+

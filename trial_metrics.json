@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T10:10:33.076517+00:00",
+    "last_updated": "2026-11-06T14:45:19.160202+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 482,
-    "original_posts_attempted": 71,
-    "original_posts_succeeded": 63,
+    "total_cycles_executed": 487,
+    "original_posts_attempted": 73,
+    "original_posts_succeeded": 65,
     "replies_attempted": 26,
     "replies_succeeded": 22,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
     "actions_skipped": 62,
     "failed_operations": 26,
-    "ai_generation_requests": 147,
+    "ai_generation_requests": 153,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1988,6 +1988,56 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 13.52
+    },
+    {
+      "timestamp": "2026-11-06T14:42:39.984371+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Politicians on social media PR teams",
+      "content_preview": "Nothing says \"hello fellow youths\" quite like a 75-year-old senator dropping \"no cap\" right before voting to ban the ent",
+      "reason": "",
+      "duration_s": 5.73
+    },
+    {
+      "timestamp": "2026-11-06T14:43:32.362642+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Git Rebase vs. Git Merge",
+      "content_preview": "Merge preserves exact historical divergence between branches. Rebase linearizes the timeline by replaying commits atop H",
+      "reason": "",
+      "duration_s": 38.58
+    },
+    {
+      "timestamp": "2026-11-06T14:44:27.947605+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "sbi",
+      "content_preview": "Me: *needs a simple bank statement*\nSBI servers: \"Please travel back to 1857, find a British merchant named Arthur, and ",
+      "reason": "",
+      "duration_s": 4.98
+    },
+    {
+      "timestamp": "2026-11-06T14:44:41.399227+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "LinkedIn B2B",
+      "content_preview": "𝗚𝗶𝘁 𝗥𝗲𝗯𝗮𝘀𝗲 𝘃𝘀. 𝗚𝗶𝘁 𝗠𝗲𝗿𝗴𝗲: 𝗧𝗵𝗲 𝗢𝗻𝗹𝘆 𝗚𝘂𝗶𝗱𝗲 𝗬𝗼𝘂’𝗹𝗹 𝗘𝘃𝗲𝗿 𝗡𝗲𝗲𝗱\n\n🪝 𝗠𝗲𝗿𝗴𝗲 𝗷𝗼𝗶𝗻𝘀 𝘁𝘄𝗼 𝗶𝗻𝗱𝗲𝗽𝗲𝗻𝗱𝗲𝗻𝘁 𝗽𝗮𝘁𝗵𝘀 𝘁𝗼𝗴𝗲𝘁𝗵𝗲𝗿. 𝗥𝗲𝗯𝗮𝘀𝗲 𝗿𝗲𝘄𝗿𝗶𝘁𝗲𝘀",
+      "reason": "",
+      "duration_s": 13.37
+    },
+    {
+      "timestamp": "2026-11-06T14:45:19.105405+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": true,
+      "target": "Git Merge vs. Squash vs. Cherry-Pick",
+      "content_preview": "Merge keeps all 50 commits. Squash condenses them into 1 to keep `main` pristine. Cherry-pick pulls 1 precise commit for",
+      "reason": "",
+      "duration_s": 37.65
     }
   ]
 }

@@ -1,31 +1,36 @@
 import json
 import re
-from typing import List, Optional
+from typing import List, Optional, Dict, Any, Tuple
 from google import genai
 from google.genai import types
 import config
 
-CASUAL_SYSTEM_PROMPT = """You are a chronically online, witty, relatable, and hilarious everyday person posting on X (Twitter) and Meta Threads.
-Your profile is strictly CASUAL everyday thoughts, relatable human quirks, modern urban & workplace culture, and observational humor. NOT TECH-RELATED.
+X_UNHINGED_SYSTEM_PROMPT = """You are a chronically online, razor-sharp, sarcastic, and hilarious commentator on X (Twitter).
+Your persona is completely unfiltered, sarcastic, funny, roasting people, commenting on heated debates, politics, cultural and religious discourse, corporate absurdities, everyday human hypocrisies, and tech drama. You go ALL OUT in every direction.
 
-CRITICAL RULES:
-1. STRICTLY ZERO TECH / ZERO AI / ZERO CODING: Never mention AI, LLMs, machine learning, Python, GPUs, frameworks, benchmarks, or software companies.
-2. STRICTLY ZERO POLITICS / ZERO RAGE-BAIT: Never touch politicians, elections, parties, communal topics, or divisive political controversies.
-3. 100% REAL HUMAN VOICE: Write like someone tweeting from the couch or venting to friends. Punchy, authentic, self-aware, and funny.
-4. HIGH-TRACTION RELATABLE THEMES: 
-   - Work & corporate realities (fake enthusiasm in emails, 90-day notice periods, chai breaks, camera-off solidarity, Sunday evening dread).
-   - Middle-class & urban dilemmas (Swiggy vs home food, Tatkal train booking panic, auto-rickshaw rejections, fridge inspection rituals, 37 alarms, canceling plans).
-   - Universal human absurdities (overthinking at 3 AM, grocery optimism vs reality, coffee temperature windows).
-5. HASHTAGS: At most 1 casual tag (#Relatable #Mood #Life) or none at all. NEVER use tech tags like #AI or #Tech.
+KEY PRINCIPLES:
+1. TONE: Sarcastic, razor-witted, hilarious, cynical yet deeply relatable, zero corporate cringe, zero forced politeness.
+2. ROASTING & DEBATES: Jump into heated discussions, political arguments, cultural clashes, religious hypocrisies, toxic workplace tropes, tech vanity, and middle-class realities. Call out what everyone is secretly thinking but afraid to tweet.
+3. FORMAT: Short, punchy, punchline-heavy tweets (under 240 chars). Write like a real human typing on their phone—natural punctuation, occasional biting rhetorical questions, savage observations.
+4. ENGAGEMENT: Make it impossible not to quote-tweet, argue with, or retweet.
+5. HASHTAGS: At most 1 hashtag (#RealTalk #Truth #Life) or none at all. Let the roast speak for itself.
 """
 
-SYSTEM_PROMPT = CASUAL_SYSTEM_PROMPT
+CASUAL_SYSTEM_PROMPT = X_UNHINGED_SYSTEM_PROMPT
+SYSTEM_PROMPT = X_UNHINGED_SYSTEM_PROMPT
 
-BLUESKY_SYSTEM_PROMPT = """You are a senior AI research engineer and open-source systems architect writing on Bluesky (AT Protocol).
+PROFESSIONAL_TECH_SYSTEM_PROMPT = """You are a distinguished Principal Software Engineer and AI Systems Architect writing authoritative, high-signal technical content.
+Target Audience: Developers, tech leads, students, and engineers ranging from school level to senior architects.
+Tone: Highly professional, crystal clear, pedagogically brilliant, zero buzzwords, grounded in real-world systems engineering.
+Niche: Software engineering fundamentals, AI & ML architectures, daily terminology breakdowns (e.g. Git rebase vs merge, LLM vs SLM, KV cache, RAG vs Fine-tuning), and breaking tech news.
+Mission: Demystify complex concepts so a student understands the intuition and a senior engineer appreciates the architectural nuance.
+"""
+
+BLUESKY_SYSTEM_PROMPT = """You are a distinguished AI systems architect writing on Bluesky (AT Protocol).
 Audience: Elite software engineers, distributed systems builders, and AI researchers.
-Tone: Thoughtful, collegial, technically rigorous, and deeply respectful of open-weights, local inference, and open benchmarks.
+Tone: Highly professional, collegial, technically rigorous, and deeply grounded in engineering principles.
 Values: Real-world latency, inference economics, memory hierarchies, reproducibility, and transparent evaluations.
-Formatting: Clear, concise (under 280 characters), accompanied by technical hashtags (#AI #MachineLearning #OpenSource #LocalLLMs). Zero corporate fluff, zero hype.
+Formatting: Clear, concise (under 280 characters), accompanied by technical hashtags (#SoftwareEngineering #SystemDesign #AI #Programming). Zero corporate fluff, zero hype.
 """
 
 def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> str:
@@ -180,56 +185,57 @@ class AIGenerator:
         raise RuntimeError(f"All Gemini models failed: {last_error}")
 
     def generate_hot_take(self, topic: str, context: str = "") -> str:
-        """Generates a razor-sharp, hilarious, highly relatable 1-2 liner for X designed for massive quote-tweets & reposts."""
+        """Generates a razor-sharp, hilarious, sarcastic, or roasting tweet for X across debates, politics, culture, or life."""
         prompt = f"""
-Everyday Topic: "{topic}"
+Topic / Debate / Trend: "{topic}"
 Context: "{context}"
 
-Write ONE razor-sharp, hilarious, or brutally relatable tweet about this everyday life topic.
+Write ONE razor-sharp, sarcastic, funny, or brutally honest tweet about this topic.
 Rules:
-- Strictly NON-TECH. Focus on relatable human habits, workplace quirks, urban dilemmas, or funny internal monologues.
-- Laser-sharp 1-liner or punchy 2-liner strictly under 180 characters. Reads in under 3 seconds.
-- Makes people immediately want to quote-tweet or hit repost saying "literally me".
-- Zero corporate speak, zero cringe, authentic lowercase or punchy punctuation when natural.
-- Output ONLY the raw tweet text under 180 characters.
+- Go ALL OUT: Roasting people, calling out hypocrisies, commenting on heated debates, politics, culture, corporate delusions, or everyday absurdity.
+- Completely unfiltered, authentic, hilarious, and punchy.
+- Under 230 characters so it fits cleanly on X.
+- Make people immediately want to argue, quote-tweet, or laugh out loud.
+- Zero corporate fluff. Authentic human tone.
+- Output ONLY the raw tweet text under 230 characters.
 """
-        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
-        return append_hashtags(text, ["#Relatable"], max_len=200)
+        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.94).strip('"').strip()
+        return text
 
     def generate_casual_x_take(self, topic: str = "", context: str = "") -> str:
-        """Explicit casual take generator for X."""
+        """Sarcastic & funny hot take generator for X."""
         return self.generate_hot_take(topic, context)
 
     def generate_sniper_reply(self, target_tweet_author: str, target_tweet_text: str) -> str:
-        """Generates a sharp, witty or funny reply to a viral tweet on X."""
+        """Generates a sharp, sarcastic, witty, or roasting reply to a viral tweet on X."""
         prompt = f"""
 Tweet by @{target_tweet_author}:
 "{target_tweet_text}"
 
-Generate a sharp, witty, or funny 1-sentence reply.
+Generate a sharp, sarcastic, funny, or roasting 1-sentence reply.
 Rules:
-- Strictly casual, human, and entertaining.
-- Zero tech jargon, zero corporate speak.
-- Stand out in a crowded comment section.
+- Stand out instantly in a crowded thread with savage wit or devastating humor.
+- Unfiltered, funny, taking part in the debate without fear.
+- Zero corporate speak, zero cringe.
 - Output ONLY the reply text. Do NOT include @mention or quotes.
 """
-        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.88)
+        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.92)
         return text.strip('"')
 
     def generate_quote_tweet_commentary(self, target_tweet_author: str, target_tweet_text: str) -> str:
-        """Generates sharp, witty casual Quote-Tweet commentary."""
+        """Generates sharp, sarcastic, or hilarious Quote-Tweet commentary on X."""
         prompt = f"""
 Tweet by @{target_tweet_author}:
 "{target_tweet_text}"
 
-Generate a punchy, sharp, or funny 1-sentence Quote-Tweet reaction.
+Generate a punchy, sarcastic, or hilarious 1-sentence Quote-Tweet reaction.
 Rules:
-- Casual, human, observational humor.
-- Under 140 characters.
+- Brutally funny, roasting the tweet or exposing the absurdity.
+- Under 160 characters.
 - Output ONLY the commentary text. No quotes.
 """
-        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
-        return append_hashtags(text, ["#Relatable"], max_len=180)
+        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
+        return text
 
     def generate_poll_tweet(self, topic: str) -> dict:
         """Generates a poll question and 2-4 options."""
@@ -330,6 +336,79 @@ Guidelines:
 """
         text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72)
         return text.strip('"').strip()
+
+    def generate_linkedin_concept_article(self, concept: Dict[str, Any]) -> str:
+        """
+        Generates an authoritative, masterclass LinkedIn educational breakdown article.
+        Bridges school-level intuition to senior engineering architecture.
+        Covers the mental model, deep technical mechanics, comparison scorecard, production rule of thumb, and pitfall.
+        """
+        title = concept.get("title", "Software Architecture Breakdown")
+        cat = concept.get("category", "SYSTEM DESIGN")
+        school_ana = concept.get("school_analogy", "")
+        pro_nuance = concept.get("pro_nuance", "")
+        golden_rule = concept.get("golden_rule", "")
+        ca = concept.get("concept_a", {})
+        cb = concept.get("concept_b", {})
+
+        prompt = f"""
+CONCEPT TITLE: "{title}"
+CATEGORY: "{cat}"
+SCHOOL-LEVEL INTUITION: "{school_ana}"
+PRO-LEVEL NUANCE: "{pro_nuance}"
+GOLDEN ENGINEERING RULE: "{golden_rule}"
+CONCEPT A: {ca.get('name')}: {ca.get('how_it_works')} (Analogy: {ca.get('analogy')}, Best for: {ca.get('best_for')})
+CONCEPT B: {cb.get('name')}: {cb.get('how_it_works')} (Analogy: {cb.get('analogy')}, Best for: {cb.get('best_for')})
+
+Write an authoritative, viral, high-value LinkedIn Educational Article explaining this concept so clearly that a beginner understands the mental model while a senior engineer saves it for reference.
+
+FORMAT RULES (MOBILE OPTIMIZED):
+1. 🪝 THE HOOK (First 2 Lines): Clear, bold contrast or question that stops the scroll.
+2. 🧒 THE SIMPLE MENTAL MODEL (Explain like I'm in school): 1-2 sentences with an intuitive everyday analogy that makes the concept click instantly.
+3. ⚙️ HOW IT WORKS UNDER THE HOOD (Professional Level): Clear explanation of what actually happens in code, memory, pointers, git commits, or network frames.
+4. ⚔️ HEAD-TO-HEAD COMPARISON: Clean vertical scorecard or scannable bullet comparison of tradeoffs (Speed, Complexity, Memory, Best Use Case).
+5. 💡 SENIOR ARCHITECT RULE OF THUMB: The practical decision heuristic experienced engineers use in production.
+6. ⚠️ THE #1 MISTAKE TO AVOID: The subtle pitfall that trips up developers.
+7. 💬 ENGAGEMENT QUESTION: A thoughtful question inviting developers to share their production experience.
+8. 🏷️ HASHTAGS: #SoftwareEngineering #SystemDesign #Programming #ComputerScience #Tech #Developers
+
+CRITICAL GUIDELINES:
+- Zero corporate fluff, zero generic motivational filler.
+- Clean spacing with emojis for visual anchors.
+- Do NOT include any external links or URLs in the text (LinkedIn penalizes links). The interactive benchmark tracker is mentioned for the first comment.
+- Output ONLY the finished post text.
+"""
+        text = self._generate_with_fallback(
+            prompt,
+            PROFESSIONAL_TECH_SYSTEM_PROMPT,
+            temperature=0.74
+        ).strip('"').strip()
+        cleaned_text = clean_linkedin_formatting(text)
+        return append_hashtags(cleaned_text, ["#SoftwareEngineering", "#SystemDesign", "#Programming", "#Tech", "#ComputerScience"], max_len=2950)
+
+    def generate_bluesky_concept_post(self, concept: Dict[str, Any]) -> str:
+        """
+        Generates a crisp, high-signal technical post for Bluesky AT Protocol (under 280 chars)
+        highlighting the core architectural difference, golden rule, and benchmark link.
+        """
+        title = concept.get("title", "Tech Architecture")
+        golden_rule = concept.get("golden_rule", "")
+        school_ana = concept.get("school_analogy", "")
+
+        prompt = f"""
+Topic: "{title}"
+Core Rule: "{golden_rule}"
+Analogy: "{school_ana}"
+
+Write a concise, professional, high-signal Bluesky post about this technical distinction.
+Rules:
+- Length: strictly under 240 characters so hashtags fit within Bluesky's 300-char limit.
+- Tone: Highly professional, developer-focused, clear contrast or insight.
+- Zero buzzwords.
+- Output ONLY the post text.
+"""
+        text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.70).strip('"').strip()
+        return append_hashtags(text, ["#SoftwareEngineering", "#SystemDesign"], max_len=285)
 
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
         """Generates a viral, high-save LinkedIn Technical Cheatsheet & Visual Study Note in the style of top tech creators (90k+ reach playbook)."""

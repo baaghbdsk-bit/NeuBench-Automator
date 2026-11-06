@@ -693,13 +693,16 @@ class AutomaterEngine:
 
 
         # 5. Dispatch chosen action
-        if action_choice == "reply":
+        if action_choice in ("omnichannel", "post-all"):
+            results = self.run_three_hour_omnichannel_cycle()
+            return any(results.values())
+        elif action_choice == "reply":
             ok = self._execute_sniper_reply(start_time)
             if not ok:
                 if self.twitter.last_outcome_unknown:
                     console.print("[red]X reply outcome is unknown; stopping without retry to prevent a duplicate.[/red]")
                     return False
-                console.print("[yellow]Reply mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
+                console.print("[yellow]Reply mode skipped/failed. Falling back to 𝕏 post...[/yellow]")
                 return self._execute_original_post(start_time)
             return ok
         elif action_choice == "repost":
@@ -708,33 +711,19 @@ class AutomaterEngine:
                 if self.twitter.last_outcome_unknown:
                     console.print("[red]X quote-tweet outcome is unknown; stopping without retry to prevent a duplicate.[/red]")
                     return False
-                console.print("[yellow]Quote tweet mode skipped/failed. Falling back to Omnichannel broadcast...[/yellow]")
+                console.print("[yellow]Quote tweet mode skipped/failed. Falling back to 𝕏 post...[/yellow]")
                 return self._execute_original_post(start_time)
             return ok
         elif action_choice == "bluesky":
             return self._execute_bluesky_post(start_time)
         elif action_choice == "linkedin":
             return self._execute_linkedin_post(start_time)
-        elif action_choice == "threads":
-            # A direct Threads request must never silently publish an X post
-            # when Threads is unavailable or its result is uncertain.
-            return self._execute_threads_post(start_time)
-        elif action_choice == "youtube":
-            return self._execute_youtube_upload(start_time)
-        elif action_choice == "instagram":
-            return self._execute_instagram_carousel(start_time)
-        elif action_choice == "devto":
-            return self._execute_devto_post(start_time)
-        elif action_choice == "pinterest":
-            return self._execute_pinterest_pin(start_time)
         elif action_choice == "linkedin-replies":
             return self._execute_linkedin_comment_replies(start_time)
         elif action_choice == "linkedin-peers":
             return self._execute_linkedin_peer_engagement(start_time)
         elif action_choice == "bluesky-replies":
             return self._execute_bluesky_sniper_replies(start_time)
-        elif action_choice == "threads-replies":
-            return self._execute_threads_sniper_replies(start_time)
         else:
             return self._execute_original_post(start_time)
 
@@ -1070,13 +1059,14 @@ class AutomaterEngine:
 
         """Discovers trending topics and posts a polarizing hot take."""
 
-        console.print("[bold magenta]🚀 Mode: Casual Relatable Post (X)[/bold magenta]")
+        console.print("[bold magenta]🚀 Mode: Unfiltered Sarcastic / Hot Take (𝕏)[/bold magenta]")
 
-        # X is a casual profile: focus on everyday human humor, coffee, adulting, remote work quirks.
-        trends = self.hunter.get_casual_topics()
+        trends = self.hunter.get_x_unfiltered_topics()
+        if not trends:
+            trends = self.hunter.get_casual_topics()
 
         if not trends:
-            console.print("[red]No casual topics discovered. Skipping...[/red]")
+            console.print("[red]No topics discovered. Skipping...[/red]")
             self.tracker.record_event(
                 action_type="original_post",
                 status="skipped",
@@ -1089,19 +1079,19 @@ class AutomaterEngine:
         # Select an unused topic
         selected_trend = None
         for t in trends:
-            if t["title"] not in self.tracker.history["posted_tweets"]:
+            if t["title"] not in self.tracker.history.get("posted_tweets", []):
                 selected_trend = t
                 break
 
         if not selected_trend:
             selected_trend = trends[0]
 
-        console.print(f"[bold]Casual Topic:[/bold] {selected_trend['title']}")
+        console.print(f"[bold]𝕏 Topic:[/bold] {selected_trend['title']}")
 
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
 
         try:
-            hot_take = self.ai.generate_casual_x_take(
+            hot_take = self.ai.generate_hot_take(
                 selected_trend["title"],
                 selected_trend.get("context", selected_trend.get("summary", ""))
             )
@@ -1206,482 +1196,46 @@ class AutomaterEngine:
                 self.tracker.save_history()
             except Exception:
                 pass
+            return True
         else:
-            console.print("[yellow]⚠️ 𝕏 post could not be published. Continuing with remaining platforms...[/yellow]")
-
-        if not success and self.twitter.last_outcome_unknown:
-            console.print("[red]X post outcome is unknown; stopping without another X attempt.[/red]")
+            console.print("[yellow]⚠️ 𝕏 post could not be published.[/yellow]")
             return False
-
-        # 2. Cross-post to Bluesky (Technical Take, attaching GIF loop)
-        if self.safety.dry_run or (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD):
-            try:
-                from src.bluesky_client import BlueskyClient
-                bsky_client = BlueskyClient(
-                    handle=config.BLUESKY_HANDLE,
-                    app_password=config.BLUESKY_APP_PASSWORD,
-                    dry_run=self.safety.dry_run
-                )
-                used_bsky = self.tracker.history.get("posted_bluesky_topics", [])
-                available_topics = [t for t in self.hunter.get_linkedin_topics() if t.get("title") not in used_bsky]
-                if available_topics:
-                    b_trend = random.choice(available_topics[:5])
-                else:
-                    b_trend = self.hunter.get_dynamic_ai_topic(used_topics=used_bsky)
-
-                try:
-                    self.tracker.history.setdefault("posted_bluesky_topics", []).append(b_trend.get("title", ""))
-                    self.tracker.save_history()
-                except Exception:
-                    pass
-
-                bsky_take = self.ai.generate_bluesky_take(
-                    b_trend["title"],
-                    b_trend.get("summary", "")
-                )
-                bsky_visual = None
-                try:
-                    from src.autonomous_visual_engine import generate_visual_for_post
-                    b_gif, _ = generate_visual_for_post(b_trend["title"], b_trend.get("summary", ""))
-                    if b_gif and Path(b_gif).exists() and Path(b_gif).stat().st_size > 0:
-                        bsky_visual = b_gif
-                except Exception as bve:
-                    console.print(f"[dim]Bluesky visual note: {bve}[/dim]")
-
-                bsky_reservation, bsky_reason = self._reserve_platform(
-                    "bluesky",
-                    "post",
-                    f"post:{stable_hash(bsky_take)}",
-                    target=b_trend["title"],
-                    preview=bsky_take,
-                )
-                if not self.safety.dry_run and not bsky_reservation:
-                    console.print(f"[dim]Bluesky duplicate guard: {bsky_reason}[/dim]")
-                    bsky_ok, bsky_msg = False, bsky_reason
-                else:
-                    bsky_ok, bsky_msg = bsky_client.post(bsky_take, media_path=bsky_visual)
-                    self._complete_platform(
-                        bsky_reservation,
-                        ok=bsky_ok,
-                        unknown=getattr(bsky_client, "last_outcome_unknown", False),
-                        reason=bsky_msg,
-                    )
-                if bsky_ok:
-                    console.print("[bold cyan]🦋 Also published to Bluesky (@neubench.bsky.social) with animation![/bold cyan]")
-                    self.tracker.record_event(
-                        action_type="bluesky_post",
-                        status="success",
-                        target_identifier="Bluesky (@neubench.bsky.social)",
-                        content_preview=bsky_take,
-                        duration_seconds=1.2,
-                        is_dry_run=self.safety.dry_run
-                    )
-                else:
-                    console.print(f"[yellow]Bluesky note: {bsky_msg}[/yellow]")
-            except Exception as e:
-                console.print(f"[dim]Bluesky dispatch note: {e}[/dim]")
-
-        today_counts = self.tracker.get_today_counts()
-
-        # 4. Cross-post to Threads (Casual Profile)
-        try:
-            from src.threads_automater import ThreadsAutomater
-            th_automater = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
-            if self.safety.dry_run or th_automater.is_session_available():
-                casual_threads_topics = self.hunter.get_casual_topics()
-                c_topic = casual_threads_topics[0] if casual_threads_topics else {"title": "The Sunday evening shift", "context": "When the weekend evaporates"}
-                th_take = self.ai.generate_casual_threads_take(c_topic["title"], c_topic.get("context", ""))
-                th_reservation, th_reason = self._reserve_platform(
-                    "threads",
-                    "post",
-                    f"post:{stable_hash(th_take)}",
-                    target=c_topic["title"],
-                    preview=th_take,
-                )
-                if not self.safety.dry_run and not th_reservation:
-                    th_ok, th_msg = False, th_reason
-                else:
-                    th_media = None
-                    try:
-                        from src.autonomous_visual_engine import generate_casual_visual_card
-                        th_png, _ = generate_casual_visual_card(c_topic["title"], th_take, square=True)
-                        if th_png and Path(th_png).exists() and Path(th_png).stat().st_size > 0:
-                            th_media = th_png
-                            console.print(f"[bold magenta]🎬 Threads visual card: {th_media}[/bold magenta]")
-                    except Exception as ve:
-                        console.print(f"[dim]Threads visual note: {ve}[/dim]")
-                    th_ok, th_msg = th_automater.post(th_take, image_path=th_media)
-                    self._complete_platform(
-                        th_reservation,
-                        ok=th_ok,
-                        unknown=getattr(th_automater, "last_outcome_unknown", False),
-                        reason=th_msg,
-                    )
-                if th_ok:
-                    console.print("[bold magenta]🧵 Also published to Threads (@neubench)![/bold magenta]")
-                    try:
-                        self.tracker.history.setdefault("posted_tweets", []).append(f"th:{c_topic['title']}")
-                        self.tracker.save_history()
-                    except Exception:
-                        pass
-                    self.tracker.record_event(
-                        action_type="threads_post",
-                        status="success",
-                        target_identifier="Threads Community",
-                        content_preview=th_take[:80],
-                        duration_seconds=15.0,
-                        is_dry_run=self.safety.dry_run
-                    )
-                else:
-                    console.print(f"[yellow]Threads note: {th_msg}[/yellow]")
-        except Exception as e:
-            console.print(f"[dim]Threads dispatch note: {e}[/dim]")
-
-        # Fetch dynamic AI topic for visual/video syndication (deduped across runs)
-        used_ai = self.tracker.history.get("posted_ai_topics", [])
-        broadcast_topic = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
-        b_title = broadcast_topic.get("title", "AI Systems")
-        b_summary = broadcast_topic.get("summary", "")
-        b_pro_tip = broadcast_topic.get("pro_tip", "")
-        self._reserve_ai_topic(b_title)
-        broadcast_published = False
-
-        # 5. Cross-post to Pinterest Pin (Dynamic Cheatsheet)
-        try:
-            can_pin, pin_reason = self.safety.can_perform_action("pinterest", today_counts)
-            if can_pin:
-                from src.pinterest_automater import PinterestAutomater
-                from src.instagram_carousel import InstagramCarouselGenerator
-                pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
-                if self.safety.dry_run or pin_automater.is_session_available():
-                    ig_gen = InstagramCarouselGenerator()
-                    dynamic_slides = ig_gen.generate_dynamic_carousel(broadcast_topic)
-                    slides_to_pin = [str(p) for p in dynamic_slides if Path(p).exists()] if dynamic_slides else []
-
-                    if slides_to_pin:
-                        console.print(f"[bold magenta]📌 Publishing {len(slides_to_pin)}-Slide Carousel Pin to Pinterest: {b_title[:60]}...[/bold magenta]")
-                        p_desc = f"{b_title}\n\n{b_summary}\n\n💡 Pro-Tip: {b_pro_tip}\n\nLive AI Benchmarks: https://app.neubench.workers.dev\n\n#AI #Tech #MachineLearning"
-                        pin_reservation, pin_reason = self._reserve_platform(
-                            "pinterest",
-                            "pin",
-                            f"pin:{stable_hash(b_title + chr(10) + p_desc)}",
-                            target=b_title,
-                            preview=b_title,
-                        )
-                        if not self.safety.dry_run and not pin_reservation:
-                            p_ok, p_msg = False, pin_reason
-                        else:
-                            p_ok, p_msg = pin_automater.create_pin(
-                                image_path=slides_to_pin,
-                                title=f"{b_title} • AI Cheatsheet"[:80],
-                                description=p_desc,
-                                link="https://app.neubench.workers.dev"
-                            )
-                            self._complete_platform(
-                                pin_reservation,
-                                ok=p_ok,
-                                unknown=getattr(pin_automater, "last_outcome_unknown", False),
-                                reason=p_msg,
-                            )
-                        if p_ok:
-                            broadcast_published = True
-                            console.print("[bold green]✅ Pinterest Pin published![/bold green]")
-                            self.tracker.record_event(
-                                action_type="pinterest_pin",
-                                status="success",
-                                target_identifier="Pinterest Visual Pin",
-                                content_preview=b_title[:80],
-                                duration_seconds=15.0,
-                                is_dry_run=self.safety.dry_run
-                            )
-                        else:
-                            console.print(f"[yellow]Pinterest note: {p_msg}[/yellow]")
-                else:
-                    console.print("[yellow]Pinterest skipped: session cookies not found. Run 'python main.py login-pinterest'.[/yellow]")
-            else:
-                console.print(f"[dim]Pinterest skipped: {pin_reason}[/dim]")
-        except Exception as ex:
-            console.print(f"[dim]Pinterest broadcast note: {ex}[/dim]")
-
-        # 6. Cross-post to Instagram Carousel (Dynamic 5-Slide Cheatsheet)
-        try:
-            can_ig, ig_reason = self.safety.can_perform_action("instagram", today_counts)
-            if can_ig:
-                from src.instagram_carousel import InstagramCarouselGenerator
-                from src.instagram_automater import InstagramAutomater
-                ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-                if self.safety.dry_run or ig_automater.is_session_available():
-                    ig_gen = InstagramCarouselGenerator()
-                    slides = ig_gen.generate_dynamic_carousel(broadcast_topic)
-
-                    if slides:
-                        console.print(f"[bold magenta]📸 Publishing Dynamic Carousel to Instagram: {b_title}...[/bold magenta]")
-                        ig_caption = (
-                            f"🧠 {b_title} • Engineering Cheatsheet\n\n"
-                            f"⚡ {b_summary}\n\n"
-                            "Swipe through the 1-page breakdown ➡️\n\n"
-                            f"💡 Pro-Tip: {b_pro_tip}\n\n"
-                            "📌 Save for revision!\n"
-                            "📊 Live 260+ model benchmarks: app.neubench.workers.dev\n\n"
-                            "#AI #MachineLearning #DeepLearning #AIEngineering #Coding"
-                        )
-                        ig_reservation, ig_reason = self._reserve_platform(
-                            "instagram",
-                            "carousel",
-                            f"carousel:{stable_hash(b_title + chr(10) + ig_caption)}",
-                            target=b_title,
-                            preview=ig_caption,
-                        )
-                        if not self.safety.dry_run and not ig_reservation:
-                            ig_ok, ig_msg = False, ig_reason
-                        else:
-                            ig_ok, ig_msg = ig_automater.post_carousel(slides, ig_caption)
-                            self._complete_platform(
-                                ig_reservation,
-                                ok=ig_ok,
-                                unknown=getattr(ig_automater, "last_outcome_unknown", False),
-                                reason=ig_msg,
-                            )
-                        if ig_ok:
-                            broadcast_published = True
-                            console.print(f"[bold green]✅ Instagram carousel published![/bold green]")
-                            self.tracker.record_event(
-                                action_type="instagram_carousel",
-                                status="success",
-                                target_identifier=f"Instagram Carousel: {b_title}",
-                                content_preview=b_title,
-                                duration_seconds=20.0,
-                                is_dry_run=self.safety.dry_run
-                            )
-                else:
-                    console.print("[yellow]⚠️ Instagram Carousel skipped: session not authenticated. Run 'python main.py login-instagram'.[/yellow]")
-            else:
-                console.print(f"[dim]Instagram Carousel skipped: {ig_reason}[/dim]")
-        except Exception as ex:
-            console.print(f"[dim]Instagram broadcast note: {ex}[/dim]")
-
-        # 7. Render one professional video and reuse it for Reels and Shorts
-        video_asset: Dict[str, Optional[str]] = {
-            "video_path": None,
-            "srt_path": None,
-            "audio_path": None,
-        }
-        try:
-            can_reel, _ = self.safety.can_perform_action("instagram_reel", today_counts)
-            can_yt, _ = self.safety.can_perform_action("youtube", today_counts)
-            reel_ready = self.safety.dry_run
-            shorts_ready = self.safety.dry_run
-            if can_reel and not reel_ready:
-                try:
-                    from src.instagram_automater import InstagramAutomater
-                    reel_ready = InstagramAutomater(headless=True, dry_run=True).is_session_available()
-                except Exception:
-                    reel_ready = False
-            if can_yt and not shorts_ready:
-                try:
-                    from src.youtube_automater import YouTubeAutomater
-                    shorts_ready = YouTubeAutomater().is_authenticated
-                except Exception:
-                    shorts_ready = False
-            if (can_reel and reel_ready) or (can_yt and shorts_ready):
-                from src.professional_video import ProfessionalVideoGenerator
-                console.print(
-                    f"[bold magenta]Rendering one professional video for Reels + Shorts: {b_title}...[/bold magenta]"
-                )
-                video_asset = ProfessionalVideoGenerator().generate_dynamic_video(
-                    broadcast_topic, dry_run=self.safety.dry_run
-                )
-                if video_asset.get("video_path"):
-                    console.print(
-                        f"[bold green]Video asset ready: {video_asset['video_path']}[/bold green]"
-                    )
-                else:
-                    console.print(
-                        "[yellow]Professional video render failed; Reels + Shorts will be skipped.[/yellow]"
-                    )
-        except Exception as ex:
-            console.print(f"[dim]Professional video broadcast note: {ex}[/dim]")
-
-        # 8. Cross-post to Instagram Reel (same professional video)
-        try:
-            can_reel, reel_reason = self.safety.can_perform_action("instagram_reel", today_counts)
-            if can_reel:
-                from src.instagram_automater import InstagramAutomater
-                ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-                if self.safety.dry_run or ig_automater.is_session_available():
-                    reel_video = Path(str(video_asset.get("video_path") or ""))
-
-                    reel_caption = (
-                        f"⚡ {b_title}\n\n"
-                        f"{b_summary}\n\n"
-                        f"💡 {b_pro_tip}\n\n"
-                        f"📊 Live 260+ model benchmarks: app.neubench.workers.dev\n\n"
-                        "#Reels #AI #MachineLearning #DeepLearning #Coding"
-                    )
-
-                    if self.safety.dry_run or reel_video.exists():
-                        console.print(f"[bold magenta]🎥 Publishing Reel to Instagram (@neubench)...[/bold magenta]")
-                        reel_reservation, reel_reason = self._reserve_platform(
-                            "instagram",
-                            "reel",
-                            f"reel:{stable_hash(reel_caption + chr(10) + str(reel_video))}",
-                            target=b_title,
-                            preview=reel_caption,
-                        )
-                        if not self.safety.dry_run and not reel_reservation:
-                            r_ok, r_msg = False, reel_reason
-                        else:
-                            r_ok, r_msg = ig_automater.post_reel(str(reel_video), reel_caption)
-                            self._complete_platform(
-                                reel_reservation,
-                                ok=r_ok,
-                                unknown=getattr(ig_automater, "last_outcome_unknown", False),
-                                reason=r_msg,
-                            )
-                        if r_ok:
-                            broadcast_published = True
-                            console.print(f"[bold green]✅ Instagram Reel published![/bold green]")
-                            self.tracker.record_event(
-                                action_type="instagram_reel",
-                                status="success",
-                                target_identifier=f"Instagram Reel: {b_title}",
-                                content_preview=b_title,
-                                duration_seconds=25.0,
-                                is_dry_run=self.safety.dry_run
-                            )
-                    else:
-                        console.print("[yellow]Instagram Reel skipped: dynamic video generation failed.[/yellow]")
-                else:
-                    console.print("[yellow]⚠️ Instagram Reel skipped: session not authenticated. Run 'python main.py login-instagram'.[/yellow]")
-            else:
-                console.print(f"[dim]Instagram Reel skipped: {reel_reason}[/dim]")
-        except Exception as ex:
-            console.print(f"[dim]Instagram Reel broadcast note: {ex}[/dim]")
-
-        # 9. Cross-post the same professional video to YouTube Shorts
-        try:
-            can_yt, yt_reason = self.safety.can_perform_action("youtube", today_counts)
-            if can_yt:
-                from src.youtube_automater import YouTubeAutomater
-                yt_automater = None if self.safety.dry_run else YouTubeAutomater()
-                if self.safety.dry_run:
-                    console.print("[yellow][DRY RUN] Would publish the same professional video to YouTube Shorts.[/yellow]")
-                elif yt_automater and yt_automater.is_authenticated:
-                    yt_video = Path(str(video_asset.get("video_path") or ""))
-
-                    yt_title = f"{b_title} Explained #Shorts"[:90]
-                    yt_desc = (
-                        f"⚡ {b_title}: {b_summary}\n\n"
-                        f"💡 Pro-Tip: {b_pro_tip}\n\n"
-                        f"Live 260+ model benchmarks: https://app.neubench.workers.dev\n\n"
-                        "#Shorts #AI #MachineLearning #DeepLearning #Coding"
-                    )
-
-                    if self.safety.dry_run or yt_video.exists():
-                        console.print(f"[bold magenta]🎬 Uploading Short to YouTube: {yt_title}...[/bold magenta]")
-                        yt_reservation, yt_reason = self._reserve_platform(
-                            "youtube",
-                            "short",
-                            f"short:{stable_hash(yt_title + chr(10) + str(yt_video))}",
-                            target=b_title,
-                            preview=yt_title,
-                        )
-                        if not self.safety.dry_run and not yt_reservation:
-                            y_ok, y_msg = False, yt_reason
-                        else:
-                            yt_res = yt_automater.upload_short(
-                                video_path=str(yt_video),
-                                title=yt_title,
-                                description=yt_desc,
-                                srt_path=None
-                            )
-                            y_ok = yt_res is not None
-                            self._complete_platform(
-                                yt_reservation,
-                                ok=y_ok,
-                                unknown=getattr(yt_automater, "last_outcome_unknown", False),
-                                reason=getattr(yt_automater, "last_message", "YouTube upload error"),
-                            )
-                        if y_ok:
-                            broadcast_published = True
-                            console.print(f"[bold green]✅ YouTube Short live![/bold green]")
-                            self.tracker.record_event(
-                                action_type="youtube",
-                                status="success",
-                                target_identifier=f"YouTube Short: {b_title}",
-                                content_preview=yt_title,
-                                duration_seconds=30.0,
-                                is_dry_run=self.safety.dry_run
-                            )
-                    else:
-                        console.print("[yellow]YouTube Short skipped: no professional video asset was produced.[/yellow]")
-            else:
-                console.print(f"[dim]YouTube Short skipped: {yt_reason}[/dim]")
-        except Exception as ex:
-            console.print(f"[dim]YouTube broadcast note: {ex}[/dim]")
-
-        if broadcast_published:
-            self._commit_ai_topic(b_title)
-        else:
-            self._release_ai_topic(b_title)
-        return success
-
     def _execute_bluesky_post(self, start_time: float) -> bool:
         """Generates a developer-focused Bluesky take from a trending topic and publishes it."""
         console.print("[bold cyan]🦋 Mode: Bluesky Auto Post (AT Protocol)[/bold cyan]")
 
-        trends = self.hunter.get_linkedin_topics()
-        if not trends:
-            console.print("[red]No trends discovered. Skipping Bluesky post...[/red]")
-            self.tracker.record_event(
-                action_type="bluesky_post",
-                status="skipped",
-                skip_or_error_reason="Trend discovery returned 0 items",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+        used_bsky = [t.replace("bsky:", "") for t in self.tracker.history.get("posted_tweets", []) if str(t).startswith("bsky:")]
+        concepts = self.hunter.get_educational_concepts(used_topics=used_bsky)
+        concept = concepts[0] if concepts else None
+        media_path = None
 
-        selected_trend = None
-        for t in trends:
-            key = f"bsky:{t['title']}"
-            if key not in self.tracker.history.get("posted_tweets", []):
-                selected_trend = t
-                break
-
-        if not selected_trend:
-            reason = "All discovered Bluesky topics are already reserved or published."
-            console.print(f"[yellow]{reason}[/yellow]")
-            self.tracker.record_event(
-                action_type="bluesky_post",
-                status="skipped",
-                target_identifier="Bluesky dedupe",
-                skip_or_error_reason=reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run,
-            )
-            return False
-
-        console.print(f"[bold]Trending Topic:[/bold] {selected_trend['title']}")
-        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-
-        try:
-            bsky_take = self.ai.generate_bluesky_take(
-                selected_trend["title"],
-                selected_trend.get("summary", "")
-            )
-        except Exception as e:
-            self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-            console.print(f"[red]AI Generation Error: {e}[/red]")
-            self.tracker.record_event(
-                action_type="bluesky_post",
-                status="failed",
-                target_identifier=selected_trend["title"],
-                skip_or_error_reason=f"AI generation failed: {e}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
+        if concept:
+            selected_trend = {"title": concept["title"], "summary": concept.get("golden_rule", "")}
+            console.print(f"[bold]🎓 Educational Concept (Bluesky):[/bold] {concept['title']}")
+            self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+            try:
+                bsky_take = self.ai.generate_bluesky_concept_post(concept)
+                from src.autonomous_visual_engine import generate_concept_visual
+                media_path = generate_concept_visual(concept)
+            except Exception as e:
+                self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
+                console.print(f"[red]AI Generation Error: {e}[/red]")
+                return False
+        else:
+            trends = self.hunter.get_linkedin_topics()
+            if not trends:
+                console.print("[red]No trends discovered. Skipping Bluesky post...[/red]")
+                return False
+            selected_trend = trends[0]
+            self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+            bsky_take = self.ai.generate_bluesky_take(selected_trend["title"], selected_trend.get("summary", ""))
+            try:
+                from src.autonomous_visual_engine import generate_visual_for_post
+                gif_v, _ = generate_visual_for_post(selected_trend["title"], selected_trend.get("summary", ""))
+                if gif_v and Path(gif_v).exists():
+                    media_path = gif_v
+            except Exception:
+                pass
 
         console.print(f"[green]Generated Bluesky Draft:[/green] {bsky_take}")
 
@@ -1773,12 +1327,6 @@ class AutomaterEngine:
         """Publish dashboard/CLI text through the same LinkedIn safety policy."""
 
         return self._execute_linkedin_post(time.time(), custom_text=text)
-
-
-    def execute_threads_custom_post(self, text: str) -> bool:
-        """Publish dashboard/CLI text through the guarded Threads path."""
-
-        return self._execute_threads_post(time.time(), custom_text=text)
 
 
     def _execute_linkedin_post(self, start_time: float, custom_text: Optional[str] = None) -> bool:
@@ -1911,94 +1459,72 @@ class AutomaterEngine:
                 )
                 return False
             else:
-                total_li = len(post_state.get("posts", []))
-                pillar = LINKEDIN_PILLAR_ROTATION[total_li % len(LINKEDIN_PILLAR_ROTATION)]
-                console.print(f"[bold]LinkedIn Pillar:[/bold] {pillar}")
-                trends = self.hunter.get_linkedin_topics(pillar=pillar)
-                if pillar != "NEWS":
-                    seen_titles = {str(item.get("title", "")).strip().lower() for item in trends}
-                    for extra in self.hunter.get_linkedin_topics(pillar="NEWS"):
-                        if str(extra.get("title", "")).strip().lower() not in seen_titles:
-                            trends.append(extra)
-                if not trends:
-                    trends = self.hunter.get_linkedin_topics()
-                if not trends:
-                    console.print("[red]No current AI/tech trends discovered. Skipping LinkedIn post...[/red]")
-                    self.tracker.record_event(
-                        action_type="linkedin_post",
-                        status="skipped",
-                        target_identifier="LinkedIn trends",
-                        skip_or_error_reason="Trend discovery returned 0 current AI/tech items",
-                        duration_seconds=time.time() - start_time,
-                        is_dry_run=self.safety.dry_run,
-                    )
-                    return False
+                used_li = [str(entry.get("title", "")).strip().lower() for entry in post_state.get("posts", [])]
+                concepts = [c for c in self.hunter.get_educational_concepts() if c.get("title", "").strip().lower() not in used_li]
+                media_path = None
+                media_title = ""
+                first_comm = None
 
-                recent_hooks = []
-                for entry in post_state.get("posts", [])[-6:]:
-                    content = str(entry.get("content") or "").strip()
-                    hook = content.splitlines()[0][:80] if content else str(entry.get("title", ""))[:80]
-                    if hook:
-                        recent_hooks.append(hook)
-                selected_trend = {}
-                generation_failures = 0
-                for trend in trends:
-                    title = str(trend.get("title", "")).strip()
-                    if not title or post_is_duplicate(
-                        post_state,
-                        title=title,
-                        url=trend.get("url", ""),
-                    ):
-                        continue
-                    console.print(f"[bold]LinkedIn Topic:[/bold] {title}")
+                if concepts:
+                    concept = concepts[0]
+                    selected_trend = {"title": concept["title"], "summary": concept.get("golden_rule", ""), "url": ""}
+                    console.print(f"[bold]🎓 LinkedIn Educational Topic:[/bold] {concept['title']}")
                     self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-                    plan = None
-                    candidate_text = ""
-                    try:
-                        plan = self.ai.generate_linkedin_carousel_plan(
-                            title,
-                            trend.get("summary", ""),
-                            pillar=str(trend.get("pillar") or pillar),
-                            recent_hooks=recent_hooks,
-                        )
-                        candidate_text = str(plan.get("post_text") or "").strip()
-                    except Exception as plan_error:
-                        generation_failures += 1
-                        self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-                        console.print(f"[yellow]Carousel plan failed ({plan_error}); trying another topic.[/yellow]")
-                        continue
-                    if not candidate_text:
-                        generation_failures += 1
-                        self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-                        console.print("[yellow]Carousel plan produced no caption; trying another topic.[/yellow]")
-                        continue
-                    if post_is_duplicate(post_state, title=title, url=trend.get("url", ""), content=candidate_text):
-                        console.print("[dim]Generated body matched recent LinkedIn content; trying another topic.[/dim]")
-                        continue
-                    selected_trend = trend
-                    li_text = candidate_text
-                    carousel_plan = plan
-                    break
+                    li_text = self.ai.generate_linkedin_concept_article(concept)
+                    from src.autonomous_visual_engine import generate_concept_visual
+                    media_path = generate_concept_visual(concept)
+                    media_title = f"{concept['title']} - NeuBench Educational Series"
+                    first_comm = "⚡ Benchmarking 266+ LLMs, latency, and systems architectures live on: https://app.neubench.workers.dev"
+                else:
+                    total_li = len(post_state.get("posts", []))
+                    pillar = LINKEDIN_PILLAR_ROTATION[total_li % len(LINKEDIN_PILLAR_ROTATION)]
+                    console.print(f"[bold]LinkedIn Pillar:[/bold] {pillar}")
+                    trends = self.hunter.get_linkedin_topics(pillar=pillar)
+                    if pillar != "NEWS":
+                        seen_titles = {str(item.get("title", "")).strip().lower() for item in trends}
+                        for extra in self.hunter.get_linkedin_topics(pillar="NEWS"):
+                            if str(extra.get("title", "")).strip().lower() not in seen_titles:
+                                trends.append(extra)
+                    if not trends:
+                        trends = self.hunter.get_linkedin_topics()
+                    if not trends:
+                        console.print("[red]No current AI/tech trends discovered. Skipping LinkedIn post...[/red]")
+                        return False
 
-                if not selected_trend:
-                    if generation_failures:
-                        reason = f"LinkedIn carousel generation failed for {generation_failures} candidate topic(s)"
-                    else:
-                        reason = "All discovered LinkedIn topics or generated bodies were already posted recently"
-                    console.print(f"[yellow]♻️ {reason}. Skipping.[/yellow]")
-                    self.tracker.record_event(
-                        action_type="linkedin_post",
-                        status="skipped",
-                        target_identifier="LinkedIn dedupe",
-                        skip_or_error_reason=reason,
-                        duration_seconds=time.time() - start_time,
-                        is_dry_run=self.safety.dry_run,
-                    )
-                    return False
+                    recent_hooks = []
+                    for entry in post_state.get("posts", [])[-6:]:
+                        content = str(entry.get("content") or "").strip()
+                        hook = content.splitlines()[0][:80] if content else str(entry.get("title", ""))[:80]
+                        if hook:
+                            recent_hooks.append(hook)
+                    selected_trend = {}
+                    for trend in trends:
+                        title = str(trend.get("title", "")).strip()
+                        if not title or post_is_duplicate(post_state, title=title, url=trend.get("url", "")):
+                            continue
+                        console.print(f"[bold]LinkedIn Topic:[/bold] {title}")
+                        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
+                        try:
+                            plan = self.ai.generate_linkedin_carousel_plan(
+                                title,
+                                trend.get("summary", ""),
+                                pillar=str(trend.get("pillar") or pillar),
+                                recent_hooks=recent_hooks,
+                            )
+                            candidate_text = str(plan.get("post_text") or "").strip()
+                            if candidate_text:
+                                selected_trend = trend
+                                li_text = candidate_text
+                                carousel_plan = plan
+                                break
+                        except Exception:
+                            continue
 
-            media_path = None
-            media_title = ""
-            if carousel_plan:
+                    if not selected_trend:
+                        console.print("[yellow]All LinkedIn candidate topics posted recently.[/yellow]")
+                        return False
+
+            if not media_path and carousel_plan:
                 tags = [
                     str(tag).strip()
                     for tag in carousel_plan.get("hashtags", [])
@@ -2113,620 +1639,43 @@ class AutomaterEngine:
 
 
 
-    def _execute_threads_post(self, start_time: float, custom_text: Optional[str] = None) -> bool:
-        """Generates a casual Threads post and publishes it via saved session."""
-        console.print("[bold magenta]Mode: Threads Auto Post (Community)[/bold magenta]")
-
-        can_threads, threads_reason = self.safety.can_perform_action(
-            "threads", self.tracker.get_today_counts()
-        )
-        if not can_threads:
-            console.print(f"[yellow]Threads skipped: {threads_reason}[/yellow]")
-            return False
-
-        from src.threads_automater import ThreadsAutomater
-        automater = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
-
-        trends = self.hunter.get_casual_topics() if custom_text is None else []
-        pool = trends or []
-        if custom_text is not None:
-            selected_trend = {
-                "title": "Custom Threads post",
-                "summary": "",
-            }
-        elif not pool:
-            selected_trend = {
-                "title": "Second iced coffee at 4 PM",
-                "summary": "Drinking cold brew late in the afternoon and acting shocked when you can't sleep at 2 AM.",
-            }
-        else:
-            selected_trend = None
-            for t in pool:
-                key = f"th:{t['title']}"
-                if key not in self.tracker.history.get("posted_tweets", []):
-                    selected_trend = t
-                    break
-            if not selected_trend:
-                selected_trend = pool[0]
-
-        console.print(f"[bold]Casual Topic:[/bold] {selected_trend['title']}")
-        if custom_text is not None:
-            th_text = str(custom_text).strip()
-            if not th_text:
-                self.tracker.record_event(
-                    action_type="threads_post",
-                    status="skipped",
-                    target_identifier="Threads input",
-                    skip_or_error_reason="Custom Threads text is empty.",
-                    duration_seconds=time.time() - start_time,
-                    is_dry_run=self.safety.dry_run,
-                )
-                return False
-        else:
-            self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-            try:
-                th_text = self.ai.generate_casual_threads_take(
-                    selected_trend["title"],
-                    selected_trend.get("context", selected_trend.get("summary", ""))
-                )
-            except Exception as e:
-                self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
-                console.print(f"[red]AI Generation Error: {e}[/red]")
-                self.tracker.record_event(
-                    action_type="threads_post",
-                    status="failed",
-                    target_identifier=selected_trend["title"],
-                    skip_or_error_reason=f"AI generation failed: {e}",
-                    duration_seconds=time.time() - start_time,
-                    is_dry_run=self.safety.dry_run
-                )
-                return False
-
-        console.print(f"[green]Generated Threads Draft:[/green] {th_text[:120]}...")
-
-        if not self.safety.dry_run and not automater.is_session_available():
-            console.print("[yellow]Threads session not available. Run 'python main.py login-threads'. Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="threads_post",
-                status="skipped",
-                target_identifier=selected_trend["title"],
-                content_preview=th_text,
-                skip_or_error_reason="Threads session not authenticated",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        identity = f"post:{stable_hash(th_text)}"
-        reservation_id, reservation_reason = self._reserve_platform(
-            "threads",
-            "post",
-            identity,
-            target=selected_trend["title"],
-            preview=th_text,
-        )
-        if not self.safety.dry_run and not reservation_id:
-            self.tracker.record_event(
-                action_type="threads_post",
-                status="skipped",
-                target_identifier=selected_trend["title"],
-                content_preview=th_text,
-                skip_or_error_reason=reservation_reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            return False
-
-        th_media = None
-        try:
-            from src.autonomous_visual_engine import generate_casual_visual_card
-            casual_png, _ = generate_casual_visual_card(selected_trend["title"], th_text, square=True)
-            if casual_png and Path(casual_png).exists() and Path(casual_png).stat().st_size > 0:
-                th_media = casual_png
-                console.print(f"[bold magenta]🎬 Threads visual card attachment: {th_media}[/bold magenta]")
-        except Exception as ve:
-            console.print(f"[dim]Threads visual note: {ve}[/dim]")
-
-        try:
-            ok, msg = automater.post(th_text, image_path=th_media)
-        except Exception as error:
-            ok, msg = False, f"Threads client error: {error}"
-        self._complete_platform(
-            reservation_id,
-            ok=ok,
-            unknown=getattr(automater, "last_outcome_unknown", False),
-            reason=msg,
-        )
-        status = "success" if ok else "failed"
-        self.tracker.record_event(
-            action_type="threads_post",
-            status=status,
-            target_identifier="Threads Community",
-            content_preview=th_text,
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-
-        if ok:
-            console.print(f"[bold magenta]OK {msg}[/bold magenta]")
-            try:
-                self.tracker.history.setdefault("posted_tweets", []).append(f"th:{selected_trend['title']}")
-                self.tracker.save_history()
-            except Exception:
-                pass
-        else:
-            console.print(f"[red]Threads publish failed: {msg}[/red]")
-
-        return ok
-
-
-
-    def _resolve_algorithmic_action(self, today_counts: Dict[str, int]) -> str:
+    def run_three_hour_omnichannel_cycle(self) -> Dict[str, bool]:
         """
-        Resolves action based on the 5 Algorithmic Peak Windows and anti-cannibalization limits.
+        Executes unified 3-hour broadcast cycle across all 3 active platforms:
+        1. 𝕏 (Twitter): Unfiltered, sarcastic, roasting, or hot debate take (or sniper reply).
+        2. LinkedIn: Authoritative educational article with 1080x1080 looping GIF.
+        3. Bluesky: High-signal technical summary with matching 1080x1080 looping GIF.
         """
-        current_hour_utc = datetime.now(timezone.utc).hour
+        start_time = time.time()
+        start_iso = datetime.now(timezone.utc).isoformat()
+        console.print(f"\n[bold cyan]🚀 Starting 3-Hour Broadcast Cycle at {start_iso} (Dry Run: {self.safety.dry_run})...[/bold cyan]")
         
-        # Check active window
-        for win_id, win in config.ALGORITHMIC_WINDOWS.items():
-            if win["utc_start"] <= current_hour_utc < win["utc_end"]:
-                console.print(f"\n[bold cyan]⏰ Active Algorithmic Window: {win['name']} ({win['ist_display']} / {win['est_display']})[/bold cyan]")
-                for action in win["primary_actions"]:
-                    action_key = "youtube" if action == "youtube_reel" else action
-                    can_do, _ = self.safety.can_perform_action(action_key, today_counts)
-                    if can_do:
-                        console.print(f"[bold green]🎯 Algorithmic Selection: '{action_key}' for {win['name']}[/bold green]")
-                        return action_key
+        results = {"x": False, "linkedin": False, "bluesky": False}
 
-        # Outside peak windows: Opportunity-Driven Viral Engagement across X, Threads, Bluesky & LinkedIn
-        console.print("[dim]Outside peak broadcast windows: Scanning for active viral discussions across X, Threads, Bluesky & LinkedIn...[/dim]")
-        
-        reply_candidates = []
-        can_reply, _ = self.safety.can_perform_action("reply", today_counts)
-        if can_reply:
-            reply_candidates.append("reply")
-
-        can_bs_reply, _ = self.safety.can_perform_action("bluesky-replies", today_counts)
-        if can_bs_reply and self.bluesky.is_configured():
-            reply_candidates.append("bluesky-replies")
-
-        can_th_reply, _ = self.safety.can_perform_action("threads-replies", today_counts)
-        if can_th_reply:
-            reply_candidates.append("threads-replies")
-
-        if reply_candidates:
-            # Randomize or pick least executed to evenly distribute high-signal replies
-            selected_reply = random.choice(reply_candidates)
-            console.print(f"[bold magenta]💬 Multi-Platform Sniper Reply Selected: '{selected_reply}'[/bold magenta]")
-            return selected_reply
-
-        can_post, _ = self.safety.can_perform_action("post", today_counts)
-        if can_post:
-            return "post"
-
-        return "repost"
-
-    def _execute_youtube_upload(self, start_time: float) -> bool:
-        """Publishes one professional AI topic Short with burned-in captions."""
-        console.print("[bold magenta]YouTube Shorts Mode: Dynamic Publishing[/bold magenta]")
-        from src.youtube_automater import YouTubeAutomater
-        from src.professional_video import ProfessionalVideoGenerator
-
-        used_ai = self.tracker.history.get("posted_ai_topics", [])
-        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
-        topic_title = topic_data.get("title", "AI Concept")
-        title = f"{topic_title} Explained #Shorts"[:90]
-        desc = (
-            f"⚡ {topic_title}: {topic_data.get('summary', '')}\n\n"
-            f"💡 Engineering Rule: {topic_data.get('pro_tip', '')}\n\n"
-            "📊 Live 260+ model benchmarks: https://app.neubench.workers.dev\n\n"
-            "#Shorts #AI #MachineLearning #DeepLearning #Python #SoftwareEngineering #DataScience"
-        )
-
-        yt = YouTubeAutomater()
-        if self.safety.dry_run:
-            console.print(f"[bold yellow][DRY RUN] Would generate & upload YouTube Short: {title}[/bold yellow]")
-            self.tracker.record_event(
-                action_type="youtube",
-                status="dry_run",
-                target_identifier=topic_title,
-                content_preview=title,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=True,
-            )
-            return True
-
-        if not yt.is_authenticated:
-            console.print("[yellow]YouTube service not authenticated. Run 'python main.py login-youtube'. Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="youtube",
-                status="skipped",
-                target_identifier=topic_title,
-                skip_or_error_reason="YouTube credentials not authenticated",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            return False
-
-        self._reserve_ai_topic(topic_title)
-        res_paths = ProfessionalVideoGenerator().generate_dynamic_video(topic_data)
-        yt_video = Path(str(res_paths.get("video_path") or ""))
-
-        if not yt_video.exists():
-            reason = "Failed to render professional video asset for YouTube Short."
-            self._release_ai_topic(topic_title)
-            self.tracker.record_event(
-                action_type="youtube",
-                status="skipped",
-                target_identifier=topic_title,
-                skip_or_error_reason=reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            return False
-
-        identity = f"short:{stable_hash(title + chr(10) + str(yt_video))}"
-        reservation_id, reservation_reason = self._reserve_platform(
-            "youtube", "short", identity, target=title, preview=title
-        )
-        if not reservation_id:
-            self.tracker.record_event(
-                action_type="youtube",
-                status="skipped",
-                target_identifier=topic_title,
-                content_preview=title,
-                skip_or_error_reason=reservation_reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            self._release_ai_topic(topic_title)
-            return False
-
+        # 1. 𝕏 (Twitter) - Unfiltered, Sarcastic, Roasting Hot Take
         try:
-            res = yt.upload_short(video_path=str(yt_video), title=title, description=desc, srt_path=None)
-        except Exception as error:
-            res = None
-            yt.last_outcome_unknown = True
-            yt.last_message = f"YouTube client error: {error}"
-        ok = res is not None
-        self._complete_platform(
-            reservation_id,
-            ok=ok,
-            unknown=getattr(yt, "last_outcome_unknown", False),
-            reason=getattr(yt, "last_message", "YouTube upload failed"),
-        )
-        if not ok and not getattr(yt, "last_outcome_unknown", False):
-            self._release_ai_topic(topic_title)
-        status = "success" if ok else "failed"
-        url = res.get("url", "") if res else ""
-        
-        self.tracker.record_event(
-            action_type="youtube",
-            status=status,
-            target_identifier=topic_title,
-            content_preview=title,
-            skip_or_error_reason="" if ok else getattr(yt, "last_message", "YouTube API upload error"),
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-        if ok:
-            self._commit_ai_topic(topic_title)
-            console.print(f"[bold green]�o. YouTube Short live: {url}[/bold green]")
-            # Syndicate to Pinterest video pin
-            try:
-                from src.pinterest_automater import PinterestAutomater
-                pin_auto = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
-                if pin_auto.is_session_available():
-                    console.print("[bold cyan]Syndicating video to Pinterest...[/bold cyan]")
-                    pin_auto.create_pin(
-                        image_path=str(yt_video),
-                        title=title[:80],
-                        description=desc,
-                        link="https://app.neubench.workers.dev"
-                    )
-            except Exception as e:
-                console.print(f"[dim]Pinterest video syndication notice: {e}[/dim]")
+            console.print("[bold magenta]🐦 1. Dispatching to 𝕏 (Unfiltered Sarcastic / Hot Debate Take)...[/bold magenta]")
+            results["x"] = self._execute_original_post(time.time())
+        except Exception as e:
+            console.print(f"[red]𝕏 Error: {e}[/red]")
 
-        return ok
-
-    def _execute_instagram_carousel(self, start_time: float) -> bool:
-        """Renders and publishes a dynamic 5-slide technical carousel to Instagram."""
-        console.print("[bold magenta]📸 Mode: Instagram Dynamic Carousel Publishing[/bold magenta]")
-        from src.instagram_carousel import InstagramCarouselGenerator
-        from src.instagram_automater import InstagramAutomater
-
-        used_ai = self.tracker.history.get("posted_ai_topics", [])
-        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
-        topic_title = topic_data.get("title", "AI Concept")
-        self._reserve_ai_topic(topic_title)
-
-        automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
-        if not self.safety.dry_run and not automater.is_session_available():
-            console.print("[yellow]Instagram session not available. Run 'python main.py login-instagram'. Skipping.[/yellow]")
-            self.tracker.record_event(
-                action_type="instagram",
-                status="skipped",
-                target_identifier=topic_title,
-                skip_or_error_reason="Instagram session not authenticated",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run
-            )
-            self._release_ai_topic(topic_title)
-            return False
-
-        gen = InstagramCarouselGenerator()
-        slides = gen.generate_dynamic_carousel(topic_data)
-        if not slides:
-            reason = "Failed to render dynamic carousel slides."
-            self.tracker.record_event(
-                action_type="instagram",
-                status="skipped",
-                target_identifier=topic_title,
-                skip_or_error_reason=reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=self.safety.dry_run,
-            )
-            self._release_ai_topic(topic_title)
-            return False
-
-        caption = (
-            f"🧠 {topic_title} • Engineering Cheatsheet\n\n"
-            f"⚡ {topic_data.get('summary', '')}\n\n"
-            "Swipe through the 1-page breakdown ➡️\n\n"
-            f"💡 Pro-Tip: {topic_data.get('pro_tip', '')}\n\n"
-            "📌 Save this post for your revision!\n"
-            "📊 Live 260+ model benchmarks: app.neubench.workers.dev\n\n"
-            "#AI #MachineLearning #AIEngineering #Coding #Developers #Tech"
-        )
-        identity = f"carousel:{stable_hash(topic_title + chr(10) + caption)}"
-        reservation_id, reservation_reason = self._reserve_platform(
-            "instagram", "carousel", identity, target=topic_title, preview=caption
-        )
-        if not self.safety.dry_run and not reservation_id:
-            self.tracker.record_event(
-                action_type="instagram",
-                status="skipped",
-                target_identifier=topic_title,
-                content_preview=caption[:100],
-                skip_or_error_reason=reservation_reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            self._release_ai_topic(topic_title)
-            return False
+        # 2. LinkedIn - Professional Educational Article with Looping GIF
         try:
-            ok, msg = automater.post_carousel(slides, caption)
-        except Exception as error:
-            ok, msg = False, f"Instagram client error: {error}"
-        self._complete_platform(
-            reservation_id,
-            ok=ok,
-            unknown=getattr(automater, "last_outcome_unknown", False),
-            reason=msg,
-        )
-        if not ok and not getattr(automater, "last_outcome_unknown", False):
-            self._release_ai_topic(topic_title)
-        if ok:
-            self._commit_ai_topic(topic_title)
-        status = "success" if ok else "failed"
-        self.tracker.record_event(
-            action_type="instagram",
-            status=status,
-            target_identifier=topic_title,
-            content_preview=caption[:100],
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-        if ok:
-            console.print(f"[bold green]✅ Instagram Carousel published![/bold green]")
-        return ok
+            console.print("[bold blue]💼 2. Dispatching to LinkedIn (Professional Educational Article + Looping GIF)...[/bold blue]")
+            results["linkedin"] = self._execute_linkedin_post(time.time())
+        except Exception as e:
+            console.print(f"[red]LinkedIn Error: {e}[/red]")
 
-    def _execute_devto_post(self, start_time: float) -> bool:
-        """Publishes a comprehensive deep-dive AI article dynamically to Dev.to."""
-        console.print("[bold magenta]📝 Mode: Dev.to Deep-Dive Article Publishing[/bold magenta]")
-        from src.devto_automater import DevToAutomater
-
-        used_ai = self.tracker.history.get("posted_ai_topics", [])
-        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
-        topic_title = topic_data.get("title", "AI Architecture")
-        title = f"{topic_title}: Deep Dive & Engineering Breakdown"
-        self._reserve_ai_topic(topic_title)
-
-        devto = DevToAutomater()
-        if self.safety.dry_run:
-            self.tracker.record_event(
-                action_type="devto",
-                status="dry_run",
-                target_identifier=topic_title,
-                content_preview=title,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=True,
-            )
-            return True
-
-        if not devto.is_configured():
-            console.print("[yellow]Dev.to API key not configured. Skipping.[/yellow]")
-            self._release_ai_topic(topic_title)
-            return False
-
+        # 3. Bluesky - Professional Technical Summary with Matching Looping GIF
         try:
-            lesson_body = self.ai.generate_dynamic_technical_article(topic_data)
-        except Exception as error:
-            self.tracker.record_event(
-                action_type="devto",
-                status="failed",
-                target_identifier=topic_title,
-                skip_or_error_reason=f"Dev.to article generation failed: {error}",
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            self._release_ai_topic(topic_title)
-            return False
+            console.print("[bold cyan]🦋 3. Dispatching to Bluesky (Professional Summary + Looping GIF)...[/bold cyan]")
+            results["bluesky"] = self._execute_bluesky_post(time.time())
+        except Exception as e:
+            console.print(f"[red]Bluesky Error: {e}[/red]")
 
-        identity = f"article:{stable_hash(title + chr(10) + lesson_body)}"
-        reservation_id, reservation_reason = self._reserve_platform(
-            "devto", "article", identity, target=title, preview=title
-        )
-        if not reservation_id:
-            self.tracker.record_event(
-                action_type="devto",
-                status="skipped",
-                target_identifier=title,
-                content_preview=title,
-                skip_or_error_reason=reservation_reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            self._release_ai_topic(topic_title)
-            return False
-        try:
-            ok, msg, url = devto.create_article(title=title, body_markdown=lesson_body, series="AI Engineering & Architectures")
-        except Exception as error:
-            ok, msg, url = False, f"Dev.to client error: {error}", None
-        self._complete_platform(
-            reservation_id,
-            ok=ok,
-            unknown=getattr(devto, "last_outcome_unknown", False),
-            reason=msg,
-        )
-        if not ok and not getattr(devto, "last_outcome_unknown", False):
-            self._release_ai_topic(topic_title)
-        if ok:
-            self._commit_ai_topic(topic_title)
-        status = "success" if ok else "failed"
-        self.tracker.record_event(
-            action_type="devto",
-            status=status,
-            target_identifier=title,
-            content_preview=title,
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-        if ok:
-            console.print(f"[bold green]✅ Dev.to article live: {url}[/bold green]")
-        return ok
-
-    def _execute_pinterest_pin(self, start_time: float) -> bool:
-        """Publishes an infographic pin to Pinterest dynamically."""
-        console.print("[bold magenta]📌 Mode: Pinterest Infographic Pin Publishing[/bold magenta]")
-        from src.pinterest_automater import PinterestAutomater
-        from src.instagram_carousel import InstagramCarouselGenerator
-
-        used_ai = self.tracker.history.get("posted_ai_topics", [])
-        topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
-        topic_title = topic_data.get("title", "AI Architecture")
-        self._reserve_ai_topic(topic_title)
-
-        pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
-        if not self.safety.dry_run and not pin_automater.is_session_available():
-            console.print("[yellow]Pinterest session not available. Skipping.[/yellow]")
-            self._release_ai_topic(topic_title)
-            return False
-
-        gen = InstagramCarouselGenerator()
-        slides = gen.generate_dynamic_carousel(topic_data)
-        if not slides and not self.safety.dry_run:
-            reason = "Failed to render dynamic visual cover for Pinterest."
-            self.tracker.record_event(
-                action_type="pinterest",
-                status="skipped",
-                target_identifier=topic_title,
-                skip_or_error_reason=reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            self._release_ai_topic(topic_title)
-            return False
-
-        cover_img = slides[0] if slides else ""
-        pin_title = f"{topic_title} • AI Cheatsheet"[:80]
-        pin_desc = f"{topic_title}: {topic_data.get('summary', '')} 💡 Pro-Tip: {topic_data.get('pro_tip', '')}. Save for revision! Live benchmarks at https://app.neubench.workers.dev"
-        
-        identity = f"pin:{stable_hash(pin_title + chr(10) + pin_desc)}"
-        reservation_id, reservation_reason = self._reserve_platform(
-            "pinterest", "pin", identity, target=pin_title, preview=pin_title
-        )
-        if not self.safety.dry_run and not reservation_id:
-            self.tracker.record_event(
-                action_type="pinterest",
-                status="skipped",
-                target_identifier=pin_title,
-                content_preview=pin_title,
-                skip_or_error_reason=reservation_reason,
-                duration_seconds=time.time() - start_time,
-                is_dry_run=False,
-            )
-            self._release_ai_topic(topic_title)
-            return False
-        try:
-            ok, msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://app.neubench.workers.dev")
-        except Exception as error:
-            ok, msg = False, f"Pinterest client error: {error}"
-        self._complete_platform(
-            reservation_id,
-            ok=ok,
-            unknown=getattr(pin_automater, "last_outcome_unknown", False),
-            reason=msg,
-        )
-        if not ok and not getattr(pin_automater, "last_outcome_unknown", False):
-            self._release_ai_topic(topic_title)
-        if ok:
-            self._commit_ai_topic(topic_title)
-        status = "success" if ok else "failed"
-        self.tracker.record_event(
-            action_type="pinterest",
-            status=status,
-            target_identifier=pin_title,
-            content_preview=pin_title,
-            skip_or_error_reason="" if ok else msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-        if ok:
-            console.print(f"[bold green]✅ Pinterest Pin live![/bold green]")
-        return ok
-
-    def start_scheduler(self):
-
-        """Runs the continuous loop with randomized intervals to avoid bot detection."""
-
-        console.print("\n" + "="*60, style="bold cyan")
-
-        console.print("🤖 X-Post-Automater Active & Running (Daemon Mode)", style="bold green")
-
-        console.print(f"Daily Cap: {self.safety.max_daily_total} total actions/day (Dry Run: {self.safety.dry_run})", style="yellow")
-
-        console.print("="*60 + "\n", style="bold cyan")
-
-
-
-        while True:
-
-            try:
-
-                self.run_single_cycle()
-
-            except Exception as e:
-
-                console.print(f"[bold red]Cycle Error: {e}[/bold red]")
-
-
-
-            sleep_minutes = random.randint(
-
-                config.POST_INTERVAL_MIN_MINUTES,
-
-                config.POST_INTERVAL_MAX_MINUTES
-
-            )
-
-            console.print(f"\n[dim]💤 Sleeping for {sleep_minutes} minutes before next post...[/dim]\n")
-
-            time.sleep(sleep_minutes * 60)
-
+        duration = round(time.time() - start_time, 1)
+        console.print(f"\n[bold green]🏁 3-Hour Broadcast Cycle Complete in {duration}s! Results: {results}[/bold green]\n")
+        return results
 
     def _execute_linkedin_comment_replies(self, start_time: float) -> bool:
         """Scans recent LinkedIn posts and replies professionally to incoming comments."""
@@ -2937,23 +1886,3 @@ class AutomaterEngine:
             return True
         return False
 
-    def _execute_threads_sniper_replies(self, start_time: float) -> bool:
-        """Finds trending viral discussions across tech, work-life, and culture on Threads and replies."""
-        console.print("[bold magenta]🧵 Mode: Threads Viral Discussion Sniper Replies[/bold magenta]")
-        from src.threads_automater import ThreadsAutomater
-        th = ThreadsAutomater(headless=True, dry_run=self.safety.dry_run)
-        if not th.is_session_available():
-            console.print("[yellow]Threads session not available for replying. Skipping.[/yellow]")
-            return False
-        queries = ["AI tech", "software engineer", "startup life", "remote work", "coding tips"]
-        q = random.choice(queries)
-        count, msg = th.reply_to_viral_threads(query=q, max_replies=1)
-        self.tracker.record_event(
-            action_type="threads_reply",
-            status="success" if count > 0 else "skipped",
-            target_identifier=f"Threads Viral ({q})",
-            content_preview=msg,
-            duration_seconds=time.time() - start_time,
-            is_dry_run=self.safety.dry_run
-        )
-        return count > 0

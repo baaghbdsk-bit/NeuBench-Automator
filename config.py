@@ -14,10 +14,10 @@ load_dotenv(BASE_DIR / ".env")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 
-POSTS_PER_DAY = int(os.getenv("POSTS_PER_DAY", "18"))
-REPLY_PERCENTAGE = int(os.getenv("REPLY_PERCENTAGE", "75"))
-POST_INTERVAL_MIN_MINUTES = int(os.getenv("POST_INTERVAL_MIN_MINUTES", "35"))
-POST_INTERVAL_MAX_MINUTES = int(os.getenv("POST_INTERVAL_MAX_MINUTES", "75"))
+POSTS_PER_DAY = int(os.getenv("POSTS_PER_DAY", "12"))
+REPLY_PERCENTAGE = int(os.getenv("REPLY_PERCENTAGE", "50"))
+POST_INTERVAL_MIN_MINUTES = int(os.getenv("POST_INTERVAL_MIN_MINUTES", "175"))
+POST_INTERVAL_MAX_MINUTES = int(os.getenv("POST_INTERVAL_MAX_MINUTES", "185"))
 
 # Default high-traction niches for maximum engagement
 TARGET_NICHES = [
