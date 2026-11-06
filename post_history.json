@@ -88,7 +88,10 @@
     "bsky:LLM vs. SLM (Small Language Models)",
     "rinky hijikata",
     "treveyon henderson",
-    "bsky:RAG vs. Fine-Tuning"
+    "bsky:RAG vs. Fine-Tuning",
+    "Tech CEO return-to-office mandates",
+    "bsky:REST vs. gRPC vs. GraphQL",
+    "Income tax vs public infrastructure"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -140,7 +143,9 @@
     "e5017a60cbf756d4bff759d32a408342c774f27edf647c5f97c8e7dcd7bbbe36",
     "98602857045acea9631847dca77a856906c490ef4369cf7f8a2028cd988f20ef",
     "d1579a14236a4bbfdcff580bc5f0a3bde71d3e5fcbd50226abd1800d1cc26d5a",
-    "61b529dcdcfccdc8ccf59edb9da57559b43f017a4de325f22b6892ff14ccca31"
+    "61b529dcdcfccdc8ccf59edb9da57559b43f017a4de325f22b6892ff14ccca31",
+    "c77339b216cdc42a409a54ae1374252ee91b487425d41702d3e991d0c8d0ee6b",
+    "6d5cfb9ac6873fb7ca746ed74ab00bd4fdd4708fa8f8503fb9f3412f1fb3cf09"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -152,7 +157,8 @@
         "post:133808f66a0d56b5cc3ef9b0a841b936620e5091a0d359c68c73e44fe8e55ec9",
         "post:3cf47ab5bfb9fc94d1060a99cb2c3d0551999c789a888c0ef762ed7bc015d51d",
         "post:17c3a8494440787f72c55fdc0fbcb60267c118c3aa1b5b1ac60e87ab88d34d4c",
-        "post:ba363ece96bed5b05ca392c8b2147813c4fe0bdfda24cdca7a76ccdb420cbda4"
+        "post:ba363ece96bed5b05ca392c8b2147813c4fe0bdfda24cdca7a76ccdb420cbda4",
+        "post:8082cf2eff481d8639ea37466d34bdebbb07707546cbd519e7f3447e8c36b263"
       ],
       "pending": []
     },

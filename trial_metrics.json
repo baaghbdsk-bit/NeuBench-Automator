@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-06T16:03:30.489945+00:00",
+    "last_updated": "2026-11-06T17:03:44.417488+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 499,
-    "original_posts_attempted": 77,
-    "original_posts_succeeded": 69,
+    "total_cycles_executed": 503,
+    "original_posts_attempted": 79,
+    "original_posts_succeeded": 71,
     "replies_attempted": 28,
     "replies_succeeded": 24,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
-    "actions_skipped": 62,
+    "actions_skipped": 63,
     "failed_operations": 26,
-    "ai_generation_requests": 165,
+    "ai_generation_requests": 168,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2158,6 +2158,46 @@
       "content_preview": "Ah yes, nothing screams \"it takes a village\" quite like outsourcing the village to a $200/month nanny named Sunita while",
       "reason": "",
       "duration_s": 39.95
+    },
+    {
+      "timestamp": "2026-11-06T17:02:13.292276+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Tech CEO return-to-office mandates",
+      "content_preview": "Selling software claiming the cloud will save humanity, then forcing your devs back into grey cubicles because you miss ",
+      "reason": "",
+      "duration_s": 35.06
+    },
+    {
+      "timestamp": "2026-11-06T17:02:13.310684+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence guard",
+      "content_preview": "",
+      "reason": "LinkedIn cadence guard active; next post allowed in about 1 minute(s)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-06T17:02:27.438327+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "REST vs. gRPC vs. GraphQL",
+      "content_preview": "Architecture rule: REST/GraphQL for frontend APIs; gRPC for internal backend pipelines. \n\nAnalogy:\n• REST: Standard post",
+      "reason": "",
+      "duration_s": 14.12
+    },
+    {
+      "timestamp": "2026-11-06T17:03:44.401581+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Income tax vs public infrastructure",
+      "content_preview": "Paying 35% so the government can fund a mysterious hole in the middle of the highway while I buy my own water, electrici",
+      "reason": "",
+      "duration_s": 76.31
     }
   ]
 }
