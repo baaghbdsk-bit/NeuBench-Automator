@@ -636,7 +636,7 @@ class AutomaterEngine:
 
 
         # 3. Determine action type
-        valid_forces = ("post", "reply", "repost", "mentions", "debate-sniper", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "omnichannel", "post-all")
+        valid_forces = ("post", "reply", "repost", "mentions", "debate-sniper", "indian", "bluesky", "bluesky-replies", "linkedin", "linkedin-replies", "linkedin-peers", "omnichannel", "post-all")
         if force_action in valid_forces:
             action_choice = force_action
         else:
@@ -700,6 +700,8 @@ class AutomaterEngine:
             return self._execute_x_mentions_replies(start_time)
         elif action_choice == "debate-sniper":
             return self._execute_x_debate_sniper(start_time)
+        elif action_choice == "indian":
+            return self._execute_indian_engagement(start_time)
         elif action_choice == "reply":
             ok = self._execute_sniper_reply(start_time)
             if not ok:
@@ -1140,6 +1142,26 @@ class AutomaterEngine:
         else:
             print(f"[TwitterClient] [DRY RUN] Would reply to debate {target_tweet['tweet_url']}: {reply_take}")
             return True
+
+
+    def _execute_indian_engagement(self, start_time: float) -> bool:
+        """Monitors high-influence Indian accounts, enqueues opportunities, and publishes approved replies."""
+        console.print("[bold cyan]🇮🇳 Mode: High-Influence Indian Public Engagement[/bold cyan]")
+        from src.indian_influence_engine import IndianEngagementEngine
+        engine = IndianEngagementEngine(
+            twitter_client=self.twitter,
+            ai_generator=self.ai,
+            tracker=self.tracker
+        )
+        # 1. Publish approved opportunity if available
+        published = engine.process_approved_queue(dry_run=self.safety.dry_run, max_actions=1)
+        if published > 0:
+            console.print(f"[bold green]✅ Published {published} queued Indian engagement reply![/bold green]")
+            return True
+
+        # 2. Monitor accounts & enqueue fresh opportunities
+        discovered = engine.monitor_and_discover_opportunities(sample_size=3)
+        return len(discovered) > 0
 
     def _execute_original_post(self, start_time: float) -> bool:
 

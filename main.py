@@ -84,7 +84,7 @@ def main():
         "action", 
         choices=[
             "start", "run-once", "post-all", "omnichannel",
-            "post", "reply", "repost", "mentions", "debate-sniper",
+            "post", "reply", "repost", "mentions", "debate-sniper", "indian-monitor", "indian-queue", "indian-publish", "indian-summary",
             "linkedin", "linkedin-replies", "linkedin-peers",
             "bluesky", "bluesky-replies",
             "login", "login-linkedin", "test", "metrics",
@@ -97,6 +97,7 @@ def main():
     parser.add_argument("--url", type=str, default="", help="Target tweet URL (for 'reply' or 'repost' action)")
     parser.add_argument("--text", type=str, default="", help="Custom text for direct post")
     parser.add_argument("--dry-run", action="store_true", help="Run in simulation mode without publishing live")
+    parser.add_argument("--id", type=str, default="", help="Target opportunity ID for approval")
 
     args = parser.parse_args()
 
@@ -116,6 +117,37 @@ def main():
         console.print(f"\n[bold yellow]📦 Note: '{args.action}' has been separated into the dedicated Media Studio project:[/bold yellow]")
         console.print(f"[bold cyan]👉 Directory: E:\\Projects\\Media-Studio-Automater[/bold cyan]")
         console.print(f"[dim]Run: cd E:\\Projects\\Media-Studio-Automater && python main.py {migrated_actions[args.action]} {'--dry-run' if args.dry_run else ''}[/dim]\n")
+        return
+
+    if args.action == "indian-summary":
+        from src.indian_influence_engine import IndianEngagementEngine
+        engine = IndianEngagementEngine()
+        summary = engine.generate_audit_summary()
+        console.print(Panel(json.dumps(summary, indent=2), title="🇮🇳 Indian Influence Discovery Audit"))
+        return
+
+    if args.action == "indian-queue":
+        from src.indian_influence_engine import OpportunityQueueManager
+        qm = OpportunityQueueManager()
+        data = qm.load_queue()
+        console.print(f"\n[bold cyan]🇮🇳 Indian Engagement Opportunity Queue ({len(data.get('opportunities', []))} items):[/bold cyan]")
+        for o in data.get("opportunities", []):
+            st_color = "yellow" if o["status"] == "pending_approval" else "green" if o["status"] == "approved" else "dim"
+            console.print(f"[{st_color}]• [{o['status'].upper()}][/{st_color}] @{o['author']} ({o['category']}) | ID: {o['id']}")
+            console.print(f"   [white]Target:[/white] {o['tweet_text'][:70]}...")
+            console.print(f"   [cyan]Reply:[/cyan] {o['suggested_reply']}")
+        return
+
+    if args.action == "indian-monitor":
+        from src.indian_influence_engine import IndianEngagementEngine
+        engine = IndianEngagementEngine()
+        engine.monitor_and_discover_opportunities(sample_size=4)
+        return
+
+    if args.action == "indian-publish":
+        from src.indian_influence_engine import IndianEngagementEngine
+        engine = IndianEngagementEngine()
+        engine.process_approved_queue(dry_run=args.dry_run, max_actions=1)
         return
 
     if args.action == "metrics":

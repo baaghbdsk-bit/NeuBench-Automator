@@ -1,0 +1,462 @@
+{
+  "metadata": {
+    "total_accounts": 30,
+    "created_at": "2026-11-06T16:02:56.642550+00:00",
+    "last_updated": "2026-11-06T16:02:56.642573+00:00",
+    "focus": "High-Influence Indian X Audience Growth"
+  },
+  "accounts": {
+    "narendramodi": {
+      "username": "narendramodi",
+      "name": "Narendra Modi",
+      "category": "Politics & Governance",
+      "subcategory": "National Leadership",
+      "relevance_score": 10,
+      "topics": [
+        "National Policy",
+        "Governance",
+        "Global Relations",
+        "Economic Initiatives",
+        "India Development"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 1
+    },
+    "drsjaishankar": {
+      "username": "DrSJaishankar",
+      "name": "Dr. S. Jaishankar",
+      "category": "Politics & Governance",
+      "subcategory": "Diplomacy & Foreign Affairs",
+      "relevance_score": 10,
+      "topics": [
+        "Geopolitics",
+        "Foreign Policy",
+        "Bharat Stance",
+        "Global Trade"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 1
+    },
+    "ashwinivaishnaw": {
+      "username": "AshwiniVaishnaw",
+      "name": "Ashwini Vaishnaw",
+      "category": "Politics & Governance",
+      "subcategory": "Technology, IT & Railways",
+      "relevance_score": 10,
+      "topics": [
+        "Semiconductor Mission",
+        "Digital Public Infra",
+        "Railways",
+        "AI Governance"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "shashitharoor": {
+      "username": "ShashiTharoor",
+      "name": "Dr. Shashi Tharoor",
+      "category": "Politics & Governance",
+      "subcategory": "Parliamentarian & Public Intellectual",
+      "relevance_score": 9,
+      "topics": [
+        "Parliamentary Debates",
+        "Literature",
+        "International Relations",
+        "Education Policy"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 1
+    },
+    "rahulgandhi": {
+      "username": "RahulGandhi",
+      "name": "Rahul Gandhi",
+      "category": "Politics & Governance",
+      "subcategory": "Opposition Leadership",
+      "relevance_score": 10,
+      "topics": [
+        "Public Policy",
+        "Unemployment",
+        "Social Justice",
+        "Constitution"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 1
+    },
+    "myogiadityanath": {
+      "username": "myogiadityanath",
+      "name": "Yogi Adityanath",
+      "category": "Politics & Governance",
+      "subcategory": "State Leadership",
+      "relevance_score": 9,
+      "topics": [
+        "UP Development",
+        "Infrastructure",
+        "Law & Order",
+        "State Economy"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 1
+    },
+    "nitin_gadkari": {
+      "username": "nitin_gadkari",
+      "name": "Nitin Gadkari",
+      "category": "Politics & Governance",
+      "subcategory": "Infrastructure & Transport",
+      "relevance_score": 9,
+      "topics": [
+        "Highways",
+        "Expressways",
+        "Green Hydrogen",
+        "Logistics Efficiency"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "amitshah": {
+      "username": "AmitShah",
+      "name": "Amit Shah",
+      "category": "Politics & Governance",
+      "subcategory": "Home Affairs & Internal Security",
+      "relevance_score": 9,
+      "topics": [
+        "Internal Security",
+        "Cooperative Sector",
+        "Border Security",
+        "Legal Reforms"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 1
+    },
+    "ani": {
+      "username": "ANI",
+      "name": "Asian News International",
+      "category": "News & Journalism",
+      "subcategory": "National Wire Service",
+      "relevance_score": 10,
+      "topics": [
+        "Breaking News",
+        "Press Conferences",
+        "National Developments",
+        "Policy Announcements"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "ndtv": {
+      "username": "NDTV",
+      "name": "NDTV",
+      "category": "News & Journalism",
+      "subcategory": "Broadcasting Network",
+      "relevance_score": 9,
+      "topics": [
+        "Current Affairs",
+        "Business News",
+        "Elections",
+        "Social Issues"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "indianexpress": {
+      "username": "IndianExpress",
+      "name": "The Indian Express",
+      "category": "News & Journalism",
+      "subcategory": "Investigative & National Print",
+      "relevance_score": 9,
+      "topics": [
+        "Investigative Journalism",
+        "Explained Series",
+        "Editorial Commentaries",
+        "Judiciary"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "shekhargupta": {
+      "username": "ShekharGupta",
+      "name": "Shekhar Gupta",
+      "category": "News & Journalism",
+      "subcategory": "Political Analyst & Editor",
+      "relevance_score": 8,
+      "topics": [
+        "CutTheClutter",
+        "National Interest",
+        "Defence Strategy",
+        "Electoral Analysis"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 2
+    },
+    "aranganathan72": {
+      "username": "ARanganathan72",
+      "name": "Anand Ranganathan",
+      "category": "News & Journalism",
+      "subcategory": "Commentator & Author",
+      "relevance_score": 9,
+      "topics": [
+        "Policy Debates",
+        "Free Speech",
+        "Scientific Rationalism",
+        "Institutional Accountability"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 1
+    },
+    "shivaroor": {
+      "username": "ShivAroor",
+      "name": "Shiv Aroor",
+      "category": "News & Journalism",
+      "subcategory": "Defence & Security Editor",
+      "relevance_score": 8,
+      "topics": [
+        "Military Modernization",
+        "Air Force",
+        "Geostrategy",
+        "Security Operations"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 2
+    },
+    "vikramsampath": {
+      "username": "vikramsampath",
+      "name": "Dr. Vikram Sampath",
+      "category": "Society & Culture",
+      "subcategory": "Historian & Fellow",
+      "relevance_score": 8,
+      "topics": [
+        "Indian History",
+        "Archival Research",
+        "Cultural Renaissance",
+        "Civilizational Discourse"
+      ],
+      "is_sensitive": true,
+      "priority_tier": 2
+    },
+    "sanjeevsanyal": {
+      "username": "sanjeevsanyal",
+      "name": "Sanjeev Sanyal",
+      "category": "Society & Culture",
+      "subcategory": "Urban History & Economics",
+      "relevance_score": 9,
+      "topics": [
+        "Economic History",
+        "Maritime Heritage",
+        "Urban Planning",
+        "Public Administration"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "peakbengaluru": {
+      "username": "peakbengaluru",
+      "name": "Peak Bengaluru",
+      "category": "Society & Culture",
+      "subcategory": "Urban Tech & Everyday Culture",
+      "relevance_score": 9,
+      "topics": [
+        "Startup Life",
+        "Bangalore Traffic",
+        "Tech Quirks",
+        "Urban Relatability"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "anandmahindra": {
+      "username": "anandmahindra",
+      "name": "Anand Mahindra",
+      "category": "Society & Culture",
+      "subcategory": "Business Leader & Cultural Observer",
+      "relevance_score": 10,
+      "topics": [
+        "Jugaad Innovation",
+        "Indian Talent",
+        "Human Spirit",
+        "Automotive Vision"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "harshgoenka": {
+      "username": "harshgoenka",
+      "name": "Harsh Goenka",
+      "category": "Society & Culture",
+      "subcategory": "Corporate & Social Humor",
+      "relevance_score": 8,
+      "topics": [
+        "Life Lessons",
+        "Workplace Humor",
+        "Inspiration",
+        "Indian Ingenuity"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 2
+    },
+    "kunalb11": {
+      "username": "kunalb11",
+      "name": "Kunal Shah",
+      "category": "Business & Technology",
+      "subcategory": "Fintech & Consumer Behavior",
+      "relevance_score": 10,
+      "topics": [
+        "Delta 4 Framework",
+        "Indian Consumer Psychology",
+        "Wealth Creation",
+        "Startup Truths"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "nandannilekani": {
+      "username": "NandanNilekani",
+      "name": "Nandan Nilekani",
+      "category": "Business & Technology",
+      "subcategory": "Digital Public Infrastructure",
+      "relevance_score": 9,
+      "topics": [
+        "India Stack",
+        "Aadhaar",
+        "UPI",
+        "AI for Bharat",
+        "Fintech Inclusion"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "nithin0dha": {
+      "username": "Nithin0dha",
+      "name": "Nithin Kamath",
+      "category": "Business & Technology",
+      "subcategory": "Capital Markets & Bootstrapping",
+      "relevance_score": 9,
+      "topics": [
+        "Stock Markets",
+        "Retail Investing",
+        "Bootstrapping",
+        "Health & Longevity"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "nikhilkamathcio": {
+      "username": "nikhilkamathcio",
+      "name": "Nikhil Kamath",
+      "category": "Business & Technology",
+      "subcategory": "Podcasts & Venture Capital",
+      "relevance_score": 8,
+      "topics": [
+        "WTF Podcast",
+        "Indian Youth",
+        "Ecosystem Investing",
+        "Macroeconomics"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 2
+    },
+    "deepigoyal": {
+      "username": "deepigoyal",
+      "name": "Deepinder Goyal",
+      "category": "Business & Technology",
+      "subcategory": "Quick Commerce & Logistics",
+      "relevance_score": 9,
+      "topics": [
+        "Blinkit",
+        "Zomato",
+        "Quick Commerce Revolution",
+        "Operational Excellence"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "sridharvembhu": {
+      "username": "sridharvembhu",
+      "name": "Sridhar Vembu",
+      "category": "Business & Technology",
+      "subcategory": "Deep Tech & Rural Innovation",
+      "relevance_score": 9,
+      "topics": [
+        "R&D in Bharat",
+        "Rural Industrialization",
+        "Capital Efficiency",
+        "SaaS"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "varunmayya": {
+      "username": "VarunMayya",
+      "name": "Varun Mayya",
+      "category": "Business & Technology",
+      "subcategory": "AI Creators & Coding",
+      "relevance_score": 9,
+      "topics": [
+        "AI Agents",
+        "Autonomous Coding",
+        "Future of Work",
+        "Creator Economy"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "indiantechguide": {
+      "username": "IndianTechGuide",
+      "name": "Indian Tech Guide",
+      "category": "Business & Technology",
+      "subcategory": "Tech Ecosystem Radar",
+      "relevance_score": 9,
+      "topics": [
+        "Tech Breaking News",
+        "Smartphone Market",
+        "EV Tech",
+        "Indian Manufacturing"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "bhogleharsha": {
+      "username": "bhogleharsha",
+      "name": "Harsha Bhogle",
+      "category": "Entertainment & Sports",
+      "subcategory": "Cricket Commentary & Storytelling",
+      "relevance_score": 9,
+      "topics": [
+        "IPL",
+        "Test Cricket",
+        "Indian Cricket Team",
+        "Sportsmanship"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    },
+    "cricketaakash": {
+      "username": "cricketaakash",
+      "name": "Aakash Chopra",
+      "category": "Entertainment & Sports",
+      "subcategory": "Cricket Analytics & Broadcast",
+      "relevance_score": 8,
+      "topics": [
+        "Match Analysis",
+        "T20 Strategy",
+        "Cricket Tactics",
+        "Indian Players"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 2
+    },
+    "thetanmay": {
+      "username": "thetanmay",
+      "name": "Tanmay Bhat",
+      "category": "Entertainment & Sports",
+      "subcategory": "Creator Culture & Finance Humor",
+      "relevance_score": 9,
+      "topics": [
+        "Memes",
+        "Personal Finance",
+        "Internet Culture",
+        "YouTube Creators"
+      ],
+      "is_sensitive": false,
+      "priority_tier": 1
+    }
+  }
+}
