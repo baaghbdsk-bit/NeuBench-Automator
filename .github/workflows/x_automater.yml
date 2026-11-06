@@ -47,7 +47,7 @@ permissions:
 jobs:
   run-automater:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -60,10 +60,10 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Install System Dependencies (ffmpeg)
+      - name: Install System Dependencies (ffmpeg + Manim + fonts)
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y ffmpeg build-essential pkg-config libcairo2-dev libpango1.0-dev fonts-inter
 
       - name: Install Dependencies
         run: |
@@ -118,6 +118,9 @@ jobs:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
           YOUTUBE_TOKEN_BASE64: ${{ secrets.YOUTUBE_TOKEN_BASE64 }}
           PYTHONIOENCODING: utf-8
+          TOPIC_VIDEO_DISPLAY_FONT: 'Inter'
+          TOPIC_VIDEO_BODY_FONT: 'Inter'
+          TOPIC_VIDEO_CAPTION_FONT: 'Inter'
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           TRIAL_ENABLED: 'true'
           MAX_DAILY_ORIGINAL_POSTS: '0'

@@ -129,6 +129,7 @@ class AutomaterEngine:
         self.ai = AIGenerator()
 
         self.safety = SafetyEngine()
+        self._ai_topic_reservations: set[str] = set()
 
         
 
@@ -234,6 +235,37 @@ class AutomaterEngine:
                 reason=reason,
             )
         return outcome
+
+    def _reserve_ai_topic(self, title: str) -> None:
+        if not title or self.safety.dry_run:
+            return
+        try:
+            topics = self.tracker.history.setdefault("posted_ai_topics", [])
+            if title not in topics:
+                topics.append(title)
+                self.tracker.save_history()
+                self._ai_topic_reservations.add(title)
+        except Exception:
+            pass
+
+    def _commit_ai_topic(self, title: str) -> None:
+        if title:
+            self._ai_topic_reservations.discard(title)
+
+    def _release_ai_topic(self, title: str) -> None:
+        if not title or self.safety.dry_run or title not in self._ai_topic_reservations:
+            return
+        try:
+            topics = self.tracker.history.get("posted_ai_topics", [])
+            removed = False
+            while title in topics:
+                topics.remove(title)
+                removed = True
+            if removed:
+                self.tracker.save_history()
+            self._ai_topic_reservations.discard(title)
+        except Exception:
+            pass
 
     def execute_x_custom_post(self, text: str, media_path: Optional[str] = None) -> bool:
         """Publish a custom X post through the same guarded path as autopilot."""
@@ -1311,11 +1343,8 @@ class AutomaterEngine:
         b_title = broadcast_topic.get("title", "AI Systems")
         b_summary = broadcast_topic.get("summary", "")
         b_pro_tip = broadcast_topic.get("pro_tip", "")
-        try:
-            self.tracker.history.setdefault("posted_ai_topics", []).append(b_title)
-            self.tracker.save_history()
-        except Exception:
-            pass
+        self._reserve_ai_topic(b_title)
+        broadcast_published = False
 
         # 5. Cross-post to Pinterest Pin (Dynamic Cheatsheet)
         try:
@@ -1355,6 +1384,7 @@ class AutomaterEngine:
                                 reason=p_msg,
                             )
                         if p_ok:
+                            broadcast_published = True
                             console.print("[bold green]✅ Pinterest Pin published![/bold green]")
                             self.tracker.record_event(
                                 action_type="pinterest_pin",
@@ -1413,6 +1443,7 @@ class AutomaterEngine:
                                 reason=ig_msg,
                             )
                         if ig_ok:
+                            broadcast_published = True
                             console.print(f"[bold green]✅ Instagram carousel published![/bold green]")
                             self.tracker.record_event(
                                 action_type="instagram_carousel",
@@ -1429,17 +1460,56 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Instagram broadcast note: {ex}[/dim]")
 
-        # 7. Cross-post to Instagram Reel (Dynamic Video)
+        # 7. Render one professional video and reuse it for Reels and Shorts
+        video_asset: Dict[str, Optional[str]] = {
+            "video_path": None,
+            "srt_path": None,
+            "audio_path": None,
+        }
+        try:
+            can_reel, _ = self.safety.can_perform_action("instagram_reel", today_counts)
+            can_yt, _ = self.safety.can_perform_action("youtube", today_counts)
+            reel_ready = self.safety.dry_run
+            shorts_ready = self.safety.dry_run
+            if can_reel and not reel_ready:
+                try:
+                    from src.instagram_automater import InstagramAutomater
+                    reel_ready = InstagramAutomater(headless=True, dry_run=True).is_session_available()
+                except Exception:
+                    reel_ready = False
+            if can_yt and not shorts_ready:
+                try:
+                    from src.youtube_automater import YouTubeAutomater
+                    shorts_ready = YouTubeAutomater().is_authenticated
+                except Exception:
+                    shorts_ready = False
+            if (can_reel and reel_ready) or (can_yt and shorts_ready):
+                from src.professional_video import ProfessionalVideoGenerator
+                console.print(
+                    f"[bold magenta]Rendering one professional video for Reels + Shorts: {b_title}...[/bold magenta]"
+                )
+                video_asset = ProfessionalVideoGenerator().generate_dynamic_video(
+                    broadcast_topic, dry_run=self.safety.dry_run
+                )
+                if video_asset.get("video_path"):
+                    console.print(
+                        f"[bold green]Video asset ready: {video_asset['video_path']}[/bold green]"
+                    )
+                else:
+                    console.print(
+                        "[yellow]Professional video render failed; Reels + Shorts will be skipped.[/yellow]"
+                    )
+        except Exception as ex:
+            console.print(f"[dim]Professional video broadcast note: {ex}[/dim]")
+
+        # 8. Cross-post to Instagram Reel (same professional video)
         try:
             can_reel, reel_reason = self.safety.can_perform_action("instagram_reel", today_counts)
             if can_reel:
                 from src.instagram_automater import InstagramAutomater
-                from src.video_generator import VideoGenerator
                 ig_automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
                 if self.safety.dry_run or ig_automater.is_session_available():
-                    vid_gen = VideoGenerator()
-                    v_res = vid_gen.generate_dynamic_short(broadcast_topic, dry_run=self.safety.dry_run)
-                    reel_video = Path(v_res.get("video_path") or "")
+                    reel_video = Path(str(video_asset.get("video_path") or ""))
 
                     reel_caption = (
                         f"⚡ {b_title}\n\n"
@@ -1449,7 +1519,7 @@ class AutomaterEngine:
                         "#Reels #AI #MachineLearning #DeepLearning #Coding"
                     )
 
-                    if reel_video.exists():
+                    if self.safety.dry_run or reel_video.exists():
                         console.print(f"[bold magenta]🎥 Publishing Reel to Instagram (@neubench)...[/bold magenta]")
                         reel_reservation, reel_reason = self._reserve_platform(
                             "instagram",
@@ -1469,6 +1539,7 @@ class AutomaterEngine:
                                 reason=r_msg,
                             )
                         if r_ok:
+                            broadcast_published = True
                             console.print(f"[bold green]✅ Instagram Reel published![/bold green]")
                             self.tracker.record_event(
                                 action_type="instagram_reel",
@@ -1487,20 +1558,16 @@ class AutomaterEngine:
         except Exception as ex:
             console.print(f"[dim]Instagram Reel broadcast note: {ex}[/dim]")
 
-        # 8. Cross-post to YouTube Shorts (Dynamic Short)
+        # 9. Cross-post the same professional video to YouTube Shorts
         try:
             can_yt, yt_reason = self.safety.can_perform_action("youtube", today_counts)
             if can_yt:
                 from src.youtube_automater import YouTubeAutomater
-                from src.video_generator import VideoGenerator
                 yt_automater = None if self.safety.dry_run else YouTubeAutomater()
                 if self.safety.dry_run:
-                    console.print("[yellow][DRY RUN] Would publish the dynamic video to YouTube Shorts.[/yellow]")
+                    console.print("[yellow][DRY RUN] Would publish the same professional video to YouTube Shorts.[/yellow]")
                 elif yt_automater and yt_automater.is_authenticated:
-                    vid_gen = VideoGenerator()
-                    v_res = vid_gen.generate_dynamic_short(broadcast_topic, dry_run=self.safety.dry_run)
-                    yt_video = Path(v_res.get("video_path") or "")
-                    yt_srt = Path(v_res.get("srt_path") or "") if v_res.get("srt_path") else None
+                    yt_video = Path(str(video_asset.get("video_path") or ""))
 
                     yt_title = f"{b_title} Explained #Shorts"[:90]
                     yt_desc = (
@@ -1510,7 +1577,7 @@ class AutomaterEngine:
                         "#Shorts #AI #MachineLearning #DeepLearning #Coding"
                     )
 
-                    if yt_video.exists():
+                    if self.safety.dry_run or yt_video.exists():
                         console.print(f"[bold magenta]🎬 Uploading Short to YouTube: {yt_title}...[/bold magenta]")
                         yt_reservation, yt_reason = self._reserve_platform(
                             "youtube",
@@ -1526,7 +1593,7 @@ class AutomaterEngine:
                                 video_path=str(yt_video),
                                 title=yt_title,
                                 description=yt_desc,
-                                srt_path=str(yt_srt) if yt_srt and yt_srt.exists() else None
+                                srt_path=None
                             )
                             y_ok = yt_res is not None
                             self._complete_platform(
@@ -1536,6 +1603,7 @@ class AutomaterEngine:
                                 reason=getattr(yt_automater, "last_message", "YouTube upload error"),
                             )
                         if y_ok:
+                            broadcast_published = True
                             console.print(f"[bold green]✅ YouTube Short live![/bold green]")
                             self.tracker.record_event(
                                 action_type="youtube",
@@ -1546,12 +1614,16 @@ class AutomaterEngine:
                                 is_dry_run=self.safety.dry_run
                             )
                     else:
-                        console.print("[yellow]YouTube Short skipped: VideoGenerator could not produce valid video file.[/yellow]")
+                        console.print("[yellow]YouTube Short skipped: no professional video asset was produced.[/yellow]")
             else:
                 console.print(f"[dim]YouTube Short skipped: {yt_reason}[/dim]")
         except Exception as ex:
             console.print(f"[dim]YouTube broadcast note: {ex}[/dim]")
-        
+
+        if broadcast_published:
+            self._commit_ai_topic(b_title)
+        else:
+            self._release_ai_topic(b_title)
         return success
 
     def _execute_bluesky_post(self, start_time: float) -> bool:
@@ -2236,10 +2308,10 @@ class AutomaterEngine:
         return "repost"
 
     def _execute_youtube_upload(self, start_time: float) -> bool:
-        """Publishes an on-demand, dynamic AI topic Short with voiceover and dual subtitles."""
-        console.print("[bold magenta]🎬 Mode: YouTube Shorts Dynamic Publishing[/bold magenta]")
+        """Publishes one professional AI topic Short with burned-in captions."""
+        console.print("[bold magenta]YouTube Shorts Mode: Dynamic Publishing[/bold magenta]")
         from src.youtube_automater import YouTubeAutomater
-        from src.video_generator import VideoGenerator
+        from src.professional_video import ProfessionalVideoGenerator
 
         used_ai = self.tracker.history.get("posted_ai_topics", [])
         topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
@@ -2277,25 +2349,13 @@ class AutomaterEngine:
             )
             return False
 
-        # Dynamically generate vertical short
-        vid_gen = VideoGenerator()
-        res_paths = vid_gen.generate_dynamic_short(topic_data, dry_run=self.safety.dry_run)
-        yt_video = Path(res_paths.get("video_path") or "")
-        yt_srt = Path(res_paths.get("srt_path") or "") if res_paths.get("srt_path") else None
+        self._reserve_ai_topic(topic_title)
+        res_paths = ProfessionalVideoGenerator().generate_dynamic_video(topic_data)
+        yt_video = Path(str(res_paths.get("video_path") or ""))
 
         if not yt_video.exists():
-            console.print("[cyan]Video generation failed; generating dynamic visual MP4...[/cyan]")
-            try:
-                from src.autonomous_visual_engine import generate_visual_for_post
-                _gif, generated_mp4 = generate_visual_for_post(topic_title, topic_data.get("summary", ""))
-                if generated_mp4 and Path(generated_mp4).exists():
-                    yt_video = Path(generated_mp4)
-                    yt_srt = None
-            except Exception as error:
-                console.print(f"[dim]YouTube visual generation note: {error}[/dim]")
-
-        if not yt_video.exists():
-            reason = "Failed to render video asset for YouTube Short."
+            reason = "Failed to render professional video asset for YouTube Short."
+            self._release_ai_topic(topic_title)
             self.tracker.record_event(
                 action_type="youtube",
                 status="skipped",
@@ -2320,10 +2380,11 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
+            self._release_ai_topic(topic_title)
             return False
 
         try:
-            res = yt.upload_short(video_path=str(yt_video), title=title, description=desc, srt_path=str(yt_srt) if yt_srt and yt_srt.exists() else None)
+            res = yt.upload_short(video_path=str(yt_video), title=title, description=desc, srt_path=None)
         except Exception as error:
             res = None
             yt.last_outcome_unknown = True
@@ -2335,6 +2396,8 @@ class AutomaterEngine:
             unknown=getattr(yt, "last_outcome_unknown", False),
             reason=getattr(yt, "last_message", "YouTube upload failed"),
         )
+        if not ok and not getattr(yt, "last_outcome_unknown", False):
+            self._release_ai_topic(topic_title)
         status = "success" if ok else "failed"
         url = res.get("url", "") if res else ""
         
@@ -2348,7 +2411,8 @@ class AutomaterEngine:
             is_dry_run=self.safety.dry_run
         )
         if ok:
-            console.print(f"[bold green]✅ YouTube Short live: {url}[/bold green]")
+            self._commit_ai_topic(topic_title)
+            console.print(f"[bold green]�o. YouTube Short live: {url}[/bold green]")
             # Syndicate to Pinterest video pin
             try:
                 from src.pinterest_automater import PinterestAutomater
@@ -2375,6 +2439,7 @@ class AutomaterEngine:
         used_ai = self.tracker.history.get("posted_ai_topics", [])
         topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         topic_title = topic_data.get("title", "AI Concept")
+        self._reserve_ai_topic(topic_title)
 
         automater = InstagramAutomater(headless=True, dry_run=self.safety.dry_run)
         if not self.safety.dry_run and not automater.is_session_available():
@@ -2387,6 +2452,7 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=self.safety.dry_run
             )
+            self._release_ai_topic(topic_title)
             return False
 
         gen = InstagramCarouselGenerator()
@@ -2401,6 +2467,7 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=self.safety.dry_run,
             )
+            self._release_ai_topic(topic_title)
             return False
 
         caption = (
@@ -2426,6 +2493,7 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
+            self._release_ai_topic(topic_title)
             return False
         try:
             ok, msg = automater.post_carousel(slides, caption)
@@ -2437,6 +2505,10 @@ class AutomaterEngine:
             unknown=getattr(automater, "last_outcome_unknown", False),
             reason=msg,
         )
+        if not ok and not getattr(automater, "last_outcome_unknown", False):
+            self._release_ai_topic(topic_title)
+        if ok:
+            self._commit_ai_topic(topic_title)
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="instagram",
@@ -2460,6 +2532,7 @@ class AutomaterEngine:
         topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         topic_title = topic_data.get("title", "AI Architecture")
         title = f"{topic_title}: Deep Dive & Engineering Breakdown"
+        self._reserve_ai_topic(topic_title)
 
         devto = DevToAutomater()
         if self.safety.dry_run:
@@ -2475,6 +2548,7 @@ class AutomaterEngine:
 
         if not devto.is_configured():
             console.print("[yellow]Dev.to API key not configured. Skipping.[/yellow]")
+            self._release_ai_topic(topic_title)
             return False
 
         try:
@@ -2488,6 +2562,7 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
+            self._release_ai_topic(topic_title)
             return False
 
         identity = f"article:{stable_hash(title + chr(10) + lesson_body)}"
@@ -2504,6 +2579,7 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
+            self._release_ai_topic(topic_title)
             return False
         try:
             ok, msg, url = devto.create_article(title=title, body_markdown=lesson_body, series="AI Engineering & Architectures")
@@ -2515,6 +2591,10 @@ class AutomaterEngine:
             unknown=getattr(devto, "last_outcome_unknown", False),
             reason=msg,
         )
+        if not ok and not getattr(devto, "last_outcome_unknown", False):
+            self._release_ai_topic(topic_title)
+        if ok:
+            self._commit_ai_topic(topic_title)
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="devto",
@@ -2538,10 +2618,12 @@ class AutomaterEngine:
         used_ai = self.tracker.history.get("posted_ai_topics", [])
         topic_data = self.hunter.get_dynamic_ai_topic(used_topics=used_ai)
         topic_title = topic_data.get("title", "AI Architecture")
+        self._reserve_ai_topic(topic_title)
 
         pin_automater = PinterestAutomater(headless=True, dry_run=self.safety.dry_run)
         if not self.safety.dry_run and not pin_automater.is_session_available():
             console.print("[yellow]Pinterest session not available. Skipping.[/yellow]")
+            self._release_ai_topic(topic_title)
             return False
 
         gen = InstagramCarouselGenerator()
@@ -2556,6 +2638,7 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
+            self._release_ai_topic(topic_title)
             return False
 
         cover_img = slides[0] if slides else ""
@@ -2576,6 +2659,7 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=False,
             )
+            self._release_ai_topic(topic_title)
             return False
         try:
             ok, msg = pin_automater.create_pin(cover_img, pin_title, pin_desc, link="https://app.neubench.workers.dev")
@@ -2587,6 +2671,10 @@ class AutomaterEngine:
             unknown=getattr(pin_automater, "last_outcome_unknown", False),
             reason=msg,
         )
+        if not ok and not getattr(pin_automater, "last_outcome_unknown", False):
+            self._release_ai_topic(topic_title)
+        if ok:
+            self._commit_ai_topic(topic_title)
         status = "success" if ok else "failed"
         self.tracker.record_event(
             action_type="pinterest",

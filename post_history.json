@@ -72,7 +72,12 @@
     "Free dhaniya and mirchi entitlement",
     "The Paytm sound box emotional relief",
     "Late-night life motivation",
-    "th:retirement"
+    "th:retirement",
+    "bsky:Meta’s warns that election backlash against data centers could make AI expansion harder",
+    "bsky:Meta says US users can now video chat with their Muse AI avatar",
+    "Family WhatsApp 'Good Morning' GIFs",
+    "th:pitt basketball",
+    "Everyday scams we normalized"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -98,7 +103,8 @@
     "https://x.com/PopBase/status/2116174108040008033",
     "https://x.com/narendramodi/status/2116149567267983689",
     "https://x.com/sundarpichai/status/2115535455156642066",
-    "https://x.com/elonmusk/status/2116039632743702637"
+    "https://x.com/elonmusk/status/2116039632743702637",
+    "https://x.com/zomato/status/2118370011928780823"
   ],
   "reposted_urls": [
     "https://x.com/ndtv/status/2113019999380193613",
@@ -116,14 +122,18 @@
   ],
   "posted_tweet_hashes": [
     "11f42a9ddef263b8808ee39941519feb81f42c6eb9ac12f1324c64ef9bd72035",
-    "e5017a60cbf756d4bff759d32a408342c774f27edf647c5f97c8e7dcd7bbbe36"
+    "e5017a60cbf756d4bff759d32a408342c774f27edf647c5f97c8e7dcd7bbbe36",
+    "98602857045acea9631847dca77a856906c490ef4369cf7f8a2028cd988f20ef"
   ],
   "pending_x_actions": [],
   "platform_history": {
     "bluesky": {
       "completed": [
         "post:9f0a70796a3cb58dc0b3bcbfde7413754793532d3a535aa729fa1921ed6b2b7d",
-        "post:db8c8878c56f7779fc7cbdb485e934f5332dc8d41e859f6c88e5d453b1133e04"
+        "post:db8c8878c56f7779fc7cbdb485e934f5332dc8d41e859f6c88e5d453b1133e04",
+        "post:9f7ab1b7f628d90949657ca6c68ffeacecd51d09c9801e1821f8529e94b9f9f6",
+        "post:133808f66a0d56b5cc3ef9b0a841b936620e5091a0d359c68c73e44fe8e55ec9",
+        "post:3cf47ab5bfb9fc94d1060a99cb2c3d0551999c789a888c0ef762ed7bc015d51d"
       ],
       "pending": []
     },
@@ -135,59 +145,34 @@
       "completed": [
         "pin:6827e89f5f234c7ac0f16be2a22288ab088b11b21f0c0ee6911512a1fedb2911"
       ],
-      "pending": [
-        {
-          "reservation_id": "3b895e1b46cb4c78b8515a852f08a16b",
-          "identity": "pin:55961c48e7a0ddfea04146663e05503ef887871701276e849b58c16901874d83",
-          "action_type": "pin",
-          "target": "FlashAttention Explained",
-          "preview": "FlashAttention Explained",
-          "status": "unknown",
-          "reserved_at": "2026-11-03T20:13:31.781434+00:00",
-          "unknown_at": "2026-11-03T20:13:48.349939+00:00",
-          "reason": "Pinterest submission was not confirmed; retry blocked."
-        }
-      ]
+      "pending": []
     },
     "youtube": {
       "completed": [
         "short:a5fbf7c41ddc45206e3e26dcb3fe35a882af0b5de6a32b04b9c74e06378a906a",
-        "short:4774e8f1f2ee1e1f6701d235021a1bc529e597086a4b312c7c8d31eb89812957"
+        "short:4774e8f1f2ee1e1f6701d235021a1bc529e597086a4b312c7c8d31eb89812957",
+        "short:1a3dad55c7769236bf616170ef56ceb3952d692b641a1062d0cc72d177378333"
       ],
       "pending": []
     },
     "instagram": {
-      "completed": [],
-      "pending": [
-        {
-          "reservation_id": "3f320b2af6ba4b4c8a4e239bd1b41831",
-          "identity": "carousel:da66ef86fbeb20e5df4aa80e0084262a520f5d5f80a473d175045622fcba9d0d",
-          "action_type": "carousel",
-          "target": "Quantization: FP16 vs INT8 vs INT4",
-          "preview": "🧠 Quantization: FP16 vs INT8 vs INT4 • Engineering Cheatsheet\n\n⚡ Quantization shrinks the numerical precision of neural network weights from 16-bit floating poi",
-          "status": "unknown",
-          "reserved_at": "2026-11-03T20:37:59.012978+00:00",
-          "unknown_at": "2026-11-03T20:39:10.967169+00:00",
-          "reason": "Instagram carousel submission was not confirmed; retry blocked."
-        },
-        {
-          "reservation_id": "181b440c24e045f099473e7a32ac5941",
-          "identity": "reel:b36666bdd53c5648ec8c642b8f3f5cb80d965d54ca61f0ad1864adcbe39f9e4d",
-          "action_type": "reel",
-          "target": "Quantization: FP16 vs INT8 vs INT4",
-          "preview": "⚡ Quantization: FP16 vs INT8 vs INT4\n\nQuantization shrinks the numerical precision of neural network weights from 16-bit floating point down to 8-bit or 4-bit i",
-          "status": "unknown",
-          "reserved_at": "2026-11-03T20:39:37.915003+00:00",
-          "unknown_at": "2026-11-03T20:41:15.009966+00:00",
-          "reason": "Instagram Reel submission was not confirmed; retry blocked."
-        }
-      ]
+      "completed": [
+        "carousel:64490044f1104cd7ac414ced9f3354829de062593ce99f1b5eabc3769c15b31b",
+        "reel:dc034e30830ac80b78ad88a4ba9ad4f24cf0c59210e717ed21b8b079e5b5a72d"
+      ],
+      "pending": []
     }
   },
   "posted_ai_topics": [
     "FlashAttention Explained",
     "Quantization: FP16 vs INT8 vs INT4",
-    "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs G"
+    "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs G",
+    "Retrieval-Augmented Generation (RAG)",
+    "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
+    "LoRA (Low-Rank Adaptation)",
+    "Speculative Decoding",
+    "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+    "Vector Embeddings & Cosine Similarity"
   ],
   "posted_bluesky_topics": [
     "Order-Only On-Policy Distillation"

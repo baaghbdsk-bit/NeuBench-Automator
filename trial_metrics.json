@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-03T20:53:56.136276+00:00",
+    "last_updated": "2026-11-06T05:21:33.521245+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 460,
+    "total_cycles_executed": 470,
     "original_posts_attempted": 70,
     "original_posts_succeeded": 62,
-    "replies_attempted": 25,
-    "replies_succeeded": 21,
+    "replies_attempted": 26,
+    "replies_succeeded": 22,
     "reposts_attempted": 32,
     "reposts_succeeded": 10,
-    "actions_skipped": 50,
+    "actions_skipped": 57,
     "failed_operations": 26,
-    "ai_generation_requests": 143,
+    "ai_generation_requests": 146,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1768,6 +1768,106 @@
       "content_preview": "I spent 40+ hours testing high-speed AI inference pipelines using NeuBench. \n\nWhile everyone fights over foundational tr",
       "reason": "",
       "duration_s": 24.64
+    },
+    {
+      "timestamp": "2026-11-05T19:19:17.922342+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Meta’s warns that election backlash against data centers could make AI expansion harder",
+      "content_preview": "Data center power constraints are becoming the real bottleneck for distributed training at scale. If local opposition ha",
+      "reason": "",
+      "duration_s": 38.98
+    },
+    {
+      "timestamp": "2026-11-05T19:56:55.934082+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Meta says US users can now video chat with their Muse AI avatar",
+      "content_preview": "Real-time streaming multimodal avatars require sub-200ms roundtrips to feel conversational. Pushing that inference to a ",
+      "reason": "",
+      "duration_s": 37.91
+    },
+    {
+      "timestamp": "2026-11-05T20:23:04.878096+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/zomato/status/2118370011928780823",
+      "content_preview": "Bro is literally multi-apping between scoring goals and writing brand copy now.",
+      "reason": "",
+      "duration_s": 68.83
+    },
+    {
+      "timestamp": "2026-11-05T20:58:52.328004+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (startup life)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 107.31
+    },
+    {
+      "timestamp": "2026-11-05T21:45:36.585798+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (startup life)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 39.76
+    },
+    {
+      "timestamp": "2026-11-05T22:13:00.473634+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (coding tips)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 23.67
+    },
+    {
+      "timestamp": "2026-11-06T01:00:17.825471+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (remote work)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 11.75
+    },
+    {
+      "timestamp": "2026-11-06T01:31:26.452683+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (remote work)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 8.58
+    },
+    {
+      "timestamp": "2026-11-06T02:16:38.643115+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (remote work)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 11.93
+    },
+    {
+      "timestamp": "2026-11-06T05:21:33.520330+00:00",
+      "action_type": "threads_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Threads Viral (remote work)",
+      "content_preview": "Replied to 0 Threads post(s).",
+      "reason": "",
+      "duration_s": 14.07
     }
   ]
 }

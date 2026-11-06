@@ -28,6 +28,36 @@ class InstagramAutomater:
         cookie_file = self.user_data_dir / "cookies.json"
         return cookie_file.exists()
 
+    def _await_share_confirmation(self, page, timeout_ms: int) -> bool:
+        """Return true when Instagram confirms the share or closes the composer."""
+        deadline = time.time() + (timeout_ms / 1000)
+        phrases = (
+            "your post has been shared",
+            "your reel has been shared",
+            "post shared",
+            "reel shared",
+        )
+        while time.time() < deadline:
+            try:
+                body = page.locator("body").inner_text(timeout=2000).lower()
+                if any(phrase in body for phrase in phrases):
+                    return True
+            except Exception:
+                pass
+            try:
+                dialogs = page.locator('div[role="dialog"]')
+                visible = False
+                for index in range(dialogs.count()):
+                    if dialogs.nth(index).is_visible():
+                        visible = True
+                        break
+                if not visible:
+                    return True
+            except Exception:
+                pass
+            page.wait_for_timeout(1000)
+        return False
+
     def _select_crop_ratio(self, page, preferred_ratios: List[str]):
         """Selects aspect ratio in Instagram web composer to avoid automatic square cropping."""
         try:
@@ -176,9 +206,7 @@ class InstagramAutomater:
 
                 # 8. Await post confirmation
                 print("[InstagramAutomater] Waiting for upload confirmation...")
-                try:
-                    page.wait_for_selector('text="Your post has been shared.", text="Post shared."', timeout=45000)
-                except Exception:
+                if not self._await_share_confirmation(page, 45000):
                     self.last_outcome_unknown = True
                     self.last_message = "Instagram carousel submission was not confirmed; retry blocked."
                     return False, self.last_message
@@ -327,9 +355,7 @@ class InstagramAutomater:
 
                 # 8. Await post confirmation
                 print("[InstagramAutomater] Waiting for Reel upload confirmation...")
-                try:
-                    page.wait_for_selector('text="Your reel has been shared.", text="Your post has been shared.", text="Post shared."', timeout=60000)
-                except Exception:
+                if not self._await_share_confirmation(page, 60000):
                     self.last_outcome_unknown = True
                     self.last_message = "Instagram Reel submission was not confirmed; retry blocked."
                     return False, self.last_message
