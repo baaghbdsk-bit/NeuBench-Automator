@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-11-06T19:12:02.463384+00:00",
+    "total_trends": 1,
+    "active_trends": 1,
+    "sensitive_trends": 0,
+    "retention_hours": 48
+  },
+  "trends": [
+    {
+      "id": "tr_8da354033fd5239f",
+      "title": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "summary": "NeuBench telemetry reveals significant latency and cost differences when evaluating long-horizon coding tasks across 260+ models.",
+      "source": "NeuBench Live Telemetry",
+      "category": "ai_tech",
+      "url": "https://app.neubench.workers.dev",
+      "score": 10.45,
+      "discovered_at": "2026-11-06T19:12:02.462566+00:00",
+      "published_at": null,
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "NeuBench Live Telemetry"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "High Signal AI",
+        "company": "NeuBench"
+      },
+      "context": "NeuBench telemetry reveals significant latency and cost differences when evaluating long-horizon coding tasks across 260+ models.",
+      "traffic": "High Signal AI"
+    }
+  ]
+}

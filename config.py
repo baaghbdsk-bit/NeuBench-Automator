@@ -120,6 +120,9 @@ CAPS_PER_PLATFORM = {
     "bluesky_posts": int(os.getenv("MAX_DAILY_BLUESKY", "6")),            # 5-6 tech takes
 }
 
+MAX_DAILY_LINKEDIN = CAPS_PER_PLATFORM["linkedin_posts"]
+
+
 # Real-Time Push Alerts (Optional: Discord / Telegram)
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")

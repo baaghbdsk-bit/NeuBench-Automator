@@ -4,7 +4,16 @@ import feedparser
 import requests
 import random
 import re
-from typing import List, Dict, Any, Optional
+import html
+import hashlib
+import json
+import urllib.parse
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import List, Dict, Any, Optional, Set, Tuple, Union
+
+from src.x_state import atomic_write_json, normalize_x_text, content_hash
 
 LINKEDIN_PILLAR_ROTATION = ["NEWS", "EXPLAINER", "DIFFERENCE", "DID_YOU_KNOW", "WHAT_IF", "BEGINNER", "SURVIVAL", "BENCHMARK"]
 
@@ -328,14 +337,557 @@ NEWS_SIGNAL_TERMS = (
     "open source", "acquisition", "ipo", "revenue", "earnings",
 )
 
+# ==============================================================================
+# DETERMINISTIC TREND RANKING & SENSITIVITY CONFIGURATION
+# ==============================================================================
+
+DEFAULT_SOURCE_WEIGHTS: Dict[str, float] = {
+    # High-signal verified benchmark telemetry and frontier research
+    "NeuBench Live Telemetry": 9.5,
+    "Hugging Face Daily Papers": 9.0,
+    # High-signal developer and public discussions
+    "HackerNews": 8.5,
+    "Google Trends (IN)": 8.5,  # India-first primary audience growth target
+    "TechCrunch": 8.0,
+    "BBC World": 7.5,
+    "Google Trends (US)": 7.0,
+}
+DEFAULT_UNKNOWN_SOURCE_WEIGHT: float = 6.0
+
+DEFAULT_CATEGORY_MULTIPLIERS: Dict[str, float] = {
+    "frontier_paper": 1.15,
+    "ai_tech": 1.10,
+    "breaking_news": 1.0,
+    "society_culture": 1.0,
+    "explainer": 1.05,
+}
+
+COMMUNAL_RELIGIOUS_TRIGGERS: Tuple[str, ...] = (
+    "hindu-muslim", "communal", "riot", "caste census", "waqf",
+    "temple demolition", "mosque", "reservation bill", "sanatan debate",
+    "blasphemy", "conversion", "sedition", "supreme court stay",
+    "lynching", "communal violence", "religious clash"
+)
+
+POLITICAL_CRIMINAL_FRICTION_TRIGGERS: Tuple[str, ...] = (
+    "corrupt", "jail", "arrest", "scam", "rigged", "evm",
+    "custody", "defamation", "allegations", "rape", "murder",
+    "suicide", "terrorist", "encounter", "extortion", "bribe"
+)
+
+
+def detect_trend_sensitivity(title: str, summary: str = "", category: str = "") -> Tuple[bool, str]:
+    """
+    Classifies whether a discovered trend touches sensitive political, religious, communal,
+    or criminal controversies requiring mandatory human review before publishing.
+    """
+    text_corpus = f"{title} {summary}".lower()
+
+    for kw in COMMUNAL_RELIGIOUS_TRIGGERS:
+        if kw in text_corpus:
+            return True, f"Triggered sensitive societal/communal trigger: '{kw}'"
+
+    category_norm = (category or "").lower()
+    if category_norm in ("breaking_news", "politics", "society_culture") or "google trends" in category_norm:
+        for pf in POLITICAL_CRIMINAL_FRICTION_TRIGGERS:
+            pattern = rf"\b{re.escape(pf)}\b"
+            if re.search(pattern, text_corpus):
+                return True, f"Political/criminal controversy trigger: '{pf}'"
+
+    return False, "Standard public interest or tech topic"
+
+
+def canonicalize_url(url: Optional[str]) -> str:
+    """
+    Normalizes a URL by stripping tracking parameters, normalizing scheme/host,
+    and stripping trailing slashes.
+    """
+    if not url or not isinstance(url, str):
+        return ""
+    clean = url.strip()
+    if not clean or not clean.startswith(("http://", "https://")):
+        return ""
+    try:
+        parsed = urllib.parse.urlsplit(clean)
+        netloc = parsed.netloc.lower()
+        if netloc.startswith("www."):
+            netloc = netloc[4:]
+
+        query_params = urllib.parse.parse_qsl(parsed.query, keep_blank_values=False)
+        tracking_prefixes = ("utm_", "fbclid", "gclid", "ref", "mc_cid", "mc_eid")
+        filtered_params = [
+            (k, v) for k, v in query_params
+            if not any(k.lower().startswith(p) for p in tracking_prefixes)
+        ]
+        new_query = urllib.parse.urlencode(filtered_params)
+        path = parsed.path.rstrip("/")
+        return urllib.parse.urlunsplit((parsed.scheme.lower(), netloc, path, new_query, ""))
+    except Exception:
+        return clean.rstrip("/")
+
+
+def normalize_trend_title(title: str) -> str:
+    """
+    Normalizes title text for deduplication: unescapes HTML entities, removes common
+    publisher trailing suffixes, strips punctuation, and collapses whitespace.
+    """
+    if not title:
+        return ""
+    text = html.unescape(title)
+    text = re.sub(
+        r"\s+[-|–—]\s+(?:BBC News|TechCrunch|Hacker News|The Verge|Reuters|NDTV|The Indian Express).*$",
+        "",
+        text,
+        flags=re.IGNORECASE
+    )
+    return normalize_x_text(text)
+
+
+def generate_trend_id(url: str, title: str) -> str:
+    """
+    Generates a deterministic 16-character identifier based on canonical URL or normalized title.
+    """
+    canon_url = canonicalize_url(url)
+    if canon_url:
+        key = f"url:{canon_url}"
+    else:
+        key = f"title:{normalize_trend_title(title)}"
+    digest = hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
+    return f"tr_{digest}"
+
+
+def normalize_trend_item(
+    raw: Dict[str, Any],
+    source: str,
+    default_category: str = "breaking_news",
+    discovered_at: Optional[str] = None
+) -> Optional[Dict[str, Any]]:
+    """
+    Converts raw feed/API entries into a strict, consistent Trend representation.
+    Handles missing fields gracefully without inventing synthetic values.
+    """
+    if not isinstance(raw, dict):
+        return None
+
+    raw_title = str(raw.get("title") or "").strip()
+    if not raw_title or len(raw_title) < 3:
+        return None
+
+    title = html.unescape(raw_title).replace("\ufffd", "'").strip()
+    raw_summary = str(raw.get("summary") or raw.get("context") or title).strip()
+    summary = html.unescape(raw_summary).replace("\ufffd", "'").strip()
+
+    url = canonicalize_url(raw.get("url") or raw.get("link") or "")
+    trend_id = generate_trend_id(url, title)
+
+    category = raw.get("category") or default_category
+
+    # Extract published_at if present without fabricating
+    published_at: Optional[str] = None
+    raw_pub = raw.get("published_at") or raw.get("published")
+    if isinstance(raw_pub, str) and raw_pub.strip():
+        published_at = raw_pub.strip()
+    elif "published_parsed" in raw and raw["published_parsed"]:
+        try:
+            dt = datetime(*raw["published_parsed"][:6], tzinfo=timezone.utc)
+            published_at = dt.isoformat()
+        except Exception:
+            published_at = None
+    elif "time" in raw and isinstance(raw["time"], (int, float)):
+        try:
+            dt = datetime.fromtimestamp(raw["time"], tz=timezone.utc)
+            published_at = dt.isoformat()
+        except Exception:
+            published_at = None
+
+    disc_at = discovered_at or raw.get("discovered_at") or datetime.now(timezone.utc).isoformat()
+
+    # Sensitivity detection
+    is_sensitive, sens_reason = detect_trend_sensitivity(title, summary, category)
+    if raw.get("is_sensitive") is True:
+        is_sensitive = True
+        sens_reason = raw.get("sensitivity_reason", sens_reason)
+
+    # Clean metadata signals (preserving authentic source signals, no fabrication)
+    metadata: Dict[str, Any] = {
+        "sources_seen": [source],
+        "sensitivity_reason": sens_reason,
+        "traffic": raw.get("traffic") if raw.get("traffic") != "Trending Spike" else None,
+        "hn_score": raw.get("score") if isinstance(raw.get("score"), int) else None,
+        "hn_comments": raw.get("comments_count") if isinstance(raw.get("comments_count"), int) else None,
+        "company": raw.get("company"),
+        "pillar": raw.get("pillar"),
+    }
+    metadata = {k: v for k, v in metadata.items() if v is not None}
+
+    item = {
+        "id": trend_id,
+        "title": title,
+        "summary": summary,
+        "source": source,
+        "category": category,
+        "url": url,
+        "score": 0.0,
+        "discovered_at": disc_at,
+        "published_at": published_at,
+        "is_sensitive": is_sensitive,
+        "metadata": metadata,
+        # Backwards compatibility aliases
+        "context": summary,
+        "traffic": raw.get("traffic", "Trending Spike"),
+    }
+    return item
+
+
+def calculate_trend_score(
+    item: Dict[str, Any],
+    weights_config: Optional[Dict[str, Any]] = None
+) -> float:
+    """
+    Calculates a deterministic relevance score for a trend item.
+    Formula:
+      score = (source_weight * category_multiplier) + engagement_boost + recency_factor + multi_source_boost
+
+    Rules:
+    - Never fabricates engagement or velocity metrics if missing.
+    - Missing metrics contribute 0.0 to their specific boost term.
+    - Recency factor applies only when published_at is verifiable.
+    """
+    weights = weights_config or {}
+    source_weights = weights.get("source_reliability", DEFAULT_SOURCE_WEIGHTS)
+    category_weights = weights.get("category_weights", DEFAULT_CATEGORY_MULTIPLIERS)
+
+    source = item.get("source", "")
+    base_score = source_weights.get(source)
+    if base_score is None:
+        for k, v in source_weights.items():
+            if k.lower() in source.lower():
+                base_score = v
+                break
+    if base_score is None:
+        base_score = DEFAULT_UNKNOWN_SOURCE_WEIGHT
+
+    category = item.get("category", "breaking_news")
+    category_multiplier = category_weights.get(category, 1.0)
+
+    # Engagement boost (ONLY from authentic signals in item/metadata)
+    meta = item.get("metadata", {})
+    engagement_boost = 0.0
+
+    hn_score = meta.get("hn_score")
+    if isinstance(hn_score, (int, float)) and hn_score > 0:
+        engagement_boost += min(hn_score / 50.0, 3.0)
+
+    hn_comments = meta.get("hn_comments")
+    if isinstance(hn_comments, (int, float)) and hn_comments > 0:
+        engagement_boost += min(hn_comments / 30.0, 2.0)
+
+    traffic_str = str(meta.get("traffic") or "")
+    if "M+" in traffic_str:
+        try:
+            val = float(traffic_str.replace("M+", "").strip())
+            engagement_boost += min(3.5 + val * 0.5, 5.0)
+        except Exception:
+            engagement_boost += 3.5
+    elif "K+" in traffic_str:
+        try:
+            val = float(traffic_str.replace("K+", "").strip())
+            if val >= 500:
+                engagement_boost += 3.0
+            elif val >= 200:
+                engagement_boost += 2.5
+            elif val >= 100:
+                engagement_boost += 2.0
+            elif val >= 50:
+                engagement_boost += 1.5
+            elif val >= 10:
+                engagement_boost += 1.0
+        except Exception:
+            engagement_boost += 1.0
+
+    # Recency factor (only if published_at is present and valid)
+    recency_factor = 0.0
+    pub_at_str = item.get("published_at")
+    if pub_at_str:
+        try:
+            pub_dt = datetime.fromisoformat(pub_at_str.replace("Z", "+00:00"))
+            now_dt = datetime.now(timezone.utc)
+            elapsed_hours = (now_dt - pub_dt).total_seconds() / 3600.0
+            if elapsed_hours <= 3.0:
+                recency_factor = 2.0
+            elif elapsed_hours <= 12.0:
+                recency_factor = 1.0
+            elif elapsed_hours <= 24.0:
+                recency_factor = 0.5
+            elif elapsed_hours <= 48.0:
+                recency_factor = 0.0
+            else:
+                recency_factor = -0.5
+        except Exception:
+            recency_factor = 0.0
+
+    # Multi-source boost
+    sources_seen = meta.get("sources_seen", [source])
+    multi_source_boost = 0.0
+    if len(sources_seen) > 1:
+        multi_source_boost = min(2.0 * (len(sources_seen) - 1), 4.0)
+
+    total_score = (base_score * category_multiplier) + engagement_boost + recency_factor + multi_source_boost
+    return round(total_score, 2)
+
+
+def rank_trends(
+    items: List[Dict[str, Any]],
+    weights_config: Optional[Dict[str, Any]] = None
+) -> List[Dict[str, Any]]:
+    """
+    Ranks items deterministically by calculated score descending, tie-breaking by
+    discovered_at descending, then id ascending.
+    """
+    for item in items:
+        item["score"] = calculate_trend_score(item, weights_config)
+
+    return sorted(
+        items,
+        key=lambda x: (
+            -x.get("score", 0.0),
+            x.get("discovered_at", ""),
+            x.get("id", "")
+        )
+    )
+
+
+def _title_tokens(title: str) -> Set[str]:
+    stopwords = {"the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for", "with", "by", "of", "from"}
+    norm = normalize_trend_title(title)
+    words = re.findall(r"\b\w{3,}\b", norm)
+    return {w for w in words if w not in stopwords}
+
+
+def deduplicate_trends(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Deduplicates items across sources by canonical URL, normalized title hash,
+    or high token overlap, while preserving source attribution and multi-source signals.
+    """
+    merged_by_id: Dict[str, Dict[str, Any]] = {}
+    url_to_id: Dict[str, str] = {}
+    title_hash_to_id: Dict[str, str] = {}
+
+    for item in items:
+        if not item or not isinstance(item, dict):
+            continue
+
+        item_id = item.get("id")
+        url = item.get("url")
+        title = item.get("title", "")
+        source = item.get("source")
+
+        norm_title = normalize_trend_title(title)
+        title_hash = hashlib.sha256(norm_title.encode("utf-8")).hexdigest()
+        tokens = _title_tokens(title)
+
+        target_id: Optional[str] = None
+
+        if item_id in merged_by_id:
+            target_id = item_id
+        elif url and url in url_to_id:
+            target_id = url_to_id[url]
+        elif title_hash in title_hash_to_id:
+            target_id = title_hash_to_id[title_hash]
+        else:
+            if len(tokens) >= 4:
+                for existing_id, existing_item in merged_by_id.items():
+                    existing_tokens = _title_tokens(existing_item.get("title", ""))
+                    if len(existing_tokens) >= 4:
+                        intersection = tokens.intersection(existing_tokens)
+                        union = tokens.union(existing_tokens)
+                        if union and (len(intersection) / len(union)) >= 0.75:
+                            target_id = existing_id
+                            break
+
+        if target_id and target_id in merged_by_id:
+            target = merged_by_id[target_id]
+            seen_sources = target.setdefault("metadata", {}).setdefault("sources_seen", [target.get("source")])
+            if source and source not in seen_sources:
+                seen_sources.append(source)
+
+            # Prefer richer summary
+            if len(item.get("summary", "")) > len(target.get("summary", "")):
+                target["summary"] = item["summary"]
+                target["context"] = item["summary"]
+
+            # Retain canonical URL if target lacks one
+            if not target.get("url") and url:
+                target["url"] = url
+                url_to_id[url] = target_id
+
+            # Merge metadata signals without overwriting existing authentic signals
+            for k in ("traffic", "hn_score", "hn_comments", "company"):
+                if item.get("metadata", {}).get(k) and not target.get("metadata", {}).get(k):
+                    target["metadata"][k] = item["metadata"][k]
+
+            # Preserve sensitive classification if triggered by either source
+            if item.get("is_sensitive"):
+                target["is_sensitive"] = True
+                target["metadata"]["sensitivity_reason"] = item.get("metadata", {}).get("sensitivity_reason", "Sensitive debate")
+        else:
+            merged_by_id[item_id] = item
+            if url:
+                url_to_id[url] = item_id
+            title_hash_to_id[title_hash] = item_id
+
+    return list(merged_by_id.values())
+
+
+class TrendCacheManager:
+    """
+    Manages atomic persistence, retrieval, corruption recovery, and 48-hour retention
+    for discovered trends in data/trends_cache.json using atomic JSON helpers.
+    """
+
+    def __init__(self, cache_file: Optional[Union[str, Path]] = None):
+        if cache_file:
+            self.cache_file = Path(cache_file)
+        else:
+            self.cache_file = Path(__file__).resolve().parent.parent / "data" / "trends_cache.json"
+
+    def _default_cache(self) -> Dict[str, Any]:
+        return {
+            "metadata": {
+                "version": "1.0",
+                "last_updated": datetime.now(timezone.utc).isoformat(),
+                "total_trends": 0,
+                "active_trends": 0,
+                "sensitive_trends": 0,
+                "retention_hours": 48
+            },
+            "trends": []
+        }
+
+    def load_cache(self) -> Dict[str, Any]:
+        """
+        Safely reads the trends cache.
+        If missing: returns default structure.
+        If corrupted: backs up corrupted file and returns fresh default structure.
+        """
+        if not self.cache_file.exists():
+            return self._default_cache()
+
+        try:
+            with open(self.cache_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and "trends" in data and isinstance(data["trends"], list):
+                    return data
+                return self._default_cache()
+        except (json.JSONDecodeError, UnicodeDecodeError) as e:
+            corrupt_backup = self.cache_file.with_name(f"{self.cache_file.name}.corrupt.{int(time.time())}")
+            try:
+                self.cache_file.rename(corrupt_backup)
+            except Exception:
+                pass
+            print(f"[TrendHunter] Warning: corrupted trends cache detected. Backed up to {corrupt_backup.name}.")
+            return self._default_cache()
+        except OSError as e:
+            print(f"[TrendHunter] Warning: could not read cache file ({e}). Using in-memory fallback.")
+            return self._default_cache()
+
+    def save_cache(self, data: Dict[str, Any]) -> bool:
+        """
+        Saves cache data atomically via src.x_state.atomic_write_json.
+        """
+        try:
+            trends = data.get("trends", [])
+            data.setdefault("metadata", {})
+            data["metadata"]["last_updated"] = datetime.now(timezone.utc).isoformat()
+            data["metadata"]["total_trends"] = len(trends)
+            data["metadata"]["active_trends"] = len(trends)
+            data["metadata"]["sensitive_trends"] = sum(1 for t in trends if t.get("is_sensitive", False))
+            data["metadata"]["retention_hours"] = 48
+
+            atomic_write_json(self.cache_file, data)
+            return True
+        except Exception as e:
+            print(f"[TrendHunter] Error saving trend cache to {self.cache_file}: {e}")
+            return False
+
+    def prune_expired(self, max_age_hours: float = 48.0) -> int:
+        """
+        Removes trends where discovered_at is older than max_age_hours.
+        Returns the number of pruned items.
+        """
+        data = self.load_cache()
+        trends = data.get("trends", [])
+        now_dt = datetime.now(timezone.utc)
+
+        valid_trends = []
+        pruned_count = 0
+        for t in trends:
+            disc_str = t.get("discovered_at")
+            if not disc_str:
+                valid_trends.append(t)
+                continue
+            try:
+                disc_dt = datetime.fromisoformat(disc_str.replace("Z", "+00:00"))
+                age_hours = (now_dt - disc_dt).total_seconds() / 3600.0
+                if age_hours <= max_age_hours:
+                    valid_trends.append(t)
+                else:
+                    pruned_count += 1
+            except Exception:
+                valid_trends.append(t)
+
+        if pruned_count > 0:
+            data["trends"] = valid_trends
+            self.save_cache(data)
+        return pruned_count
+
+    def update_trends(self, new_trends: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Merges new trends into existing cache, prunes expired trends, deduplicates,
+        ranks deterministically, and saves to data/trends_cache.json.
+        """
+        self.prune_expired(max_age_hours=48.0)
+        data = self.load_cache()
+        existing_trends = data.get("trends", [])
+
+        combined = deduplicate_trends(existing_trends + new_trends)
+        ranked = rank_trends(combined)
+
+        data["trends"] = ranked
+        self.save_cache(data)
+        return ranked
+
+    def get_trends(
+        self,
+        category: Optional[str] = None,
+        include_sensitive: bool = True,
+        limit: int = 20
+    ) -> List[Dict[str, Any]]:
+        """
+        Returns cached trends matching filter criteria.
+        """
+        data = self.load_cache()
+        trends = data.get("trends", [])
+        filtered = []
+        for t in trends:
+            if not include_sensitive and t.get("is_sensitive", False):
+                continue
+            if category and t.get("category") != category:
+                continue
+            filtered.append(t)
+            if len(filtered) >= limit:
+                break
+        return filtered
+
 
 class TrendHunter:
     """Discovers viral, debated, and breaking topics across the web 100% free with fast RSS & APIs."""
 
-    def __init__(self):
+    def __init__(self, cache_file: Optional[Union[str, Path]] = None):
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
         }
+        self.cache = TrendCacheManager(cache_file)
 
     def get_google_trends(self, geo: str = "IN") -> List[Dict[str, Any]]:
         """Pulls top real-time trending spikes from Google Trends RSS (Default: India for explosive reach)."""
@@ -346,13 +898,16 @@ class TrendHunter:
                 feed = feedparser.parse(url)
                 for entry in feed.entries[:6]:
                     approx_traffic = getattr(entry, "ht_approx_traffic", "Trending Spike")
-                    trends.append({
+                    raw = {
                         "title": entry.title,
                         "summary": getattr(entry, "summary", entry.title),
-                        "source": f"Google Trends ({region})",
                         "traffic": approx_traffic,
-                        "category": "breaking_news"
-                    })
+                        "category": "breaking_news",
+                        "published_parsed": getattr(entry, "published_parsed", None)
+                    }
+                    normalized = normalize_trend_item(raw, source=f"Google Trends ({region})", default_category="breaking_news")
+                    if normalized:
+                        trends.append(normalized)
             except Exception as e:
                 print(f"[TrendHunter] Google Trends ({region}) error: {e}")
         return trends
@@ -369,15 +924,18 @@ class TrendHunter:
                     item_url = f"https://hacker-news.firebaseio.com/v0/item/{item_id}.json"
                     item = requests.get(item_url, timeout=3).json()
                     if item and "title" in item:
-                        news.append({
+                        raw = {
                             "title": item.get("title", ""),
                             "summary": item.get("title", ""),
                             "comments_count": item.get("descendants", 0),
                             "score": item.get("score", 0),
                             "url": item.get("url", ""),
-                            "source": "HackerNews",
+                            "time": item.get("time"),
                             "category": "ai_tech"
-                        })
+                        }
+                        normalized = normalize_trend_item(raw, source="HackerNews", default_category="ai_tech")
+                        if normalized:
+                            news.append(normalized)
         except Exception as e:
             print(f"[TrendHunter] HackerNews error: {e}")
         return news
@@ -393,14 +951,17 @@ class TrendHunter:
             try:
                 feed = feedparser.parse(feed_url)
                 for entry in feed.entries[:4]:
-                    items.append({
+                    raw = {
                         "title": entry.title,
                         "summary": getattr(entry, "summary", entry.title)[:200],
                         "url": getattr(entry, "link", ""),
-                        "source": source_name,
                         "traffic": "Breaking",
-                        "category": category
-                    })
+                        "category": category,
+                        "published_parsed": getattr(entry, "published_parsed", None)
+                    }
+                    normalized = normalize_trend_item(raw, source=source_name, default_category=category)
+                    if normalized:
+                        items.append(normalized)
             except Exception as e:
                 print(f"[TrendHunter] RSS error on {source_name}: {e}")
         return items
@@ -412,7 +973,6 @@ class TrendHunter:
                 "title": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
                 "summary": "NeuBench telemetry reveals significant latency and cost differences when evaluating long-horizon coding tasks across 260+ models.",
                 "company": "NeuBench",
-                "source": "NeuBench Live Telemetry",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
                 "url": "https://app.neubench.workers.dev/"
@@ -421,7 +981,6 @@ class TrendHunter:
                 "title": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
                 "summary": "NeuBench speed testing shows real-world token throughput variances up to 40% across hosted provider APIs.",
                 "company": "NeuBench",
-                "source": "NeuBench Latency Radar",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
                 "url": "https://app.neubench.workers.dev/"
@@ -430,7 +989,6 @@ class TrendHunter:
                 "title": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
                 "summary": "NeuBench evaluations analyze benchmark accuracy drop versus inference acceleration on local and cloud models.",
                 "company": "NeuBench",
-                "source": "NeuBench Model Index",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
                 "url": "https://app.neubench.workers.dev/"
@@ -439,13 +997,17 @@ class TrendHunter:
                 "title": "LLM API Outage Frequency & Degradation Index",
                 "summary": "NeuBench monitoring tracks endpoint reliability and error rates across top frontier intelligence providers.",
                 "company": "NeuBench",
-                "source": "NeuBench Reliability Index",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
                 "url": "https://app.neubench.workers.dev/"
             }
         ]
-        return curated[:limit]
+        results = []
+        for c in curated[:limit]:
+            normalized = normalize_trend_item(c, source="NeuBench Live Telemetry", default_category="ai_tech")
+            if normalized:
+                results.append(normalized)
+        return results
 
     def get_huggingface_daily_papers(self, limit: int = 4) -> List[Dict[str, Any]]:
         """Pulls breaking research papers from Hugging Face Daily Papers API."""
@@ -459,29 +1021,77 @@ class TrendHunter:
                     title = p.get("title", "")
                     summary = p.get("summary", title)
                     if title:
-                        papers.append({
+                        raw = {
                             "title": title,
                             "summary": summary[:300],
-                            "source": "Hugging Face Daily Papers",
                             "traffic": "Frontier AI Research",
                             "category": "frontier_paper",
-                            "url": f"https://huggingface.co/papers/{p.get('id', '')}"
-                        })
+                            "url": f"https://huggingface.co/papers/{p.get('id', '')}",
+                            "published_at": p.get("publishedAt")
+                        }
+                        normalized = normalize_trend_item(raw, source="Hugging Face Daily Papers", default_category="frontier_paper")
+                        if normalized:
+                            papers.append(normalized)
         except Exception as e:
             print(f"[TrendHunter] Hugging Face Daily Papers error: {e}")
         return papers
 
-    def get_curated_trending_topics(self) -> List[Dict[str, Any]]:
-        """Combines and ranks all trends by engagement potential."""
-        all_trends = []
-        all_trends.extend(self.get_neubench_stories())
-        all_trends.extend(self.get_huggingface_daily_papers())
-        all_trends.extend(self.get_tech_news())
-        all_trends.extend(self.get_breaking_rss())
-        all_trends.extend(self.get_google_trends())
-        
-        random.shuffle(all_trends)
-        return all_trends
+    def get_curated_trending_topics(self, use_cache: bool = True, refresh: bool = False) -> List[Dict[str, Any]]:
+        """
+        Discovers, normalizes, deduplicates, and deterministically ranks trending topics
+        across all live sources, persisting them to data/trends_cache.json.
+        """
+        if use_cache and not refresh:
+            cached = self.cache.get_trends(limit=30)
+            if cached:
+                return cached
+
+        all_trends: List[Dict[str, Any]] = []
+        try:
+            all_trends.extend(self.get_neubench_stories())
+        except Exception as e:
+            print(f"[TrendHunter] NeuBench stories error: {e}")
+
+        try:
+            all_trends.extend(self.get_huggingface_daily_papers())
+        except Exception as e:
+            print(f"[TrendHunter] Hugging Face papers error: {e}")
+
+        try:
+            all_trends.extend(self.get_tech_news())
+        except Exception as e:
+            print(f"[TrendHunter] Tech news error: {e}")
+
+        try:
+            all_trends.extend(self.get_breaking_rss())
+        except Exception as e:
+            print(f"[TrendHunter] Breaking RSS error: {e}")
+
+        try:
+            all_trends.extend(self.get_google_trends(geo="IN"))
+        except Exception as e:
+            print(f"[TrendHunter] Google Trends error: {e}")
+
+        deduped = deduplicate_trends(all_trends)
+        ranked = rank_trends(deduped)
+        self.cache.update_trends(ranked)
+        return ranked
+
+    def get_candidate_trends(
+        self,
+        platform: str = "x",
+        limit: int = 15,
+        include_sensitive: bool = True
+    ) -> List[Dict[str, Any]]:
+        """
+        Returns top-ranked candidate trends from cache, or fetches fresh if cache is empty.
+        Filters by sensitive topics if include_sensitive is False.
+        """
+        cached = self.cache.get_trends(include_sensitive=include_sensitive, limit=limit)
+        if not cached:
+            self.get_curated_trending_topics(use_cache=False, refresh=True)
+            cached = self.cache.get_trends(include_sensitive=include_sensitive, limit=limit)
+        return cached
 
     def get_linkedin_topics(self, pillar: Optional[str] = None) -> List[Dict[str, Any]]:
         """Return professional LinkedIn topics, optionally filtered to one content pillar."""
@@ -1041,6 +1651,33 @@ class TrendHunter:
             if unseen:
                 return unseen
         return concepts
+
+    def get_comparison_topics(self, used_topics=None) -> List[Dict[str, Any]]:
+        """Return dynamic technical and architectural comparison (versus) topics."""
+        comparisons = [
+            {"title": "HashMap vs. HashSet", "concept_a": "HashMap", "concept_b": "HashSet", "category": "DATA STRUCTURES", "summary": "Key-value associative mapping vs unique set membership under the hood."},
+            {"title": "ArrayList vs. LinkedList", "concept_a": "ArrayList", "concept_b": "LinkedList", "category": "DATA STRUCTURES", "summary": "Contiguous memory cache locality vs pointer node allocation overhead."},
+            {"title": "Stack vs. Queue", "concept_a": "Stack (LIFO)", "concept_b": "Queue (FIFO)", "category": "DATA STRUCTURES", "summary": "Call stack recursion state vs message pipeline asynchronous buffering."},
+            {"title": "REST vs. GraphQL vs. gRPC", "concept_a": "REST / JSON", "concept_b": "gRPC / Protobuf", "category": "NETWORK PROTOCOLS", "summary": "HTTP/1.1 stateless ubiquity vs HTTP/2 binary multiplexed RPC throughput."},
+            {"title": "SQL vs. NoSQL (PostgreSQL vs. MongoDB)", "concept_a": "PostgreSQL (ACID / Relational)", "concept_b": "MongoDB (Document / Distributed)", "category": "DATABASE SYSTEMS", "summary": "Strict relational schemas & WAL logging vs horizontal sharded document flexibility."},
+            {"title": "RAG vs. Fine-Tuning", "concept_a": "Retrieval-Augmented Generation", "concept_b": "Supervised Fine-Tuning", "category": "AI INFRASTRUCTURE", "summary": "Dynamic vector search groundings vs parametric weight specialization."},
+            {"title": "AI Agents vs. Traditional Automation", "concept_a": "Autonomous AI Agents", "concept_b": "Deterministic Workflows", "category": "SYSTEMS ARCHITECTURE", "summary": "Probabilistic non-linear tool calling vs deterministic rigid pipeline reliability."},
+            {"title": "MCP vs. REST API", "concept_a": "Model Context Protocol", "concept_b": "Traditional REST APIs", "category": "SYSTEMS ARCHITECTURE", "summary": "Standardized client-host agent tooling vs point-to-point bespoke endpoint contracts."},
+            {"title": "LLM vs. SLM (Small Language Models)", "concept_a": "Frontier LLM (70B+)", "concept_b": "Small Language Model (1B-8B)", "category": "AI & MACHINE LEARNING", "summary": "Deep multi-domain reasoning in cloud clusters vs quantized local edge latency."},
+            {"title": "Docker vs. Virtual Machines", "concept_a": "Docker Containers", "concept_b": "Hardware Virtual Machines", "category": "SYSTEMS ARCHITECTURE", "summary": "Shared OS kernel namespace isolation vs hypervisor hardware emulation."},
+            {"title": "Monolith vs. Microservices", "concept_a": "Modular Monolith", "concept_b": "Distributed Microservices", "category": "SYSTEMS ARCHITECTURE", "summary": "In-process memory call simplicity vs network serialized latency and distributed state."},
+            {"title": "Kafka vs. RabbitMQ", "concept_a": "Apache Kafka", "concept_b": "RabbitMQ", "category": "DISTRIBUTED SYSTEMS", "summary": "Distributed partitioned commit log replay vs AMQP smart broker push queueing."},
+            {"title": "Redis vs. Memcached", "concept_a": "Redis", "concept_b": "Memcached", "category": "CACHING & MEMORY", "summary": "Multi-data-structure persistence & pub/sub vs pure multithreaded key-value caching."},
+            {"title": "Optimistic vs. Pessimistic Locking", "concept_a": "Optimistic Locking", "concept_b": "Pessimistic Locking", "category": "DATABASE CONCURRENCY", "summary": "Version check conflict retries vs row-level lock serialization under high write contention."},
+            {"title": "TCP vs. UDP", "concept_a": "TCP (Transmission Control Protocol)", "concept_b": "UDP (User Datagram Protocol)", "category": "NETWORKING", "summary": "3-way handshake & guaranteed ordered delivery vs connectionless zero-overhead datagram streaming."},
+            {"title": "Event-Driven vs. Request-Driven Architecture", "concept_a": "Event-Driven (Pub/Sub)", "concept_b": "Request-Driven (RPC / REST)", "category": "DISTRIBUTED SYSTEMS", "summary": "Asynchronous decoupled event streams vs synchronous blocking call topologies."}
+        ]
+        if used_topics:
+            used_set = {str(t).lower().strip() for t in used_topics}
+            unseen = [item for item in comparisons if item.get('title', '').lower().strip() not in used_set]
+            if unseen:
+                return unseen
+        return comparisons
 
     def get_x_unfiltered_topics(self):
         import random

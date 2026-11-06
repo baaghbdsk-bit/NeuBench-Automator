@@ -94,7 +94,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          for state_file in linkedin_post_history.json; do
+          for state_file in linkedin_post_history.json trial_metrics.json linkedin_engagement_history.json; do
             if [ -f "$state_file" ]; then
               git add "$state_file"
             fi

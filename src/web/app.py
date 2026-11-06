@@ -42,7 +42,9 @@ if sys.platform == "win32":
 
 
 
-from fastapi import FastAPI, Request, BackgroundTasks
+from fastapi import FastAPI, Request, BackgroundTasks, Query
+from starlette.concurrency import run_in_threadpool
+from src.trend_hunter import TrendHunter, TrendCacheManager
 
 from fastapi.responses import HTMLResponse, JSONResponse
 
@@ -374,6 +376,12 @@ async def get_stats():
 
         },
 
+        "metric_transparency": {
+            "x_followers": {"value": current_followers, "source": "hardcoded_constant", "status": "simulated", "last_updated": None, "is_estimated": True},
+            "x_impressions": {"value": estimated_impressions, "source": "cycles_x_4500", "status": "estimated", "last_updated": None, "is_estimated": True},
+            "bluesky_followers": {"value": bsky_live.get("followers", 1), "source": "bluesky_at_protocol", "status": "live", "last_updated": bsky_live.get("timestamp"), "is_estimated": False},
+            "linkedin_stats": {"value": None, "source": "none", "status": "unavailable", "last_updated": None, "is_estimated": False}
+        },
         "platforms": {
 
             "x": {
@@ -1591,6 +1599,155 @@ async def update_topics_api(req: TopicRoutingUpdateRequest):
     save_topic_routing(req.routing)
 
     return {"status": "success", "message": "Topic routing updated successfully", "routing": req.routing}
+
+
+# ==============================================================================
+# TREND INTELLIGENCE ROUTES (PHASE 2B)
+# ==============================================================================
+
+_trend_hunter_instance: Optional[TrendHunter] = None
+
+def get_trend_hunter() -> TrendHunter:
+    global _trend_hunter_instance
+    if _trend_hunter_instance is None:
+        _trend_hunter_instance = TrendHunter()
+    return _trend_hunter_instance
+
+
+class TrendRefreshRequest(BaseModel):
+    geo: Optional[str] = "IN"
+    background: Optional[bool] = False
+    limit: Optional[int] = 20
+
+
+@app.get("/api/trends")
+async def get_trends_api(
+    platform: Optional[str] = Query(None, description="Target platform filter (x, linkedin, bluesky)"),
+    category: Optional[str] = Query(None, description="Topical category filter (ai_tech, breaking_news, frontier_paper, etc.)"),
+    include_sensitive: bool = Query(True, description="Whether to include sensitive topics requiring approval"),
+    limit: int = Query(20, ge=1, le=100, description="Maximum number of trends to return"),
+    auto_refresh: bool = Query(False, description="Automatically trigger live fetch if cache is empty")
+):
+    """
+    Returns normalized, deduplicated, and deterministically ranked trends from cache.
+    Non-blocking execution via run_in_threadpool.
+    """
+    try:
+        hunter = get_trend_hunter()
+
+        def _fetch_trends():
+            cached_data = hunter.cache.load_cache()
+            trends = cached_data.get("trends", [])
+
+            if not trends and auto_refresh:
+                trends = hunter.get_curated_trending_topics(use_cache=False, refresh=True)
+                cached_data = hunter.cache.load_cache()
+
+            total_cached = len(trends)
+            metadata = cached_data.get("metadata", {})
+            last_updated = metadata.get("last_updated")
+
+            platform_norm = (platform or "").lower().strip()
+            cat_norm = (category or "").lower().strip()
+
+            filtered = []
+            for t in trends:
+                if not include_sensitive and t.get("is_sensitive", False):
+                    continue
+
+                item_cat = (t.get("category") or "").lower().strip()
+                if cat_norm:
+                    if cat_norm not in item_cat and item_cat not in cat_norm:
+                        continue
+                elif platform_norm in ("linkedin", "bluesky"):
+                    if item_cat not in ("ai_tech", "frontier_paper", "explainer"):
+                        continue
+
+                filtered.append(t)
+                if len(filtered) >= limit:
+                    break
+
+            return {
+                "status": "success",
+                "count": len(filtered),
+                "total_cached": total_cached,
+                "last_updated": last_updated,
+                "filters": {
+                    "platform": platform_norm or None,
+                    "category": cat_norm or None,
+                    "include_sensitive": include_sensitive,
+                    "limit": limit
+                },
+                "trends": filtered
+            }
+
+        result = await run_in_threadpool(_fetch_trends)
+        return JSONResponse(status_code=200, content=result)
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={
+                "status": "error",
+                "message": f"Failed to retrieve trends: {str(e)}",
+                "count": 0,
+                "total_cached": 0,
+                "trends": []
+            }
+        )
+
+
+@app.post("/api/trends/refresh")
+async def refresh_trends_api(
+    background_tasks: BackgroundTasks,
+    req: Optional[TrendRefreshRequest] = None
+):
+    """
+    Triggers live trend collection, normalization, deduplication, ranking, and persistence.
+    Can be run synchronously in threadpool or deferred to background tasks.
+    """
+    request_data = req or TrendRefreshRequest()
+    hunter = get_trend_hunter()
+
+    def _execute_refresh():
+        try:
+            return hunter.get_curated_trending_topics(use_cache=False, refresh=True)
+        except Exception as err:
+            print(f"[TrendHunter API] Refresh error: {err}")
+            return []
+
+    try:
+        if request_data.background:
+            background_tasks.add_task(_execute_refresh)
+            return JSONResponse(
+                status_code=202,
+                content={
+                    "status": "accepted",
+                    "message": "Trend collection initiated in background.",
+                    "background": True
+                }
+            )
+        else:
+            refreshed = await run_in_threadpool(_execute_refresh)
+            limit = request_data.limit or 20
+            return JSONResponse(
+                status_code=200,
+                content={
+                    "status": "success",
+                    "message": "Trends collected and cache updated successfully.",
+                    "total_refreshed": len(refreshed),
+                    "count": min(len(refreshed), limit),
+                    "trends": refreshed[:limit]
+                }
+            )
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={
+                "status": "error",
+                "message": f"Trend refresh failed: {str(e)}",
+                "trends": []
+            }
+        )
 
 
 

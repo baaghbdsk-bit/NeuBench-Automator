@@ -55,6 +55,7 @@ scripts/test_*.py
 
 cloud_exports/
 generated_visuals/
+media/
 
 *.mp4
 *.mp3

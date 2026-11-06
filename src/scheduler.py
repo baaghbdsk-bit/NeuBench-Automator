@@ -37,7 +37,7 @@ from rich.console import Console
 
 import config
 
-from src.trend_hunter import TrendHunter, LINKEDIN_PILLAR_ROTATION
+from src.trend_hunter import TrendHunter, LINKEDIN_PILLAR_ROTATION, detect_trend_sensitivity
 
 from src.ai_generator import AIGenerator
 
@@ -1169,9 +1169,18 @@ class AutomaterEngine:
 
         console.print("[bold magenta]🚀 Mode: Unfiltered Sarcastic / Hot Take (𝕏)[/bold magenta]")
 
-        trends = self.hunter.get_x_unfiltered_topics()
+        # 1. Primary: Discover candidate trends from Trend Intelligence system
+        trends = []
+        try:
+            trends = self.hunter.get_candidate_trends(platform="x", limit=15, include_sensitive=True)
+        except Exception as e:
+            console.print(f"[dim]Trend Intelligence candidate fetch note: {e}[/dim]")
+
+        # 2. Fallback: If new trend system returns no candidates or fails, use legacy topics
         if not trends:
-            trends = self.hunter.get_casual_topics()
+            trends = self.hunter.get_x_unfiltered_topics()
+            if not trends:
+                trends = self.hunter.get_casual_topics()
 
         if not trends:
             console.print("[red]No topics discovered. Skipping...[/red]")
@@ -1184,24 +1193,70 @@ class AutomaterEngine:
             )
             return False
 
-        # Select an unused topic
+        # Select an unused, non-sensitive topic for autonomous publishing
         selected_trend = None
+        posted_history = set(self.tracker.history.get("posted_tweets", []))
         for t in trends:
-            if t["title"] not in self.tracker.history.get("posted_tweets", []):
+            t_title = t.get("title", "")
+            if not t_title or t_title in posted_history:
+                continue
+            # Sensitive topics must NOT be automatically published autonomously
+            if t.get("is_sensitive", False):
+                console.print(f"[yellow]⚠️ Trend '{t_title}' flagged as sensitive. Skipping autonomous publishing to require manual review.[/yellow]")
+                continue
+            selected_trend = t
+            break
+
+        # Fallback to legacy non-sensitive topics if all candidate trends were used or sensitive
+        if not selected_trend:
+            legacy_topics = self.hunter.get_x_unfiltered_topics() + self.hunter.get_casual_topics()
+            for t in legacy_topics:
+                t_title = t.get("title", "")
+                if not t_title or t_title in posted_history:
+                    continue
+                # Enforce sensitivity classification on legacy fallback candidates
+                is_sens, _ = detect_trend_sensitivity(t_title, t.get("context", t.get("summary", "")), "breaking_news")
+                if is_sens:
+                    continue
                 selected_trend = t
                 break
 
+        # If every candidate and fallback topic is sensitive or used, safely skip autonomous post
         if not selected_trend:
-            selected_trend = trends[0]
+            console.print("[yellow]⚠️ All candidate and fallback topics are flagged as sensitive or already used. Skipping autonomous publishing cycle.[/yellow]")
+            self.tracker.record_event(
+                action_type="original_post",
+                status="skipped",
+                skip_or_error_reason="All candidate and fallback topics are sensitive or already posted",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run
+            )
+            return False
 
         console.print(f"[bold]𝕏 Topic:[/bold] {selected_trend['title']}")
+
+        # Build enriched context with summary, source, category, and URL
+        context_parts = []
+        raw_summary = selected_trend.get("summary") or selected_trend.get("context") or ""
+        if raw_summary and raw_summary != selected_trend["title"]:
+            context_parts.append(raw_summary)
+        source_name = selected_trend.get("source")
+        if source_name:
+            context_parts.append(f"Source: {source_name}")
+        cat = selected_trend.get("category")
+        if cat:
+            context_parts.append(f"Category: {cat}")
+        url = selected_trend.get("url")
+        if url:
+            context_parts.append(f"URL: {url}")
+        enriched_context = " | ".join(context_parts) if context_parts else raw_summary
 
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
 
         try:
             hot_take = self.ai.generate_hot_take(
                 selected_trend["title"],
-                selected_trend.get("context", selected_trend.get("summary", ""))
+                enriched_context
             )
         except Exception as e:
 
@@ -1233,20 +1288,10 @@ class AutomaterEngine:
 
 
 
-        # Generate Visual Media: For casual X posts, generate aesthetic dark-mode card & looping GIF for maximum engagement
+        # Text-only tweets on X: visual attachments removed completely for clean, native engagement
         twitter_media = None
-        try:
-            from src.autonomous_visual_engine import generate_casual_visual_card
-            casual_png, casual_gif = generate_casual_visual_card(selected_trend["title"], hot_take)
-            if casual_gif and Path(casual_gif).exists() and Path(casual_gif).stat().st_size > 0:
-                twitter_media = casual_gif
-            elif casual_png and Path(casual_png).exists() and Path(casual_png).stat().st_size > 0:
-                twitter_media = casual_png
-            console.print(f"[bold magenta]🎬 X Visual Media Attachment: {twitter_media}[/bold magenta]")
-        except Exception as e:
-            console.print(f"[dim]X visual card note: {e}[/dim]")
 
-        # 1. Post to X (Twitter) - Always attach visual card/looping GIF for 10x timeline dwell time
+        # 1. Post to X (Twitter) - Clean text-only tweet
         reservation_id = None
         if not self.safety.dry_run:
             try:
@@ -1312,38 +1357,55 @@ class AutomaterEngine:
         """Generates a developer-focused Bluesky take from a trending topic and publishes it."""
         console.print("[bold cyan]🦋 Mode: Bluesky Auto Post (AT Protocol)[/bold cyan]")
 
-        used_bsky = [t.replace("bsky:", "") for t in self.tracker.history.get("posted_tweets", []) if str(t).startswith("bsky:")]
-        concepts = self.hunter.get_educational_concepts(used_topics=used_bsky)
-        concept = concepts[0] if concepts else None
-        media_path = None
+        # Cross-platform deduplication across Bluesky, LinkedIn, and X
+        used_topics = set()
+        for t in self.tracker.history.get("posted_tweets", []):
+            clean = re.sub(r"^(bsky|th|li|rd):\s*", "", str(t)).strip().lower()
+            if clean:
+                used_topics.add(clean)
+        for t in self.tracker.history.get("posted_ai_topics", []):
+            clean = str(t).strip().lower()
+            if clean:
+                used_topics.add(clean)
+        try:
+            from src.linkedin_state import load_post_history, POST_HISTORY_FILE
+            for p in load_post_history(POST_HISTORY_FILE).get("posts", []):
+                t = str(p.get("title", "")).strip().lower()
+                if t:
+                    used_topics.add(t)
+        except Exception:
+            pass
 
-        if concept:
+        bsky_cycle = len([e for e in self.tracker.metrics.get("recent_events", []) if "bluesky" in e.get("action_type", "")])
+        available_concepts = [c for c in self.hunter.get_educational_concepts() if str(c.get("title", "")).strip().lower() not in used_topics]
+        
+        # Candidate live trends
+        candidate_trends = [t for t in self.hunter.get_linkedin_topics() if str(t.get("title", "")).strip().lower() not in used_topics]
+
+        media_path = None
+        concept = None
+        selected_trend = None
+
+        if available_concepts and (bsky_cycle % 2 == 1 or not candidate_trends):
+            concept = available_concepts[0]
             selected_trend = {"title": concept["title"], "summary": concept.get("golden_rule", "")}
             console.print(f"[bold]🎓 Educational Concept (Bluesky):[/bold] {concept['title']}")
             self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
             try:
                 bsky_take = self.ai.generate_bluesky_concept_post(concept)
-                from src.autonomous_visual_engine import generate_concept_visual
-                media_path = generate_concept_visual(concept)
+                media_path = None
             except Exception as e:
                 self.tracker.metrics["lifetime_summary"]["ai_generation_failures"] += 1
                 console.print(f"[red]AI Generation Error: {e}[/red]")
                 return False
         else:
-            trends = self.hunter.get_linkedin_topics()
+            trends = candidate_trends or self.hunter.get_linkedin_topics()
             if not trends:
                 console.print("[red]No trends discovered. Skipping Bluesky post...[/red]")
                 return False
             selected_trend = trends[0]
             self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
             bsky_take = self.ai.generate_bluesky_take(selected_trend["title"], selected_trend.get("summary", ""))
-            try:
-                from src.autonomous_visual_engine import generate_visual_for_post
-                gif_v, _ = generate_visual_for_post(selected_trend["title"], selected_trend.get("summary", ""))
-                if gif_v and Path(gif_v).exists():
-                    media_path = gif_v
-            except Exception:
-                pass
 
         console.print(f"[green]Generated Bluesky Draft:[/green] {bsky_take}")
 
@@ -1380,22 +1442,8 @@ class AutomaterEngine:
             )
             return False
 
+        # Clean text-only post on Bluesky: visual media removed completely for maximum quality & speed
         media_path = None
-        try:
-            from src.autonomous_visual_engine import generate_visual_for_post
-
-            gif_v, mp4_v = generate_visual_for_post(
-                selected_trend["title"],
-                selected_trend.get("summary", ""),
-            )
-            if gif_v and Path(gif_v).exists() and Path(gif_v).stat().st_size > 0:
-                media_path = gif_v
-            elif mp4_v and Path(mp4_v).exists() and Path(mp4_v).stat().st_size > 0:
-                media_path = mp4_v
-            if media_path:
-                console.print(f"[bold magenta]🎬 Bluesky visual attachment: {media_path}[/bold magenta]")
-        except Exception as error:
-            console.print(f"[dim]Bluesky visual generation note: {error}[/dim]")
 
         try:
             ok, msg = self.bluesky.post(bsky_take, media_path=media_path)
@@ -1478,40 +1526,8 @@ class AutomaterEngine:
                     )
                     return False
 
-                last_post = last_post_at(
-                    post_state,
-                    self.tracker.metrics.get("recent_events", []),
-                )
-                if last_post:
-                    now_utc = datetime.now(timezone.utc)
-                    elapsed_seconds = (now_utc - last_post).total_seconds()
-                    minimum_seconds = max(
-                        0,
-                        config.LINKEDIN_MIN_INTERVAL_MINUTES
-                        - config.LINKEDIN_SCHEDULE_GRACE_MINUTES,
-                    ) * 60
-                    same_slot = cadence_slot_key(last_post) == cadence_slot_key(now_utc)
-                    if same_slot or elapsed_seconds < minimum_seconds:
-                        if same_slot:
-                            slot_start = datetime.fromisoformat(cadence_slot_key(now_utc))
-                            remaining_seconds = max(
-                                60,
-                                (slot_start + timedelta(hours=3) - now_utc).total_seconds(),
-                            )
-                        else:
-                            remaining_seconds = max(60, minimum_seconds - elapsed_seconds)
-                        remaining_minutes = max(1, int((remaining_seconds + 59) // 60))
-                        reason = f"LinkedIn cadence guard active; next post allowed in about {remaining_minutes} minute(s)"
-                        console.print(f"[yellow]⏳ {reason}.[/yellow]")
-                        self.tracker.record_event(
-                            action_type="linkedin_post",
-                            status="skipped",
-                            target_identifier="LinkedIn cadence guard",
-                            skip_or_error_reason=reason,
-                            duration_seconds=time.time() - start_time,
-                            is_dry_run=False,
-                        )
-                        return False
+                # LinkedIn 3-hour cadence guard removed per user configuration (daily caps & dedupe still active)
+                pass
 
             has_linkedin_api = bool(
                 os.getenv("LINKEDIN_ACCESS_TOKEN")
@@ -1567,70 +1583,136 @@ class AutomaterEngine:
                 )
                 return False
             else:
-                used_li = [str(entry.get("title", "")).strip().lower() for entry in post_state.get("posts", [])]
-                concepts = [c for c in self.hunter.get_educational_concepts() if c.get("title", "").strip().lower() not in used_li]
+                # Robust cross-platform deduplication
+                used_li = set()
+                for entry in post_state.get("posts", []):
+                    t = str(entry.get("title", "")).strip().lower()
+                    if t:
+                        used_li.add(t)
+                for entry in self.tracker.history.get("posted_tweets", []):
+                    clean = re.sub(r"^(bsky|th|li|rd):\s*", "", str(entry)).strip().lower()
+                    if clean:
+                        used_li.add(clean)
+                for entry in self.tracker.history.get("posted_ai_topics", []):
+                    clean = str(entry).strip().lower()
+                    if clean:
+                        used_li.add(clean)
+
+                total_li = len(post_state.get("posts", [])) + len([e for e in self.tracker.metrics.get("recent_events", []) if "linkedin" in e.get("action_type", "")])
+                pillar = LINKEDIN_PILLAR_ROTATION[total_li % len(LINKEDIN_PILLAR_ROTATION)]
+                console.print(f"[bold]LinkedIn Pillar:[/bold] {pillar}")
+
+                # Candidate topics across 3 streams: comparisons, deep-dive concepts, and live trends
+                available_comparisons = [
+                    c for c in getattr(self.hunter, "get_comparison_topics", lambda: [])()
+                    if str(c.get("title", "")).strip().lower() not in used_li
+                ]
+                available_concepts = [
+                    c for c in self.hunter.get_educational_concepts()
+                    if str(c.get("title", "")).strip().lower() not in used_li
+                ]
+
+                # Candidate live trends (TrendHunter cache, daily papers, benchmarks)
+                trends = self.hunter.get_candidate_trends(platform="linkedin")
+                if not trends:
+                    trends = self.hunter.get_linkedin_topics(pillar=pillar)
+                if pillar != "NEWS":
+                    seen_titles = {str(item.get("title", "")).strip().lower() for item in trends}
+                    for extra in self.hunter.get_linkedin_topics(pillar="NEWS"):
+                        if str(extra.get("title", "")).strip().lower() not in seen_titles:
+                            trends.append(extra)
+                if not trends:
+                    trends = self.hunter.get_linkedin_topics()
+
+                available_trends = [
+                    trend for trend in trends
+                    if str(trend.get("title", "")).strip().lower() not in used_li
+                    and not post_is_duplicate(post_state, title=str(trend.get("title", "")), url=str(trend.get("url", "")))
+                ]
+
                 media_path = None
                 media_title = ""
                 first_comm = None
+                selected_trend = {}
+                carousel_plan = None
+                li_text = ""
 
-                if concepts:
-                    concept = concepts[0]
-                    selected_trend = {"title": concept["title"], "summary": concept.get("golden_rule", ""), "url": ""}
-                    console.print(f"[bold]🎓 LinkedIn Educational Topic:[/bold] {concept['title']}")
+                # Intelligent 3-way rotation:
+                # 0 -> Comparative Architecture (A vs B)
+                # 1 -> Comprehensive Handwritten Study Notes (Engineering Deep Dive)
+                # 2 -> Live Trends / News / Benchmarks
+                rotation_slot = total_li % 3
+
+                from src.ai_generator import select_linkedin_content_format, validate_educational_plan
+
+                # Strategy selection with graceful cascade
+                candidate_attempts = []
+                if rotation_slot == 0 and available_comparisons:
+                    candidate_attempts.append(("comparison", available_comparisons[0]))
+                elif rotation_slot == 1 and available_concepts:
+                    candidate_attempts.append(("concept", available_concepts[0]))
+
+                # Add remaining categories as fallbacks
+                if available_comparisons and ("comparison", available_comparisons[0]) not in candidate_attempts:
+                    candidate_attempts.append(("comparison", available_comparisons[0]))
+                if available_concepts and ("concept", available_concepts[0]) not in candidate_attempts:
+                    candidate_attempts.append(("concept", available_concepts[0]))
+                for trend in available_trends:
+                    candidate_attempts.append(("trend", trend))
+
+                for mode, item in candidate_attempts:
+                    title = str(item.get("title", "")).strip()
+                    summary = str(item.get("summary") or item.get("golden_rule") or "").strip()
                     self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-                    li_text = self.ai.generate_linkedin_concept_article(concept)
-                    from src.autonomous_visual_engine import generate_concept_visual
-                    media_path = generate_concept_visual(concept)
-                    media_title = f"{concept['title']} - NeuBench Educational Series"
-                    first_comm = "⚡ Benchmarking 266+ LLMs, latency, and systems architectures live on: https://app.neubench.workers.dev"
-                else:
-                    total_li = len(post_state.get("posts", []))
-                    pillar = LINKEDIN_PILLAR_ROTATION[total_li % len(LINKEDIN_PILLAR_ROTATION)]
-                    console.print(f"[bold]LinkedIn Pillar:[/bold] {pillar}")
-                    trends = self.hunter.get_linkedin_topics(pillar=pillar)
-                    if pillar != "NEWS":
-                        seen_titles = {str(item.get("title", "")).strip().lower() for item in trends}
-                        for extra in self.hunter.get_linkedin_topics(pillar="NEWS"):
-                            if str(extra.get("title", "")).strip().lower() not in seen_titles:
-                                trends.append(extra)
-                    if not trends:
-                        trends = self.hunter.get_linkedin_topics()
-                    if not trends:
-                        console.print("[red]No current AI/tech trends discovered. Skipping LinkedIn post...[/red]")
-                        return False
 
-                    recent_hooks = []
-                    for entry in post_state.get("posts", [])[-6:]:
-                        content = str(entry.get("content") or "").strip()
-                        hook = content.splitlines()[0][:80] if content else str(entry.get("title", ""))[:80]
-                        if hook:
-                            recent_hooks.append(hook)
-                    selected_trend = {}
-                    for trend in trends:
-                        title = str(trend.get("title", "")).strip()
-                        if not title or post_is_duplicate(post_state, title=title, url=trend.get("url", "")):
-                            continue
-                        console.print(f"[bold]LinkedIn Topic:[/bold] {title}")
-                        self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
-                        try:
-                            plan = self.ai.generate_linkedin_carousel_plan(
-                                title,
-                                trend.get("summary", ""),
-                                pillar=str(trend.get("pillar") or pillar),
-                                recent_hooks=recent_hooks,
-                            )
-                            candidate_text = str(plan.get("post_text") or "").strip()
-                            if candidate_text:
-                                selected_trend = trend
-                                li_text = candidate_text
-                                carousel_plan = plan
-                                break
-                        except Exception:
-                            continue
+                    try:
+                        if mode == "comparison":
+                            console.print(f"[bold]⚖️ LinkedIn Comparison Carousel (A vs B):[/bold] {title}")
+                            plan = self.ai.generate_comparison_plan(title, summary)
+                        elif mode == "concept":
+                            console.print(f"[bold]🎓 LinkedIn Educational Notes (Deep Dive):[/bold] {title}")
+                            plan = self.ai.generate_educational_notes_plan(item)
+                        else:
+                            # Trend format classification
+                            fmt = select_linkedin_content_format(title, summary)
+                            if fmt == "comparison_carousel":
+                                console.print(f"[bold]⚖️ LinkedIn Trend (Versus Format):[/bold] {title}")
+                                plan = self.ai.generate_comparison_plan(title, summary)
+                            elif fmt == "handwritten_notes":
+                                console.print(f"[bold]🎓 LinkedIn Trend (Study Notes Format):[/bold] {title}")
+                                plan = self.ai.generate_educational_notes_plan({"title": title, "summary": summary, "pillar": str(item.get("pillar") or pillar)})
+                            else:
+                                console.print(f"[bold]LinkedIn Topic (Professional Carousel):[/bold] {title}")
+                                recent_hooks = [
+                                    (str(entry.get("content") or "").splitlines()[0][:80] if entry.get("content") else str(entry.get("title", ""))[:80])
+                                    for entry in post_state.get("posts", [])[-6:]
+                                ]
+                                plan = self.ai.generate_linkedin_carousel_plan(
+                                    title,
+                                    summary,
+                                    pillar=str(item.get("pillar") or pillar),
+                                    recent_hooks=[h for h in recent_hooks if h],
+                                )
 
-                    if not selected_trend:
-                        console.print("[yellow]All LinkedIn candidate topics posted recently.[/yellow]")
-                        return False
+                        candidate_text = str(plan.get("post_text") or "").strip()
+                        if candidate_text:
+                            # Validate plan density
+                            is_valid, validation_msg = validate_educational_plan(plan)
+                            if not is_valid:
+                                console.print(f"[yellow]Plan validation warning: {validation_msg} (using with fallback normalization)[/yellow]")
+                            selected_trend = {"title": title, "summary": summary, "url": str(item.get("url") or "")}
+                            li_text = candidate_text
+                            carousel_plan = plan
+                            media_path = None
+                            first_comm = plan.get("first_comment") or "⚡ Benchmarking 266+ LLMs, latency, and systems architectures live on: https://app.neubench.workers.dev"
+                            break
+                    except Exception as gen_err:
+                        console.print(f"[yellow]Failed generation for '{title}' ({mode}): {gen_err}[/yellow]")
+                        continue
+
+                if not selected_trend:
+                    console.print("[yellow]All LinkedIn candidate topics and concepts posted recently or failed generation.[/yellow]")
+                    return False
 
             if not media_path and carousel_plan:
                 tags = [
@@ -1709,6 +1791,8 @@ class AutomaterEngine:
                         post_urn=post_urn,
                     )
                     save_post_history(post_state, POST_HISTORY_FILE)
+                    self.tracker.history.setdefault("posted_tweets", []).append(f"li:{selected_trend['title']}")
+                    self.tracker.save_history()
                 except Exception as error:
                     console.print(f"[red]LinkedIn history persistence error after successful post: {error}[/red]")
             elif not ok and not self.safety.dry_run and getattr(automater, "last_post_outcome_unknown", False):

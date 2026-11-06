@@ -644,7 +644,7 @@ Rules:
         if len(hashtags) < 3:
             hashtags = ["#MachineLearning", "#ArtificialIntelligence", "#Engineering", "#LLM"]
 
-        return {
+        res = {
             "pillar": _clamp_text(data.get("pillar") or pillar, 32),
             "cover": cover,
             "slides": slides,
@@ -655,6 +655,9 @@ Rules:
             "alt_text": _clamp_text(data.get("alt_text") or cover["headline"], 180),
             "hashtags": hashtags[:5],
         }
+        if data.get("pages") and isinstance(data["pages"], list):
+            res["pages"] = data["pages"]
+        return res
 
     def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = True) -> str:
         """Generates an authoritative, mobile-first daily lesson for the 'AI Explained: Zero to Advanced' 90-day master curriculum."""
@@ -881,3 +884,482 @@ Rules:
         text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.92).strip('"').strip()
         return text
 
+    def select_linkedin_content_format(self, topic: str, summary: str = "") -> str:
+        """Intelligently determines the ideal content format based on topic properties."""
+        return select_linkedin_content_format(topic, summary)
+
+    def validate_educational_plan(self, plan: dict) -> Tuple[bool, str]:
+        """Validates that a generated carousel plan meets high information density standards."""
+        return validate_educational_plan(plan)
+
+    def generate_educational_notes_plan(self, topic: Any, context: str = "", category: str = "SYSTEMS ARCHITECTURE") -> dict:
+        """Generates an authentic, in-depth 6-7 page handwritten engineering study notes plan with diagrams, mechanics, and pitfalls."""
+        if isinstance(topic, dict):
+            item = topic
+            topic = str(item.get("title") or item.get("topic") or "").strip()
+            context = str(item.get("summary") or item.get("golden_rule") or context).strip()
+            category = str(item.get("category") or item.get("pillar") or category).strip()
+
+        prompt = f"""You are a Principal Systems Architect and Distinguished Educator writing authentic, deeply detailed 6-7 page handwritten engineering study notes for LinkedIn.
+Topic: "{topic}"
+Context: "{context}"
+Category: "{category}"
+
+Produce an authoritative, comprehensive study note package that looks and reads like high-signal notes taken by a senior engineer or professor.
+Avoid high-level generic bullet points. Provide real explanations, technical mechanisms, memory/runtime interactions, diagrams, and failure modes.
+For AI retrieval systems like RAG, avoid absolute claims of 'deterministic factual grounding' or eliminating all errors; accurately explain that retrieval improves contextual grounding, source traceability, and hallucination mitigation, while remaining probabilistic and bounded by retrieval recall and model comprehension.
+
+Return ONLY valid JSON with this exact schema:
+{{
+  "pillar": "EXPLAINER",
+  "cover": {{
+    "kicker": "{category}",
+    "headline": "{topic}",
+    "subhead": "In-depth engineering study notes on core mechanisms, state boundaries, and production reality.",
+    "objectives": [
+      "Understand foundational architecture & terminology",
+      "Trace under-the-hood execution flow & memory model",
+      "Identify critical production latency bottlenecks & failure modes"
+    ]
+  }},
+  "pages": [
+    {{
+      "type": "cover",
+      "kicker": "{category}",
+      "headline": "{topic}",
+      "subhead": "Comprehensive engineering field guide covering architectural mechanics, runtime execution, and production boundaries.",
+      "learning_objectives": [
+        "Core primitives & memory representation",
+        "Step-by-step transaction / lifecycle mechanics",
+        "Production tradeoffs, latency cliffs & antipatterns"
+      ]
+    }},
+    {{
+      "type": "concept",
+      "kicker": "01 / FOUNDATIONS",
+      "title": "Core Architecture & Definitions",
+      "body": "Explain fundamental mechanics in 2-3 substantive paragraphs with high technical density.",
+      "callout": "Crucial architectural distinction or invariant that engineers often miss.",
+      "annotation": "Teacher note: Keep memory footprint in mind during high-concurrency spikes."
+    }},
+    {{
+      "type": "diagram",
+      "kicker": "02 / EXECUTION PIPELINE",
+      "title": "Runtime Flow & Mechanics",
+      "subtitle": "How requests transition across subsystem boundaries",
+      "stages": [
+        {{"name": "Stage 1", "desc": "Ingestion / Parse"}},
+        {{"name": "Stage 2", "desc": "Validation / Index"}},
+        {{"name": "Stage 3", "desc": "State Mutation"}},
+        {{"name": "Stage 4", "desc": "Commit & Ack"}}
+      ],
+      "annotation": "End-to-end latency budget is dominated by serialization and disk flush."
+    }},
+    {{
+      "type": "code",
+      "kicker": "03 / IMPLEMENTATION",
+      "title": "Minimal Reference Pattern",
+      "subtitle": "Idiomatic production pattern illustrating correct invariants",
+      "language": "python",
+      "code": "# Production implementation pattern\nwith state_lock():\n    buffer.write(record)\n    flush_to_storage()",
+      "annotation": "Notice explicit boundary validation before memory allocation."
+    }},
+    {{
+      "type": "pitfalls",
+      "kicker": "04 / PRODUCTION REALITY",
+      "title": "Common Antipatterns & Traps",
+      "traps": [
+        {{"trap": "Premature buffering without backpressure", "impact": "OOM under traffic surges", "prevention": "Implement bounded channel queues with active load shedding"}},
+        {{"trap": "Unindexed lookup in hot path", "impact": "High CPU lock contention", "prevention": "Maintain concurrent hash maps with generational pruning"}}
+      ]
+    }},
+    {{
+      "type": "cta",
+      "kicker": "05 / REVISION CHECKLIST",
+      "title": "Key Engineering Takeaways",
+      "golden_rule": "Design for failure domains first; optimize latency second.",
+      "checklist": [
+        "Audit boundary timeouts across RPC calls",
+        "Verify queue depth limits in production telemetry",
+        "Benchmark tail latency (p99) against synthetic load"
+      ],
+      "discussion_prompt": "What unexpected failure mode have you hit when scaling this in production?"
+    }}
+  ],
+  "post_text": "In-depth technical breakdown of {topic} for engineers and architects...\n\nDetailed 6-page field notes attached.\n\n#SoftwareEngineering #SystemDesign #Programming #DevOps #Architecture",
+  "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+  "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#ComputerScience", "#Programming"]
+}}
+"""
+        system_prompt = (
+            "You are a Distinguished Systems Architect and Computer Science Professor writing in-depth handwritten engineering field notes. "
+            "Return valid JSON only. Never use generic fluff or placeholder text. Ensure explanations are technically substantive."
+        )
+
+        try:
+            data = self._generate_json(prompt, system_prompt, temperature=0.6)
+            if data and data.get("pages") and len(data["pages"]) >= 4:
+                return self._normalize_carousel_plan(data, topic, category)
+        except Exception as e:
+            print(f"[AIGenerator] Educational notes LLM generation notice: {e}. Building deterministic study notes plan...")
+
+        # Deterministic rich fallback plan
+        fallback_plan = {
+            "pillar": "EXPLAINER",
+            "cover": {
+                "kicker": category,
+                "headline": topic,
+                "subhead": "In-depth engineering study notes on core mechanisms, state boundaries, and production reality.",
+                "objectives": [
+                    "Understand foundational architecture & terminology",
+                    "Trace under-the-hood execution flow & memory model",
+                    "Identify critical production latency bottlenecks & failure modes"
+                ]
+            },
+            "pages": [
+                {
+                    "type": "cover",
+                    "kicker": category,
+                    "headline": topic,
+                    "subhead": f"Comprehensive engineering field guide covering architectural mechanics, runtime execution, and production boundaries for {topic}.",
+                    "learning_objectives": [
+                        "Core primitives & memory representation",
+                        "Step-by-step transaction / lifecycle mechanics",
+                        "Production tradeoffs, latency cliffs & antipatterns"
+                    ]
+                },
+                {
+                    "type": "concept",
+                    "kicker": "01 / FOUNDATIONS",
+                    "title": "Core Architecture & Definitions",
+                    "body": (
+                        f"{topic} forms a foundational component of modern production infrastructure. "
+                        f"At its core, {context or 'it provides robust state management, deterministic ordering, and predictable resource bounds'}. "
+                        "When designing around these constraints, engineers must balance access latency, consistency semantics, and fault tolerance across distributed boundaries."
+                    ),
+                    "callout": "Architectural Invariant: Retrieved context provides grounding and provenance to mitigate hallucinations, but model synthesis remains probabilistic and bounded by chunk fidelity.",
+                    "annotation": "Teacher note: Keep cache hit rates and memory footprint in mind during high-concurrency spikes."
+                },
+                {
+                    "type": "diagram",
+                    "kicker": "02 / EXECUTION PIPELINE",
+                    "title": "Runtime Flow & Mechanics",
+                    "subtitle": "How requests transition across subsystem boundaries",
+                    "stages": [
+                        {"name": "Stage 1", "desc": "Ingestion / Client Request"},
+                        {"name": "Stage 2", "desc": "Validation & Buffer Index"},
+                        {"name": "Stage 3", "desc": "State Mutation & Lock"},
+                        {"name": "Stage 4", "desc": "Flush Commit & Ack"}
+                    ],
+                    "annotation": "End-to-end latency budget is dominated by serialization and disk flush."
+                },
+                {
+                    "type": "code",
+                    "kicker": "03 / IMPLEMENTATION",
+                    "title": "Reference Architecture Pattern",
+                    "subtitle": "Idiomatic production pattern illustrating correct invariants",
+                    "language": "python",
+                    "code": f"# Idiomatic pattern for {topic}\ndef execute_operation(record, session):\n    with session.transaction():\n        session.validate(record)\n        return session.commit(record)",
+                    "annotation": "Notice explicit boundary validation before memory allocation."
+                },
+                {
+                    "type": "pitfalls",
+                    "kicker": "04 / PRODUCTION REALITY",
+                    "title": "Common Antipatterns & Traps",
+                    "traps": [
+                        {"trap": "Unbounded memory buffer growth", "impact": "OOM cascade during downstream latency spikes", "prevention": "Enforce strict bounded ring buffers with explicit load shedding"},
+                        {"trap": "Silent timeout masking", "impact": "Leaked locks and cascading thread pool exhaustion", "prevention": "Use context deadlines and propagate cancellation tokens throughout"}
+                    ]
+                },
+                {
+                    "type": "cta",
+                    "kicker": "05 / REVISION CHECKLIST",
+                    "title": "Key Engineering Takeaways",
+                    "golden_rule": f"Master the state transitions of {topic} before scaling traffic.",
+                    "checklist": [
+                        "Audit boundary timeouts across all RPC and storage calls",
+                        "Verify queue depth limits in production telemetry",
+                        "Benchmark tail latency (p99) against synthetic load spikes"
+                    ],
+                    "discussion_prompt": "What unexpected failure mode have you encountered when scaling this in production?"
+                }
+            ],
+            "post_text": (
+                f"Engineering Deep Dive: {topic}\n\n"
+                f"{context or 'Understanding the architectural boundaries, memory trade-offs, and failure modes.'}\n\n"
+                "I broke down the complete mechanics into a 6-page study note field guide below:\n"
+                "• Foundational Architecture & Invariants\n"
+                "• Step-by-Step Runtime Execution Flow\n"
+                "• Implementation Reference Pattern\n"
+                "• Production Traps & Latency Pitfalls\n"
+                "• Revision Checklist for System Designers\n\n"
+                "Save this carousel for your next architectural review.\n\n"
+                "#SoftwareEngineering #SystemDesign #ComputerScience #Programming #DevOps"
+            ),
+            "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+            "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#ComputerScience", "#Programming", "#Architecture"]
+        }
+        return self._normalize_carousel_plan(fallback_plan, topic, category)
+
+    def generate_comparison_plan(self, topic: Any, summary: str = "", concept_a: str = "", concept_b: str = "") -> dict:
+        """Generates an intelligent 6-page architectural versus/comparison carousel plan with side-by-side matrices."""
+        if isinstance(topic, dict):
+            item = topic
+            topic = str(item.get("title") or item.get("topic") or "").strip()
+            summary = str(item.get("summary") or item.get("golden_rule") or summary).strip()
+
+        name_a = concept_a or "Approach A"
+        name_b = concept_b or "Approach B"
+        if not concept_a or not concept_b:
+            if " vs. " in topic:
+                parts = topic.split(" vs. ", 1)
+                name_a, name_b = parts[0].strip(), parts[1].strip()
+            elif " vs " in topic:
+                parts = topic.split(" vs ", 1)
+                name_a, name_b = parts[0].strip(), parts[1].strip()
+            elif " versus " in topic.lower():
+                parts = topic.lower().split(" versus ", 1)
+                name_a, name_b = parts[0].strip(), parts[1].strip()
+
+        prompt = f"""You are a Principal Software Architect writing an authoritative 6-page comparison carousel for LinkedIn.
+Topic: "{topic}"
+Option A: "{name_a}"
+Option B: "{name_b}"
+Context: "{summary}"
+
+Produce an in-depth comparison note that helps senior engineers and architects make the right technical decision.
+Explain what each concept means, why both exist, how each works internally, important trade-offs (performance, memory, scalability, cost), and concrete selection rules.
+DO NOT declare an arbitrary winner—explain when to choose each.
+
+Return ONLY valid JSON matching this schema:
+{{
+  "pillar": "DIFFERENCE",
+  "cover": {{
+    "kicker": "ARCHITECTURAL COMPARISON",
+    "headline": "{topic}",
+    "subhead": "A side-by-side engineering evaluation of trade-offs, internal mechanics, and decision criteria.",
+    "objectives": [
+      "Deconstruct internal mechanics of {name_a} vs {name_b}",
+      "Compare throughput, memory, and operational complexity",
+      "Actionable heuristics for production system selection"
+    ]
+  }},
+  "pages": [
+    {{
+      "type": "cover",
+      "kicker": "ARCHITECTURAL COMPARISON",
+      "headline": "{topic}",
+      "subhead": "A side-by-side engineering evaluation of trade-offs, internal mechanics, and decision criteria.",
+      "learning_objectives": [
+        "Deconstruct internal mechanics of {name_a} vs {name_b}",
+        "Compare throughput, memory, and operational complexity",
+        "Actionable heuristics for production system selection"
+      ]
+    }},
+    {{
+      "type": "concept",
+      "kicker": "01 / CORE PHILOSOPHY",
+      "title": "Foundations & Architectural Intent",
+      "body": "Explain why both {name_a} and {name_b} exist. What fundamental engineering problem was each created to solve? Contrast their core paradigms in 2-3 detailed paragraphs.",
+      "callout": "Key distinction: How each approach handles state and consistency.",
+      "annotation": "Architect note: Choosing the wrong paradigm leads to heavy operational friction."
+    }},
+    {{
+      "type": "comparison",
+      "kicker": "02 / TRADE-OFF MATRIX",
+      "title": "Side-by-Side Architectural Evaluation",
+      "item_a": "{name_a}",
+      "item_b": "{name_b}",
+      "criteria": [
+        {{"criterion": "Data Model", "item_a": "Streaming partitions / log offset", "item_b": "Discrete message queues / exchanges"}},
+        {{"criterion": "Throughput", "item_a": "Millions msg/sec (sequential I/O)", "item_b": "Tens of thousands msg/sec (random I/O)"}},
+        {{"criterion": "Ordering", "item_a": "Strict per-partition ordering", "item_b": "Best-effort queue ordering"}},
+        {{"criterion": "Replayability", "item_a": "Persistent replay via consumer offset", "item_b": "Transient; deleted upon acknowledgment"}}
+      ],
+      "annotation": "Throughput comes at the cost of partition rebalancing overhead."
+    }},
+    {{
+      "type": "code",
+      "kicker": "03 / CODE PATTERNS",
+      "title": "Consumer Implementation Patterns",
+      "subtitle": "How client ergonomics differ in production code",
+      "language": "python",
+      "code": "# Option A ({name_a}) vs Option B ({name_b})\n# A: Pull model with consumer groups\nfor msg in consumer.poll(timeout=1.0):\n    process(msg)\n    consumer.commit()\n\n# B: Push model with callback listener\nchannel.basic_consume(queue='jobs', on_message_callback=handle)",
+      "annotation": "Pull models provide superior backpressure; push models minimize consumer latency."
+    }},
+    {{
+      "type": "pitfalls",
+      "kicker": "04 / PRODUCTION MISTAKES",
+      "title": "Common Pitfalls & Failure Modes",
+      "traps": [
+        {{"trap": "Misjudging scaling bounds", "impact": "Unexpected partition rebalance storms or broker OOM", "prevention": "Pre-provision partition counts based on peak consumer thread capacity"}},
+        {{"trap": "Overcomplicating the simple path", "impact": "Excessive operational overhead for small workloads", "prevention": "Start with standard queues until audit log replay becomes a strict requirement"}}
+      ]
+    }},
+    {{
+      "type": "cta",
+      "kicker": "05 / DECISION MATRIX",
+      "title": "Golden Rules: When to Choose Which",
+      "golden_rule": "Choose {name_a} for replayable event streaming and analytics; choose {name_b} for complex routing and task queues.",
+      "checklist": [
+        "Audit data retention requirements (ephemeral vs persistent)",
+        "Estimate peak throughput and consumer concurrency limits",
+        "Assess operational familiarity within your team"
+      ],
+      "discussion_prompt": "Which one do you rely on more in your current production stack?"
+    }}
+  ],
+  "post_text": "{topic}: The Ultimate Engineering Comparison Guide\n\nBoth {name_a} and {name_b} are exceptional, but they were built for fundamentally different workloads...\n\nDetailed 6-page architectural matrix attached.\n\n#SystemDesign #SoftwareEngineering #Architecture #DevOps #Programming",
+  "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+  "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#Architecture", "#DevOps"]
+}}
+"""
+        system_prompt = (
+            "You are a Distinguished Software Architect and Systems Design Educator. "
+            "Return valid JSON only matching the schema exactly. Provide deep, technically nuanced comparisons."
+        )
+
+        try:
+            data = self._generate_json(prompt, system_prompt, temperature=0.6)
+            if data and data.get("pages") and len(data["pages"]) >= 4:
+                return self._normalize_carousel_plan(data, topic, "DIFFERENCE")
+        except Exception as e:
+            print(f"[AIGenerator] Comparison plan LLM generation notice: {e}. Building deterministic comparison plan...")
+
+        # Deterministic rich fallback plan
+        fallback_plan = {
+            "pillar": "DIFFERENCE",
+            "cover": {
+                "kicker": "ARCHITECTURAL COMPARISON",
+                "headline": topic,
+                "subhead": f"A side-by-side engineering evaluation of trade-offs, internal mechanics, and decision criteria for {name_a} vs {name_b}.",
+                "objectives": [
+                    f"Deconstruct internal mechanics of {name_a} vs {name_b}",
+                    "Compare throughput, memory, and operational complexity",
+                    "Actionable heuristics for production system selection"
+                ]
+            },
+            "pages": [
+                {
+                    "type": "cover",
+                    "kicker": "ARCHITECTURAL COMPARISON",
+                    "headline": topic,
+                    "subhead": f"A side-by-side engineering evaluation of trade-offs, internal mechanics, and decision criteria for {name_a} vs {name_b}.",
+                    "learning_objectives": [
+                        f"Deconstruct internal mechanics of {name_a} vs {name_b}",
+                        "Compare throughput, memory, and operational complexity",
+                        "Actionable heuristics for production system selection"
+                    ]
+                },
+                {
+                    "type": "concept",
+                    "kicker": "01 / CORE PHILOSOPHY",
+                    "title": "Foundations & Architectural Intent",
+                    "body": (
+                        f"Engineers frequently debate {name_a} versus {name_b}, but they solve fundamentally different architectural problems. "
+                        f"{name_a} was engineered around sequential access, high-throughput batching, and append-only state retention. "
+                        f"Conversely, {name_b} prioritizes dynamic message routing, discrete queue isolation, and immediate acknowledgment upon delivery."
+                    ),
+                    "callout": f"Fundamental Differentiator: {name_a} treats data as an immutable historical log, while {name_b} treats data as transient tasks.",
+                    "annotation": "Architect note: Choosing the wrong paradigm leads to heavy operational friction."
+                },
+                {
+                    "type": "comparison",
+                    "kicker": "02 / TRADE-OFF MATRIX",
+                    "title": "Side-by-Side Architectural Evaluation",
+                    "item_a": name_a,
+                    "item_b": name_b,
+                    "criteria": [
+                        {"criterion": "Primary Abstraction", "item_a": "Partitioned commit log", "item_b": "Routing exchange and queues"},
+                        {"criterion": "Throughput Scaling", "item_a": "Millions/sec via sequential I/O", "item_b": "Tens of thousands/sec per node"},
+                        {"criterion": "Message Retention", "item_a": "Configurable (days/weeks/months)", "item_b": "Deleted immediately after ACK"},
+                        {"criterion": "Consumer Pattern", "item_a": "Pull model with partition offsets", "item_b": "Push/Pull with broker ACK tracking"}
+                    ],
+                    "annotation": "High throughput comes with the cost of client-side offset and partition management."
+                },
+                {
+                    "type": "code",
+                    "kicker": "03 / CODE PATTERNS",
+                    "title": "Consumer Implementation Patterns",
+                    "subtitle": "How client ergonomics differ in production code",
+                    "language": "python",
+                    "code": f"# Pattern comparison: {name_a} vs {name_b}\n# {name_a}: Offset-based consumer poll\nrecords = consumer.poll(timeout_ms=500)\nfor record in records:\n    process(record)\n\n# {name_b}: Callback-based worker queue\nqueue.subscribe(handle_message, ack_mode='manual')",
+                    "annotation": "Pull models provide natural backpressure; push models minimize consumer latency."
+                },
+                {
+                    "type": "pitfalls",
+                    "kicker": "04 / PRODUCTION MISTAKES",
+                    "title": "Common Pitfalls & Failure Modes",
+                    "traps": [
+                        {"trap": f"Using {name_a} as a simple work queue", "impact": "Partition head-of-line blocking when slow tasks stall a consumer", "prevention": f"Use {name_b} for independent, heterogeneous task execution"},
+                        {"trap": f"Using {name_b} as an analytics event bus", "impact": "High memory pressure and queue broker failure under large backlogs", "prevention": f"Use {name_a} when event stream replay and long retention are required"}
+                    ]
+                },
+                {
+                    "type": "cta",
+                    "kicker": "05 / DECISION MATRIX",
+                    "title": "Golden Rules: When to Choose Which",
+                    "golden_rule": f"Choose {name_a} for persistent event streaming and audit replay; choose {name_b} for granular task routing and immediate dispatch.",
+                    "checklist": [
+                        "Define retention: Do consumers ever need to replay historical messages?",
+                        "Evaluate consumer scale: Will slow tasks block peer partitions?",
+                        "Factor operational overhead into your infrastructure sizing"
+                    ],
+                    "discussion_prompt": f"Which one do you rely on more in production—{name_a} or {name_b}?"
+                }
+            ],
+            "post_text": (
+                f"{name_a} vs {name_b}: Architectural Comparison\n\n"
+                f"{summary or 'A deep dive into trade-offs, internal mechanics, and production decision heuristics.'}\n\n"
+                "I summarized the entire decision framework in the 6-page field note below:\n"
+                "• Core Architecture & Founding Philosophy\n"
+                "• Side-by-Side Trade-off Matrix (Throughput, Retention, Ordering)\n"
+                "• Production Code Patterns & Consumer Ergonomics\n"
+                "• Critical Pitfalls & Failure Modes\n"
+                "• Golden Selection Rules\n\n"
+                "Save this guide for your next systems architecture review.\n\n"
+                "#SystemDesign #SoftwareEngineering #Architecture #DevOps #Programming"
+            ),
+            "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+            "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#Architecture", "#DevOps"]
+        }
+        return self._normalize_carousel_plan(fallback_plan, topic, "DIFFERENCE")
+
+
+
+def select_linkedin_content_format(topic: str, summary: str = "") -> str:
+    """Intelligently determines the ideal content format based on topic properties."""
+    combined = f"{topic} {summary}".lower()
+    if any(vs in combined for vs in [" vs. ", " vs ", " versus ", " compared to ", " or "]):
+        return "comparison_carousel"
+    if any(term in combined for term in [
+        "architecture", "internals", "protocol", "how it works", "data structure",
+        "algorithm", "system design", "memory", "deep dive", "under the hood",
+        "guide", "explained", "engine", "pipeline", "database"
+    ]):
+        return "handwritten_notes"
+    if any(term in combined for term in ["benchmark", "outage", "security", "breach", "acquisition", "released", "launches"]):
+        return "professional_carousel"
+    return "handwritten_notes"
+
+
+def validate_educational_plan(plan: dict) -> Tuple[bool, str]:
+    """Validates that a generated carousel plan meets high information density standards."""
+    if not isinstance(plan, dict):
+        return False, "Plan is not a dictionary"
+    if not plan.get("post_text") or len(str(plan.get("post_text")).strip()) < 80:
+        return False, "Post text is missing or too short (< 80 chars)"
+    if plan.get("pages") and isinstance(plan["pages"], list):
+        if len(plan["pages"]) < 4:
+            return False, f"Plan has only {len(plan['pages'])} pages (minimum 4 required)"
+        for p in plan["pages"]:
+            if not isinstance(p, dict):
+                return False, "Page item is not a dictionary"
+            ptype = p.get("type", "")
+            if ptype == "concept" and len(str(p.get("body", "")).strip()) < 80:
+                return False, "Concept page body is too short (< 80 chars)"
+        return True, "Valid multi-page educational plan"
+    slides = plan.get("slides") or []
+    if len(slides) < 2 or not plan.get("cover"):
+        return False, "Plan has insufficient slides or lacks a cover"
+    return True, "Valid legacy carousel plan"

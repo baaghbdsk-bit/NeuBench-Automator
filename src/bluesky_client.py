@@ -5,6 +5,7 @@ Uses official AT Protocol XRPC REST endpoints (100% free, no paid API keys, offi
 import re
 import time
 import os
+from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional, Tuple, List
 import requests
@@ -141,20 +142,41 @@ class BlueskyClient:
         if facets:
             record["facets"] = facets
 
-        # Attach image/GIF if provided
+        # Attach image/GIF if provided (Bluesky app.bsky.embed.images strictly requires image/*)
         if media_path and os.path.exists(media_path):
-            mime = "image/gif" if media_path.endswith(".gif") else "image/png"
-            blob = self.upload_blob(media_path, mime_type=mime)
-            if blob:
-                record["embed"] = {
-                    "$type": "app.bsky.embed.images",
-                    "images": [
-                        {
-                            "alt": "NeuBench Technical Architecture and Benchmark Visualizer",
-                            "image": blob
+            target_media = media_path
+            # If an MP4 video was passed, resolve to the companion .gif or convert it
+            if target_media.lower().endswith(".mp4"):
+                gif_candidate = Path(target_media).with_suffix(".gif")
+                if gif_candidate.exists() and gif_candidate.stat().st_size > 0:
+                    target_media = str(gif_candidate)
+                else:
+                    try:
+                        from src.manim_renderer import convert_mp4_to_gif
+                        if convert_mp4_to_gif(target_media, str(gif_candidate)):
+                            target_media = str(gif_candidate)
+                    except Exception as ex:
+                        print(f"[BlueskyClient] Conversion from MP4 to GIF note: {ex}")
+
+            if target_media.lower().endswith((".mp4", ".mov", ".avi", ".mkv", ".webm")):
+                print(f"[BlueskyClient] Warning: '{target_media}' is a video. Bluesky image embed requires image/*; skipping video blob to prevent API error.")
+            else:
+                mime = "image/gif" if target_media.lower().endswith(".gif") else "image/png"
+                blob = self.upload_blob(target_media, mime_type=mime)
+                if blob:
+                    blob_mime = str(blob.get("mimeType", ""))
+                    if blob_mime.startswith("image/"):
+                        record["embed"] = {
+                            "$type": "app.bsky.embed.images",
+                            "images": [
+                                {
+                                    "alt": "NeuBench Technical Architecture and Benchmark Visualizer",
+                                    "image": blob
+                                }
+                            ]
                         }
-                    ]
-                }
+                    else:
+                        print(f"[BlueskyClient] Warning: uploaded blob mimeType '{blob_mime}' is not image/*; skipping embed.")
 
         payload = {
             "repo": self.session["did"],

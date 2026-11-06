@@ -678,9 +678,27 @@ class LinkedInAutomater:
                         if file_input.count():
                             file_input.set_input_files(resolved_media)
                             page.wait_for_timeout(4000)
-                            next_btn = page.locator('button:has-text("Next"), button.share-box-footer__primary-btn, button[aria-label*="Next" i]').first
-                            if next_btn.is_visible():
-                                print("[LinkedInAutomater] Clicking 'Next' in media modal...")
+
+                            # Handle LinkedIn's required document title modal for PDFs
+                            doc_title_selectors = [
+                                'input[placeholder*="title" i]',
+                                'input[aria-label*="title" i]',
+                                'input[name="title"]',
+                                'input[id*="document-title"]',
+                                'input.share-box-media-title__input'
+                            ]
+                            for dt_sel in doc_title_selectors:
+                                dt_el = page.locator(dt_sel).first
+                                if dt_el.is_visible():
+                                    title_to_enter = (media_title or "Architectural Field Notes")[:80]
+                                    print(f"[LinkedInAutomater] Entering document title in browser modal: '{title_to_enter}'")
+                                    dt_el.fill(title_to_enter)
+                                    page.wait_for_timeout(1000)
+                                    break
+
+                            next_btn = page.locator('button:has-text("Next"), button:has-text("Done"), button.share-box-footer__primary-btn, button[aria-label*="Next" i], button[aria-label*="Done" i]').first
+                            if next_btn.is_visible() and next_btn.is_enabled():
+                                print("[LinkedInAutomater] Clicking 'Next/Done' in media modal...")
                                 next_btn.click()
                                 page.wait_for_timeout(3000)
                     except Exception as media_err:
