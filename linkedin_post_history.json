@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-06T23:10:09.985158+00:00",
+  "last_success_at": "2026-11-07T00:02:53.414223+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -155,6 +155,15 @@
       "status": "success",
       "posted_at": "2026-11-06T23:10:09.985158+00:00",
       "post_urn": "urn:li:ugcPost:7524609097418321920"
+    },
+    {
+      "topic_key": "title:74ff69ea603495f1b7e94a5b9b4fea9f",
+      "title": "Stack vs. Queue",
+      "url": "",
+      "content_hash": "9693ab9eed34b9132c963d62045c3a26",
+      "status": "success",
+      "posted_at": "2026-11-07T00:02:53.414223+00:00",
+      "post_urn": "urn:li:ugcPost:7524622364467449856"
     }
   ],
   "posted_titles": [
@@ -174,6 +183,7 @@
     "li:Git Rebase vs. Git Merge",
     "li:Git Merge vs. Squash vs. Cherry-Pick",
     "li:HashMap vs. HashSet",
-    "li:ArrayList vs. LinkedList"
+    "li:ArrayList vs. LinkedList",
+    "li:Stack vs. Queue"
   ]
 }
