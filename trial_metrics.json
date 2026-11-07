@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T11:02:39.954237+00:00",
+    "last_updated": "2026-11-07T12:03:01.692817+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 584,
-    "original_posts_attempted": 109,
-    "original_posts_succeeded": 101,
+    "total_cycles_executed": 588,
+    "original_posts_attempted": 110,
+    "original_posts_succeeded": 102,
     "replies_attempted": 35,
     "replies_succeeded": 25,
-    "reposts_attempted": 37,
+    "reposts_attempted": 38,
     "reposts_succeeded": 13,
-    "actions_skipped": 82,
+    "actions_skipped": 84,
     "failed_operations": 26,
-    "ai_generation_requests": 230,
+    "ai_generation_requests": 232,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -628,6 +628,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (42/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T12:02:56.765126+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "prate wordle",
+      "content_preview": "Imagine bragging about solving Wordle after reading a 14-paragraph think piece on how it healed someone’s inner child. I",
+      "reason": "",
+      "duration_s": 28.87
+    },
+    {
+      "timestamp": "2026-11-07T12:02:56.778031+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T12:03:01.124292+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Crusoe sells troubled Wyoming data center project to Google",
+      "content_preview": "The Crusoe-Google Wyoming DC buyout exposes the brutal reality of AI infra: MW scaling is bottlenecked by grid interconn",
+      "reason": "",
+      "duration_s": 4.34
+    },
+    {
+      "timestamp": "2026-11-07T12:03:01.692796+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (44/28).",
+      "duration_s": 0.0
     }
   ]
 }
