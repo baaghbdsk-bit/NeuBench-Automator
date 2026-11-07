@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T20:02:34.584138+00:00",
+    "last_updated": "2026-11-07T21:02:53.605350+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 626,
-    "original_posts_attempted": 119,
-    "original_posts_succeeded": 111,
-    "replies_attempted": 42,
+    "total_cycles_executed": 630,
+    "original_posts_attempted": 120,
+    "original_posts_succeeded": 112,
+    "replies_attempted": 43,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
-    "actions_skipped": 104,
+    "actions_skipped": 105,
     "failed_operations": 26,
-    "ai_generation_requests": 252,
+    "ai_generation_requests": 255,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1047,6 +1047,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (62/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T21:02:38.226386+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "elena rybakina",
+      "content_preview": "Elena Rybakina winning a tournament looking like she’s being held hostage and would rather be doing literally anything e",
+      "reason": "",
+      "duration_s": 26.47
+    },
+    {
+      "timestamp": "2026-11-07T21:02:49.645861+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Optimistic vs Pessimistic Locking: Architectural Comparison\n\nVersion check conflict retries vs row-level lock serializat",
+      "reason": "",
+      "duration_s": 11.41
+    },
+    {
+      "timestamp": "2026-11-07T21:02:52.842651+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "content_preview": "A stark reminder that autonomous coding agents inherit our worst credential hygiene habits. When UX bypasses friction (\"",
+      "reason": "",
+      "duration_s": 3.19
+    },
+    {
+      "timestamp": "2026-11-07T21:02:53.605329+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (65/28).",
       "duration_s": 0.01
     }
   ]
