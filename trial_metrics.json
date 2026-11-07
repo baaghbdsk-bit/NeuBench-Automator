@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T16:02:53.066511+00:00",
+    "last_updated": "2026-11-07T17:02:50.648237+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 605,
-    "original_posts_attempted": 114,
-    "original_posts_succeeded": 106,
-    "replies_attempted": 38,
+    "total_cycles_executed": 609,
+    "original_posts_attempted": 115,
+    "original_posts_succeeded": 107,
+    "replies_attempted": 39,
     "replies_succeeded": 25,
     "reposts_attempted": 39,
     "reposts_succeeded": 13,
-    "actions_skipped": 93,
+    "actions_skipped": 95,
     "failed_operations": 26,
-    "ai_generation_requests": 242,
+    "ai_generation_requests": 244,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -837,6 +837,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (52/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T17:02:44.079496+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "maryland vs purdue",
+      "content_preview": "Maryland and Purdue playing basketball like they’re both personally offended by the concept of a basket. Absolute terror",
+      "reason": "",
+      "duration_s": 26.8
+    },
+    {
+      "timestamp": "2026-11-07T17:02:44.100361+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T17:02:49.878893+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
+      "content_preview": "StepX-OPD decouples multi-teacher alignment from few-step sampling in diffusion models, resolving the classic capability",
+      "reason": "",
+      "duration_s": 5.77
+    },
+    {
+      "timestamp": "2026-11-07T17:02:50.648213+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (54/28).",
       "duration_s": 0.01
     }
   ]
