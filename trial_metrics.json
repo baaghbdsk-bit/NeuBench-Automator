@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T06:02:40.115880+00:00",
+    "last_updated": "2026-11-07T07:02:54.402463+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 561,
-    "original_posts_attempted": 103,
-    "original_posts_succeeded": 95,
-    "replies_attempted": 31,
+    "total_cycles_executed": 565,
+    "original_posts_attempted": 104,
+    "original_posts_succeeded": 96,
+    "replies_attempted": 32,
     "replies_succeeded": 25,
     "reposts_attempted": 35,
     "reposts_succeeded": 13,
-    "actions_skipped": 70,
+    "actions_skipped": 72,
     "failed_operations": 26,
-    "ai_generation_requests": 219,
+    "ai_generation_requests": 221,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -397,6 +397,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (31/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T07:02:46.644026+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "taurus horoscope today",
+      "content_preview": "Taurus horoscopes today be like: \"A financial windfall is coming your way, but first, spend $84 on artisanal sourdough b",
+      "reason": "",
+      "duration_s": 40.8
+    },
+    {
+      "timestamp": "2026-11-07T07:02:46.664104+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T07:02:53.548287+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Crusoe sells troubled Wyoming data center project to Google",
+      "content_preview": "Wyoming data center deal exposes raw constraints: scaling AI isn't just about silicon, it's about localized grid capacit",
+      "reason": "",
+      "duration_s": 6.88
+    },
+    {
+      "timestamp": "2026-11-07T07:02:54.402417+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (33/28).",
       "duration_s": 0.01
     }
   ]
