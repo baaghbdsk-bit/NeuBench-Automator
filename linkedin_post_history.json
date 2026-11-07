@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T22:02:49.843395+00:00",
+  "last_success_at": "2026-11-07T23:02:29.207663+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -245,6 +245,15 @@
       "status": "success",
       "posted_at": "2026-11-07T22:02:49.843395+00:00",
       "post_urn": "urn:li:ugcPost:7524954539599523840"
+    },
+    {
+      "topic_key": "url:https://techcrunch.com/2026/11/07/binance-cfo-is-leaving-to-pursue-a-new-venture-after-6-3-billion-hack",
+      "title": "Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
+      "url": "https://techcrunch.com/2026/11/07/binance-cfo-is-leaving-to-pursue-a-new-venture-after-6-3-billion-hack",
+      "content_hash": "2f2b702cebb2d22e1402744f3f84733d",
+      "status": "success",
+      "posted_at": "2026-11-07T23:02:29.207663+00:00",
+      "post_urn": "urn:li:ugcPost:7524969551709679616"
     }
   ],
   "posted_titles": [
@@ -274,6 +283,7 @@
     "li:Kafka vs. RabbitMQ",
     "li:Redis vs. Memcached",
     "li:Optimistic vs. Pessimistic Locking",
-    "li:Event-Driven vs. Request-Driven Architecture"
+    "li:Event-Driven vs. Request-Driven Architecture",
+    "li:Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack"
   ]
 }

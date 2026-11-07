@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T22:02:55.171705+00:00",
+    "last_updated": "2026-11-07T23:02:34.285169+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 634,
-    "original_posts_attempted": 121,
-    "original_posts_succeeded": 113,
-    "replies_attempted": 44,
+    "total_cycles_executed": 638,
+    "original_posts_attempted": 122,
+    "original_posts_succeeded": 114,
+    "replies_attempted": 45,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
-    "actions_skipped": 106,
+    "actions_skipped": 107,
     "failed_operations": 26,
-    "ai_generation_requests": 258,
+    "ai_generation_requests": 261,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1128,6 +1128,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (68/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T23:02:19.846873+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "हैं",
+      "content_preview": "Bro wrote a whole paragraph of absolute garbage and my brain’s only response is just a deeply disappointed \"हैं?",
+      "reason": "",
+      "duration_s": 18.56
+    },
+    {
+      "timestamp": "2026-11-07T23:02:29.216305+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack for engineers a",
+      "reason": "",
+      "duration_s": 9.34
+    },
+    {
+      "timestamp": "2026-11-07T23:02:33.734301+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+      "content_preview": "SwarmEvolve shifts LLM evolutionary search from high-latency text generation to continuous latent-space mutations. Cutti",
+      "reason": "",
+      "duration_s": 4.51
+    },
+    {
+      "timestamp": "2026-11-07T23:02:34.285153+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (71/28).",
+      "duration_s": 0.0
     }
   ]
 }
