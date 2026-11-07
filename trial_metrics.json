@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T14:03:06.926694+00:00",
+    "last_updated": "2026-11-07T14:43:33.465318+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 593,
-    "original_posts_attempted": 111,
-    "original_posts_succeeded": 103,
-    "replies_attempted": 36,
+    "total_cycles_executed": 597,
+    "original_posts_attempted": 112,
+    "original_posts_succeeded": 104,
+    "replies_attempted": 37,
     "replies_succeeded": 25,
     "reposts_attempted": 38,
     "reposts_succeeded": 13,
-    "actions_skipped": 87,
+    "actions_skipped": 89,
     "failed_operations": 26,
-    "ai_generation_requests": 236,
+    "ai_generation_requests": 238,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -718,6 +718,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (46/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-07T14:43:27.893251+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ben shelton",
+      "content_preview": "Ben Shelton screaming into the camera after hitting an unforced error in the second round is the exact same energy as gu",
+      "reason": "",
+      "duration_s": 34.9
+    },
+    {
+      "timestamp": "2026-11-07T14:43:27.913973+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T14:43:32.651674+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Sequoia shutting down its Scouts program marks the end of an era",
+      "content_preview": "Decentralized scouting networks fail for the same reason gossip protocols degrade: high signaling noise, low routing fid",
+      "reason": "",
+      "duration_s": 4.73
+    },
+    {
+      "timestamp": "2026-11-07T14:43:33.465287+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (48/28).",
+      "duration_s": 0.01
     }
   ]
 }
