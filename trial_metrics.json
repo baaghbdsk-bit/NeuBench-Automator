@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T15:02:56.068311+00:00",
+    "last_updated": "2026-11-07T16:02:53.066511+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 601,
-    "original_posts_attempted": 113,
-    "original_posts_succeeded": 105,
+    "total_cycles_executed": 605,
+    "original_posts_attempted": 114,
+    "original_posts_succeeded": 106,
     "replies_attempted": 38,
     "replies_succeeded": 25,
-    "reposts_attempted": 38,
+    "reposts_attempted": 39,
     "reposts_succeeded": 13,
-    "actions_skipped": 91,
+    "actions_skipped": 93,
     "failed_operations": 26,
-    "ai_generation_requests": 240,
+    "ai_generation_requests": 242,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -798,6 +798,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (50/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-07T16:02:43.649766+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "marcus freeman",
+      "content_preview": "Notre Dame fans really treat Marcus Freeman like he’s the second coming of architectural engineering just because he kno",
+      "reason": "",
+      "duration_s": 33.79
+    },
+    {
+      "timestamp": "2026-11-07T16:02:43.670522+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T16:02:52.251729+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+      "content_preview": "NeuBench data shows up to 40% variance in real-world token throughput across hosted LLM endpoints. TTFT and decoding spe",
+      "reason": "",
+      "duration_s": 8.58
+    },
+    {
+      "timestamp": "2026-11-07T16:02:53.066489+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (52/28).",
+      "duration_s": 0.01
     }
   ]
 }
