@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T08:00:09.180940+00:00",
+    "last_updated": "2026-11-07T08:02:42.352113+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 568,
-    "original_posts_attempted": 105,
-    "original_posts_succeeded": 97,
+    "total_cycles_executed": 572,
+    "original_posts_attempted": 106,
+    "original_posts_succeeded": 98,
     "replies_attempted": 32,
     "replies_succeeded": 25,
-    "reposts_attempted": 36,
+    "reposts_attempted": 37,
     "reposts_succeeded": 13,
-    "actions_skipped": 74,
+    "actions_skipped": 76,
     "failed_operations": 26,
-    "ai_generation_requests": 222,
+    "ai_generation_requests": 224,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -467,6 +467,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (34/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T08:02:37.297110+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ucla vs minnesota predictions",
+      "content_preview": "People treating UCLA vs Minnesota like it’s the geopolitical event of the century when both teams are just playing for t",
+      "reason": "",
+      "duration_s": 31.52
+    },
+    {
+      "timestamp": "2026-11-07T08:02:37.319006+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T08:02:41.549302+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Paraguay's president impeached after collapse of bank",
+      "content_preview": "When ledger invariants fail and state reconciliation halts, social consensus isn't far behind. Distributed systems teach",
+      "reason": "",
+      "duration_s": 4.23
+    },
+    {
+      "timestamp": "2026-11-07T08:02:42.352091+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (36/28).",
       "duration_s": 0.01
     }
   ]
