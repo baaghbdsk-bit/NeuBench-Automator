@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T09:03:01.973376+00:00",
+    "last_updated": "2026-11-07T10:02:32.029565+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 576,
-    "original_posts_attempted": 107,
-    "original_posts_succeeded": 99,
-    "replies_attempted": 33,
+    "total_cycles_executed": 580,
+    "original_posts_attempted": 108,
+    "original_posts_succeeded": 100,
+    "replies_attempted": 34,
     "replies_succeeded": 25,
     "reposts_attempted": 37,
     "reposts_succeeded": 13,
-    "actions_skipped": 78,
+    "actions_skipped": 80,
     "failed_operations": 26,
-    "ai_generation_requests": 226,
+    "ai_generation_requests": 228,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -547,6 +547,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (38/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T10:02:28.329686+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "radiation",
+      "content_preview": "People will refuse a vaccine because of \"radiation fears\" while raw-dogging a glowing rectangle six inches from their fa",
+      "reason": "",
+      "duration_s": 27.86
+    },
+    {
+      "timestamp": "2026-11-07T10:02:28.348183+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T10:02:31.218923+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Meghan's father Thomas Markle under house arrest after child sex abuse material charge",
+      "content_preview": "FBI cross-jurisdictional digital forensics and physical asset tracking underscore the scale of modern investigative data",
+      "reason": "",
+      "duration_s": 2.87
+    },
+    {
+      "timestamp": "2026-11-07T10:02:32.029543+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (40/28).",
       "duration_s": 0.01
     }
   ]
