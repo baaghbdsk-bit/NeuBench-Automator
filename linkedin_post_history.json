@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T02:02:42.560119+00:00",
+  "last_success_at": "2026-11-07T03:02:59.715939+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -191,6 +191,15 @@
       "status": "success",
       "posted_at": "2026-11-07T02:02:42.560119+00:00",
       "post_urn": "urn:li:ugcPost:7524652518388162560"
+    },
+    {
+      "topic_key": "title:838fb2f4e30341f0031d5cf8ea8e5712",
+      "title": "MCP vs. REST API",
+      "url": "",
+      "content_hash": "877e113d4b4d6081861af41c2272367e",
+      "status": "success",
+      "posted_at": "2026-11-07T03:02:59.715939+00:00",
+      "post_urn": "urn:li:ugcPost:7524667689387175936"
     }
   ],
   "posted_titles": [
@@ -214,6 +223,7 @@
     "li:Stack vs. Queue",
     "li:REST vs. GraphQL vs. gRPC",
     "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
-    "li:AI Agents vs. Traditional Automation"
+    "li:AI Agents vs. Traditional Automation",
+    "li:MCP vs. REST API"
   ]
 }
