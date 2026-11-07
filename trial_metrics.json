@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T08:02:42.352113+00:00",
+    "last_updated": "2026-11-07T09:03:01.973376+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 572,
-    "original_posts_attempted": 106,
-    "original_posts_succeeded": 98,
-    "replies_attempted": 32,
+    "total_cycles_executed": 576,
+    "original_posts_attempted": 107,
+    "original_posts_succeeded": 99,
+    "replies_attempted": 33,
     "replies_succeeded": 25,
     "reposts_attempted": 37,
     "reposts_succeeded": 13,
-    "actions_skipped": 76,
+    "actions_skipped": 78,
     "failed_operations": 26,
-    "ai_generation_requests": 224,
+    "ai_generation_requests": 226,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -507,6 +507,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (36/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T09:02:58.396863+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "new zealand vs tonga",
+      "content_preview": "People treating New Zealand vs Tonga like it’s a casual sports match instead of an ancestral blood sport where someone’s",
+      "reason": "",
+      "duration_s": 28.82
+    },
+    {
+      "timestamp": "2026-11-07T09:02:58.412879+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T09:03:01.323727+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "The Components of Agent Memory",
+      "content_preview": "Agent memory isn't a monolith. It's a tiered architecture: working context (KV cache), episodic stores (vector DBs), and",
+      "reason": "",
+      "duration_s": 2.91
+    },
+    {
+      "timestamp": "2026-11-07T09:03:01.973356+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (38/28).",
       "duration_s": 0.01
     }
   ]
