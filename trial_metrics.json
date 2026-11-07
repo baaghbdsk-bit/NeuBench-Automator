@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T17:02:50.648237+00:00",
+    "last_updated": "2026-11-07T18:03:12.480724+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 609,
-    "original_posts_attempted": 115,
-    "original_posts_succeeded": 107,
-    "replies_attempted": 39,
+    "total_cycles_executed": 613,
+    "original_posts_attempted": 116,
+    "original_posts_succeeded": 108,
+    "replies_attempted": 40,
     "replies_succeeded": 25,
     "reposts_attempted": 39,
     "reposts_succeeded": 13,
-    "actions_skipped": 95,
+    "actions_skipped": 97,
     "failed_operations": 26,
-    "ai_generation_requests": 244,
+    "ai_generation_requests": 246,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -877,6 +877,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (54/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T18:03:07.141634+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "seher hone ko hai",
+      "content_preview": "Seher hone ko hai\" bro you’ve been doomscrolling since midnight, your sleep schedule is hanging by a thread, and your bi",
+      "reason": "",
+      "duration_s": 31.17
+    },
+    {
+      "timestamp": "2026-11-07T18:03:07.162829+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T18:03:11.618426+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Amazon’s new basic Kindle proves you don’t need all the bells and whistles",
+      "content_preview": "Radical simplicity wins. Stripping non-essential features lowered weight and improved the E Ink refresh pipeline. Good h",
+      "reason": "",
+      "duration_s": 4.45
+    },
+    {
+      "timestamp": "2026-11-07T18:03:12.480699+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (56/28).",
       "duration_s": 0.01
     }
   ]
