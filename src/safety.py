@@ -93,13 +93,10 @@ class SafetyEngine:
             if limit > 0 and today_counts.get("bluesky_posts", 0) >= limit:
                 return False, f"Bluesky daily cap reached ({today_counts.get('bluesky_posts')}/{limit})."
 
-        # LinkedIn Posts (one post every three hours by default)
+        # LinkedIn Posts (daily cap removed per user request to allow continuous posting)
         elif action_type in ("linkedin", "linkedin_post"):
             if not config.LINKEDIN_ENABLED:
                 return False, "LinkedIn automation is disabled via LINKEDIN_ENABLED=false."
-            limit = self.caps.get("linkedin_posts", 8)
-            if limit > 0 and today_counts.get("linkedin_posts", 0) >= limit:
-                return False, f"LinkedIn daily cap reached ({today_counts.get('linkedin_posts')}/{limit}) to protect organic algorithmic distribution."
 
         # LinkedIn engagement includes own-post replies, peer comments, and peer replies.
         elif action_type in ("linkedin-peers", "linkedin_peer_comment"):

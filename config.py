@@ -107,7 +107,7 @@ CAPS_PER_PLATFORM = {
     "youtube_shorts": int(os.getenv("MAX_DAILY_YOUTUBE_SHORTS", "2")),    # 1-2/day max to prevent self-cannibalization
     "instagram_carousels": int(os.getenv("MAX_DAILY_IG_CAROUSELS", "1")), # 1 deep cheatsheet/day
     "instagram_reels": int(os.getenv("MAX_DAILY_IG_REELS", "2")),         # 1-2 reels/day
-    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "8")),          # 8 posts/day, one every 3 hours via the dedicated LinkedIn workflow
+    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "999")),          # Uncapped per user request, allows continuous posting
     "linkedin_peer_comments": int(os.getenv("MAX_DAILY_LINKEDIN_PEER_COMMENTS", "10")), # Max viral comments/replies per day (commenting on others' posts)
     "devto_articles": int(os.getenv("MAX_DAILY_DEVTO", "1")),             # 1 comprehensive article/day
     "pinterest_pins": int(os.getenv("MAX_DAILY_PINTEREST", "3")),         # 2-3 pins/day spaced out

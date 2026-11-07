@@ -79,8 +79,8 @@ jobs:
           MAX_DAILY_REPLIES: '0'
           MAX_DAILY_REPOSTS: '0'
           MAX_DAILY_TOTAL: '0'
-          MAX_DAILY_LINKEDIN: '8'
-          LINKEDIN_MIN_INTERVAL_MINUTES: '180'
+          MAX_DAILY_LINKEDIN: '999'
+          LINKEDIN_MIN_INTERVAL_MINUTES: '0'
           LINKEDIN_SCHEDULE_GRACE_MINUTES: '60'
         run: |
           if [ "$DRY_RUN" = "true" ]; then

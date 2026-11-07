@@ -97,7 +97,7 @@ jobs:
           MAX_DAILY_X_ORIGINALS: '12'
           MAX_DAILY_X_REPLIES: '12'
           MAX_DAILY_X_REPOSTS: '6'
-          MAX_DAILY_LINKEDIN: '8'
+          MAX_DAILY_LINKEDIN: '999'
           MAX_DAILY_BLUESKY: '12'
           MAX_DAILY_TOTAL: '40'
         run: |

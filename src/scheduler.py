@@ -1513,20 +1513,7 @@ class AutomaterEngine:
 
             # Dry runs are previews and never reserve a cadence slot or history entry.
             if not self.safety.dry_run:
-                if today_li >= max_li:
-                    reason = f"LinkedIn daily cap reached ({today_li}/{max_li})"
-                    console.print(f"[yellow]🔔 {reason}. Skipping this slot.[/yellow]")
-                    self.tracker.record_event(
-                        action_type="linkedin_post",
-                        status="skipped",
-                        target_identifier="LinkedIn daily cap",
-                        skip_or_error_reason=reason,
-                        duration_seconds=time.time() - start_time,
-                        is_dry_run=False,
-                    )
-                    return False
-
-                # LinkedIn 3-hour cadence guard removed per user configuration (daily caps & dedupe still active)
+                # LinkedIn daily cap and cadence guard removed per user configuration (deduplication still active)
                 pass
 
             has_linkedin_api = bool(
