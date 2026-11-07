@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T01:29:21.061128+00:00",
+    "last_updated": "2026-11-07T02:03:56.069546+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 540,
-    "original_posts_attempted": 95,
-    "original_posts_succeeded": 87,
+    "total_cycles_executed": 544,
+    "original_posts_attempted": 97,
+    "original_posts_succeeded": 89,
     "replies_attempted": 30,
     "replies_succeeded": 25,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
     "actions_skipped": 68,
     "failed_operations": 26,
-    "ai_generation_requests": 200,
+    "ai_generation_requests": 204,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -188,6 +188,46 @@
       "content_preview": "People out here really debating New Mexico vs Nevada like you can’t get the exact same existential dread in both, just s",
       "reason": "",
       "duration_s": 65.53
+    },
+    {
+      "timestamp": "2026-11-07T02:02:29.886692+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "vj edgecombe",
+      "content_preview": "grown adults on here scouting high schoolers like they’re running the Knicks front office from a couch stained with Dori",
+      "reason": "",
+      "duration_s": 23.66
+    },
+    {
+      "timestamp": "2026-11-07T02:02:42.566925+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "AI Agents vs Traditional Automation: Architectural Comparison\n\nProbabilistic non-linear tool calling vs deterministic ri",
+      "reason": "",
+      "duration_s": 12.67
+    },
+    {
+      "timestamp": "2026-11-07T02:02:46.191982+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+      "content_preview": "Raw tool outputs bloat agent context and dilute attention. Pruning and text summaries fall short. Passing dense latent r",
+      "reason": "",
+      "duration_s": 3.62
+    },
+    {
+      "timestamp": "2026-11-07T02:03:56.066721+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "northern lights aurora borealis forecast",
+      "content_preview": "People staring at a cloudy sky at 3 AM because an app told them there’s a 2% chance of seeing green smudges. Bro you liv",
+      "reason": "",
+      "duration_s": 67.78
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T01:28:10.906421+00:00",
+  "last_success_at": "2026-11-07T02:02:42.560119+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -182,6 +182,15 @@
       "status": "success",
       "posted_at": "2026-11-07T01:28:10.906421+00:00",
       "post_urn": "urn:li:ugcPost:7524643828838952960"
+    },
+    {
+      "topic_key": "title:67746cb2721c8c484c3b23c9bc3ad42a",
+      "title": "AI Agents vs. Traditional Automation",
+      "url": "",
+      "content_hash": "d15ac760e9c81825b69aa12ad54ea873",
+      "status": "success",
+      "posted_at": "2026-11-07T02:02:42.560119+00:00",
+      "post_urn": "urn:li:ugcPost:7524652518388162560"
     }
   ],
   "posted_titles": [
@@ -204,6 +213,7 @@
     "li:ArrayList vs. LinkedList",
     "li:Stack vs. Queue",
     "li:REST vs. GraphQL vs. gRPC",
-    "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)"
+    "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
+    "li:AI Agents vs. Traditional Automation"
   ]
 }

@@ -120,7 +120,11 @@
     "Free speech hypocrisy on social media",
     "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
     "bsky:Meta introduces Spaces, a new way to collaborate with your Muse agent",
-    "new mexico vs nevada"
+    "new mexico vs nevada",
+    "vj edgecombe",
+    "li:AI Agents vs. Traditional Automation",
+    "bsky:Tools Need Not Speak in Text: Latent Context Compression for Agents",
+    "northern lights aurora borealis forecast"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -191,7 +195,9 @@
     "b9b5503f9f2890d5d077beae2d74dc64aa89c0391ae00abffefbaf2c84c47690",
     "34c249d9d9e81f903fe21fa1498c6b284453ba703ebb210059eaafbb1fd9d050",
     "65688fb5d0ab25833e1340a9d50ec85e3793de216bc799be10f475b3d883fc22",
-    "f89ba50244d1ab2d83c82954c60e8ad7ae7cf3949d76bfed2c57ea9251c3f9d4"
+    "f89ba50244d1ab2d83c82954c60e8ad7ae7cf3949d76bfed2c57ea9251c3f9d4",
+    "5edf9532b5210519aa83ae0ee571452b8760257f4b482934b03f79cb6818e9fc",
+    "c2e0d70e02c0cf2f7104f08d536752f2b6ca35d9c247ff2d6df898e6a6094d79"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -213,7 +219,8 @@
         "post:11f5e0a637272749817bc2f4dbd223c631b14739fb4ce11df7982f3735162777",
         "post:cdd774f2a37ba0040f5ee4f893ed6f6572358ccd35c5249e8e56b8950b8f4ed1",
         "post:2e1395d815f4483d22a92f137b6145c46eca80ba6d5ce60707d6c74d8b16865d",
-        "post:4c660484b321a1bc1433f5da07da97179e39f1f2e685a7fa9dd66d1f6ce4769a"
+        "post:4c660484b321a1bc1433f5da07da97179e39f1f2e685a7fa9dd66d1f6ce4769a",
+        "post:0e6317517b7f29eca4ec4df23b888040ce95698414143764bf372632734de06d"
       ],
       "pending": []
     },
