@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T14:43:33.465318+00:00",
+    "last_updated": "2026-11-07T15:02:56.068311+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 597,
-    "original_posts_attempted": 112,
-    "original_posts_succeeded": 104,
-    "replies_attempted": 37,
+    "total_cycles_executed": 601,
+    "original_posts_attempted": 113,
+    "original_posts_succeeded": 105,
+    "replies_attempted": 38,
     "replies_succeeded": 25,
     "reposts_attempted": 38,
     "reposts_succeeded": 13,
-    "actions_skipped": 89,
+    "actions_skipped": 91,
     "failed_operations": 26,
-    "ai_generation_requests": 238,
+    "ai_generation_requests": 240,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -758,6 +758,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (48/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T15:02:52.568052+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "rcd espanyol - deportivo",
+      "content_preview": "Espanyol vs Deportivo fans treating a mid-table Segunda clash like it’s the literal fall of the Roman Empire is the exac",
+      "reason": "",
+      "duration_s": 29.36
+    },
+    {
+      "timestamp": "2026-11-07T15:02:52.581064+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T15:02:55.507328+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+      "content_preview": "Text-based LLM evolutionary search is bottlenecked by token generation overhead and context bloat. SwarmEvolve bypasses ",
+      "reason": "",
+      "duration_s": 2.92
+    },
+    {
+      "timestamp": "2026-11-07T15:02:56.068275+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (50/28).",
+      "duration_s": 0.0
     }
   ]
 }
