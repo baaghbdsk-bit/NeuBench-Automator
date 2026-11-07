@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T05:02:58.528610+00:00",
+  "last_success_at": "2026-11-07T06:00:02.905369+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -218,6 +218,15 @@
       "status": "success",
       "posted_at": "2026-11-07T05:02:58.528610+00:00",
       "post_urn": "urn:li:ugcPost:7524697884525535232"
+    },
+    {
+      "topic_key": "title:a7a62956f9517563906523cf4078e814",
+      "title": "Redis vs. Memcached",
+      "url": "",
+      "content_hash": "aeed7f4479a5d89cf79b8e8f45ae6082",
+      "status": "success",
+      "posted_at": "2026-11-07T06:00:02.905369+00:00",
+      "post_urn": "urn:li:ugcPost:7524712247512887296"
     }
   ],
   "posted_titles": [
@@ -244,6 +253,7 @@
     "li:AI Agents vs. Traditional Automation",
     "li:MCP vs. REST API",
     "li:Docker vs. Virtual Machines",
-    "li:Kafka vs. RabbitMQ"
+    "li:Kafka vs. RabbitMQ",
+    "li:Redis vs. Memcached"
   ]
 }
