@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T21:02:49.640770+00:00",
+  "last_success_at": "2026-11-07T22:02:49.843395+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -236,6 +236,15 @@
       "status": "success",
       "posted_at": "2026-11-07T21:02:49.640770+00:00",
       "post_urn": "urn:li:ugcPost:7524939438628728833"
+    },
+    {
+      "topic_key": "title:14612965b88096203131dd0e868c8a42",
+      "title": "Event-Driven vs. Request-Driven Architecture",
+      "url": "",
+      "content_hash": "7583e13fd17ac062f9ee7e6e45deef1b",
+      "status": "success",
+      "posted_at": "2026-11-07T22:02:49.843395+00:00",
+      "post_urn": "urn:li:ugcPost:7524954539599523840"
     }
   ],
   "posted_titles": [
@@ -264,6 +273,7 @@
     "li:Docker vs. Virtual Machines",
     "li:Kafka vs. RabbitMQ",
     "li:Redis vs. Memcached",
-    "li:Optimistic vs. Pessimistic Locking"
+    "li:Optimistic vs. Pessimistic Locking",
+    "li:Event-Driven vs. Request-Driven Architecture"
   ]
 }

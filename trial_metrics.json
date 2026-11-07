@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T21:02:53.605350+00:00",
+    "last_updated": "2026-11-07T22:02:55.171705+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 630,
-    "original_posts_attempted": 120,
-    "original_posts_succeeded": 112,
-    "replies_attempted": 43,
+    "total_cycles_executed": 634,
+    "original_posts_attempted": 121,
+    "original_posts_succeeded": 113,
+    "replies_attempted": 44,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
-    "actions_skipped": 105,
+    "actions_skipped": 106,
     "failed_operations": 26,
-    "ai_generation_requests": 255,
+    "ai_generation_requests": 258,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1087,6 +1087,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (65/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T22:02:42.128568+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Restaurant service charge entitlement",
+      "content_preview": "At this point I’m not even paying for dinner, I’m funding a hostile takeover of the restaurant. Next thing you know I’ll",
+      "reason": "",
+      "duration_s": 25.69
+    },
+    {
+      "timestamp": "2026-11-07T22:02:49.850949+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Event-Driven vs. Request-Driven Architecture: The Ultimate Engineering Comparison Guide\n\nBoth Event-Driven and Request-D",
+      "reason": "",
+      "duration_s": 7.71
+    },
+    {
+      "timestamp": "2026-11-07T22:02:54.347584+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
+      "content_preview": "StepX-OPD rethinks multi-teacher on-policy distillation for diffusion models, harmonizing multi-capability consolidation",
+      "reason": "",
+      "duration_s": 4.49
+    },
+    {
+      "timestamp": "2026-11-07T22:02:55.171679+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (68/28).",
       "duration_s": 0.01
     }
   ]
