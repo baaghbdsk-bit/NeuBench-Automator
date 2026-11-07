@@ -1,18 +1,18 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T19:02:39.478853+00:00",
+    "last_updated": "2026-11-07T19:27:19.553439+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 617,
+    "total_cycles_executed": 618,
     "original_posts_attempted": 117,
     "original_posts_succeeded": 109,
     "replies_attempted": 41,
     "replies_succeeded": 25,
     "reposts_attempted": 39,
     "reposts_succeeded": 13,
-    "actions_skipped": 99,
+    "actions_skipped": 100,
     "failed_operations": 26,
     "ai_generation_requests": 248,
     "ai_generation_failures": 1,
@@ -957,6 +957,16 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (58/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T19:27:19.553418+00:00",
+      "action_type": "linkedin",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8) to protect organic algorithmic distribution.",
       "duration_s": 0.01
     }
   ]
