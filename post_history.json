@@ -116,7 +116,11 @@
     "पेट्रोल",
     "Gym bros vs reality",
     "li:REST vs. GraphQL vs. gRPC",
-    "bsky:Hundreds of Artex AI hacking tools found publicly exposed to the web"
+    "bsky:Hundreds of Artex AI hacking tools found publicly exposed to the web",
+    "Free speech hypocrisy on social media",
+    "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
+    "bsky:Meta introduces Spaces, a new way to collaborate with your Muse agent",
+    "new mexico vs nevada"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -185,7 +189,9 @@
     "3239a424ef896a5675ffccc0da893afa2d203a2dffdefdcb40bace721c999387",
     "f33d6691bd98a24d69f6810840b9f17c24a61047d654994f2f60dc9ce2c8ff1f",
     "b9b5503f9f2890d5d077beae2d74dc64aa89c0391ae00abffefbaf2c84c47690",
-    "34c249d9d9e81f903fe21fa1498c6b284453ba703ebb210059eaafbb1fd9d050"
+    "34c249d9d9e81f903fe21fa1498c6b284453ba703ebb210059eaafbb1fd9d050",
+    "65688fb5d0ab25833e1340a9d50ec85e3793de216bc799be10f475b3d883fc22",
+    "f89ba50244d1ab2d83c82954c60e8ad7ae7cf3949d76bfed2c57ea9251c3f9d4"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -206,7 +212,8 @@
         "post:be85bb2f17132518a73683899c6bc19531b621693bda4bf5e81cb9ad0ff75edc",
         "post:11f5e0a637272749817bc2f4dbd223c631b14739fb4ce11df7982f3735162777",
         "post:cdd774f2a37ba0040f5ee4f893ed6f6572358ccd35c5249e8e56b8950b8f4ed1",
-        "post:2e1395d815f4483d22a92f137b6145c46eca80ba6d5ce60707d6c74d8b16865d"
+        "post:2e1395d815f4483d22a92f137b6145c46eca80ba6d5ce60707d6c74d8b16865d",
+        "post:4c660484b321a1bc1433f5da07da97179e39f1f2e685a7fa9dd66d1f6ce4769a"
       ],
       "pending": []
     },

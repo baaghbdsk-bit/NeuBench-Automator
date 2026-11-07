@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T01:03:15.107581+00:00",
+    "last_updated": "2026-11-07T01:29:21.061128+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 536,
-    "original_posts_attempted": 93,
-    "original_posts_succeeded": 85,
+    "total_cycles_executed": 540,
+    "original_posts_attempted": 95,
+    "original_posts_succeeded": 87,
     "replies_attempted": 30,
     "replies_succeeded": 25,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
     "actions_skipped": 68,
     "failed_operations": 26,
-    "ai_generation_requests": 196,
+    "ai_generation_requests": 200,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -148,6 +148,46 @@
       "content_preview": "Bro at this rate my grandkids will be commuting via PowerPoint presentation.",
       "reason": "",
       "duration_s": 27.62
+    },
+    {
+      "timestamp": "2026-11-07T01:27:59.488900+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Free speech hypocrisy on social media",
+      "content_preview": "“I love free speech!” cried the person who immediately tries to get you fired because you said their favorite Marvel mov",
+      "reason": "",
+      "duration_s": 25.95
+    },
+    {
+      "timestamp": "2026-11-07T01:28:10.910261+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "SQL vs NoSQL (PostgreSQL vs. MongoDB): Architectural Comparison\n\nStrict relational schemas & WAL logging vs horizontal s",
+      "reason": "",
+      "duration_s": 11.41
+    },
+    {
+      "timestamp": "2026-11-07T01:28:14.755423+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "content_preview": "Meta's Spaces for Muse shifts multi-agent workflows from stateless API calls to persistent shared context. The hard engi",
+      "reason": "",
+      "duration_s": 3.84
+    },
+    {
+      "timestamp": "2026-11-07T01:29:21.058252+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "new mexico vs nevada",
+      "content_preview": "People out here really debating New Mexico vs Nevada like you can’t get the exact same existential dread in both, just s",
+      "reason": "",
+      "duration_s": 65.53
     }
   ]
 }

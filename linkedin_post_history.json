@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T01:02:43.973422+00:00",
+  "last_success_at": "2026-11-07T01:28:10.906421+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -173,6 +173,15 @@
       "status": "success",
       "posted_at": "2026-11-07T01:02:43.973422+00:00",
       "post_urn": "urn:li:ugcPost:7524637425655271424"
+    },
+    {
+      "topic_key": "title:f8ee5ea1d1f6cafd8e1131c96b8d99d2",
+      "title": "SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
+      "url": "",
+      "content_hash": "498bfe0e001979fa4dad7870dcca1b11",
+      "status": "success",
+      "posted_at": "2026-11-07T01:28:10.906421+00:00",
+      "post_urn": "urn:li:ugcPost:7524643828838952960"
     }
   ],
   "posted_titles": [
@@ -194,6 +203,7 @@
     "li:HashMap vs. HashSet",
     "li:ArrayList vs. LinkedList",
     "li:Stack vs. Queue",
-    "li:REST vs. GraphQL vs. gRPC"
+    "li:REST vs. GraphQL vs. gRPC",
+    "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)"
   ]
 }
