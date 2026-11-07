@@ -113,7 +113,10 @@
     "baylor basketball",
     "li:Stack vs. Queue",
     "bsky:OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
-    "पेट्रोल"
+    "पेट्रोल",
+    "Gym bros vs reality",
+    "li:REST vs. GraphQL vs. gRPC",
+    "bsky:Hundreds of Artex AI hacking tools found publicly exposed to the web"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -142,7 +145,8 @@
     "https://x.com/elonmusk/status/2116039632743702637",
     "https://x.com/zomato/status/2118370011928780823",
     "https://x.com/satyanadella/status/2115577764300693644",
-    "https://x.com/naval/status/1002103360646823936"
+    "https://x.com/naval/status/1002103360646823936",
+    "https://x.com/AshwiniVaishnaw/status/2116878283874918631"
   ],
   "reposted_urls": [
     "https://x.com/ndtv/status/2113019999380193613",
@@ -180,7 +184,8 @@
     "de23beaf80342b975f94e3da2de0c19a83444f9632f0a18dbe326fa981e2edeb",
     "3239a424ef896a5675ffccc0da893afa2d203a2dffdefdcb40bace721c999387",
     "f33d6691bd98a24d69f6810840b9f17c24a61047d654994f2f60dc9ce2c8ff1f",
-    "b9b5503f9f2890d5d077beae2d74dc64aa89c0391ae00abffefbaf2c84c47690"
+    "b9b5503f9f2890d5d077beae2d74dc64aa89c0391ae00abffefbaf2c84c47690",
+    "34c249d9d9e81f903fe21fa1498c6b284453ba703ebb210059eaafbb1fd9d050"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -200,7 +205,8 @@
         "post:ad2c12a484997f0e7a3dea0e7864de9c39985cb6854dfb61d17c828dd6256587",
         "post:be85bb2f17132518a73683899c6bc19531b621693bda4bf5e81cb9ad0ff75edc",
         "post:11f5e0a637272749817bc2f4dbd223c631b14739fb4ce11df7982f3735162777",
-        "post:cdd774f2a37ba0040f5ee4f893ed6f6572358ccd35c5249e8e56b8950b8f4ed1"
+        "post:cdd774f2a37ba0040f5ee4f893ed6f6572358ccd35c5249e8e56b8950b8f4ed1",
+        "post:2e1395d815f4483d22a92f137b6145c46eca80ba6d5ce60707d6c74d8b16865d"
       ],
       "pending": []
     },

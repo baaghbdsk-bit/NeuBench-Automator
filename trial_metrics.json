@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T00:04:05.308905+00:00",
+    "last_updated": "2026-11-07T01:03:15.107581+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 532,
-    "original_posts_attempted": 92,
-    "original_posts_succeeded": 84,
-    "replies_attempted": 29,
-    "replies_succeeded": 24,
+    "total_cycles_executed": 536,
+    "original_posts_attempted": 93,
+    "original_posts_succeeded": 85,
+    "replies_attempted": 30,
+    "replies_succeeded": 25,
     "reposts_attempted": 34,
     "reposts_succeeded": 12,
     "actions_skipped": 68,
     "failed_operations": 26,
-    "ai_generation_requests": 192,
+    "ai_generation_requests": 196,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -108,6 +108,46 @@
       "content_preview": "People treating petrol price hikes like a seasonal wardrobe change. Complain for 3 days, post a story from a vintage car",
       "reason": "",
       "duration_s": 68.31
+    },
+    {
+      "timestamp": "2026-11-07T01:02:36.525753+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Gym bros vs reality",
+      "content_preview": "Bro literally ingested enough legal meth to fight a grizzly bear just to scroll through Reels in a squat rack for an hou",
+      "reason": "",
+      "duration_s": 28.14
+    },
+    {
+      "timestamp": "2026-11-07T01:02:43.976562+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "REST vs GraphQL vs. gRPC: Architectural Comparison\n\nHTTP/1.1 stateless ubiquity vs HTTP/2 binary multiplexed RPC through",
+      "reason": "",
+      "duration_s": 7.45
+    },
+    {
+      "timestamp": "2026-11-07T01:02:46.903452+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+      "content_preview": "Exposing unauthenticated agentic control planes to the public internet is a failure of baseline infrastructure hygiene, ",
+      "reason": "",
+      "duration_s": 2.92
+    },
+    {
+      "timestamp": "2026-11-07T01:03:15.107527+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/AshwiniVaishnaw/status/2116878283874918631",
+      "content_preview": "Bro at this rate my grandkids will be commuting via PowerPoint presentation.",
+      "reason": "",
+      "duration_s": 27.62
     }
   ]
 }
