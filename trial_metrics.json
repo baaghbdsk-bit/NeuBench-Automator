@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T03:04:12.177573+00:00",
+    "last_updated": "2026-11-07T04:03:46.826195+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 548,
-    "original_posts_attempted": 99,
-    "original_posts_succeeded": 91,
+    "total_cycles_executed": 552,
+    "original_posts_attempted": 100,
+    "original_posts_succeeded": 92,
     "replies_attempted": 30,
     "replies_succeeded": 25,
-    "reposts_attempted": 34,
-    "reposts_succeeded": 12,
+    "reposts_attempted": 35,
+    "reposts_succeeded": 13,
     "actions_skipped": 68,
     "failed_operations": 26,
-    "ai_generation_requests": 208,
+    "ai_generation_requests": 212,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -268,6 +268,46 @@
       "content_preview": "Imagine making your girlfriend wait 5 years for a ring, breaking up over a phone call like a coward, and history just re",
       "reason": "",
       "duration_s": 68.46
+    },
+    {
+      "timestamp": "2026-11-07T04:03:03.803706+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "leaky black",
+      "content_preview": "People logging onto Twitter today ready to give a masterclass geopolitics lecture on \"leaky black\" only to find out it’s",
+      "reason": "",
+      "duration_s": 29.7
+    },
+    {
+      "timestamp": "2026-11-07T04:03:15.136826+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Docker vs. Virtual Machines: The Ultimate Architectural Comparison\n\nBoth Docker and Virtual Machines are essential tools",
+      "reason": "",
+      "duration_s": 11.33
+    },
+    {
+      "timestamp": "2026-11-07T04:03:17.884433+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+      "content_preview": "SwarmEvolve replaces bulky text-based CoT with latent-space agent swarms for evolutionary search. Bypassing token genera",
+      "reason": "",
+      "duration_s": 2.75
+    },
+    {
+      "timestamp": "2026-11-07T04:03:46.826169+00:00",
+      "action_type": "quote_tweet",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/IndianTechGuide/status/2118916386969813109",
+      "content_preview": "Bro just standing on a stage reading an envelope while tech bros in Bangalore pretend this is a moon landing.",
+      "reason": "",
+      "duration_s": 28.39
     }
   ]
 }

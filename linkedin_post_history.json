@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T03:02:59.715939+00:00",
+  "last_success_at": "2026-11-07T04:03:15.133907+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -200,6 +200,15 @@
       "status": "success",
       "posted_at": "2026-11-07T03:02:59.715939+00:00",
       "post_urn": "urn:li:ugcPost:7524667689387175936"
+    },
+    {
+      "topic_key": "title:92f97f7cf36a9e034c624a97cec1751f",
+      "title": "Docker vs. Virtual Machines",
+      "url": "",
+      "content_hash": "b33f661c4ec28dabc9a9d7cd7f288bb9",
+      "status": "success",
+      "posted_at": "2026-11-07T04:03:15.133907+00:00",
+      "post_urn": "urn:li:ugcPost:7524682854228705280"
     }
   ],
   "posted_titles": [
@@ -224,6 +233,7 @@
     "li:REST vs. GraphQL vs. gRPC",
     "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
     "li:AI Agents vs. Traditional Automation",
-    "li:MCP vs. REST API"
+    "li:MCP vs. REST API",
+    "li:Docker vs. Virtual Machines"
   ]
 }
