@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T04:03:46.826195+00:00",
+    "last_updated": "2026-11-07T05:04:13.876183+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 552,
-    "original_posts_attempted": 100,
-    "original_posts_succeeded": 92,
+    "total_cycles_executed": 556,
+    "original_posts_attempted": 102,
+    "original_posts_succeeded": 94,
     "replies_attempted": 30,
     "replies_succeeded": 25,
     "reposts_attempted": 35,
     "reposts_succeeded": 13,
     "actions_skipped": 68,
     "failed_operations": 26,
-    "ai_generation_requests": 212,
+    "ai_generation_requests": 216,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -308,6 +308,46 @@
       "content_preview": "Bro just standing on a stage reading an envelope while tech bros in Bangalore pretend this is a moon landing.",
       "reason": "",
       "duration_s": 28.39
+    },
+    {
+      "timestamp": "2026-11-07T05:02:45.263303+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "பாலம்",
+      "content_preview": "Bro really woke up, saw \"பாலம்\" trending, and decided to construct an entire personality around a bridge that’ll probabl",
+      "reason": "",
+      "duration_s": 29.41
+    },
+    {
+      "timestamp": "2026-11-07T05:02:58.895073+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Kafka vs. RabbitMQ: The Ultimate Engineering Comparison Guide\n\nBoth Kafka and RabbitMQ are exceptional, but they were bu",
+      "reason": "",
+      "duration_s": 13.63
+    },
+    {
+      "timestamp": "2026-11-07T05:03:05.023539+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
+      "content_preview": "Signed knowledge packs don't guarantee vector integrity. A signature proves authorship, not that embeddings encode the t",
+      "reason": "",
+      "duration_s": 6.12
+    },
+    {
+      "timestamp": "2026-11-07T05:04:13.595371+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Election season promises vs reality",
+      "content_preview": "Bro’s out here promising bullet trains and free electricity while my street has been a mud pit since the Shah Jahan admi",
+      "reason": "",
+      "duration_s": 67.96
     }
   ]
 }

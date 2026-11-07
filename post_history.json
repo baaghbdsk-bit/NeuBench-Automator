@@ -131,7 +131,11 @@
     "prince william kate middleton 2007 split",
     "leaky black",
     "li:Docker vs. Virtual Machines",
-    "bsky:SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization"
+    "bsky:SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+    "பாலம்",
+    "li:Kafka vs. RabbitMQ",
+    "bsky:Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
+    "Election season promises vs reality"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -208,7 +212,9 @@
     "c2e0d70e02c0cf2f7104f08d536752f2b6ca35d9c247ff2d6df898e6a6094d79",
     "354ab1785adad536c4aee31278bf7e5b61c6665febecad4d66401d014c845d25",
     "78b7a690d64da8a1076309d2257c872616fc7e52895663fa653e9f9695943368",
-    "5bb75f81843c2c3d5b80f8d1caff286f55b5d56f51e29a42b59fae9674a5b8aa"
+    "5bb75f81843c2c3d5b80f8d1caff286f55b5d56f51e29a42b59fae9674a5b8aa",
+    "9cf5ae6da6f990e345db88c18cd81c772507d4ac280eab258bacaf541dd0f0bf",
+    "1ba9101a63a34b78db06d6960696249283f239cfdd8de32cab2eafd6d99de587"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -233,7 +239,8 @@
         "post:4c660484b321a1bc1433f5da07da97179e39f1f2e685a7fa9dd66d1f6ce4769a",
         "post:0e6317517b7f29eca4ec4df23b888040ce95698414143764bf372632734de06d",
         "post:a4cc48efe1f6f29d1cf1ed23d509fbe629be64fda9d6d2175a94d00b3b133df1",
-        "post:36149033889b58e2fb7eb36e4e7561ec276eac07e2f9af308224fe5d6ee1c619"
+        "post:36149033889b58e2fb7eb36e4e7561ec276eac07e2f9af308224fe5d6ee1c619",
+        "post:c36364182a6a89967bba14b9c81314e950b2f8f232200dcafc42f6303d61a6bd"
       ],
       "pending": []
     },

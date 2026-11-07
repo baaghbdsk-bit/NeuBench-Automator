@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T04:03:15.133907+00:00",
+  "last_success_at": "2026-11-07T05:02:58.528610+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -209,6 +209,15 @@
       "status": "success",
       "posted_at": "2026-11-07T04:03:15.133907+00:00",
       "post_urn": "urn:li:ugcPost:7524682854228705280"
+    },
+    {
+      "topic_key": "title:2b9cd0978f02416de1c58e3f97602183",
+      "title": "Kafka vs. RabbitMQ",
+      "url": "",
+      "content_hash": "bc2d9df01fa33b9ee12fa0789fb1f797",
+      "status": "success",
+      "posted_at": "2026-11-07T05:02:58.528610+00:00",
+      "post_urn": "urn:li:ugcPost:7524697884525535232"
     }
   ],
   "posted_titles": [
@@ -234,6 +243,7 @@
     "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
     "li:AI Agents vs. Traditional Automation",
     "li:MCP vs. REST API",
-    "li:Docker vs. Virtual Machines"
+    "li:Docker vs. Virtual Machines",
+    "li:Kafka vs. RabbitMQ"
   ]
 }
