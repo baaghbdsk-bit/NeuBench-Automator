@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T07:02:54.402463+00:00",
+    "last_updated": "2026-11-07T08:00:09.180940+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 565,
-    "original_posts_attempted": 104,
-    "original_posts_succeeded": 96,
+    "total_cycles_executed": 568,
+    "original_posts_attempted": 105,
+    "original_posts_succeeded": 97,
     "replies_attempted": 32,
     "replies_succeeded": 25,
-    "reposts_attempted": 35,
+    "reposts_attempted": 36,
     "reposts_succeeded": 13,
-    "actions_skipped": 72,
+    "actions_skipped": 74,
     "failed_operations": 26,
-    "ai_generation_requests": 221,
+    "ai_generation_requests": 222,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -437,6 +437,36 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (33/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T08:00:06.237181+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "jared padalecki",
+      "content_preview": "men will literally watch Jared Padalecki fight demons in a 2004 Chevy Impala for 15 seasons and then go to therapy twice",
+      "reason": "",
+      "duration_s": 25.38
+    },
+    {
+      "timestamp": "2026-11-07T08:00:06.256821+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T08:00:09.180918+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (34/28).",
       "duration_s": 0.01
     }
   ]
