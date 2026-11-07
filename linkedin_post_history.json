@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T23:02:29.207663+00:00",
+  "last_success_at": "2026-11-07T23:15:54.762561+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -254,6 +254,15 @@
       "status": "success",
       "posted_at": "2026-11-07T23:02:29.207663+00:00",
       "post_urn": "urn:li:ugcPost:7524969551709679616"
+    },
+    {
+      "topic_key": "url:https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers",
+      "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers",
+      "content_hash": "2e44e9b9d35f7fb4f1fdc8c586b643c1",
+      "status": "success",
+      "posted_at": "2026-11-07T23:15:54.762561+00:00",
+      "post_urn": "urn:li:ugcPost:7524972930704011264"
     }
   ],
   "posted_titles": [
@@ -284,6 +293,7 @@
     "li:Redis vs. Memcached",
     "li:Optimistic vs. Pessimistic Locking",
     "li:Event-Driven vs. Request-Driven Architecture",
-    "li:Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack"
+    "li:Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
+    "li:After the midterms, things are looking rocky for Elon Musk and data centers"
   ]
 }

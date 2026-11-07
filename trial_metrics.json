@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T23:02:34.285169+00:00",
+    "last_updated": "2026-11-07T23:15:59.613225+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 638,
-    "original_posts_attempted": 122,
-    "original_posts_succeeded": 114,
-    "replies_attempted": 45,
+    "total_cycles_executed": 642,
+    "original_posts_attempted": 123,
+    "original_posts_succeeded": 115,
+    "replies_attempted": 46,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
-    "actions_skipped": 107,
+    "actions_skipped": 108,
     "failed_operations": 26,
-    "ai_generation_requests": 261,
+    "ai_generation_requests": 264,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1168,6 +1168,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (71/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-07T23:15:44.202960+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "mls standings",
+      "content_preview": "Imagine caring about MLS standings when half these teams are named after corporate insurance conglomerates. Bro your clu",
+      "reason": "",
+      "duration_s": 30.12
+    },
+    {
+      "timestamp": "2026-11-07T23:15:54.768630+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of After the midterms, things are looking rocky for Elon Musk and data centers for engineer",
+      "reason": "",
+      "duration_s": 10.56
+    },
+    {
+      "timestamp": "2026-11-07T23:15:58.893688+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "content_preview": "UX friction drives dangerous security workarounds. When AI tooling prioritizes velocity by caching credentials via \"Don'",
+      "reason": "",
+      "duration_s": 4.12
+    },
+    {
+      "timestamp": "2026-11-07T23:15:59.613202+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (74/28).",
+      "duration_s": 0.01
     }
   ]
 }
