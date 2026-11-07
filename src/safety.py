@@ -51,7 +51,8 @@ class SafetyEngine:
     def can_perform_action(self, action_type: str, today_counts: Dict[str, int]) -> Tuple[bool, str]:
         """Evaluates whether an action complies with daily quotas and anti-cannibalization rules."""
         if self.max_daily_total > 0 and today_counts.get("total_actions", 0) >= self.max_daily_total:
-            return False, f"Total daily limit reached ({today_counts.get('total_actions')}/{self.max_daily_total})."
+            if action_type not in ("linkedin", "linkedin_post"):
+                return False, f"Total daily limit reached ({today_counts.get('total_actions')}/{self.max_daily_total})."
 
         # Twitter / Omnichannel Original Posts
         if action_type in ("original_post", "post"):
