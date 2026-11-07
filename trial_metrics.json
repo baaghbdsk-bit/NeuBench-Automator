@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-07T10:02:32.029565+00:00",
+    "last_updated": "2026-11-07T11:02:39.954237+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 580,
-    "original_posts_attempted": 108,
-    "original_posts_succeeded": 100,
-    "replies_attempted": 34,
+    "total_cycles_executed": 584,
+    "original_posts_attempted": 109,
+    "original_posts_succeeded": 101,
+    "replies_attempted": 35,
     "replies_succeeded": 25,
     "reposts_attempted": 37,
     "reposts_succeeded": 13,
-    "actions_skipped": 80,
+    "actions_skipped": 82,
     "failed_operations": 26,
-    "ai_generation_requests": 228,
+    "ai_generation_requests": 230,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -587,6 +587,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (40/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T11:02:34.640050+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ",
+      "content_preview": "Weather apps in 2024: \"Light breeze, 0% chance of rain.\"\nMe: *takes two steps outside*\nSky: And I took that personally. ",
+      "reason": "",
+      "duration_s": 32.4
+    },
+    {
+      "timestamp": "2026-11-07T11:02:34.657630+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (8/8)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-07T11:02:39.170108+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Meghan's father Thomas Markle under house arrest after child sex abuse material charge",
+      "content_preview": "Storage forensics require meticulous chain-of-custody tracking. When physical hardware like LA storage units enters an e",
+      "reason": "",
+      "duration_s": 4.51
+    },
+    {
+      "timestamp": "2026-11-07T11:02:39.954204+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (42/28).",
       "duration_s": 0.01
     }
   ]
