@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T03:03:39.862297+00:00",
+    "last_updated": "2026-11-08T03:20:45.011723+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 655,
-    "original_posts_attempted": 131,
-    "original_posts_succeeded": 123,
+    "total_cycles_executed": 658,
+    "original_posts_attempted": 133,
+    "original_posts_succeeded": 125,
     "replies_attempted": 46,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
     "actions_skipped": 108,
     "failed_operations": 26,
-    "ai_generation_requests": 277,
+    "ai_generation_requests": 280,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1338,6 +1338,36 @@
       "content_preview": "men posting about geopolitical \"hawks\" like they wouldn't hyperventilate if the waiter brought them the wrong oat milk l",
       "reason": "",
       "duration_s": 61.26
+    },
+    {
+      "timestamp": "2026-11-08T03:19:53.377792+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "jalen johnson",
+      "content_preview": "Y’all only talking about Jalen Johnson now because your fantasy team is in the absolute mud and you need a waiver wire s",
+      "reason": "",
+      "duration_s": 24.7
+    },
+    {
+      "timestamp": "2026-11-08T03:19:57.649616+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
+      "content_preview": "Signed offline RAG packs secure provenance, not semantic fidelity. If vectors drift from text, edge inference silently h",
+      "reason": "",
+      "duration_s": 4.26
+    },
+    {
+      "timestamp": "2026-11-08T03:20:45.008711+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "partidos de liga mx",
+      "content_preview": "Paying to watch 90 minutes of 11 guys jogging backwards while the VAR takes 20 minutes to review a nonexistent foul just",
+      "reason": "",
+      "duration_s": 46.82
     }
   ]
 }
