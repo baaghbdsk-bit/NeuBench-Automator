@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T06:03:53.503872+00:00",
+    "last_updated": "2026-11-08T08:03:54.216608+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 667,
-    "original_posts_attempted": 139,
-    "original_posts_succeeded": 130,
+    "total_cycles_executed": 670,
+    "original_posts_attempted": 141,
+    "original_posts_succeeded": 132,
     "replies_attempted": 46,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
     "actions_skipped": 108,
     "failed_operations": 27,
-    "ai_generation_requests": 289,
+    "ai_generation_requests": 292,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1458,6 +1458,36 @@
       "content_preview": "Connor McDavid really looks like a guy who was lab-grown in Edmonton just to suffer 82 games a year for a franchise whos",
       "reason": "",
       "duration_s": 66.7
+    },
+    {
+      "timestamp": "2026-11-08T08:02:43.663218+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "celine dion",
+      "content_preview": "People crying over Celine Dion videos like she’s not a billionaire vocal elite who lives in a climate-controlled monolit",
+      "reason": "",
+      "duration_s": 26.96
+    },
+    {
+      "timestamp": "2026-11-08T08:02:48.826713+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+      "content_preview": "NeuBench data reveals up to 40% variance in real-world token throughput across hosted LLM endpoints. TTFT jitter and que",
+      "reason": "",
+      "duration_s": 5.12
+    },
+    {
+      "timestamp": "2026-11-08T08:03:54.212583+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "inundación",
+      "content_preview": "El alcalde sale en bote a decir que “la situación está bajo control” mientras los peces ya pagan alquiler en la sala de ",
+      "reason": "",
+      "duration_s": 64.77
     }
   ]
 }
