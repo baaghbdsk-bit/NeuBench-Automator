@@ -12,7 +12,7 @@ LINKEDIN_USER_DATA_DIR = BASE_DIR / "linkedin_session"
 load_dotenv(BASE_DIR / ".env")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
 
 POSTS_PER_DAY = int(os.getenv("POSTS_PER_DAY", "12"))
 REPLY_PERCENTAGE = int(os.getenv("REPLY_PERCENTAGE", "50"))

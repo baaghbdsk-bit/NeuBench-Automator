@@ -413,6 +413,7 @@ def render_flow_diagram_gif(
     )
     return {
         "folder": str(folder),
+        "path": str(gif_path),
         "gif_path": str(gif_path),
         "preview_path": str(preview_path),
         "frames": frames,
@@ -472,3 +473,333 @@ def render_transformer_flow_gif(
         frames=frames,
         duration=duration,
     )
+
+
+def draw_dashed_line(draw: ImageDraw.ImageDraw, start: Tuple[int, int], end: Tuple[int, int], color: Tuple[int, int, int], dash_len: int = 8, gap: int = 6):
+    x1, y1 = start
+    x2, y2 = end
+    dx = x2 - x1
+    dy = y2 - y1
+    dist = math.hypot(dx, dy)
+    if dist == 0:
+        return
+    vx = dx / dist
+    vy = dy / dist
+    curr = 0.0
+    while curr < dist:
+        seg_end = min(curr + dash_len, dist)
+        p1 = (x1 + vx * curr, y1 + vy * curr)
+        p2 = (x1 + vx * seg_end, y1 + vy * seg_end)
+        draw.line([p1, p2], fill=color, width=2)
+        curr += dash_len + gap
+
+
+def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Image:
+    """Renders a single 1080x1350 frame of the editorial multi-panel architecture flow."""
+    im = Image.new("RGB", (W, H), (255, 255, 255))
+    draw = ImageDraw.Draw(im)
+
+    title = str(spec.get("title", "System Architecture")).strip()
+    subtitle = str(spec.get("subtitle", "Sequential execution flow and production trade-offs")).strip()
+
+    # 1. Top Header
+    draw.rounded_rectangle([MARGIN, 44, MARGIN + 280, 78], radius=6, fill=(241, 245, 249))
+    draw.text((MARGIN + 16, 52), "// NEUBENCH ARCHITECTURE", fill=(14, 116, 144), font=get_font(14, "sans_bold"))
+
+    draw.text((MARGIN, 92), f"Understanding {title[:32]}", fill=(15, 23, 42), font=get_font(38, "serif_bold"))
+    draw.text((MARGIN, 146), f"{subtitle[:70]} · Save this.", fill=(71, 85, 105), font=get_font(20, "sans"))
+
+    draw_dashed_line(draw, (MARGIN, 195), (W - MARGIN, 195), (203, 213, 225))
+
+    # 2. Section 1: Architecture Pipeline & Moving Flow Pointer
+    draw.text((MARGIN, 210), "1. SYSTEM FLOW & ROUTING MECHANICS", fill=(15, 23, 42), font=get_font(21, "sans_bold"))
+
+    # Ingestion Box (Left)
+    in_box = [MARGIN, 260, MARGIN + 210, 350]
+    draw.rounded_rectangle(in_box, radius=10, fill=(248, 250, 252), outline=(226, 232, 240), width=2)
+    in_label = str(spec.get("input_label", "INPUT STREAM"))[:20]
+    draw.text((MARGIN + 20, 276), in_label, fill=(15, 23, 42), font=get_font(16, "sans_bold"))
+    draw.text((MARGIN + 20, 305), "Context stream payload", fill=(71, 85, 105), font=get_font(14, "sans"))
+
+    # Router Box (Middle)
+    r_box = [MARGIN + 290, 245, MARGIN + 530, 365]
+    draw.rounded_rectangle(r_box, radius=12, fill=(15, 23, 42), outline=(226, 232, 240), width=2)
+    r_label = str(spec.get("router_label", "Top-K Router"))[:22]
+    draw.text((MARGIN + 310, 268), r_label, fill=(255, 255, 255), font=get_font(17, "sans_bold"))
+    draw.text((MARGIN + 310, 298), "Softmax gate scores", fill=(148, 163, 184), font=get_font(14, "sans"))
+    draw.text((MARGIN + 310, 322), "Selects active paths", fill=(245, 158, 11), font=get_font(13, "sans_bold"))
+
+    # Arrow 1: Ingestion -> Router
+    draw.line([(MARGIN + 210, 305), (MARGIN + 290, 305)], fill=(203, 213, 225), width=3)
+    draw.polygon([(MARGIN + 288, 305), (MARGIN + 278, 299), (MARGIN + 278, 311)], fill=(203, 213, 225))
+
+    # Target Component Boxes (Right side)
+    comps = spec.get("components", [
+        {"name": "Expert 1", "role": "Math & Code", "active": False},
+        {"name": "Expert 2", "role": "Reasoning", "active": True, "score": "0.38"},
+        {"name": "Expert 3", "role": "Language", "active": False},
+        {"name": "Expert 4", "role": "Knowledge", "active": True, "score": "0.42"},
+    ])
+
+    comp_start_y = 230
+    comp_h = 58
+    comp_gap = 14
+    comp_x0 = MARGIN + 610
+    comp_x1 = W - MARGIN
+
+    active_targets = []
+    for idx, c in enumerate(comps[:4]):
+        cy0 = comp_start_y + idx * (comp_h + comp_gap)
+        cy1 = cy0 + comp_h
+        is_active = c.get("active", False)
+        if is_active:
+            active_targets.append((comp_x0, (cy0 + cy1) // 2))
+
+        # Branching arrow from Router (MARGIN + 530, 305) to (comp_x0, (cy0 + cy1)//2)
+        mid_y = (cy0 + cy1) // 2
+        draw.line([(MARGIN + 530, 305), (MARGIN + 570, mid_y)], fill=(203, 213, 225), width=2)
+        draw.line([(MARGIN + 570, mid_y), (comp_x0, mid_y)], fill=(203, 213, 225), width=2)
+        draw.polygon([(comp_x0, mid_y), (comp_x0 - 8, mid_y - 5), (comp_x0 - 8, mid_y + 5)], fill=(203, 213, 225))
+
+        # Card highlight if active and in routing phase
+        card_highlight = is_active and (progress >= 0.40)
+        c_fill = (255, 251, 235) if card_highlight else (248, 250, 252)
+        c_outline = (245, 158, 11) if card_highlight else (226, 232, 240)
+        c_w = 3 if card_highlight else 2
+        draw.rounded_rectangle([comp_x0, cy0, comp_x1, cy1], radius=8, fill=c_fill, outline=c_outline, width=c_w)
+
+        c_name = str(c.get("name", f"Engine {idx+1}"))[:20]
+        c_role = str(c.get("role", "Execution stage"))[:24]
+        draw.text((comp_x0 + 16, cy0 + 10), c_name, fill=(15, 23, 42), font=get_font(15, "sans_bold"))
+        draw.text((comp_x0 + 16, cy0 + 32), c_role, fill=(71, 85, 105), font=get_font(13, "sans"))
+
+        if card_highlight and c.get("score"):
+            score_txt = f"[{c['score']} ACTIVE]"
+            draw.text((comp_x1 - 110, cy0 + 20), score_txt, fill=(245, 158, 11), font=get_font(12, "sans_bold"))
+
+    # Moving Pulse Animation (Pointing from where to where it's moving, what calls next)
+    pulse_radius = 8
+    halo_radius = 16
+    if progress < 0.35:
+        # Phase 1: Input -> Router
+        t = progress / 0.35
+        px = (MARGIN + 210) + ((MARGIN + 290) - (MARGIN + 210)) * t
+        py = 305
+        draw.ellipse([px - halo_radius, py - halo_radius, px + halo_radius, py + halo_radius], fill=(254, 243, 199))
+        draw.ellipse([px - pulse_radius, py - pulse_radius, px + pulse_radius, py + pulse_radius], fill=(245, 158, 11))
+    elif progress < 0.75:
+        # Phase 2: Router -> Active Components
+        t = (progress - 0.35) / 0.40
+        for tx, ty in active_targets:
+            if t < 0.4:
+                sub_t = t / 0.4
+                px = (MARGIN + 530) + ((MARGIN + 570) - (MARGIN + 530)) * sub_t
+                py = 305 + (ty - 305) * sub_t
+            else:
+                sub_t = (t - 0.4) / 0.6
+                px = (MARGIN + 570) + (tx - (MARGIN + 570)) * sub_t
+                py = ty
+            draw.ellipse([px - halo_radius, py - halo_radius, px + halo_radius, py + halo_radius], fill=(254, 243, 199))
+            draw.ellipse([px - pulse_radius, py - pulse_radius, px + pulse_radius, py + pulse_radius], fill=(245, 158, 11))
+    else:
+        # Phase 3: Active target executing & emitting output
+        t = (progress - 0.75) / 0.25
+        for tx, ty in active_targets:
+            px = comp_x1 - 20
+            py = ty
+            pulse_size = pulse_radius + int(math.sin(t * math.pi) * 4)
+            draw.ellipse([px - pulse_size, py - pulse_size, px + pulse_size, py + pulse_size], fill=(16, 185, 129))
+
+    # 3. Section 2: Production Metrics & Trade-offs
+    draw_dashed_line(draw, (MARGIN, 545), (W - MARGIN, 545), (203, 213, 225))
+    draw.text((MARGIN, 560), "2. PRODUCTION RESOURCE PROFILE & METRICS", fill=(15, 23, 42), font=get_font(21, "sans_bold"))
+
+    metrics = spec.get("metrics", [
+        {"label": "Active Compute per Token", "val": "13B FLOPs (28% of capacity)", "pct": 0.28, "color": "emerald"},
+        {"label": "Total Model Footprint", "val": "47B Parameters across experts", "pct": 0.92, "color": "slate"},
+        {"label": "GPU Memory Required", "val": "~93 GB in 16-bit precision", "pct": 0.85, "color": "amber"},
+    ])
+
+    m_start_y = 600
+    bar_w = CONTENT_W
+    bar_h = 24
+    for m_idx, m in enumerate(metrics[:3]):
+        my = m_start_y + m_idx * 68
+        draw.text((MARGIN, my), str(m["label"])[:32], fill=(15, 23, 42), font=get_font(15, "sans_bold"))
+        draw.text((W - MARGIN - 260, my), str(m["val"])[:32], fill=(71, 85, 105), font=get_font(14, "sans"))
+
+        draw.rounded_rectangle([MARGIN, my + 26, W - MARGIN, my + 26 + bar_h], radius=6, fill=(241, 245, 249))
+
+        ease = min(1.0, progress * 1.4)
+        target_pct = float(m.get("pct", 0.5)) * ease
+        fill_w = int(bar_w * target_pct)
+        col = (16, 185, 129) if m.get("color") == "emerald" else ((245, 158, 11) if m.get("color") == "amber" else (71, 85, 105))
+        if fill_w > 8:
+            draw.rounded_rectangle([MARGIN, my + 26, MARGIN + fill_w, my + 26 + bar_h], radius=6, fill=col)
+
+    # 4. Section 3: End-to-End Execution Lifecycle
+    draw_dashed_line(draw, (MARGIN, 825), (W - MARGIN, 825), (203, 213, 225))
+    draw.text((MARGIN, 840), "3. STEP-BY-STEP EXECUTION LIFECYCLE", fill=(15, 23, 42), font=get_font(21, "sans_bold"))
+
+    steps = spec.get("steps", [
+        {"num": "1", "name": "Token Ingestion", "desc": "Context token enters transformer layer"},
+        {"num": "2", "name": "Softmax Scoring", "desc": "Gating network computes expert probability weights"},
+        {"num": "3", "name": "Sparse Dispatch", "desc": "Only top-2 chosen experts execute compute; others idle"},
+        {"num": "4", "name": "Weighted Combine", "desc": "Outputs recombined and normalized back to residual bus"}
+    ])
+
+    s_start_y = 880
+    card_h = 70
+    card_gap = 12
+    active_step_idx = int(progress * len(steps)) % len(steps)
+
+    for s_idx, st in enumerate(steps[:4]):
+        sy0 = s_start_y + s_idx * (card_h + card_gap)
+        sy1 = sy0 + card_h
+        is_cur = (s_idx == active_step_idx)
+
+        s_bg = (255, 251, 235) if is_cur else (248, 250, 252)
+        s_outline = (245, 158, 11) if is_cur else (226, 232, 240)
+        s_w = 3 if is_cur else 1
+        draw.rounded_rectangle([MARGIN, sy0, W - MARGIN, sy1], radius=10, fill=s_bg, outline=s_outline, width=s_w)
+
+        badge_col = (245, 158, 11) if is_cur else (71, 85, 105)
+        draw.rounded_rectangle([MARGIN + 16, sy0 + 16, MARGIN + 104, sy1 - 16], radius=6, fill=badge_col)
+        draw.text((MARGIN + 28, sy0 + 26), f"STEP {st.get('num', s_idx+1)}", fill=(255, 255, 255), font=get_font(13, "sans_bold"))
+
+        draw.text((MARGIN + 120, sy0 + 14), str(st.get("name", f"Stage {s_idx+1}"))[:28], fill=(15, 23, 42), font=get_font(16, "sans_bold"))
+        draw.text((MARGIN + 120, sy0 + 38), str(st.get("desc", ""))[:65], fill=(71, 85, 105), font=get_font(14, "sans"))
+
+    # 5. Footer
+    draw_dashed_line(draw, (MARGIN, 1225), (W - MARGIN, 1225), (203, 213, 225))
+    draw.text((MARGIN, 1245), "NeuBench Systems Architecture Series · app.neubench.workers.dev", fill=(71, 85, 105), font=get_font(14, "sans_bold"))
+    draw.text((W - MARGIN - 140, 1245), "Save this 📌", fill=(245, 158, 11), font=get_font(14, "sans_bold"))
+
+    return im
+
+
+def render_editorial_architecture_gif(
+    spec: Dict[str, Any],
+    base_name: Optional[str] = None,
+    frames: int = 40,
+    duration: int = 75,
+) -> Dict[str, Any]:
+    """
+    Renders an editorial 1080x1350 animated architecture flow GIF with traveling pulse,
+    branching arrows, active component illumination, and lifecycle matrix.
+    """
+    title = str(spec.get("title") or "System Architecture").strip()
+    if not base_name:
+        digest = hashlib.md5(f"{title}_{len(spec.get('components', []))}".encode("utf-8")).hexdigest()[:8]
+        base_name = f"arch_flow_{_slug(title)}_{digest}"
+
+    folder = OUTPUT_DIR / base_name
+    folder.mkdir(parents=True, exist_ok=True)
+
+    images = [render_editorial_architecture_frame(idx / float(frames), spec) for idx in range(frames)]
+    preview_path = folder / f"{base_name}_first_frame.png"
+    images[0].save(preview_path, "PNG")
+
+    gif_path = folder / f"{base_name}.gif"
+    images[0].save(
+        gif_path,
+        save_all=True,
+        append_images=images[1:],
+        duration=duration,
+        loop=0,
+        optimize=True,
+        disposal=2,
+    )
+    return {
+        "folder": str(folder),
+        "path": str(gif_path),
+        "gif_path": str(gif_path),
+        "preview_path": str(preview_path),
+        "frames": frames,
+        "duration_ms": duration,
+        "title": title,
+    }
+
+
+def build_editorial_architecture_spec(
+    title: str,
+    summary: str = "",
+    flow_steps: Optional[List[Dict[str, Any]]] = None,
+    audience: str = "working_pro"
+) -> Dict[str, Any]:
+    """
+    Constructs a topic-specific architecture specification for the editorial GIF renderer.
+    """
+    clean_title = title.strip()
+    parts = [p.strip() for p in re.split(r' vs | and | to | in | for | - ', clean_title, flags=re.I) if p.strip()]
+
+    # Derive components tailored to topic
+    if "moe" in clean_title.lower() or "mixture of experts" in clean_title.lower():
+        input_label = "INPUT TOKENS"
+        router_label = "Softmax Top-K Router"
+        components = [
+            {"name": "Expert 1: Math", "role": "Specialized arithmetic", "active": False},
+            {"name": "Expert 2: Reasoning", "role": "Multi-hop logic", "active": True, "score": "0.38"},
+            {"name": "Expert 3: Language", "role": "Syntax & translation", "active": False},
+            {"name": "Expert 4: Domain", "role": "Code & knowledge", "active": True, "score": "0.42"},
+        ]
+        metrics = [
+            {"label": "Active Compute per Token", "val": "13B FLOPs (28% of capacity)", "pct": 0.28, "color": "emerald"},
+            {"label": "Total Model Weights", "val": "47B Parameters across experts", "pct": 0.92, "color": "slate"},
+            {"label": "GPU Memory Required", "val": "~93 GB in 16-bit precision", "pct": 0.85, "color": "amber"},
+        ]
+    elif len(parts) >= 2:
+        name_a, name_b = parts[0][:18], parts[1][:18]
+        input_label = "QUERY DISPATCH"
+        router_label = "Architecture Gateway"
+        components = [
+            {"name": f"{name_a} Primary", "role": "High-throughput path", "active": True, "score": "HOT"},
+            {"name": f"{name_a} Replica", "role": "Read-scale worker", "active": False},
+            {"name": f"{name_b} Engine", "role": "Specialized workload", "active": True, "score": "ASYNC"},
+            {"name": f"{name_b} Storage", "role": "Persistent state layer", "active": False},
+        ]
+        metrics = [
+            {"label": f"{name_a} Throughput", "val": "High sequential I/O", "pct": 0.82, "color": "emerald"},
+            {"label": f"{name_b} Overhead", "val": "Random access memory footprint", "pct": 0.65, "color": "amber"},
+            {"label": "Operational Complexity", "val": "Manageable failure domains", "pct": 0.45, "color": "slate"},
+        ]
+    else:
+        input_label = "CLIENT INGEST"
+        router_label = "Execution Pipeline"
+        components = [
+            {"name": "Parser & Schema", "role": "Validates payload invariants", "active": False},
+            {"name": "Core Engine", "role": "Executes state transition", "active": True, "score": "ACTIVE"},
+            {"name": "Cache Layer", "role": "In-memory fast path", "active": True, "score": "HIT"},
+            {"name": "Storage Sink", "role": "Persistent commit log", "active": False},
+        ]
+        metrics = [
+            {"label": "Throughput Capacity", "val": "Sub-millisecond pipeline latency", "pct": 0.78, "color": "emerald"},
+            {"label": "Memory Footprint", "val": "Zero memory leaks or copies", "pct": 0.35, "color": "slate"},
+            {"label": "Tail Latency (p99)", "val": "Strict bounded execution bounds", "pct": 0.55, "color": "amber"},
+        ]
+
+    steps = []
+    if flow_steps and len(flow_steps) >= 3:
+        for idx, fs in enumerate(flow_steps[:4], start=1):
+            steps.append({
+                "num": str(idx),
+                "name": str(fs.get("label") or fs.get("title") or f"Stage {idx}")[:26],
+                "desc": str(fs.get("desc") or fs.get("detail") or "")[:65],
+            })
+    else:
+        steps = [
+            {"num": "1", "name": "Payload Ingestion", "desc": f"Ingests payload for {clean_title[:24]}"},
+            {"num": "2", "name": "Routing & Decision", "desc": "Evaluates invariants and selects target workers"},
+            {"num": "3", "name": "Worker Execution", "desc": "Active target executes processing; others idle"},
+            {"num": "4", "name": "State Commit", "desc": "Streams final response with minimal latency overhead"},
+        ]
+
+    return {
+        "title": clean_title,
+        "subtitle": (summary[:72] if summary else f"How {clean_title[:45]} operates end-to-end").strip(),
+        "input_label": input_label,
+        "router_label": router_label,
+        "components": components,
+        "steps": steps,
+        "metrics": metrics,
+    }

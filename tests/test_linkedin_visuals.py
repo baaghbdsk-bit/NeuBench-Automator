@@ -286,6 +286,33 @@ class TestLinkedInVisuals(unittest.TestCase):
         img = _code_slide(payload, 4, 6)
         self.assertEqual(img.size, (CANVAS_WIDTH, CANVAS_HEIGHT))
 
+    def test_editorial_architecture_spec_and_gif_rendering(self):
+        """Verify editorial architecture flow GIF generation matches LinkedIn 1080x1350 vertical format."""
+        from src.linkedin_diagrams import build_editorial_architecture_spec, render_editorial_architecture_gif
+        
+        spec = build_editorial_architecture_spec(
+            title="Mixture of Experts (MoE)",
+            summary="Routes input tokens to 8 active experts out of 256 total experts.",
+            audience="working_pro",
+        )
+        self.assertIn("title", spec)
+        self.assertIn("steps", spec)
+        self.assertIn("metrics", spec)
+        self.assertIn("components", spec)
+
+        res = render_editorial_architecture_gif(
+            spec=spec,
+            base_name="test_flow",
+            frames=12,
+            duration=75,
+        )
+        res_path = res.get("path")
+        self.assertTrue(os.path.exists(res_path))
+        with Image.open(res_path) as im:
+            self.assertEqual(im.size, (1080, 1350))
+            self.assertTrue(im.is_animated)
+            self.assertGreaterEqual(im.n_frames, 10)
+
 
 if __name__ == "__main__":
     unittest.main()

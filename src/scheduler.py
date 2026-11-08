@@ -1757,6 +1757,17 @@ class AutomaterEngine:
 
                         candidate_text = str(plan.get("post_text") or "").strip()
                         if candidate_text:
+                            # Ensure full-length, highly descriptive technical article (never a 1-to-2 liner)
+                            if len(candidate_text) < 600:
+                                console.print(f"[cyan]Expanding LinkedIn draft into full descriptive technical article...[/cyan]")
+                                candidate_text = self.ai.generate_full_linkedin_article(
+                                    topic=title,
+                                    summary=summary,
+                                    concept_a=item.get("concept_a", ""),
+                                    concept_b=item.get("concept_b", ""),
+                                    format_type=mode,
+                                    target_audience=target_demographic
+                                )
                             # Validate plan density
                             is_valid, validation_msg = validate_educational_plan(plan)
                             if not is_valid:
@@ -1784,23 +1795,27 @@ class AutomaterEngine:
                 if tags and "#" not in li_text[-200:]:
                     li_text = f"{li_text.rstrip()}\n\n{' '.join(tags[:5])}"
 
-                # Topic-specific Dynamic Pipeline Flow GIF support for systems breakdowns
-                if chosen_format == "systems_breakdown" or (isinstance(selected_trend, dict) and selected_trend.get("flow_steps")):
-                    try:
-                        from src.linkedin_diagrams import build_topic_flow_spec, render_flow_diagram_gif
-                        flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
-                        flow_spec = build_topic_flow_spec(selected_trend["title"], selected_trend.get("summary", ""), steps=flow_steps)
-                        flow_res = render_flow_diagram_gif(flow_spec)
-                        if flow_res.get("gif_path") and Path(flow_res["gif_path"]).exists():
-                            media_path = flow_res["gif_path"]
-                            media_title = str(selected_trend["title"])[:100]
-                            console.print(
-                                f"[bold magenta]🎞️ Topic-specific dynamic flow GIF ready: {media_path} "
-                                f"({flow_res.get('stage_count', 0)} stages)[/bold magenta]"
-                            )
-                    except Exception as flow_err:
-                        console.print(f"[yellow]Dynamic flow GIF render skipped: {flow_err}. Falling back to carousel.[/yellow]")
-                        media_path = None
+                # Generate Topic-Specific Editorial Architecture Flow Looping GIF
+                # (1080x1350 with traveling pointer pulse, active component glow, and lifecycle matrix)
+                try:
+                    from src.linkedin_diagrams import build_editorial_architecture_spec, render_editorial_architecture_gif
+                    flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
+                    arch_spec = build_editorial_architecture_spec(
+                        selected_trend["title"],
+                        summary=selected_trend.get("summary", ""),
+                        flow_steps=flow_steps,
+                        audience=target_demographic
+                    )
+                    gif_res = render_editorial_architecture_gif(arch_spec)
+                    if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
+                        media_path = gif_res["gif_path"]
+                        media_title = str(selected_trend["title"])[:100]
+                        console.print(
+                            f"[bold magenta]🎞️ Editorial Architecture Flow Looping GIF ready: {media_path}[/bold magenta]"
+                        )
+                except Exception as gif_err:
+                    console.print(f"[yellow]Editorial flow GIF render skipped: {gif_err}. Falling back to carousel/hero.[/yellow]")
+                    media_path = None
 
                 if not media_path:
                     try:

@@ -157,6 +157,7 @@ def _clamp_text(value: object, limit: int, strip_urls: bool = True) -> str:
 
 FALLBACK_MODELS = [
     config.GEMINI_MODEL,
+    "gemini-3.5-flash",
     "gemini-3.5-flash-lite",
     "gemini-flash-latest"
 ]
@@ -651,13 +652,21 @@ Rules:
         if len(hashtags) < 3:
             hashtags = ["#MachineLearning", "#ArtificialIntelligence", "#Engineering", "#LLM"]
 
+        post_text = _clamp_text(data.get("post_text") or "", 2900)
+        if len(post_text.strip()) < 800:
+            post_text = self.generate_full_linkedin_article(
+                topic=str(cover.get("headline") or "System Architecture"),
+                summary=str(cover.get("subhead") or ""),
+                format_type=_clamp_text(data.get("pillar") or pillar, 32)
+            )
+
         res = {
             "pillar": _clamp_text(data.get("pillar") or pillar, 32),
             "cover": cover,
             "slides": slides,
             "framework": framework,
             "cta": cta,
-            "post_text": _clamp_text(data.get("post_text") or "", 1200),
+            "post_text": post_text,
             "first_comment": _clamp_text(data.get("first_comment") or "", 350, strip_urls=False),
             "alt_text": _clamp_text(data.get("alt_text") or cover["headline"], 180),
             "hashtags": hashtags[:5],
@@ -665,6 +674,87 @@ Rules:
         if data.get("pages") and isinstance(data["pages"], list):
             res["pages"] = data["pages"]
         return res
+
+    def generate_full_linkedin_article(
+        self,
+        topic: str,
+        summary: str = "",
+        concept_a: str = "",
+        concept_b: str = "",
+        format_type: str = "explainer",
+        target_audience: str = "working_pro"
+    ) -> str:
+        """
+        Generates an authoritative, highly descriptive, multi-paragraph LinkedIn article
+        (1,200 to 2,000 characters) with hook, intuition, mechanics, trade-offs, and discussion.
+        """
+        audience_notes = {
+            "school_kid": "Explain with crystal-clear, relatable everyday analogies so even a curious teenager grasps the intuition.",
+            "college_student": "Focus on core algorithms, memory/compute mental models, and software engineering foundations.",
+            "working_pro": "Focus on production software trade-offs, architecture choices, and real-world system design.",
+            "staff_engineer": "Focus on distributed systems scaling, tail latency (p99), failure domains, and operational invariants.",
+            "ai_curious": "Focus on frontier LLM mechanics, inference optimization, memory bandwidth, and GPU compute efficiency."
+        }
+        aud_note = audience_notes.get(target_audience, audience_notes["working_pro"])
+
+        comp_context = f"\nComparing: '{concept_a}' vs '{concept_b}'" if (concept_a and concept_b) else ""
+
+        prompt = f"""You are an elite Principal Software Architect and Technical Educator writing an authoritative, highly engaging LinkedIn article.
+
+Topic: "{topic}"
+Summary / Context: "{summary}"{comp_context}
+Audience Tier: {target_audience} ({aud_note})
+
+STRUCTURE REQUIREMENTS (1,200 to 1,900 characters total):
+1. THE SCROLL-STOPPING HOOK:
+   Start with an eye-opening metric, striking paradox, or real-world comparison that stops the feed scroll immediately (e.g. parameter count contrast, latency gap, or hidden production bottleneck).
+2. PLAIN-ENGLISH INTUITION:
+   Explain WHAT this concept is and WHY it exists in simple, visual language. Zero gatekeeping, zero buzzwords without clear definition.
+3. UNDER-THE-HOOD EXECUTION LIFECYCLE:
+   Walk through the exact step-by-step flow of what happens when a request or token enters the system. Detail the journey from ingestion to routing, execution, and output.
+4. THE PRODUCTION CATCH & TRADE-OFFS:
+   Address the architectural trade-offs that only experienced engineers know (e.g. memory footprint vs compute, cache invalidation, routing skew, operational overhead, failure modes).
+5. VISUAL REFERENCE:
+   Include a natural line referencing the attached animated blueprint: "I created this animated visual guide to map the entire lifecycle step by step."
+6. DISCUSSION QUESTION:
+   End with one specific, open-ended question that invites software engineers and architects to share their production experiences in the comments.
+7. FORMATTING RULES:
+   - Use clean, short paragraphs (1 to 3 sentences each) separated by double newlines.
+   - Use simple bullet points (- ) where appropriate.
+   - NO markdown bolding with asterisks (use plain text for LinkedIn compatibility).
+   - NO emojis overload. Keep it clean, editorial, and highly professional.
+   - End with 4-5 relevant hashtags.
+"""
+        system_instruction = (
+            "You are a world-class Systems Architect and Technical Educator on LinkedIn. "
+            "Write descriptive, high-signal, deeply informative technical articles that engineers love to read and save. "
+            "Output ONLY the complete article text."
+        )
+        try:
+            text = self._generate_with_fallback(prompt, system_instruction, temperature=0.7).strip('"').strip()
+            if len(text) >= 600:
+                return text
+        except Exception as e:
+            print(f"[AIGenerator] Full article generation notice: {e}")
+
+        comp_str = f" between {concept_a} and {concept_b}" if (concept_a and concept_b) else ""
+        return (
+            f"{topic}\n\n"
+            f"Understanding the real-world mechanics of {topic}{comp_str} is one of the most critical fundamentals in modern systems design.\n\n"
+            f"{summary or 'Most explanations focus only on textbook definitions, but production reality hits hard boundaries around memory, latency, and scaling.'}\n\n"
+            f"Here is how it actually works under the hood:\n\n"
+            f"1. Ingestion & Invariants: The incoming payload enters the runtime boundary where initial validation occurs.\n"
+            f"2. Routing & Dispatch: Instead of processing every path uniformly, the system selectively routes work based on state or probability weights.\n"
+            f"3. Execution: Active workers execute the core logic while idle resources remain dormant to preserve compute.\n"
+            f"4. Recombination: Results are synthesized, validated, and returned with minimal serialization overhead.\n\n"
+            f"The engineering catch:\n"
+            f"- Compute efficiency often comes at the cost of memory footprint.\n"
+            f"- Load distribution requires active balancing to prevent hotspotting and queue saturation.\n"
+            f"- Tail latency (p99) must be continuously measured against synthetic load spikes.\n\n"
+            f"I mapped out the complete step-by-step architecture and execution lifecycle in the animated diagram below.\n\n"
+            f"How are you currently handling this in your production architecture?\n\n"
+            f"#SoftwareEngineering #SystemDesign #ComputerScience #Programming #CloudArchitecture"
+        )
 
     def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = True) -> str:
         """Generates an authoritative, mobile-first daily lesson for the 'AI Explained: Zero to Advanced' 90-day master curriculum."""
