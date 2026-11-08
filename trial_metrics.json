@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T03:20:45.011723+00:00",
+    "last_updated": "2026-11-08T04:03:49.633458+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 658,
-    "original_posts_attempted": 133,
-    "original_posts_succeeded": 125,
+    "total_cycles_executed": 661,
+    "original_posts_attempted": 135,
+    "original_posts_succeeded": 127,
     "replies_attempted": 46,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
     "actions_skipped": 108,
     "failed_operations": 26,
-    "ai_generation_requests": 280,
+    "ai_generation_requests": 283,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1368,6 +1368,36 @@
       "content_preview": "Paying to watch 90 minutes of 11 guys jogging backwards while the VAR takes 20 minutes to review a nonexistent foul just",
       "reason": "",
       "duration_s": 46.82
+    },
+    {
+      "timestamp": "2026-11-08T04:02:39.467564+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Moral policing uncle-aunt networks",
+      "content_preview": "The colony uncles will watch their builder steal 40 feet of common land, ignore the toxic garbage dump next door, and br",
+      "reason": "",
+      "duration_s": 30.25
+    },
+    {
+      "timestamp": "2026-11-08T04:02:43.831730+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+      "content_preview": "NeuBench data reveals up to 40% variance in real-world token throughput across hosted LLM endpoints. TTFT jitter and que",
+      "reason": "",
+      "duration_s": 4.35
+    },
+    {
+      "timestamp": "2026-11-08T04:03:49.629898+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "tatiana suarez",
+      "content_preview": "Tatiana Suarez has spent more time injured than my car has spent on the actual road, and yet she’s still one win away fr",
+      "reason": "",
+      "duration_s": 64.2
     }
   ]
 }
