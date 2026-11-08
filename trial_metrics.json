@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T10:54:16.007002+00:00",
+    "last_updated": "2026-11-08T11:03:06.537046+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 682,
-    "original_posts_attempted": 144,
-    "original_posts_succeeded": 135,
-    "replies_attempted": 49,
+    "total_cycles_executed": 686,
+    "original_posts_attempted": 145,
+    "original_posts_succeeded": 136,
+    "replies_attempted": 50,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
-    "actions_skipped": 111,
+    "actions_skipped": 112,
     "failed_operations": 27,
-    "ai_generation_requests": 301,
+    "ai_generation_requests": 304,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1607,6 +1607,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (36/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T11:02:41.374547+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "content_preview": "AI coding agents really saw \"Don't Ask Again\" as a personal challenge to share your AWS keys with the entire planet. 1,1",
+      "reason": "",
+      "duration_s": 32.12
+    },
+    {
+      "timestamp": "2026-11-08T11:03:00.683786+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields for ha",
+      "reason": "",
+      "duration_s": 19.3
+    },
+    {
+      "timestamp": "2026-11-08T11:03:05.527818+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Vector Embedding? Turning Meaning into Coordinates",
+      "content_preview": "Vector embeddings map semantic proximity to spatial coordinates. Think of organizing a locker: math books sit beside cal",
+      "reason": "",
+      "duration_s": 4.84
+    },
+    {
+      "timestamp": "2026-11-08T11:03:06.537005+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (39/28).",
       "duration_s": 0.01
     }
   ]

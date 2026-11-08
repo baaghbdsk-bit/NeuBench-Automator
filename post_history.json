@@ -198,7 +198,10 @@
     "bsky:Agent memory needs its OpenTelemetry moment",
     "What I run on my $10 USD OpenStick homelab",
     "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
-    "bsky:What is a Logit? The Raw Neural Network Score Demystified"
+    "bsky:What is a Logit? The Raw Neural Network Score Demystified",
+    "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+    "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields",
+    "bsky:What is a Vector Embedding? Turning Meaning into Coordinates"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -319,7 +322,8 @@
     "4813b18795de11287a3be1efe151408029060fe22e1d0f9378fab255f8ec31fb",
     "7e1d731173ce879159e3958ac343d062dce5bd06b11ea0dcb2b19b3525c191e8",
     "74c25c09c03f813d1e530c6825d17e90bd6adc373cd308fb3f46318f38f1eb19",
-    "78d422520abde4f33739d9339c156f443eaf2076d1789e0b709053c3d66dc027"
+    "78d422520abde4f33739d9339c156f443eaf2076d1789e0b709053c3d66dc027",
+    "13293598c6303b984f3d58f03ff973adc15e77ceb65cd3761fffe951dd75b046"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -378,7 +382,8 @@
         "post:718416bbed55d91dd9b65ab6651804b6050a9bc5c16ce6d09c40439b648e3d18",
         "post:3aa3aa723fbbd56a90263f8e148b98abfe6b6891d1098a0fd5d61f6aaa7a1cc3",
         "post:49b19cf3a1b1f4f45a526d02b71987d4107bda45d84f80265cbefa897e227d63",
-        "post:4bc607a6e6472ea4ce2c2e6a5ab01b91330675b8f026ecd2b359c07c1649c764"
+        "post:4bc607a6e6472ea4ce2c2e6a5ab01b91330675b8f026ecd2b359c07c1649c764",
+        "post:24781e0c36f932c9d305bc7d7ba90823ab7321f8355ab4aefa67931caa0732c3"
       ],
       "pending": []
     },

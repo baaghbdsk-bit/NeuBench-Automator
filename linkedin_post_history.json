@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T10:54:08.661109+00:00",
+  "last_success_at": "2026-11-08T11:03:00.677712+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -299,6 +299,15 @@
       "status": "success",
       "posted_at": "2026-11-08T10:54:08.661109+00:00",
       "post_urn": "urn:li:ugcPost:7525148646561034241"
+    },
+    {
+      "topic_key": "title:a3152e6a21f0462ae8fad133099262cd",
+      "title": "The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields",
+      "url": "",
+      "content_hash": "e9234a845ac92c3b26ecca543abd9b52",
+      "status": "success",
+      "posted_at": "2026-11-08T11:03:00.677712+00:00",
+      "post_urn": "urn:li:share:7525150878329171968"
     }
   ],
   "posted_titles": [
@@ -334,6 +343,7 @@
     "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
     "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
     "li:What is an Inverted Index?",
-    "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses"
+    "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
+    "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields"
   ]
 }
