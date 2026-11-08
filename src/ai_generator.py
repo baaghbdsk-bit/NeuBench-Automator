@@ -6,15 +6,15 @@ from google import genai
 from google.genai import types
 import config
 
-X_UNHINGED_SYSTEM_PROMPT = """You are a chronically online, razor-sharp, sarcastic, and hilarious commentator on X (Twitter).
-Your persona is completely unfiltered, sarcastic, funny, roasting people, commenting on heated debates, politics, cultural and religious discourse, corporate absurdities, everyday human hypocrisies, and tech drama. You go ALL OUT in every direction.
+X_UNHINGED_SYSTEM_PROMPT = """You are a chronically online, razor-sharp, witty, and culturally observant commentator on X (Twitter).
+Your persona is completely unfiltered, witty, sarcastic, and engaging—commenting on whatever is the talk of the town: mega cinema and blockbuster buzz (e.g. Ramayana, Bollywood, Hollywood), internet trends, viral cultural discourse, corporate absurdities, everyday human realities, sports, and tech drama.
 
 KEY PRINCIPLES:
-1. TONE: Sarcastic, razor-witted, hilarious, cynical yet deeply relatable, zero corporate cringe, zero forced politeness.
-2. ROASTING & DEBATES: Jump into heated discussions, political arguments, cultural clashes, religious hypocrisies, toxic workplace tropes, tech vanity, and middle-class realities. Call out what everyone is secretly thinking but afraid to tweet.
-3. FORMAT: Short, punchy, punchline-heavy tweets (under 240 chars). Write like a real human typing on their phone—natural punctuation, occasional biting rhetorical questions, savage observations.
-4. ENGAGEMENT: Make it impossible not to quote-tweet, argue with, or retweet.
-5. HASHTAGS: At most 1 hashtag (#RealTalk #Truth #Life) or none at all. Let the roast speak for itself.
+1. TONE: Sarcastic, razor-witted, hilarious, perceptive, and deeply relatable. Zero corporate cringe, zero forced politeness.
+2. SCOPE: Jump on whatever is trending or talk of the town—cinema & epic films (Ramayana, big releases), viral memes, pop culture debates, tech innovations, and life absurdities.
+3. FORMAT: Short, punchy, punchline-heavy tweets (under 240 chars). Write like a real human typing on their phone.
+4. HASHTAGS: ALWAYS include 1 or 2 relevant, high-reach hashtags at the end of the tweet (e.g. #Ramayana, #Bollywood, #Cinema, #AI, #TechTrends, #Cricket). Keep them punchy and organic to boost algorithmic reach.
+5. ENGAGEMENT: Make it impossible not to quote-tweet, argue with, or retweet.
 """
 
 CASUAL_SYSTEM_PROMPT = X_UNHINGED_SYSTEM_PROMPT
@@ -186,21 +186,27 @@ class AIGenerator:
         raise RuntimeError(f"All Gemini models failed: {last_error}")
 
     def generate_hot_take(self, topic: str, context: str = "") -> str:
-        """Generates a razor-sharp, hilarious, sarcastic, or roasting tweet for X across debates, politics, culture, or life."""
+        """Generates a razor-sharp, hilarious, sarcastic, or culturally observant tweet for X with mandatory 1-2 hashtags."""
         prompt = f"""
-Topic / Debate / Trend: "{topic}"
+Topic / Debate / Talk of the Town: "{topic}"
 Context: "{context}"
 
-Write ONE razor-sharp, sarcastic, funny, or brutally honest tweet about this topic.
+Write ONE razor-sharp, sarcastic, witty, or culturally observant tweet about this topic.
 Rules:
-- Go ALL OUT: Roasting people, calling out hypocrisies, commenting on heated debates, politics, culture, corporate delusions, or everyday absurdity.
-- Completely unfiltered, authentic, hilarious, and punchy.
-- Under 230 characters so it fits cleanly on X.
-- Make people immediately want to argue, quote-tweet, or laugh out loud.
-- Zero corporate fluff. Authentic human tone.
-- Output ONLY the raw tweet text under 230 characters.
+- Scope: Whatever is the talk of the town—cinema, Ramayana, movies, pop culture, sports, internet drama, tech, everyday life.
+- Tone: Sarcastic, razor-witted, hilarious, or perceptive. Zero corporate cringe.
+- Length: Punchy and strictly under 235 characters so hashtags fit cleanly.
+- HASHTAGS: ALWAYS include 1 or 2 high-reach, relevant trending hashtags at the end (e.g. #Ramayana, #Bollywood, #Cinema, #AI, #TechTrends, #Cricket, or specific topic tags).
+- Output ONLY the raw tweet text.
 """
         text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.94).strip('"').strip()
+
+        # Enforce at least 1-2 hashtags for reach
+        if "#" not in text:
+            # Extract high-signal hashtag from topic words
+            clean_words = [re.sub(r'[^a-zA-Z0-9]', '', w.title()) for w in topic.split() if len(w) > 3]
+            fallback_tags = [f"#{w}" for w in clean_words[:2]] if clean_words else ["#Trending", "#TalkOfTheTown"]
+            text = append_hashtags(text, fallback_tags, max_len=275)
         return text
 
     def generate_casual_x_take(self, topic: str = "", context: str = "") -> str:

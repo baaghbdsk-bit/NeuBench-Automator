@@ -87,18 +87,19 @@ console = Console()
 
 # Target high-engagement accounts for explosive reach across Tech, Viral Culture, Finance, and Global Discourse
 VIRAL_ACCOUNTS = [
-    # Mega-reach Indian National & Viral Culture (Highest impression velocity)
-    "narendramodi",
-    "AshwiniVaishnaw",
-    "IndianTechGuide",
-    "peakbengaluru",
-    "ANI",
-    "NDTV",
+    # Talk of the Town, Cinema & Entertainment (Highest virality on X)
+    "taran_adarsh",
+    "HimeshMankad",
+    "filmfare",
+    "SacnilkEnt",
     "thetanmay",
-    "kunalb11",
+    "peakbengaluru",
     "Zomato",
     "swiggy",
+    "ANI",
+    "NDTV",
     "Bhaiyyaji_Kahin",
+    "kunalb11",
     # Global Tech, AI, & Founders
     "elonmusk",
     "sama",
@@ -110,6 +111,10 @@ VIRAL_ACCOUNTS = [
     "levelsio",
     "paulg",
     "naval",
+    # Mega-reach Indian National & Viral Culture
+    "narendramodi",
+    "AshwiniVaishnaw",
+    "IndianTechGuide",
     # Viral Finance, Markets & Breaking News
     "WatcherGuru",
     "unusual_whales",
@@ -787,9 +792,24 @@ class AutomaterEngine:
 
 
         if not tweet_url or not tweet_text:
+            # Fallback to searching live discussions for trending talk of the town (e.g. Ramayana, Cinema, Tech)
+            trending_search_queries = ["Ramayana", "Bollywood", "AI", "Indian cinema", "ChatGPT", "tech"]
+            search_q = random.choice(trending_search_queries)
+            console.print(f"[dim]Account check empty; searching live 𝕏 discussions for talk of the town: '{search_q}'...[/dim]")
+            try:
+                search_results = self.twitter.search_public_tweets(search_q, limit=5)
+                for res in search_results:
+                    cand_url = res.get("tweet_url")
+                    if cand_url and cand_url not in self.tracker.history.get("replied_urls", []):
+                        tweet_url = cand_url
+                        tweet_text = res.get("tweet_text", "")
+                        target_account = res.get("author") or "user"
+                        break
+            except Exception as e:
+                console.print(f"[dim]Search fallback note: {e}[/dim]")
 
-            console.print("[yellow]Could not find unreplied tweet among candidates. Falling back to Original Hot Take from NeuBench/Trends...[/yellow]")
-
+        if not tweet_url or not tweet_text:
+            console.print("[yellow]Could not find unreplied tweet among candidates. Falling back to Original Hot Take...[/yellow]")
             return self._execute_original_post(start_time)
 
 
