@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T13:03:01.537689+00:00",
+    "last_updated": "2026-11-08T14:03:01.260084+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 694,
-    "original_posts_attempted": 147,
-    "original_posts_succeeded": 138,
-    "replies_attempted": 51,
+    "total_cycles_executed": 698,
+    "original_posts_attempted": 148,
+    "original_posts_succeeded": 139,
+    "replies_attempted": 52,
     "replies_succeeded": 25,
     "reposts_attempted": 41,
     "reposts_succeeded": 13,
-    "actions_skipped": 114,
+    "actions_skipped": 115,
     "failed_operations": 27,
-    "ai_generation_requests": 310,
+    "ai_generation_requests": 313,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1727,6 +1727,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (45/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T14:02:42.874638+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "oneplus coloros 17 update schedule",
+      "content_preview": "Waiting for the OnePlus ColorOS update schedule takes longer than a Bollywood trilogy’s post-production phase. At this r",
+      "reason": "",
+      "duration_s": 31.45
+    },
+    {
+      "timestamp": "2026-11-08T14:02:54.445227+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of tata motors share price for engineers and architects...\n\nDetailed 6-page field notes att",
+      "reason": "",
+      "duration_s": 11.56
+    },
+    {
+      "timestamp": "2026-11-08T14:03:00.499179+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Scoring Mechanics Behind Neural Networks",
+      "content_preview": "Treat logits as unbounded compatibility scores, not probabilities—like judges awarding raw, unconstrained points before ",
+      "reason": "",
+      "duration_s": 6.05
+    },
+    {
+      "timestamp": "2026-11-08T14:03:01.260056+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (48/28).",
       "duration_s": 0.01
     }
   ]
