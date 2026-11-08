@@ -204,7 +204,10 @@
     "bsky:What is a Vector Embedding? Turning Meaning into Coordinates",
     "Agent memory needs its OpenTelemetry moment",
     "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
-    "bsky:Demystifying Continuous Batching in LLM Inference Engines"
+    "bsky:Demystifying Continuous Batching in LLM Inference Engines",
+    "Kirlian Photography: Building Your Own Equipment",
+    "li:How LLM Context Windows Work Under the Hood",
+    "bsky:Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -327,7 +330,8 @@
     "74c25c09c03f813d1e530c6825d17e90bd6adc373cd308fb3f46318f38f1eb19",
     "78d422520abde4f33739d9339c156f443eaf2076d1789e0b709053c3d66dc027",
     "13293598c6303b984f3d58f03ff973adc15e77ceb65cd3761fffe951dd75b046",
-    "9a62dde828b6a29ab44057a06e88d4afad969476745a3ea86fbe4e5011712e4a"
+    "9a62dde828b6a29ab44057a06e88d4afad969476745a3ea86fbe4e5011712e4a",
+    "968db57a2765d4bda7888cc26875c8a4ce57f5fdc8d0adbafa609a72773ff243"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -388,7 +392,8 @@
         "post:49b19cf3a1b1f4f45a526d02b71987d4107bda45d84f80265cbefa897e227d63",
         "post:4bc607a6e6472ea4ce2c2e6a5ab01b91330675b8f026ecd2b359c07c1649c764",
         "post:24781e0c36f932c9d305bc7d7ba90823ab7321f8355ab4aefa67931caa0732c3",
-        "post:0b090bbd3a221659713e3d8832a47e0e0eebf5e41905c0b5c464e6e61e9f6f9f"
+        "post:0b090bbd3a221659713e3d8832a47e0e0eebf5e41905c0b5c464e6e61e9f6f9f",
+        "post:04d65218ffb41b5c3f014582679b1f43dc3391d8684bbe7d5ee394b30acfbfef"
       ],
       "pending": []
     },

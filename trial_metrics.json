@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T12:02:53.463303+00:00",
+    "last_updated": "2026-11-08T13:03:01.537689+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 690,
-    "original_posts_attempted": 146,
-    "original_posts_succeeded": 137,
-    "replies_attempted": 50,
+    "total_cycles_executed": 694,
+    "original_posts_attempted": 147,
+    "original_posts_succeeded": 138,
+    "replies_attempted": 51,
     "replies_succeeded": 25,
     "reposts_attempted": 41,
     "reposts_succeeded": 13,
-    "actions_skipped": 113,
+    "actions_skipped": 114,
     "failed_operations": 27,
-    "ai_generation_requests": 307,
+    "ai_generation_requests": 310,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1687,6 +1687,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (42/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T13:02:34.870097+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Kirlian Photography: Building Your Own Equipment",
+      "content_preview": "Bro really looked at his existential dread and thought, \"you know what would fix this? Building a high-voltage death tra",
+      "reason": "",
+      "duration_s": 30.56
+    },
+    {
+      "timestamp": "2026-11-08T13:02:54.391684+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of How LLM Context Windows Work Under the Hood for engineers and architects. We examine the",
+      "reason": "",
+      "duration_s": 19.51
+    },
+    {
+      "timestamp": "2026-11-08T13:03:00.758964+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "content_preview": "Running a 284B MoE on 64GB RAM without a GPU is a masterclass in aggressive offloading and bandwidth optimization. Laten",
+      "reason": "",
+      "duration_s": 6.36
+    },
+    {
+      "timestamp": "2026-11-08T13:03:01.537661+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (45/28).",
       "duration_s": 0.01
     }
   ]

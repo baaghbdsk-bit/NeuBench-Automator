@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T12:02:47.635714+00:00",
+  "last_success_at": "2026-11-08T13:02:54.385759+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -317,6 +317,15 @@
       "status": "success",
       "posted_at": "2026-11-08T12:02:47.635714+00:00",
       "post_urn": "urn:li:share:7525165922278383616"
+    },
+    {
+      "topic_key": "title:c61d7a2b0b3c0a92472b264fa36499df",
+      "title": "How LLM Context Windows Work Under the Hood",
+      "url": "",
+      "content_hash": "a3f2fadcbffb1e20d63e887a73b451c3",
+      "status": "success",
+      "posted_at": "2026-11-08T13:02:54.385759+00:00",
+      "post_urn": "urn:li:share:7525181051434954752"
     }
   ],
   "posted_titles": [
@@ -354,6 +363,7 @@
     "li:What is an Inverted Index?",
     "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
     "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields",
-    "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood"
+    "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
+    "li:How LLM Context Windows Work Under the Hood"
   ]
 }
