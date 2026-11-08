@@ -223,7 +223,10 @@
     "sbi share price",
     "li:Context Windows vs. RAG: The Battle for LLM Memory",
     "bsky:What is a Vector Embedding?",
-    "li:What is a Bloom Filter? The Probabilistic Shortcut Demystified"
+    "li:What is a Bloom Filter? The Probabilistic Shortcut Demystified",
+    "tcs share price",
+    "li:How AI Remembers: Giving Silicon Brains a Journal",
+    "bsky:I'm not a fan of Deno's security model (2024)"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -352,7 +355,8 @@
     "3a17dfa886b1f8fe4bcfecd06325a0fb4a13cdee206b5895fc57357f219b9ace",
     "0cfd254c5b296bc729466046202e7e2d52ef7c75c71e5eb3d08a4d11bc8ccb68",
     "b4ff68cf0b82ce85170d644a0446fc9896a920651af5737f22ea8192117cc87b",
-    "db5cdb00f0267689aa4b7e5d538a439150b636a1f55996dc95fbedd0b256fc18"
+    "db5cdb00f0267689aa4b7e5d538a439150b636a1f55996dc95fbedd0b256fc18",
+    "0bd696ea2d237e6cf44e1f355c8c29e02d613bc5cbdb1bafed20f42910ff5d57"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -419,7 +423,8 @@
         "post:564484fee312da35cab0e50116ec201d5125cfd62d7e25344bf9cc6117cacc0c",
         "post:03e73f0d4cf217bafb0dfe5d6c008762938724320dd961bf28d541048f04bb7c",
         "post:46556a82e172241705abec7f026e02ba8bb1b971ecc200b2f8f54f2c4e05f199",
-        "post:e08a447606c9f89fbce64d22bcd0427bb74c41c4d05fdfee0416db40c8f2449b"
+        "post:e08a447606c9f89fbce64d22bcd0427bb74c41c4d05fdfee0416db40c8f2449b",
+        "post:45c127e87274a283d9d2e411ade002766c63e20afd21245ae5fb513f89fbd94e"
       ],
       "pending": []
     },

@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T17:57:14.386147+00:00",
+    "last_updated": "2026-11-08T18:04:23.083552+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 716,
-    "original_posts_attempted": 152,
-    "original_posts_succeeded": 143,
-    "replies_attempted": 55,
+    "total_cycles_executed": 720,
+    "original_posts_attempted": 153,
+    "original_posts_succeeded": 144,
+    "replies_attempted": 56,
     "replies_succeeded": 25,
     "reposts_attempted": 42,
     "reposts_succeeded": 13,
-    "actions_skipped": 119,
+    "actions_skipped": 120,
     "failed_operations": 27,
-    "ai_generation_requests": 327,
+    "ai_generation_requests": 330,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1948,6 +1948,46 @@
       "content_preview": "When a 70-parameter model fits comfortably on your local machine, it is easy to forget that training a 500-billion param",
       "reason": "",
       "duration_s": 19.42
+    },
+    {
+      "timestamp": "2026-11-08T18:02:55.091568+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "tcs share price",
+      "content_preview": "TCS share price moving faster in a single trading session than a fresher’s starting package has moved in the last 15 yea",
+      "reason": "",
+      "duration_s": 31.32
+    },
+    {
+      "timestamp": "2026-11-08T18:03:56.846365+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Large Language Models are completely stateless functions. A 70-billion parameter model forgets everything the exact mill",
+      "reason": "",
+      "duration_s": 61.73
+    },
+    {
+      "timestamp": "2026-11-08T18:04:22.269578+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "I'm not a fan of Deno's security model (2024)",
+      "content_preview": "Deno’s CLI flags (`--allow-net`) fail supply-chain security: transitive deps force `--allow-all`. Isolation belongs at t",
+      "reason": "",
+      "duration_s": 25.41
+    },
+    {
+      "timestamp": "2026-11-08T18:04:23.083511+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (65/28).",
+      "duration_s": 0.01
     }
   ]
 }

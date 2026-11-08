@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T17:57:14.358811+00:00",
+  "last_success_at": "2026-11-08T18:03:56.834511+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -389,6 +389,15 @@
       "status": "success",
       "posted_at": "2026-11-08T17:57:14.358811+00:00",
       "post_urn": "urn:li:share:7525255119387586560"
+    },
+    {
+      "topic_key": "title:a0f1cf4e225252d992f9fdb7cfdf8dc9",
+      "title": "How AI Remembers: Giving Silicon Brains a Journal",
+      "url": "",
+      "content_hash": "453712949bd550931ce015a875f856d4",
+      "status": "success",
+      "posted_at": "2026-11-08T18:03:56.834511+00:00",
+      "post_urn": "urn:li:share:7525256808144416768"
     }
   ],
   "posted_titles": [
@@ -434,6 +443,7 @@
     "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown in Modern Backend Architecture",
     "li:Context Windows vs. RAG: The Battle for LLM Memory",
     "li:What is a Bloom Filter? The Probabilistic Shortcut Demystified",
-    "li:What is Pipeline Parallelism? The 3D Scaling Frontier Demystified"
+    "li:What is Pipeline Parallelism? The 3D Scaling Frontier Demystified",
+    "li:How AI Remembers: Giving Silicon Brains a Journal"
   ]
 }
