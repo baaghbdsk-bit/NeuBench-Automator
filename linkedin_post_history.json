@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T17:02:57.706054+00:00",
+  "last_success_at": "2026-11-08T17:24:45.471330+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -362,6 +362,15 @@
       "status": "success",
       "posted_at": "2026-11-08T17:02:57.706054+00:00",
       "post_urn": "urn:li:ugcPost:7525241462222155776"
+    },
+    {
+      "topic_key": "title:a6db42b06afac6857e6a7ce66e428c72",
+      "title": "Context Windows vs. RAG: The Battle for LLM Memory",
+      "url": "",
+      "content_hash": "938eb8a7902357eb97541ae429a59bf9",
+      "status": "success",
+      "posted_at": "2026-11-08T17:24:45.471330+00:00",
+      "post_urn": "urn:li:ugcPost:7525246948090589184"
     }
   ],
   "posted_titles": [
@@ -404,6 +413,7 @@
     "li:tata motors share price",
     "li:hindalco share price",
     "li:CPU vs. GPU: The Brainiac vs. The Artist",
-    "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown in Modern Backend Architecture"
+    "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown in Modern Backend Architecture",
+    "li:Context Windows vs. RAG: The Battle for LLM Memory"
   ]
 }

@@ -219,7 +219,10 @@
     "bsky:What is KV Caching? The LLM's Secret Memory Shortcut",
     "bosch share price",
     "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown in Modern Backend Architecture",
-    "bsky:TechCrunch Mobility: The Cybertruck experiment is over"
+    "bsky:TechCrunch Mobility: The Cybertruck experiment is over",
+    "sbi share price",
+    "li:Context Windows vs. RAG: The Battle for LLM Memory",
+    "bsky:What is a Vector Embedding?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -347,7 +350,8 @@
     "f18fee4b0e294f9f2635348c1be3610eb5d28dc610b3da3617d6e330754f5b53",
     "3a17dfa886b1f8fe4bcfecd06325a0fb4a13cdee206b5895fc57357f219b9ace",
     "0cfd254c5b296bc729466046202e7e2d52ef7c75c71e5eb3d08a4d11bc8ccb68",
-    "b4ff68cf0b82ce85170d644a0446fc9896a920651af5737f22ea8192117cc87b"
+    "b4ff68cf0b82ce85170d644a0446fc9896a920651af5737f22ea8192117cc87b",
+    "db5cdb00f0267689aa4b7e5d538a439150b636a1f55996dc95fbedd0b256fc18"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -413,7 +417,8 @@
         "post:9283ddc6a35b782588df8d29c9a3a24fbec3e32898919e4dfe5e78a9c2ee50c2",
         "post:564484fee312da35cab0e50116ec201d5125cfd62d7e25344bf9cc6117cacc0c",
         "post:03e73f0d4cf217bafb0dfe5d6c008762938724320dd961bf28d541048f04bb7c",
-        "post:46556a82e172241705abec7f026e02ba8bb1b971ecc200b2f8f54f2c4e05f199"
+        "post:46556a82e172241705abec7f026e02ba8bb1b971ecc200b2f8f54f2c4e05f199",
+        "post:e08a447606c9f89fbce64d22bcd0427bb74c41c4d05fdfee0416db40c8f2449b"
       ],
       "pending": []
     },
