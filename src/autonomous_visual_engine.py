@@ -150,26 +150,32 @@ If TOKEN_PIPELINE:
         print(f"[VisualEngine] Gemini generated dynamic visual spec for type: {data.get('visual_type')}")
         return data
     except Exception as e:
-        print(f"[VisualEngine] Error in Gemini visual spec generation: {e}. Falling back to default architecture layout.")
+        print(f"[VisualEngine] Error in Gemini visual spec generation: {e}. Building deterministic topic-derived layout.")
+        import re
+        parts = [p.strip() for p in re.split(r' vs | and | to | in | for | - ', topic_or_text, flags=re.I) if p.strip()]
+        b1_name = parts[0][:22].upper() if parts else "INPUT DISPATCH"
+        b2_name = parts[1][:22].upper() if len(parts) > 1 else "PIPELINE SINK"
+        file_slug = re.sub(r'[^a-zA-Z0-9_]', '_', topic_or_text.lower())[:16].strip('_') or "pipeline"
+        clean_summary = summary.strip() if summary else f"{topic_or_text.strip()} Architecture"
         return {
             "visual_type": "CODE_ARCHITECTURE",
-            "title": topic_or_text[:32].upper(),
-            "subtitle": "NeuBench Continuous AI Architecture Series",
-            "box1_title": "INGESTION & PREFILL",
-            "box1_desc": "Batch tokens & parallel KV prefill",
-            "box1_stat": "Sub-millisecond flash attention",
-            "arrow_label": "High-speed bus",
-            "box2_title": "EXECUTION & DECODE",
-            "box2_desc": "Continuous autoregressive generation",
-            "box2_stat": "Zero memory fragmentation",
-            "code_filename": "pipeline.py",
+            "title": topic_or_text[:32].strip().upper(),
+            "subtitle": clean_summary[:60],
+            "box1_title": b1_name,
+            "box1_desc": f"Process {b1_name.lower()} stage",
+            "box1_stat": "Deterministic throughput",
+            "arrow_label": "High-Speed Bus",
+            "box2_title": b2_name,
+            "box2_desc": f"Execute {b2_name.lower()} stage",
+            "box2_stat": "Zero fragmentation",
+            "code_filename": f"{file_slug}.py",
             "code_lines": [
-                "# 1. Stream input tensors into cache memory",
-                "cache = vllm_engine.prefill(context_tokens)",
-                "# 2. Autoregressively decode candidate tokens",
-                "output = vllm_engine.decode(cache, max_tokens=128)"
+                f"# Pipeline execution for {topic_or_text[:28]}",
+                f"stage1 = dispatch_{b1_name.lower().replace(' ', '_')[:12]}(data)",
+                f"# Optimization & execution",
+                f"result = execute_{b2_name.lower().replace(' ', '_')[:12]}(stage1)",
             ],
-            "impact_badge": "Zero memory leaks | Continuous GPU saturation"
+            "impact_badge": f"⚡ SYSTEM IMPACT: Optimized {topic_or_text[:24]} throughput"
         }
 
 
@@ -358,28 +364,8 @@ def generate_visual_for_post(topic_or_text: str, summary: str = "", avoid_type: 
         else:
             return render_dynamic_code_architecture(spec, output_base_name=unique_base_name)
     except Exception as e:
-        print(f"[VisualEngine] Note on visual rendering: {e}. Using deterministic fallback layout.")
-        spec = {
-            "visual_type": "CODE_ARCHITECTURE",
-            "title": topic_or_text[:32].upper(),
-            "subtitle": "Continuous AI Architecture Series",
-            "box1_title": "INGESTION & PREFILL",
-            "box1_desc": "Batch tokens & parallel KV prefill",
-            "box1_stat": "Sub-millisecond flash attention",
-            "arrow_label": "High-speed bus",
-            "box2_title": "EXECUTION & DECODE",
-            "box2_desc": "Continuous autoregressive generation",
-            "box2_stat": "Zero memory fragmentation",
-            "code_filename": "pipeline.py",
-            "code_lines": [
-                "# 1. Stream input tensors into cache memory",
-                "cache = vllm_engine.prefill(context_tokens)",
-                "# 2. Autoregressively decode candidate tokens",
-                "output = vllm_engine.decode(cache, max_tokens=128)"
-            ],
-            "impact_badge": "Zero memory leaks | Continuous GPU saturation"
-        }
-        return render_dynamic_code_architecture(spec, output_base_name=unique_base_name)
+        print(f"[VisualEngine] Note on visual rendering: {e}. Suppressing attachment to prevent repeating off-topic visuals.")
+        return ("", "")
 
 
 def render_dynamic_concept_comparison(concept: Dict[str, Any], output_base_name: str = "concept_comp") -> Tuple[str, str]:

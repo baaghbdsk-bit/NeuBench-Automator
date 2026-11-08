@@ -20,19 +20,15 @@ def get_spec() -> dict:
     if spec_path and os.path.exists(spec_path):
         try:
             with open(spec_path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return {
-        "title": "AI INFERENCE BENCHMARK RACE",
-        "subtitle": "Measured Real-Time Tokens Per Second (TPS) and Latency",
-        "models": [
-            {"name": "DeepSeek R1", "tps": 135, "ttft": "160ms"},
-            {"name": "Claude 3.5 Sonnet", "tps": 110, "ttft": "220ms"},
-            {"name": "Llama 3.3 70B", "tps": 88, "ttft": "290ms"},
-            {"name": "GPT-4o Mini", "tps": 72, "ttft": "340ms"},
-        ]
-    }
+                data = json.load(f)
+                if isinstance(data, dict) and data.get("title"):
+                    return data
+        except Exception as e:
+            raise RuntimeError(f"Failed to load dynamic spec from MANIM_SPEC_PATH ({spec_path}): {e}")
+    raise RuntimeError(
+        "No dynamic topic spec provided via MANIM_SPEC_PATH. "
+        "Static fallback is disabled to prevent repeating off-topic looping GIFs."
+    )
 
 
 class BenchmarkRace(Scene):

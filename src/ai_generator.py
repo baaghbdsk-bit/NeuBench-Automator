@@ -1417,6 +1417,12 @@ Return valid JSON matching this schema:
     "First crucial insight",
     "Second crucial insight",
     "Third crucial insight"
+  ],
+  "flow_steps": [
+    {{"label": "Step 1 name", "desc": "What happens in step 1", "icon": "tokens"}},
+    {{"label": "Step 2 name", "desc": "What happens in step 2", "icon": "embedding"}},
+    {{"label": "Step 3 name", "desc": "What happens in step 3", "icon": "attention"}},
+    {{"label": "Step 4 name", "desc": "What happens in step 4", "icon": "predict"}}
   ]
 }}
 """

@@ -125,6 +125,49 @@ VIRAL_ACCOUNTS = [
 
 
 
+def validate_topic_attachment(media_path: Optional[str], topic_title: str) -> bool:
+    """
+    Enforces strict topic affinity for social media attachments (GIFs, PDFs, images).
+    Rejects any repeated, generic, or off-topic media to ensure zero slop.
+    """
+    if not media_path:
+        return True
+
+    path_obj = Path(media_path)
+    if not path_obj.exists() or path_obj.stat().st_size == 0:
+        return False
+
+    raw_name = path_obj.name.lower()
+    parent_name = path_obj.parent.name.lower()
+    full_path_str = f"{parent_name}/{raw_name}"
+
+    # Reject known generic / test file names
+    generic_blocklist = [
+        "test_code_arch", "test_token_pipe", "test_bench", "test_compress",
+        "transformer_flow.gif", "casual_visual", "default_", "sample"
+    ]
+    for block in generic_blocklist:
+        if block in full_path_str:
+            return False
+
+    # Extract significant topic words (len >= 3, non-stopwords)
+    stop_words = {"the", "and", "for", "with", "how", "what", "why", "vs", "versus", "are", "from", "into"}
+    title_words = [
+        re.sub(r"[^a-z0-9]", "", w.lower())
+        for w in topic_title.split()
+    ]
+    sig_words = [w for w in title_words if len(w) >= 3 and w not in stop_words]
+
+    # If the title has significant words, at least one key word (or 2 if multiple exist) must be in the media path
+    if sig_words:
+        matched = sum(1 for w in sig_words if w in full_path_str)
+        required = 1 if len(sig_words) <= 2 else 2
+        if matched < required:
+            return False
+
+    return True
+
+
 class AutomaterEngine:
 
     def __init__(self, dry_run: bool = False):
@@ -1741,37 +1784,56 @@ class AutomaterEngine:
                 if tags and "#" not in li_text[-200:]:
                     li_text = f"{li_text.rstrip()}\n\n{' '.join(tags[:5])}"
 
-                try:
-                    from src.linkedin_visuals import render_linkedin_carousel, render_linkedin_hero
-                except Exception as import_error:
-                    console.print(f"[yellow]LinkedIn visual renderer unavailable: {import_error}[/yellow]")
-                    render_linkedin_carousel = None
-                    render_linkedin_hero = None
-
-                if render_linkedin_carousel:
+                # Topic-specific Dynamic Pipeline Flow GIF support for systems breakdowns
+                if chosen_format == "systems_breakdown" or (isinstance(selected_trend, dict) and selected_trend.get("flow_steps")):
                     try:
-                        assets = render_linkedin_carousel(carousel_plan)
-                        media_path = assets["pdf_path"]
-                        media_title = str(
-                            carousel_plan.get("cover", {}).get("headline") or selected_trend["title"]
-                        )[:100]
-                        render_linkedin_hero(carousel_plan, base_name=assets["base"])
-                        console.print(
-                            f"[bold magenta]🎞️ LinkedIn carousel ready: {media_path} "
-                            f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
-                        )
-                    except Exception as error:
-                        console.print(
-                            f"[yellow]Carousel render failed ({error}); falling back to hero image.[/yellow]"
-                        )
+                        from src.linkedin_diagrams import build_topic_flow_spec, render_flow_diagram_gif
+                        flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
+                        flow_spec = build_topic_flow_spec(selected_trend["title"], selected_trend.get("summary", ""), steps=flow_steps)
+                        flow_res = render_flow_diagram_gif(flow_spec)
+                        if flow_res.get("gif_path") and Path(flow_res["gif_path"]).exists():
+                            media_path = flow_res["gif_path"]
+                            media_title = str(selected_trend["title"])[:100]
+                            console.print(
+                                f"[bold magenta]🎞️ Topic-specific dynamic flow GIF ready: {media_path} "
+                                f"({flow_res.get('stage_count', 0)} stages)[/bold magenta]"
+                            )
+                    except Exception as flow_err:
+                        console.print(f"[yellow]Dynamic flow GIF render skipped: {flow_err}. Falling back to carousel.[/yellow]")
+                        media_path = None
+
+                if not media_path:
+                    try:
+                        from src.linkedin_visuals import render_linkedin_carousel, render_linkedin_hero
+                    except Exception as import_error:
+                        console.print(f"[yellow]LinkedIn visual renderer unavailable: {import_error}[/yellow]")
+                        render_linkedin_carousel = None
+                        render_linkedin_hero = None
+
+                    if render_linkedin_carousel:
                         try:
-                            media_path = render_linkedin_hero(carousel_plan)
+                            assets = render_linkedin_carousel(carousel_plan)
+                            media_path = assets["pdf_path"]
                             media_title = str(
                                 carousel_plan.get("cover", {}).get("headline") or selected_trend["title"]
                             )[:100]
-                        except Exception as hero_error:
-                            console.print(f"[dim]Hero render failed too: {hero_error}[/dim]")
-                            media_path = None
+                            render_linkedin_hero(carousel_plan, base_name=assets["base"])
+                            console.print(
+                                f"[bold magenta]🎞️ LinkedIn carousel ready: {media_path} "
+                                f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
+                            )
+                        except Exception as error:
+                            console.print(
+                                f"[yellow]Carousel render failed ({error}); falling back to hero image.[/yellow]"
+                            )
+                            try:
+                                media_path = render_linkedin_hero(carousel_plan)
+                                media_title = str(
+                                    carousel_plan.get("cover", {}).get("headline") or selected_trend["title"]
+                                )[:100]
+                            except Exception as hero_error:
+                                console.print(f"[dim]Hero render failed too: {hero_error}[/dim]")
+                                media_path = None
 
             console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
 
@@ -1786,6 +1848,16 @@ class AutomaterEngine:
                         f"[dim]💬 First-comment fallback ready (LinkedIn may skip it on personal tokens):[/dim] "
                         f"{first_comm[:100]}..."
                     )
+
+            if media_path:
+                if not validate_topic_attachment(media_path, selected_trend.get("title", "")):
+                    console.print(
+                        f"[bold red]🚫 Suppressing media attachment '{media_path}': off-topic or generic. "
+                        f"Posting text-only to prevent repeating off-topic visuals.[/bold red]"
+                    )
+                    media_path = None
+                else:
+                    console.print(f"[bold green]🎯 Verified topic-specific LinkedIn attachment:[/bold green] {media_path}")
 
             ok, msg = automater.post(
                 li_text,

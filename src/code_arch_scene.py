@@ -21,28 +21,15 @@ def get_spec() -> dict:
     if spec_path and os.path.exists(spec_path):
         try:
             with open(spec_path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return {
-        "title": "DISTRIBUTED KV-CACHE PIPELINE",
-        "subtitle": "Zero-Copy Memory Architecture with Paged Attention",
-        "box1_title": "INGESTION & PREFILL",
-        "box1_desc": "Batch tokens & parallel KV prefill",
-        "box1_stat": "Latency: 18ms | 128k Context",
-        "arrow_label": "High-Speed Bus",
-        "box2_title": "EXECUTION & DECODE",
-        "box2_desc": "Continuous autoregressive generation",
-        "box2_stat": "Zero memory fragmentation",
-        "code_filename": "paged_cache.py",
-        "code_lines": [
-            "# 1. Stream input tensors into cache memory",
-            "cache = vllm_engine.prefill(context_tokens)",
-            "# 2. Autoregressively decode candidate tokens",
-            "output = vllm_engine.decode(cache, max_tokens=128)"
-        ],
-        "impact_badge": "⚡ IMPACT: Latency slashed by 52% | Continuous GPU saturation"
-    }
+                data = json.load(f)
+                if isinstance(data, dict) and data.get("title"):
+                    return data
+        except Exception as e:
+            raise RuntimeError(f"Failed to load dynamic spec from MANIM_SPEC_PATH ({spec_path}): {e}")
+    raise RuntimeError(
+        "No dynamic topic spec provided via MANIM_SPEC_PATH. "
+        "Static fallback is disabled to prevent repeating off-topic looping GIFs."
+    )
 
 
 class CodeArchitecture(Scene):

@@ -21,23 +21,15 @@ def get_spec() -> dict:
     if spec_path and os.path.exists(spec_path):
         try:
             with open(spec_path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return {
-        "title": "HOW LLMS READ YOUR PROMPT",
-        "subtitle": "String -> Subword Tokenization -> High-Dimensional Embeddings",
-        "prompt_string": "Why is latency high in multi-agent workflows?",
-        "tokens": [
-            {"text": "Why", "id": 14235},
-            {"text": "is", "id": 374},
-            {"text": "latency", "id": 21904},
-            {"text": "high", "id": 1024},
-            {"text": "in", "id": 287},
-            {"text": "agents", "id": 45192},
-            {"text": "?", "id": 30}
-        ]
-    }
+                data = json.load(f)
+                if isinstance(data, dict) and data.get("title"):
+                    return data
+        except Exception as e:
+            raise RuntimeError(f"Failed to load dynamic spec from MANIM_SPEC_PATH ({spec_path}): {e}")
+    raise RuntimeError(
+        "No dynamic topic spec provided via MANIM_SPEC_PATH. "
+        "Static fallback is disabled to prevent repeating off-topic looping GIFs."
+    )
 
 
 class TokenPipeline(Scene):
