@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T10:24:59.791180+00:00",
+    "last_updated": "2026-11-08T10:54:16.007002+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 678,
-    "original_posts_attempted": 143,
-    "original_posts_succeeded": 134,
-    "replies_attempted": 48,
+    "total_cycles_executed": 682,
+    "original_posts_attempted": 144,
+    "original_posts_succeeded": 135,
+    "replies_attempted": 49,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
-    "actions_skipped": 110,
+    "actions_skipped": 111,
     "failed_operations": 27,
-    "ai_generation_requests": 298,
+    "ai_generation_requests": 301,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1568,6 +1568,46 @@
       "content_preview": "In-depth technical breakdown of What is an Inverted Index? for engineers and architects, covering core architectural pri",
       "reason": "",
       "duration_s": 12.81
+    },
+    {
+      "timestamp": "2026-11-08T10:53:55.315310+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "Bro really built a Skynet replica on a $10 USB stick just to ask it for pancake recipes. Tech bros will literally avoid ",
+      "reason": "",
+      "duration_s": 25.96
+    },
+    {
+      "timestamp": "2026-11-08T10:54:09.328640+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses for engineers ",
+      "reason": "",
+      "duration_s": 14.0
+    },
+    {
+      "timestamp": "2026-11-08T10:54:15.286420+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Neural Network Score Demystified",
+      "content_preview": "Logits are unconstrained raw scores from a model's final layer $(-\\infty, \\infty)$. Probabilities are normalized percent",
+      "reason": "",
+      "duration_s": 5.31
+    },
+    {
+      "timestamp": "2026-11-08T10:54:16.006976+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (36/28).",
+      "duration_s": 0.01
     }
   ]
 }

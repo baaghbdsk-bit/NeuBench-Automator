@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T10:24:59.763081+00:00",
+  "last_success_at": "2026-11-08T10:54:08.661109+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -290,6 +290,15 @@
       "status": "success",
       "posted_at": "2026-11-08T10:24:59.763081+00:00",
       "post_urn": "urn:li:ugcPost:7525141311398744064"
+    },
+    {
+      "topic_key": "title:bba39bea339a6c56c78202d85c0a5950",
+      "title": "Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
+      "url": "",
+      "content_hash": "58f055e60cad74300dff36738497216b",
+      "status": "success",
+      "posted_at": "2026-11-08T10:54:08.661109+00:00",
+      "post_urn": "urn:li:ugcPost:7525148646561034241"
     }
   ],
   "posted_titles": [
@@ -324,6 +333,7 @@
     "li:After the midterms, things are looking rocky for Elon Musk and data centers",
     "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
     "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
-    "li:What is an Inverted Index?"
+    "li:What is an Inverted Index?",
+    "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses"
   ]
 }
