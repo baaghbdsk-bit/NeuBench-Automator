@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T19:04:06.521205+00:00",
+    "last_updated": "2026-11-08T20:03:20.489818+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 724,
-    "original_posts_attempted": 154,
-    "original_posts_succeeded": 145,
+    "total_cycles_executed": 728,
+    "original_posts_attempted": 155,
+    "original_posts_succeeded": 146,
     "replies_attempted": 57,
     "replies_succeeded": 25,
-    "reposts_attempted": 42,
+    "reposts_attempted": 43,
     "reposts_succeeded": 13,
-    "actions_skipped": 121,
+    "actions_skipped": 122,
     "failed_operations": 27,
-    "ai_generation_requests": 333,
+    "ai_generation_requests": 336,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2027,6 +2027,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (68/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T20:02:41.505894+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
+      "content_preview": "AI researchers found out signed vectors can be fully verified while secretly encoding completely fake text. Congrats to ",
+      "reason": "",
+      "duration_s": 31.52
+    },
+    {
+      "timestamp": "2026-11-08T20:03:08.976690+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Engineering Deep Dive: How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memo",
+      "reason": "",
+      "duration_s": 27.46
+    },
+    {
+      "timestamp": "2026-11-08T20:03:19.763792+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Declarative Dragging",
+      "content_preview": "Declarative dragging shifts state management from imperative event listeners to pure state-to-DOM projections. By decoup",
+      "reason": "",
+      "duration_s": 10.78
+    },
+    {
+      "timestamp": "2026-11-08T20:03:20.489795+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (71/28).",
       "duration_s": 0.01
     }
   ]

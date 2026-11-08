@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T19:03:50.039714+00:00",
+  "last_success_at": "2026-11-08T20:03:08.971189+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -407,6 +407,15 @@
       "status": "success",
       "posted_at": "2026-11-08T19:03:50.039714+00:00",
       "post_urn": "urn:li:share:7525271881298370560"
+    },
+    {
+      "topic_key": "title:ea76b23893bce3b41cbec3da970395a1",
+      "title": "How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memory",
+      "url": "",
+      "content_hash": "13c79cdf1be4d78c4e88a65e70c40496",
+      "status": "success",
+      "posted_at": "2026-11-08T20:03:08.971189+00:00",
+      "post_urn": "urn:li:share:7525286808222507008"
     }
   ],
   "posted_titles": [
@@ -454,6 +463,7 @@
     "li:What is a Bloom Filter? The Probabilistic Shortcut Demystified",
     "li:What is Pipeline Parallelism? The 3D Scaling Frontier Demystified",
     "li:How AI Remembers: Giving Silicon Brains a Journal",
-    "li:Inside AI Coding CLI Architecture: Preventing Secret Leaks in Context-Gathering Pipelines"
+    "li:Inside AI Coding CLI Architecture: Preventing Secret Leaks in Context-Gathering Pipelines",
+    "li:How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memory"
   ]
 }
