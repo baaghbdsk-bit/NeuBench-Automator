@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T21:30:05.745693+00:00",
+  "last_success_at": "2026-11-08T22:03:01.558749+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -434,6 +434,15 @@
       "status": "success",
       "posted_at": "2026-11-08T21:30:05.745693+00:00",
       "post_urn": "urn:li:share:7525308688233000960"
+    },
+    {
+      "topic_key": "title:b553bafef2ecebc61a3f92cde5ec406a",
+      "title": "The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG",
+      "url": "",
+      "content_hash": "b0a3ee1cf047f9214b7a9f19f26d3760",
+      "status": "success",
+      "posted_at": "2026-11-08T22:03:01.558749+00:00",
+      "post_urn": "urn:li:share:7525316976945086464"
     }
   ],
   "posted_titles": [
@@ -484,6 +493,7 @@
     "li:Inside AI Coding CLI Architecture: Preventing Secret Leaks in Context-Gathering Pipelines",
     "li:How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memory",
     "li:Goodbye Claude, Hello Pi",
-    "li:What I run on my $10 USD OpenStick homelab"
+    "li:What I run on my $10 USD OpenStick homelab",
+    "li:The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG"
   ]
 }

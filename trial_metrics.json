@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T21:30:11.731887+00:00",
+    "last_updated": "2026-11-08T22:03:07.069000+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 736,
-    "original_posts_attempted": 157,
-    "original_posts_succeeded": 148,
-    "replies_attempted": 59,
+    "total_cycles_executed": 740,
+    "original_posts_attempted": 158,
+    "original_posts_succeeded": 149,
+    "replies_attempted": 60,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
-    "actions_skipped": 124,
+    "actions_skipped": 125,
     "failed_operations": 27,
-    "ai_generation_requests": 342,
+    "ai_generation_requests": 345,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2148,6 +2148,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (77/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T22:02:41.484113+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Middle-class investment paranoia",
+      "content_preview": "Uncle will proudly watch his life savings get cooked by 8% inflation while locked in a 6% FD, but the second you buy a ₹",
+      "reason": "",
+      "duration_s": 26.16
+    },
+    {
+      "timestamp": "2026-11-08T22:03:01.563675+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Hardcoding your domain knowledge into a 200,000-token system prompt is like packing your entire engineering library into",
+      "reason": "",
+      "duration_s": 20.07
+    },
+    {
+      "timestamp": "2026-11-08T22:03:06.510438+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is KV Cache in Large Language Models?",
+      "content_preview": "Treat prompt tokens as static memory: compute Keys & Values once, cache them, and only evaluate attention for new tokens",
+      "reason": "",
+      "duration_s": 4.94
+    },
+    {
+      "timestamp": "2026-11-08T22:03:07.068965+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (80/28).",
+      "duration_s": 0.0
     }
   ]
 }

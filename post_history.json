@@ -238,7 +238,10 @@
     "bsky:PagedAttention Demystified: Virtual Memory for LLM KV Cache",
     "barca",
     "li:What I run on my $10 USD OpenStick homelab",
-    "bsky:How I Fight AI Brain Fry"
+    "bsky:How I Fight AI Brain Fry",
+    "Middle-class investment paranoia",
+    "li:The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG",
+    "bsky:What is KV Cache in Large Language Models?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -372,7 +375,8 @@
     "92736778faa0f69c94f68e4d376aa8c961a02c109a8bcfc38445273577cd8b13",
     "cba4cbb512fcce5b6a7549fd9ae18d4d7b8bc2ac620dcbe8625e7cfc55980eb3",
     "10cc64e947e4fbf6a256fa4e3c2d01f1712875f331376b3f170e76a27f835963",
-    "f8cd6905396568cf1700bdf5851db530c4f63dca3223ed78aa9c571e3ff04e8d"
+    "f8cd6905396568cf1700bdf5851db530c4f63dca3223ed78aa9c571e3ff04e8d",
+    "8d2162ae274ee0a280b9e28d56c4a28070a942c1e460f8a8ba8d7f3e1681b61a"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -444,7 +448,8 @@
         "post:9556ae3379961b40f9766fc22995fb8c7202e4ce759eccc8c4eddbbe138fa623",
         "post:6eeddc904bec8eea59be8f273abdbbb8403f7d9981fd48f0b45e0f32ffcb1b7a",
         "post:1de236334ac522ff22ba2a3653535720a0c854c564a4c6936697b0ffb1a1bd6c",
-        "post:8a5fa294dbf04864285e1ad66a2b9b7a095c710b43dd317c1c323b581564e7b8"
+        "post:8a5fa294dbf04864285e1ad66a2b9b7a095c710b43dd317c1c323b581564e7b8",
+        "post:97f1f294d2b7e0d69c5e2f1a7e61123052ceb6e94a2d667f5a3fd61df5a5226c"
       ],
       "pending": []
     },
