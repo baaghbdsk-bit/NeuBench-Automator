@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T20:03:20.489818+00:00",
+    "last_updated": "2026-11-08T21:03:55.395370+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 728,
-    "original_posts_attempted": 155,
-    "original_posts_succeeded": 146,
-    "replies_attempted": 57,
+    "total_cycles_executed": 732,
+    "original_posts_attempted": 156,
+    "original_posts_succeeded": 147,
+    "replies_attempted": 58,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
-    "actions_skipped": 122,
+    "actions_skipped": 123,
     "failed_operations": 27,
-    "ai_generation_requests": 336,
+    "ai_generation_requests": 339,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2068,6 +2068,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (71/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T21:02:51.760674+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
+      "content_preview": "Inventing \"Multi-Teacher On-Policy Distillation\" just so an AI doesn't spell a poster title like a drunk toddler and giv",
+      "reason": "",
+      "duration_s": 31.47
+    },
+    {
+      "timestamp": "2026-11-08T21:03:29.063070+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Switching a high-throughput user agent from a 175B+ cloud LLM to a sub-3B specialized micro-architecture cut context lat",
+      "reason": "",
+      "duration_s": 37.3
+    },
+    {
+      "timestamp": "2026-11-08T21:03:54.828557+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "PagedAttention Demystified: Virtual Memory for LLM KV Cache",
+      "content_preview": "Pre-allocating contiguous VRAM for dynamic KV cache scales poorly. PagedAttention borrows OS virtual memory: page the ca",
+      "reason": "",
+      "duration_s": 25.76
+    },
+    {
+      "timestamp": "2026-11-08T21:03:55.395355+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (74/28).",
+      "duration_s": 0.0
     }
   ]
 }

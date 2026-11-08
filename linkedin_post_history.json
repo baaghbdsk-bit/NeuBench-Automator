@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T20:03:08.971189+00:00",
+  "last_success_at": "2026-11-08T21:03:29.059012+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -416,6 +416,15 @@
       "status": "success",
       "posted_at": "2026-11-08T20:03:08.971189+00:00",
       "post_urn": "urn:li:share:7525286808222507008"
+    },
+    {
+      "topic_key": "url:https://caleb.software/posts/claude-to-pi.html",
+      "title": "Goodbye Claude, Hello Pi",
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "content_hash": "429a1fbad9fb33514f8089e38bce5e39",
+      "status": "success",
+      "posted_at": "2026-11-08T21:03:29.059012+00:00",
+      "post_urn": "urn:li:share:7525301992903131136"
     }
   ],
   "posted_titles": [
@@ -464,6 +473,7 @@
     "li:What is Pipeline Parallelism? The 3D Scaling Frontier Demystified",
     "li:How AI Remembers: Giving Silicon Brains a Journal",
     "li:Inside AI Coding CLI Architecture: Preventing Secret Leaks in Context-Gathering Pipelines",
-    "li:How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memory"
+    "li:How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memory",
+    "li:Goodbye Claude, Hello Pi"
   ]
 }
