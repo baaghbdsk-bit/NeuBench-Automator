@@ -210,7 +210,10 @@
     "bsky:Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
     "oneplus coloros 17 update schedule",
     "li:tata motors share price",
-    "bsky:What is a Logit? The Raw Scoring Mechanics Behind Neural Networks"
+    "bsky:What is a Logit? The Raw Scoring Mechanics Behind Neural Networks",
+    "tata motors share price",
+    "li:hindalco share price",
+    "bsky:Quadrillion-parameter transformers and how to train them"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -335,7 +338,8 @@
     "13293598c6303b984f3d58f03ff973adc15e77ceb65cd3761fffe951dd75b046",
     "9a62dde828b6a29ab44057a06e88d4afad969476745a3ea86fbe4e5011712e4a",
     "968db57a2765d4bda7888cc26875c8a4ce57f5fdc8d0adbafa609a72773ff243",
-    "f18fee4b0e294f9f2635348c1be3610eb5d28dc610b3da3617d6e330754f5b53"
+    "f18fee4b0e294f9f2635348c1be3610eb5d28dc610b3da3617d6e330754f5b53",
+    "3a17dfa886b1f8fe4bcfecd06325a0fb4a13cdee206b5895fc57357f219b9ace"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -398,7 +402,8 @@
         "post:24781e0c36f932c9d305bc7d7ba90823ab7321f8355ab4aefa67931caa0732c3",
         "post:0b090bbd3a221659713e3d8832a47e0e0eebf5e41905c0b5c464e6e61e9f6f9f",
         "post:04d65218ffb41b5c3f014582679b1f43dc3391d8684bbe7d5ee394b30acfbfef",
-        "post:9283ddc6a35b782588df8d29c9a3a24fbec3e32898919e4dfe5e78a9c2ee50c2"
+        "post:9283ddc6a35b782588df8d29c9a3a24fbec3e32898919e4dfe5e78a9c2ee50c2",
+        "post:564484fee312da35cab0e50116ec201d5125cfd62d7e25344bf9cc6117cacc0c"
       ],
       "pending": []
     },

@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T14:03:01.260084+00:00",
+    "last_updated": "2026-11-08T15:02:48.380963+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 698,
-    "original_posts_attempted": 148,
-    "original_posts_succeeded": 139,
-    "replies_attempted": 52,
+    "total_cycles_executed": 702,
+    "original_posts_attempted": 149,
+    "original_posts_succeeded": 140,
+    "replies_attempted": 53,
     "replies_succeeded": 25,
     "reposts_attempted": 41,
     "reposts_succeeded": 13,
-    "actions_skipped": 115,
+    "actions_skipped": 116,
     "failed_operations": 27,
-    "ai_generation_requests": 313,
+    "ai_generation_requests": 316,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1768,6 +1768,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (48/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T15:02:29.453043+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "tata motors share price",
+      "content_preview": "Therapists charge ₹2000 an hour just to tell you to breathe, but watching my Tata Motors portfolio turn red gives me fre",
+      "reason": "",
+      "duration_s": 23.14
+    },
+    {
+      "timestamp": "2026-11-08T15:02:40.632368+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of hindalco share price for engineers and architects...\n\nDetailed 6-page field notes attach",
+      "reason": "",
+      "duration_s": 11.17
+    },
+    {
+      "timestamp": "2026-11-08T15:02:46.055386+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Quadrillion-parameter transformers and how to train them",
+      "content_preview": "Quadrillion-param models break standard 3D parallelism. At that scale, memory bandwidth and interconnect latency dominat",
+      "reason": "",
+      "duration_s": 5.42
+    },
+    {
+      "timestamp": "2026-11-08T15:02:48.380940+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (51/28).",
+      "duration_s": 0.0
     }
   ]
 }
