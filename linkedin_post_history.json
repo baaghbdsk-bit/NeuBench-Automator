@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T21:03:29.059012+00:00",
+  "last_success_at": "2026-11-08T21:30:05.745693+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -425,6 +425,15 @@
       "status": "success",
       "posted_at": "2026-11-08T21:03:29.059012+00:00",
       "post_urn": "urn:li:share:7525301992903131136"
+    },
+    {
+      "topic_key": "url:https://blog.bosscher.ch/posts/openstick",
+      "title": "What I run on my $10 USD OpenStick homelab",
+      "url": "https://blog.bosscher.ch/posts/openstick",
+      "content_hash": "24ec7010f3136714ecd8c10902c972da",
+      "status": "success",
+      "posted_at": "2026-11-08T21:30:05.745693+00:00",
+      "post_urn": "urn:li:share:7525308688233000960"
     }
   ],
   "posted_titles": [
@@ -474,6 +483,7 @@
     "li:How AI Remembers: Giving Silicon Brains a Journal",
     "li:Inside AI Coding CLI Architecture: Preventing Secret Leaks in Context-Gathering Pipelines",
     "li:How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memory",
-    "li:Goodbye Claude, Hello Pi"
+    "li:Goodbye Claude, Hello Pi",
+    "li:What I run on my $10 USD OpenStick homelab"
   ]
 }

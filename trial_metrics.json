@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T21:03:55.395370+00:00",
+    "last_updated": "2026-11-08T21:30:11.731887+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 732,
-    "original_posts_attempted": 156,
-    "original_posts_succeeded": 147,
-    "replies_attempted": 58,
+    "total_cycles_executed": 736,
+    "original_posts_attempted": 157,
+    "original_posts_succeeded": 148,
+    "replies_attempted": 59,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
-    "actions_skipped": 123,
+    "actions_skipped": 124,
     "failed_operations": 27,
-    "ai_generation_requests": 339,
+    "ai_generation_requests": 342,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2108,6 +2108,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (74/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-08T21:29:18.930583+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "barca",
+      "content_preview": "Barca fans really out here writing entire LinkedIn essays about \"financial leverage\" just to lose 3-0 to a team sponsore",
+      "reason": "",
+      "duration_s": 24.68
+    },
+    {
+      "timestamp": "2026-11-08T21:30:05.751535+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your production serverless bill costs more per month than a fully autonomous Kubernetes cluster running on a USB stick s",
+      "reason": "",
+      "duration_s": 46.81
+    },
+    {
+      "timestamp": "2026-11-08T21:30:10.924003+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "How I Fight AI Brain Fry",
+      "content_preview": "Cognitive load shift is real. When reviewing high volumes of LLM-generated code, context fatigue degrades semantic verif",
+      "reason": "",
+      "duration_s": 5.17
+    },
+    {
+      "timestamp": "2026-11-08T21:30:11.731867+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (77/28).",
+      "duration_s": 0.01
     }
   ]
 }
