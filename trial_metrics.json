@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T22:03:07.069000+00:00",
+    "last_updated": "2026-11-08T22:07:44.085727+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 740,
+    "total_cycles_executed": 741,
     "original_posts_attempted": 158,
     "original_posts_succeeded": 149,
     "replies_attempted": 60,
@@ -14,7 +14,7 @@
     "reposts_succeeded": 13,
     "actions_skipped": 125,
     "failed_operations": 27,
-    "ai_generation_requests": 345,
+    "ai_generation_requests": 346,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2188,6 +2188,16 @@
       "content_preview": "",
       "reason": "Total daily limit reached (80/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-08T22:07:44.085707+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Every time an LLM application forgets a critical constraint three turns deep into a conversation, your users experience ",
+      "reason": "",
+      "duration_s": 43.88
     }
   ]
 }

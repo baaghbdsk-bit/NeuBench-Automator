@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T22:03:01.558749+00:00",
+  "last_success_at": "2026-11-08T22:07:44.079065+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -443,6 +443,15 @@
       "status": "success",
       "posted_at": "2026-11-08T22:03:01.558749+00:00",
       "post_urn": "urn:li:share:7525316976945086464"
+    },
+    {
+      "topic_key": "title:60afa41787a535746dd8542267775c70",
+      "title": "Agentic Memory Traces vs. Stateless Execution Contexts",
+      "url": "",
+      "content_hash": "ab4f49ec79481e2a43644d9ef0d0747e",
+      "status": "success",
+      "posted_at": "2026-11-08T22:07:44.079065+00:00",
+      "post_urn": "urn:li:share:7525318161554984961"
     }
   ],
   "posted_titles": [
@@ -494,6 +503,7 @@
     "li:How AI Agent Memory Engines Work: Deconstructing State Tracing, Episodic Recall, and Working Memory",
     "li:Goodbye Claude, Hello Pi",
     "li:What I run on my $10 USD OpenStick homelab",
-    "li:The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG"
+    "li:The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG",
+    "li:Agentic Memory Traces vs. Stateless Execution Contexts"
   ]
 }
