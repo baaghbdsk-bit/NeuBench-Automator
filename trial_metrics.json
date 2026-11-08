@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T04:03:49.633458+00:00",
+    "last_updated": "2026-11-08T05:03:47.359671+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 661,
-    "original_posts_attempted": 135,
-    "original_posts_succeeded": 127,
+    "total_cycles_executed": 664,
+    "original_posts_attempted": 137,
+    "original_posts_succeeded": 128,
     "replies_attempted": 46,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
     "actions_skipped": 108,
-    "failed_operations": 26,
-    "ai_generation_requests": 283,
+    "failed_operations": 27,
+    "ai_generation_requests": 286,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1398,6 +1398,36 @@
       "content_preview": "Tatiana Suarez has spent more time injured than my car has spent on the actual road, and yet she’s still one win away fr",
       "reason": "",
       "duration_s": 64.2
+    },
+    {
+      "timestamp": "2026-11-08T05:02:33.498857+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Middle-class investment paranoia",
+      "content_preview": "Uncles really be locking up their life savings in a 6% FD while inflation eats it alive, then look at you like you’re sn",
+      "reason": "X rejected the tweet submission.",
+      "duration_s": 27.17
+    },
+    {
+      "timestamp": "2026-11-08T05:02:39.520559+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "Swapping frontier reasoning for low-latency conversational models changes the inference economics, but watch your contex",
+      "reason": "",
+      "duration_s": 6.01
+    },
+    {
+      "timestamp": "2026-11-08T05:03:47.356288+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "john mulaney",
+      "content_preview": "John Mulaney really went from \"I'm a polite boy who loves retro diners\" to a 4-hour Netflix special about his entire lif",
+      "reason": "",
+      "duration_s": 67.38
     }
   ]
 }
