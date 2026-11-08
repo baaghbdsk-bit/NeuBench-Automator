@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T02:03:59.417426+00:00",
+    "last_updated": "2026-11-08T03:03:39.862297+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 652,
-    "original_posts_attempted": 129,
-    "original_posts_succeeded": 121,
+    "total_cycles_executed": 655,
+    "original_posts_attempted": 131,
+    "original_posts_succeeded": 123,
     "replies_attempted": 46,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
     "actions_skipped": 108,
     "failed_operations": 26,
-    "ai_generation_requests": 274,
+    "ai_generation_requests": 277,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1308,6 +1308,36 @@
       "content_preview": "Urban Meyer failing upward into another media job is just corporate America telling you that failing publicly while bein",
       "reason": "",
       "duration_s": 66.43
+    },
+    {
+      "timestamp": "2026-11-08T03:02:34.835767+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "josh brolin",
+      "content_preview": "Josh Brolin out here meditating in a canyon, drinking cactus water, and journaling about his masculine rage like men in ",
+      "reason": "",
+      "duration_s": 27.57
+    },
+    {
+      "timestamp": "2026-11-08T03:02:38.001905+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+      "content_preview": "Raw tool outputs destroy agent attention via context bloating. Latent context compression keeps observations in vector s",
+      "reason": "",
+      "duration_s": 3.15
+    },
+    {
+      "timestamp": "2026-11-08T03:03:39.857631+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "hawks",
+      "content_preview": "men posting about geopolitical \"hawks\" like they wouldn't hyperventilate if the waiter brought them the wrong oat milk l",
+      "reason": "",
+      "duration_s": 61.26
     }
   ]
 }
