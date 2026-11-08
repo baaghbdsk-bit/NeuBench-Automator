@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T16:03:18.910559+00:00",
+  "last_success_at": "2026-11-08T17:02:57.706054+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -353,6 +353,15 @@
       "status": "success",
       "posted_at": "2026-11-08T16:03:18.910559+00:00",
       "post_urn": "urn:li:ugcPost:7525226452569452544"
+    },
+    {
+      "topic_key": "title:f6dd890a050256560393fbb6e7b6e95c",
+      "title": "B-Tree vs. LSM-Tree: The Storage Engine Showdown in Modern Backend Architecture",
+      "url": "",
+      "content_hash": "0e9c1cb066a00218fbc54b57904880df",
+      "status": "success",
+      "posted_at": "2026-11-08T17:02:57.706054+00:00",
+      "post_urn": "urn:li:ugcPost:7525241462222155776"
     }
   ],
   "posted_titles": [
@@ -394,6 +403,7 @@
     "li:How LLM Context Windows Work Under the Hood",
     "li:tata motors share price",
     "li:hindalco share price",
-    "li:CPU vs. GPU: The Brainiac vs. The Artist"
+    "li:CPU vs. GPU: The Brainiac vs. The Artist",
+    "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown in Modern Backend Architecture"
   ]
 }

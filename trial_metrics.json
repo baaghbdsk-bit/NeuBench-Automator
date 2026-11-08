@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T16:03:25.469150+00:00",
+    "last_updated": "2026-11-08T17:03:05.227077+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 706,
-    "original_posts_attempted": 150,
-    "original_posts_succeeded": 141,
-    "replies_attempted": 53,
+    "total_cycles_executed": 710,
+    "original_posts_attempted": 151,
+    "original_posts_succeeded": 142,
+    "replies_attempted": 54,
     "replies_succeeded": 25,
     "reposts_attempted": 42,
     "reposts_succeeded": 13,
-    "actions_skipped": 117,
+    "actions_skipped": 118,
     "failed_operations": 27,
-    "ai_generation_requests": 319,
+    "ai_generation_requests": 322,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1847,6 +1847,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (54/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T17:02:44.455126+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "bosch share price",
+      "content_preview": "Bosch share price hitting the roof while my washing machine makes sounds like a helicopter about to land in my living ro",
+      "reason": "",
+      "duration_s": 24.02
+    },
+    {
+      "timestamp": "2026-11-08T17:02:57.714704+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "B-Tree (Balanced Tree) vs LSM-Tree (Log-Structured Merge-Tree): Architectural Comparison\n\nB-Trees dominate traditional r",
+      "reason": "",
+      "duration_s": 13.25
+    },
+    {
+      "timestamp": "2026-11-08T17:03:04.575005+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "TechCrunch Mobility: The Cybertruck experiment is over",
+      "content_preview": "Hardware pivots reveal brutal production realities. When vehicle iteration cycles collide with reality, telemetry and ed",
+      "reason": "",
+      "duration_s": 6.84
+    },
+    {
+      "timestamp": "2026-11-08T17:03:05.227057+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (57/28).",
       "duration_s": 0.01
     }
   ]
