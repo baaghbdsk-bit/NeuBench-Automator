@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T01:04:17.749163+00:00",
+    "last_updated": "2026-11-08T02:03:59.417426+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 649,
-    "original_posts_attempted": 127,
-    "original_posts_succeeded": 119,
+    "total_cycles_executed": 652,
+    "original_posts_attempted": 129,
+    "original_posts_succeeded": 121,
     "replies_attempted": 46,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
     "actions_skipped": 108,
     "failed_operations": 26,
-    "ai_generation_requests": 271,
+    "ai_generation_requests": 274,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1278,6 +1278,36 @@
       "content_preview": "Adults online ready to start a full-blown geopolitical war over what a teenager named Malachi Toney did or didn't do. Go",
       "reason": "",
       "duration_s": 66.6
+    },
+    {
+      "timestamp": "2026-11-08T02:02:48.877784+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "टाटा स्टील",
+      "content_preview": "Tata Steel talking about ethics and work-life balance on LinkedIn is like my ex talking about loyalty. Bro, your furnace",
+      "reason": "",
+      "duration_s": 30.78
+    },
+    {
+      "timestamp": "2026-11-08T02:02:52.112735+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+      "content_preview": "Appending raw tool outputs to agent contexts destroys attention over multi-step tasks. Latent context compression replac",
+      "reason": "",
+      "duration_s": 3.21
+    },
+    {
+      "timestamp": "2026-11-08T02:03:59.412580+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "urban meyer",
+      "content_preview": "Urban Meyer failing upward into another media job is just corporate America telling you that failing publicly while bein",
+      "reason": "",
+      "duration_s": 66.43
     }
   ]
 }
