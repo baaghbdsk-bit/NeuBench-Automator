@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T10:02:44.615515+00:00",
+  "last_success_at": "2026-11-08T10:24:59.763081+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -281,6 +281,15 @@
       "status": "success",
       "posted_at": "2026-11-08T10:02:44.615515+00:00",
       "post_urn": "urn:li:ugcPost:7525135711465861120"
+    },
+    {
+      "topic_key": "title:7e9070083de8b35195973b5f7236e2ab",
+      "title": "What is an Inverted Index?",
+      "url": "",
+      "content_hash": "a66dda14a08b5fa12e51fcd3d30189d8",
+      "status": "success",
+      "posted_at": "2026-11-08T10:24:59.763081+00:00",
+      "post_urn": "urn:li:ugcPost:7525141311398744064"
     }
   ],
   "posted_titles": [
@@ -314,6 +323,7 @@
     "li:Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
     "li:After the midterms, things are looking rocky for Elon Musk and data centers",
     "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
-    "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown"
+    "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
+    "li:What is an Inverted Index?"
   ]
 }
