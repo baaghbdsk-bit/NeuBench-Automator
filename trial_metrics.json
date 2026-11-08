@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T09:02:48.473913+00:00",
+    "last_updated": "2026-11-08T10:02:51.561514+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 673,
-    "original_posts_attempted": 142,
-    "original_posts_succeeded": 133,
-    "replies_attempted": 47,
+    "total_cycles_executed": 677,
+    "original_posts_attempted": 143,
+    "original_posts_succeeded": 134,
+    "replies_attempted": 48,
     "replies_succeeded": 25,
     "reposts_attempted": 40,
     "reposts_succeeded": 13,
-    "actions_skipped": 109,
+    "actions_skipped": 110,
     "failed_operations": 27,
-    "ai_generation_requests": 294,
+    "ai_generation_requests": 297,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1517,6 +1517,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (29/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T10:02:31.360736+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "Bro really broke up with an AGI-level therapist just to chat with a digital golden retriever that asks \"how's your menta",
+      "reason": "",
+      "duration_s": 26.95
+    },
+    {
+      "timestamp": "2026-11-08T10:02:44.621388+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Stateless Large Context Windows vs Agentic Memory Systems: Architectural Comparison\n\nComparing brute-force massive conte",
+      "reason": "",
+      "duration_s": 13.24
+    },
+    {
+      "timestamp": "2026-11-08T10:02:50.716507+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Agent memory needs its OpenTelemetry moment",
+      "content_preview": "Agent memory is a black box. We debug vector state, prompt caches, and retrieval drift by guessing. \n\nWe need distribute",
+      "reason": "",
+      "duration_s": 6.09
+    },
+    {
+      "timestamp": "2026-11-08T10:02:51.561491+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (32/28).",
       "duration_s": 0.01
     }
   ]

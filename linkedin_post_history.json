@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T00:02:53.726100+00:00",
+  "last_success_at": "2026-11-08T10:02:44.615515+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -272,6 +272,15 @@
       "status": "success",
       "posted_at": "2026-11-08T00:02:53.726100+00:00",
       "post_urn": "urn:li:ugcPost:7524984753893339136"
+    },
+    {
+      "topic_key": "title:f39b13bd044b220d0762b6262140cf78",
+      "title": "Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
+      "url": "",
+      "content_hash": "6cbbde378c0cff1d97c6b80e966ec727",
+      "status": "success",
+      "posted_at": "2026-11-08T10:02:44.615515+00:00",
+      "post_urn": "urn:li:ugcPost:7525135711465861120"
     }
   ],
   "posted_titles": [
@@ -304,6 +313,7 @@
     "li:Event-Driven vs. Request-Driven Architecture",
     "li:Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
     "li:After the midterms, things are looking rocky for Elon Musk and data centers",
-    "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo"
+    "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+    "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown"
   ]
 }
