@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T22:07:44.085727+00:00",
+    "last_updated": "2026-11-08T23:03:24.282191+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 741,
-    "original_posts_attempted": 158,
-    "original_posts_succeeded": 149,
-    "replies_attempted": 60,
+    "total_cycles_executed": 745,
+    "original_posts_attempted": 159,
+    "original_posts_succeeded": 150,
+    "replies_attempted": 61,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
-    "actions_skipped": 125,
+    "actions_skipped": 126,
     "failed_operations": 27,
-    "ai_generation_requests": 346,
+    "ai_generation_requests": 349,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2198,6 +2198,46 @@
       "content_preview": "Every time an LLM application forgets a critical constraint three turns deep into a conversation, your users experience ",
       "reason": "",
       "duration_s": 43.88
+    },
+    {
+      "timestamp": "2026-11-08T23:02:34.455154+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "south carolina vs unc",
+      "content_preview": "South Carolina vs UNC has the exact same unhinged energy as a feud outside a Waffle House at 2 AM. Pure chaos, zero defe",
+      "reason": "",
+      "duration_s": 28.09
+    },
+    {
+      "timestamp": "2026-11-08T23:03:07.629270+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Agentic Memory Stores vs. Traditional RAG: The Architecture of AI Recall\n\nMost teams building with LLMs start with Tradi",
+      "reason": "",
+      "duration_s": 33.17
+    },
+    {
+      "timestamp": "2026-11-08T23:03:23.768999+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "content_preview": "Privileged access meets deterministic risk. Pulling Claude Code from trading desks highlights the tension between probab",
+      "reason": "",
+      "duration_s": 16.14
+    },
+    {
+      "timestamp": "2026-11-08T23:03:24.282173+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (84/28).",
+      "duration_s": 0.0
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T22:07:44.079065+00:00",
+  "last_success_at": "2026-11-08T23:03:07.624312+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -452,6 +452,15 @@
       "status": "success",
       "posted_at": "2026-11-08T22:07:44.079065+00:00",
       "post_urn": "urn:li:share:7525318161554984961"
+    },
+    {
+      "topic_key": "title:5130ef06e134975dfe1e321e83efcc63",
+      "title": "Agentic Memory Stores vs. Traditional RAG: The Architecture of AI Recall",
+      "url": "",
+      "content_hash": "556f33de8e30dfe993100febb6d2580f",
+      "status": "success",
+      "posted_at": "2026-11-08T23:03:07.624312+00:00",
+      "post_urn": "urn:li:share:7525332101341102080"
     }
   ],
   "posted_titles": [
@@ -504,6 +513,7 @@
     "li:Goodbye Claude, Hello Pi",
     "li:What I run on my $10 USD OpenStick homelab",
     "li:The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG",
-    "li:Agentic Memory Traces vs. Stateless Execution Contexts"
+    "li:Agentic Memory Traces vs. Stateless Execution Contexts",
+    "li:Agentic Memory Stores vs. Traditional RAG: The Architecture of AI Recall"
   ]
 }
