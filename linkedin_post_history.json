@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T17:39:43.919282+00:00",
+  "last_success_at": "2026-11-08T17:57:14.358811+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -380,6 +380,15 @@
       "status": "success",
       "posted_at": "2026-11-08T17:39:43.919282+00:00",
       "post_urn": "urn:li:share:7525250709307482112"
+    },
+    {
+      "topic_key": "title:31cb38e61e409567a09349b283543848",
+      "title": "What is Pipeline Parallelism? The 3D Scaling Frontier Demystified",
+      "url": "",
+      "content_hash": "cf7559367d048386f2be784d5116b8e1",
+      "status": "success",
+      "posted_at": "2026-11-08T17:57:14.358811+00:00",
+      "post_urn": "urn:li:share:7525255119387586560"
     }
   ],
   "posted_titles": [
@@ -424,6 +433,7 @@
     "li:CPU vs. GPU: The Brainiac vs. The Artist",
     "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown in Modern Backend Architecture",
     "li:Context Windows vs. RAG: The Battle for LLM Memory",
-    "li:What is a Bloom Filter? The Probabilistic Shortcut Demystified"
+    "li:What is a Bloom Filter? The Probabilistic Shortcut Demystified",
+    "li:What is Pipeline Parallelism? The 3D Scaling Frontier Demystified"
   ]
 }
