@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T18:04:23.083552+00:00",
+    "last_updated": "2026-11-08T19:04:06.521205+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 720,
-    "original_posts_attempted": 153,
-    "original_posts_succeeded": 144,
-    "replies_attempted": 56,
+    "total_cycles_executed": 724,
+    "original_posts_attempted": 154,
+    "original_posts_succeeded": 145,
+    "replies_attempted": 57,
     "replies_succeeded": 25,
     "reposts_attempted": 42,
     "reposts_succeeded": 13,
-    "actions_skipped": 120,
+    "actions_skipped": 121,
     "failed_operations": 27,
-    "ai_generation_requests": 330,
+    "ai_generation_requests": 333,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1987,6 +1987,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (65/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T19:02:48.870985+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+      "content_preview": "Researchers just proved AI tools don't need to speak in full text. Even machine learning algorithms are adopting the \"I ",
+      "reason": "",
+      "duration_s": 31.11
+    },
+    {
+      "timestamp": "2026-11-08T19:03:50.044284+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Sending your entire project workspace to an LLM via a coding CLI takes milliseconds, but a single leaked .env file or ha",
+      "reason": "",
+      "duration_s": 61.17
+    },
+    {
+      "timestamp": "2026-11-08T19:04:05.946663+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Vector Embeddings: How AI Gives Words Secret Map Coordinates",
+      "content_preview": "Embeddings project discrete tokens into continuous high-dimensional manifolds. By assigning latent feature coordinates, ",
+      "reason": "",
+      "duration_s": 15.9
+    },
+    {
+      "timestamp": "2026-11-08T19:04:06.521182+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (68/28).",
       "duration_s": 0.01
     }
   ]

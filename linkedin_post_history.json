@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T18:03:56.834511+00:00",
+  "last_success_at": "2026-11-08T19:03:50.039714+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -398,6 +398,15 @@
       "status": "success",
       "posted_at": "2026-11-08T18:03:56.834511+00:00",
       "post_urn": "urn:li:share:7525256808144416768"
+    },
+    {
+      "topic_key": "title:6798b9386dd3d2cfacb7e147fc64745b",
+      "title": "Inside AI Coding CLI Architecture: Preventing Secret Leaks in Context-Gathering Pipelines",
+      "url": "",
+      "content_hash": "22e3476d565c3d28da937341cd566348",
+      "status": "success",
+      "posted_at": "2026-11-08T19:03:50.039714+00:00",
+      "post_urn": "urn:li:share:7525271881298370560"
     }
   ],
   "posted_titles": [
@@ -444,6 +453,7 @@
     "li:Context Windows vs. RAG: The Battle for LLM Memory",
     "li:What is a Bloom Filter? The Probabilistic Shortcut Demystified",
     "li:What is Pipeline Parallelism? The 3D Scaling Frontier Demystified",
-    "li:How AI Remembers: Giving Silicon Brains a Journal"
+    "li:How AI Remembers: Giving Silicon Brains a Journal",
+    "li:Inside AI Coding CLI Architecture: Preventing Secret Leaks in Context-Gathering Pipelines"
   ]
 }
