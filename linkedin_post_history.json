@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T11:03:00.677712+00:00",
+  "last_success_at": "2026-11-08T12:02:47.635714+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -308,6 +308,15 @@
       "status": "success",
       "posted_at": "2026-11-08T11:03:00.677712+00:00",
       "post_urn": "urn:li:share:7525150878329171968"
+    },
+    {
+      "topic_key": "title:73daa1f49e490f4119b7d0608da7010b",
+      "title": "How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
+      "url": "",
+      "content_hash": "0086edf2887a294e040896e2424fe58e",
+      "status": "success",
+      "posted_at": "2026-11-08T12:02:47.635714+00:00",
+      "post_urn": "urn:li:share:7525165922278383616"
     }
   ],
   "posted_titles": [
@@ -344,6 +353,7 @@
     "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
     "li:What is an Inverted Index?",
     "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
-    "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields"
+    "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields",
+    "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood"
   ]
 }

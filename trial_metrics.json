@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T11:03:06.537046+00:00",
+    "last_updated": "2026-11-08T12:02:53.463303+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 686,
-    "original_posts_attempted": 145,
-    "original_posts_succeeded": 136,
+    "total_cycles_executed": 690,
+    "original_posts_attempted": 146,
+    "original_posts_succeeded": 137,
     "replies_attempted": 50,
     "replies_succeeded": 25,
-    "reposts_attempted": 40,
+    "reposts_attempted": 41,
     "reposts_succeeded": 13,
-    "actions_skipped": 112,
+    "actions_skipped": 113,
     "failed_operations": 27,
-    "ai_generation_requests": 304,
+    "ai_generation_requests": 307,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -1647,6 +1647,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (39/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-08T12:02:28.275370+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Agent memory needs its OpenTelemetry moment",
+      "content_preview": "Bro really said AI agents need an OpenTelemetry moment for their memory just to forget my prompt three messages later. W",
+      "reason": "",
+      "duration_s": 24.99
+    },
+    {
+      "timestamp": "2026-11-08T12:02:47.640972+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "In-depth technical breakdown of How Distributed Consensus Survives Split-Brain: Raft Under the Hood for engineers and ar",
+      "reason": "",
+      "duration_s": 19.35
+    },
+    {
+      "timestamp": "2026-11-08T12:02:52.816223+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying Continuous Batching in LLM Inference Engines",
+      "content_preview": "Static batching leaves tensor cores starved at sequence boundaries. Continuous batching schedules at the token level, sw",
+      "reason": "",
+      "duration_s": 5.17
+    },
+    {
+      "timestamp": "2026-11-08T12:02:53.463286+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (42/28).",
       "duration_s": 0.01
     }
   ]
