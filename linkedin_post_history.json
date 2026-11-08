@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-07T23:15:54.762561+00:00",
+  "last_success_at": "2026-11-08T00:02:53.726100+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -263,6 +263,15 @@
       "status": "success",
       "posted_at": "2026-11-07T23:15:54.762561+00:00",
       "post_urn": "urn:li:ugcPost:7524972930704011264"
+    },
+    {
+      "topic_key": "url:https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo",
+      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo",
+      "content_hash": "d9c690f77e30aab922efe7f15ef59c74",
+      "status": "success",
+      "posted_at": "2026-11-08T00:02:53.726100+00:00",
+      "post_urn": "urn:li:ugcPost:7524984753893339136"
     }
   ],
   "posted_titles": [
@@ -294,6 +303,7 @@
     "li:Optimistic vs. Pessimistic Locking",
     "li:Event-Driven vs. Request-Driven Architecture",
     "li:Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
-    "li:After the midterms, things are looking rocky for Elon Musk and data centers"
+    "li:After the midterms, things are looking rocky for Elon Musk and data centers",
+    "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo"
   ]
 }
