@@ -1,5 +1,6 @@
 import json
 import re
+import random
 from typing import List, Optional, Dict, Any, Tuple
 from google import genai
 from google.genai import types
@@ -1324,6 +1325,163 @@ Return ONLY valid JSON matching this schema:
             "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#Architecture", "#DevOps"]
         }
         return self._normalize_carousel_plan(fallback_plan, topic, "DIFFERENCE")
+
+    def ideate_autonomous_tech_topic(
+        self,
+        target_audience: Optional[str] = None,
+        content_format: Optional[str] = None,
+        recent_topics: Optional[List[str]] = None,
+        live_news_signals: Optional[List[Dict[str, Any]]] = None
+    ) -> Dict[str, Any]:
+        """
+        Autonomously synthesizes a novel, high-engagement tech or AI topic without any hardcoded lists.
+        Behaves as an expert Tech and AI Content Creator producing content tailored across diverse
+        demographics—from school kids to working professionals, staff architects, and AI terminology seekers.
+        """
+        demographics = {
+            "school_kid": "School Kids and Curious Beginners (10-16 yrs) - Pure real-world analogies, zero intimidating jargon, focus on the magical intuition behind everyday tech and AI.",
+            "college_student": "College Students and Aspiring Coders - Core CS fundamentals, data structures, algorithms, developer tools, interview clarity.",
+            "working_pro": "Working Software Professionals and Devs - Production backend architectures, database indexing, caching, microservices, cloud trade-offs, reliability.",
+            "staff_engineer": "Senior and Staff Systems Architects - Deep distributed systems, GPU memory bandwidth, consensus, low-level mechanics, high-scale reliability.",
+            "ai_curious": "AI-Curious Enthusiasts and Practitioners - Modern AI terminology, LLMs, tokens, embeddings, quantization, context windows, RAG, agentic workflows."
+        }
+        formats = {
+            "versus_comparison": "Versus / Comparison (A vs B) - Contrast two competing tools, frameworks, architectures, or paradigms with clear trade-offs.",
+            "terminology_demystified": "Terminology Demystified - Demystify an intimidating tech or AI term with crystal-clear intuition and diagrams.",
+            "systems_breakdown": "Systems and How It Works - Deconstruct how a real-world system or algorithm works under the hood.",
+            "trend_news": "Live Tech and Research Breakdown - Translate a recent tech development, research paper, or benchmark into practical engineering insight."
+        }
+
+        aud_key = target_audience if target_audience in demographics else random.choice(list(demographics.keys()))
+        fmt_key = content_format if content_format in formats else random.choice(list(formats.keys()))
+
+        selected_aud_desc = demographics[aud_key]
+        selected_fmt_desc = formats[fmt_key]
+
+        recent_sample = [str(t).strip() for t in (recent_topics or [])[-30:] if str(t).strip()]
+        recent_block = "\n".join(f"- {t}" for t in recent_sample) if recent_sample else "None recorded yet."
+
+        news_block = ""
+        if live_news_signals:
+            top_signals = []
+            for s in live_news_signals[:6]:
+                stitle = str(s.get("title", "")).strip()
+                ssummary = str(s.get("summary") or s.get("context") or "")[:150].strip()
+                if stitle:
+                    top_signals.append(f"• {stitle}: {ssummary}")
+            if top_signals:
+                news_block = "LIVE TECH NEWS AND RESEARCH SIGNALS FROM TODAY:\n" + "\n".join(top_signals)
+
+        prompt = f"""You are a world-class Tech and AI Content Creator and Educator.
+Your mission is to make computing and artificial intelligence fascinating, actionable, and crystal clear.
+
+TARGET AUDIENCE FOR THIS PIECE:
+[{aud_key.upper()}] - {selected_aud_desc}
+
+DESIRED CONTENT FORMAT:
+[{fmt_key.upper()}] - {selected_fmt_desc}
+
+{news_block}
+
+RECENT TOPICS ALREADY COVERED (CRITICAL: DO NOT REPEAT OR CLOSELY DUPLICATE ANY OF THESE):
+{recent_block}
+
+INSTRUCTIONS:
+1. Autonomously choose an exciting, educational, and timely Tech or AI topic appropriate for the target audience and format.
+2. If format is 'versus_comparison', provide concept_a and concept_b (e.g. 'Docker vs. Podman', 'REST vs. gRPC', 'B-Tree vs. LSM-Tree', 'FP16 vs. INT4', 'Stack vs. Heap').
+3. If format is 'terminology_demystified', explain a crucial term (e.g. 'What is a Logit?', 'Vector Embeddings', 'Database Deadlock', 'Paging and Virtual Memory').
+4. If format is 'systems_breakdown', explain the inner mechanics of a real system (e.g. 'How DNS Resolves in 20ms', 'How LLM KV Cache Saves VRAM').
+5. If format is 'trend_news', translate a contemporary AI/tech breakthrough into an intuitive insight.
+6. Create relatable real-world analogies (especially for school_kid and college_student tiers) and sharp technical trade-offs (for working_pro and staff_engineer tiers).
+
+Return valid JSON matching this schema:
+{{
+  "title": "Engaging, professional topic title",
+  "target_audience": "{aud_key}",
+  "content_format": "{fmt_key}",
+  "category": "e.g. SYSTEMS ARCHITECTURE | AI and ML | DATA STRUCTURES | CLOUD and DEVOPS | NETWORKING",
+  "concept_a": "Name of primary concept / tool",
+  "concept_b": "Name of secondary concept / tool (if comparison, else empty)",
+  "summary": "2-3 punchy sentences explaining the core concept, intuition, and why it matters.",
+  "golden_rule": "One memorable, actionable rule of thumb or takeaway.",
+  "real_world_analogy": "A relatable real-world analogy suitable for this audience.",
+  "school_analogy": "How you would explain this simply to a 14-year-old.",
+  "pro_nuance": "The technical caveat or architectural trade-off that only experienced engineers know.",
+  "key_takeaways": [
+    "First crucial insight",
+    "Second crucial insight",
+    "Third crucial insight"
+  ]
+}}
+"""
+        system_instruction = (
+            "You are an elite, world-class Tech and AI Educator and Content Creator. "
+            "You invent novel, highly educational, technically sound concepts without repeating recent history. "
+            "Return valid JSON only matching the schema exactly."
+        )
+
+        try:
+            data = self._generate_json(prompt, system_instruction, temperature=0.75)
+            if data and data.get("title") and data.get("summary"):
+                data["title"] = str(data["title"]).strip()
+                data["target_audience"] = aud_key
+                data["content_format"] = fmt_key
+                return data
+        except Exception as e:
+            print(f"[AIGenerator] Autonomous topic ideation notice: {e}. Generating dynamic procedural topic...")
+
+        fallback_seeds = {
+            "school_kid": [
+                ("How the Internet Actually Works", "Like a global highway system for digital packets"),
+                ("What Happens When You Press A Key", "From physical membrane switch to OS interrupt and screen buffer"),
+                ("Binary: Why Computers Only Speak 0 and 1", "Like millions of microscopic light switches turning on and off"),
+                ("How Self-Driving Cars See the Road", "Cameras, LiDAR, and computer vision neural nets working together")
+            ],
+            "college_student": [
+                ("Stack vs. Heap: Where Variables Live", "Fast contiguous execution stack vs dynamic allocated memory heap"),
+                ("Recursion vs. Iteration", "Call stack frames and memory limits vs loop pointer arithmetic"),
+                ("How Compilers Optimize Code", "From AST parsing to dead code elimination and register allocation"),
+                ("HTTP/1.1 vs HTTP/2 vs HTTP/3", "Text pipelines vs binary multiplexing vs UDP QUIC streaming")
+            ],
+            "working_pro": [
+                ("PostgreSQL WAL (Write-Ahead Logging) Deep Dive", "How databases guarantee ACID durability before writing to tables"),
+                ("Redis Cache Invalidation Patterns", "Cache-aside vs write-through vs refresh-ahead trade-offs"),
+                ("Circuit Breakers in Distributed Microservices", "Failing fast to prevent cascading service downtime"),
+                ("Horizontal Pod Autoscaling Mechanics", "Metrics scraping, hysteresis smoothing, and thrashing prevention")
+            ],
+            "staff_engineer": [
+                ("Raft Consensus vs Paxos in High Scale Clusters", "Leader election, log replication quorums, and partition healing"),
+                ("Kernel Bypassing with DPDK / io_uring", "Eliminating syscall context-switch overhead for sub-microsecond networking"),
+                ("LLM KV Cache Eviction and PagedAttention", "Virtual memory paging applied to transformer attention matrix memory"),
+                ("Distributed Deadlock Detection Algorithms", "Wait-for graphs and edge chasing in distributed transactional databases")
+            ],
+            "ai_curious": [
+                ("What Exactly is a Token in Modern LLMs?", "Subword byte-pair encodings and why rare words cost more"),
+                ("Temperature vs Top-P: How Sampling Affects Output", "Logit probability scaling vs cumulative nucleus thresholding"),
+                ("Vector Embeddings: Mapping Meaning to Geometry", "How high-dimensional cosine similarity measures semantic closeness"),
+                ("Speculative Decoding: Accelerating LLM Inference", "Using small draft models to verify tokens in parallel on big models")
+            ]
+        }
+        chosen_pair = random.choice(fallback_seeds.get(aud_key, fallback_seeds["working_pro"]))
+        return {
+            "title": chosen_pair[0],
+            "target_audience": aud_key,
+            "content_format": fmt_key,
+            "category": "TECH and SYSTEMS ENGINEERING",
+            "concept_a": chosen_pair[0].split(" vs ")[0] if " vs " in chosen_pair[0] else chosen_pair[0],
+            "concept_b": chosen_pair[0].split(" vs ")[1] if " vs " in chosen_pair[0] else "",
+            "summary": chosen_pair[1],
+            "golden_rule": "Simplicity and measurable profiling beat premature architectural complexity.",
+            "real_world_analogy": chosen_pair[1],
+            "school_analogy": chosen_pair[1],
+            "pro_nuance": "Always profile production telemetry before committing to architectural restructuring.",
+            "key_takeaways": [
+                "Fundamental architecture dictates long-term system scaling bounds.",
+                "Measure real bottlenecks before applying complex optimizations.",
+                "Simplicity in system design reduces operational maintenance burden."
+            ]
+        }
+
 
 
 

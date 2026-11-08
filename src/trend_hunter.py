@@ -1232,6 +1232,15 @@ class TrendHunter:
         Picks a random foundational or frontier AI topic (terminology, architecture, concept, or news)
         with structured components ready for Carousel slides, Shorts voiceover, and Pinterest infographics.
         """
+        try:
+            from src.ai_generator import AIGenerator
+            gen = AIGenerator()
+            recent = list(used_topics)[-30:] if used_topics else []
+            topic = gen.ideate_autonomous_tech_topic(target_audience="ai_curious", recent_topics=recent)
+            if topic and topic.get("title"):
+                return topic
+        except Exception:
+            pass
         ai_concept_bank = [
             {
                 "title": "Mixture of Experts (MoE)",
@@ -1392,6 +1401,15 @@ class TrendHunter:
 
 
     def get_educational_concepts(self, used_topics=None):
+        try:
+            from src.ai_generator import AIGenerator
+            gen = AIGenerator()
+            recent = list(used_topics)[-30:] if used_topics else []
+            topic = gen.ideate_autonomous_tech_topic(content_format="terminology_demystified", recent_topics=recent)
+            if topic and topic.get("title"):
+                return [topic]
+        except Exception:
+            pass
         concepts = [
             {
                 "title": "Git Rebase vs. Git Merge",
@@ -1654,6 +1672,15 @@ class TrendHunter:
 
     def get_comparison_topics(self, used_topics=None) -> List[Dict[str, Any]]:
         """Return dynamic technical and architectural comparison (versus) topics."""
+        try:
+            from src.ai_generator import AIGenerator
+            gen = AIGenerator()
+            recent = list(used_topics)[-30:] if used_topics else []
+            topic = gen.ideate_autonomous_tech_topic(content_format="versus_comparison", recent_topics=recent)
+            if topic and topic.get("title"):
+                return [topic]
+        except Exception:
+            pass
         comparisons = [
             {"title": "HashMap vs. HashSet", "concept_a": "HashMap", "concept_b": "HashSet", "category": "DATA STRUCTURES", "summary": "Key-value associative mapping vs unique set membership under the hood."},
             {"title": "ArrayList vs. LinkedList", "concept_a": "ArrayList", "concept_b": "LinkedList", "category": "DATA STRUCTURES", "summary": "Contiguous memory cache locality vs pointer node allocation overhead."},

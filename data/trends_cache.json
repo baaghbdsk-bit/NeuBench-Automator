@@ -1,13 +1,249 @@
 {
   "metadata": {
     "version": "1.0",
-    "last_updated": "2026-11-06T19:12:02.463384+00:00",
-    "total_trends": 1,
-    "active_trends": 1,
+    "last_updated": "2026-11-08T09:28:09.997558+00:00",
+    "total_trends": 31,
+    "active_trends": 31,
     "sensitive_trends": 0,
     "retention_hours": 48
   },
   "trends": [
+    {
+      "id": "tr_c3211628fc37137a",
+      "title": "Goodbye Claude, Hello Pi",
+      "summary": "Goodbye Claude, Hello Pi",
+      "source": "HackerNews",
+      "category": "ai_tech",
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "score": 15.35,
+      "discovered_at": "2026-11-08T09:28:02.455380+00:00",
+      "published_at": "2026-11-08T03:11:48+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "HackerNews"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "hn_score": 274,
+        "hn_comments": 157
+      },
+      "context": "Goodbye Claude, Hello Pi",
+      "traffic": "Trending Spike"
+    },
+    {
+      "id": "tr_d37b88081c7238a2",
+      "title": "What I run on my $10 USD OpenStick homelab",
+      "summary": "What I run on my $10 USD OpenStick homelab",
+      "source": "HackerNews",
+      "category": "ai_tech",
+      "url": "https://blog.bosscher.ch/posts/openstick",
+      "score": 14.85,
+      "discovered_at": "2026-11-08T09:28:04.707091+00:00",
+      "published_at": "2026-11-07T18:12:12+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "HackerNews"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "hn_score": 566,
+        "hn_comments": 108
+      },
+      "context": "What I run on my $10 USD OpenStick homelab",
+      "traffic": "Trending Spike"
+    },
+    {
+      "id": "tr_a4c3c512eaa0fcfd",
+      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "summary": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "source": "HackerNews",
+      "category": "ai_tech",
+      "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+      "score": 14.85,
+      "discovered_at": "2026-11-08T09:28:06.958523+00:00",
+      "published_at": "2026-11-07T20:45:32+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "HackerNews"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "hn_score": 381,
+        "hn_comments": 263
+      },
+      "context": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "traffic": "Trending Spike"
+    },
+    {
+      "id": "tr_835f3b74e5243a46",
+      "title": "Agent memory needs its OpenTelemetry moment",
+      "summary": "Agent memory needs its OpenTelemetry moment",
+      "source": "HackerNews",
+      "category": "ai_tech",
+      "url": "https://lorekit.io/blog/open-agent-memory-format",
+      "score": 11.52,
+      "discovered_at": "2026-11-08T09:28:03.680122+00:00",
+      "published_at": "2026-11-08T08:40:23+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "HackerNews"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "hn_score": 5,
+        "hn_comments": 2
+      },
+      "context": "Agent memory needs its OpenTelemetry moment",
+      "traffic": "Trending Spike"
+    },
+    {
+      "id": "tr_398f41e5cebfc225",
+      "title": "Kirlian Photography: Building Your Own Equipment",
+      "summary": "Kirlian Photography: Building Your Own Equipment",
+      "source": "HackerNews",
+      "category": "ai_tech",
+      "url": "https://imagesco.com/articles/kirlian/kirlian-photography.html",
+      "score": 11.32,
+      "discovered_at": "2026-11-08T09:28:08.088280+00:00",
+      "published_at": "2026-11-08T04:14:12+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "HackerNews"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "hn_score": 37,
+        "hn_comments": 7
+      },
+      "context": "Kirlian Photography: Building Your Own Equipment",
+      "traffic": "Trending Spike"
+    },
+    {
+      "id": "tr_1b0aab134515b2fe",
+      "title": "oneplus coloros 17 update schedule",
+      "summary": "oneplus coloros 17 update schedule",
+      "source": "Google Trends (IN)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 10.5,
+      "discovered_at": "2026-11-08T09:28:09.216912+00:00",
+      "published_at": "2026-11-08T09:10:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (IN)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "2000+"
+      },
+      "context": "oneplus coloros 17 update schedule",
+      "traffic": "2000+"
+    },
+    {
+      "id": "tr_0b48b002e62eea28",
+      "title": "tata motors share price",
+      "summary": "tata motors share price",
+      "source": "Google Trends (IN)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 10.5,
+      "discovered_at": "2026-11-08T09:28:09.217399+00:00",
+      "published_at": "2026-11-08T09:10:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (IN)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "200+"
+      },
+      "context": "tata motors share price",
+      "traffic": "200+"
+    },
+    {
+      "id": "tr_724bfcf4e591ad25",
+      "title": "hindalco share price",
+      "summary": "hindalco share price",
+      "source": "Google Trends (IN)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 10.5,
+      "discovered_at": "2026-11-08T09:28:09.217714+00:00",
+      "published_at": "2026-11-08T09:10:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (IN)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "200+"
+      },
+      "context": "hindalco share price",
+      "traffic": "200+"
+    },
+    {
+      "id": "tr_da1d208606b66a7e",
+      "title": "bosch share price",
+      "summary": "bosch share price",
+      "source": "Google Trends (IN)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 10.5,
+      "discovered_at": "2026-11-08T09:28:09.218068+00:00",
+      "published_at": "2026-11-08T09:10:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (IN)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "200+"
+      },
+      "context": "bosch share price",
+      "traffic": "200+"
+    },
+    {
+      "id": "tr_bc72ed17554d4b15",
+      "title": "sbi share price",
+      "summary": "sbi share price",
+      "source": "Google Trends (IN)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 10.5,
+      "discovered_at": "2026-11-08T09:28:09.218320+00:00",
+      "published_at": "2026-11-08T09:00:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (IN)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "500+"
+      },
+      "context": "sbi share price",
+      "traffic": "500+"
+    },
+    {
+      "id": "tr_c412da150a000a8d",
+      "title": "tcs share price",
+      "summary": "tcs share price",
+      "source": "Google Trends (IN)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 10.5,
+      "discovered_at": "2026-11-08T09:28:09.218561+00:00",
+      "published_at": "2026-11-08T09:00:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (IN)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "1000+"
+      },
+      "context": "tcs share price",
+      "traffic": "1000+"
+    },
     {
       "id": "tr_8da354033fd5239f",
       "title": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
@@ -16,7 +252,7 @@
       "category": "ai_tech",
       "url": "https://app.neubench.workers.dev",
       "score": 10.45,
-      "discovered_at": "2026-11-06T19:12:02.462566+00:00",
+      "discovered_at": "2026-11-08T09:27:59.208861+00:00",
       "published_at": null,
       "is_sensitive": false,
       "metadata": {
@@ -29,6 +265,406 @@
       },
       "context": "NeuBench telemetry reveals significant latency and cost differences when evaluating long-horizon coding tasks across 260+ models.",
       "traffic": "High Signal AI"
+    },
+    {
+      "id": "tr_ae9259d42cce0d1f",
+      "title": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+      "summary": "Large language model (LLM) agents typically append raw tool outputs to their context. Over multi-step interactions, long and noisy observations incur substantial context overhead and dilute the agent's attention to task-relevant information. Existing token pruning and summarization methods remain co",
+      "source": "Hugging Face Daily Papers",
+      "category": "frontier_paper",
+      "url": "https://huggingface.co/papers/2611.06500",
+      "score": 9.85,
+      "discovered_at": "2026-11-08T09:28:00.054493+00:00",
+      "published_at": "2026-11-04T00:00:00.000Z",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Hugging Face Daily Papers"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Frontier AI Research"
+      },
+      "context": "Large language model (LLM) agents typically append raw tool outputs to their context. Over multi-step interactions, long and noisy observations incur substantial context overhead and dilute the agent's attention to task-relevant information. Existing token pruning and summarization methods remain co",
+      "traffic": "Frontier AI Research"
+    },
+    {
+      "id": "tr_6c8491fa4a924980",
+      "title": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
+      "summary": "Offline retrieval-augmented generation (RAG) on edge devices is updated through signed knowledge packs that carry text and precomputed embedding vectors. A signature proves who published a pack, not that its vectors encode its text. We study this text-vector integrity gap. A verifier that recomputes",
+      "source": "Hugging Face Daily Papers",
+      "category": "frontier_paper",
+      "url": "https://huggingface.co/papers/2611.06498",
+      "score": 9.85,
+      "discovered_at": "2026-11-08T09:28:00.054679+00:00",
+      "published_at": "2026-11-04T13:32:04.000Z",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Hugging Face Daily Papers"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Frontier AI Research"
+      },
+      "context": "Offline retrieval-augmented generation (RAG) on edge devices is updated through signed knowledge packs that carry text and precomputed embedding vectors. A signature proves who published a pack, not that its vectors encode its text. We study this text-vector integrity gap. A verifier that recomputes",
+      "traffic": "Frontier AI Research"
+    },
+    {
+      "id": "tr_1f94871b7c1660f9",
+      "title": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
+      "summary": "A deployable text-to-image diffusion model must hold several capabilities at once, such as instruction following, text rendering and human preference, and must sample in a few steps. Capabilities and few-step sampling are built in separate stages: a full-step model first consolidates capabilities th",
+      "source": "Hugging Face Daily Papers",
+      "category": "frontier_paper",
+      "url": "https://huggingface.co/papers/2611.04386",
+      "score": 9.85,
+      "discovered_at": "2026-11-08T09:28:00.054812+00:00",
+      "published_at": "2026-11-03T00:00:00.000Z",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Hugging Face Daily Papers"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Frontier AI Research"
+      },
+      "context": "A deployable text-to-image diffusion model must hold several capabilities at once, such as instruction following, text rendering and human preference, and must sample in a few steps. Capabilities and few-step sampling are built in separate stages: a full-step model first consolidates capabilities th",
+      "traffic": "Frontier AI Research"
+    },
+    {
+      "id": "tr_14fdba143d31bba3",
+      "title": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+      "summary": "LLM-guided evolutionary search uses AI agents to improve programs for mathematical and computational problems by iteratively refining solutions and combining high-scoring methods. However, the process is often slow because the LLM generates a long textual chain of thought for each round and must rep",
+      "source": "Hugging Face Daily Papers",
+      "category": "frontier_paper",
+      "url": "https://huggingface.co/papers/2611.08483",
+      "score": 9.85,
+      "discovered_at": "2026-11-08T09:28:00.054941+00:00",
+      "published_at": "2026-11-05T00:00:00.000Z",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Hugging Face Daily Papers"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Frontier AI Research"
+      },
+      "context": "LLM-guided evolutionary search uses AI agents to improve programs for mathematical and computational problems by iteratively refining solutions and combining high-scoring methods. However, the process is often slow because the LLM generates a long textual chain of thought for each round and must rep",
+      "traffic": "Frontier AI Research"
+    },
+    {
+      "id": "tr_ddc3f6544390376a",
+      "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+      "summary": "On Equity, we unpacked what the midterms mean for the tech industry.",
+      "source": "TechCrunch",
+      "category": "ai_tech",
+      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers",
+      "score": 9.8,
+      "discovered_at": "2026-11-08T09:28:08.364898+00:00",
+      "published_at": "2026-11-07T22:07:22+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "TechCrunch"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "On Equity, we unpacked what the midterms mean for the tech industry.",
+      "traffic": "Breaking"
+    },
+    {
+      "id": "tr_d2adbc7c7c77e7be",
+      "title": "Clj.rs – a Clojure dialect implemented in Rust",
+      "summary": "Clj.rs – a Clojure dialect implemented in Rust",
+      "source": "HackerNews",
+      "category": "ai_tech",
+      "url": "https://clj.rs",
+      "score": 9.6,
+      "discovered_at": "2026-11-08T09:28:05.832061+00:00",
+      "published_at": "2026-11-04T15:23:16+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "HackerNews"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "hn_score": 34,
+        "hn_comments": 2
+      },
+      "context": "Clj.rs – a Clojure dialect implemented in Rust",
+      "traffic": "Trending Spike"
+    },
+    {
+      "id": "tr_6b38a6262633da06",
+      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+      "summary": "A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO.",
+      "source": "TechCrunch",
+      "category": "ai_tech",
+      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo",
+      "score": 9.3,
+      "discovered_at": "2026-11-08T09:28:08.364996+00:00",
+      "published_at": "2026-11-07T21:17:08+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "TechCrunch"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO.",
+      "traffic": "Breaking"
+    },
+    {
+      "id": "tr_753ace3e928d607b",
+      "title": "Parents want safer phones for kids. These companies are answering the call.",
+      "summary": "As parents look for alternatives to unrestricted smartphones, a growing number of companies are building phones designed specifically for kids, from feature-limited mobile devices to minimalist home p",
+      "source": "TechCrunch",
+      "category": "ai_tech",
+      "url": "https://techcrunch.com/2026/11/07/parents-want-safer-phones-for-kids-these-companies-are-answering-the-call",
+      "score": 9.3,
+      "discovered_at": "2026-11-08T09:28:08.365088+00:00",
+      "published_at": "2026-11-07T19:00:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "TechCrunch"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "As parents look for alternatives to unrestricted smartphones, a growing number of companies are building phones designed specifically for kids, from feature-limited mobile devices to minimalist home p",
+      "traffic": "Breaking"
+    },
+    {
+      "id": "tr_f79a62cc2bd678d9",
+      "title": "Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
+      "summary": "The announcement comes barely more than a week after hackers stole $6.3 billion worth of cryptocurrency from Binance users.",
+      "source": "TechCrunch",
+      "category": "ai_tech",
+      "url": "https://techcrunch.com/2026/11/07/binance-cfo-is-leaving-to-pursue-a-new-venture-after-6-3-billion-hack",
+      "score": 9.3,
+      "discovered_at": "2026-11-08T09:28:08.365191+00:00",
+      "published_at": "2026-11-07T17:24:07+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "TechCrunch"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "The announcement comes barely more than a week after hackers stole $6.3 billion worth of cryptocurrency from Binance users.",
+      "traffic": "Breaking"
+    },
+    {
+      "id": "tr_d351e4a0367671d7",
+      "title": "new zealand election",
+      "summary": "new zealand election",
+      "source": "Google Trends (US)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 9.0,
+      "discovered_at": "2026-11-08T09:28:09.987853+00:00",
+      "published_at": "2026-11-08T09:10:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (US)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "100+"
+      },
+      "context": "new zealand election",
+      "traffic": "100+"
+    },
+    {
+      "id": "tr_704f197e37a8188b",
+      "title": "college gameday",
+      "summary": "college gameday",
+      "source": "Google Trends (US)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 9.0,
+      "discovered_at": "2026-11-08T09:28:09.987974+00:00",
+      "published_at": "2026-11-08T09:00:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (US)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "1000+"
+      },
+      "context": "college gameday",
+      "traffic": "1000+"
+    },
+    {
+      "id": "tr_9b50b3299f0445db",
+      "title": "mililani vs kapolei",
+      "summary": "mililani vs kapolei",
+      "source": "Google Trends (US)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 9.0,
+      "discovered_at": "2026-11-08T09:28:09.988050+00:00",
+      "published_at": "2026-11-08T08:50:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (US)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "100+"
+      },
+      "context": "mililani vs kapolei",
+      "traffic": "100+"
+    },
+    {
+      "id": "tr_0958c6b121e7ad68",
+      "title": "medal",
+      "summary": "medal",
+      "source": "Google Trends (US)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 9.0,
+      "discovered_at": "2026-11-08T09:28:09.988127+00:00",
+      "published_at": "2026-11-08T08:50:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (US)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "100+"
+      },
+      "context": "medal",
+      "traffic": "100+"
+    },
+    {
+      "id": "tr_d01d7e5e0200d5fb",
+      "title": "alexandra eala",
+      "summary": "alexandra eala",
+      "source": "Google Trends (US)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 9.0,
+      "discovered_at": "2026-11-08T09:28:09.988188+00:00",
+      "published_at": "2026-11-08T08:30:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (US)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "2000+"
+      },
+      "context": "alexandra eala",
+      "traffic": "2000+"
+    },
+    {
+      "id": "tr_6f483c97f03f1184",
+      "title": "play gta 6 before launch date",
+      "summary": "play gta 6 before launch date",
+      "source": "Google Trends (US)",
+      "category": "breaking_news",
+      "url": "",
+      "score": 9.0,
+      "discovered_at": "2026-11-08T09:28:09.988260+00:00",
+      "published_at": "2026-11-08T08:30:00+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "Google Trends (US)"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "5000+"
+      },
+      "context": "play gta 6 before launch date",
+      "traffic": "5000+"
+    },
+    {
+      "id": "tr_baca39b16427a523",
+      "title": "Veterans shouldn't sleep rough this Christmas, Burnham says",
+      "summary": "Downing Street says the prime minister will personally write to councils on Armistice Day to urge them to draw up plans.",
+      "source": "BBC World",
+      "category": "breaking_news",
+      "url": "https://bbc.co.uk/news/articles/c6pwg4ddwkzeo?at_medium=RSS&at_campaign=rss",
+      "score": 8.5,
+      "discovered_at": "2026-11-08T09:28:08.566061+00:00",
+      "published_at": "2026-11-08T03:34:22+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "BBC World"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "Downing Street says the prime minister will personally write to councils on Armistice Day to urge them to draw up plans.",
+      "traffic": "Breaking"
+    },
+    {
+      "id": "tr_541b50c5d9e6c28c",
+      "title": "Royal Family join veterans and families at Festival of Remembrance",
+      "summary": "The senior royals attended the annual event at London's Royal Albert Hall on the eve of Remembrance Sunday.",
+      "source": "BBC World",
+      "category": "breaking_news",
+      "url": "https://bbc.co.uk/news/articles/cxvgd2nr3e30o?at_medium=RSS&at_campaign=rss",
+      "score": 8.5,
+      "discovered_at": "2026-11-08T09:28:08.567493+00:00",
+      "published_at": "2026-11-08T01:24:58+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "BBC World"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "The senior royals attended the annual event at London's Royal Albert Hall on the eve of Remembrance Sunday.",
+      "traffic": "Breaking"
+    },
+    {
+      "id": "tr_7a9a579e6b096233",
+      "title": "Two seriously hurt in 30-vehicle crash on the M20 in Kent",
+      "summary": "The crash happened in fog on Saturday evening on the London-bound carriageway near Maidstone, Kent.",
+      "source": "BBC World",
+      "category": "breaking_news",
+      "url": "https://bbc.co.uk/news/articles/ck87z9exex2lo?at_medium=RSS&at_campaign=rss",
+      "score": 8.5,
+      "discovered_at": "2026-11-08T09:28:08.567861+00:00",
+      "published_at": "2026-11-08T04:09:21+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "BBC World"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "The crash happened in fog on Saturday evening on the London-bound carriageway near Maidstone, Kent.",
+      "traffic": "Breaking"
+    },
+    {
+      "id": "tr_821d774f4bfb5001",
+      "title": "Germans wrestle with what to do with Hitler's destroyed Eagle's Nest retreat",
+      "summary": "While some believe the site should be partially or completely rebuilt, others want it abandoned and all memory of its Nazi past forgotten.",
+      "source": "BBC World",
+      "category": "breaking_news",
+      "url": "https://bbc.co.uk/news/articles/cm74pk1g51nko?at_medium=RSS&at_campaign=rss",
+      "score": 8.5,
+      "discovered_at": "2026-11-08T09:28:08.568180+00:00",
+      "published_at": "2026-11-08T00:48:59+00:00",
+      "is_sensitive": false,
+      "metadata": {
+        "sources_seen": [
+          "BBC World"
+        ],
+        "sensitivity_reason": "Standard public interest or tech topic",
+        "traffic": "Breaking"
+      },
+      "context": "While some believe the site should be partially or completely rebuilt, others want it abandoned and all memory of its Nazi past forgotten.",
+      "traffic": "Breaking"
     }
   ]
 }

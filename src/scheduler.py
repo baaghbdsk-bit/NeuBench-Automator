@@ -1401,9 +1401,10 @@ class AutomaterEngine:
         else:
             trends = candidate_trends or self.hunter.get_linkedin_topics()
             if not trends:
-                console.print("[red]No trends discovered. Skipping Bluesky post...[/red]")
-                return False
-            selected_trend = trends[0]
+                console.print("[dim]No unposted trends found. Ideating fresh technical topic via AI Content Creator for Bluesky...[/dim]")
+                selected_trend = self.ai.ideate_autonomous_tech_topic(recent_topics=list(used_topics)[-30:])
+            else:
+                selected_trend = trends[0]
             self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
             bsky_take = self.ai.generate_bluesky_take(selected_trend["title"], selected_trend.get("summary", ""))
 
@@ -1570,52 +1571,78 @@ class AutomaterEngine:
                 )
                 return False
             else:
-                # Robust cross-platform deduplication
-                used_li = set()
-                for entry in post_state.get("posts", []):
-                    t = str(entry.get("title", "")).strip().lower()
-                    if t:
-                        used_li.add(t)
-                for entry in self.tracker.history.get("posted_tweets", []):
-                    clean = re.sub(r"^(bsky|th|li|rd):\s*", "", str(entry)).strip().lower()
-                    if clean:
-                        used_li.add(clean)
-                for entry in self.tracker.history.get("posted_ai_topics", []):
-                    clean = str(entry).strip().lower()
-                    if clean:
-                        used_li.add(clean)
+                # Sliding-window cross-platform deduplication (last 30 topics to avoid stale lockouts)
+                recent_posts_li = [str(entry.get("title", "")).strip().lower() for entry in post_state.get("posts", [])[-30:] if entry.get("title")]
+                recent_tweets = [re.sub(r"^(bsky|th|li|rd):\s*", "", str(t)).strip().lower() for t in self.tracker.history.get("posted_tweets", [])[-30:] if t]
+                recent_ai = [str(t).strip().lower() for t in self.tracker.history.get("posted_ai_topics", [])[-30:] if t]
+                recent_posted_topics = list(dict.fromkeys(recent_posts_li + recent_tweets + recent_ai))[-30:]
+                used_li = set(recent_posted_topics)
 
                 total_li = len(post_state.get("posts", [])) + len([e for e in self.tracker.metrics.get("recent_events", []) if "linkedin" in e.get("action_type", "")])
-                pillar = LINKEDIN_PILLAR_ROTATION[total_li % len(LINKEDIN_PILLAR_ROTATION)]
-                console.print(f"[bold]LinkedIn Pillar:[/bold] {pillar}")
 
-                # Candidate topics across 3 streams: comparisons, deep-dive concepts, and live trends
-                available_comparisons = [
-                    c for c in getattr(self.hunter, "get_comparison_topics", lambda: [])()
-                    if str(c.get("title", "")).strip().lower() not in used_li
+                # Dynamic Audience & Format Matrix (Zero Hardcoded Topics)
+                DEMOGRAPHIC_SPECTRUM = [
+                    "school_kid",       # School kids and curious beginners (10-16 yrs)
+                    "college_student",  # College students and aspiring devs
+                    "working_pro",      # Working software engineers and professionals
+                    "staff_engineer",   # Senior and staff systems architects
+                    "ai_curious",       # AI terminology seekers and practitioners
                 ]
-                available_concepts = [
-                    c for c in self.hunter.get_educational_concepts()
-                    if str(c.get("title", "")).strip().lower() not in used_li
+                CONTENT_FORMATS = [
+                    "versus_comparison",       # A vs B with trade-offs
+                    "terminology_demystified", # Jargon demystified
+                    "systems_breakdown",       # Under the hood architecture
+                    "trend_news",              # Live research and news breakdown
                 ]
 
-                # Candidate live trends (TrendHunter cache, daily papers, benchmarks)
-                trends = self.hunter.get_candidate_trends(platform="linkedin")
-                if not trends:
-                    trends = self.hunter.get_linkedin_topics(pillar=pillar)
-                if pillar != "NEWS":
-                    seen_titles = {str(item.get("title", "")).strip().lower() for item in trends}
-                    for extra in self.hunter.get_linkedin_topics(pillar="NEWS"):
-                        if str(extra.get("title", "")).strip().lower() not in seen_titles:
-                            trends.append(extra)
-                if not trends:
-                    trends = self.hunter.get_linkedin_topics()
+                target_demographic = DEMOGRAPHIC_SPECTRUM[total_li % len(DEMOGRAPHIC_SPECTRUM)]
+                chosen_format = CONTENT_FORMATS[(total_li // len(DEMOGRAPHIC_SPECTRUM)) % len(CONTENT_FORMATS)]
+                console.print(f"[bold]🎯 Target Demographic:[/bold] {target_demographic.upper()} | [bold]Format:[/bold] {chosen_format.upper()}")
 
-                available_trends = [
-                    trend for trend in trends
+                # 1. Ingest live signals (HackerNews, arXiv, TechCrunch, NeuBench)
+                live_signals = []
+                try:
+                    live_signals = self.hunter.get_candidate_trends(platform="linkedin", limit=10)
+                except Exception:
+                    pass
+                if not live_signals:
+                    try:
+                        live_signals = self.hunter.get_tech_news() + self.hunter.get_huggingface_daily_papers()
+                    except Exception:
+                        pass
+
+                # Filter live signals by recent deduplication
+                available_live_trends = [
+                    trend for trend in live_signals
                     if str(trend.get("title", "")).strip().lower() not in used_li
                     and not post_is_duplicate(post_state, title=str(trend.get("title", "")), url=str(trend.get("url", "")))
                 ]
+
+                # 2. Build candidate attempts dynamically using the AI Content Creator
+                candidate_attempts = []
+
+                # If format is trend_news and live signals are available, try live trend first
+                if chosen_format == "trend_news" and available_live_trends:
+                    candidate_attempts.append(("trend", available_live_trends[0]))
+
+                # Always generate an autonomous dynamic topic via Gemini
+                try:
+                    console.print(f"[bold cyan]🧠 AI Content Creator ideating topic for [{target_demographic.upper()}] ({chosen_format.upper()})...[/bold cyan]")
+                    dynamic_topic = self.ai.ideate_autonomous_tech_topic(
+                        target_audience=target_demographic,
+                        content_format=chosen_format,
+                        recent_topics=recent_posted_topics,
+                        live_news_signals=available_live_trends
+                    )
+                    mode_tag = "comparison" if (chosen_format == "versus_comparison" or " vs " in dynamic_topic.get("title", "").lower()) else "concept"
+                    candidate_attempts.append((mode_tag, dynamic_topic))
+                except Exception as ideate_err:
+                    console.print(f"[yellow]Dynamic ideation notice: {ideate_err}[/yellow]")
+
+                # If needed, add remaining live trends as fallback
+                for trend in available_live_trends[:2]:
+                    if ("trend", trend) not in candidate_attempts:
+                        candidate_attempts.append(("trend", trend))
 
                 media_path = None
                 media_title = ""
@@ -1624,28 +1651,7 @@ class AutomaterEngine:
                 carousel_plan = None
                 li_text = ""
 
-                # Intelligent 3-way rotation:
-                # 0 -> Comparative Architecture (A vs B)
-                # 1 -> Comprehensive Handwritten Study Notes (Engineering Deep Dive)
-                # 2 -> Live Trends / News / Benchmarks
-                rotation_slot = total_li % 3
-
                 from src.ai_generator import select_linkedin_content_format, validate_educational_plan
-
-                # Strategy selection with graceful cascade
-                candidate_attempts = []
-                if rotation_slot == 0 and available_comparisons:
-                    candidate_attempts.append(("comparison", available_comparisons[0]))
-                elif rotation_slot == 1 and available_concepts:
-                    candidate_attempts.append(("concept", available_concepts[0]))
-
-                # Add remaining categories as fallbacks
-                if available_comparisons and ("comparison", available_comparisons[0]) not in candidate_attempts:
-                    candidate_attempts.append(("comparison", available_comparisons[0]))
-                if available_concepts and ("concept", available_concepts[0]) not in candidate_attempts:
-                    candidate_attempts.append(("concept", available_concepts[0]))
-                for trend in available_trends:
-                    candidate_attempts.append(("trend", trend))
 
                 for mode, item in candidate_attempts:
                     title = str(item.get("title", "")).strip()
@@ -1655,7 +1661,12 @@ class AutomaterEngine:
                     try:
                         if mode == "comparison":
                             console.print(f"[bold]⚖️ LinkedIn Comparison Carousel (A vs B):[/bold] {title}")
-                            plan = self.ai.generate_comparison_plan(title, summary)
+                            plan = self.ai.generate_comparison_plan(
+                                title,
+                                summary,
+                                concept_a=item.get("concept_a", ""),
+                                concept_b=item.get("concept_b", "")
+                            )
                         elif mode == "concept":
                             console.print(f"[bold]🎓 LinkedIn Educational Notes (Deep Dive):[/bold] {title}")
                             plan = self.ai.generate_educational_notes_plan(item)
@@ -1667,7 +1678,7 @@ class AutomaterEngine:
                                 plan = self.ai.generate_comparison_plan(title, summary)
                             elif fmt == "handwritten_notes":
                                 console.print(f"[bold]🎓 LinkedIn Trend (Study Notes Format):[/bold] {title}")
-                                plan = self.ai.generate_educational_notes_plan({"title": title, "summary": summary, "pillar": str(item.get("pillar") or pillar)})
+                                plan = self.ai.generate_educational_notes_plan({"title": title, "summary": summary, "pillar": "NEWS"})
                             else:
                                 console.print(f"[bold]LinkedIn Topic (Professional Carousel):[/bold] {title}")
                                 recent_hooks = [
@@ -1677,7 +1688,7 @@ class AutomaterEngine:
                                 plan = self.ai.generate_linkedin_carousel_plan(
                                     title,
                                     summary,
-                                    pillar=str(item.get("pillar") or pillar),
+                                    pillar="NEWS",
                                     recent_hooks=[h for h in recent_hooks if h],
                                 )
 
