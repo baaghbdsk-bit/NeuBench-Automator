@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T15:02:40.623758+00:00",
+  "last_success_at": "2026-11-08T16:03:18.910559+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -344,6 +344,15 @@
       "status": "success",
       "posted_at": "2026-11-08T15:02:40.623758+00:00",
       "post_urn": "urn:li:ugcPost:7525211191569342464"
+    },
+    {
+      "topic_key": "title:f9601318d4c8c45e73b1a5eedfcf22b1",
+      "title": "CPU vs. GPU: The Brainiac vs. The Artist",
+      "url": "",
+      "content_hash": "cdca33e01662b6cf715a1efa67160d6e",
+      "status": "success",
+      "posted_at": "2026-11-08T16:03:18.910559+00:00",
+      "post_urn": "urn:li:ugcPost:7525226452569452544"
     }
   ],
   "posted_titles": [
@@ -384,6 +393,7 @@
     "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
     "li:How LLM Context Windows Work Under the Hood",
     "li:tata motors share price",
-    "li:hindalco share price"
+    "li:hindalco share price",
+    "li:CPU vs. GPU: The Brainiac vs. The Artist"
   ]
 }
