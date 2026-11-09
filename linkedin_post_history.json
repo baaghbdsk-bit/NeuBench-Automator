@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T00:03:02.796107+00:00",
+  "last_success_at": "2026-11-09T01:02:47.578395+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -470,6 +470,15 @@
       "status": "success",
       "posted_at": "2026-11-09T00:03:02.796107+00:00",
       "post_urn": "urn:li:share:7525347180711428096"
+    },
+    {
+      "topic_key": "title:4f3e27b22741bd586ddeb1a11ecc976b",
+      "title": "Agentic Observability Telemetry",
+      "url": "",
+      "content_hash": "c84768aa6cfabff0d85956dbeb78863b",
+      "status": "success",
+      "posted_at": "2026-11-09T01:02:47.578395+00:00",
+      "post_urn": "urn:li:share:7525362215252783104"
     }
   ],
   "posted_titles": [
@@ -524,6 +533,7 @@
     "li:The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG",
     "li:Agentic Memory Traces vs. Stateless Execution Contexts",
     "li:Agentic Memory Stores vs. Traditional RAG: The Architecture of AI Recall",
-    "li:Agent Memory & Observability: Why AI Agents Need Their Own OpenTelemetry"
+    "li:Agent Memory & Observability: Why AI Agents Need Their Own OpenTelemetry",
+    "li:Agentic Observability Telemetry"
   ]
 }

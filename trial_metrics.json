@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T00:04:28.213914+00:00",
+    "last_updated": "2026-11-09T01:04:05.048572+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 749,
-    "original_posts_attempted": 161,
-    "original_posts_succeeded": 152,
+    "total_cycles_executed": 753,
+    "original_posts_attempted": 163,
+    "original_posts_succeeded": 154,
     "replies_attempted": 61,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
     "actions_skipped": 126,
     "failed_operations": 27,
-    "ai_generation_requests": 353,
+    "ai_generation_requests": 357,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2278,6 +2278,46 @@
       "content_preview": "Erin Andrews dodging 300lb linemen in high heels while keeping her hair flawless just to hear a coach say \"we gotta exec",
       "reason": "",
       "duration_s": 70.47
+    },
+    {
+      "timestamp": "2026-11-09T01:02:27.209167+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "trent mcduffie",
+      "content_preview": "Wish my life had the stability and lock-down discipline of Trent McDuffie in single coverage. Man is putting elite recei",
+      "reason": "",
+      "duration_s": 29.29
+    },
+    {
+      "timestamp": "2026-11-09T01:02:47.583402+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "A standard distributed trace captures milliseconds across microservices. An agentic trace spans minutes, executes hundre",
+      "reason": "",
+      "duration_s": 20.37
+    },
+    {
+      "timestamp": "2026-11-09T01:02:52.976283+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
+      "content_preview": "KetchUp: an open-source CAD alternative leveraging Rust for memory safety and WebGPU for direct hardware-accelerated ren",
+      "reason": "",
+      "duration_s": 5.39
+    },
+    {
+      "timestamp": "2026-11-09T01:04:05.044888+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "gary sinise",
+      "content_preview": "Gary Sinise playing Lt. Dan is the only reason half of us survived high school history projects about Vietnam. Absolute ",
+      "reason": "",
+      "duration_s": 71.6
     }
   ]
 }
