@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T01:20:42.339911+00:00",
+  "last_success_at": "2026-11-09T02:03:10.514906+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -488,6 +488,15 @@
       "status": "success",
       "posted_at": "2026-11-09T01:20:42.339911+00:00",
       "post_urn": "urn:li:share:7525366724179722240"
+    },
+    {
+      "topic_key": "title:5f838f9bdae05bec437282f8736ac605",
+      "title": "Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment",
+      "url": "",
+      "content_hash": "73bead6ae30d6a03fa2876adb9dde35f",
+      "status": "success",
+      "posted_at": "2026-11-09T02:03:10.514906+00:00",
+      "post_urn": "urn:li:share:7525377411820089344"
     }
   ],
   "posted_titles": [
@@ -544,6 +553,7 @@
     "li:Agentic Memory Stores vs. Traditional RAG: The Architecture of AI Recall",
     "li:Agent Memory & Observability: Why AI Agents Need Their Own OpenTelemetry",
     "li:Agentic Observability Telemetry",
-    "li:Inside an AI Coding Agent: How It Reads Your Code (And Why 'Super-Permissions' Can Leak Secrets)"
+    "li:Inside an AI Coding Agent: How It Reads Your Code (And Why 'Super-Permissions' Can Leak Secrets)",
+    "li:Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment"
   ]
 }

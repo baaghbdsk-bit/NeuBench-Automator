@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T01:22:08.747483+00:00",
+    "last_updated": "2026-11-09T02:04:39.736290+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 757,
-    "original_posts_attempted": 165,
-    "original_posts_succeeded": 156,
+    "total_cycles_executed": 761,
+    "original_posts_attempted": 167,
+    "original_posts_succeeded": 158,
     "replies_attempted": 61,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
     "actions_skipped": 126,
     "failed_operations": 27,
-    "ai_generation_requests": 361,
+    "ai_generation_requests": 365,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2358,6 +2358,46 @@
       "content_preview": "At this point, the FBI cast changes faster than my ex changing their personality for a new talking stage. Can we just le",
       "reason": "",
       "duration_s": 79.58
+    },
+    {
+      "timestamp": "2026-11-09T02:02:49.986940+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "జాతకం",
+      "content_preview": "Mom: \"Your kundali says Shani is active.\"\nMe, unemployed at 2AM watching random YouTube tutorials: \"Yeah, thanks. Pretty",
+      "reason": "",
+      "duration_s": 32.44
+    },
+    {
+      "timestamp": "2026-11-09T02:03:10.527792+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your AI agent successfully completed 1,000 reasoning steps, but it just hallucinated a file path from three turns ago be",
+      "reason": "",
+      "duration_s": 20.53
+    },
+    {
+      "timestamp": "2026-11-09T02:03:16.030465+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Vector Embedding? The Secret GPS of AI",
+      "content_preview": "Computers compute math, not semantics. Vector embeddings map unstructured data into high-dimensional coordinate spaces w",
+      "reason": "",
+      "duration_s": 5.5
+    },
+    {
+      "timestamp": "2026-11-09T02:04:39.731155+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "simmons bears",
+      "content_preview": "Ben Simmons playing basketball with the intensity of a hibernating grizzly bear is the crossover event nobody asked for.",
+      "reason": "",
+      "duration_s": 82.84
     }
   ]
 }
