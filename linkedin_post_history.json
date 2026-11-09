@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T04:03:02.510499+00:00",
+  "last_success_at": "2026-11-09T05:03:37.980911+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -515,6 +515,15 @@
       "status": "success",
       "posted_at": "2026-11-09T04:03:02.510499+00:00",
       "post_urn": "urn:li:share:7525407576646246401"
+    },
+    {
+      "topic_key": "url:https://lorekit.io/blog/open-agent-memory-format",
+      "title": "Agent memory needs its OpenTelemetry moment",
+      "url": "https://lorekit.io/blog/open-agent-memory-format",
+      "content_hash": "d223fade8eff8ef275e1f69d1a800781",
+      "status": "success",
+      "posted_at": "2026-11-09T05:03:37.980911+00:00",
+      "post_urn": "urn:li:share:7525422826133037056"
     }
   ],
   "posted_titles": [
@@ -574,6 +583,7 @@
     "li:Inside an AI Coding Agent: How It Reads Your Code (And Why 'Super-Permissions' Can Leak Secrets)",
     "li:Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment",
     "li:Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment",
-    "li:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files"
+    "li:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+    "li:Agent memory needs its OpenTelemetry moment"
   ]
 }

@@ -267,7 +267,10 @@
     "connor hellebuyck",
     "li:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
     "bsky:The Last Mile to the Real World: Agent-Native Primitives as Reusable Building Blocks for Solving Real-World Tasks",
-    "ben stiller"
+    "ben stiller",
+    "darius acuff jr.",
+    "li:Agent memory needs its OpenTelemetry moment",
+    "bsky:A Critique of GPUI"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -415,9 +418,22 @@
     "60494f3db23513f709b7287a0f1c0b09586b6930fa0313799ec2fe8e868b5be8",
     "7dff80498332b95dfa88329dc53db525d52ceb3822132d44c993007b96cdfbae",
     "60116d101fc12632c939348e1fc88ad311a043bbb789b8c1d9abd3d3e9bf8436",
-    "d98fcc8466f4014391cdb059714867c0f68aaa290c9d266599c6182c83df9886"
+    "d98fcc8466f4014391cdb059714867c0f68aaa290c9d266599c6182c83df9886",
+    "91c40b8b9f86fc0f4d38ddd751412fe0597bdf3e81b3662218cb88f474bdc77c"
   ],
-  "pending_x_actions": [],
+  "pending_x_actions": [
+    {
+      "reservation_id": "e96cc0201f5c4dc187fb7631f0e0215e",
+      "action_type": "reply",
+      "target_identifier": "https://x.com/elonmusk/status/2119617455102333206",
+      "content_hash": "1fe2661b305b0f81c6ff552561c502a0145ad28a5fa7f4bd6bedfaff7d249295",
+      "content_preview": "Imagine getting a CS degree just to have your entire overnight patch dictated by an unhinged reply guy with an anime PFP",
+      "status": "unknown",
+      "reserved_at": "2026-11-09T05:04:17.246696+00:00",
+      "unknown_at": "2026-11-09T05:04:50.442516+00:00",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
+    }
+  ],
   "platform_history": {
     "bluesky": {
       "completed": [
@@ -495,7 +511,8 @@
         "post:f83a9443d4e209ccb2921c0070a11c0e64a509b483bfbf997e828c9b5fb2b754",
         "post:d83a6986d057e01461e316b062fe10abcf534889f7680bef04bd1e645160a08c",
         "post:d01f92f1182ef7654cc664fd17167e3d06586dfe7309e05b63a1165e048fb74a",
-        "post:dec63db5a23d90ff6548dc21469e9711e8247f3f0365f3e622d5dcec0b216f13"
+        "post:dec63db5a23d90ff6548dc21469e9711e8247f3f0365f3e622d5dcec0b216f13",
+        "post:8e27a7a609033dfc8fea5721655c4c670cd79dbf4f15ef6dad944ca57491a1f3"
       ],
       "pending": []
     },
