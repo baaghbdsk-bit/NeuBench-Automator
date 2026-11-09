@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T14:02:53.232362+00:00",
+    "last_updated": "2026-11-09T15:09:36.300051+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 814,
-    "original_posts_attempted": 182,
-    "original_posts_succeeded": 173,
-    "replies_attempted": 69,
+    "total_cycles_executed": 818,
+    "original_posts_attempted": 183,
+    "original_posts_succeeded": 174,
+    "replies_attempted": 70,
     "replies_succeeded": 25,
     "reposts_attempted": 46,
     "reposts_succeeded": 13,
-    "actions_skipped": 138,
+    "actions_skipped": 139,
     "failed_operations": 28,
-    "ai_generation_requests": 406,
+    "ai_generation_requests": 409,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2927,6 +2927,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (56/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-09T15:09:06.393947+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "russell brand movies",
+      "content_preview": "Watching a Russell Brand movie is just aggressive improv by a guy who smells like patchouli and questionable political p",
+      "reason": "",
+      "duration_s": 26.2
+    },
+    {
+      "timestamp": "2026-11-09T15:09:29.155605+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "A modern CPU boasts a blistering 5.0 GHz clock speed, yet it will lose a matrix multiplication race to a GPU clocked at ",
+      "reason": "",
+      "duration_s": 22.75
+    },
+    {
+      "timestamp": "2026-11-09T15:09:35.481536+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Human-Centred, Risk-Constrained Evaluation of Financial Document Recognition: Evidence, Critical Errors, and Selective Automation",
+      "content_preview": "CER/WER miss the point. Financial doc recognition demands fact-preservation, not character matching. New risk-constraine",
+      "reason": "",
+      "duration_s": 6.32
+    },
+    {
+      "timestamp": "2026-11-09T15:09:36.300016+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (59/28).",
       "duration_s": 0.01
     }
   ]
