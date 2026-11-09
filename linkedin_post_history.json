@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-08T23:03:07.624312+00:00",
+  "last_success_at": "2026-11-09T00:03:02.796107+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -461,6 +461,15 @@
       "status": "success",
       "posted_at": "2026-11-08T23:03:07.624312+00:00",
       "post_urn": "urn:li:share:7525332101341102080"
+    },
+    {
+      "topic_key": "title:39f49b4683e4038df3086333aeb44d13",
+      "title": "Agent Memory & Observability: Why AI Agents Need Their Own OpenTelemetry",
+      "url": "",
+      "content_hash": "f3806ce721f02293b181bd933df49b99",
+      "status": "success",
+      "posted_at": "2026-11-09T00:03:02.796107+00:00",
+      "post_urn": "urn:li:share:7525347180711428096"
     }
   ],
   "posted_titles": [
@@ -514,6 +523,7 @@
     "li:What I run on my $10 USD OpenStick homelab",
     "li:The Shortcut vs. The Librarian: Static Prompting vs. Dynamic RAG",
     "li:Agentic Memory Traces vs. Stateless Execution Contexts",
-    "li:Agentic Memory Stores vs. Traditional RAG: The Architecture of AI Recall"
+    "li:Agentic Memory Stores vs. Traditional RAG: The Architecture of AI Recall",
+    "li:Agent Memory & Observability: Why AI Agents Need Their Own OpenTelemetry"
   ]
 }

@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-08T23:03:24.282191+00:00",
+    "last_updated": "2026-11-09T00:04:28.213914+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 745,
-    "original_posts_attempted": 159,
-    "original_posts_succeeded": 150,
+    "total_cycles_executed": 749,
+    "original_posts_attempted": 161,
+    "original_posts_succeeded": 152,
     "replies_attempted": 61,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
     "actions_skipped": 126,
     "failed_operations": 27,
-    "ai_generation_requests": 349,
+    "ai_generation_requests": 353,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2238,6 +2238,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (84/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-09T00:02:40.539554+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "star wars ahsoka season 2",
+      "content_preview": "Disney really looked at Ahsoka Season 1 pacing and said, \"Let’s give them more of that staring contest in space.\" Can’t ",
+      "reason": "",
+      "duration_s": 26.24
+    },
+    {
+      "timestamp": "2026-11-09T00:03:02.804479+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "A stateless LLM prompt is like hiring a brilliant consultant with absolute zero short-term memory, zero access to compan",
+      "reason": "",
+      "duration_s": 22.25
+    },
+    {
+      "timestamp": "2026-11-09T00:03:17.045536+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying MVCC: How Databases Read and Write Simultaneously Without Locking",
+      "content_preview": "In MVCC, readers never block writers and writers never block readers—but uncollected stale versions will quietly degrade",
+      "reason": "",
+      "duration_s": 14.23
+    },
+    {
+      "timestamp": "2026-11-09T00:04:28.208470+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "erin andrews",
+      "content_preview": "Erin Andrews dodging 300lb linemen in high heels while keeping her hair flawless just to hear a coach say \"we gotta exec",
+      "reason": "",
+      "duration_s": 70.47
     }
   ]
 }
