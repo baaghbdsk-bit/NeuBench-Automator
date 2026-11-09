@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T19:02:53.026038+00:00",
+  "last_success_at": "2026-11-09T19:51:02.802620+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -623,6 +623,15 @@
       "status": "success",
       "posted_at": "2026-11-09T19:02:53.026038+00:00",
       "post_urn": "urn:li:share:7525634028532592640"
+    },
+    {
+      "topic_key": "title:c3dae1b7844455c849f44cb61fe9dfd5",
+      "title": "What is a Logit? The Raw Probability Precursors Dictating LLM Outputs",
+      "url": "",
+      "content_hash": "549bb91e9a37f6271819efe26b84912a",
+      "status": "success",
+      "posted_at": "2026-11-09T19:51:02.802620+00:00",
+      "post_urn": "urn:li:share:7525646149958029312"
     }
   ],
   "posted_titles": [
@@ -694,6 +703,7 @@
     "li:Demystifying LLM Context Windows and Sliding Attention Mechanisms",
     "li:Kirlian Photography: Building Your Own Equipment",
     "li:CPU vs. GPU: The Brainiac vs. The Artist",
-    "li:What is an AI Hallucination?"
+    "li:What is an AI Hallucination?",
+    "li:What is a Logit? The Raw Probability Precursors Dictating LLM Outputs"
   ]
 }
