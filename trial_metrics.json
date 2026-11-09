@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T01:04:05.048572+00:00",
+    "last_updated": "2026-11-09T01:22:08.747483+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 753,
-    "original_posts_attempted": 163,
-    "original_posts_succeeded": 154,
+    "total_cycles_executed": 757,
+    "original_posts_attempted": 165,
+    "original_posts_succeeded": 156,
     "replies_attempted": 61,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
     "actions_skipped": 126,
     "failed_operations": 27,
-    "ai_generation_requests": 357,
+    "ai_generation_requests": 361,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2318,6 +2318,46 @@
       "content_preview": "Gary Sinise playing Lt. Dan is the only reason half of us survived high school history projects about Vietnam. Absolute ",
       "reason": "",
       "duration_s": 71.6
+    },
+    {
+      "timestamp": "2026-11-09T01:19:59.937966+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "pelicans vs clippers",
+      "content_preview": "Watching Pelicans vs Clippers is basically paying to watch two middle-management teams argue over who has to work this w",
+      "reason": "",
+      "duration_s": 31.25
+    },
+    {
+      "timestamp": "2026-11-09T01:20:42.348985+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Inside an AI Coding Agent: How It Reads Your Code (And Why 'Super-Permissions' Can Leak Secrets)\n\nAI coding assistants w",
+      "reason": "",
+      "duration_s": 42.4
+    },
+    {
+      "timestamp": "2026-11-09T01:20:48.353436+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM API Outage Frequency & Degradation Index",
+      "content_preview": "Frontier LLM reliability isn't binary. NeuBench tracking reveals that tail latency spikes and silent degradation outnumb",
+      "reason": "",
+      "duration_s": 6.0
+    },
+    {
+      "timestamp": "2026-11-09T01:22:08.741964+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "fbi season 9 cast changes",
+      "content_preview": "At this point, the FBI cast changes faster than my ex changing their personality for a new talking stage. Can we just le",
+      "reason": "",
+      "duration_s": 79.58
     }
   ]
 }
