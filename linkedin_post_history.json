@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T03:03:10.238188+00:00",
+  "last_success_at": "2026-11-09T04:03:02.510499+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -506,6 +506,15 @@
       "status": "success",
       "posted_at": "2026-11-09T03:03:10.238188+00:00",
       "post_urn": "urn:li:share:7525392510651842560"
+    },
+    {
+      "topic_key": "url:https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+      "content_hash": "83c64620d9e751ac0a8bf1749c5c2425",
+      "status": "success",
+      "posted_at": "2026-11-09T04:03:02.510499+00:00",
+      "post_urn": "urn:li:share:7525407576646246401"
     }
   ],
   "posted_titles": [
@@ -564,6 +573,7 @@
     "li:Agentic Observability Telemetry",
     "li:Inside an AI Coding Agent: How It Reads Your Code (And Why 'Super-Permissions' Can Leak Secrets)",
     "li:Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment",
-    "li:Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment"
+    "li:Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment",
+    "li:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files"
   ]
 }
