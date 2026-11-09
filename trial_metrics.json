@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T13:02:42.819410+00:00",
+    "last_updated": "2026-11-09T14:02:53.232362+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 810,
-    "original_posts_attempted": 181,
-    "original_posts_succeeded": 172,
-    "replies_attempted": 68,
+    "total_cycles_executed": 814,
+    "original_posts_attempted": 182,
+    "original_posts_succeeded": 173,
+    "replies_attempted": 69,
     "replies_succeeded": 25,
     "reposts_attempted": 46,
     "reposts_succeeded": 13,
-    "actions_skipped": 136,
+    "actions_skipped": 138,
     "failed_operations": 28,
-    "ai_generation_requests": 404,
+    "ai_generation_requests": 406,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2888,6 +2888,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (54/28).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-09T14:02:46.529948+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "t10 league",
+      "content_preview": "Bro at this point T10 cricket isn't even a sport, it's just a guy running up, hitting a six, and rushing everyone back i",
+      "reason": "",
+      "duration_s": 29.55
+    },
+    {
+      "timestamp": "2026-11-09T14:02:46.565685+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 119.6m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-09T14:02:52.424285+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Tesla expands robotaxi service to San Antonio",
+      "content_preview": "Scaling autonomy to a 4th Texas market tests spatial generalization limits beyond training distributions. Real-world cor",
+      "reason": "",
+      "duration_s": 5.85
+    },
+    {
+      "timestamp": "2026-11-09T14:02:53.232334+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (56/28).",
+      "duration_s": 0.01
     }
   ]
 }
