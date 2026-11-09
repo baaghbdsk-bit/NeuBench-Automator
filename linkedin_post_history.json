@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T05:03:37.980911+00:00",
+  "last_success_at": "2026-11-09T06:03:05.570836+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -524,6 +524,15 @@
       "status": "success",
       "posted_at": "2026-11-09T05:03:37.980911+00:00",
       "post_urn": "urn:li:share:7525422826133037056"
+    },
+    {
+      "topic_key": "title:a17593da0903dc9ac5c2164f2be85597",
+      "title": "CPU vs. GPU: The Marathon Runner vs. The Mega-Crowd of Artists",
+      "url": "",
+      "content_hash": "fcc7fcefca4b72dfefb8c3d9c5ebbee4",
+      "status": "success",
+      "posted_at": "2026-11-09T06:03:05.570836+00:00",
+      "post_urn": "urn:li:share:7525437789530804224"
     }
   ],
   "posted_titles": [
@@ -584,6 +593,7 @@
     "li:Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment",
     "li:Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment",
     "li:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-    "li:Agent memory needs its OpenTelemetry moment"
+    "li:Agent memory needs its OpenTelemetry moment",
+    "li:CPU vs. GPU: The Marathon Runner vs. The Mega-Crowd of Artists"
   ]
 }
