@@ -771,7 +771,7 @@ class AutomaterEngine:
         elif action_choice == "bluesky":
             return self._execute_bluesky_post(start_time)
         elif action_choice == "linkedin":
-            return self._execute_linkedin_post(start_time)
+            return self._execute_linkedin_post(start_time, force=True)
         elif action_choice == "linkedin-replies":
             return self._execute_linkedin_comment_replies(start_time)
         elif action_choice == "linkedin-peers":
@@ -1546,10 +1546,10 @@ class AutomaterEngine:
     def execute_linkedin_custom_post(self, text: str) -> bool:
         """Publish dashboard/CLI text through the same LinkedIn safety policy."""
 
-        return self._execute_linkedin_post(time.time(), custom_text=text)
+        return self._execute_linkedin_post(time.time(), custom_text=text, force=True)
 
 
-    def _execute_linkedin_post(self, start_time: float, custom_text: Optional[str] = None) -> bool:
+    def _execute_linkedin_post(self, start_time: float, custom_text: Optional[str] = None, force: bool = False) -> bool:
         """Publish one current AI/tech topic with cadence and durable dedupe guards."""
 
         console.print("[bold blue]💼 Mode: Dedicated LinkedIn Post (Standalone)[/bold blue]")
@@ -1575,10 +1575,24 @@ class AutomaterEngine:
             )
             today_li = max(count_posts_on_date(post_state, today_str), event_count)
 
-            # Dry runs are previews and never reserve a cadence slot or history entry.
-            if not self.safety.dry_run:
-                # LinkedIn daily cap and cadence guard removed per user configuration (deduplication still active)
-                pass
+            # Enforce LinkedIn cadence and cooldown (minimum 3 hours between posts unless forced or dry run)
+            if not self.safety.dry_run and not force:
+                last_time = last_post_at(post_state)
+                min_interval_mins = int(os.getenv("LINKEDIN_MIN_INTERVAL_MINUTES", str(config.LINKEDIN_MIN_INTERVAL_MINUTES)))
+                if last_time and min_interval_mins > 0:
+                    elapsed_mins = (datetime.now(timezone.utc) - last_time).total_seconds() / 60.0
+                    if elapsed_mins < min_interval_mins:
+                        reason = f"LinkedIn cooldown active: last posted {elapsed_mins:.1f}m ago (minimum interval: {min_interval_mins}m)"
+                        console.print(f"[yellow]⏳ {reason}. Skipping.[/yellow]")
+                        self.tracker.record_event(
+                            action_type="linkedin_post",
+                            status="skipped",
+                            target_identifier="LinkedIn cadence",
+                            skip_or_error_reason=reason,
+                            duration_seconds=time.time() - start_time,
+                            is_dry_run=False,
+                        )
+                        return False
 
             has_linkedin_api = bool(
                 os.getenv("LINKEDIN_ACCESS_TOKEN")
@@ -1634,11 +1648,11 @@ class AutomaterEngine:
                 )
                 return False
             else:
-                # Sliding-window cross-platform deduplication (last 30 topics to avoid stale lockouts)
-                recent_posts_li = [str(entry.get("title", "")).strip().lower() for entry in post_state.get("posts", [])[-30:] if entry.get("title")]
-                recent_tweets = [re.sub(r"^(bsky|th|li|rd):\s*", "", str(t)).strip().lower() for t in self.tracker.history.get("posted_tweets", [])[-30:] if t]
-                recent_ai = [str(t).strip().lower() for t in self.tracker.history.get("posted_ai_topics", [])[-30:] if t]
-                recent_posted_topics = list(dict.fromkeys(recent_posts_li + recent_tweets + recent_ai))[-30:]
+                # Sliding-window cross-platform deduplication (expanded to 60 topics to prevent repeating)
+                recent_posts_li = [str(entry.get("title", "")).strip().lower() for entry in post_state.get("posts", [])[-60:] if entry.get("title")]
+                recent_tweets = [re.sub(r"^(bsky|th|li|rd):\s*", "", str(t)).strip().lower() for t in self.tracker.history.get("posted_tweets", [])[-60:] if t]
+                recent_ai = [str(t).strip().lower() for t in self.tracker.history.get("posted_ai_topics", [])[-60:] if t]
+                recent_posted_topics = list(dict.fromkeys(recent_posts_li + recent_tweets + recent_ai))[-60:]
                 used_li = set(recent_posted_topics)
 
                 total_li = len(post_state.get("posts", [])) + len([e for e in self.tracker.metrics.get("recent_events", []) if "linkedin" in e.get("action_type", "")])
@@ -1787,6 +1801,92 @@ class AutomaterEngine:
                     return False
 
             if not media_path and carousel_plan:
+                # Decide preferred visual format based on content mode & structure
+                # 1. Educational Concept / Study Notes -> Multi-page PDF Document Carousel
+                # 2. Systems Breakdown / Architecture Comparison -> 1080x1350 Editorial Flow Looping GIF
+                # 3. Fallback -> Technical Hero Infographic
+                has_pages = bool(carousel_plan.get("pages") and len(carousel_plan["pages"]) >= 4)
+                is_study_notes = (mode == "concept" or chosen_format in ("handwritten_notes", "terminology_demystified") or "notes" in mode)
+                is_architecture_flow = (mode == "comparison" or chosen_format in ("systems_breakdown", "versus_comparison", "architecture_flow") or " vs " in selected_trend["title"].lower())
+
+                # Format 1: Multi-Page Handwritten / Engineering Study Notebook (PDF Carousel)
+                if has_pages and is_study_notes:
+                    try:
+                        from src.linkedin_visuals import render_linkedin_carousel
+                        assets = render_linkedin_carousel(carousel_plan)
+                        if assets.get("pdf_path") and Path(assets["pdf_path"]).exists():
+                            media_path = assets["pdf_path"]
+                            media_title = str(carousel_plan.get("cover", {}).get("headline") or selected_trend["title"])[:100]
+                            console.print(
+                                f"[bold magenta]📚 LinkedIn Multi-Page Study Notes Carousel ready: {media_path} "
+                                f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
+                            )
+                    except Exception as car_err:
+                        console.print(f"[yellow]Study notes carousel render failed: {car_err}. Falling back to flow GIF.[/yellow]")
+                        media_path = None
+
+                # Format 2: 1080x1350 Editorial Architecture Flow Looping GIF (100% Topic-Specific AI Components)
+                if not media_path and (is_architecture_flow or not is_study_notes):
+                    try:
+                        from src.linkedin_diagrams import build_editorial_architecture_spec, render_editorial_architecture_gif
+                        flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
+                        arch_spec = build_editorial_architecture_spec(
+                            selected_trend["title"],
+                            summary=selected_trend.get("summary", ""),
+                            flow_steps=flow_steps,
+                            audience=target_demographic,
+                            ai_generator=self.ai
+                        )
+                        gif_res = render_editorial_architecture_gif(arch_spec)
+                        if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
+                            media_path = gif_res["gif_path"]
+                            media_title = str(selected_trend["title"])[:100]
+                            console.print(
+                                f"[bold magenta]🎞️ Topic-Specific Architecture Flow Looping GIF ready: {media_path}[/bold magenta]"
+                            )
+                    except Exception as gif_err:
+                        console.print(f"[yellow]Editorial flow GIF render skipped: {gif_err}. Falling back to carousel/hero.[/yellow]")
+                        media_path = None
+
+                # Format 3: Fallback to Multi-page Carousel or Hero Image
+                if not media_path:
+                    try:
+                        from src.linkedin_visuals import render_linkedin_carousel, render_linkedin_hero
+                        if has_pages:
+                            assets = render_linkedin_carousel(carousel_plan)
+                            media_path = assets.get("pdf_path")
+                            media_title = str(carousel_plan.get("cover", {}).get("headline") or selected_trend["title"])[:100]
+                            console.print(f"[bold magenta]🎞️ LinkedIn carousel fallback ready: {media_path}[/bold magenta]")
+                        else:
+                            media_path = render_linkedin_hero(carousel_plan)
+                            media_title = str(carousel_plan.get("cover", {}).get("headline") or selected_trend["title"])[:100]
+                            console.print(f"[bold magenta]🎞️ LinkedIn hero image fallback ready: {media_path}[/bold magenta]")
+                    except Exception as fallback_error:
+                        console.print(f"[dim]Visual fallback failed too: {fallback_error}[/dim]")
+                        media_path = None
+
+                # Ensure post text is in-depth, rich, and aligns 100% with the attached visual format
+                visual_fmt = "notebook_carousel" if (media_path and str(media_path).endswith(".pdf")) else "animated_flow_gif" if (media_path and str(media_path).endswith(".gif")) else "hero_image"
+                needs_text_expansion = (
+                    len(li_text) < 600
+                    or (visual_fmt == "notebook_carousel" and "animated" in li_text.lower())
+                    or (visual_fmt == "animated_flow_gif" and ("field note" in li_text.lower() or "study note" in li_text.lower()))
+                )
+                if needs_text_expansion:
+                    try:
+                        console.print(f"[cyan]Aligning and expanding LinkedIn article for {visual_fmt}...[/cyan]")
+                        li_text = self.ai.generate_full_linkedin_article(
+                            topic=selected_trend["title"],
+                            summary=selected_trend.get("summary", ""),
+                            concept_a=item.get("concept_a", ""),
+                            concept_b=item.get("concept_b", ""),
+                            format_type=mode,
+                            target_audience=target_demographic,
+                            visual_format=visual_fmt
+                        )
+                    except Exception as exp_err:
+                        console.print(f"[dim]Article alignment note: {exp_err}[/dim]")
+
                 tags = [
                     str(tag).strip()
                     for tag in carousel_plan.get("hashtags", [])
@@ -1794,61 +1894,6 @@ class AutomaterEngine:
                 ]
                 if tags and "#" not in li_text[-200:]:
                     li_text = f"{li_text.rstrip()}\n\n{' '.join(tags[:5])}"
-
-                # Generate Topic-Specific Editorial Architecture Flow Looping GIF
-                # (1080x1350 with traveling pointer pulse, active component glow, and lifecycle matrix)
-                try:
-                    from src.linkedin_diagrams import build_editorial_architecture_spec, render_editorial_architecture_gif
-                    flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
-                    arch_spec = build_editorial_architecture_spec(
-                        selected_trend["title"],
-                        summary=selected_trend.get("summary", ""),
-                        flow_steps=flow_steps,
-                        audience=target_demographic
-                    )
-                    gif_res = render_editorial_architecture_gif(arch_spec)
-                    if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
-                        media_path = gif_res["gif_path"]
-                        media_title = str(selected_trend["title"])[:100]
-                        console.print(
-                            f"[bold magenta]🎞️ Editorial Architecture Flow Looping GIF ready: {media_path}[/bold magenta]"
-                        )
-                except Exception as gif_err:
-                    console.print(f"[yellow]Editorial flow GIF render skipped: {gif_err}. Falling back to carousel/hero.[/yellow]")
-                    media_path = None
-
-                if not media_path:
-                    try:
-                        from src.linkedin_visuals import render_linkedin_carousel, render_linkedin_hero
-                    except Exception as import_error:
-                        console.print(f"[yellow]LinkedIn visual renderer unavailable: {import_error}[/yellow]")
-                        render_linkedin_carousel = None
-                        render_linkedin_hero = None
-
-                    if render_linkedin_carousel:
-                        try:
-                            assets = render_linkedin_carousel(carousel_plan)
-                            media_path = assets["pdf_path"]
-                            media_title = str(
-                                carousel_plan.get("cover", {}).get("headline") or selected_trend["title"]
-                            )[:100]
-                            render_linkedin_hero(carousel_plan, base_name=assets["base"])
-                            console.print(
-                                f"[bold magenta]🎞️ LinkedIn carousel ready: {media_path} "
-                                f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
-                            )
-                        except Exception as error:
-                            console.print(
-                                f"[yellow]Carousel render failed ({error}); falling back to hero image.[/yellow]"
-                            )
-                            try:
-                                media_path = render_linkedin_hero(carousel_plan)
-                                media_title = str(
-                                    carousel_plan.get("cover", {}).get("headline") or selected_trend["title"]
-                                )[:100]
-                            except Exception as hero_error:
-                                console.print(f"[dim]Hero render failed too: {hero_error}[/dim]")
-                                media_path = None
 
             console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
 

@@ -682,11 +682,13 @@ Rules:
         concept_a: str = "",
         concept_b: str = "",
         format_type: str = "explainer",
-        target_audience: str = "working_pro"
+        target_audience: str = "working_pro",
+        visual_format: str = "animated_flow_gif"
     ) -> str:
         """
         Generates an authoritative, highly descriptive, multi-paragraph LinkedIn article
         (1,200 to 2,000 characters) with hook, intuition, mechanics, trade-offs, and discussion.
+        Matches the visual format (animated flow GIF vs notebook carousel vs hero image).
         """
         audience_notes = {
             "school_kid": "Explain with crystal-clear, relatable everyday analogies so even a curious teenager grasps the intuition.",
@@ -698,6 +700,13 @@ Rules:
         aud_note = audience_notes.get(target_audience, audience_notes["working_pro"])
 
         comp_context = f"\nComparing: '{concept_a}' vs '{concept_b}'" if (concept_a and concept_b) else ""
+
+        if visual_format == "notebook_carousel":
+            visual_ref_instruction = 'Include a natural line referencing the attached 6-page field notes: "I broke down the complete mechanics, implementation code, and production traps into a 6-page study note field guide attached below."'
+        elif visual_format == "hero_image":
+            visual_ref_instruction = 'Include a natural line referencing the attached technical infographic: "I mapped the core architectural trade-offs into the visual blueprint attached below."'
+        else:
+            visual_ref_instruction = 'Include a natural line referencing the attached animated blueprint: "I created this animated visual guide to map the entire lifecycle step by step."'
 
         prompt = f"""You are an elite Principal Software Architect and Technical Educator writing an authoritative, highly engaging LinkedIn article.
 
@@ -715,7 +724,7 @@ STRUCTURE REQUIREMENTS (1,200 to 1,900 characters total):
 4. THE PRODUCTION CATCH & TRADE-OFFS:
    Address the architectural trade-offs that only experienced engineers know (e.g. memory footprint vs compute, cache invalidation, routing skew, operational overhead, failure modes).
 5. VISUAL REFERENCE:
-   Include a natural line referencing the attached animated blueprint: "I created this animated visual guide to map the entire lifecycle step by step."
+   {visual_ref_instruction}
 6. DISCUSSION QUESTION:
    End with one specific, open-ended question that invites software engineers and architects to share their production experiences in the comments.
 7. FORMATTING RULES:
@@ -738,6 +747,11 @@ STRUCTURE REQUIREMENTS (1,200 to 1,900 characters total):
             print(f"[AIGenerator] Full article generation notice: {e}")
 
         comp_str = f" between {concept_a} and {concept_b}" if (concept_a and concept_b) else ""
+        fallback_ref = (
+            "I broke down the complete mechanics, implementation code, and production traps into a 6-page study note field guide attached below."
+            if visual_format == "notebook_carousel"
+            else "I mapped out the complete step-by-step architecture and execution lifecycle in the animated diagram below."
+        )
         return (
             f"{topic}\n\n"
             f"Understanding the real-world mechanics of {topic}{comp_str} is one of the most critical fundamentals in modern systems design.\n\n"
@@ -751,10 +765,231 @@ STRUCTURE REQUIREMENTS (1,200 to 1,900 characters total):
             f"- Compute efficiency often comes at the cost of memory footprint.\n"
             f"- Load distribution requires active balancing to prevent hotspotting and queue saturation.\n"
             f"- Tail latency (p99) must be continuously measured against synthetic load spikes.\n\n"
-            f"I mapped out the complete step-by-step architecture and execution lifecycle in the animated diagram below.\n\n"
+            f"{fallback_ref}\n\n"
             f"How are you currently handling this in your production architecture?\n\n"
             f"#SoftwareEngineering #SystemDesign #ComputerScience #Programming #CloudArchitecture"
         )
+
+    def generate_editorial_architecture_spec(
+        self,
+        title: str,
+        summary: str = "",
+        category: str = "SYSTEMS ARCHITECTURE",
+        target_audience: str = "working_pro"
+    ) -> dict:
+        """
+        Dynamically generates a 100% topic-specific architecture diagram specification
+        for the 1080x1350 editorial GIF renderer.
+        Never relies on hardcoded generic components or fallbacks.
+        """
+        clean_title = title.strip()
+        prompt = f"""You are an elite Principal Systems Architect and Technical Illustrator.
+Topic: "{clean_title}"
+Context / Summary: "{summary}"
+Category: "{category}"
+Audience: "{target_audience}"
+
+Your task is to design an authentic, highly specific technical blueprint / architecture diagram specification for this EXACT topic.
+The diagram has:
+1. INPUT: What raw data, signal, query, or packet enters this specific system? (e.g. for Active Noise Cancellation: 'EXT MIC ACOUSTIC WAVE'; for Bloom Filter: 'SEARCH KEY / ITEM'; for Raft Consensus: 'CLIENT WRITE COMMAND'; for GPU AllReduce: 'LOCAL GRADIENT TENSOR'; for CDC: 'DATABASE WAL EVENT').
+2. ROUTER / GATEWAY: What core processing element or algorithm ingests and routes it? (e.g. for Noise Cancellation: 'DSP ADC & FIR Filter'; for Bloom Filter: 'K Independent Hash Functions'; for Raft: 'Raft Leader Log Engine'; for GPU AllReduce: 'Ring Pipeline Controller'; for CDC: 'WAL Log Reader & Parser').
+3. COMPONENTS (Exactly 4 boxes): The 4 real, concrete internal components or workers for THIS SPECIFIC TOPIC (NEVER use generic names like 'Parser & Schema', 'Core Engine', 'Cache Layer', 'Storage Sink'). At least 2 should be active.
+4. METRICS (Exactly 3 bars): Real-world engineering benchmarks, latency budgets, or resource consumption for this topic with concrete units (e.g. microseconds, dB attenuation, VRAM, bits/key, FLOPs, or IOPS).
+5. LIFECYCLE STEPS (Exactly 4 stages): The 4 chronological stages of execution when a payload moves through this system.
+
+Return valid JSON with this exact schema:
+{{
+  "title": "{clean_title}",
+  "subtitle": "Short 1-line subtitle explaining the core mechanism (under 75 chars)",
+  "input_label": "Specific input under 22 chars",
+  "router_label": "Specific engine under 24 chars",
+  "components": [
+    {{"name": "Specific Component 1 (under 20 chars)", "role": "Precise role (under 28 chars)", "active": true, "score": "HOT"}},
+    {{"name": "Specific Component 2 (under 20 chars)", "role": "Precise role (under 28 chars)", "active": true, "score": "ACTIVE"}},
+    {{"name": "Specific Component 3 (under 20 chars)", "role": "Precise role (under 28 chars)", "active": false}},
+    {{"name": "Specific Component 4 (under 20 chars)", "role": "Precise role (under 28 chars)", "active": true, "score": "SYNC"}}
+  ],
+  "metrics": [
+    {{"label": "Specific Metric 1 (under 24 chars)", "val": "Realistic value with units (under 30 chars)", "pct": 0.85, "color": "emerald"}},
+    {{"label": "Specific Metric 2 (under 24 chars)", "val": "Realistic value with units (under 30 chars)", "pct": 0.65, "color": "amber"}},
+    {{"label": "Specific Metric 3 (under 24 chars)", "val": "Realistic value with units (under 30 chars)", "pct": 0.40, "color": "slate"}}
+  ],
+  "steps": [
+    {{"num": "1", "name": "Stage 1 Name (under 24 chars)", "desc": "Concrete description of stage 1 (under 65 chars)"}},
+    {{"num": "2", "name": "Stage 2 Name (under 24 chars)", "desc": "Concrete description of stage 2 (under 65 chars)"}},
+    {{"num": "3", "name": "Stage 3 Name (under 24 chars)", "desc": "Concrete description of stage 3 (under 65 chars)"}},
+    {{"num": "4", "name": "Stage 4 Name (under 24 chars)", "desc": "Concrete description of stage 4 (under 65 chars)"}}
+  ]
+}}
+"""
+        system = "You are an elite Systems Architect. Output strictly valid JSON conforming to the schema. Make all labels, components, and metrics 100% specific to the given topic. Never use generic placeholder names."
+        try:
+            data = self._generate_json(prompt, system, temperature=0.6)
+            if (
+                data
+                and isinstance(data.get("components"), list)
+                and len(data["components"]) >= 4
+                and isinstance(data.get("metrics"), list)
+                and len(data["metrics"]) >= 3
+                and isinstance(data.get("steps"), list)
+                and len(data["steps"]) >= 4
+            ):
+                data["title"] = clean_title
+                data.setdefault("subtitle", (summary[:72] if summary else f"How {clean_title[:45]} operates end-to-end").strip())
+                return data
+        except Exception as e:
+            print(f"[AIGenerator] Dynamic architecture spec LLM generation notice: {e}")
+
+        return self._build_deterministic_architecture_spec(clean_title, summary)
+
+    def _build_deterministic_architecture_spec(self, title: str, summary: str = "") -> dict:
+        """Topic-aware deterministic fallback that detects domain keywords rather than emitting static placeholders."""
+        tl = title.lower()
+        if any(w in tl for w in ["noise", "sound", "headphone", "audio", "acoustic"]):
+            return {
+                "title": title,
+                "subtitle": "How anti-sound phase inversion cancels acoustic waves in real time",
+                "input_label": "EXT MIC ACOUSTIC",
+                "router_label": "DSP Sampling & ADC",
+                "components": [
+                    {"name": "External Mic ADC", "role": "30µs ambient sampling", "active": True, "score": "HOT"},
+                    {"name": "Adaptive FIR Filter", "role": "LMS coefficient tuning", "active": True, "score": "ACTIVE"},
+                    {"name": "Feedback Sensor", "role": "In-ear error residual", "active": False},
+                    {"name": "180° Inverter DAC", "role": "Anti-sound wave output", "active": True, "score": "PHASE 180°"},
+                ],
+                "metrics": [
+                    {"label": "Algorithmic Latency", "val": "28 microseconds", "pct": 0.88, "color": "emerald"},
+                    {"label": "Noise Attenuation", "val": "-28 dB at 250 Hz", "pct": 0.90, "color": "amber"},
+                    {"label": "Silicon Power Draw", "val": "< 7.5 mW per earbud", "pct": 0.22, "color": "slate"},
+                ],
+                "steps": [
+                    {"num": "1", "name": "Acoustic Capture", "desc": "External mic samples air pressure fluctuations at 96 kHz"},
+                    {"num": "2", "name": "Adaptive Modeling", "desc": "LMS filter estimates transfer function and room acoustics"},
+                    {"num": "3", "name": "Phase Inversion", "desc": "DSP synthesizes 180-degree inverted anti-noise signal"},
+                    {"num": "4", "name": "Destructive Collision", "desc": "Speaker pushes anti-sound; waves flatten at eardrum"},
+                ]
+            }
+        elif any(w in tl for w in ["bloom", "filter", "hash"]):
+            return {
+                "title": title,
+                "subtitle": "Probabilistic membership testing with guaranteed zero false negatives",
+                "input_label": "SEARCH KEY / ITEM",
+                "router_label": "K Independent Hash Vector",
+                "components": [
+                    {"name": "Murmur3 Hashers", "role": "Computes k bit positions", "active": True, "score": "HOT"},
+                    {"name": "Shared Bit Array", "role": "In-memory atomic bit probe", "active": True, "score": "ACTIVE"},
+                    {"name": "Early-Exit Detector", "role": "Instant false if any bit 0", "active": True, "score": "FAST-PATH"},
+                    {"name": "Disk / Storage DB", "role": "Verify bounded false positive", "active": False},
+                ],
+                "metrics": [
+                    {"label": "Query Latency (p99)", "val": "< 120 nanoseconds", "pct": 0.95, "color": "emerald"},
+                    {"label": "Space Efficiency", "val": "9.6 bits per stored key", "pct": 0.35, "color": "slate"},
+                    {"label": "False Positive Rate", "val": "Bounded strictly at 1.0%", "pct": 0.15, "color": "amber"},
+                ],
+                "steps": [
+                    {"num": "1", "name": "Key Ingestion", "desc": "Receives lookup key and feeds into k independent hash seeds"},
+                    {"num": "2", "name": "Bit Index Mapping", "desc": "Computes array indices via modulo bit-array size m"},
+                    {"num": "3", "name": "Atomic Bit Probe", "desc": "Tests if all mapped bit positions contain 1s"},
+                    {"num": "4", "name": "Verdict Resolution", "desc": "Returns DEFINITELY NO or PROBABLY YES to caller"},
+                ]
+            }
+        elif any(w in tl for w in ["allreduce", "ring", "distributed", "gpu", "training"]):
+            return {
+                "title": title,
+                "subtitle": "Bandwidth-optimal gradient synchronization across GPU clusters",
+                "input_label": "LOCAL GRADIENT TENSOR",
+                "router_label": "Ring Topology Dispatcher",
+                "components": [
+                    {"name": "Rank Ingestion Ring", "role": "Peer-to-peer tensor buffer", "active": True, "score": "HOT"},
+                    {"name": "Scatter-Reduce Stage", "role": "Accumulates partial chunks", "active": True, "score": "ACTIVE"},
+                    {"name": "All-Gather Stage", "role": "Broadcasts reduced values", "active": True, "score": "SYNC"},
+                    {"name": "Optimizer Step", "role": "Weight update commit", "active": False},
+                ],
+                "metrics": [
+                    {"label": "Inter-GPU Bandwidth", "val": "900 GB/s via NVLink fabric", "pct": 0.95, "color": "emerald"},
+                    {"label": "Ring Network Overhead", "val": "2*(N-1)/N chunks transferred", "pct": 0.30, "color": "slate"},
+                    {"label": "Sync Jitter Tolerance", "val": "< 45 microseconds", "pct": 0.80, "color": "amber"},
+                ],
+                "steps": [
+                    {"num": "1", "name": "Tensor Partitioning", "desc": "Splits local gradient tensor into N equal-sized chunks"},
+                    {"num": "2", "name": "Scatter-Reduce Phase", "desc": "Sends chunk i to neighbor; accumulates with incoming chunk"},
+                    {"num": "3", "name": "All-Gather Phase", "desc": "Circulates fully reduced chunks around the logical ring"},
+                    {"num": "4", "name": "Weights Update", "desc": "All GPUs now hold complete reduced gradients for optimizer"},
+                ]
+            }
+        elif any(w in tl for w in ["cdc", "change data", "wal", "debezium", "kafka"]):
+            return {
+                "title": title,
+                "subtitle": "Eliminating dual-write anomalies via transaction log mining",
+                "input_label": "DB WRITE COMMIT",
+                "router_label": "WAL Engine & Decoder",
+                "components": [
+                    {"name": "Postgres WAL Log", "role": "Append-only source of truth", "active": True, "score": "SOURCE"},
+                    {"name": "Debezium Reader", "role": "Non-blocking log tailing", "active": True, "score": "ACTIVE"},
+                    {"name": "Schema Registry", "role": "Avro schema compatibility", "active": False},
+                    {"name": "Kafka Event Bus", "role": "Durable ordered consumer log", "active": True, "score": "STREAM"},
+                ],
+                "metrics": [
+                    {"label": "Replication Lag", "val": "< 50 milliseconds", "pct": 0.92, "color": "emerald"},
+                    {"label": "Primary DB Overhead", "val": "< 2% CPU footprint", "pct": 0.18, "color": "slate"},
+                    {"label": "Data Consistency", "val": "Exactly-once via log sequence", "pct": 0.99, "color": "amber"},
+                ],
+                "steps": [
+                    {"num": "1", "name": "Transaction Commit", "desc": "Primary database writes row modification directly to WAL"},
+                    {"num": "2", "name": "Logical Decoding", "desc": "CDC engine intercepts binary stream without query overhead"},
+                    {"num": "3", "name": "Event Serialization", "desc": "Transforms binary delta into structured domain event"},
+                    {"num": "4", "name": "Downstream Fan-out", "desc": "Pushes to event bus for real-time caches, search, and data lakes"},
+                ]
+            }
+        elif any(w in tl for w in ["context", "kv cache", "llm", "attention", "transformer"]):
+            return {
+                "title": title,
+                "subtitle": "Sliding attention windows and memory complexity in frontier LLMs",
+                "input_label": "PROMPT TOKEN STREAM",
+                "router_label": "KV Cache Dispatcher",
+                "components": [
+                    {"name": "FlashAttention V3", "role": "IO-aware tiled attention", "active": True, "score": "HOT"},
+                    {"name": "PagedKV Ring Buffer", "role": "Non-contiguous VRAM cache", "active": True, "score": "ACTIVE"},
+                    {"name": "Sliding Window Mask", "role": "Truncates distant history", "active": True, "score": "BOUNDED"},
+                    {"name": "Disk Offload Pool", "role": "Standby context paging", "active": False},
+                ],
+                "metrics": [
+                    {"label": "KV Cache Footprint", "val": "~1.2 GB per 10k tokens", "pct": 0.75, "color": "amber"},
+                    {"label": "Time to First Token", "val": "< 45ms prefill latency", "pct": 0.90, "color": "emerald"},
+                    {"label": "Memory Bandwidth", "val": "1.8 TB/s HBM throughput", "pct": 0.95, "color": "slate"},
+                ],
+                "steps": [
+                    {"num": "1", "name": "Prefill Phase", "desc": "Parallel matrix multiplication across all input prompt tokens"},
+                    {"num": "2", "name": "KV Tensor Allocation", "desc": "Allocates Key and Value vectors into PagedAttention chunks"},
+                    {"num": "3", "name": "Decode Autoregression", "desc": "Generates one token per step using cached KV states"},
+                    {"num": "4", "name": "Cache Eviction", "desc": "Prunes expired context tokens beyond attention horizon"},
+                ]
+            }
+        else:
+            return {
+                "title": title,
+                "subtitle": (summary[:72] if summary else f"How {title[:45]} operates under the hood").strip(),
+                "input_label": "PAYLOAD DISPATCH",
+                "router_label": "Pipeline Gateway",
+                "components": [
+                    {"name": f"{title[:14]} Ingest", "role": "Enforces state boundaries", "active": True, "score": "ACTIVE"},
+                    {"name": "Core Engine Worker", "role": "Executes domain transition", "active": True, "score": "HOT"},
+                    {"name": "Auxiliary Index", "role": "Secondary lookup table", "active": False},
+                    {"name": "Result Synthesizer", "role": "Serializes response payload", "active": True, "score": "OUT"},
+                ],
+                "metrics": [
+                    {"label": "Pipeline Throughput", "val": "Optimized execution path", "pct": 0.85, "color": "emerald"},
+                    {"label": "Resource Overhead", "val": "Strict bounded memory pool", "pct": 0.35, "color": "slate"},
+                    {"label": "Tail Latency (p99)", "val": "Sub-millisecond guarantees", "pct": 0.70, "color": "amber"},
+                ],
+                "steps": [
+                    {"num": "1", "name": "Payload Ingestion", "desc": f"Ingests and verifies boundaries for {title[:28]}"},
+                    {"num": "2", "name": "State Evaluation", "desc": "Evaluates invariants and selects active processing worker"},
+                    {"num": "3", "name": "Execution & Compute", "desc": "Worker processes payload while standby units conserve resources"},
+                    {"num": "4", "name": "Downstream Commit", "desc": "Synthesizes final state and streams result with minimal overhead"},
+                ]
+            }
+
 
     def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = True) -> str:
         """Generates an authoritative, mobile-first daily lesson for the 'AI Explained: Zero to Advanced' 90-day master curriculum."""

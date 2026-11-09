@@ -725,12 +725,38 @@ def build_editorial_architecture_spec(
     title: str,
     summary: str = "",
     flow_steps: Optional[List[Dict[str, Any]]] = None,
-    audience: str = "working_pro"
+    audience: str = "working_pro",
+    ai_generator: Optional[Any] = None
 ) -> Dict[str, Any]:
     """
     Constructs a topic-specific architecture specification for the editorial GIF renderer.
+    Prefers AI-generated, 100% topic-specific components, metrics, and lifecycle steps.
     """
     clean_title = title.strip()
+
+    if ai_generator is None:
+        try:
+            from src.ai_generator import AIGenerator
+            ai_generator = AIGenerator()
+        except Exception:
+            ai_generator = None
+
+    if ai_generator and hasattr(ai_generator, "generate_editorial_architecture_spec"):
+        try:
+            spec = ai_generator.generate_editorial_architecture_spec(
+                title=clean_title,
+                summary=summary,
+                target_audience=audience
+            )
+            if spec and spec.get("components") and len(spec["components"]) >= 4:
+                return spec
+        except Exception as e:
+            print(f"[linkedin_diagrams] AI spec generation notice: {e}")
+
+    # Fallback to deterministic topic-aware spec generator
+    if ai_generator and hasattr(ai_generator, "_build_deterministic_architecture_spec"):
+        return ai_generator._build_deterministic_architecture_spec(clean_title, summary)
+
     parts = [p.strip() for p in re.split(r' vs | and | to | in | for | - ', clean_title, flags=re.I) if p.strip()]
 
     # Derive components tailored to topic
@@ -750,7 +776,7 @@ def build_editorial_architecture_spec(
         ]
     elif len(parts) >= 2:
         name_a, name_b = parts[0][:18], parts[1][:18]
-        input_label = "QUERY DISPATCH"
+        input_label = f"{name_a[:12].upper()} REQUEST"
         router_label = "Architecture Gateway"
         components = [
             {"name": f"{name_a} Primary", "role": "High-throughput path", "active": True, "score": "HOT"},
@@ -764,18 +790,18 @@ def build_editorial_architecture_spec(
             {"label": "Operational Complexity", "val": "Manageable failure domains", "pct": 0.45, "color": "slate"},
         ]
     else:
-        input_label = "CLIENT INGEST"
+        input_label = f"{clean_title[:14].upper()}"
         router_label = "Execution Pipeline"
         components = [
-            {"name": "Parser & Schema", "role": "Validates payload invariants", "active": False},
-            {"name": "Core Engine", "role": "Executes state transition", "active": True, "score": "ACTIVE"},
-            {"name": "Cache Layer", "role": "In-memory fast path", "active": True, "score": "HIT"},
-            {"name": "Storage Sink", "role": "Persistent commit log", "active": False},
+            {"name": f"{clean_title[:12]} Parser", "role": "Validates payload invariants", "active": True, "score": "HOT"},
+            {"name": "Core Engine", "role": "Executes domain transformation", "active": True, "score": "ACTIVE"},
+            {"name": "Fast Cache", "role": "Low-latency memory path", "active": True, "score": "HIT"},
+            {"name": "State Sink", "role": "Persistent commit layer", "active": False},
         ]
         metrics = [
-            {"label": "Throughput Capacity", "val": "Sub-millisecond pipeline latency", "pct": 0.78, "color": "emerald"},
+            {"label": "Pipeline Throughput", "val": "Optimized execution bounds", "pct": 0.85, "color": "emerald"},
             {"label": "Memory Footprint", "val": "Zero memory leaks or copies", "pct": 0.35, "color": "slate"},
-            {"label": "Tail Latency (p99)", "val": "Strict bounded execution bounds", "pct": 0.55, "color": "amber"},
+            {"label": "Tail Latency (p99)", "val": "Sub-millisecond guarantees", "pct": 0.70, "color": "amber"},
         ]
 
     steps = []
