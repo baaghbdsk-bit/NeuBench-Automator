@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T06:31:09.094262+00:00",
+    "last_updated": "2026-11-09T07:03:29.034058+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 778,
-    "original_posts_attempted": 173,
-    "original_posts_succeeded": 164,
-    "replies_attempted": 63,
+    "total_cycles_executed": 782,
+    "original_posts_attempted": 174,
+    "original_posts_succeeded": 165,
+    "replies_attempted": 64,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
-    "actions_skipped": 127,
+    "actions_skipped": 128,
     "failed_operations": 28,
-    "ai_generation_requests": 381,
+    "ai_generation_requests": 384,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2568,6 +2568,46 @@
       "content_preview": "B-Tree (Balanced Tree) vs LSM-Tree (Log-Structured Merge-Tree): Architectural Comparison\n\nChoosing between a B-Tree and ",
       "reason": "",
       "duration_s": 22.64
+    },
+    {
+      "timestamp": "2026-11-09T07:02:57.871767+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "michaella love is blind",
+      "content_preview": "Watching reality TV and expecting emotional maturity is like going to a petrol station for a gourmet meal. Michaela is o",
+      "reason": "",
+      "duration_s": 27.81
+    },
+    {
+      "timestamp": "2026-11-09T07:03:16.760891+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Static RAG (Retrieval-Augmented Generation) vs Agentic Workflows: Architectural Comparison\n\nStatic RAG acts like an open",
+      "reason": "",
+      "duration_s": 18.87
+    },
+    {
+      "timestamp": "2026-11-09T07:03:28.310680+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying GPU Tensor Cores and Mixed-Precision MMA",
+      "content_preview": "Tensor Cores execute fused MMA ops over matrix tiles in a single instruction. To saturate warp execution lanes and avoid",
+      "reason": "",
+      "duration_s": 11.54
+    },
+    {
+      "timestamp": "2026-11-09T07:03:29.034032+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (34/28).",
+      "duration_s": 0.01
     }
   ]
 }

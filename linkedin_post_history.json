@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T06:31:09.088175+00:00",
+  "last_success_at": "2026-11-09T07:03:16.754305+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -542,6 +542,15 @@
       "status": "success",
       "posted_at": "2026-11-09T06:31:09.088175+00:00",
       "post_urn": "urn:li:share:7525444850566135808"
+    },
+    {
+      "topic_key": "title:a93f7bb601151de92bf99dde41629812",
+      "title": "Agentic Workflows vs. Static RAG: The Evolution of AI Problem-Solving",
+      "url": "",
+      "content_hash": "d14c4260ea30542b4e666135ba9c96d9",
+      "status": "success",
+      "posted_at": "2026-11-09T07:03:16.754305+00:00",
+      "post_urn": "urn:li:share:7525452935988703232"
     }
   ],
   "posted_titles": [
@@ -604,6 +613,7 @@
     "li:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
     "li:Agent memory needs its OpenTelemetry moment",
     "li:CPU vs. GPU: The Marathon Runner vs. The Mega-Crowd of Artists",
-    "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown for High-Throughput Backends"
+    "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown for High-Throughput Backends",
+    "li:Agentic Workflows vs. Static RAG: The Evolution of AI Problem-Solving"
   ]
 }
