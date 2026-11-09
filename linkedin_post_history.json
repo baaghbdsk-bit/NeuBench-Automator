@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T19:51:02.802620+00:00",
+  "last_success_at": "2026-11-09T23:02:26.436292+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -632,6 +632,15 @@
       "status": "success",
       "posted_at": "2026-11-09T19:51:02.802620+00:00",
       "post_urn": "urn:li:share:7525646149958029312"
+    },
+    {
+      "topic_key": "title:958f25056f5d282a8ef75245de46859a",
+      "title": "Zero-Copy PCIe GPUDirect Storage: Bypassing Host Memory Bottlenecks in Large-Scale AI Clusters",
+      "url": "",
+      "content_hash": "3274b776231d3446d9e95e94049aa36b",
+      "status": "success",
+      "posted_at": "2026-11-09T23:02:26.436292+00:00",
+      "post_urn": "urn:li:share:7525694316531322881"
     }
   ],
   "posted_titles": [
@@ -704,6 +713,7 @@
     "li:Kirlian Photography: Building Your Own Equipment",
     "li:CPU vs. GPU: The Brainiac vs. The Artist",
     "li:What is an AI Hallucination?",
-    "li:What is a Logit? The Raw Probability Precursors Dictating LLM Outputs"
+    "li:What is a Logit? The Raw Probability Precursors Dictating LLM Outputs",
+    "li:Zero-Copy PCIe GPUDirect Storage: Bypassing Host Memory Bottlenecks in Large-Scale AI Clusters"
   ]
 }
