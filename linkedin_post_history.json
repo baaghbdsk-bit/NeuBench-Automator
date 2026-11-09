@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T08:54:02.913278+00:00",
+  "last_success_at": "2026-11-09T09:04:05.594329+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -569,6 +569,15 @@
       "status": "success",
       "posted_at": "2026-11-09T08:54:02.913278+00:00",
       "post_urn": "urn:li:share:7525480811886952448"
+    },
+    {
+      "topic_key": "title:132b79e1237267f7c0dbc7b799f4ba8a",
+      "title": "How Noise-Canceling Headphones Create 'Anti-Sound' to Delete Noise",
+      "url": "",
+      "content_hash": "65a6d7dfb4946ed35135144febfea28e",
+      "status": "success",
+      "posted_at": "2026-11-09T09:04:05.594329+00:00",
+      "post_urn": "urn:li:share:7525483339441487873"
     }
   ],
   "posted_titles": [
@@ -634,6 +643,7 @@
     "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown for High-Throughput Backends",
     "li:Agentic Workflows vs. Static RAG: The Evolution of AI Problem-Solving",
     "li:Demystifying Bloom Filters: The Space-Efficient Data Structure That Never Says No",
-    "li:What is Ring-AllReduce? The Low-Bandwidth Primitive Powering Distributed GPU Training"
+    "li:What is Ring-AllReduce? The Low-Bandwidth Primitive Powering Distributed GPU Training",
+    "li:How Noise-Canceling Headphones Create 'Anti-Sound' to Delete Noise"
   ]
 }
