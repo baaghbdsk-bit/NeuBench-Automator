@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T02:04:39.736290+00:00",
+    "last_updated": "2026-11-09T03:04:43.129120+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 761,
-    "original_posts_attempted": 167,
-    "original_posts_succeeded": 158,
+    "total_cycles_executed": 765,
+    "original_posts_attempted": 169,
+    "original_posts_succeeded": 160,
     "replies_attempted": 61,
     "replies_succeeded": 25,
     "reposts_attempted": 43,
     "reposts_succeeded": 13,
     "actions_skipped": 126,
     "failed_operations": 27,
-    "ai_generation_requests": 365,
+    "ai_generation_requests": 369,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2398,6 +2398,46 @@
       "content_preview": "Ben Simmons playing basketball with the intensity of a hibernating grizzly bear is the crossover event nobody asked for.",
       "reason": "",
       "duration_s": 82.84
+    },
+    {
+      "timestamp": "2026-11-09T03:02:49.432923+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cairo santos",
+      "content_preview": "Cairo Santos making kicks look so casual while the rest of us stress over sending a simple \"sounds good\" email. Absolute",
+      "reason": "",
+      "duration_s": 22.77
+    },
+    {
+      "timestamp": "2026-11-09T03:03:10.244481+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your LLM application has zero observability into its own short-term state, and it is quietly failing in production. \n\nWe",
+      "reason": "",
+      "duration_s": 20.8
+    },
+    {
+      "timestamp": "2026-11-09T03:03:28.807930+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Quantities Driving Neural Networks",
+      "content_preview": "Logits are unnormalized scores. Fused losses (`CrossEntropyLoss`) expect raw logits to leverage LogSumExp for numerical ",
+      "reason": "",
+      "duration_s": 18.56
+    },
+    {
+      "timestamp": "2026-11-09T03:04:43.124053+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "shakira",
+      "content_preview": "Shakira really looked at a multi-million dollar tax fraud case and said \"my hips don't lie, but my accountant sure does.",
+      "reason": "",
+      "duration_s": 73.69
     }
   ]
 }

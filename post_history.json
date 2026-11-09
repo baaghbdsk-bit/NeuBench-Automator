@@ -259,7 +259,11 @@
     "జాతకం",
     "li:Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment",
     "bsky:What is a Vector Embedding? The Secret GPS of AI",
-    "simmons bears"
+    "simmons bears",
+    "cairo santos",
+    "li:Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment",
+    "bsky:What is a Logit? The Raw Quantities Driving Neural Networks",
+    "shakira"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -403,7 +407,9 @@
     "d764547996a527171953fc0539fc1b4d3ae578f44ec09b78e434a1e1ad943e8e",
     "93df8d7763414b1170d0486dffac6c437c06b8a297394e0fde42b901257329c4",
     "606ed982e6491ede9bcdc46df45b4d602fd756b426083da78bef48a4e67b1080",
-    "354407e6871ec277e066435ea3ebceb0bd436003d388dd92227048105b5367b5"
+    "354407e6871ec277e066435ea3ebceb0bd436003d388dd92227048105b5367b5",
+    "60494f3db23513f709b7287a0f1c0b09586b6930fa0313799ec2fe8e868b5be8",
+    "7dff80498332b95dfa88329dc53db525d52ceb3822132d44c993007b96cdfbae"
   ],
   "pending_x_actions": [],
   "platform_history": {
@@ -481,7 +487,8 @@
         "post:f260f40467516b4b8c78b193ad4c93477650cf5f1aeb60be2c8d9a73b5cb3e02",
         "post:8e5cb0eac6bcc984b9febc9a733f72ff06ee4ca3311a9df905963fd11dd5c120",
         "post:f83a9443d4e209ccb2921c0070a11c0e64a509b483bfbf997e828c9b5fb2b754",
-        "post:d83a6986d057e01461e316b062fe10abcf534889f7680bef04bd1e645160a08c"
+        "post:d83a6986d057e01461e316b062fe10abcf534889f7680bef04bd1e645160a08c",
+        "post:d01f92f1182ef7654cc664fd17167e3d06586dfe7309e05b63a1165e048fb74a"
       ],
       "pending": []
     },

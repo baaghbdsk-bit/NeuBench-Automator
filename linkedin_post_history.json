@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T02:03:10.514906+00:00",
+  "last_success_at": "2026-11-09T03:03:10.238188+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -497,6 +497,15 @@
       "status": "success",
       "posted_at": "2026-11-09T02:03:10.514906+00:00",
       "post_urn": "urn:li:share:7525377411820089344"
+    },
+    {
+      "topic_key": "title:ff13b7d865b84e556cee3eea143eda80",
+      "title": "Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment",
+      "url": "",
+      "content_hash": "ce231b0e382652461a5359875cccc18f",
+      "status": "success",
+      "posted_at": "2026-11-09T03:03:10.238188+00:00",
+      "post_urn": "urn:li:share:7525392510651842560"
     }
   ],
   "posted_titles": [
@@ -554,6 +563,7 @@
     "li:Agent Memory & Observability: Why AI Agents Need Their Own OpenTelemetry",
     "li:Agentic Observability Telemetry",
     "li:Inside an AI Coding Agent: How It Reads Your Code (And Why 'Super-Permissions' Can Leak Secrets)",
-    "li:Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment"
+    "li:Agentic Memory Observability: Why AI Agents Need an OpenTelemetry Moment",
+    "li:Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment"
   ]
 }
