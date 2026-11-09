@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T09:04:27.372666+00:00",
+    "last_updated": "2026-11-09T10:03:43.844485+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 794,
-    "original_posts_attempted": 177,
-    "original_posts_succeeded": 168,
-    "replies_attempted": 65,
+    "total_cycles_executed": 798,
+    "original_posts_attempted": 178,
+    "original_posts_succeeded": 169,
+    "replies_attempted": 66,
     "replies_succeeded": 25,
     "reposts_attempted": 45,
     "reposts_succeeded": 13,
-    "actions_skipped": 131,
+    "actions_skipped": 132,
     "failed_operations": 28,
-    "ai_generation_requests": 393,
+    "ai_generation_requests": 396,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2727,6 +2727,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (43/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-09T10:02:53.604875+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "planned parenthood",
+      "content_preview": "Planned parenthood in this economy is just checking your bank account after grocery shopping and deciding your dog is of",
+      "reason": "",
+      "duration_s": 37.06
+    },
+    {
+      "timestamp": "2026-11-09T10:03:38.316312+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "You write code to update a user profile in PostgreSQL, then make a synchronous HTTP call to update their cache in Redis.",
+      "reason": "",
+      "duration_s": 44.7
+    },
+    {
+      "timestamp": "2026-11-09T10:03:43.083567+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Stack vs. Heap: Where Variables Live",
+      "content_preview": "The stack provides O(1) contiguous execution via simple pointer arithmetic. The heap enables dynamic lifetimes at the co",
+      "reason": "",
+      "duration_s": 4.76
+    },
+    {
+      "timestamp": "2026-11-09T10:03:43.844460+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (46/28).",
       "duration_s": 0.01
     }
   ]

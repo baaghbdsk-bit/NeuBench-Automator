@@ -285,7 +285,10 @@
     "bsky:Demystifying Rotary Position Embeddings (RoPE): How Modern LLMs Keep Track of Token Order",
     "top",
     "li:How Noise-Canceling Headphones Create 'Anti-Sound' to Delete Noise",
-    "bsky:Static Recovery Is Not Dynamic Stability: Dynamics-Aware Benchmarking of Protein Motif Scaffolding"
+    "bsky:Static Recovery Is Not Dynamic Stability: Dynamics-Aware Benchmarking of Protein Motif Scaffolding",
+    "planned parenthood",
+    "li:How Log-Based Change Data Capture (CDC) Eliminates Dual-Write Bugs",
+    "bsky:Stack vs. Heap: Where Variables Live"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -439,7 +442,8 @@
     "e0533b93b1b83bf467b5ad196df40d1a2a04da07e6ea66461a5e7a381c2e34e9",
     "d8cb4eaebe54b9ea82cbe1e159b2c715c6beb0a67de015c6a4d972352908a0f8",
     "d68dda90eb2026ba1687e36845621bc8c76127b9cf4d1550933f813aa32d271f",
-    "8f18daae904c0368a938c8cc91665096fb3348e29a82fe90659bcee4e7745ba9"
+    "8f18daae904c0368a938c8cc91665096fb3348e29a82fe90659bcee4e7745ba9",
+    "c2fa0ee854d31c64f6acc54446ebc7e0b833c8a9645f44b7e9a1a7621b2c537a"
   ],
   "pending_x_actions": [
     {
@@ -537,7 +541,8 @@
         "post:3a74d511693b1f582b898a48a71cfc40455225da08d8b978bdf14cb816a2b242",
         "post:b3d0dc31e78a770939d78b40e46d8203a50ac184fe7fae35a01b447d447bd41c",
         "post:6448e29ca5a7d7821956d7fcdbdd0063730bc994ff2706a0872640bc2d583f83",
-        "post:5745c1f0ccd85573f0d367c4d891fc0974336f32f098c00106b0832062aa3cab"
+        "post:5745c1f0ccd85573f0d367c4d891fc0974336f32f098c00106b0832062aa3cab",
+        "post:e3b322ca9b54f1d5142d93ddd1ab7ebbc120fb2909f16d498307509b0043671d"
       ],
       "pending": []
     },

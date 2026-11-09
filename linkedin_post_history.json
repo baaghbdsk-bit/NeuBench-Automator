@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T09:04:05.594329+00:00",
+  "last_success_at": "2026-11-09T10:03:38.308476+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -578,6 +578,15 @@
       "status": "success",
       "posted_at": "2026-11-09T09:04:05.594329+00:00",
       "post_urn": "urn:li:share:7525483339441487873"
+    },
+    {
+      "topic_key": "title:72bec17e2c1936a979d657bb79159b49",
+      "title": "How Log-Based Change Data Capture (CDC) Eliminates Dual-Write Bugs",
+      "url": "",
+      "content_hash": "64486f989ef57a98e9bd2f96839bf053",
+      "status": "success",
+      "posted_at": "2026-11-09T10:03:38.308476+00:00",
+      "post_urn": "urn:li:share:7525498325060460544"
     }
   ],
   "posted_titles": [
@@ -644,6 +653,7 @@
     "li:Agentic Workflows vs. Static RAG: The Evolution of AI Problem-Solving",
     "li:Demystifying Bloom Filters: The Space-Efficient Data Structure That Never Says No",
     "li:What is Ring-AllReduce? The Low-Bandwidth Primitive Powering Distributed GPU Training",
-    "li:How Noise-Canceling Headphones Create 'Anti-Sound' to Delete Noise"
+    "li:How Noise-Canceling Headphones Create 'Anti-Sound' to Delete Noise",
+    "li:How Log-Based Change Data Capture (CDC) Eliminates Dual-Write Bugs"
   ]
 }
