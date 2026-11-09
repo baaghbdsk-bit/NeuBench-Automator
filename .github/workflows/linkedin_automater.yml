@@ -6,6 +6,11 @@ on:
     - cron: '15 */3 * * *'
   workflow_dispatch:
     inputs:
+      topic:
+        description: 'Custom topic to publish (optional; leave blank for autonomous portfolio selection)'
+        required: false
+        default: ''
+        type: string
       dry_run:
         description: 'Dry run mode (simulate without publishing)'
         required: false
@@ -83,11 +88,14 @@ jobs:
           LINKEDIN_MIN_INTERVAL_MINUTES: '180'
           LINKEDIN_SCHEDULE_GRACE_MINUTES: '60'
         run: |
-          if [ "$DRY_RUN" = "true" ]; then
-            python main.py linkedin --dry-run
-          else
-            python main.py linkedin
+          CMD_ARGS="linkedin"
+          if [ -n "${{ inputs.topic }}" ]; then
+            CMD_ARGS="$CMD_ARGS --topic \"${{ inputs.topic }}\""
           fi
+          if [ "$DRY_RUN" = "true" ]; then
+            CMD_ARGS="$CMD_ARGS --dry-run"
+          fi
+          eval "python main.py $CMD_ARGS"
 
       - name: Persist LinkedIn State
         if: always()

@@ -156,8 +156,6 @@ def _clamp_text(value: object, limit: int, strip_urls: bool = True) -> str:
 
 
 FALLBACK_MODELS = [
-    config.GEMINI_MODEL,
-    "gemini-3.5-flash",
     "gemini-3.5-flash-lite",
     "gemini-flash-latest"
 ]
@@ -177,6 +175,7 @@ class AIGenerator:
                     config=types.GenerateContentConfig(
                         system_instruction=system_instruction,
                         temperature=temperature,
+                        http_options={"timeout": 20000},
                     )
                 )
                 if response and response.text:
@@ -512,6 +511,7 @@ Rules:
                         system_instruction=system_instruction,
                         temperature=temperature,
                         response_mime_type="application/json",
+                        http_options={"timeout": 20000},
                     ),
                 )
                 if response and response.text:

@@ -209,6 +209,11 @@ class AutomaterEngine:
 
         self.tracker = ActivityTracker(self.metrics_file, self.history_file)
         self.last_x_message = ""
+        try:
+            from src.linkedin_portfolio_manager import LinkedInPortfolioManager
+            self.portfolio = LinkedInPortfolioManager(self.ai)
+        except Exception:
+            self.portfolio = None
 
     def _x_guard(self, action_type: str, start_time: float) -> bool:
         """Apply the normal trial and daily-cap policy to direct X actions."""
@@ -1549,7 +1554,17 @@ class AutomaterEngine:
         return self._execute_linkedin_post(time.time(), custom_text=text, force=True)
 
 
-    def _execute_linkedin_post(self, start_time: float, custom_text: Optional[str] = None, force: bool = False) -> bool:
+    def execute_linkedin_topic_post(self, topic: str) -> bool:
+        """Publish an executive article on a user-specified topic through LinkedIn Portfolio Manager."""
+        return self._execute_linkedin_post(time.time(), custom_topic=topic, force=True)
+
+    def _execute_linkedin_post(
+        self,
+        start_time: float,
+        custom_text: Optional[str] = None,
+        custom_topic: Optional[str] = None,
+        force: bool = False
+    ) -> bool:
         """Publish one current AI/tech topic with cadence and durable dedupe guards."""
 
         console.print("[bold blue]💼 Mode: Dedicated LinkedIn Post (Standalone)[/bold blue]")
@@ -1695,31 +1710,44 @@ class AutomaterEngine:
                     and not post_is_duplicate(post_state, title=str(trend.get("title", "")), url=str(trend.get("url", "")))
                 ]
 
-                # 2. Build candidate attempts dynamically using the AI Content Creator
+                # 2. Build candidate attempts dynamically (or from user-specified custom_topic)
                 candidate_attempts = []
+                if custom_topic and custom_topic.strip():
+                    clean_topic = custom_topic.strip()
+                    target_demographic = "working_pro"
+                    chosen_format = "versus_comparison" if (" vs " in clean_topic.lower() or " versus " in clean_topic.lower()) else "systems_breakdown"
+                    console.print(f"[bold magenta]🎯 Portfolio Manager Custom Topic:[/bold magenta] {clean_topic}")
+                    mode_tag = "comparison" if chosen_format == "versus_comparison" else "concept"
+                    candidate_attempts.append((mode_tag, {
+                        "title": clean_topic,
+                        "summary": f"In-depth architectural analysis and engineering breakdown of {clean_topic}.",
+                        "company": "NeuBench",
+                        "url": ""
+                    }))
 
                 # If format is trend_news and live signals are available, try live trend first
                 if chosen_format == "trend_news" and available_live_trends:
                     candidate_attempts.append(("trend", available_live_trends[0]))
 
-                # Always generate an autonomous dynamic topic via Gemini
-                try:
-                    console.print(f"[bold cyan]🧠 AI Content Creator ideating topic for [{target_demographic.upper()}] ({chosen_format.upper()})...[/bold cyan]")
-                    dynamic_topic = self.ai.ideate_autonomous_tech_topic(
-                        target_audience=target_demographic,
-                        content_format=chosen_format,
-                        recent_topics=recent_posted_topics,
-                        live_news_signals=available_live_trends
-                    )
-                    mode_tag = "comparison" if (chosen_format == "versus_comparison" or " vs " in dynamic_topic.get("title", "").lower()) else "concept"
-                    candidate_attempts.append((mode_tag, dynamic_topic))
-                except Exception as ideate_err:
-                    console.print(f"[yellow]Dynamic ideation notice: {ideate_err}[/yellow]")
+                if not (custom_topic and custom_topic.strip()):
+                    # Always generate an autonomous dynamic topic via Gemini
+                    try:
+                        console.print(f"[bold cyan]🧠 AI Content Creator ideating topic for [{target_demographic.upper()}] ({chosen_format.upper()})...[/bold cyan]")
+                        dynamic_topic = self.ai.ideate_autonomous_tech_topic(
+                            target_audience=target_demographic,
+                            content_format=chosen_format,
+                            recent_topics=recent_posted_topics,
+                            live_news_signals=available_live_trends
+                        )
+                        mode_tag = "comparison" if (chosen_format == "versus_comparison" or " vs " in dynamic_topic.get("title", "").lower()) else "concept"
+                        candidate_attempts.append((mode_tag, dynamic_topic))
+                    except Exception as ideate_err:
+                        console.print(f"[yellow]Dynamic ideation notice: {ideate_err}[/yellow]")
 
-                # If needed, add remaining live trends as fallback
-                for trend in available_live_trends[:2]:
-                    if ("trend", trend) not in candidate_attempts:
-                        candidate_attempts.append(("trend", trend))
+                    # If needed, add remaining live trends as fallback
+                    for trend in available_live_trends[:2]:
+                        if ("trend", trend) not in candidate_attempts:
+                            candidate_attempts.append(("trend", trend))
 
                 media_path = None
                 media_title = ""
@@ -1800,109 +1828,119 @@ class AutomaterEngine:
                     console.print("[yellow]All LinkedIn candidate topics and concepts posted recently or failed generation.[/yellow]")
                     return False
 
-            if not media_path and carousel_plan:
-                # Decide preferred visual format based on content mode & structure
-                # 1. Educational Concept / Study Notes -> Multi-page PDF Document Carousel
-                # 2. Systems Breakdown / Architecture Comparison -> 1080x1350 Editorial Flow Looping GIF
-                # 3. Fallback -> Technical Hero Infographic
-                has_pages = bool(carousel_plan.get("pages") and len(carousel_plan["pages"]) >= 4)
-                is_study_notes = (mode == "concept" or chosen_format in ("handwritten_notes", "terminology_demystified") or "notes" in mode)
-                is_architecture_flow = (mode == "comparison" or chosen_format in ("systems_breakdown", "versus_comparison", "architecture_flow") or " vs " in selected_trend["title"].lower())
+            if not selected_trend:
+                console.print("[yellow]No valid LinkedIn candidate topic could be resolved.[/yellow]")
+                return False
 
-                # Format 1: Multi-Page Handwritten / Engineering Study Notebook (PDF Carousel)
-                if has_pages and is_study_notes:
+            from src.linkedin_portfolio_manager import LinkedInPortfolioManager
+            portfolio = getattr(self, "portfolio", None) or LinkedInPortfolioManager(self.ai)
+
+            topic_title = str(selected_trend.get("title", "")).strip()
+            topic_summary = str(selected_trend.get("summary") or "").strip()
+
+            # Autonomous Portfolio Manager: decides best visual format (or text-only)
+            visual_fmt, format_reason = portfolio.decide_portfolio_format(
+                topic_title,
+                summary=topic_summary,
+                audience=target_demographic
+            )
+            console.print(f"[bold magenta]🎨 Portfolio Manager Format Decision:[/bold magenta] [cyan]{visual_fmt}[/cyan] ({format_reason})")
+
+            media_path = None
+            media_title = None
+            arch_spec = None
+
+            # Generate visual ONLY if format demands it
+            if visual_fmt == "notebook_carousel":
+                if carousel_plan and carousel_plan.get("pages") and len(carousel_plan["pages"]) >= 4:
                     try:
                         from src.linkedin_visuals import render_linkedin_carousel
                         assets = render_linkedin_carousel(carousel_plan)
                         if assets.get("pdf_path") and Path(assets["pdf_path"]).exists():
                             media_path = assets["pdf_path"]
-                            media_title = str(carousel_plan.get("cover", {}).get("headline") or selected_trend["title"])[:100]
+                            media_title = str(carousel_plan.get("cover", {}).get("headline") or topic_title)[:100]
                             console.print(
                                 f"[bold magenta]📚 LinkedIn Multi-Page Study Notes Carousel ready: {media_path} "
                                 f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
                             )
                     except Exception as car_err:
-                        console.print(f"[yellow]Study notes carousel render failed: {car_err}. Falling back to flow GIF.[/yellow]")
+                        console.print(f"[yellow]Study notes carousel render failed: {car_err}. Suppressing to text-only.[/yellow]")
                         media_path = None
+                        visual_fmt = "text_only"
+                else:
+                    console.print("[yellow]Carousel pages insufficient. Suppressing visual to text-only.[/yellow]")
+                    visual_fmt = "text_only"
 
-                # Format 2: 1080x1350 Editorial Architecture Flow Looping GIF (100% Topic-Specific AI Components)
-                if not media_path and (is_architecture_flow or not is_study_notes):
-                    try:
-                        from src.linkedin_diagrams import build_editorial_architecture_spec, render_editorial_architecture_gif
-                        flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
-                        arch_spec = build_editorial_architecture_spec(
-                            selected_trend["title"],
-                            summary=selected_trend.get("summary", ""),
-                            flow_steps=flow_steps,
-                            audience=target_demographic,
-                            ai_generator=self.ai
+            elif visual_fmt == "animated_flow_gif":
+                try:
+                    from src.linkedin_diagrams import build_editorial_architecture_spec, render_editorial_architecture_gif
+                    flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
+                    arch_spec = build_editorial_architecture_spec(
+                        topic_title,
+                        summary=topic_summary,
+                        flow_steps=flow_steps,
+                        audience=target_demographic,
+                        ai_generator=self.ai
+                    )
+                    gif_res = render_editorial_architecture_gif(arch_spec)
+                    if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
+                        media_path = gif_res["gif_path"]
+                        media_title = str(topic_title)[:100]
+                        console.print(
+                            f"[bold magenta]🎞️ Topic-Specific Architecture Flow Looping GIF ready: {media_path}[/bold magenta]"
                         )
-                        gif_res = render_editorial_architecture_gif(arch_spec)
-                        if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
-                            media_path = gif_res["gif_path"]
-                            media_title = str(selected_trend["title"])[:100]
-                            console.print(
-                                f"[bold magenta]🎞️ Topic-Specific Architecture Flow Looping GIF ready: {media_path}[/bold magenta]"
-                            )
-                    except Exception as gif_err:
-                        console.print(f"[yellow]Editorial flow GIF render skipped: {gif_err}. Falling back to carousel/hero.[/yellow]")
-                        media_path = None
+                except Exception as gif_err:
+                    console.print(f"[yellow]Editorial flow GIF render skipped: {gif_err}. Suppressing to text-only.[/yellow]")
+                    media_path = None
+                    visual_fmt = "text_only"
 
-                # Format 3: Fallback to Multi-page Carousel or Hero Image
-                if not media_path:
-                    try:
-                        from src.linkedin_visuals import render_linkedin_carousel, render_linkedin_hero
-                        if has_pages:
-                            assets = render_linkedin_carousel(carousel_plan)
-                            media_path = assets.get("pdf_path")
-                            media_title = str(carousel_plan.get("cover", {}).get("headline") or selected_trend["title"])[:100]
-                            console.print(f"[bold magenta]🎞️ LinkedIn carousel fallback ready: {media_path}[/bold magenta]")
-                        else:
-                            media_path = render_linkedin_hero(carousel_plan)
-                            media_title = str(carousel_plan.get("cover", {}).get("headline") or selected_trend["title"])[:100]
-                            console.print(f"[bold magenta]🎞️ LinkedIn hero image fallback ready: {media_path}[/bold magenta]")
-                    except Exception as fallback_error:
-                        console.print(f"[dim]Visual fallback failed too: {fallback_error}[/dim]")
-                        media_path = None
+            elif visual_fmt == "text_only":
+                media_path = None
+                media_title = None
+                console.print(f"[bold cyan]✍️ Publishing as high-signal Text-Only article (no forced visual).[/bold cyan]")
 
-                # Ensure post text is in-depth, rich, and aligns 100% with the attached visual format
-                visual_fmt = "notebook_carousel" if (media_path and str(media_path).endswith(".pdf")) else "animated_flow_gif" if (media_path and str(media_path).endswith(".gif")) else "hero_image"
-                needs_text_expansion = (
-                    len(li_text) < 600
-                    or (visual_fmt == "notebook_carousel" and "animated" in li_text.lower())
-                    or (visual_fmt == "animated_flow_gif" and ("field note" in li_text.lower() or "study note" in li_text.lower()))
-                )
-                if needs_text_expansion:
-                    try:
-                        console.print(f"[cyan]Aligning and expanding LinkedIn article for {visual_fmt}...[/cyan]")
-                        li_text = self.ai.generate_full_linkedin_article(
-                            topic=selected_trend["title"],
-                            summary=selected_trend.get("summary", ""),
-                            concept_a=item.get("concept_a", ""),
-                            concept_b=item.get("concept_b", ""),
-                            format_type=mode,
-                            target_audience=target_demographic,
-                            visual_format=visual_fmt
-                        )
-                    except Exception as exp_err:
-                        console.print(f"[dim]Article alignment note: {exp_err}[/dim]")
+            # Executive Pre-Publish Gate Audit
+            console.print("[bold cyan]🛡️ Running Pre-Publish Executive Quality Gate...[/bold cyan]")
+            approved, final_text, final_media, audit_notes = portfolio.pre_publish_review_and_gate(
+                topic=topic_title,
+                summary=topic_summary,
+                candidate_text=li_text,
+                media_path=media_path,
+                visual_format=visual_fmt,
+                spec=arch_spec,
+                target_audience=target_demographic
+            )
 
+            for note in audit_notes:
+                console.print(f"[dim]  • {note}[/dim]")
+
+            if not approved:
+                console.print(f"[bold red]❌ Quality Gate Rejected Post for '{topic_title}': Failed executive standards. Aborting to protect portfolio integrity.[/bold red]")
+                return False
+
+            li_text = final_text
+            media_path = final_media
+
+            # Ensure hashtags are included cleanly if present in plan
+            if carousel_plan:
                 tags = [
                     str(tag).strip()
                     for tag in carousel_plan.get("hashtags", [])
                     if str(tag).strip()
                 ]
                 if tags and "#" not in li_text[-200:]:
-                    li_text = f"{li_text.rstrip()}\n\n{' '.join(tags[:5])}"
+                    tag_line = " ".join(tags[:5])
+                    li_text = f"{li_text.rstrip()}\n\n{tag_line}"
 
-            console.print(f"[green]Generated LinkedIn Draft:[/green] {li_text[:120]}...")
+            console.print(f"[green]✅ Approved LinkedIn Post ({len(li_text)} chars):[/green] {li_text[:180]}...")
 
             first_comm = None
             if carousel_plan:
                 first_comm = str(carousel_plan.get("first_comment") or "").strip()
                 site = str((carousel_plan.get("cta") or {}).get("website") or "app.neubench.workers.dev").strip()
                 if first_comm and site and "http" not in first_comm:
-                    first_comm = f"{first_comm}\n\n{site if site.startswith('http') else 'https://' + site}"
+                    site_url = site if site.startswith("http") else "https://" + site
+                    first_comm = f"{first_comm}\n\n{site_url}"
                 if first_comm:
                     console.print(
                         f"[dim]💬 First-comment fallback ready (LinkedIn may skip it on personal tokens):[/dim] "

@@ -98,6 +98,7 @@ def main():
     parser.add_argument("--text", type=str, default="", help="Custom text for direct post")
     parser.add_argument("--dry-run", action="store_true", help="Run in simulation mode without publishing live")
     parser.add_argument("--id", type=str, default="", help="Target opportunity ID for approval")
+    parser.add_argument("--topic", type=str, default="", help="Custom topic for LinkedIn or other posts")
 
     args = parser.parse_args()
 
@@ -217,7 +218,9 @@ def main():
             sys.exit(1)
 
     elif args.action == "linkedin":
-        if args.text:
+        if args.topic:
+            ok = engine.execute_linkedin_topic_post(args.topic)
+        elif args.text:
             ok = engine.execute_linkedin_custom_post(args.text)
         else:
             ok = engine.run_single_cycle(force_action="linkedin")
