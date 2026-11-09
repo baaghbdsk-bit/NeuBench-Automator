@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T07:03:16.754305+00:00",
+  "last_success_at": "2026-11-09T08:03:32.244855+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -551,6 +551,15 @@
       "status": "success",
       "posted_at": "2026-11-09T07:03:16.754305+00:00",
       "post_urn": "urn:li:share:7525452935988703232"
+    },
+    {
+      "topic_key": "title:956814779f72a08254d1a15efa8c1af4",
+      "title": "Demystifying Bloom Filters: The Space-Efficient Data Structure That Never Says No",
+      "url": "",
+      "content_hash": "754166220dd617ef8d675e78090f8095",
+      "status": "success",
+      "posted_at": "2026-11-09T08:03:32.244855+00:00",
+      "post_urn": "urn:li:share:7525468100788469760"
     }
   ],
   "posted_titles": [
@@ -614,6 +623,7 @@
     "li:Agent memory needs its OpenTelemetry moment",
     "li:CPU vs. GPU: The Marathon Runner vs. The Mega-Crowd of Artists",
     "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown for High-Throughput Backends",
-    "li:Agentic Workflows vs. Static RAG: The Evolution of AI Problem-Solving"
+    "li:Agentic Workflows vs. Static RAG: The Evolution of AI Problem-Solving",
+    "li:Demystifying Bloom Filters: The Space-Efficient Data Structure That Never Says No"
   ]
 }
