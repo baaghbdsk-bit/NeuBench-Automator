@@ -294,7 +294,9 @@
     "bsky:Authorization Drift in LLM Agents: Evaluating Boundary Compliance in Multi-Step Tool Use",
     "cpu-z 64gb ram drop",
     "li:Kirlian Photography: Building Your Own Equipment",
-    "bsky:Demystifying Ring-AllReduce: Optimal Bandwidth Synchronization in Distributed Training"
+    "bsky:Demystifying Ring-AllReduce: Optimal Bandwidth Synchronization in Distributed Training",
+    "alex michelsen",
+    "bsky:Knowing When to Teach: Learning from Teachable Prefixes in Multilingual Reasoning Distillation"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -451,7 +453,8 @@
     "8f18daae904c0368a938c8cc91665096fb3348e29a82fe90659bcee4e7745ba9",
     "c2fa0ee854d31c64f6acc54446ebc7e0b833c8a9645f44b7e9a1a7621b2c537a",
     "ffff21fdfc12b828f64328ae153696c19db539869f6654cf821e1c24058182eb",
-    "8c71833d75e8ba2bdb59ccdac07e6d0fa3a7df752bdda93edac8ee12959dbd74"
+    "8c71833d75e8ba2bdb59ccdac07e6d0fa3a7df752bdda93edac8ee12959dbd74",
+    "c6014448be3ace14e5707ac1eb017d56f31fc003ec63e6b671c745cb85a60dc6"
   ],
   "pending_x_actions": [
     {
@@ -552,7 +555,8 @@
         "post:5745c1f0ccd85573f0d367c4d891fc0974336f32f098c00106b0832062aa3cab",
         "post:e3b322ca9b54f1d5142d93ddd1ab7ebbc120fb2909f16d498307509b0043671d",
         "post:f38cc51d42c77e2c325a108a5b486c44e9a909942effd4168114f59d0a8dabe1",
-        "post:c91bee7f08117f4dd9f6415ce1f3c687661a7abbc841919fd44ee0e34cbdcb22"
+        "post:c91bee7f08117f4dd9f6415ce1f3c687661a7abbc841919fd44ee0e34cbdcb22",
+        "post:dfdaacd574020045bf3d105f7076c6330f0e66bf9e7659c229f48e71073602b7"
       ],
       "pending": []
     },
