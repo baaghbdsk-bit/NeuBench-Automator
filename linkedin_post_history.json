@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T15:09:29.146910+00:00",
+  "last_success_at": "2026-11-09T19:02:53.026038+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -614,6 +614,15 @@
       "status": "success",
       "posted_at": "2026-11-09T15:09:29.146910+00:00",
       "post_urn": "urn:li:share:7525575293693100032"
+    },
+    {
+      "topic_key": "title:6697d23c58e605a39f07283ff27addff",
+      "title": "What is an AI Hallucination?",
+      "url": "",
+      "content_hash": "e0b2be35d69bf05e72fce2a0d47bdcf4",
+      "status": "success",
+      "posted_at": "2026-11-09T19:02:53.026038+00:00",
+      "post_urn": "urn:li:share:7525634028532592640"
     }
   ],
   "posted_titles": [
@@ -684,6 +693,7 @@
     "li:How Log-Based Change Data Capture (CDC) Eliminates Dual-Write Bugs",
     "li:Demystifying LLM Context Windows and Sliding Attention Mechanisms",
     "li:Kirlian Photography: Building Your Own Equipment",
-    "li:CPU vs. GPU: The Brainiac vs. The Artist"
+    "li:CPU vs. GPU: The Brainiac vs. The Artist",
+    "li:What is an AI Hallucination?"
   ]
 }
