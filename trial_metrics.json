@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T11:03:59.615433+00:00",
+    "last_updated": "2026-11-09T12:03:31.762524+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 802,
-    "original_posts_attempted": 179,
-    "original_posts_succeeded": 170,
+    "total_cycles_executed": 806,
+    "original_posts_attempted": 180,
+    "original_posts_succeeded": 171,
     "replies_attempted": 67,
     "replies_succeeded": 25,
-    "reposts_attempted": 45,
+    "reposts_attempted": 46,
     "reposts_succeeded": 13,
-    "actions_skipped": 133,
+    "actions_skipped": 134,
     "failed_operations": 28,
-    "ai_generation_requests": 399,
+    "ai_generation_requests": 402,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2807,6 +2807,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (49/28).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-09T12:02:52.675203+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cpu-z 64gb ram drop",
+      "content_preview": "Bro dropped 64GB RAM just to open 4 tabs of Chrome and still complain about lag. We are not building NASA rockets, we ar",
+      "reason": "",
+      "duration_s": 34.24
+    },
+    {
+      "timestamp": "2026-11-09T12:03:11.687821+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Generating 20,000 volts across an air gap at 50 kHz while keeping your finger an inch away requires the kind of discipli",
+      "reason": "",
+      "duration_s": 19.0
+    },
+    {
+      "timestamp": "2026-11-09T12:03:31.189535+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying Ring-AllReduce: Optimal Bandwidth Synchronization in Distributed Training",
+      "content_preview": "Scaling LLM training? Stop broadcasting full model states. Ring-AllReduce partitions tensors across a logical ring so pe",
+      "reason": "",
+      "duration_s": 19.5
+    },
+    {
+      "timestamp": "2026-11-09T12:03:31.762501+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (52/28).",
       "duration_s": 0.0
     }
   ]

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T11:03:43.832499+00:00",
+  "last_success_at": "2026-11-09T12:03:11.682264+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -596,6 +596,15 @@
       "status": "success",
       "posted_at": "2026-11-09T11:03:43.832499+00:00",
       "post_urn": "urn:li:share:7525513447229333504"
+    },
+    {
+      "topic_key": "url:https://imagesco.com/articles/kirlian/kirlian-photography.html",
+      "title": "Kirlian Photography: Building Your Own Equipment",
+      "url": "https://imagesco.com/articles/kirlian/kirlian-photography.html",
+      "content_hash": "672d27bfc7e194f98f0a46b021dd4529",
+      "status": "success",
+      "posted_at": "2026-11-09T12:03:11.682264+00:00",
+      "post_urn": "urn:li:share:7525528412149678080"
     }
   ],
   "posted_titles": [
@@ -664,6 +673,7 @@
     "li:What is Ring-AllReduce? The Low-Bandwidth Primitive Powering Distributed GPU Training",
     "li:How Noise-Canceling Headphones Create 'Anti-Sound' to Delete Noise",
     "li:How Log-Based Change Data Capture (CDC) Eliminates Dual-Write Bugs",
-    "li:Demystifying LLM Context Windows and Sliding Attention Mechanisms"
+    "li:Demystifying LLM Context Windows and Sliding Attention Mechanisms",
+    "li:Kirlian Photography: Building Your Own Equipment"
   ]
 }
