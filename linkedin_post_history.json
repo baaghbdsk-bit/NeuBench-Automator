@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-09T06:03:05.570836+00:00",
+  "last_success_at": "2026-11-09T06:31:09.088175+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -533,6 +533,15 @@
       "status": "success",
       "posted_at": "2026-11-09T06:03:05.570836+00:00",
       "post_urn": "urn:li:share:7525437789530804224"
+    },
+    {
+      "topic_key": "title:5fd338a7c5db0353460627ce659e3c3d",
+      "title": "B-Tree vs. LSM-Tree: The Storage Engine Showdown for High-Throughput Backends",
+      "url": "",
+      "content_hash": "9c066e190221312b102c2bbfcb38d758",
+      "status": "success",
+      "posted_at": "2026-11-09T06:31:09.088175+00:00",
+      "post_urn": "urn:li:share:7525444850566135808"
     }
   ],
   "posted_titles": [
@@ -594,6 +603,7 @@
     "li:Agent Memory Architecture: Why AI Needs Its OpenTelemetry Moment",
     "li:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
     "li:Agent memory needs its OpenTelemetry moment",
-    "li:CPU vs. GPU: The Marathon Runner vs. The Mega-Crowd of Artists"
+    "li:CPU vs. GPU: The Marathon Runner vs. The Mega-Crowd of Artists",
+    "li:B-Tree vs. LSM-Tree: The Storage Engine Showdown for High-Throughput Backends"
   ]
 }
