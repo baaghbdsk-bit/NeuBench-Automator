@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T10:03:43.844485+00:00",
+    "last_updated": "2026-11-09T11:03:59.615433+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 798,
-    "original_posts_attempted": 178,
-    "original_posts_succeeded": 169,
-    "replies_attempted": 66,
+    "total_cycles_executed": 802,
+    "original_posts_attempted": 179,
+    "original_posts_succeeded": 170,
+    "replies_attempted": 67,
     "replies_succeeded": 25,
     "reposts_attempted": 45,
     "reposts_succeeded": 13,
-    "actions_skipped": 132,
+    "actions_skipped": 133,
     "failed_operations": 28,
-    "ai_generation_requests": 396,
+    "ai_generation_requests": 399,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2768,6 +2768,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (46/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-09T11:03:05.464603+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "weather houston",
+      "content_preview": "Googling “weather houston” because you can’t tell if you’re sweating, drowning, or just being boiled alive in ambient hu",
+      "reason": "",
+      "duration_s": 51.81
+    },
+    {
+      "timestamp": "2026-11-09T11:03:43.837931+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "A 1-million-token context window sounds like a silver bullet until your cloud provider bill arrives and your time-to-fir",
+      "reason": "",
+      "duration_s": 38.36
+    },
+    {
+      "timestamp": "2026-11-09T11:03:59.060312+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Authorization Drift in LLM Agents: Evaluating Boundary Compliance in Multi-Step Tool Use",
+      "content_preview": "LLM agents executing multi-step tool use often exhibit authorization drift across data, scope, and time—without adversar",
+      "reason": "",
+      "duration_s": 15.22
+    },
+    {
+      "timestamp": "2026-11-09T11:03:59.615417+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (49/28).",
+      "duration_s": 0.0
     }
   ]
 }
