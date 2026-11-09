@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T16:02:45.480171+00:00",
+    "last_updated": "2026-11-09T17:03:45.328127+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 822,
-    "original_posts_attempted": 184,
-    "original_posts_succeeded": 175,
-    "replies_attempted": 70,
+    "total_cycles_executed": 826,
+    "original_posts_attempted": 185,
+    "original_posts_succeeded": 176,
+    "replies_attempted": 71,
     "replies_succeeded": 25,
     "reposts_attempted": 47,
     "reposts_succeeded": 13,
-    "actions_skipped": 141,
+    "actions_skipped": 143,
     "failed_operations": 28,
-    "ai_generation_requests": 411,
+    "ai_generation_requests": 413,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3007,6 +3007,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (61/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-09T17:03:38.310751+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "शोएब बशीर",
+      "content_preview": "Shoaib Bashir taking wickets on Indian pitches is proof that even Google Maps gets confused by our local turning tracks.",
+      "reason": "",
+      "duration_s": 29.14
+    },
+    {
+      "timestamp": "2026-11-09T17:03:38.337270+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 114.2m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-09T17:03:44.437886+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines",
+      "content_preview": "Locking capital into $3.4B of gas turbines reveals a harsh reality: frontier scaling is constrained by joules, not param",
+      "reason": "",
+      "duration_s": 6.09
+    },
+    {
+      "timestamp": "2026-11-09T17:03:45.328103+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (63/28).",
       "duration_s": 0.01
     }
   ]
