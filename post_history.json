@@ -279,7 +279,10 @@
     "bsky:Demystifying GPU Tensor Cores and Mixed-Precision MMA",
     "steve sarkisian texas longhorns comments",
     "li:Demystifying Bloom Filters: The Space-Efficient Data Structure That Never Says No",
-    "bsky:SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes"
+    "bsky:SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes",
+    "kaviya maran",
+    "li:What is Ring-AllReduce? The Low-Bandwidth Primitive Powering Distributed GPU Training",
+    "bsky:Demystifying Rotary Position Embeddings (RoPE): How Modern LLMs Keep Track of Token Order"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -431,7 +434,8 @@
     "91c40b8b9f86fc0f4d38ddd751412fe0597bdf3e81b3662218cb88f474bdc77c",
     "b00025a3c8edf79a633b70ee8a984f14baf13686a5ee9650f14fdd05fcce846d",
     "e0533b93b1b83bf467b5ad196df40d1a2a04da07e6ea66461a5e7a381c2e34e9",
-    "d8cb4eaebe54b9ea82cbe1e159b2c715c6beb0a67de015c6a4d972352908a0f8"
+    "d8cb4eaebe54b9ea82cbe1e159b2c715c6beb0a67de015c6a4d972352908a0f8",
+    "d68dda90eb2026ba1687e36845621bc8c76127b9cf4d1550933f813aa32d271f"
   ],
   "pending_x_actions": [
     {
@@ -527,7 +531,8 @@
         "post:8e27a7a609033dfc8fea5721655c4c670cd79dbf4f15ef6dad944ca57491a1f3",
         "post:7cb7cdc55bf853286db31514635b0f17dce3a1bee5c2b1b08e9c2cc1a76312d2",
         "post:3a74d511693b1f582b898a48a71cfc40455225da08d8b978bdf14cb816a2b242",
-        "post:b3d0dc31e78a770939d78b40e46d8203a50ac184fe7fae35a01b447d447bd41c"
+        "post:b3d0dc31e78a770939d78b40e46d8203a50ac184fe7fae35a01b447d447bd41c",
+        "post:6448e29ca5a7d7821956d7fcdbdd0063730bc994ff2706a0872640bc2d583f83"
       ],
       "pending": []
     },

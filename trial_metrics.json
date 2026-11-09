@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T08:03:50.647855+00:00",
+    "last_updated": "2026-11-09T08:54:25.889372+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 786,
-    "original_posts_attempted": 175,
-    "original_posts_succeeded": 166,
+    "total_cycles_executed": 790,
+    "original_posts_attempted": 176,
+    "original_posts_succeeded": 167,
     "replies_attempted": 64,
     "replies_succeeded": 25,
-    "reposts_attempted": 44,
+    "reposts_attempted": 45,
     "reposts_succeeded": 13,
-    "actions_skipped": 129,
+    "actions_skipped": 130,
     "failed_operations": 28,
-    "ai_generation_requests": 387,
+    "ai_generation_requests": 390,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -2647,6 +2647,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (37/28).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-09T08:53:00.723759+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "kaviya maran",
+      "content_preview": "IPL cameramen will literally ignore a hat-trick ball just to keep Kaviya Maran’s micro-expressions in crystal clear 4K. ",
+      "reason": "",
+      "duration_s": 30.34
+    },
+    {
+      "timestamp": "2026-11-09T08:54:02.919205+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Training a 70-billion parameter model across 1,024 GPUs should theoretically saturate your network fabric instantly. If ",
+      "reason": "",
+      "duration_s": 62.19
+    },
+    {
+      "timestamp": "2026-11-09T08:54:25.292590+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying Rotary Position Embeddings (RoPE): How Modern LLMs Keep Track of Token Order",
+      "content_preview": "Absolute position tracks fixed token indices. RoPE rotates Q/K vector pairs by position-scaled angles: the attention dot",
+      "reason": "",
+      "duration_s": 22.37
+    },
+    {
+      "timestamp": "2026-11-09T08:54:25.889353+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (40/28).",
       "duration_s": 0.01
     }
   ]
