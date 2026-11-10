@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T19:11:13.023912+00:00",
+    "last_updated": "2026-11-10T20:02:31.599761+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 918,
-    "original_posts_attempted": 213,
+    "total_cycles_executed": 921,
+    "original_posts_attempted": 214,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 171,
-    "failed_operations": 51,
-    "ai_generation_requests": 477,
+    "actions_skipped": 172,
+    "failed_operations": 52,
+    "ai_generation_requests": 479,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3968,6 +3968,36 @@
       "content_preview": "Structured business profiles in LLM inference pipelines shift the retrieval paradigm. Deterministic index lookups meet p",
       "reason": "",
       "duration_s": 5.65
+    },
+    {
+      "timestamp": "2026-11-10T20:02:25.587361+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "raiders record",
+      "content_preview": "Being a Raiders fan is just paying a monthly subscription to emotional damage with zero chance of a software update. #Ra",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.63
+    },
+    {
+      "timestamp": "2026-11-10T20:02:25.605263+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 119.6m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T20:02:31.594055+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "RidgeFill: Training-Free Late-Layer Cache Fill for Faster Prefill",
+      "content_preview": "RidgeFill accelerates LLM prefill by truncating upper-layer compute. It runs lower layers to a split point, predicts lat",
+      "reason": "",
+      "duration_s": 5.98
     }
   ]
 }
