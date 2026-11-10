@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-10T18:02:49.242972+00:00",
+  "last_success_at": "2026-11-10T21:19:45.245430+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -704,6 +704,15 @@
       "status": "success",
       "posted_at": "2026-11-10T18:02:49.242972+00:00",
       "post_urn": "urn:li:share:7525981302374699008"
+    },
+    {
+      "topic_key": "title:e92e8dab0c31a5f180031c6e88d11dd3",
+      "title": "What is an LSM-Tree? The Write-Optimized Engine Behind Modern Databases",
+      "url": "",
+      "content_hash": "b9d58c9609d1ced54ca8dbf01a302e3c",
+      "status": "success",
+      "posted_at": "2026-11-10T21:19:45.245430+00:00",
+      "post_urn": "urn:li:ugcPost:7526030862711468032"
     }
   ],
   "posted_titles": [
@@ -784,6 +793,7 @@
     "li:How Touchscreens Actually Feel Your Finger: The Magic of Projected Capacitance",
     "li:Unpacking AI Context Windows: How Long-Context LLMs Read Entire Books",
     "li:bosch share price",
-    "li:B-Tree vs. LSM-Tree: How Databases Store and Write Your Data"
+    "li:B-Tree vs. LSM-Tree: How Databases Store and Write Your Data",
+    "li:What is an LSM-Tree? The Write-Optimized Engine Behind Modern Databases"
   ]
 }
