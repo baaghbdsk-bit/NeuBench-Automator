@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-10T13:09:42.115581+00:00",
+  "last_success_at": "2026-11-10T14:54:38.898919+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -686,6 +686,15 @@
       "status": "success",
       "posted_at": "2026-11-10T13:09:42.115581+00:00",
       "post_urn": "urn:li:share:7525907536022081536"
+    },
+    {
+      "topic_key": "title:7781ec381aff03059c9c34c804e64c97",
+      "title": "bosch share price",
+      "url": "",
+      "content_hash": "1730d35b49401ee4e41444f0fa5b169d",
+      "status": "success",
+      "posted_at": "2026-11-10T14:54:38.898919+00:00",
+      "post_urn": "urn:li:share:7525933947969728512"
     }
   ],
   "posted_titles": [
@@ -764,6 +773,7 @@
     "li:CPU vs. GPU: The Brains Behind Your Favorite Video Games and AI",
     "li:Recursion vs. Iteration",
     "li:How Touchscreens Actually Feel Your Finger: The Magic of Projected Capacitance",
-    "li:Unpacking AI Context Windows: How Long-Context LLMs Read Entire Books"
+    "li:Unpacking AI Context Windows: How Long-Context LLMs Read Entire Books",
+    "li:bosch share price"
   ]
 }
