@@ -344,7 +344,8 @@
     "bsky:What is an KV Cache Eviction Policy?",
     "bsky:OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google",
     "bsky:RidgeFill: Training-Free Late-Layer Cache Fill for Faster Prefill",
-    "bsky:onóna: Twin Embeddings with Tied Unembeddings"
+    "bsky:onóna: Twin Embeddings with Tied Unembeddings",
+    "bsky:What is a Logit? The Raw Math Behind AI Probabilities"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -645,7 +646,8 @@
         "post:98b26010e2f5c6c8e22e23b3c11b712608be3f241300f094d42c269a5b9b90ab",
         "post:2e917f12ba6b273da95a80cab8dd26a429ff01d6d2e295e4d2f212616f15abe0",
         "post:db41306aff52a281f97e491dd3fc12867b2fc5244f9411daad52364b951921dd",
-        "post:e1fb0142e1dfa62d326e9e4355173db312e87f154b2522c1baf16b7a5b3861b7"
+        "post:e1fb0142e1dfa62d326e9e4355173db312e87f154b2522c1baf16b7a5b3861b7",
+        "post:95a265f31d0c6dfd22e2d5d179c5fad4a38f399080d55ee9e311164db5fedcbc"
       ],
       "pending": []
     },
