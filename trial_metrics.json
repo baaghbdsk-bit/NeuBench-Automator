@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T13:09:45.953911+00:00",
+    "last_updated": "2026-11-10T14:13:22.896444+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 899,
-    "original_posts_attempted": 207,
+    "total_cycles_executed": 902,
+    "original_posts_attempted": 208,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 166,
-    "failed_operations": 45,
-    "ai_generation_requests": 463,
+    "actions_skipped": 167,
+    "failed_operations": 46,
+    "ai_generation_requests": 465,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3778,6 +3778,36 @@
       "content_preview": "Unsanitized model weights are an arbitrary code execution vector. As supply-chain attacks scale, open-weight ecosystems ",
       "reason": "",
       "duration_s": 3.82
+    },
+    {
+      "timestamp": "2026-11-10T14:13:16.879081+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "country music singer dies",
+      "content_preview": "Another country singer gone? Man, 2024 is running through cowboy hats faster than tech bros running through crypto scams",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.21
+    },
+    {
+      "timestamp": "2026-11-10T14:13:16.895552+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 63.6m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T14:13:22.890794+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "How Self-Driving Cars See the Road",
+      "content_preview": "Multimodal perception pipelines mirror distributed systems: cameras provide high-throughput semantic streams, LiDAR adds",
+      "reason": "",
+      "duration_s": 5.99
     }
   ]
 }
