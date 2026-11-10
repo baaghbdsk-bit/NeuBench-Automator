@@ -333,7 +333,9 @@
     "bsky:How Many Exposures Does a World Model Need? Learning Unseen Game Mechanics at Test Time",
     "bsky:All Quiet on the Neural Front: Language Models Do Not Report Injected Pain States",
     "li:How Touchscreens Actually Feel Your Finger: The Magic of Projected Capacitance",
-    "bsky:What is a Logit? The Raw Scoring Engine Behind AI Predictions"
+    "bsky:What is a Logit? The Raw Scoring Engine Behind AI Predictions",
+    "li:Unpacking AI Context Windows: How Long-Context LLMs Read Entire Books",
+    "bsky:Cyberattacks threaten to make open-source AI a little less open, Hugging Face exec warns"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -625,7 +627,8 @@
         "post:73376943ee4d2bff2507614c0078a10132001f1421faeb51805fb7e151cabef0",
         "post:3b36b456d100d499839990f2924d3c02cd5821d3b3e8b20545fc83049ff180e9",
         "post:d2ee5f31e5c918950c3d419ad56082774905c12dfac7f2d97ed5f572c06974dd",
-        "post:e507e18defc23f91c0fb5bf6513f1a889ad68fe3f111217fedcfc7ccd82028a7"
+        "post:e507e18defc23f91c0fb5bf6513f1a889ad68fe3f111217fedcfc7ccd82028a7",
+        "post:9da386b6e013a9cdd25e9b74e0451f4be9f696b79326c1888ae48d83d0a129ea"
       ],
       "pending": []
     },
