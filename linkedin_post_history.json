@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-10T03:36:17.389568+00:00",
+  "last_success_at": "2026-11-10T07:02:34.469129+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -659,6 +659,15 @@
       "status": "success",
       "posted_at": "2026-11-10T03:36:17.389568+00:00",
       "post_urn": "urn:li:share:7525763232876326912"
+    },
+    {
+      "topic_key": "title:f0f85f60193209fa51b0e1e3327a26b9",
+      "title": "Recursion vs. Iteration",
+      "url": "",
+      "content_hash": "e61f5f1f22a0b5b98d3f98d65eb87bbf",
+      "status": "success",
+      "posted_at": "2026-11-10T07:02:34.469129+00:00",
+      "post_urn": "urn:li:share:7525815145999056896"
     }
   ],
   "posted_titles": [
@@ -734,6 +743,7 @@
     "li:What is a Logit? The Raw Probability Precursors Dictating LLM Outputs",
     "li:Zero-Copy PCIe GPUDirect Storage: Bypassing Host Memory Bottlenecks in Large-Scale AI Clusters",
     "li:oneplus coloros 17 update schedule",
-    "li:CPU vs. GPU: The Brains Behind Your Favorite Video Games and AI"
+    "li:CPU vs. GPU: The Brains Behind Your Favorite Video Games and AI",
+    "li:Recursion vs. Iteration"
   ]
 }

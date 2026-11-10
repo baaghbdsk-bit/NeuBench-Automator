@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T06:02:22.537270+00:00",
+    "last_updated": "2026-11-10T07:02:39.568860+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 880,
-    "original_posts_attempted": 200,
+    "total_cycles_executed": 883,
+    "original_posts_attempted": 201,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
     "actions_skipped": 162,
-    "failed_operations": 38,
-    "ai_generation_requests": 448,
+    "failed_operations": 39,
+    "ai_generation_requests": 451,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3588,6 +3588,36 @@
       "content_preview": "Logits are raw score precursors—like unscaled points before a grading curve. \n\nNever compute loss on Softmax probabiliti",
       "reason": "",
       "duration_s": 11.03
+    },
+    {
+      "timestamp": "2026-11-10T07:02:12.423391+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "henry cavill",
+      "content_preview": "Henry Cavill is proof that society peaked when we decided one man could play Superman, build gaming PCs, and paint Warha",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 5.88
+    },
+    {
+      "timestamp": "2026-11-10T07:02:34.475251+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "A recursive function that works perfectly in testing can bring down a production cluster with a single unexpected payloa",
+      "reason": "",
+      "duration_s": 22.05
+    },
+    {
+      "timestamp": "2026-11-10T07:02:39.564470+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Sage-Taiyi: A Metacognitive Architecture for Scientific Discovery",
+      "content_preview": "Sage-Taiyi decouples heuristic search from epistemic state tracking. By enforcing explicit monitoring of assumptions and",
+      "reason": "",
+      "duration_s": 5.08
     }
   ]
 }
