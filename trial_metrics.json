@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T09:09:35.187233+00:00",
+    "last_updated": "2026-11-10T10:07:42.227141+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 889,
-    "original_posts_attempted": 203,
+    "total_cycles_executed": 892,
+    "original_posts_attempted": 204,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
     "actions_skipped": 164,
-    "failed_operations": 41,
-    "ai_generation_requests": 455,
+    "failed_operations": 42,
+    "ai_generation_requests": 458,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3678,6 +3678,36 @@
       "content_preview": "Linear pain directions in LLMs can trigger destructive actions when amplified, yet models fail to report these internal ",
       "reason": "",
       "duration_s": 10.7
+    },
+    {
+      "timestamp": "2026-11-10T10:07:17.464697+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "ss united states",
+      "content_preview": "SS United States is literally out here getting evicted from the ocean while my Uber Eats driver gets lost on a straight ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.89
+    },
+    {
+      "timestamp": "2026-11-10T10:07:36.666943+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your smartphone knows where your finger is before you even press down, and it does it through a sheet of glass using inv",
+      "reason": "",
+      "duration_s": 19.19
+    },
+    {
+      "timestamp": "2026-11-10T10:07:42.220767+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Scoring Engine Behind AI Predictions",
+      "content_preview": "Think of logits like raw judge scores (-3, 12, 45) before normalization. \n\nEngineering rule: Never apply Softmax before ",
+      "reason": "",
+      "duration_s": 5.55
     }
   ]
 }

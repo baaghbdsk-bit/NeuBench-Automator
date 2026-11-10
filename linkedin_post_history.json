@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-10T07:02:34.469129+00:00",
+  "last_success_at": "2026-11-10T10:07:36.658650+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -668,6 +668,15 @@
       "status": "success",
       "posted_at": "2026-11-10T07:02:34.469129+00:00",
       "post_urn": "urn:li:share:7525815145999056896"
+    },
+    {
+      "topic_key": "title:89a3f0b7031ca25e43c85c0534a30e52",
+      "title": "How Touchscreens Actually Feel Your Finger: The Magic of Projected Capacitance",
+      "url": "",
+      "content_hash": "a2d76e06e5b79ea4b91e175553c3af81",
+      "status": "success",
+      "posted_at": "2026-11-10T10:07:36.658650+00:00",
+      "post_urn": "urn:li:ugcPost:7525861710096666624"
     }
   ],
   "posted_titles": [
@@ -744,6 +753,7 @@
     "li:Zero-Copy PCIe GPUDirect Storage: Bypassing Host Memory Bottlenecks in Large-Scale AI Clusters",
     "li:oneplus coloros 17 update schedule",
     "li:CPU vs. GPU: The Brains Behind Your Favorite Video Games and AI",
-    "li:Recursion vs. Iteration"
+    "li:Recursion vs. Iteration",
+    "li:How Touchscreens Actually Feel Your Finger: The Magic of Projected Capacitance"
   ]
 }
