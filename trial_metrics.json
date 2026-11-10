@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T01:02:30.555651+00:00",
+    "last_updated": "2026-11-10T02:02:20.592086+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 861,
-    "original_posts_attempted": 194,
+    "total_cycles_executed": 864,
+    "original_posts_attempted": 195,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 157,
-    "failed_operations": 32,
-    "ai_generation_requests": 434,
+    "actions_skipped": 158,
+    "failed_operations": 33,
+    "ai_generation_requests": 436,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3398,6 +3398,36 @@
       "content_preview": "Never recompute prior attention states. KV caching trades precious VRAM for generational throughput by memoizing past Ke",
       "reason": "",
       "duration_s": 5.52
+    },
+    {
+      "timestamp": "2026-11-10T02:02:14.492869+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "mohammed siraj",
+      "content_preview": "Mohammed Siraj goes from defending boundaries like his life depends on it to throwing his hands up in sheer disbelief wh",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.72
+    },
+    {
+      "timestamp": "2026-11-10T02:02:14.506690+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 179.8m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T02:02:20.587620+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ODE Policy: Robot Learning via Action Dynamics, Not Actions",
+      "content_preview": "Mapping discrete observations directly to action values ignores the continuity of physical space. ODE policies model act",
+      "reason": "",
+      "duration_s": 6.08
     }
   ]
 }
