@@ -340,7 +340,8 @@
     "bsky:SWAM: Scaling World Action Models with Cross-Modal Alignment",
     "bsky:How the Internet Actually Works",
     "li:B-Tree vs. LSM-Tree: How Databases Store and Write Your Data",
-    "bsky:LCM-Promo: An LLM-Based Uplift Model for Promotion Allocation"
+    "bsky:LCM-Promo: An LLM-Based Uplift Model for Promotion Allocation",
+    "bsky:What is an KV Cache Eviction Policy?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -637,7 +638,8 @@
         "post:c8a357773a8972a1b0ce1cfc92e4f5b67bf7666dc2a60c21e4c0fccdfe01dc76",
         "post:44a846cec5a151edd5db8c8dc3fd4794f8b374709fe2d09c83f00216ca446ef5",
         "post:3bdad4e80f44b6c450b350641a2d5891e90f25b1d22e4dc88d300917540584ba",
-        "post:5c4e83d984902f6071ab1effd15281729adc88d7f8012874e492f60d1bfba940"
+        "post:5c4e83d984902f6071ab1effd15281729adc88d7f8012874e492f60d1bfba940",
+        "post:98b26010e2f5c6c8e22e23b3c11b712608be3f241300f094d42c269a5b9b90ab"
       ],
       "pending": []
     },
