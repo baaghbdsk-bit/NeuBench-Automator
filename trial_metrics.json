@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T03:59:57.379392+00:00",
+    "last_updated": "2026-11-10T04:06:18.199016+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 871,
-    "original_posts_attempted": 197,
+    "total_cycles_executed": 874,
+    "original_posts_attempted": 198,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 159,
-    "failed_operations": 35,
-    "ai_generation_requests": 442,
+    "actions_skipped": 160,
+    "failed_operations": 36,
+    "ai_generation_requests": 444,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3498,6 +3498,36 @@
       "content_preview": "Public markets demand predictable inference economics and CAPEX amortization. If Anthropic moves to an IPO, watch how th",
       "reason": "",
       "duration_s": 7.25
+    },
+    {
+      "timestamp": "2026-11-10T04:06:13.718714+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "jeffrey epstein",
+      "content_preview": "Netflix is definitely already greenlighting a 6-part true crime docuseries about the Epstein flight logs just to end it ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.4
+    },
+    {
+      "timestamp": "2026-11-10T04:06:13.739433+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 29.9m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T04:06:18.192143+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Flide: Accelerating Decision Inference with Exact State Forking",
+      "content_preview": "Gen-oriented inference engines choke on categorical decision models like Jev. Flide solves this via exact state forking,",
+      "reason": "",
+      "duration_s": 4.45
     }
   ]
 }
