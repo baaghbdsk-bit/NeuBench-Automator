@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T00:02:20.977968+00:00",
+    "last_updated": "2026-11-10T01:02:30.555651+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 858,
-    "original_posts_attempted": 193,
+    "total_cycles_executed": 861,
+    "original_posts_attempted": 194,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 156,
-    "failed_operations": 31,
-    "ai_generation_requests": 432,
+    "actions_skipped": 157,
+    "failed_operations": 32,
+    "ai_generation_requests": 434,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3368,6 +3368,36 @@
       "content_preview": "Claude Fable 5.2 hitting 65 on Artificial Analysis sets a new frontier, but let's see how it holds up against real-world",
       "reason": "",
       "duration_s": 5.24
+    },
+    {
+      "timestamp": "2026-11-10T01:02:25.000136+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "వియత్నాం",
+      "content_preview": "Everyone’s booking tickets to Vietnam like it’s the new corporate headquarter for escaping Monday morning trauma. Bro, y",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.18
+    },
+    {
+      "timestamp": "2026-11-10T01:02:25.016851+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 120.0m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T01:02:30.545083+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is KV Caching? The Secret to Fast LLM Generation",
+      "content_preview": "Never recompute prior attention states. KV caching trades precious VRAM for generational throughput by memoizing past Ke",
+      "reason": "",
+      "duration_s": 5.52
     }
   ]
 }
