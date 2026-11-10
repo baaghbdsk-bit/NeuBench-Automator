@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T03:36:17.397670+00:00",
+    "last_updated": "2026-11-10T03:59:57.379392+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 868,
-    "original_posts_attempted": 196,
+    "total_cycles_executed": 871,
+    "original_posts_attempted": 197,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 158,
-    "failed_operations": 34,
-    "ai_generation_requests": 440,
+    "actions_skipped": 159,
+    "failed_operations": 35,
+    "ai_generation_requests": 442,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3468,6 +3468,36 @@
       "content_preview": "A 64-core enterprise server can execute complex game physics and business logic in microseconds, yet it will completely ",
       "reason": "",
       "duration_s": 23.17
+    },
+    {
+      "timestamp": "2026-11-10T03:59:50.099624+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "zion williamson",
+      "content_preview": "Zion Williamson moves with the explosive speed of a man trying to beat the closing time at a Louisiana all-you-can-eat b",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 6.33
+    },
+    {
+      "timestamp": "2026-11-10T03:59:50.119677+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 23.5m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T03:59:57.373249+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Anthropic reportedly plans to move forward with IPO plans",
+      "content_preview": "Public markets demand predictable inference economics and CAPEX amortization. If Anthropic moves to an IPO, watch how th",
+      "reason": "",
+      "duration_s": 7.25
     }
   ]
 }
