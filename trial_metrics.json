@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T04:06:18.199016+00:00",
+    "last_updated": "2026-11-10T05:02:29.689648+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 874,
-    "original_posts_attempted": 198,
+    "total_cycles_executed": 877,
+    "original_posts_attempted": 199,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 160,
-    "failed_operations": 36,
-    "ai_generation_requests": 444,
+    "actions_skipped": 161,
+    "failed_operations": 37,
+    "ai_generation_requests": 446,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3528,6 +3528,36 @@
       "content_preview": "Gen-oriented inference engines choke on categorical decision models like Jev. Flide solves this via exact state forking,",
       "reason": "",
       "duration_s": 4.45
+    },
+    {
+      "timestamp": "2026-11-10T05:02:22.705370+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "portland vs hawaii prediction",
+      "content_preview": "Choosing between Portland's perpetual existential dread in the rain or Hawaii's $40 avocado toast. Honestly, just simula",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 3.25
+    },
+    {
+      "timestamp": "2026-11-10T05:02:22.721893+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 86.1m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T05:02:29.684180+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "AutoVend: Benchmarking LLM Agents on Long-Horizon Autonomous Vending Operations",
+      "content_preview": "LLM agents moving from O2O shopping to running physical businesses introduce brutal error costs. AutoVend benchmarks lon",
+      "reason": "",
+      "duration_s": 6.96
     }
   ]
 }
