@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-10T14:54:38.898919+00:00",
+  "last_success_at": "2026-11-10T18:02:49.242972+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -695,6 +695,15 @@
       "status": "success",
       "posted_at": "2026-11-10T14:54:38.898919+00:00",
       "post_urn": "urn:li:share:7525933947969728512"
+    },
+    {
+      "topic_key": "title:236bd65c309f6b942753b0610ec878cc",
+      "title": "B-Tree vs. LSM-Tree: How Databases Store and Write Your Data",
+      "url": "",
+      "content_hash": "8f3c40473ffdcf3216b21c4f659bc24d",
+      "status": "success",
+      "posted_at": "2026-11-10T18:02:49.242972+00:00",
+      "post_urn": "urn:li:share:7525981302374699008"
     }
   ],
   "posted_titles": [
@@ -774,6 +783,7 @@
     "li:Recursion vs. Iteration",
     "li:How Touchscreens Actually Feel Your Finger: The Magic of Projected Capacitance",
     "li:Unpacking AI Context Windows: How Long-Context LLMs Read Entire Books",
-    "li:bosch share price"
+    "li:bosch share price",
+    "li:B-Tree vs. LSM-Tree: How Databases Store and Write Your Data"
   ]
 }

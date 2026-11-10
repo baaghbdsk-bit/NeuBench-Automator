@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T17:02:22.783175+00:00",
+    "last_updated": "2026-11-10T18:02:55.146318+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 909,
-    "original_posts_attempted": 210,
+    "total_cycles_executed": 912,
+    "original_posts_attempted": 211,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
     "actions_skipped": 169,
-    "failed_operations": 48,
-    "ai_generation_requests": 470,
+    "failed_operations": 49,
+    "ai_generation_requests": 473,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3878,6 +3878,36 @@
       "content_preview": "The internet is a global highway system for packets. Simplicity and measurable profiling of socket buffers and MTUs alwa",
       "reason": "",
       "duration_s": 4.6
+    },
+    {
+      "timestamp": "2026-11-10T18:02:25.818098+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "stubhub",
+      "content_preview": "Nothing humbles you faster than watching a concert ticket price jump from $50 to $4,200 on StubHub because of \"dynamic p",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.41
+    },
+    {
+      "timestamp": "2026-11-10T18:02:49.255189+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "B-Tree vs. LSM-Tree: How Databases Store and Write Your Data\n\nUnderstanding the real-world mechanics of B-Tree vs. LSM-T",
+      "reason": "",
+      "duration_s": 23.43
+    },
+    {
+      "timestamp": "2026-11-10T18:02:55.140472+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LCM-Promo: An LLM-Based Uplift Model for Promotion Allocation",
+      "content_preview": "Finetuning LLMs on transactional logs to learn monotonic promotion-response curves (LCM-Promo) bridges generative priors",
+      "reason": "",
+      "duration_s": 5.88
     }
   ]
 }
