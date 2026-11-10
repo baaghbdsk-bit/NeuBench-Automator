@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T14:54:38.932325+00:00",
+    "last_updated": "2026-11-10T15:08:28.854732+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 903,
-    "original_posts_attempted": 208,
+    "total_cycles_executed": 906,
+    "original_posts_attempted": 209,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 167,
-    "failed_operations": 46,
-    "ai_generation_requests": 466,
+    "actions_skipped": 168,
+    "failed_operations": 47,
+    "ai_generation_requests": 468,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3818,6 +3818,36 @@
       "content_preview": "bosch share price\n\nUnderstanding the real-world mechanics of bosch share price is one of the most critical fundamentals ",
       "reason": "",
       "duration_s": 10.33
+    },
+    {
+      "timestamp": "2026-11-10T15:08:15.550225+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "arthur rinderknech",
+      "content_preview": "Bro really woke up, chose internet smoke, and decided to speedrun becoming the most downvoted main character on Tennis T",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.23
+    },
+    {
+      "timestamp": "2026-11-10T15:08:15.566922+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 13.6m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T15:08:28.848809+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "SWAM: Scaling World Action Models with Cross-Modal Alignment",
+      "content_preview": "SWAM highlights a critical blind spot: joint video-action forecasting breaks existing language alignment learned from pr",
+      "reason": "",
+      "duration_s": 13.28
     }
   ]
 }

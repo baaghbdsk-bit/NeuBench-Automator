@@ -336,7 +336,8 @@
     "bsky:What is a Logit? The Raw Scoring Engine Behind AI Predictions",
     "li:Unpacking AI Context Windows: How Long-Context LLMs Read Entire Books",
     "bsky:Cyberattacks threaten to make open-source AI a little less open, Hugging Face exec warns",
-    "bsky:How Self-Driving Cars See the Road"
+    "bsky:How Self-Driving Cars See the Road",
+    "bsky:SWAM: Scaling World Action Models with Cross-Modal Alignment"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -630,7 +631,8 @@
         "post:d2ee5f31e5c918950c3d419ad56082774905c12dfac7f2d97ed5f572c06974dd",
         "post:e507e18defc23f91c0fb5bf6513f1a889ad68fe3f111217fedcfc7ccd82028a7",
         "post:9da386b6e013a9cdd25e9b74e0451f4be9f696b79326c1888ae48d83d0a129ea",
-        "post:c8a357773a8972a1b0ce1cfc92e4f5b67bf7666dc2a60c21e4c0fccdfe01dc76"
+        "post:c8a357773a8972a1b0ce1cfc92e4f5b67bf7666dc2a60c21e4c0fccdfe01dc76",
+        "post:44a846cec5a151edd5db8c8dc3fd4794f8b374709fe2d09c83f00216ca446ef5"
       ],
       "pending": []
     },
