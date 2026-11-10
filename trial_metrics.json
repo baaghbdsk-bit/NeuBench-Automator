@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T20:02:31.599761+00:00",
+    "last_updated": "2026-11-10T21:02:25.641314+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 921,
-    "original_posts_attempted": 214,
+    "total_cycles_executed": 925,
+    "original_posts_attempted": 215,
     "original_posts_succeeded": 181,
-    "replies_attempted": 76,
+    "replies_attempted": 77,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 172,
-    "failed_operations": 52,
-    "ai_generation_requests": 479,
+    "actions_skipped": 174,
+    "failed_operations": 53,
+    "ai_generation_requests": 481,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3998,6 +3998,46 @@
       "content_preview": "RidgeFill accelerates LLM prefill by truncating upper-layer compute. It runs lower layers to a split point, predicts lat",
       "reason": "",
       "duration_s": 5.98
+    },
+    {
+      "timestamp": "2026-11-10T21:02:19.329428+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "josh downs",
+      "content_preview": "Fantasy managers fighting for their lives over Josh Downs while their actual lives fall apart in real-time is the exact ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 3.73
+    },
+    {
+      "timestamp": "2026-11-10T21:02:19.352626+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 179.5m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T21:02:24.739787+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "onóna: Twin Embeddings with Tied Unembeddings",
+      "content_preview": "Weight tying cuts memory footprint, but standard output heads bottleneck expressiveness. 'onóna' solves this via dual em",
+      "reason": "",
+      "duration_s": 5.38
+    },
+    {
+      "timestamp": "2026-11-10T21:02:25.641284+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (28/28).",
+      "duration_s": 0.01
     }
   ]
 }
