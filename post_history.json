@@ -318,7 +318,8 @@
     "bsky:Demystifying GPU Tensor Cores and Mixed-Precision Asynchrony",
     "bsky:PCBRouteAgent: How Close Are LLM Agents to Becoming PCB Routing Engineers?",
     "li:Zero-Copy PCIe GPUDirect Storage: Bypassing Host Memory Bottlenecks in Large-Scale AI Clusters",
-    "bsky:What is Speculative Decoding?"
+    "bsky:What is Speculative Decoding?",
+    "bsky:Claude Fable 5.2 Scores 65 on Artificial Analysis, Highest So Far"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -598,7 +599,8 @@
         "post:85a47f7313e7ac60347bf7255a26b63b5c3fc7494d3b6419aca486753a3d43d8",
         "post:b999073f66efab997e127ba035b06a6c23beb9da61e0d313e9b356e1f1d24e02",
         "post:349316e354939707bbe284f88bf9e51678c8a463ce2494800c3fabfd5c5865ac",
-        "post:833c940a248088a5eb0232cd1af9f4b99cd0d0e964c7d6888f12cf4237a61f19"
+        "post:833c940a248088a5eb0232cd1af9f4b99cd0d0e964c7d6888f12cf4237a61f19",
+        "post:711573323477ffe31abecf567c1b290c505dba3ac9d68a0fe43045ab934359fb"
       ],
       "pending": []
     },

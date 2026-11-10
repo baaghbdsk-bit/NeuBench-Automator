@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-09T23:02:31.557986+00:00",
+    "last_updated": "2026-11-10T00:02:20.977968+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 855,
-    "original_posts_attempted": 192,
+    "total_cycles_executed": 858,
+    "original_posts_attempted": 193,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 155,
-    "failed_operations": 30,
-    "ai_generation_requests": 430,
+    "actions_skipped": 156,
+    "failed_operations": 31,
+    "ai_generation_requests": 432,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3338,6 +3338,36 @@
       "content_preview": "",
       "reason": "Total daily limit reached (78/28).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T00:02:15.701793+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "grizzlies vs raptors",
+      "content_preview": "Jurassic Park vs. The Revenant. Whichever wins, humanity loses. Just let them fight in the wild and broadcast it on Prim",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.28
+    },
+    {
+      "timestamp": "2026-11-10T00:02:15.721968+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 59.8m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T00:02:20.971567+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Claude Fable 5.2 Scores 65 on Artificial Analysis, Highest So Far",
+      "content_preview": "Claude Fable 5.2 hitting 65 on Artificial Analysis sets a new frontier, but let's see how it holds up against real-world",
+      "reason": "",
+      "duration_s": 5.24
     }
   ]
 }
