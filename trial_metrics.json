@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T07:02:39.568860+00:00",
+    "last_updated": "2026-11-10T08:02:22.122559+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 883,
-    "original_posts_attempted": 201,
+    "total_cycles_executed": 886,
+    "original_posts_attempted": 202,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 162,
-    "failed_operations": 39,
-    "ai_generation_requests": 451,
+    "actions_skipped": 163,
+    "failed_operations": 40,
+    "ai_generation_requests": 453,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3618,6 +3618,36 @@
       "content_preview": "Sage-Taiyi decouples heuristic search from epistemic state tracking. By enforcing explicit monitoring of assumptions and",
       "reason": "",
       "duration_s": 5.08
+    },
+    {
+      "timestamp": "2026-11-10T08:02:17.500830+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "aldo de nigris",
+      "content_preview": "Me finding out Aldo de Nigris is trending and trying to remember if this is a footballer, a TikTok macro-influencer, or ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 3.16
+    },
+    {
+      "timestamp": "2026-11-10T08:02:17.517919+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 59.7m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T08:02:21.643876+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "How Many Exposures Does a World Model Need? Learning Unseen Game Mechanics at Test Time",
+      "content_preview": "World models excel at planning via imagined experience, but test-time adaptation hinges on sample efficiency. How many e",
+      "reason": "",
+      "duration_s": 4.12
     }
   ]
 }
