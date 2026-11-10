@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T11:04:35.050576+00:00",
+    "last_updated": "2026-11-10T12:18:00.773997+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 894,
-    "original_posts_attempted": 205,
+    "total_cycles_executed": 896,
+    "original_posts_attempted": 206,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 165,
-    "failed_operations": 43,
-    "ai_generation_requests": 459,
+    "actions_skipped": 166,
+    "failed_operations": 44,
+    "ai_generation_requests": 460,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3728,6 +3728,26 @@
       "content_preview": "",
       "reason": "LinkedIn cooldown active: last posted 57.0m ago (minimum interval: 180m)",
       "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-10T12:18:00.753736+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Scrum master daily rituals",
+      "content_preview": "We have 6 project managers, 2 scrum masters, and 1 guy named Dave who’s currently fighting for his life writing the actu",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 3.76
+    },
+    {
+      "timestamp": "2026-11-10T12:18:00.773973+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 130.4m ago (minimum interval: 180m)",
+      "duration_s": 0.01
     }
   ]
 }
