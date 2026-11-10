@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-10T05:02:29.689648+00:00",
+    "last_updated": "2026-11-10T06:02:22.537270+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 877,
-    "original_posts_attempted": 199,
+    "total_cycles_executed": 880,
+    "original_posts_attempted": 200,
     "original_posts_succeeded": 181,
     "replies_attempted": 76,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 161,
-    "failed_operations": 37,
-    "ai_generation_requests": 446,
+    "actions_skipped": 162,
+    "failed_operations": 38,
+    "ai_generation_requests": 448,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -3558,6 +3558,36 @@
       "content_preview": "LLM agents moving from O2O shopping to running physical businesses introduce brutal error costs. AutoVend benchmarks lon",
       "reason": "",
       "duration_s": 6.96
+    },
+    {
+      "timestamp": "2026-11-10T06:02:11.473545+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "golden state warriors",
+      "content_preview": "Watching the Golden State Warriors right now is basically like watching your rich tech uncle try to relive his glory day",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 4.85
+    },
+    {
+      "timestamp": "2026-11-10T06:02:11.489213+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 145.9m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-10T06:02:22.530738+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Probability Precursors in Neural Networks",
+      "content_preview": "Logits are raw score precursors—like unscaled points before a grading curve. \n\nNever compute loss on Softmax probabiliti",
+      "reason": "",
+      "duration_s": 11.03
     }
   ]
 }

@@ -326,7 +326,8 @@
     "bsky:Coding or Cheating? An Investigation of Frontier Coding LLMs",
     "bsky:Anthropic reportedly plans to move forward with IPO plans",
     "bsky:Flide: Accelerating Decision Inference with Exact State Forking",
-    "bsky:AutoVend: Benchmarking LLM Agents on Long-Horizon Autonomous Vending Operations"
+    "bsky:AutoVend: Benchmarking LLM Agents on Long-Horizon Autonomous Vending Operations",
+    "bsky:What is a Logit? The Raw Probability Precursors in Neural Networks"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -613,7 +614,8 @@
         "post:cacb11bfeb6fa99aecf41148ad2d23362a83e6c0a9b8d9f962a9f858eb21e9cc",
         "post:449edd60169dbd5e365b92fd6bfdf0a22d346305b2d88019f07536bfdd55f086",
         "post:12345728f14a5f66767b1559bddf3405b993cdfd57491446b7e92ed77bc33717",
-        "post:0a025a8997ba6a38d05c0da0e6c8c4ca4509aa63ce4804d2724e92057539aaaf"
+        "post:0a025a8997ba6a38d05c0da0e6c8c4ca4509aa63ce4804d2724e92057539aaaf",
+        "post:23d54482785970be014d1ba2e63ed7fb70665d187523325159b9444278fe3e0e"
       ],
       "pending": []
     },
