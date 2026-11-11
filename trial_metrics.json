@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T22:04:03.436954+00:00",
+    "last_updated": "2026-11-11T23:03:52.896279+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 960,
-    "original_posts_attempted": 231,
-    "original_posts_succeeded": 195,
-    "replies_attempted": 78,
+    "total_cycles_executed": 964,
+    "original_posts_attempted": 232,
+    "original_posts_succeeded": 196,
+    "replies_attempted": 79,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 182,
-    "failed_operations": 55,
-    "ai_generation_requests": 508,
+    "actions_skipped": 183,
+    "failed_operations": 56,
+    "ai_generation_requests": 511,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4388,6 +4388,46 @@
       "content_preview": "Deleting my entire search history, blocking my ex, and locking down my account because of one unhinged tweet at 3 AM. Pe",
       "reason": "",
       "duration_s": 79.45
+    },
+    {
+      "timestamp": "2026-11-11T23:02:58.916581+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "buffalo vs ball state prediction",
+      "content_preview": "Checking the Buffalo vs Ball State spread like my entire life savings depends on a Tuesday night MACtion game between tw",
+      "reason": "",
+      "duration_s": 30.17
+    },
+    {
+      "timestamp": "2026-11-11T23:02:58.947797+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 120.3m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-11T23:03:04.272532+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "CoreWeave turns to customer prepayments, shorter contracts to fund AI growth",
+      "content_preview": "CAPEX outpacing organic cash flow in AI infra forces structural pivots: prepayment models & asset-backed debt on compute",
+      "reason": "",
+      "duration_s": 5.31
+    },
+    {
+      "timestamp": "2026-11-11T23:03:52.896257+00:00",
+      "action_type": "reply",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/Swiggy/status/2090687847271637112",
+      "content_preview": "Bro’s really doing market research on okra while taking 55 minutes to deliver a cold khichdi. #Swiggy",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
+      "duration_s": 48.06
     }
   ]
 }

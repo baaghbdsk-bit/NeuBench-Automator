@@ -366,7 +366,9 @@
     "weather chicago",
     "rockstar",
     "bsky:Prompt2Echo (P2Echo): Text-Prompted Multi-View Echocardiography Segmentation with One Model",
-    "account"
+    "account",
+    "buffalo vs ball state prediction",
+    "bsky:CoreWeave turns to customer prepayments, shorter contracts to fund AI growth"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -547,7 +549,8 @@
     "ddd8b472243f00a2b674483c0a4408bf1b6eefd0f8e9a17713de977560a556fd",
     "0013391e99244c19ec74c1a8786d74b44943e55d9152cf0b55cda227b5ec4ba4",
     "8cba2dce6db7d45a0db8e6e5761a9199625725b8896b091bd091b6e466ea090e",
-    "5c05e06c0529d05e266acc37102bd8c9b1aa7762e7f0b3d32919badd5b0105b5"
+    "5c05e06c0529d05e266acc37102bd8c9b1aa7762e7f0b3d32919badd5b0105b5",
+    "982d7d5fb8e7c221d991b812d647013dd80bff0532c7a0f97f2474a96d7ac81b"
   ],
   "pending_x_actions": [
     {
@@ -559,6 +562,17 @@
       "status": "unknown",
       "reserved_at": "2026-11-09T05:04:17.246696+00:00",
       "unknown_at": "2026-11-09T05:04:50.442516+00:00",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
+    },
+    {
+      "reservation_id": "498ff7c223874568a4ded0ffd88803b2",
+      "action_type": "reply",
+      "target_identifier": "https://x.com/Swiggy/status/2090687847271637112",
+      "content_hash": "63095c2dec55e2d7604afe9be6d32fb73ee0a287a1f39233da986a0933c34e5b",
+      "content_preview": "Bro’s really doing market research on okra while taking 55 minutes to deliver a cold khichdi. #Swiggy",
+      "status": "unknown",
+      "reserved_at": "2026-11-11T23:03:22.707881+00:00",
+      "unknown_at": "2026-11-11T23:03:52.893842+00:00",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates."
     }
   ],
@@ -688,7 +702,8 @@
         "post:27f52bf1d359c91e090d2e1ba8fcf7d3cfeec86e86c193984910b841faaf5ba5",
         "post:ca0288621410671161bb476716cebade733735713d809ba82cb1fc1427ae8ac1",
         "post:72a881031594ebc201ced204d0782a78503ac4a91ad01a094b907c69856690d1",
-        "post:d5059c8256f9f7974653223be46df61c6659def7f5f7ee4630c8b56362738472"
+        "post:d5059c8256f9f7974653223be46df61c6659def7f5f7ee4630c8b56362738472",
+        "post:ce7cd9834d6cb5ab6425f491e9485329dbd48ffe62c47b58b1ce5b3e93af9ab6"
       ],
       "pending": []
     },
