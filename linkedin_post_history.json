@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-10T21:19:45.245430+00:00",
+  "last_success_at": "2026-11-11T17:07:53.556402+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -713,6 +713,15 @@
       "status": "success",
       "posted_at": "2026-11-10T21:19:45.245430+00:00",
       "post_urn": "urn:li:ugcPost:7526030862711468032"
+    },
+    {
+      "topic_key": "title:28e9fd6410a7e166ef3a082e1706feaf",
+      "title": "Binary: Why Computers Only Speak 0 and 1",
+      "url": "",
+      "content_hash": "a44f6aa95ad0c6f762c01c4a4305d66b",
+      "status": "success",
+      "posted_at": "2026-11-11T17:07:53.556402+00:00",
+      "post_urn": "urn:li:share:7526329867773263874"
     }
   ],
   "posted_titles": [
@@ -794,6 +803,7 @@
     "li:Unpacking AI Context Windows: How Long-Context LLMs Read Entire Books",
     "li:bosch share price",
     "li:B-Tree vs. LSM-Tree: How Databases Store and Write Your Data",
-    "li:What is an LSM-Tree? The Write-Optimized Engine Behind Modern Databases"
+    "li:What is an LSM-Tree? The Write-Optimized Engine Behind Modern Databases",
+    "li:Binary: Why Computers Only Speak 0 and 1"
   ]
 }
