@@ -1,21 +1,21 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T19:03:43.082840+00:00",
+    "last_updated": "2026-11-11T20:03:31.362529+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 947,
-    "original_posts_attempted": 224,
-    "original_posts_succeeded": 189,
+    "total_cycles_executed": 952,
+    "original_posts_attempted": 227,
+    "original_posts_succeeded": 191,
     "replies_attempted": 78,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 180,
-    "failed_operations": 54,
-    "ai_generation_requests": 497,
-    "ai_generation_failures": 1,
+    "actions_skipped": 181,
+    "failed_operations": 55,
+    "ai_generation_requests": 501,
+    "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
   "recent_events": [
@@ -4258,6 +4258,56 @@
       "content_preview": "Half of my ex's dating profile and 90% of cinematic universes released this year belong in the same place. #Cinema",
       "reason": "",
       "duration_s": 72.29
+    },
+    {
+      "timestamp": "2026-11-11T20:02:10.452312+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "american airlines international route cancellations 2027",
+      "content_preview": "American Airlines canceling international routes for 2027 so early just means they want to ruin your vacation plans with",
+      "reason": "",
+      "duration_s": 26.91
+    },
+    {
+      "timestamp": "2026-11-11T20:02:10.471096+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 172.7m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-11T20:02:21.893748+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Quantized Truth Before Probabilities",
+      "content_preview": "Treat logits as raw, unnormalized scores—like friends shouting -10 to +10 on pizza choices. \n\nNever apply Softmax early.",
+      "reason": "",
+      "duration_s": 11.42
+    },
+    {
+      "timestamp": "2026-11-11T20:03:04.433637+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "lucia gta 6",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+      "duration_s": 42.07
+    },
+    {
+      "timestamp": "2026-11-11T20:03:31.357489+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "chase young",
+      "content_preview": "Bro is named Chase Young but spends half his career running away from the actual football like it’s a group chat with hi",
+      "reason": "",
+      "duration_s": 69.0
     }
   ]
 }
