@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T20:03:31.362529+00:00",
+    "last_updated": "2026-11-11T21:04:05.647910+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 952,
-    "original_posts_attempted": 227,
-    "original_posts_succeeded": 191,
+    "total_cycles_executed": 956,
+    "original_posts_attempted": 229,
+    "original_posts_succeeded": 193,
     "replies_attempted": 78,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
     "actions_skipped": 181,
     "failed_operations": 55,
-    "ai_generation_requests": 501,
+    "ai_generation_requests": 505,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4308,6 +4308,46 @@
       "content_preview": "Bro is named Chase Young but spends half his career running away from the actual football like it’s a group chat with hi",
       "reason": "",
       "duration_s": 69.0
+    },
+    {
+      "timestamp": "2026-11-11T21:02:29.075011+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ayesha curry",
+      "content_preview": "People still getting mad at Ayesha Curry for wanting her husband's attention in public will never not be hilarious. Touc",
+      "reason": "",
+      "duration_s": 33.91
+    },
+    {
+      "timestamp": "2026-11-11T21:02:42.237310+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "When 400,000 concurrent requests slam an exchange at 09:15 AM to fetch an SBI share price, a single database query will ",
+      "reason": "",
+      "duration_s": 13.13
+    },
+    {
+      "timestamp": "2026-11-11T21:02:50.675946+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Test-Time Scaling for Diffusion Language Models with Frequency-Aware Remasking",
+      "content_preview": "Local entropy in diffusion LLMs often misleads token remasking during iterative denoising. Frequency-aware remasking sta",
+      "reason": "",
+      "duration_s": 8.29
+    },
+    {
+      "timestamp": "2026-11-11T21:04:05.641549+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "weather chicago",
+      "content_preview": "Chicago weather really said “let’s simulate emotional damage today” and dropped three seasons before lunch. Absolute men",
+      "reason": "",
+      "duration_s": 74.34
     }
   ]
 }
