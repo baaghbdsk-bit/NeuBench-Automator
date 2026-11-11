@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-11T17:07:53.556402+00:00",
+  "last_success_at": "2026-11-11T17:09:30.986795+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -722,6 +722,15 @@
       "status": "success",
       "posted_at": "2026-11-11T17:07:53.556402+00:00",
       "post_urn": "urn:li:share:7526329867773263874"
+    },
+    {
+      "topic_key": "title:55775e77b33720d15f3ab4b60e4fd65f",
+      "title": "Horizontal Pod Autoscaling Mechanics",
+      "url": "",
+      "content_hash": "de1459298624713239005043a42daf35",
+      "status": "success",
+      "posted_at": "2026-11-11T17:09:30.986795+00:00",
+      "post_urn": "urn:li:share:7526330276373889024"
     }
   ],
   "posted_titles": [
@@ -804,6 +813,7 @@
     "li:bosch share price",
     "li:B-Tree vs. LSM-Tree: How Databases Store and Write Your Data",
     "li:What is an LSM-Tree? The Write-Optimized Engine Behind Modern Databases",
-    "li:Binary: Why Computers Only Speak 0 and 1"
+    "li:Binary: Why Computers Only Speak 0 and 1",
+    "li:Horizontal Pod Autoscaling Mechanics"
   ]
 }
