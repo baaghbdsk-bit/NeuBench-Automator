@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T17:12:46.462137+00:00",
+    "last_updated": "2026-11-11T17:36:11.545982+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 936,
-    "original_posts_attempted": 218,
-    "original_posts_succeeded": 183,
+    "total_cycles_executed": 939,
+    "original_posts_attempted": 220,
+    "original_posts_succeeded": 185,
     "replies_attempted": 78,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 177,
+    "actions_skipped": 178,
     "failed_operations": 54,
-    "ai_generation_requests": 489,
+    "ai_generation_requests": 491,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -4148,6 +4148,36 @@
       "content_preview": "Another Nurmagomedov born to make people question their entire life choices and grappling credentials while trying to ge",
       "reason": "",
       "duration_s": 76.9
+    },
+    {
+      "timestamp": "2026-11-11T17:34:32.123606+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "baseball",
+      "content_preview": "Baseball is just a 3-hour corporate networking event disguised as a sport where everyone pretends to care about stats wh",
+      "reason": "",
+      "duration_s": 35.83
+    },
+    {
+      "timestamp": "2026-11-11T17:34:32.142240+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 25.0m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-11T17:36:11.540365+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "russian ambassador to us",
+      "content_preview": "Geopolitics really is just two guys in suits dropping passive-aggressive emails that could easily just be a group chat l",
+      "reason": "",
+      "duration_s": 74.73
     }
   ]
 }
