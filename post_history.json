@@ -345,7 +345,10 @@
     "bsky:OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google",
     "bsky:RidgeFill: Training-Free Late-Layer Cache Fill for Faster Prefill",
     "bsky:onóna: Twin Embeddings with Tied Unembeddings",
-    "bsky:What is a Logit? The Raw Math Behind AI Probabilities"
+    "bsky:What is a Logit? The Raw Math Behind AI Probabilities",
+    "काव्या मारन",
+    "bsky:From Tool State to Scientific Action: Auditing Decision Provenance in Biomedical Research Agents",
+    "usman nurmagomedov"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -512,7 +515,9 @@
     "68603a734bc38741c1be403651a0dc2704e6ff6abe7fe570ef1a5460de165604",
     "15a8751f62cfe275541c7e3992b3dd1b8f6b55cf15069178b39c915ce4cf0212",
     "5129fc04e455f5d11814b89383597bf26fe2c26f4ce60b0352b9908257dd9f1f",
-    "9e186c1ecfc7cc147849d708693fe558a1b3484c7c0984571e2b2b646ba37b31"
+    "9e186c1ecfc7cc147849d708693fe558a1b3484c7c0984571e2b2b646ba37b31",
+    "95a1559b6ccbcde51add9f40f68acab182396606b35b036dc2281751c85b5d3d",
+    "33eb6ddcae579f5fb37ddb8e19ff1036ae29ff6d075301068df82d4a49fb8697"
   ],
   "pending_x_actions": [
     {
@@ -647,7 +652,8 @@
         "post:2e917f12ba6b273da95a80cab8dd26a429ff01d6d2e295e4d2f212616f15abe0",
         "post:db41306aff52a281f97e491dd3fc12867b2fc5244f9411daad52364b951921dd",
         "post:e1fb0142e1dfa62d326e9e4355173db312e87f154b2522c1baf16b7a5b3861b7",
-        "post:95a265f31d0c6dfd22e2d5d179c5fad4a38f399080d55ee9e311164db5fedcbc"
+        "post:95a265f31d0c6dfd22e2d5d179c5fad4a38f399080d55ee9e311164db5fedcbc",
+        "post:f96248d8e40b301fea6a0efdf4bd26e8bd17118e7234d50785dd598dea807245"
       ],
       "pending": []
     },

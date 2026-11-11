@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T17:09:30.994063+00:00",
+    "last_updated": "2026-11-11T17:12:46.462137+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 932,
-    "original_posts_attempted": 216,
-    "original_posts_succeeded": 181,
+    "total_cycles_executed": 936,
+    "original_posts_attempted": 218,
+    "original_posts_succeeded": 183,
     "replies_attempted": 78,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 176,
+    "actions_skipped": 177,
     "failed_operations": 54,
-    "ai_generation_requests": 486,
+    "ai_generation_requests": 489,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -4108,6 +4108,46 @@
       "content_preview": "Horizontal Pod Autoscaling Mechanics\n\nUnderstanding the real-world mechanics of Horizontal Pod Autoscaling Mechanics is ",
       "reason": "",
       "duration_s": 14.38
+    },
+    {
+      "timestamp": "2026-11-11T17:11:14.370065+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "काव्या मारन",
+      "content_preview": "Cameramen missing every single wicket just to zoom in on Kavya Maran's soul-crushing disappointment is the real premium ",
+      "reason": "",
+      "duration_s": 35.44
+    },
+    {
+      "timestamp": "2026-11-11T17:11:14.390418+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 1.7m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-11T17:11:28.855453+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "From Tool State to Scientific Action: Auditing Decision Provenance in Biomedical Research Agents",
+      "content_preview": "Deterministic output doesn't mean correct provenance. BioAgent-DF audits biomedical agents by restoring/transplanting st",
+      "reason": "",
+      "duration_s": 14.46
+    },
+    {
+      "timestamp": "2026-11-11T17:12:46.457176+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "usman nurmagomedov",
+      "content_preview": "Another Nurmagomedov born to make people question their entire life choices and grappling credentials while trying to ge",
+      "reason": "",
+      "duration_s": 76.9
     }
   ]
 }
