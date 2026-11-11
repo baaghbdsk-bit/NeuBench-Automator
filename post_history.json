@@ -350,7 +350,10 @@
     "bsky:From Tool State to Scientific Action: Auditing Decision Provenance in Biomedical Research Agents",
     "usman nurmagomedov",
     "baseball",
-    "russian ambassador to us"
+    "russian ambassador to us",
+    "casper ruud",
+    "bsky:LLM KV Cache Eviction and PagedAttention",
+    "Scrum master daily rituals"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -521,7 +524,9 @@
     "95a1559b6ccbcde51add9f40f68acab182396606b35b036dc2281751c85b5d3d",
     "33eb6ddcae579f5fb37ddb8e19ff1036ae29ff6d075301068df82d4a49fb8697",
     "30c6c9cb925d4853cdbcff95e2fbd747ba45838d3e41be800e66ee61642d4986",
-    "b85290286405f22759af4d8d2c3a5605efd108d61d97acf899a7e90570c2d675"
+    "b85290286405f22759af4d8d2c3a5605efd108d61d97acf899a7e90570c2d675",
+    "0873f008cc4063292acdb2d99124c007b2e78fee7bcb05c7d853515031dba2df",
+    "809520ff94c245d8cc8c31de794cb0dd237d651289e579dad854c04bddb70be3"
   ],
   "pending_x_actions": [
     {
@@ -657,7 +662,8 @@
         "post:db41306aff52a281f97e491dd3fc12867b2fc5244f9411daad52364b951921dd",
         "post:e1fb0142e1dfa62d326e9e4355173db312e87f154b2522c1baf16b7a5b3861b7",
         "post:95a265f31d0c6dfd22e2d5d179c5fad4a38f399080d55ee9e311164db5fedcbc",
-        "post:f96248d8e40b301fea6a0efdf4bd26e8bd17118e7234d50785dd598dea807245"
+        "post:f96248d8e40b301fea6a0efdf4bd26e8bd17118e7234d50785dd598dea807245",
+        "post:fbc46ad37623ae3cf455e0f7fbc4d072e1d95c1bcb3e27cbc2af60cd2572ffc9"
       ],
       "pending": []
     },

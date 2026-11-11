@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T17:36:11.545982+00:00",
+    "last_updated": "2026-11-11T18:03:59.179441+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 939,
-    "original_posts_attempted": 220,
-    "original_posts_succeeded": 185,
+    "total_cycles_executed": 943,
+    "original_posts_attempted": 222,
+    "original_posts_succeeded": 187,
     "replies_attempted": 78,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 178,
+    "actions_skipped": 179,
     "failed_operations": 54,
-    "ai_generation_requests": 491,
+    "ai_generation_requests": 494,
     "ai_generation_failures": 1,
     "rate_limits_encountered": 0
   },
@@ -4178,6 +4178,46 @@
       "content_preview": "Geopolitics really is just two guys in suits dropping passive-aggressive emails that could easily just be a group chat l",
       "reason": "",
       "duration_s": 74.73
+    },
+    {
+      "timestamp": "2026-11-11T18:02:32.324191+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "casper ruud",
+      "content_preview": "Casper Ruud making another major final is proof that if you just show up consistently and don't cause any drama, the uni",
+      "reason": "",
+      "duration_s": 32.06
+    },
+    {
+      "timestamp": "2026-11-11T18:02:32.347039+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 53.0m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-11T18:02:42.590265+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM KV Cache Eviction and PagedAttention",
+      "content_preview": "KV cache fragmentation kills LLM serving throughput. PagedAttention solves this via virtual memory paging—mapping non-co",
+      "reason": "",
+      "duration_s": 10.24
+    },
+    {
+      "timestamp": "2026-11-11T18:03:59.173125+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Scrum master daily rituals",
+      "content_preview": "Company really looked at a battlefield of 8 generals and 1 guy holding a stick and said \"Yes, this Agile workflow is pea",
+      "reason": "",
+      "duration_s": 75.95
     }
   ]
 }
