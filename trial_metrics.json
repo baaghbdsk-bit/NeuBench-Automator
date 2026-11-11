@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T23:03:52.896279+00:00",
+    "last_updated": "2026-11-11T23:52:48.312581+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 964,
-    "original_posts_attempted": 232,
-    "original_posts_succeeded": 196,
+    "total_cycles_executed": 968,
+    "original_posts_attempted": 234,
+    "original_posts_succeeded": 198,
     "replies_attempted": 79,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 183,
+    "actions_skipped": 184,
     "failed_operations": 56,
-    "ai_generation_requests": 511,
+    "ai_generation_requests": 514,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4428,6 +4428,46 @@
       "content_preview": "Bro’s really doing market research on okra while taking 55 minutes to deliver a cold khichdi. #Swiggy",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
       "duration_s": 48.06
+    },
+    {
+      "timestamp": "2026-11-11T23:51:23.179390+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "rory mcilroy",
+      "content_preview": "Rory McIlroy treating major championships like a toxic ex he just can't stop texting is honestly the most relatable elit",
+      "reason": "",
+      "duration_s": 28.27
+    },
+    {
+      "timestamp": "2026-11-11T23:51:23.200762+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 168.7m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-11T23:51:28.608316+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "content_preview": "Airlines blocking programmatic booking agents isn’t a security win; it’s an API failure. When determinism meets probabil",
+      "reason": "",
+      "duration_s": 5.4
+    },
+    {
+      "timestamp": "2026-11-11T23:52:48.306169+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "റിമി ടോമി",
+      "content_preview": "Rimi Tomy's energy is the only renewable power source that could actually solve the global energy crisis. Put her on a t",
+      "reason": "",
+      "duration_s": 79.04
     }
   ]
 }
