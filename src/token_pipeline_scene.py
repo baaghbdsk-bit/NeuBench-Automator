@@ -1,6 +1,10 @@
 import os
 import json
-from manim import *
+try:
+    from manim import *
+except ImportError:
+    class Scene:
+        pass
 
 # NeuBench Theme Palette
 BG_COLOR = "#0a0e17"       # Deep Midnight Blue

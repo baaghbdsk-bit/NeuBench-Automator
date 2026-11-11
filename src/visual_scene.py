@@ -1,4 +1,8 @@
-from manim import *
+try:
+    from manim import *
+except ImportError:
+    class Scene:
+        pass
 import config
 
 class NeuBenchScene(Scene):
