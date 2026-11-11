@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T21:04:05.647910+00:00",
+    "last_updated": "2026-11-11T22:04:03.436954+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 956,
-    "original_posts_attempted": 229,
-    "original_posts_succeeded": 193,
+    "total_cycles_executed": 960,
+    "original_posts_attempted": 231,
+    "original_posts_succeeded": 195,
     "replies_attempted": 78,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 181,
+    "actions_skipped": 182,
     "failed_operations": 55,
-    "ai_generation_requests": 505,
+    "ai_generation_requests": 508,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4348,6 +4348,46 @@
       "content_preview": "Chicago weather really said “let’s simulate emotional damage today” and dropped three seasons before lunch. Absolute men",
       "reason": "",
       "duration_s": 74.34
+    },
+    {
+      "timestamp": "2026-11-11T22:02:37.537075+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "rockstar",
+      "content_preview": "Bro thinks he’s a tortured 2011 Ranbir Kapoor because he didn’t reply for 4 hours and listened to \"Kun Faya Kun\" once in",
+      "reason": "",
+      "duration_s": 30.56
+    },
+    {
+      "timestamp": "2026-11-11T22:02:37.579313+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 59.9m ago (minimum interval: 180m)",
+      "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-11T22:02:43.151838+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Prompt2Echo (P2Echo): Text-Prompted Multi-View Echocardiography Segmentation with One Model",
+      "content_preview": "P2Echo unifies multi-view echocardiography segmentation into a single model via text prompting, bypassing acoustic windo",
+      "reason": "",
+      "duration_s": 5.56
+    },
+    {
+      "timestamp": "2026-11-11T22:04:03.429659+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "account",
+      "content_preview": "Deleting my entire search history, blocking my ex, and locking down my account because of one unhinged tweet at 3 AM. Pe",
+      "reason": "",
+      "duration_s": 79.45
     }
   ]
 }
