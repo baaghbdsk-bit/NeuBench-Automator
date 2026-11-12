@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T17:02:47.211818+00:00",
+    "last_updated": "2026-11-12T18:02:38.930047+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1056,
-    "original_posts_attempted": 267,
-    "original_posts_succeeded": 228,
-    "replies_attempted": 87,
+    "total_cycles_executed": 1060,
+    "original_posts_attempted": 268,
+    "original_posts_succeeded": 229,
+    "replies_attempted": 88,
     "replies_succeeded": 25,
     "reposts_attempted": 51,
     "reposts_succeeded": 13,
-    "actions_skipped": 213,
+    "actions_skipped": 215,
     "failed_operations": 60,
-    "ai_generation_requests": 573,
+    "ai_generation_requests": 575,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T06:00:02.912205+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Redis vs Memcached: Architectural Comparison\n\nMulti-data-structure persistence & pub/sub vs pure multithreaded key-value",
-      "reason": "",
-      "duration_s": 14.3
-    },
-    {
-      "timestamp": "2026-11-07T06:02:34.764169+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "মাধুরী দীক্ষিত",
-      "content_preview": "মাধুরী দীক্ষিত ট্রেন্ড করছে কারণ আপনারা মধ্যবিত্তরা আজও বিশ্বাস করেন যে ইনস্টাগ্রাম রিল বানালেই আপনি নব্বইয়ের দশকের নায়ি",
-      "reason": "",
-      "duration_s": 32.49
-    },
-    {
-      "timestamp": "2026-11-07T06:02:34.783522+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T06:02:39.260667+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Sequoia shutting down its Scouts program marks the end of an era",
-      "content_preview": "Decentralized sourcing without feedback loops degrades signal-to-noise. When distributed human heuristics fail to captur",
-      "reason": "",
-      "duration_s": 4.47
-    },
     {
       "timestamp": "2026-11-07T06:02:40.115854+00:00",
       "action_type": "reply",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (55/40).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T18:02:16.940192+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "bruce arians",
+      "content_preview": "Bruce Arians retiring from coaching just to sit in the luxury suite looking like a mafia boss who finally outsourced his",
+      "reason": "",
+      "duration_s": 27.12
+    },
+    {
+      "timestamp": "2026-11-12T18:02:16.964337+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T18:02:38.344448+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Zoe Kleinman: How AI visionary Jensen Huang was undone by his own bad decisions",
+      "content_preview": "Monoculture hardware dependencies are single points of failure. When capital allocation ignores fundamental supply-chain",
+      "reason": "",
+      "duration_s": 21.37
+    },
+    {
+      "timestamp": "2026-11-12T18:02:38.930025+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (57/40).",
+      "duration_s": 0.0
     }
   ]
 }
