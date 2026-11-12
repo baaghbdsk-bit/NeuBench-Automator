@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T08:03:42.057744+00:00",
+    "last_updated": "2026-11-12T09:03:39.915142+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1015,
-    "original_posts_attempted": 256,
-    "original_posts_succeeded": 219,
+    "total_cycles_executed": 1019,
+    "original_posts_attempted": 258,
+    "original_posts_succeeded": 221,
     "replies_attempted": 80,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 194,
+    "actions_skipped": 195,
     "failed_operations": 58,
-    "ai_generation_requests": 551,
+    "ai_generation_requests": 554,
     "ai_generation_failures": 3,
     "rate_limits_encountered": 0
   },
@@ -4938,6 +4938,46 @@
       "content_preview": "Pete Davidson out here collecting pop-culture icons like Infinity Stones using nothing more than sweatpants and unresolv",
       "reason": "",
       "duration_s": 85.0
+    },
+    {
+      "timestamp": "2026-11-12T09:02:11.430759+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "yellowjackets",
+      "content_preview": "Adults in Yellowjackets: \"We need to heal from our trauma.\" \nAlso adults in Yellowjackets: let's commit three more felon",
+      "reason": "",
+      "duration_s": 29.63
+    },
+    {
+      "timestamp": "2026-11-12T09:02:11.454780+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T09:02:22.971210+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is an Epistemic Deadlock in Distributed Consensus?",
+      "content_preview": "Physical liveness ≠ epistemic convergence. An epistemic deadlock occurs when nodes wait for absolute certainty of peers'",
+      "reason": "",
+      "duration_s": 11.51
+    },
+    {
+      "timestamp": "2026-11-12T09:03:39.906737+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "narendra modi",
+      "content_preview": "Bro wakes up, schedules a nation-wide flex, takes 3 hours of global media real estate, and still gets asked about inflat",
+      "reason": "",
+      "duration_s": 75.49
     }
   ]
 }
