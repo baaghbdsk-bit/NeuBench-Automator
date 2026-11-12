@@ -416,7 +416,8 @@
     "jacey birch",
     "bsky:Anthropic IPO",
     "australia",
-    "bsky:Vector Embeddings: Mapping Meaning to Geometry"
+    "bsky:Vector Embeddings: Mapping Meaning to Geometry",
+    "bsky:Demystifying Tensor Parallelism in Distributed LLM Training"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -809,7 +810,8 @@
         "post:7bbebeb8fe87a7cbefa5b2c38377b84214752b58cec83fc8fefc0c57aec8fecc",
         "post:ed62bfa756a382aa487f852f315492a8f06cf2327f9068eb70acd327e9c4b3b7",
         "post:57178c38b5af6d0c3b203bcf2acd07f3aa331c7a7d29ab815b6d4b1a3edcc0cd",
-        "post:b6a573ecaafcb7d9de0e2d3038b4fb57c56b5398fd974d4b65851b465956cb48"
+        "post:b6a573ecaafcb7d9de0e2d3038b4fb57c56b5398fd974d4b65851b465956cb48",
+        "post:1d19bef6fe8a24a613a9ad40cb7501ba5277ba1873a9a23a97ad624519cb2fe0"
       ],
       "pending": []
     },

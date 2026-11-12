@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T14:02:55.554057+00:00",
+    "last_updated": "2026-11-12T14:15:05.936079+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1040,
-    "original_posts_attempted": 263,
+    "total_cycles_executed": 1044,
+    "original_posts_attempted": 264,
     "original_posts_succeeded": 225,
-    "replies_attempted": 84,
+    "replies_attempted": 85,
     "replies_succeeded": 25,
     "reposts_attempted": 50,
     "reposts_succeeded": 13,
-    "actions_skipped": 205,
-    "failed_operations": 59,
-    "ai_generation_requests": 565,
-    "ai_generation_failures": 4,
+    "actions_skipped": 207,
+    "failed_operations": 60,
+    "ai_generation_requests": 567,
+    "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T02:02:29.886692+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "vj edgecombe",
-      "content_preview": "grown adults on here scouting high schoolers like they’re running the Knicks front office from a couch stained with Dori",
-      "reason": "",
-      "duration_s": 23.66
-    },
-    {
-      "timestamp": "2026-11-07T02:02:42.566925+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "AI Agents vs Traditional Automation: Architectural Comparison\n\nProbabilistic non-linear tool calling vs deterministic ri",
-      "reason": "",
-      "duration_s": 12.67
-    },
-    {
-      "timestamp": "2026-11-07T02:02:46.191982+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
-      "content_preview": "Raw tool outputs bloat agent context and dilute attention. Pruning and text summaries fall short. Passing dense latent r",
-      "reason": "",
-      "duration_s": 3.62
-    },
-    {
-      "timestamp": "2026-11-07T02:03:56.066721+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "northern lights aurora borealis forecast",
-      "content_preview": "People staring at a cloudy sky at 3 AM because an app told them there’s a 2% chance of seeing green smudges. Bro you liv",
-      "reason": "",
-      "duration_s": 67.78
-    },
     {
       "timestamp": "2026-11-07T03:02:44.757442+00:00",
       "action_type": "original_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (48/40).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T14:14:45.930401+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "వాతావరణ సూచన",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+      "duration_s": 19.44
+    },
+    {
+      "timestamp": "2026-11-12T14:14:45.954009+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T14:15:05.197073+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying Tensor Parallelism in Distributed LLM Training",
+      "content_preview": "When weights exceed VRAM, Megatron-LM tensor parallelism shards matrices column/row-wise. NVLink keeps all-reduce latenc",
+      "reason": "",
+      "duration_s": 19.24
+    },
+    {
+      "timestamp": "2026-11-12T14:15:05.936050+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (49/40).",
       "duration_s": 0.01
     }
   ]
