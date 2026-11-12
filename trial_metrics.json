@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T12:02:16.316762+00:00",
+    "last_updated": "2026-11-12T13:02:22.869985+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1032,
-    "original_posts_attempted": 261,
-    "original_posts_succeeded": 223,
-    "replies_attempted": 82,
+    "total_cycles_executed": 1036,
+    "original_posts_attempted": 262,
+    "original_posts_succeeded": 224,
+    "replies_attempted": 83,
     "replies_succeeded": 25,
     "reposts_attempted": 50,
     "reposts_succeeded": 13,
-    "actions_skipped": 201,
+    "actions_skipped": 203,
     "failed_operations": 59,
-    "ai_generation_requests": 561,
+    "ai_generation_requests": 563,
     "ai_generation_failures": 4,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T01:02:36.525753+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Gym bros vs reality",
-      "content_preview": "Bro literally ingested enough legal meth to fight a grizzly bear just to scroll through Reels in a squat rack for an hou",
-      "reason": "",
-      "duration_s": 28.14
-    },
-    {
-      "timestamp": "2026-11-07T01:02:43.976562+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "REST vs GraphQL vs. gRPC: Architectural Comparison\n\nHTTP/1.1 stateless ubiquity vs HTTP/2 binary multiplexed RPC through",
-      "reason": "",
-      "duration_s": 7.45
-    },
-    {
-      "timestamp": "2026-11-07T01:02:46.903452+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
-      "content_preview": "Exposing unauthenticated agentic control planes to the public internet is a failure of baseline infrastructure hygiene, ",
-      "reason": "",
-      "duration_s": 2.92
-    },
-    {
-      "timestamp": "2026-11-07T01:03:15.107527+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/AshwiniVaishnaw/status/2116878283874918631",
-      "content_preview": "Bro at this rate my grandkids will be commuting via PowerPoint presentation.",
-      "reason": "",
-      "duration_s": 27.62
-    },
     {
       "timestamp": "2026-11-07T01:27:59.488900+00:00",
       "action_type": "original_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (44/40).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-12T13:02:14.096940+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "jacey birch",
+      "content_preview": "Imagine waking up, minding your own business, and suddenly becoming the main character of Twitter’s collective hyperfixa",
+      "reason": "",
+      "duration_s": 21.44
+    },
+    {
+      "timestamp": "2026-11-12T13:02:14.118676+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T13:02:22.336800+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Anthropic IPO",
+      "content_preview": "An Anthropic IPO signals a maturation point for frontier lab unit economics. The real engineering constraint shifts from",
+      "reason": "",
+      "duration_s": 8.21
+    },
+    {
+      "timestamp": "2026-11-12T13:02:22.869964+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (46/40).",
       "duration_s": 0.0
     }
   ]
