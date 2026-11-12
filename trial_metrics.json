@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T16:03:22.673453+00:00",
+    "last_updated": "2026-11-12T17:02:47.211818+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1052,
-    "original_posts_attempted": 266,
-    "original_posts_succeeded": 227,
-    "replies_attempted": 86,
+    "total_cycles_executed": 1056,
+    "original_posts_attempted": 267,
+    "original_posts_succeeded": 228,
+    "replies_attempted": 87,
     "replies_succeeded": 25,
     "reposts_attempted": 51,
     "reposts_succeeded": 13,
-    "actions_skipped": 211,
+    "actions_skipped": 213,
     "failed_operations": 60,
-    "ai_generation_requests": 571,
+    "ai_generation_requests": 573,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T05:02:45.263303+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "பாலம்",
-      "content_preview": "Bro really woke up, saw \"பாலம்\" trending, and decided to construct an entire personality around a bridge that’ll probabl",
-      "reason": "",
-      "duration_s": 29.41
-    },
-    {
-      "timestamp": "2026-11-07T05:02:58.895073+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Kafka vs. RabbitMQ: The Ultimate Engineering Comparison Guide\n\nBoth Kafka and RabbitMQ are exceptional, but they were bu",
-      "reason": "",
-      "duration_s": 13.63
-    },
-    {
-      "timestamp": "2026-11-07T05:03:05.023539+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
-      "content_preview": "Signed knowledge packs don't guarantee vector integrity. A signature proves authorship, not that embeddings encode the t",
-      "reason": "",
-      "duration_s": 6.12
-    },
-    {
-      "timestamp": "2026-11-07T05:04:13.595371+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Election season promises vs reality",
-      "content_preview": "Bro’s out here promising bullet trains and free electricity while my street has been a mud pit since the Shah Jahan admi",
-      "reason": "",
-      "duration_s": 67.96
-    },
     {
       "timestamp": "2026-11-07T06:00:02.912205+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (53/40).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-12T17:02:25.497116+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "robert f. kennedy jr.",
+      "content_preview": "RFjr out here raw-dogging public health policy like it's a reality TV show audition. Bro really looked at modern medicin",
+      "reason": "",
+      "duration_s": 34.61
+    },
+    {
+      "timestamp": "2026-11-12T17:02:25.526308+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T17:02:46.450968+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "I'm making LLMs work on small and old devices",
+      "content_preview": "Running LLMs on legacy hardware isn't about magic; it's about ruthless quantization, cache locality, and memory bandwidt",
+      "reason": "",
+      "duration_s": 20.92
+    },
+    {
+      "timestamp": "2026-11-12T17:02:47.211798+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (55/40).",
+      "duration_s": 0.01
     }
   ]
 }
