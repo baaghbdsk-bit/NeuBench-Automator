@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T01:03:30.557390+00:00",
+    "last_updated": "2026-11-12T02:03:43.191263+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 977,
-    "original_posts_attempted": 237,
-    "original_posts_succeeded": 201,
+    "total_cycles_executed": 981,
+    "original_posts_attempted": 239,
+    "original_posts_succeeded": 203,
     "replies_attempted": 80,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 186,
+    "actions_skipped": 187,
     "failed_operations": 57,
-    "ai_generation_requests": 521,
+    "ai_generation_requests": 524,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4558,6 +4558,46 @@
       "content_preview": "Bro literally just automated my inability to pick what to watch on Netflix for 45 minutes. #AI #TechTrends",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
       "duration_s": 42.37
+    },
+    {
+      "timestamp": "2026-11-12T02:02:16.732973+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "kelsey grammer",
+      "content_preview": "Kelsey Grammer is out here looking like the final boss of every prestige TV show that got canceled after three seasons b",
+      "reason": "",
+      "duration_s": 28.44
+    },
+    {
+      "timestamp": "2026-11-12T02:02:16.762417+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 76.8m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T02:02:22.286561+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Visual Similarity in Adult Word Extension and Artificial Word Learning",
+      "content_preview": "Visual similarity vs. teaching examples in lexical extension: Reanalyzing Lewis & Frank (2018) via frozen embedding spac",
+      "reason": "",
+      "duration_s": 5.52
+    },
+    {
+      "timestamp": "2026-11-12T02:03:43.182695+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "rj barrett",
+      "content_preview": "RJ Barrett dropping 30 points out of absolute nowhere is the sports equivalent of your printer suddenly working after yo",
+      "reason": "",
+      "duration_s": 80.13
     }
   ]
 }
