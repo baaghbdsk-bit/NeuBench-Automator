@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-12T03:54:51.285850+00:00",
+  "last_success_at": "2026-11-12T03:59:12.679366+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -842,6 +842,16 @@
       "posted_at": "2026-11-12T03:54:51.285850+00:00",
       "post_urn": "urn:li:ugcPost:7526492677840842752",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:66138aa08efb3b56e37c3929bc701be0",
+      "title": "Redis Cache Invalidation Patterns",
+      "url": "",
+      "content_hash": "08a796020f184ea6eb42c6eab18fdf2d",
+      "status": "success",
+      "posted_at": "2026-11-12T03:59:12.679366+00:00",
+      "post_urn": "urn:li:share:7526493774248738816",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -928,6 +938,7 @@
     "li:Horizontal Pod Autoscaling Mechanics",
     "li:sbi share price",
     "li:What is an API? The Digital Waiter of the Internet",
-    "li:How Recommendation Algorithms Guess Your Favorite YouTube Video"
+    "li:How Recommendation Algorithms Guess Your Favorite YouTube Video",
+    "li:Redis Cache Invalidation Patterns"
   ]
 }
