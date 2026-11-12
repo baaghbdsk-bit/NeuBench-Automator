@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T04:03:34.950209+00:00",
+    "last_updated": "2026-11-12T04:53:50.379561+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 994,
-    "original_posts_attempted": 245,
-    "original_posts_succeeded": 209,
+    "total_cycles_executed": 998,
+    "original_posts_attempted": 247,
+    "original_posts_succeeded": 211,
     "replies_attempted": 80,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 189,
+    "actions_skipped": 190,
     "failed_operations": 57,
-    "ai_generation_requests": 535,
+    "ai_generation_requests": 538,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4728,6 +4728,46 @@
       "content_preview": "Bro left a bag with generational wealth on the table and now NBA front offices are acting like he invented basketball fr",
       "reason": "",
       "duration_s": 66.52
+    },
+    {
+      "timestamp": "2026-11-12T04:52:37.832523+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "england football team",
+      "content_preview": "England fans really spent 54 weeks acting like they’re Brazil reincarnated just to play sideways passes against Slovenia",
+      "reason": "",
+      "duration_s": 30.62
+    },
+    {
+      "timestamp": "2026-11-12T04:52:37.861055+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T04:52:46.655181+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "One Table, Many Queries: Benchmarking Generalist Tabular Models Across Generation, Imputation, and Prediction",
+      "content_preview": "Generation, imputation, and prediction probe the same joint distribution, yet we train siloed models. Do these objective",
+      "reason": "",
+      "duration_s": 8.79
+    },
+    {
+      "timestamp": "2026-11-12T04:53:50.371772+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "sidy cissoko",
+      "content_preview": "Me finding out who Sidy Cissoko is purely through Twitter timelines acting like he's the geopolitical pivot point of the",
+      "reason": "",
+      "duration_s": 62.93
     }
   ]
 }
