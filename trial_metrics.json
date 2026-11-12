@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T14:15:05.936079+00:00",
+    "last_updated": "2026-11-12T15:02:47.756015+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1044,
-    "original_posts_attempted": 264,
-    "original_posts_succeeded": 225,
-    "replies_attempted": 85,
+    "total_cycles_executed": 1048,
+    "original_posts_attempted": 265,
+    "original_posts_succeeded": 226,
+    "replies_attempted": 86,
     "replies_succeeded": 25,
     "reposts_attempted": 50,
     "reposts_succeeded": 13,
-    "actions_skipped": 207,
+    "actions_skipped": 209,
     "failed_operations": 60,
-    "ai_generation_requests": 567,
+    "ai_generation_requests": 569,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T03:02:44.757442+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "cm punk",
-      "content_preview": "CM Punk really walked back into the company that fired him on his wedding day just to get tossed around by a 50-year-old",
-      "reason": "",
-      "duration_s": 30.35
-    },
-    {
-      "timestamp": "2026-11-07T03:02:59.721558+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "MCP vs. REST API: The Ultimate Engineering Comparison Guide\n\nBoth MCP and REST API are exceptional architectural pattern",
-      "reason": "",
-      "duration_s": 14.96
-    },
-    {
-      "timestamp": "2026-11-07T03:03:02.969466+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
-      "content_preview": "StepX-OPD rethinks multi-teacher on-policy distillation for diffusion models, merging fragmented few-step sampling and c",
-      "reason": "",
-      "duration_s": 3.24
-    },
-    {
-      "timestamp": "2026-11-07T03:04:12.174082+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "prince william kate middleton 2007 split",
-      "content_preview": "Imagine making your girlfriend wait 5 years for a ring, breaking up over a phone call like a coward, and history just re",
-      "reason": "",
-      "duration_s": 68.46
-    },
     {
       "timestamp": "2026-11-07T04:03:03.803706+00:00",
       "action_type": "original_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (49/40).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T15:02:16.745167+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "white house",
+      "content_preview": "People treating the White House like a retirement home reality show where nobody gets voted off. Just geriatric group ch",
+      "reason": "",
+      "duration_s": 28.07
+    },
+    {
+      "timestamp": "2026-11-12T15:02:16.774023+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T15:02:46.951786+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Speculative Decoding: Accelerating LLM Inference",
+      "content_preview": "Speculative decoding trades FLOPs for memory bandwidth. Using a lean draft model to propose tokens validated in parallel",
+      "reason": "",
+      "duration_s": 30.17
+    },
+    {
+      "timestamp": "2026-11-12T15:02:47.755981+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (51/40).",
       "duration_s": 0.01
     }
   ]

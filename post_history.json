@@ -417,7 +417,9 @@
     "bsky:Anthropic IPO",
     "australia",
     "bsky:Vector Embeddings: Mapping Meaning to Geometry",
-    "bsky:Demystifying Tensor Parallelism in Distributed LLM Training"
+    "bsky:Demystifying Tensor Parallelism in Distributed LLM Training",
+    "white house",
+    "bsky:Speculative Decoding: Accelerating LLM Inference"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -628,7 +630,8 @@
     "07cf6dac35969dba9913e90c4953ad51f832966f6f542a16a5c33681f37aad49",
     "fb65d097ecac73595c45fce88a15b816a39eaec799c934973639831e0bf56727",
     "26a1bbc935e6b3986299b5b6e07bdedc07b55025c06a70ceca9c3ad093f28b54",
-    "a4230fe920199331fc0b4e98ed448d39faf81c369cd3cbf594f7cd619d91acfc"
+    "a4230fe920199331fc0b4e98ed448d39faf81c369cd3cbf594f7cd619d91acfc",
+    "32220c77a632cbc008590b51f2c7f4a10a1fab87eae4e94244890f6158581cc7"
   ],
   "pending_x_actions": [
     {
@@ -811,7 +814,8 @@
         "post:ed62bfa756a382aa487f852f315492a8f06cf2327f9068eb70acd327e9c4b3b7",
         "post:57178c38b5af6d0c3b203bcf2acd07f3aa331c7a7d29ab815b6d4b1a3edcc0cd",
         "post:b6a573ecaafcb7d9de0e2d3038b4fb57c56b5398fd974d4b65851b465956cb48",
-        "post:1d19bef6fe8a24a613a9ad40cb7501ba5277ba1873a9a23a97ad624519cb2fe0"
+        "post:1d19bef6fe8a24a613a9ad40cb7501ba5277ba1873a9a23a97ad624519cb2fe0",
+        "post:5e3415091cedaf1da1d997a96ab52feca3971298af67ba30d99b0591c0b33754"
       ],
       "pending": []
     },
