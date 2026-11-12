@@ -425,7 +425,9 @@
     "robert f. kennedy jr.",
     "bsky:I'm making LLMs work on small and old devices",
     "bruce arians",
-    "bsky:Zoe Kleinman: How AI visionary Jensen Huang was undone by his own bad decisions"
+    "bsky:Zoe Kleinman: How AI visionary Jensen Huang was undone by his own bad decisions",
+    "msft",
+    "bsky:What Exactly is a Token in Modern LLMs?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -640,7 +642,8 @@
     "32220c77a632cbc008590b51f2c7f4a10a1fab87eae4e94244890f6158581cc7",
     "160c50df4b253f85c33504d584c471befee608578641c8a09e351e000115ad49",
     "3c0667fe85d8faaa7cf1235307e58f13e595666f2b3a440fd54fc491277d0c9b",
-    "9208d9daa370042149ef67fa4dc68bd83d4d0889eb28f47e2fc4b5da64f68bb4"
+    "9208d9daa370042149ef67fa4dc68bd83d4d0889eb28f47e2fc4b5da64f68bb4",
+    "dac1320d1b246884faaaef167458dab614635a0e21a88dc6a0096281554a76e4"
   ],
   "pending_x_actions": [
     {
@@ -827,7 +830,8 @@
         "post:5e3415091cedaf1da1d997a96ab52feca3971298af67ba30d99b0591c0b33754",
         "post:8020197cb8c8416d53ad1388d8cb5f671dc9ac99e26c7274ff8cf958d1b1b2a1",
         "post:fcaf1f8ee3a7907aebde911ad736ff3e6444666aae16f4e10f1b999ba9d79606",
-        "post:cd58178efbe35b518839a81782d7842dbc56135b7b577e3d1bfa5acb87ce7f27"
+        "post:cd58178efbe35b518839a81782d7842dbc56135b7b577e3d1bfa5acb87ce7f27",
+        "post:907c4f00d4a36c30a753da3344f729c43529ca2907edecaf24c580248d56d228"
       ],
       "pending": []
     },

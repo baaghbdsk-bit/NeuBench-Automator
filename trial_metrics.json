@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T18:02:38.930047+00:00",
+    "last_updated": "2026-11-12T19:02:30.721365+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1060,
-    "original_posts_attempted": 268,
-    "original_posts_succeeded": 229,
-    "replies_attempted": 88,
+    "total_cycles_executed": 1064,
+    "original_posts_attempted": 269,
+    "original_posts_succeeded": 230,
+    "replies_attempted": 89,
     "replies_succeeded": 25,
     "reposts_attempted": 51,
     "reposts_succeeded": 13,
-    "actions_skipped": 215,
+    "actions_skipped": 217,
     "failed_operations": 60,
-    "ai_generation_requests": 575,
+    "ai_generation_requests": 577,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T06:02:40.115854+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (31/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T07:02:46.644026+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "taurus horoscope today",
-      "content_preview": "Taurus horoscopes today be like: \"A financial windfall is coming your way, but first, spend $84 on artisanal sourdough b",
-      "reason": "",
-      "duration_s": 40.8
-    },
-    {
-      "timestamp": "2026-11-07T07:02:46.664104+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T07:02:53.548287+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Crusoe sells troubled Wyoming data center project to Google",
-      "content_preview": "Wyoming data center deal exposes raw constraints: scaling AI isn't just about silicon, it's about localized grid capacit",
-      "reason": "",
-      "duration_s": 6.88
-    },
     {
       "timestamp": "2026-11-07T07:02:54.402417+00:00",
       "action_type": "reply",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (57/40).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-12T19:02:21.010964+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "msft",
+      "content_preview": "Me explaining to my non-tech friends that MSFT dropping slightly isn't the apocalypse, while secretly praying my cloud c",
+      "reason": "",
+      "duration_s": 25.16
+    },
+    {
+      "timestamp": "2026-11-12T19:02:21.034557+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T19:02:30.120181+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What Exactly is a Token in Modern LLMs?",
+      "content_preview": "A token isn’t a word; it’s a BPE frequency index. Common words cost 1 token; rare terms fragment into byte-level shards,",
+      "reason": "",
+      "duration_s": 9.08
+    },
+    {
+      "timestamp": "2026-11-12T19:02:30.721339+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (59/40).",
       "duration_s": 0.0
     }
   ]
