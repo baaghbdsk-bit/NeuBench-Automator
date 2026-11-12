@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T10:02:15.377711+00:00",
+    "last_updated": "2026-11-12T11:01:56.962618+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1023,
-    "original_posts_attempted": 259,
+    "total_cycles_executed": 1027,
+    "original_posts_attempted": 260,
     "original_posts_succeeded": 222,
-    "replies_attempted": 81,
+    "replies_attempted": 82,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 197,
-    "failed_operations": 58,
-    "ai_generation_requests": 556,
-    "ai_generation_failures": 3,
+    "actions_skipped": 199,
+    "failed_operations": 59,
+    "ai_generation_requests": 558,
+    "ai_generation_failures": 4,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-06T23:02:56.036697+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "wwe crown jewel 2026",
-      "content_preview": "Cant wait for WWE Crown Jewel 2026 where multi-millionaire athletes pretend to hate each other in front of literal royal",
-      "reason": "",
-      "duration_s": 30.96
-    },
-    {
-      "timestamp": "2026-11-06T23:03:07.400045+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "HashMap vs HashSet: Architectural Comparison\n\nKey-value associative mapping vs unique set membership under the hood.\n\nI ",
-      "reason": "",
-      "duration_s": 11.36
-    },
-    {
-      "timestamp": "2026-11-06T23:03:09.759693+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LLM API Outage Frequency & Degradation Index",
-      "content_preview": "Frontier LLM API degradation isn't just about hard 500s; silent context-window truncation and p99 latency spikes break d",
-      "reason": "",
-      "duration_s": 2.36
-    },
-    {
-      "timestamp": "2026-11-06T23:04:18.976986+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "jim caviezel",
-      "content_preview": "Jim Caviezel didn't just play Jesus, he decided to stay in character so long that his brain completely buffered out of r",
-      "reason": "",
-      "duration_s": 68.55
-    },
     {
       "timestamp": "2026-11-06T23:10:10.075305+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (40/40).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-12T11:01:49.812463+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "weather philadelphia",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+      "duration_s": 1.87
+    },
+    {
+      "timestamp": "2026-11-12T11:01:49.833831+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T11:01:56.278911+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Precision on Demand: Escalating Weight Bits at Uncertain Decoding Steps in a Small Local Model",
+      "content_preview": "Static weight precision wastes memory bandwidth. A better approach: decode at 4 bits, check entropy/top-2 margin, and dy",
+      "reason": "",
+      "duration_s": 6.44
+    },
+    {
+      "timestamp": "2026-11-12T11:01:56.962588+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (41/40).",
+      "duration_s": 0.01
     }
   ]
 }
