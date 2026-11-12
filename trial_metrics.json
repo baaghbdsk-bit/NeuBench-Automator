@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T05:03:13.629632+00:00",
+    "last_updated": "2026-11-12T06:03:36.510731+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1002,
-    "original_posts_attempted": 249,
-    "original_posts_succeeded": 213,
+    "total_cycles_executed": 1006,
+    "original_posts_attempted": 251,
+    "original_posts_succeeded": 215,
     "replies_attempted": 80,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 191,
+    "actions_skipped": 192,
     "failed_operations": 57,
-    "ai_generation_requests": 541,
+    "ai_generation_requests": 544,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4808,6 +4808,46 @@
       "content_preview": "Adulting is hard, but watching the Ind U19 boys casually unearth the next decade of national trauma therapists is pure e",
       "reason": "",
       "duration_s": 71.2
+    },
+    {
+      "timestamp": "2026-11-12T06:02:10.286365+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ducks hockey",
+      "content_preview": "Watching the Anaheim Ducks play hockey is just modern art for people who enjoy emotional damage and high-priced stadium ",
+      "reason": "",
+      "duration_s": 21.64
+    },
+    {
+      "timestamp": "2026-11-12T06:02:10.310447+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T06:02:16.152974+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Incentivizing Self-Learning in Large Language Models via Reinforcement Learning",
+      "content_preview": "Static RAG fails in unfamiliar domains. True reasoning requires tightly coupled active knowledge acquisition and inferen",
+      "reason": "",
+      "duration_s": 5.84
+    },
+    {
+      "timestamp": "2026-11-12T06:03:36.505646+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "जोश क्लार्कसन",
+      "content_preview": "Mom: We have Clarkson at home.\nClarkson at home: जोश क्लार्कसन \n\nBro’s out here dropping takes hotter than a local train",
+      "reason": "",
+      "duration_s": 79.84
     }
   ]
 }
