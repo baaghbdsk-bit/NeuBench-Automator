@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T21:02:40.233742+00:00",
+    "last_updated": "2026-11-12T21:59:13.061931+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1073,
-    "original_posts_attempted": 271,
-    "original_posts_succeeded": 232,
-    "replies_attempted": 90,
+    "total_cycles_executed": 1077,
+    "original_posts_attempted": 272,
+    "original_posts_succeeded": 233,
+    "replies_attempted": 91,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 221,
+    "actions_skipped": 223,
     "failed_operations": 60,
-    "ai_generation_requests": 582,
+    "ai_generation_requests": 584,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T09:02:58.412879+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T09:03:01.323727+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "The Components of Agent Memory",
-      "content_preview": "Agent memory isn't a monolith. It's a tiered architecture: working context (KV cache), episodic stores (vector DBs), and",
-      "reason": "",
-      "duration_s": 2.91
-    },
-    {
-      "timestamp": "2026-11-07T09:03:01.973356+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (38/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T10:02:28.329686+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "radiation",
-      "content_preview": "People will refuse a vaccine because of \"radiation fears\" while raw-dogging a glowing rectangle six inches from their fa",
-      "reason": "",
-      "duration_s": 27.86
-    },
     {
       "timestamp": "2026-11-07T10:02:28.348183+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (64/40).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-12T21:59:08.011337+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "nations league games",
+      "content_preview": "Clubs paying player wages for 10 months just for them to pull a hamstring in a meaningless Nations League fixture in Nov",
+      "reason": "",
+      "duration_s": 29.82
+    },
+    {
+      "timestamp": "2026-11-12T21:59:08.040976+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (5/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T21:59:12.274079+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Scoring Mechanics of Neural Networks",
+      "content_preview": "Logits are raw, unnormalized preference scores. Think of them like match points: if Team A has 50 and Team B has 10, A i",
+      "reason": "",
+      "duration_s": 4.22
+    },
+    {
+      "timestamp": "2026-11-12T21:59:13.061908+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (66/40).",
+      "duration_s": 0.01
     }
   ]
 }
