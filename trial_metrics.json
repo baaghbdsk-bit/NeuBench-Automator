@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T19:55:10.415238+00:00",
+    "last_updated": "2026-11-12T20:02:48.975136+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1065,
-    "original_posts_attempted": 269,
-    "original_posts_succeeded": 230,
+    "total_cycles_executed": 1069,
+    "original_posts_attempted": 270,
+    "original_posts_succeeded": 231,
     "replies_attempted": 89,
     "replies_succeeded": 25,
-    "reposts_attempted": 51,
+    "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 217,
+    "actions_skipped": 219,
     "failed_operations": 60,
-    "ai_generation_requests": 578,
+    "ai_generation_requests": 580,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T08:00:06.237181+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "jared padalecki",
-      "content_preview": "men will literally watch Jared Padalecki fight demons in a 2004 Chevy Impala for 15 seasons and then go to therapy twice",
-      "reason": "",
-      "duration_s": 25.38
-    },
-    {
-      "timestamp": "2026-11-07T08:00:06.256821+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T08:00:09.180918+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (34/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T08:02:37.297110+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ucla vs minnesota predictions",
-      "content_preview": "People treating UCLA vs Minnesota like it’s the geopolitical event of the century when both teams are just playing for t",
-      "reason": "",
-      "duration_s": 31.52
-    },
     {
       "timestamp": "2026-11-07T08:02:37.319006+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Why does a single row update in PostgreSQL require a sequential disk write of up to 16MB just to modify a few bytes?\n\nTh",
       "reason": "",
       "duration_s": 17.69
+    },
+    {
+      "timestamp": "2026-11-12T20:02:32.643850+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cyber attacks today",
+      "content_preview": "Me checking my entire digital footprint today wondering which bored teenager in a basement just leaked my embarrassing 2",
+      "reason": "",
+      "duration_s": 23.97
+    },
+    {
+      "timestamp": "2026-11-12T20:02:32.667559+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (5/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T20:02:48.255676+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Nectar launches an AI agent to automate creator discovery and outreach for brands",
+      "content_preview": "Automating top-of-funnel creator discovery requires ranking heterogeneous unstructured data at scale. The engineering ch",
+      "reason": "",
+      "duration_s": 15.58
+    },
+    {
+      "timestamp": "2026-11-12T20:02:48.975114+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (62/40).",
+      "duration_s": 0.01
     }
   ]
 }
