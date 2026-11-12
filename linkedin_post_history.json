@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-12T03:59:12.679366+00:00",
+  "last_success_at": "2026-11-12T11:12:09.231705+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -852,6 +852,16 @@
       "posted_at": "2026-11-12T03:59:12.679366+00:00",
       "post_urn": "urn:li:share:7526493774248738816",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:59716822288ddd662617ddbdf1394636",
+      "title": "ScyllaDB vs. Cassandra: The Architectural Fork in Wide-Column Stores",
+      "url": "",
+      "content_hash": "cee4a5e2f13448a827772f0c42714c20",
+      "status": "success",
+      "posted_at": "2026-11-12T11:12:09.231705+00:00",
+      "post_urn": "urn:li:share:7526602730044395520",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -939,6 +949,7 @@
     "li:sbi share price",
     "li:What is an API? The Digital Waiter of the Internet",
     "li:How Recommendation Algorithms Guess Your Favorite YouTube Video",
-    "li:Redis Cache Invalidation Patterns"
+    "li:Redis Cache Invalidation Patterns",
+    "li:ScyllaDB vs. Cassandra: The Architectural Fork in Wide-Column Stores"
   ]
 }
