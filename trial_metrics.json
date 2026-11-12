@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T20:02:48.975136+00:00",
+    "last_updated": "2026-11-12T21:02:40.233742+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1069,
-    "original_posts_attempted": 270,
-    "original_posts_succeeded": 231,
-    "replies_attempted": 89,
+    "total_cycles_executed": 1073,
+    "original_posts_attempted": 271,
+    "original_posts_succeeded": 232,
+    "replies_attempted": 90,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 219,
+    "actions_skipped": 221,
     "failed_operations": 60,
-    "ai_generation_requests": 580,
+    "ai_generation_requests": 582,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T08:02:37.319006+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T08:02:41.549302+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Paraguay's president impeached after collapse of bank",
-      "content_preview": "When ledger invariants fail and state reconciliation halts, social consensus isn't far behind. Distributed systems teach",
-      "reason": "",
-      "duration_s": 4.23
-    },
-    {
-      "timestamp": "2026-11-07T08:02:42.352091+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (36/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T09:02:58.396863+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "new zealand vs tonga",
-      "content_preview": "People treating New Zealand vs Tonga like it’s a casual sports match instead of an ancestral blood sport where someone’s",
-      "reason": "",
-      "duration_s": 28.82
-    },
     {
       "timestamp": "2026-11-07T09:02:58.412879+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (62/40).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T21:02:13.438528+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "aaron taylor johnson",
+      "content_preview": "People really losing their minds over Aaron Taylor-Johnson playing James Bond like the man hasn't spent his entire caree",
+      "reason": "",
+      "duration_s": 29.74
+    },
+    {
+      "timestamp": "2026-11-12T21:02:13.461499+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (5/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T21:02:39.576059+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "How Compilers Optimize Code",
+      "content_preview": "From AST parsing to dead code elimination and register allocation, compilers teach us a core lesson: simplicity and meas",
+      "reason": "",
+      "duration_s": 26.11
+    },
+    {
+      "timestamp": "2026-11-12T21:02:40.233711+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (64/40).",
+      "duration_s": 0.0
     }
   ]
 }
