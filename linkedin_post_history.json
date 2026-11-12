@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-12T00:45:31.571060+00:00",
+  "last_success_at": "2026-11-12T03:54:51.285850+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -10,7 +10,8 @@
       "content_hash": "879f00e7be4b49449ec691336259b41b",
       "status": "success",
       "posted_at": "2026-11-03T10:56:00.592398+00:00",
-      "post_urn": "urn:li:share:7523337176386891778"
+      "post_urn": "urn:li:share:7523337176386891778",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search",
@@ -19,7 +20,8 @@
       "content_hash": "ffa10252a103fe4d9bb53b33c7362bfc",
       "status": "success",
       "posted_at": "2026-11-03T17:07:00.430387+00:00",
-      "post_urn": "urn:li:share:7523430535960928256"
+      "post_urn": "urn:li:share:7523430535960928256",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://huggingface.co/papers/2611.03424",
@@ -28,7 +30,8 @@
       "content_hash": "d1b4154b1619af3413df5d3bc60d8663",
       "status": "success",
       "posted_at": "2026-11-03T20:14:53.660441+00:00",
-      "post_urn": "urn:li:ugcPost:7523477819604287488"
+      "post_urn": "urn:li:ugcPost:7523477819604287488",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://huggingface.co/papers/2611.02112",
@@ -37,7 +40,8 @@
       "content_hash": "bef27322a6824af4c5c3557149f9f367",
       "status": "success",
       "posted_at": "2026-11-03T23:26:35.883073+00:00",
-      "post_urn": "urn:li:ugcPost:7523526068436164608"
+      "post_urn": "urn:li:ugcPost:7523526068436164608",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://huggingface.co/papers/2611.05036",
@@ -46,7 +50,8 @@
       "content_hash": "c66b30fe13581f8f6d627ca0b4899e34",
       "status": "success",
       "posted_at": "2026-11-04T06:24:48.983727+00:00",
-      "post_urn": "urn:li:ugcPost:7523631316391890944"
+      "post_urn": "urn:li:ugcPost:7523631316391890944",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
@@ -55,7 +60,8 @@
       "content_hash": "a592d29f18e0d1efa837563c24a60a37",
       "status": "success",
       "posted_at": "2026-11-04T17:18:16.037788+00:00",
-      "post_urn": "urn:li:ugcPost:7523795761315340288"
+      "post_urn": "urn:li:ugcPost:7523795761315340288",
+      "visual_format": ""
     },
     {
       "topic_key": "title:9f928b83b8f9b9000b5416b9ac78704b",
@@ -64,7 +70,8 @@
       "content_hash": "cc6aa641de6becb5cf84ad8be71d6504",
       "status": "success",
       "posted_at": "2026-11-04T19:32:45.871021+00:00",
-      "post_urn": "urn:li:share:7523829608782299136"
+      "post_urn": "urn:li:share:7523829608782299136",
+      "visual_format": ""
     },
     {
       "topic_key": "title:9f928b83b8f9b9000b5416b9ac78704b",
@@ -73,7 +80,8 @@
       "content_hash": "cc6aa641de6becb5cf84ad8be71d6504",
       "status": "success",
       "posted_at": "2026-11-04T19:52:57.698333+00:00",
-      "post_urn": "urn:li:share:7523834689913122816"
+      "post_urn": "urn:li:share:7523834689913122816",
+      "visual_format": ""
     },
     {
       "topic_key": "title:e4489868361ec850d00323e4c3e97561",
@@ -82,7 +90,8 @@
       "content_hash": "bc6207d2c58d0e3b0463c9ca9d0db7ba",
       "status": "success",
       "posted_at": "2026-11-04T23:41:26.287799+00:00",
-      "post_urn": "urn:li:ugcPost:7523892190222331904"
+      "post_urn": "urn:li:ugcPost:7523892190222331904",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://huggingface.co/papers/2611.05609",
@@ -91,7 +100,8 @@
       "content_hash": "fdd688d950ba56d9c1e8e0fd8a0e1f38",
       "status": "success",
       "posted_at": "2026-11-05T06:47:48.590572+00:00",
-      "post_urn": "urn:li:ugcPost:7523999490362761216"
+      "post_urn": "urn:li:ugcPost:7523999490362761216",
+      "visual_format": ""
     },
     {
       "topic_key": "title:7965fb14517959d68ca11d8ff930c7ed",
@@ -100,7 +110,8 @@
       "content_hash": "a3b89c8a2cd5fe921baeedd84de9c80e",
       "status": "success",
       "posted_at": "2026-11-05T17:26:27.778948+00:00",
-      "post_urn": "urn:li:ugcPost:7524160212677586944"
+      "post_urn": "urn:li:ugcPost:7524160212677586944",
+      "visual_format": ""
     },
     {
       "topic_key": "title:8078109c38e58ed7c704d6d50c8034ad",
@@ -109,7 +120,8 @@
       "content_hash": "883db15cfe705237d1fca2e33d56a145",
       "status": "success",
       "posted_at": "2026-11-05T23:43:40.361006+00:00",
-      "post_urn": "urn:li:ugcPost:7524255138874548224"
+      "post_urn": "urn:li:ugcPost:7524255138874548224",
+      "visual_format": ""
     },
     {
       "topic_key": "title:4db1de71c49d552a6fa160636c3074b9",
@@ -118,7 +130,8 @@
       "content_hash": "18e632d57118b7e4e27ca5a2b5731423",
       "status": "success",
       "posted_at": "2026-11-06T06:48:01.234725+00:00",
-      "post_urn": "urn:li:ugcPost:7524361929369219072"
+      "post_urn": "urn:li:ugcPost:7524361929369219072",
+      "visual_format": ""
     },
     {
       "topic_key": "title:f7527db15dd99bfd58daa7ea13904b24",
@@ -127,7 +140,8 @@
       "content_hash": "4fcb74313efe176113d2d0a91316a387",
       "status": "success",
       "posted_at": "2026-11-06T16:02:39.533936+00:00",
-      "post_urn": "urn:li:share:7524501511650103298"
+      "post_urn": "urn:li:share:7524501511650103298",
+      "visual_format": ""
     },
     {
       "topic_key": "title:1d480aa4e97f4caeb5e74fd471f831fd",
@@ -136,7 +150,8 @@
       "content_hash": "bd5a12538e4c7560bd8f54be4340ce32",
       "status": "success",
       "posted_at": "2026-11-06T19:02:28.177330+00:00",
-      "post_urn": "urn:li:share:7524546762783551488"
+      "post_urn": "urn:li:share:7524546762783551488",
+      "visual_format": ""
     },
     {
       "topic_key": "title:d13ee3da89b48ef4416293bf1924250a",
@@ -145,7 +160,8 @@
       "content_hash": "c3ea836b04ca9670698498ccf62b000e",
       "status": "success",
       "posted_at": "2026-11-06T23:03:07.395797+00:00",
-      "post_urn": "urn:li:ugcPost:7524607324595007488"
+      "post_urn": "urn:li:ugcPost:7524607324595007488",
+      "visual_format": ""
     },
     {
       "topic_key": "title:8eb5d665115edbb7ce1b5437c6dde025",
@@ -154,7 +170,8 @@
       "content_hash": "b2f627ce6eca8480f9af6e2f7dbb1c79",
       "status": "success",
       "posted_at": "2026-11-06T23:10:09.985158+00:00",
-      "post_urn": "urn:li:ugcPost:7524609097418321920"
+      "post_urn": "urn:li:ugcPost:7524609097418321920",
+      "visual_format": ""
     },
     {
       "topic_key": "title:74ff69ea603495f1b7e94a5b9b4fea9f",
@@ -163,7 +180,8 @@
       "content_hash": "9693ab9eed34b9132c963d62045c3a26",
       "status": "success",
       "posted_at": "2026-11-07T00:02:53.414223+00:00",
-      "post_urn": "urn:li:ugcPost:7524622364467449856"
+      "post_urn": "urn:li:ugcPost:7524622364467449856",
+      "visual_format": ""
     },
     {
       "topic_key": "title:0a78729f2b7dcf1f0be6ac211b79cdfb",
@@ -172,7 +190,8 @@
       "content_hash": "14adf384507e7481dd2647382a8d6708",
       "status": "success",
       "posted_at": "2026-11-07T01:02:43.973422+00:00",
-      "post_urn": "urn:li:ugcPost:7524637425655271424"
+      "post_urn": "urn:li:ugcPost:7524637425655271424",
+      "visual_format": ""
     },
     {
       "topic_key": "title:f8ee5ea1d1f6cafd8e1131c96b8d99d2",
@@ -181,7 +200,8 @@
       "content_hash": "498bfe0e001979fa4dad7870dcca1b11",
       "status": "success",
       "posted_at": "2026-11-07T01:28:10.906421+00:00",
-      "post_urn": "urn:li:ugcPost:7524643828838952960"
+      "post_urn": "urn:li:ugcPost:7524643828838952960",
+      "visual_format": ""
     },
     {
       "topic_key": "title:67746cb2721c8c484c3b23c9bc3ad42a",
@@ -190,7 +210,8 @@
       "content_hash": "d15ac760e9c81825b69aa12ad54ea873",
       "status": "success",
       "posted_at": "2026-11-07T02:02:42.560119+00:00",
-      "post_urn": "urn:li:ugcPost:7524652518388162560"
+      "post_urn": "urn:li:ugcPost:7524652518388162560",
+      "visual_format": ""
     },
     {
       "topic_key": "title:838fb2f4e30341f0031d5cf8ea8e5712",
@@ -199,7 +220,8 @@
       "content_hash": "877e113d4b4d6081861af41c2272367e",
       "status": "success",
       "posted_at": "2026-11-07T03:02:59.715939+00:00",
-      "post_urn": "urn:li:ugcPost:7524667689387175936"
+      "post_urn": "urn:li:ugcPost:7524667689387175936",
+      "visual_format": ""
     },
     {
       "topic_key": "title:92f97f7cf36a9e034c624a97cec1751f",
@@ -208,7 +230,8 @@
       "content_hash": "b33f661c4ec28dabc9a9d7cd7f288bb9",
       "status": "success",
       "posted_at": "2026-11-07T04:03:15.133907+00:00",
-      "post_urn": "urn:li:ugcPost:7524682854228705280"
+      "post_urn": "urn:li:ugcPost:7524682854228705280",
+      "visual_format": ""
     },
     {
       "topic_key": "title:2b9cd0978f02416de1c58e3f97602183",
@@ -217,7 +240,8 @@
       "content_hash": "bc2d9df01fa33b9ee12fa0789fb1f797",
       "status": "success",
       "posted_at": "2026-11-07T05:02:58.528610+00:00",
-      "post_urn": "urn:li:ugcPost:7524697884525535232"
+      "post_urn": "urn:li:ugcPost:7524697884525535232",
+      "visual_format": ""
     },
     {
       "topic_key": "title:a7a62956f9517563906523cf4078e814",
@@ -226,7 +250,8 @@
       "content_hash": "aeed7f4479a5d89cf79b8e8f45ae6082",
       "status": "success",
       "posted_at": "2026-11-07T06:00:02.905369+00:00",
-      "post_urn": "urn:li:ugcPost:7524712247512887296"
+      "post_urn": "urn:li:ugcPost:7524712247512887296",
+      "visual_format": ""
     },
     {
       "topic_key": "title:e4cf508960d524527905cff07ae4e31b",
@@ -235,7 +260,8 @@
       "content_hash": "02ce3d8210d2a78e880cab9106d7fe0a",
       "status": "success",
       "posted_at": "2026-11-07T21:02:49.640770+00:00",
-      "post_urn": "urn:li:ugcPost:7524939438628728833"
+      "post_urn": "urn:li:ugcPost:7524939438628728833",
+      "visual_format": ""
     },
     {
       "topic_key": "title:14612965b88096203131dd0e868c8a42",
@@ -244,7 +270,8 @@
       "content_hash": "7583e13fd17ac062f9ee7e6e45deef1b",
       "status": "success",
       "posted_at": "2026-11-07T22:02:49.843395+00:00",
-      "post_urn": "urn:li:ugcPost:7524954539599523840"
+      "post_urn": "urn:li:ugcPost:7524954539599523840",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://techcrunch.com/2026/11/07/binance-cfo-is-leaving-to-pursue-a-new-venture-after-6-3-billion-hack",
@@ -253,7 +280,8 @@
       "content_hash": "2f2b702cebb2d22e1402744f3f84733d",
       "status": "success",
       "posted_at": "2026-11-07T23:02:29.207663+00:00",
-      "post_urn": "urn:li:ugcPost:7524969551709679616"
+      "post_urn": "urn:li:ugcPost:7524969551709679616",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers",
@@ -262,7 +290,8 @@
       "content_hash": "2e44e9b9d35f7fb4f1fdc8c586b643c1",
       "status": "success",
       "posted_at": "2026-11-07T23:15:54.762561+00:00",
-      "post_urn": "urn:li:ugcPost:7524972930704011264"
+      "post_urn": "urn:li:ugcPost:7524972930704011264",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo",
@@ -271,7 +300,8 @@
       "content_hash": "d9c690f77e30aab922efe7f15ef59c74",
       "status": "success",
       "posted_at": "2026-11-08T00:02:53.726100+00:00",
-      "post_urn": "urn:li:ugcPost:7524984753893339136"
+      "post_urn": "urn:li:ugcPost:7524984753893339136",
+      "visual_format": ""
     },
     {
       "topic_key": "title:f39b13bd044b220d0762b6262140cf78",
@@ -280,7 +310,8 @@
       "content_hash": "6cbbde378c0cff1d97c6b80e966ec727",
       "status": "success",
       "posted_at": "2026-11-08T10:02:44.615515+00:00",
-      "post_urn": "urn:li:ugcPost:7525135711465861120"
+      "post_urn": "urn:li:ugcPost:7525135711465861120",
+      "visual_format": ""
     },
     {
       "topic_key": "title:7e9070083de8b35195973b5f7236e2ab",
@@ -289,7 +320,8 @@
       "content_hash": "a66dda14a08b5fa12e51fcd3d30189d8",
       "status": "success",
       "posted_at": "2026-11-08T10:24:59.763081+00:00",
-      "post_urn": "urn:li:ugcPost:7525141311398744064"
+      "post_urn": "urn:li:ugcPost:7525141311398744064",
+      "visual_format": ""
     },
     {
       "topic_key": "title:bba39bea339a6c56c78202d85c0a5950",
@@ -298,7 +330,8 @@
       "content_hash": "58f055e60cad74300dff36738497216b",
       "status": "success",
       "posted_at": "2026-11-08T10:54:08.661109+00:00",
-      "post_urn": "urn:li:ugcPost:7525148646561034241"
+      "post_urn": "urn:li:ugcPost:7525148646561034241",
+      "visual_format": ""
     },
     {
       "topic_key": "title:a3152e6a21f0462ae8fad133099262cd",
@@ -307,7 +340,8 @@
       "content_hash": "e9234a845ac92c3b26ecca543abd9b52",
       "status": "success",
       "posted_at": "2026-11-08T11:03:00.677712+00:00",
-      "post_urn": "urn:li:share:7525150878329171968"
+      "post_urn": "urn:li:share:7525150878329171968",
+      "visual_format": ""
     },
     {
       "topic_key": "title:73daa1f49e490f4119b7d0608da7010b",
@@ -316,7 +350,8 @@
       "content_hash": "0086edf2887a294e040896e2424fe58e",
       "status": "success",
       "posted_at": "2026-11-08T12:02:47.635714+00:00",
-      "post_urn": "urn:li:share:7525165922278383616"
+      "post_urn": "urn:li:share:7525165922278383616",
+      "visual_format": ""
     },
     {
       "topic_key": "title:c61d7a2b0b3c0a92472b264fa36499df",
@@ -325,7 +360,8 @@
       "content_hash": "a3f2fadcbffb1e20d63e887a73b451c3",
       "status": "success",
       "posted_at": "2026-11-08T13:02:54.385759+00:00",
-      "post_urn": "urn:li:share:7525181051434954752"
+      "post_urn": "urn:li:share:7525181051434954752",
+      "visual_format": ""
     },
     {
       "topic_key": "title:136fcb6128b7bc21f40486573dc81165",
@@ -334,7 +370,8 @@
       "content_hash": "6b4bf2ddb1e3e4bdcbe183a36cc26d55",
       "status": "success",
       "posted_at": "2026-11-08T14:02:54.437878+00:00",
-      "post_urn": "urn:li:ugcPost:7525196150531076097"
+      "post_urn": "urn:li:ugcPost:7525196150531076097",
+      "visual_format": ""
     },
     {
       "topic_key": "title:b0f2869bdec5ca4f66a8dc1a700b9831",
@@ -343,7 +380,8 @@
       "content_hash": "76b82418df6d8e6ba8e1f3dde52bd3f5",
       "status": "success",
       "posted_at": "2026-11-08T15:02:40.623758+00:00",
-      "post_urn": "urn:li:ugcPost:7525211191569342464"
+      "post_urn": "urn:li:ugcPost:7525211191569342464",
+      "visual_format": ""
     },
     {
       "topic_key": "title:f9601318d4c8c45e73b1a5eedfcf22b1",
@@ -352,7 +390,8 @@
       "content_hash": "cdca33e01662b6cf715a1efa67160d6e",
       "status": "success",
       "posted_at": "2026-11-08T16:03:18.910559+00:00",
-      "post_urn": "urn:li:ugcPost:7525226452569452544"
+      "post_urn": "urn:li:ugcPost:7525226452569452544",
+      "visual_format": ""
     },
     {
       "topic_key": "title:f6dd890a050256560393fbb6e7b6e95c",
@@ -361,7 +400,8 @@
       "content_hash": "0e9c1cb066a00218fbc54b57904880df",
       "status": "success",
       "posted_at": "2026-11-08T17:02:57.706054+00:00",
-      "post_urn": "urn:li:ugcPost:7525241462222155776"
+      "post_urn": "urn:li:ugcPost:7525241462222155776",
+      "visual_format": ""
     },
     {
       "topic_key": "title:a6db42b06afac6857e6a7ce66e428c72",
@@ -370,7 +410,8 @@
       "content_hash": "938eb8a7902357eb97541ae429a59bf9",
       "status": "success",
       "posted_at": "2026-11-08T17:24:45.471330+00:00",
-      "post_urn": "urn:li:ugcPost:7525246948090589184"
+      "post_urn": "urn:li:ugcPost:7525246948090589184",
+      "visual_format": ""
     },
     {
       "topic_key": "title:22dd0afe62df007851391a4b02adc6e5",
@@ -379,7 +420,8 @@
       "content_hash": "ecc0a3e047434490be497e8aa6268069",
       "status": "success",
       "posted_at": "2026-11-08T17:39:43.919282+00:00",
-      "post_urn": "urn:li:share:7525250709307482112"
+      "post_urn": "urn:li:share:7525250709307482112",
+      "visual_format": ""
     },
     {
       "topic_key": "title:31cb38e61e409567a09349b283543848",
@@ -388,7 +430,8 @@
       "content_hash": "cf7559367d048386f2be784d5116b8e1",
       "status": "success",
       "posted_at": "2026-11-08T17:57:14.358811+00:00",
-      "post_urn": "urn:li:share:7525255119387586560"
+      "post_urn": "urn:li:share:7525255119387586560",
+      "visual_format": ""
     },
     {
       "topic_key": "title:a0f1cf4e225252d992f9fdb7cfdf8dc9",
@@ -397,7 +440,8 @@
       "content_hash": "453712949bd550931ce015a875f856d4",
       "status": "success",
       "posted_at": "2026-11-08T18:03:56.834511+00:00",
-      "post_urn": "urn:li:share:7525256808144416768"
+      "post_urn": "urn:li:share:7525256808144416768",
+      "visual_format": ""
     },
     {
       "topic_key": "title:6798b9386dd3d2cfacb7e147fc64745b",
@@ -406,7 +450,8 @@
       "content_hash": "22e3476d565c3d28da937341cd566348",
       "status": "success",
       "posted_at": "2026-11-08T19:03:50.039714+00:00",
-      "post_urn": "urn:li:share:7525271881298370560"
+      "post_urn": "urn:li:share:7525271881298370560",
+      "visual_format": ""
     },
     {
       "topic_key": "title:ea76b23893bce3b41cbec3da970395a1",
@@ -415,7 +460,8 @@
       "content_hash": "13c79cdf1be4d78c4e88a65e70c40496",
       "status": "success",
       "posted_at": "2026-11-08T20:03:08.971189+00:00",
-      "post_urn": "urn:li:share:7525286808222507008"
+      "post_urn": "urn:li:share:7525286808222507008",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://caleb.software/posts/claude-to-pi.html",
@@ -424,7 +470,8 @@
       "content_hash": "429a1fbad9fb33514f8089e38bce5e39",
       "status": "success",
       "posted_at": "2026-11-08T21:03:29.059012+00:00",
-      "post_urn": "urn:li:share:7525301992903131136"
+      "post_urn": "urn:li:share:7525301992903131136",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://blog.bosscher.ch/posts/openstick",
@@ -433,7 +480,8 @@
       "content_hash": "24ec7010f3136714ecd8c10902c972da",
       "status": "success",
       "posted_at": "2026-11-08T21:30:05.745693+00:00",
-      "post_urn": "urn:li:share:7525308688233000960"
+      "post_urn": "urn:li:share:7525308688233000960",
+      "visual_format": ""
     },
     {
       "topic_key": "title:b553bafef2ecebc61a3f92cde5ec406a",
@@ -442,7 +490,8 @@
       "content_hash": "b0a3ee1cf047f9214b7a9f19f26d3760",
       "status": "success",
       "posted_at": "2026-11-08T22:03:01.558749+00:00",
-      "post_urn": "urn:li:share:7525316976945086464"
+      "post_urn": "urn:li:share:7525316976945086464",
+      "visual_format": ""
     },
     {
       "topic_key": "title:60afa41787a535746dd8542267775c70",
@@ -451,7 +500,8 @@
       "content_hash": "ab4f49ec79481e2a43644d9ef0d0747e",
       "status": "success",
       "posted_at": "2026-11-08T22:07:44.079065+00:00",
-      "post_urn": "urn:li:share:7525318161554984961"
+      "post_urn": "urn:li:share:7525318161554984961",
+      "visual_format": ""
     },
     {
       "topic_key": "title:5130ef06e134975dfe1e321e83efcc63",
@@ -460,7 +510,8 @@
       "content_hash": "556f33de8e30dfe993100febb6d2580f",
       "status": "success",
       "posted_at": "2026-11-08T23:03:07.624312+00:00",
-      "post_urn": "urn:li:share:7525332101341102080"
+      "post_urn": "urn:li:share:7525332101341102080",
+      "visual_format": ""
     },
     {
       "topic_key": "title:39f49b4683e4038df3086333aeb44d13",
@@ -469,7 +520,8 @@
       "content_hash": "f3806ce721f02293b181bd933df49b99",
       "status": "success",
       "posted_at": "2026-11-09T00:03:02.796107+00:00",
-      "post_urn": "urn:li:share:7525347180711428096"
+      "post_urn": "urn:li:share:7525347180711428096",
+      "visual_format": ""
     },
     {
       "topic_key": "title:4f3e27b22741bd586ddeb1a11ecc976b",
@@ -478,7 +530,8 @@
       "content_hash": "c84768aa6cfabff0d85956dbeb78863b",
       "status": "success",
       "posted_at": "2026-11-09T01:02:47.578395+00:00",
-      "post_urn": "urn:li:share:7525362215252783104"
+      "post_urn": "urn:li:share:7525362215252783104",
+      "visual_format": ""
     },
     {
       "topic_key": "title:71230e80b44eb6587e859a59c6cb0e2f",
@@ -487,7 +540,8 @@
       "content_hash": "e21f28cfca87fa70bd5438e7f59ac1b6",
       "status": "success",
       "posted_at": "2026-11-09T01:20:42.339911+00:00",
-      "post_urn": "urn:li:share:7525366724179722240"
+      "post_urn": "urn:li:share:7525366724179722240",
+      "visual_format": ""
     },
     {
       "topic_key": "title:5f838f9bdae05bec437282f8736ac605",
@@ -496,7 +550,8 @@
       "content_hash": "73bead6ae30d6a03fa2876adb9dde35f",
       "status": "success",
       "posted_at": "2026-11-09T02:03:10.514906+00:00",
-      "post_urn": "urn:li:share:7525377411820089344"
+      "post_urn": "urn:li:share:7525377411820089344",
+      "visual_format": ""
     },
     {
       "topic_key": "title:ff13b7d865b84e556cee3eea143eda80",
@@ -505,7 +560,8 @@
       "content_hash": "ce231b0e382652461a5359875cccc18f",
       "status": "success",
       "posted_at": "2026-11-09T03:03:10.238188+00:00",
-      "post_urn": "urn:li:share:7525392510651842560"
+      "post_urn": "urn:li:share:7525392510651842560",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
@@ -514,7 +570,8 @@
       "content_hash": "83c64620d9e751ac0a8bf1749c5c2425",
       "status": "success",
       "posted_at": "2026-11-09T04:03:02.510499+00:00",
-      "post_urn": "urn:li:share:7525407576646246401"
+      "post_urn": "urn:li:share:7525407576646246401",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://lorekit.io/blog/open-agent-memory-format",
@@ -523,7 +580,8 @@
       "content_hash": "d223fade8eff8ef275e1f69d1a800781",
       "status": "success",
       "posted_at": "2026-11-09T05:03:37.980911+00:00",
-      "post_urn": "urn:li:share:7525422826133037056"
+      "post_urn": "urn:li:share:7525422826133037056",
+      "visual_format": ""
     },
     {
       "topic_key": "title:a17593da0903dc9ac5c2164f2be85597",
@@ -532,7 +590,8 @@
       "content_hash": "fcc7fcefca4b72dfefb8c3d9c5ebbee4",
       "status": "success",
       "posted_at": "2026-11-09T06:03:05.570836+00:00",
-      "post_urn": "urn:li:share:7525437789530804224"
+      "post_urn": "urn:li:share:7525437789530804224",
+      "visual_format": ""
     },
     {
       "topic_key": "title:5fd338a7c5db0353460627ce659e3c3d",
@@ -541,7 +600,8 @@
       "content_hash": "9c066e190221312b102c2bbfcb38d758",
       "status": "success",
       "posted_at": "2026-11-09T06:31:09.088175+00:00",
-      "post_urn": "urn:li:share:7525444850566135808"
+      "post_urn": "urn:li:share:7525444850566135808",
+      "visual_format": ""
     },
     {
       "topic_key": "title:a93f7bb601151de92bf99dde41629812",
@@ -550,7 +610,8 @@
       "content_hash": "d14c4260ea30542b4e666135ba9c96d9",
       "status": "success",
       "posted_at": "2026-11-09T07:03:16.754305+00:00",
-      "post_urn": "urn:li:share:7525452935988703232"
+      "post_urn": "urn:li:share:7525452935988703232",
+      "visual_format": ""
     },
     {
       "topic_key": "title:956814779f72a08254d1a15efa8c1af4",
@@ -559,7 +620,8 @@
       "content_hash": "754166220dd617ef8d675e78090f8095",
       "status": "success",
       "posted_at": "2026-11-09T08:03:32.244855+00:00",
-      "post_urn": "urn:li:share:7525468100788469760"
+      "post_urn": "urn:li:share:7525468100788469760",
+      "visual_format": ""
     },
     {
       "topic_key": "title:421022717040986d37ae88c5cf52783a",
@@ -568,7 +630,8 @@
       "content_hash": "f874e966e000d905d633895b798e6899",
       "status": "success",
       "posted_at": "2026-11-09T08:54:02.913278+00:00",
-      "post_urn": "urn:li:share:7525480811886952448"
+      "post_urn": "urn:li:share:7525480811886952448",
+      "visual_format": ""
     },
     {
       "topic_key": "title:132b79e1237267f7c0dbc7b799f4ba8a",
@@ -577,7 +640,8 @@
       "content_hash": "65a6d7dfb4946ed35135144febfea28e",
       "status": "success",
       "posted_at": "2026-11-09T09:04:05.594329+00:00",
-      "post_urn": "urn:li:share:7525483339441487873"
+      "post_urn": "urn:li:share:7525483339441487873",
+      "visual_format": ""
     },
     {
       "topic_key": "title:72bec17e2c1936a979d657bb79159b49",
@@ -586,7 +650,8 @@
       "content_hash": "64486f989ef57a98e9bd2f96839bf053",
       "status": "success",
       "posted_at": "2026-11-09T10:03:38.308476+00:00",
-      "post_urn": "urn:li:share:7525498325060460544"
+      "post_urn": "urn:li:share:7525498325060460544",
+      "visual_format": ""
     },
     {
       "topic_key": "title:24397250c25d3c88dc256d8e19aa54e0",
@@ -595,7 +660,8 @@
       "content_hash": "19df7ab1053dfaec364c047ad0a4e67f",
       "status": "success",
       "posted_at": "2026-11-09T11:03:43.832499+00:00",
-      "post_urn": "urn:li:share:7525513447229333504"
+      "post_urn": "urn:li:share:7525513447229333504",
+      "visual_format": ""
     },
     {
       "topic_key": "url:https://imagesco.com/articles/kirlian/kirlian-photography.html",
@@ -604,7 +670,8 @@
       "content_hash": "672d27bfc7e194f98f0a46b021dd4529",
       "status": "success",
       "posted_at": "2026-11-09T12:03:11.682264+00:00",
-      "post_urn": "urn:li:share:7525528412149678080"
+      "post_urn": "urn:li:share:7525528412149678080",
+      "visual_format": ""
     },
     {
       "topic_key": "title:f9601318d4c8c45e73b1a5eedfcf22b1",
@@ -613,7 +680,8 @@
       "content_hash": "1c629a9901af5141e6e75c111e79eabb",
       "status": "success",
       "posted_at": "2026-11-09T15:09:29.146910+00:00",
-      "post_urn": "urn:li:share:7525575293693100032"
+      "post_urn": "urn:li:share:7525575293693100032",
+      "visual_format": ""
     },
     {
       "topic_key": "title:6697d23c58e605a39f07283ff27addff",
@@ -622,7 +690,8 @@
       "content_hash": "e0b2be35d69bf05e72fce2a0d47bdcf4",
       "status": "success",
       "posted_at": "2026-11-09T19:02:53.026038+00:00",
-      "post_urn": "urn:li:share:7525634028532592640"
+      "post_urn": "urn:li:share:7525634028532592640",
+      "visual_format": ""
     },
     {
       "topic_key": "title:c3dae1b7844455c849f44cb61fe9dfd5",
@@ -631,7 +700,8 @@
       "content_hash": "549bb91e9a37f6271819efe26b84912a",
       "status": "success",
       "posted_at": "2026-11-09T19:51:02.802620+00:00",
-      "post_urn": "urn:li:share:7525646149958029312"
+      "post_urn": "urn:li:share:7525646149958029312",
+      "visual_format": ""
     },
     {
       "topic_key": "title:958f25056f5d282a8ef75245de46859a",
@@ -640,7 +710,8 @@
       "content_hash": "3274b776231d3446d9e95e94049aa36b",
       "status": "success",
       "posted_at": "2026-11-09T23:02:26.436292+00:00",
-      "post_urn": "urn:li:share:7525694316531322881"
+      "post_urn": "urn:li:share:7525694316531322881",
+      "visual_format": ""
     },
     {
       "topic_key": "title:d61f8869c72872c8843aaf7b783515ce",
@@ -649,7 +720,8 @@
       "content_hash": "593e81f86bf1e572de43f64b0f17b63a",
       "status": "success",
       "posted_at": "2026-11-10T03:14:23.542295+00:00",
-      "post_urn": "urn:li:share:7525757722131210240"
+      "post_urn": "urn:li:share:7525757722131210240",
+      "visual_format": ""
     },
     {
       "topic_key": "title:e6088840f684fb2b4eaf6200def988f4",
@@ -658,7 +730,8 @@
       "content_hash": "d58ce878076c92cc7966b839d77e1487",
       "status": "success",
       "posted_at": "2026-11-10T03:36:17.389568+00:00",
-      "post_urn": "urn:li:share:7525763232876326912"
+      "post_urn": "urn:li:share:7525763232876326912",
+      "visual_format": ""
     },
     {
       "topic_key": "title:f0f85f60193209fa51b0e1e3327a26b9",
@@ -667,7 +740,8 @@
       "content_hash": "e61f5f1f22a0b5b98d3f98d65eb87bbf",
       "status": "success",
       "posted_at": "2026-11-10T07:02:34.469129+00:00",
-      "post_urn": "urn:li:share:7525815145999056896"
+      "post_urn": "urn:li:share:7525815145999056896",
+      "visual_format": ""
     },
     {
       "topic_key": "title:89a3f0b7031ca25e43c85c0534a30e52",
@@ -676,7 +750,8 @@
       "content_hash": "a2d76e06e5b79ea4b91e175553c3af81",
       "status": "success",
       "posted_at": "2026-11-10T10:07:36.658650+00:00",
-      "post_urn": "urn:li:ugcPost:7525861710096666624"
+      "post_urn": "urn:li:ugcPost:7525861710096666624",
+      "visual_format": ""
     },
     {
       "topic_key": "title:2a8e9c552a11a7ee23ecae2fbf5b9243",
@@ -685,7 +760,8 @@
       "content_hash": "3450cf3dcb01da3353be2f90626472eb",
       "status": "success",
       "posted_at": "2026-11-10T13:09:42.115581+00:00",
-      "post_urn": "urn:li:share:7525907536022081536"
+      "post_urn": "urn:li:share:7525907536022081536",
+      "visual_format": ""
     },
     {
       "topic_key": "title:7781ec381aff03059c9c34c804e64c97",
@@ -694,7 +770,8 @@
       "content_hash": "1730d35b49401ee4e41444f0fa5b169d",
       "status": "success",
       "posted_at": "2026-11-10T14:54:38.898919+00:00",
-      "post_urn": "urn:li:share:7525933947969728512"
+      "post_urn": "urn:li:share:7525933947969728512",
+      "visual_format": ""
     },
     {
       "topic_key": "title:236bd65c309f6b942753b0610ec878cc",
@@ -703,7 +780,8 @@
       "content_hash": "8f3c40473ffdcf3216b21c4f659bc24d",
       "status": "success",
       "posted_at": "2026-11-10T18:02:49.242972+00:00",
-      "post_urn": "urn:li:share:7525981302374699008"
+      "post_urn": "urn:li:share:7525981302374699008",
+      "visual_format": ""
     },
     {
       "topic_key": "title:e92e8dab0c31a5f180031c6e88d11dd3",
@@ -712,7 +790,8 @@
       "content_hash": "b9d58c9609d1ced54ca8dbf01a302e3c",
       "status": "success",
       "posted_at": "2026-11-10T21:19:45.245430+00:00",
-      "post_urn": "urn:li:ugcPost:7526030862711468032"
+      "post_urn": "urn:li:ugcPost:7526030862711468032",
+      "visual_format": ""
     },
     {
       "topic_key": "title:28e9fd6410a7e166ef3a082e1706feaf",
@@ -721,7 +800,8 @@
       "content_hash": "a44f6aa95ad0c6f762c01c4a4305d66b",
       "status": "success",
       "posted_at": "2026-11-11T17:07:53.556402+00:00",
-      "post_urn": "urn:li:share:7526329867773263874"
+      "post_urn": "urn:li:share:7526329867773263874",
+      "visual_format": ""
     },
     {
       "topic_key": "title:55775e77b33720d15f3ab4b60e4fd65f",
@@ -730,7 +810,8 @@
       "content_hash": "de1459298624713239005043a42daf35",
       "status": "success",
       "posted_at": "2026-11-11T17:09:30.986795+00:00",
-      "post_urn": "urn:li:share:7526330276373889024"
+      "post_urn": "urn:li:share:7526330276373889024",
+      "visual_format": ""
     },
     {
       "topic_key": "title:662d14d6b514abcf40f4d9c8eb536726",
@@ -739,7 +820,8 @@
       "content_hash": "b81148062c4024a5bf15a1628950e8ed",
       "status": "success",
       "posted_at": "2026-11-11T21:02:42.151104+00:00",
-      "post_urn": "urn:li:share:7526388959820578816"
+      "post_urn": "urn:li:share:7526388959820578816",
+      "visual_format": ""
     },
     {
       "topic_key": "title:ee5ca071098c7713fe092908defb1273",
@@ -748,7 +830,18 @@
       "content_hash": "70f376cda40401e6c114f1234aea9bf3",
       "status": "success",
       "posted_at": "2026-11-12T00:45:31.571060+00:00",
-      "post_urn": "urn:li:share:7526445032443219968"
+      "post_urn": "urn:li:share:7526445032443219968",
+      "visual_format": ""
+    },
+    {
+      "topic_key": "title:b4615dd3ffada6a9b7c0657b372020db",
+      "title": "How Recommendation Algorithms Guess Your Favorite YouTube Video",
+      "url": "",
+      "content_hash": "d0ad47f07037a18ed07c417c8b161eb5",
+      "status": "success",
+      "posted_at": "2026-11-12T03:54:51.285850+00:00",
+      "post_urn": "urn:li:ugcPost:7526492677840842752",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -834,6 +927,7 @@
     "li:Binary: Why Computers Only Speak 0 and 1",
     "li:Horizontal Pod Autoscaling Mechanics",
     "li:sbi share price",
-    "li:What is an API? The Digital Waiter of the Internet"
+    "li:What is an API? The Digital Waiter of the Internet",
+    "li:How Recommendation Algorithms Guess Your Favorite YouTube Video"
   ]
 }
