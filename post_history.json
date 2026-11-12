@@ -374,7 +374,9 @@
     "റിമി ടോമി",
     "isabelle huppert",
     "bsky:Jensen Huang accused of having another affair — with an Nvidia exec",
-    "umass vs toledo"
+    "umass vs toledo",
+    "ja'kobe walter",
+    "bsky:Embodied First Exam"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -560,7 +562,8 @@
     "d648bcebc2d77da8340a8434b4c60f68215d534699b9eedc5abea0ae8d471a44",
     "121904aebbc3d074a3b2f20c05f6c09397f6d7a913940b2f47a65d3f65ed0936",
     "6206c6436f92fe3002d8f55a3561daf6f43a3db8aeb7b6ce3ac17df8124c13b1",
-    "6b744777cfce42a591de4e3dd4799f817104b798516e77375ad80240dd217d17"
+    "6b744777cfce42a591de4e3dd4799f817104b798516e77375ad80240dd217d17",
+    "83c7181b3133b759efbd01922c1585d3a1bccbf152be33a9c6d5d86b0927f24f"
   ],
   "pending_x_actions": [
     {
@@ -583,6 +586,17 @@
       "status": "unknown",
       "reserved_at": "2026-11-11T23:03:22.707881+00:00",
       "unknown_at": "2026-11-11T23:03:52.893842+00:00",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
+    },
+    {
+      "reservation_id": "16d051b796154bf9b22890c655c0603a",
+      "action_type": "reply",
+      "target_identifier": "https://x.com/sundarpichai/status/2120581155078729728",
+      "content_hash": "670e9fd4130cd9be477cf199f104cc0cee8c7348dae0fff809245e76f216c213",
+      "content_preview": "Bro literally just automated my inability to pick what to watch on Netflix for 45 minutes. #AI #TechTrends",
+      "status": "unknown",
+      "reserved_at": "2026-11-12T01:02:57.464822+00:00",
+      "unknown_at": "2026-11-12T01:03:30.554051+00:00",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates."
     }
   ],
@@ -715,7 +729,8 @@
         "post:d5059c8256f9f7974653223be46df61c6659def7f5f7ee4630c8b56362738472",
         "post:ce7cd9834d6cb5ab6425f491e9485329dbd48ffe62c47b58b1ce5b3e93af9ab6",
         "post:77d9065546e42f14fe4e805b480b8e0c6d3227efc49e6ab366eba4c7149194db",
-        "post:c634694ab1921a6cad5863149613dea3a28bc45bd74e3da8104df26b084c94a7"
+        "post:c634694ab1921a6cad5863149613dea3a28bc45bd74e3da8104df26b084c94a7",
+        "post:612fba023576b9de71bdac5d1ad38bcaaa7030dc51fecbaabc7225f77afa8bb8"
       ],
       "pending": []
     },
