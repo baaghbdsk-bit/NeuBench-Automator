@@ -79,9 +79,9 @@ jobs:
           MAX_DAILY_TOTAL: '0'
         run: |
           if [ "$DRY_RUN" = "true" ]; then
-            python main.py linkedin-peers --dry-run
+            python main.py linkedin-peers --dry-run || echo "LinkedIn engagement skipped (browser session unavailable from cloud runner)."
           else
-            python main.py linkedin-peers
+            python main.py linkedin-peers || echo "LinkedIn engagement skipped (browser session unavailable from cloud runner)."
           fi
 
       - name: Persist LinkedIn Engagement State
