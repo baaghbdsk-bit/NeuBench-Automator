@@ -151,6 +151,7 @@ def _clean_post_entry(entry: Any) -> Optional[Dict[str, Any]]:
         "status": str(entry.get("status", "success")),
         "posted_at": str(entry.get("posted_at", "")),
         "post_urn": str(entry.get("post_urn", "")),
+        "visual_format": str(entry.get("visual_format", "")),
     }
 
 
@@ -221,6 +222,7 @@ def append_post_entry(
     status: str = "success",
     posted_at: Optional[str] = None,
     post_urn: str = "",
+    visual_format: str = "",
 ) -> Dict[str, Any]:
     """Append a successful or outcome-unknown attempt to post history."""
 
@@ -233,6 +235,7 @@ def append_post_entry(
         "status": status,
         "posted_at": timestamp,
         "post_urn": post_urn,
+        "visual_format": str(visual_format or "").strip(),
     }
     state.setdefault("posts", []).append(entry)
     state["posts"] = state["posts"][-MAX_HISTORY_ENTRIES:]

@@ -213,7 +213,7 @@ async def render_day3_pipeline():
     # Subtitles SRT
     srt_path = day_dir / "subtitles_day_003.srt"
     generate_subtitles_srt(scenes, durations, srt_path)
-    print(f"[Day3 Pipeline] ✅ Complete! Day 3 ready for YouTube Shorts and Instagram Reels.")
+    print(f"[Day3 Pipeline] ✅ Complete! Day 3 ready for social video.")
 
 if __name__ == "__main__":
     asyncio.run(render_day3_pipeline())

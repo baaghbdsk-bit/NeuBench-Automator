@@ -27,7 +27,7 @@ TARGET_NICHES = [
     ).split(",") if n.strip()
 ]
 
-# Omnichannel Expansion (Bluesky, LinkedIn, Threads, Instagram, Dev.to, Pinterest, YouTube)
+# Omnichannel Expansion (X, Bluesky, LinkedIn)
 BLUESKY_HANDLE = os.getenv("BLUESKY_HANDLE", "")
 BLUESKY_APP_PASSWORD = os.getenv("BLUESKY_APP_PASSWORD", "")
 LINKEDIN_ENABLED = os.getenv("LINKEDIN_ENABLED", "true").lower() in ("true", "1")
@@ -35,12 +35,6 @@ LINKEDIN_ORGANIZATION_URN = os.getenv("LINKEDIN_ORGANIZATION_URN", "")
 LINKEDIN_API_VERSION = os.getenv("LINKEDIN_API_VERSION", "202610")
 LINKEDIN_MIN_INTERVAL_MINUTES = max(0, int(os.getenv("LINKEDIN_MIN_INTERVAL_MINUTES", "180")))
 LINKEDIN_SCHEDULE_GRACE_MINUTES = max(0, int(os.getenv("LINKEDIN_SCHEDULE_GRACE_MINUTES", "60")))
-THREADS_ENABLED = os.getenv("THREADS_ENABLED", "true").lower() in ("true", "1")
-INSTAGRAM_ENABLED = os.getenv("INSTAGRAM_ENABLED", "true").lower() in ("true", "1")
-DEVTO_API_KEY = os.getenv("DEVTO_API_KEY", "")
-DEVTO_ENABLED = os.getenv("DEVTO_ENABLED", "true").lower() in ("true", "1")
-PINTEREST_ENABLED = os.getenv("PINTEREST_ENABLED", "true").lower() in ("true", "1")
-YOUTUBE_ENABLED = os.getenv("YOUTUBE_ENABLED", "true").lower() in ("true", "1")
 
 # ==============================================================================
 # ALGORITHMIC TIME-SLOT DISTRIBUTION MATRIX (Global Developer & Tech Audience)
@@ -65,18 +59,18 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "12:30 - 02:00 PM IST (Target 1:00 PM IST)",
         "est_display": "02:30 - 04:00 AM EST / 08:30 - 10:00 AM CET",
         "name": "Midday Engineering Masterclass & Benchmark Race",
-        "primary_actions": ["devto", "threads", "reply"],
-        "description": "Midday engineering masterclass across Dev.to, Threads, and viral replies."
+        "primary_actions": ["bluesky", "reply", "linkedin"],
+        "description": "Midday engineering masterclass across Bluesky, LinkedIn, and viral replies."
     },
-    # Slot 3: 5:00 PM IST (11:30 UTC) - Evening Transition & YouTube Drop
+    # Slot 3: 5:00 PM IST (11:30 UTC) - Evening Transition
     "W3_EVENING_TRANSITION": {
         "utc_start": 11,  # 11:00 - 12:30 UTC = 04:30 - 06:00 PM IST
         "utc_end": 13,
         "ist_display": "04:30 - 06:00 PM IST (Target 5:00 PM IST)",
         "est_display": "06:30 - 08:00 AM EST (US East Standup)",
         "name": "Evening Transition & Video Drop",
-        "primary_actions": ["youtube", "pinterest", "reply"],
-        "description": "Evening transition with YouTube Shorts, Pinterest pins, and viral replies."
+        "primary_actions": ["bluesky", "reply", "repost"],
+        "description": "Evening transition with Bluesky takes, viral replies, and quote posts."
     },
     # Slot 4: 9:00 PM IST (15:30 UTC) - Prime US Midday & India Evening Peak
     "W4_PRIME_DISCOURSE": {
@@ -85,8 +79,8 @@ ALGORITHMIC_WINDOWS = {
         "ist_display": "08:30 - 10:00 PM IST (Target 9:00 PM IST)",
         "est_display": "10:30 - 12:00 PM EST (US Peak Hours)",
         "name": "Peak US Prime Discourse & Technical Blueprint",
-        "primary_actions": ["instagram", "threads", "repost"],
-        "description": "Peak US prime discourse with Instagram carousels, Threads, and quote posts."
+        "primary_actions": ["linkedin", "bluesky", "repost"],
+        "description": "Peak US prime discourse with LinkedIn posts, Bluesky takes, and quote posts."
     },
     # Slot 5: 12:00 AM (Midnight) IST (18:30 UTC) - Silicon Valley Afternoon / Midnight Drop
     "W5_MIDNIGHT_SV_DROP": {
@@ -104,19 +98,13 @@ ALGORITHMIC_WINDOWS = {
 # ALGORITHMIC DAILY FREQUENCY CAPS (Guards against cannibalization & spam limits)
 # ==============================================================================
 CAPS_PER_PLATFORM = {
-    "youtube_shorts": int(os.getenv("MAX_DAILY_YOUTUBE_SHORTS", "2")),    # 1-2/day max to prevent self-cannibalization
-    "instagram_carousels": int(os.getenv("MAX_DAILY_IG_CAROUSELS", "1")), # 1 deep cheatsheet/day
-    "instagram_reels": int(os.getenv("MAX_DAILY_IG_REELS", "2")),         # 1-2 reels/day
-    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "999")),          # Uncapped per user request, allows continuous posting
+    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "2")),          # Cap at 2/day to protect reach and prevent visual fatigue
     "linkedin_peer_comments": int(os.getenv("MAX_DAILY_LINKEDIN_PEER_COMMENTS", "10")), # Max viral comments/replies per day (commenting on others' posts)
-    "devto_articles": int(os.getenv("MAX_DAILY_DEVTO", "1")),             # 1 comprehensive article/day
-    "pinterest_pins": int(os.getenv("MAX_DAILY_PINTEREST", "3")),         # 2-3 pins/day spaced out
     # Accept both the current X-specific names and the legacy names used by
     # the workflow/README so the configured caps are actually enforced.
     "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", os.getenv("MAX_DAILY_ORIGINAL_POSTS", "8"))),
     "twitter_replies": int(os.getenv("MAX_DAILY_X_REPLIES", os.getenv("MAX_DAILY_REPLIES", "24"))),
     "twitter_reposts": int(os.getenv("MAX_DAILY_X_REPOSTS", os.getenv("MAX_DAILY_REPOSTS", "6"))),
-    "threads_posts": int(os.getenv("MAX_DAILY_THREADS", "5")),            # 4-5 conversational posts
     "bluesky_posts": int(os.getenv("MAX_DAILY_BLUESKY", "6")),            # 5-6 tech takes
 }
 

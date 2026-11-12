@@ -96,7 +96,7 @@ jobs:
           MAX_DAILY_X_ORIGINALS: '12'
           MAX_DAILY_X_REPLIES: '12'
           MAX_DAILY_X_REPOSTS: '6'
-          MAX_DAILY_LINKEDIN: '4'
+          MAX_DAILY_LINKEDIN: '2'
           MAX_DAILY_BLUESKY: '12'
           MAX_DAILY_TOTAL: '40'
         run: |
@@ -125,6 +125,7 @@ jobs:
           TRIAL_ENABLED: 'true'
           MAX_DAILY_X_REPLIES: '12'
           MAX_DAILY_X_REPOSTS: '6'
+          MAX_DAILY_TOTAL: '40'
         run: |
           ACTION="${{ inputs.action || 'auto' }}"
           # Alternate between Sniper Reply and Quote-Tweet based on current hour
@@ -172,3 +173,23 @@ jobs:
             TOTAL_POSTS=$(python -c "import json; data=json.load(open('post_history.json')); print(len(data.get('posted_tweets', [])))" 2>/dev/null || echo "N/A")
             echo "- **Total Tracked Posts:** $TOTAL_POSTS" >> $GITHUB_STEP_SUMMARY
           fi
+
+      - name: 🚨 Alert on Failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          MSG="🚨 *NeuBench Autopilot FAILED*%0A%0A*Workflow:* 𝕏 + LinkedIn + Bluesky%0A*Run:* \`${{ github.run_id }}\`%0A*Time:* $(date -u '+%Y-%m-%d %H:%M UTC')%0A*Trigger:* ${{ github.event_name }}%0A%0A👉 [View logs]($RUN_URL)"
+          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d "chat_id=${TELEGRAM_CHAT_ID}" \
+              -d "text=${MSG}" \
+              -d "parse_mode=Markdown" \
+              -d "disable_web_page_preview=true" || echo "Telegram alert failed (non-fatal)"
+          else
+            echo "::warning::Workflow FAILED — set TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID secrets for instant alerts"
+          fi
+          echo "## 🚨 WORKFLOW FAILED" >> $GITHUB_STEP_SUMMARY
+          echo "Run URL: $RUN_URL" >> $GITHUB_STEP_SUMMARY

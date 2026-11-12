@@ -57,12 +57,17 @@ class LinkedInPortfolioManager:
         topic: str,
         summary: str = "",
         audience: str = "working_pro",
-        explicit_format: Optional[str] = None
+        explicit_format: Optional[str] = None,
+        recent_formats: Optional[List[str]] = None
     ) -> Tuple[str, str]:
         """
         Determines the optimal visual format for a given topic.
         Returns: (format_type, reasoning)
         format_type is one of: 'animated_flow_gif', 'notebook_carousel', 'text_only'
+
+        ``recent_formats`` is the most recent first, newest-first list of formats
+        actually published. When the chosen visual format would be the third
+        identical visual in a row, it rotates to the alternate visual format.
         """
         if explicit_format in ("animated_flow_gif", "notebook_carousel", "text_only"):
             return explicit_format, f"Explicit format requested: {explicit_format}"
@@ -80,22 +85,39 @@ class LinkedInPortfolioManager:
             "handshake", "packet", "signal", "vs", "versus"
         ]
         if any(kw in combined for kw in flow_keywords):
-            return "animated_flow_gif", "Topic features dynamic data movement, state transitions, or architectural contrast suited for a looping flow diagram."
+            candidate = "animated_flow_gif"
+            reason = "Topic features dynamic data movement, state transitions, or architectural contrast suited for a looping flow diagram."
+        else:
+            # 2. Topics best suited for Multi-Page PDF Study Notes (tutorials, data structures, code guides)
+            notebook_keywords = [
+                "how to", "guide", "cheat sheet", "study notes", "internals",
+                "under the hood", "data structure", "bloom filter", "b-tree", "lsm-tree",
+                "hash table", "index", "virtual memory", "paging", "garbage collection",
+                "locking", "antipatterns", "pitfalls", "checklist", "fundamentals",
+                "heap", "stack", "concurrency", "thread pool"
+            ]
+            if any(kw in combined for kw in notebook_keywords):
+                candidate = "notebook_carousel"
+                reason = "Topic is an educational deep dive with code, memory mechanics, and traps best presented as a multi-page swipeable study guide."
+            else:
+                # 3. High-level analysis, opinion, culture, or architectural debates -> TEXT ONLY
+                # No forced visuals; crisp engineering prose has maximum authority
+                candidate = "text_only"
+                reason = "Topic is best conveyed as an authoritative, high-signal technical essay without forced or redundant visual aids."
 
-        # 2. Topics best suited for Multi-Page PDF Study Notes (tutorials, data structures, code guides)
-        notebook_keywords = [
-            "how to", "guide", "cheat sheet", "study notes", "internals",
-            "under the hood", "data structure", "bloom filter", "b-tree", "lsm-tree",
-            "hash table", "index", "virtual memory", "paging", "garbage collection",
-            "locking", "antipatterns", "pitfalls", "checklist", "fundamentals",
-            "heap", "stack", "concurrency", "thread pool"
+        recent_visuals = [
+            str(fmt) for fmt in (recent_formats or [])
+            if str(fmt) in ("animated_flow_gif", "notebook_carousel")
         ]
-        if any(kw in combined for kw in notebook_keywords):
-            return "notebook_carousel", "Topic is an educational deep dive with code, memory mechanics, and traps best presented as a multi-page swipeable study guide."
+        if candidate in ("animated_flow_gif", "notebook_carousel") and len(recent_visuals) >= 2:
+            if recent_visuals[0] == candidate and recent_visuals[1] == candidate:
+                alternate = "notebook_carousel" if candidate == "animated_flow_gif" else "animated_flow_gif"
+                return alternate, (
+                    f"Rotation applied: last two published visuals were both {candidate}; "
+                    f"switching to {alternate} for variety. ({reason})"
+                )
 
-        # 3. High-level analysis, opinion, culture, or architectural debates -> TEXT ONLY
-        # No forced visuals; crisp engineering prose has maximum authority
-        return "text_only", "Topic is best conveyed as an authoritative, high-signal technical essay without forced or redundant visual aids."
+        return candidate, reason
 
     def validate_article_quality(self, text: str, visual_format: str = "text_only") -> Tuple[bool, str]:
         """

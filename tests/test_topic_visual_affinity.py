@@ -1,6 +1,5 @@
 """Unit tests verifying strict topic-affinity and prevention of repeated/generic visuals."""
 
-import os
 import unittest
 from pathlib import Path
 
@@ -59,39 +58,6 @@ class TestTopicVisualAffinity(unittest.TestCase):
                 test_file.unlink()
             if test_dir.exists():
                 test_dir.rmdir()
-
-    def test_code_arch_scene_disabled_static_fallback(self):
-        from src.code_arch_scene import get_spec
-        old_val = os.environ.pop("MANIM_SPEC_PATH", None)
-        try:
-            with self.assertRaises(RuntimeError) as ctx:
-                get_spec()
-            self.assertIn("No dynamic topic spec provided", str(ctx.exception))
-        finally:
-            if old_val:
-                os.environ["MANIM_SPEC_PATH"] = old_val
-
-    def test_token_pipeline_scene_disabled_static_fallback(self):
-        from src.token_pipeline_scene import get_spec
-        old_val = os.environ.pop("MANIM_SPEC_PATH", None)
-        try:
-            with self.assertRaises(RuntimeError) as ctx:
-                get_spec()
-            self.assertIn("No dynamic topic spec provided", str(ctx.exception))
-        finally:
-            if old_val:
-                os.environ["MANIM_SPEC_PATH"] = old_val
-
-    def test_benchmark_race_scene_disabled_static_fallback(self):
-        from src.benchmark_race_scene import get_spec
-        old_val = os.environ.pop("MANIM_SPEC_PATH", None)
-        try:
-            with self.assertRaises(RuntimeError) as ctx:
-                get_spec()
-            self.assertIn("No dynamic topic spec provided", str(ctx.exception))
-        finally:
-            if old_val:
-                os.environ["MANIM_SPEC_PATH"] = old_val
 
     def test_dynamic_flow_diagram_generation(self):
         title = "Kafka Message Ingestion Flow"

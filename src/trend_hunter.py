@@ -397,6 +397,58 @@ def detect_trend_sensitivity(title: str, summary: str = "", category: str = "") 
     return False, "Standard public interest or tech topic"
 
 
+LINKEDIN_TREND_BLOCKLIST: Tuple[str, ...] = (
+    r"\bshare price\b", r"\bstock price\b", r"\bshare market\b",
+    r"\bq[1-4]\s*(fy)?\s*results\b", r"\bresults date\b", r"\bipo (date|gmp)\b",
+    r"\bgmp\b", r"\bmarket cap\b", r"\bnse\b", r"\bbse\b",
+    r"\bbox office\b", r"\bbollywood\b", r"\bcricket\b", r"\bwwe\b",
+    r"\belection\b", r"\bweather\b", r"\blottery\b",
+)
+
+LINKEDIN_AI_SIGNAL_TERMS: Tuple[str, ...] = (
+    "ai", "llm", "rag", "gpu", "ttft", "agent", "agentic", "model",
+    "inference", "transformer", "neural", "embedding", "benchmark", "eval",
+    "openai", "anthropic", "gemini", "claude", "deepseek", "qwen", "mistral",
+    "hugging face", "pytorch", "tensorflow", "prompt", "fine-tun", "quantiz",
+    "attention", "distillation", "diffusion", "token", "context window",
+    "alignment", "swe-bench", "latency", "throughput", "data center",
+    "machine learning", "artificial intelligence", "open source", "database",
+    "vector search", "retrieval", "distributed system", "architecture",
+    "storage", "b-tree", "lsm", "sharding", "partition", "cache", "queue",
+    "sql", "postgres", "kafka", "redis", "index",
+    "software", "developer", "programming", "engineering", "cloud",
+    "kubernetes", "docker", "api", "security", "cybersecurity", "vulnerability",
+    "chip", "semiconductor", "nvidia", "linux", "startup", "funding",
+    "github", "compiler", "kernel", "distributed", "observability", "devops",
+    "incident", "scaling", "microservice",
+)
+
+LINKEDIN_TREND_TRUSTED_CATEGORIES = ("frontier_paper", "benchmark")
+
+
+def is_linkedin_relevant_trend(title: str, summary: str = "", category: str = "", source: str = "") -> bool:
+    """Keep LinkedIn on-brand: AI/engineering only, no market or consumer news noise."""
+    haystack = f"{title} {summary}".lower()
+    for pattern in LINKEDIN_TREND_BLOCKLIST:
+        if re.search(pattern, haystack):
+            return False
+
+    category_norm = (category or "").lower()
+    source_norm = (source or "").lower()
+    if "neubench" in source_norm or "hugging face" in source_norm:
+        return True
+    if category_norm in LINKEDIN_TREND_TRUSTED_CATEGORIES:
+        return True
+
+    for term in LINKEDIN_AI_SIGNAL_TERMS:
+        if len(term) <= 4:
+            if re.search(rf"\b{re.escape(term)}\b", haystack):
+                return True
+        elif term in haystack:
+            return True
+    return False
+
+
 def canonicalize_url(url: Optional[str]) -> str:
     """
     Normalizes a URL by stripping tracking parameters, normalizing scheme/host,
@@ -1091,6 +1143,17 @@ class TrendHunter:
         if not cached:
             self.get_curated_trending_topics(use_cache=False, refresh=True)
             cached = self.cache.get_trends(include_sensitive=include_sensitive, limit=limit)
+
+        if (platform or "").lower() == "linkedin":
+            cached = [
+                trend for trend in cached
+                if is_linkedin_relevant_trend(
+                    title=str(trend.get("title", "")),
+                    summary=str(trend.get("summary", "")),
+                    category=str(trend.get("category", "")),
+                    source=str(trend.get("source", "")),
+                )
+            ]
         return cached
 
     def get_linkedin_topics(self, pillar: Optional[str] = None) -> List[Dict[str, Any]]:
@@ -1166,7 +1229,7 @@ class TrendHunter:
         return filtered
 
     def get_casual_topics(self) -> List[Dict[str, Any]]:
-        """Return non-tech, everyday relatable, witty, and humorous topics for X and Threads (Indian & global urban lifestyle)."""
+        """Return non-tech, everyday relatable, witty, and humorous topics for X (Indian & global urban lifestyle)."""
         evergreen_casual = [
             # High-Traction Desi / Indian Urban & Workplace Culture
             {"title": "Bengaluru traffic & Silk Board signals", "context": "Spending 45 minutes moving 200 meters in Bangalore traffic while watching your Swiggy delivery guy overtake you on a bicycle."},
@@ -1185,7 +1248,7 @@ class TrendHunter:
             {"title": "Typing 'Per my last email'", "context": "Typing 'Per my previous email' when what you really want to say is 'I already answered this, can you please read?'"},
             {"title": "Family WhatsApp 'Good Morning' GIFs", "context": "Waking up to 18 glittery animated roses with quotes like 'Life is a precious gift' in the family WhatsApp group."},
             
-            # High-Engagement Conversation & Debate Bait (Massive for Threads Comments)
+            # High-Engagement Conversation & Debate Bait (Massive for X Comments)
             {"title": "Everyday scams we normalized", "context": "What is an everyday expense that is a total and complete scam, but society just normalized it?"},
             {"title": "Unwritten public rules broken casually", "context": "What is one unwritten social rule that people break way too casually in public?"},
             {"title": "Unpopular opinion for family dinners", "context": "What is an unpopular opinion that would get you immediately disowned at a family dinner?"},
@@ -1230,7 +1293,7 @@ class TrendHunter:
     def get_dynamic_ai_topic(self, used_topics: Optional[List[str]] = None) -> Dict[str, Any]:
         """
         Picks a random foundational or frontier AI topic (terminology, architecture, concept, or news)
-        with structured components ready for Carousel slides, Shorts voiceover, and Pinterest infographics.
+        with structured components ready for carousel slides and infographics.
         """
         try:
             from src.ai_generator import AIGenerator
@@ -1722,7 +1785,7 @@ class TrendHunter:
             {'title': 'Scrum master daily rituals', 'context': 'The corporate phenomenon of having 6 project managers, 2 scrum masters, and 1 developer who actually writes code.'},
             {'title': 'The AI bubble and pitch deck madness', 'context': 'Putting a $50 OpenAI API wrapper on a database and calling yourself a Pre-Seed Autonomous Enterprise Agent Platform with a $20M valuation.'},
             {'title': 'Middle-class investment paranoia', 'context': 'Middle class uncle putting all money in fixed deposits yielding 6% while inflation is 8%, but warning you that buying a $20 book is financial recklessness.'},
-            {'title': 'Gym bros vs reality', 'context': 'Taking 4 scoops of pre-workout, wearing $300 gym gear, and then doing 3 bicep curls and spending 45 minutes on Instagram reels on the bench press.'},
+            {'title': 'Gym bros vs reality', 'context': 'Taking 4 scoops of pre-workout, wearing $300 gym gear, and then doing 3 bicep curls and spending 45 minutes scrolling short videos on the bench press.'},
             {'title': 'Restaurant service charge entitlement', 'context': 'Restaurants charging 10% service charge, 5% GST, 18% AC tax, and then the waiter stares into your soul waiting for a cash tip.'}
         ]
         try:

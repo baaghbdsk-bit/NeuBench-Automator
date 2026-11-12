@@ -163,13 +163,9 @@ class TrendAPITests(unittest.TestCase):
         self.assertEqual(data["status"], "success")
         self.assertEqual(data["count"], 0)
 
-    @patch("src.web.app.get_live_reddit_metrics")
-    @patch("src.web.app.get_live_threads_metrics")
     @patch("src.web.app.get_live_bluesky_metrics")
-    def test_existing_dashboard_endpoints_still_work(self, mock_bsky, mock_th, mock_rd):
+    def test_existing_dashboard_endpoints_still_work(self, mock_bsky):
         mock_bsky.return_value = {"followers": 16, "following": 8, "posts": 20, "timestamp": 123456}
-        mock_th.return_value = {"followers": 10, "timestamp": 123456}
-        mock_rd.return_value = {"karma": 50, "timestamp": 123456}
 
         # 1. Topics API
         res_topics = self.client.get("/api/topics")

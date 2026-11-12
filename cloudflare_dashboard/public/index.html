@@ -501,89 +501,15 @@
 
     <!-- Platform Sub-Tabs -->
     <div class="tabs-bar">
-      <button class="tab-btn active" onclick="filterPlatform('all', this)">🌐 All Channels (7)</button>
-      <button class="tab-btn" onclick="filterPlatform('youtube', this)">🎬 YouTube Shorts</button>
-      <button class="tab-btn" onclick="filterPlatform('instagram', this)">📸 Instagram</button>
+      <button class="tab-btn active" onclick="filterPlatform('all', this)">🌐 All Channels (3)</button>
       <button class="tab-btn" onclick="filterPlatform('twitter', this)">𝕏 (Twitter)</button>
+      <button class="tab-btn" onclick="filterPlatform('bluesky', this)">🦋 Bluesky</button>
       <button class="tab-btn" onclick="filterPlatform('linkedin', this)">💼 LinkedIn</button>
-      <button class="tab-btn" onclick="filterPlatform('threads', this)">🧵 Threads</button>
-      <button class="tab-btn" onclick="filterPlatform('devto', this)">📝 Dev.to</button>
-      <button class="tab-btn" onclick="filterPlatform('pinterest', this)">📌 Pinterest</button>
     </div>
 
     <!-- Platform Cards Grid -->
     <div class="cards-grid" id="cards-container">
       
-      <!-- YouTube Shorts -->
-      <div class="platform-card" data-channel="youtube">
-        <div class="card-top">
-          <div class="platform-identity">
-            <span class="platform-icon">🎬</span>
-            <div>
-              <div class="platform-name">YouTube Shorts</div>
-              <div class="platform-handle">@neubench</div>
-            </div>
-          </div>
-          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
-        </div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <span class="stat-val">384</span>
-            <span class="stat-lbl">Subscribers</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Shorts Views</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">Syncing</span>
-            <span class="stat-lbl">Avg Retention</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">1</span>
-            <span class="stat-lbl">Video Live</span>
-          </div>
-        </div>
-        <div class="card-timing">
-          ⏰ <b>Peak Drops:</b> 5:30 PM & 7:30 PM IST (Dual Subtitles)
-        </div>
-      </div>
-
-      <!-- Instagram -->
-      <div class="platform-card" data-channel="instagram">
-        <div class="card-top">
-          <div class="platform-identity">
-            <span class="platform-icon">📸</span>
-            <div>
-              <div class="platform-name">Instagram</div>
-              <div class="platform-handle">@neubench</div>
-            </div>
-          </div>
-          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
-        </div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Followers</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Account Reach</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Avg Saves / Post</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">2</span>
-            <span class="stat-lbl">Carousels Ready</span>
-          </div>
-        </div>
-        <div class="card-timing">
-          🔒 <b>Privacy:</b> Like & View Counts Auto-Hidden by default
-        </div>
-      </div>
-
       <!-- 𝕏 Twitter -->
       <div class="platform-card" data-channel="twitter">
         <div class="card-top">
@@ -654,30 +580,30 @@
         </div>
       </div>
 
-      <!-- Threads -->
-      <div class="platform-card" data-channel="threads">
+      <!-- Bluesky -->
+      <div class="platform-card" data-channel="bluesky">
         <div class="card-top">
           <div class="platform-identity">
-            <span class="platform-icon">🧵</span>
+            <span class="platform-icon">🦋</span>
             <div>
-              <div class="platform-name">Threads</div>
-              <div class="platform-handle">@neubench</div>
+              <div class="platform-name">Bluesky</div>
+              <div class="platform-handle">@neubench.bsky.social</div>
             </div>
           </div>
           <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
         </div>
         <div class="card-stats">
           <div class="stat-item">
-            <span class="stat-val">0</span>
+            <span class="stat-val">16</span>
             <span class="stat-lbl">Followers</span>
           </div>
           <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Impressions</span>
+            <span class="stat-val">27</span>
+            <span class="stat-lbl">Posts / Day</span>
           </div>
           <div class="stat-item">
-            <span class="stat-val">15</span>
-            <span class="stat-lbl">Posts Sent</span>
+            <span class="stat-val">300</span>
+            <span class="stat-lbl">Char Limit</span>
           </div>
           <div class="stat-item">
             <span class="stat-val">Active</span>
@@ -685,77 +611,7 @@
           </div>
         </div>
         <div class="card-timing">
-          💬 <b>Mode:</b> Conversational AI & Engineering Debate Drops
-        </div>
-      </div>
-
-      <!-- Dev.to -->
-      <div class="platform-card" data-channel="devto">
-        <div class="card-top">
-          <div class="platform-identity">
-            <span class="platform-icon">📝</span>
-            <div>
-              <div class="platform-name">Dev.to</div>
-              <div class="platform-handle">@neubench</div>
-            </div>
-          </div>
-          <span style="font-size: 12px; color: #94A3B8; font-weight: 700;">⏳ Queued</span>
-        </div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Followers</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Article Reads</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Reactions</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Articles</span>
-          </div>
-        </div>
-        <div class="card-timing">
-          📚 <b>Format:</b> Deep-Dive Technical Markdown with GitHub Benchmarks
-        </div>
-      </div>
-
-      <!-- Pinterest -->
-      <div class="platform-card" data-channel="pinterest">
-        <div class="card-top">
-          <div class="platform-identity">
-            <span class="platform-icon">📌</span>
-            <div>
-              <div class="platform-name">Pinterest</div>
-              <div class="platform-handle">neubench</div>
-            </div>
-          </div>
-          <span style="font-size: 12px; color: #34D399; font-weight: 700;">🟢 Active</span>
-        </div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Monthly Views</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Outbound Clicks</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">0</span>
-            <span class="stat-lbl">Pins Live</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">100%</span>
-            <span class="stat-lbl">Link to App</span>
-          </div>
-        </div>
-        <div class="card-timing">
-          🔗 <b>Link:</b> Drives traffic directly to app.neubench.workers.dev
+          🛡️ <b>Guard:</b> Professional tech commentary, capped daily workflow
         </div>
       </div>
 

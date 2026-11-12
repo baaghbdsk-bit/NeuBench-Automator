@@ -208,24 +208,6 @@ def compile_frames_to_mp4(frames: List[Image.Image], temp_prefix: str, fps: int,
     return None
 
 
-def render_dynamic_code_architecture(spec: Dict[str, Any], output_base_name: str = "code_arch_dynamic") -> Tuple[str, str]:
-    """Renders the AI-designed Code Breakdown & Architecture Blueprint (Animated 1080x1080 Loop) using Manim."""
-    from src.manim_renderer import render_scene
-    return render_scene("code_arch_scene", "CodeArchitecture", output_base_name, spec=spec)
-
-
-def render_dynamic_benchmark_race(spec: Dict[str, Any], output_base_name: str = "benchmark_race_dynamic") -> Tuple[str, str]:
-    """Renders the AI-designed Benchmark & Throughput Race (Animated 1080x1080 Loop) using Manim."""
-    from src.manim_renderer import render_scene
-    return render_scene("benchmark_race_scene", "BenchmarkRace", output_base_name, spec=spec)
-
-
-def render_dynamic_token_pipeline(spec: Dict[str, Any], output_base_name: str = "token_pipeline_dynamic") -> Tuple[str, str]:
-    """Renders the AI-designed Tokenization & Embedding Pipeline (Animated 1080x1080 Loop) using Manim."""
-    from src.manim_renderer import render_scene
-    return render_scene("token_pipeline_scene", "TokenPipeline", output_base_name, spec=spec)
-
-
 def generate_casual_visual_card(
     topic_or_title: str,
     text: str,
@@ -234,7 +216,7 @@ def generate_casual_visual_card(
 ) -> Tuple[str, str]:
     """
     Renders a viral, high-contrast aesthetic dark-mode thought card (PNG and looping GIF).
-    Ideal for casual X (1200x675) and Threads (1080x1080) posts to drive maximum saves,
+        Ideal for casual X (1200x675) and square (1080x1080) posts to drive maximum saves,
     retweets, and timeline dwell time.
     """
     import hashlib, re, textwrap
@@ -339,12 +321,10 @@ def generate_casual_visual_card(
 def generate_visual_for_post(topic_or_text: str, summary: str = "", avoid_type: Optional[str] = None) -> Tuple[str, str]:
     """
     Main entry point:
-    1. Uses Gemini AI to analyze the specific post topic and generate custom technical layout specifications.
-    2. Ensures unique, uncollided file names so each post gets its own distinct attachment.
-    3. Dispatches to the corresponding renderer with the AI-generated titles, models, code, or tokens.
-    4. Guarantees non-empty (gif_path, mp4_path) with local fallbacks if network fails.
+    1. Ensures unique, uncollided file names so each post gets its own distinct attachment.
+    2. Renders a topic-specific animated card with the local Pillow renderer.
+    3. Guarantees non-empty (png_path, gif_path) or empty strings if rendering fails.
     """
-    global _LAST_VISUAL_TYPE
     import hashlib, re
     raw_slug = re.sub(r'[^a-zA-Z0-9_]', '_', topic_or_text.strip().lower())
     clean_slug = re.sub(r'_+', '_', raw_slug)[:25].strip('_')
@@ -352,17 +332,12 @@ def generate_visual_for_post(topic_or_text: str, summary: str = "", avoid_type: 
     unique_base_name = f"{clean_slug}_{content_hash}" if clean_slug else f"visual_{content_hash}"
 
     try:
-        effective_avoid = avoid_type or _LAST_VISUAL_TYPE
-        spec = request_ai_visual_spec(topic_or_text, summary, avoid_type=effective_avoid)
-        v_type = spec.get("visual_type", "CODE_ARCHITECTURE")
-        _LAST_VISUAL_TYPE = v_type
-
-        if v_type == "BENCHMARK_RACE":
-            return render_dynamic_benchmark_race(spec, output_base_name=unique_base_name)
-        elif v_type == "TOKEN_PIPELINE":
-            return render_dynamic_token_pipeline(spec, output_base_name=unique_base_name)
-        else:
-            return render_dynamic_code_architecture(spec, output_base_name=unique_base_name)
+        return generate_casual_visual_card(
+            topic_or_text,
+            summary or topic_or_text,
+            square=True,
+            output_base_name=unique_base_name
+        )
     except Exception as e:
         print(f"[VisualEngine] Note on visual rendering: {e}. Suppressing attachment to prevent repeating off-topic visuals.")
         return ("", "")

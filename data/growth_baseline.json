@@ -1,0 +1,105 @@
+{
+  "captured_at": "2026-11-11T00:00:00+00:00",
+  "source": "Local repository state only. No platform analytics API is connected, so reach, impressions, engagement rate, watch time, and demographics are NOT captured. null = not measurable from this environment.",
+  "accounts": {
+    "linkedin": {
+      "display_name": "NeuBench",
+      "profile_url": "https://www.linkedin.com/in/vishnu-gupta-b6b2951b2/",
+      "headline": "Building NeuBench - Real-Time AI Benchmarks across 266+ Models | LLM Evals & Engineering Commentary",
+      "location": "Bengaluru / Earth",
+      "followers": 80,
+      "connections": 80,
+      "snapshot_date": "2026-10-31",
+      "impressions": null,
+      "profile_views": null,
+      "search_appearances": null,
+      "note": "Impressions/profile views stored as 0 in linkedin_profile.json are scraper defaults, not platform data."
+    },
+    "x": {
+      "followers": null,
+      "impressions": null,
+      "profile_visits": null,
+      "note": "No follower or analytics snapshot exists in the repo."
+    },
+    "bluesky": { "followers": null, "note": "No analytics snapshot exists in the repo." },
+    "threads": { "posts_recorded": 0, "note": "Connected in code, never used." },
+    "reddit": { "posts_recorded": null, "note": "Code path exists; no completed post recorded." },
+    "instagram": { "posts_recorded": 2 },
+    "youtube": { "posts_recorded": 5 },
+    "pinterest": { "posts_recorded": 1 },
+    "devto": { "posts_recorded": 1 }
+  },
+  "activity_lifetime_21_days": {
+    "cycles_executed": 930,
+    "original_posts_attempted": 216,
+    "original_posts_succeeded": 181,
+    "replies_attempted": 78,
+    "replies_succeeded": 25,
+    "reposts_attempted": 49,
+    "reposts_succeeded": 13,
+    "actions_skipped": 176,
+    "failed_operations": 54,
+    "rate_limits_encountered": 0
+  },
+  "activity_last_5_days": {
+    "window": "2026-11-06 to 2026-11-10",
+    "x_original_success": 101,
+    "x_original_failed": 27,
+    "linkedin_success": 64,
+    "linkedin_skipped": 45,
+    "bluesky_success": 104,
+    "reply_success": 1,
+    "reply_skipped": 47,
+    "repost_success": 0,
+    "repost_skipped": 14,
+    "note": "Replies/reposts were starved by the total action cap being consumed by original posts."
+  },
+  "linkedin_content_21_days": {
+    "unique_titles_published": 79,
+    "attempts_per_day_peak": 29,
+    "successes_per_day_peak": 22,
+    "off_niche_share": 0.43,
+    "off_niche_examples": [
+      "tata motors share price",
+      "hindalco share price",
+      "bosch share price",
+      "oneplus coloros 17 update schedule",
+      "Binance CFO is leaving after a $6.3 billion hack",
+      "After the midterms, things are looking rocky for Elon Musk and data centers",
+      "Kirlian Photography: Building Your Own Equipment"
+    ],
+    "repeated_topic_clusters": {
+      "agent_memory_observability": 6,
+      "context_windows": 4,
+      "b_tree_vs_lsm": 3,
+      "cpu_vs_gpu": 3,
+      "transformer_reads_sentence": 2,
+      "bloom_filter": 2,
+      "kirlian_photography": 2
+    },
+    "on_brand_share": 0.57,
+    "note": "Pillar mix is AI/LLM (31), storage/db (9), infra (5), off-niche/news/consumer (34)."
+  },
+  "distribution_gaps": {
+    "platforms_wired": 8,
+    "platforms_used_regularly": 3,
+    "threads_posts": 0,
+    "reddit_posts": 0,
+    "instagram_posts": 2,
+    "devto_posts": 1,
+    "note": "No cross-platform repurposing pipeline. Each platform runs its own generator."
+  },
+  "measurement_gaps": [
+    "No impressions, reach, engagement rate, saves, shares, watch time, or completion rate is collected.",
+    "No follower history snapshots, so growth cannot be calculated.",
+    "No experiment log or content calendar exists.",
+    "No UTM links or click tracking to NeuBench."
+  ],
+  "active_caps_after_2026_11_11_fix": {
+    "MAX_DAILY_LINKEDIN": 2,
+    "MAX_DAILY_X_ORIGINALS": 12,
+    "MAX_DAILY_X_REPLIES": 12,
+    "MAX_DAILY_BLUESKY": 12,
+    "MAX_DAILY_TOTAL": 40
+  }
+}

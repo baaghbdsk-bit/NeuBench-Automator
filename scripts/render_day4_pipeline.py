@@ -218,7 +218,7 @@ async def render_day4_pipeline():
     # Subtitles SRT
     srt_path = day_dir / "subtitles_day_004.srt"
     generate_subtitles_srt(scenes, durations, srt_path)
-    print(f"[Day4 Pipeline] ✅ Complete! Day 4 ready for YouTube Shorts and Instagram Reels.")
+    print(f"[Day4 Pipeline] ✅ Complete! Day 4 ready for social video.")
 
 if __name__ == "__main__":
     asyncio.run(render_day4_pipeline())

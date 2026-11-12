@@ -1,5 +1,5 @@
 """
-Exports all active authenticated browser sessions (X, LinkedIn, Threads, Reddit)
+Exports all active authenticated browser sessions (X, LinkedIn)
 into portable, cross-platform storage states (cookies & origins) for cloud deployment.
 """
 import sys
@@ -38,20 +38,6 @@ sessions = [
         "user_data_dir": config.LINKEDIN_USER_DATA_DIR,
         "export_file": EXPORT_DIR / "linkedin_storage.json",
         "target_url": "https://www.linkedin.com/feed/"
-    },
-    {
-        "name": "Threads",
-        "env_var": "THREADS_COOKIES_BASE64",
-        "user_data_dir": config.BASE_DIR / "threads_session",
-        "export_file": EXPORT_DIR / "threads_storage.json",
-        "target_url": "https://www.threads.net/"
-    },
-    {
-        "name": "Reddit",
-        "env_var": "REDDIT_COOKIES_BASE64",
-        "user_data_dir": config.BASE_DIR / "reddit_session",
-        "export_file": EXPORT_DIR / "reddit_storage.json",
-        "target_url": "https://www.reddit.com/"
     }
 ]
 

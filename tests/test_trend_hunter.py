@@ -16,6 +16,7 @@ from src.trend_hunter import (
     deduplicate_trends,
     detect_trend_sensitivity,
     generate_trend_id,
+    is_linkedin_relevant_trend,
     normalize_trend_item,
     normalize_trend_title,
     rank_trends,
@@ -337,6 +338,52 @@ class TrendHunterMockFeedTests(unittest.TestCase):
             self.assertEqual(sample["metadata"]["traffic"], "100K+")
             self.assertFalse(sample["is_sensitive"])
             self.assertIsNotNone(sample["published_at"])
+
+
+class LinkedInTrendRelevanceTests(unittest.TestCase):
+    def test_filters_market_consumer_and_non_ai_noise(self):
+        self.assertFalse(is_linkedin_relevant_trend("tata motors share price", "", "breaking_news", "Google Trends (IN)"))
+        self.assertFalse(is_linkedin_relevant_trend("oneplus coloros 17 update schedule", "", "breaking_news", "Google Trends (IN)"))
+        self.assertFalse(is_linkedin_relevant_trend("Kirlian Photography: Building Your Own Equipment", "", "ai_tech", "HackerNews"))
+        self.assertFalse(is_linkedin_relevant_trend("WWE Crown Jewel 2026 results", "", "breaking_news", "Google Trends (US)"))
+        self.assertFalse(is_linkedin_relevant_trend("Binance CFO is leaving after a $6.3 billion hack", "", "ai_tech", "TechCrunch"))
+
+    def test_keeps_ai_and_engineering_topics(self):
+        self.assertTrue(is_linkedin_relevant_trend("KV Cache Eviction Policies for Long-Context Inference", "", "ai_tech", "HackerNews"))
+        self.assertTrue(is_linkedin_relevant_trend("B-Tree vs LSM-Tree storage engines", "", "ai_tech", "HackerNews"))
+        self.assertTrue(is_linkedin_relevant_trend("Latent context compression for agents", "", "frontier_paper", "Hugging Face Daily Papers"))
+        self.assertTrue(is_linkedin_relevant_trend("Frontier reasoning drift and cost per 1M tokens", "", "ai_tech", "NeuBench Live Telemetry"))
+        self.assertTrue(is_linkedin_relevant_trend("Kubernetes autoscaling lessons from a production incident", "", "ai_tech", "HackerNews"))
+
+    def test_candidate_trends_platform_filter_applies(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cache_file = Path(temp_dir) / "trends_cache.json"
+            mgr = TrendCacheManager(cache_file)
+            now = datetime.now(timezone.utc).isoformat()
+            items = [
+                {
+                    "id": "tr_stock", "title": "bosch share price", "summary": "",
+                    "source": "Google Trends (IN)", "category": "breaking_news",
+                    "url": "https://example.com/stock", "score": 12.0,
+                    "discovered_at": now, "published_at": None, "is_sensitive": False,
+                    "metadata": {"sources_seen": ["Google Trends (IN)"]},
+                },
+                {
+                    "id": "tr_ai", "title": "KV Cache Eviction Policies for Long-Context Inference", "summary": "",
+                    "source": "HackerNews", "category": "ai_tech",
+                    "url": "https://example.com/ai", "score": 9.0,
+                    "discovered_at": now, "published_at": None, "is_sensitive": False,
+                    "metadata": {"sources_seen": ["HackerNews"]},
+                },
+            ]
+            mgr.update_trends(items)
+            hunter = TrendHunter(cache_file=cache_file)
+
+            linkedin = hunter.get_candidate_trends(platform="linkedin", limit=10)
+            self.assertEqual([t["id"] for t in linkedin], ["tr_ai"])
+
+            x_candidates = hunter.get_candidate_trends(platform="x", limit=10)
+            self.assertIn("tr_stock", [t["id"] for t in x_candidates])
 
 
 if __name__ == "__main__":

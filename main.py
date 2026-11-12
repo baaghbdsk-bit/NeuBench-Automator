@@ -87,10 +87,7 @@ def main():
             "post", "reply", "repost", "mentions", "debate-sniper", "indian-monitor", "indian-queue", "indian-publish", "indian-summary",
             "linkedin", "linkedin-replies", "linkedin-peers",
             "bluesky", "bluesky-replies",
-            "login", "login-linkedin", "test", "metrics",
-            # Legacy studio redirections:
-            "threads", "instagram", "youtube", "pinterest", "devto",
-            "login-threads", "login-instagram", "login-youtube", "login-pinterest"
+            "login", "login-linkedin", "test", "metrics"
         ],
         help="Action to execute"
     )
@@ -101,24 +98,6 @@ def main():
     parser.add_argument("--topic", type=str, default="", help="Custom topic for LinkedIn or other posts")
 
     args = parser.parse_args()
-
-    # Redirection for platforms moved to Media-Studio-Automater
-    migrated_actions = {
-        "threads": "threads",
-        "instagram": "instagram-carousel / instagram-reel",
-        "youtube": "youtube",
-        "pinterest": "pinterest",
-        "login-threads": "login-threads",
-        "login-instagram": "login-instagram",
-        "login-youtube": "login-youtube",
-        "login-pinterest": "login-pinterest",
-        "devto": "media studio"
-    }
-    if args.action in migrated_actions:
-        console.print(f"\n[bold yellow]📦 Note: '{args.action}' has been separated into the dedicated Media Studio project:[/bold yellow]")
-        console.print(f"[bold cyan]👉 Directory: E:\\Projects\\Media-Studio-Automater[/bold cyan]")
-        console.print(f"[dim]Run: cd E:\\Projects\\Media-Studio-Automater && python main.py {migrated_actions[args.action]} {'--dry-run' if args.dry_run else ''}[/dim]\n")
-        return
 
     if args.action == "indian-summary":
         from src.indian_influence_engine import IndianEngagementEngine

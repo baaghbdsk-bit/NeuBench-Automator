@@ -49,8 +49,6 @@ def cleanup_stale_locks():
     lock_dirs = [
         BASE_DIR / "browser_session",
         BASE_DIR / "linkedin_session",
-        BASE_DIR / "threads_session",
-        BASE_DIR / "reddit_session",
     ]
     for d in lock_dirs:
         if d.exists():

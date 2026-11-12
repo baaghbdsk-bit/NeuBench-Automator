@@ -161,49 +161,6 @@ _BLUESKY_METRICS_CACHE = {
 
 
 
-# In-memory cache for live Threads metrics (TTL: 120 seconds)
-_THREADS_METRICS_CACHE = {
-    "timestamp": 0,
-    "followers": 0,
-    "following": 0,
-}
-
-def get_live_threads_metrics():
-    global _THREADS_METRICS_CACHE
-    now = time.time()
-    if now - _THREADS_METRICS_CACHE["timestamp"] < 120:
-        return _THREADS_METRICS_CACHE
-    try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        res = requests.get("https://www.threads.net/@neubench", headers=headers, timeout=4)
-        if res.status_code == 200:
-            import re
-            m = re.search(r'([0-9,KMkm\.]+)\s*followers', res.text, re.IGNORECASE)
-            if m:
-                raw_f = m.group(1).replace(",", "")
-                _THREADS_METRICS_CACHE["followers"] = int(raw_f) if raw_f.isdigit() else raw_f
-            _THREADS_METRICS_CACHE["timestamp"] = now
-    except Exception as e:
-        print(f"[Threads Metrics] Failed to fetch: {e}")
-    return _THREADS_METRICS_CACHE
-
-
-# In-memory cache for live Reddit metrics (TTL: 120 seconds)
-_REDDIT_METRICS_CACHE = {
-    "timestamp": 0,
-    "followers": 0,
-    "karma": 2,
-    "subreddits": 5,
-}
-
-def get_live_reddit_metrics():
-    global _REDDIT_METRICS_CACHE
-    now = time.time()
-    if now - _REDDIT_METRICS_CACHE["timestamp"] < 120:
-        return _REDDIT_METRICS_CACHE
-    _REDDIT_METRICS_CACHE["timestamp"] = now
-    return _REDDIT_METRICS_CACHE
-
 def get_live_bluesky_metrics():
 
     now = time.time()
@@ -344,10 +301,6 @@ async def get_stats():
 
     linkedin_actions = sum(1 for e in events if "linkedin" in e.get("action_type", ""))
 
-    reddit_actions = sum(1 for e in events if "reddit" in e.get("action_type", ""))
-
-    threads_actions = sum(1 for e in events if "threads" in e.get("action_type", ""))
-
 
 
     bsky_live = get_live_bluesky_metrics()
@@ -439,36 +392,6 @@ async def get_stats():
                 "status": "ready"
 
             },
-
-            "reddit": {
-
-                "name": "Reddit AI Communities",
-
-                "configured": True,
-
-                "handle": "u/NeuBench",
-
-                "target_subreddits": 5,
-
-                "takes_generated": reddit_actions,
-
-                "status": "ready"
-
-            },
-
-            "threads": {
-
-                "name": "Threads Community",
-
-                "configured": config.THREADS_ENABLED,
-
-                "handle": "Mobile Dialogue",
-
-                "takes_generated": max(threads_actions, 1),
-
-                "status": "ready"
-
-            }
 
         },
 
@@ -785,7 +708,7 @@ async def draft_neubench_tweet(req: NeuBenchDraftRequest):
 
 async def draft_neubench_multi(req: NeuBenchDraftRequest):
 
-    """Generates platform-tailored takes for 𝕏, Bluesky, LinkedIn, and Threads simultaneously."""
+    """Generates platform-tailored takes for 𝕏, Bluesky, and LinkedIn simultaneously."""
 
     try:
 
@@ -807,8 +730,6 @@ async def draft_neubench_multi(req: NeuBenchDraftRequest):
 
         linkedin_take = ai.generate_linkedin_take(title=title, summary=summary, company=company, include_link=inc)
 
-        threads_take = ai.generate_threads_take(title=title, summary=summary, company=company, include_link=inc)
-
 
 
         return {
@@ -821,9 +742,7 @@ async def draft_neubench_multi(req: NeuBenchDraftRequest):
 
                 "bluesky": bluesky_take,
 
-                "linkedin": linkedin_take,
-
-                "threads": threads_take
+                "linkedin": linkedin_take
 
             }
 
@@ -942,17 +861,7 @@ async def get_auth_status():
 
     bsky_configured = bool(config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD)
     
-    # Reddit is ONLY logged in if credentials exist in .env OR reddit_session has cookies
-    reddit_session_dir = config.BASE_DIR / "reddit_session"
-    reddit_configured = bool(os.getenv("REDDIT_CLIENT_ID") and os.getenv("REDDIT_CLIENT_SECRET")) or (reddit_session_dir.exists() and any(reddit_session_dir.iterdir()))
-
-    # Threads is ONLY logged in if threads_session exists with session
-    threads_session_dir = config.BASE_DIR / "threads_session"
-    threads_configured = threads_session_dir.exists() and any(threads_session_dir.iterdir())
-
     bsky_metrics = get_live_bluesky_metrics()
-    th_metrics = get_live_threads_metrics()
-    rd_metrics = get_live_reddit_metrics()
 
     return {
         "x": {
@@ -988,29 +897,6 @@ async def get_auth_status():
             "search_appearances": 10,
             "cadence": "Active • Omnichannel",
             "login_process_active": bool(_LINKEDIN_LOGIN_PROC and _LINKEDIN_LOGIN_PROC.poll() is None)
-        },
-        "reddit": {
-            "configured": reddit_configured,
-            "logged_in": reddit_configured,
-            "status": "Active" if reddit_configured else "Not Connected",
-            "account_name": "u/Express-Cucumber-478",
-            "handle": "u/Express-Cucumber-478",
-            "followers": rd_metrics.get("followers", 0),
-            "karma": rd_metrics.get("karma", 2),
-            "subreddits_count": rd_metrics.get("subreddits", 5),
-            "reach": "1.5M+ ML Builders",
-            "communities": ["r/LocalLLaMA", "r/ChatGPT", "r/MachineLearning", "r/test"]
-        },
-        "threads": {
-            "configured": threads_configured,
-            "logged_in": threads_configured,
-            "status": "Active" if threads_configured else "Not Connected",
-            "account_name": "NeuBench",
-            "handle": "@neubench",
-            "followers": th_metrics.get("followers", 0),
-            "following": th_metrics.get("following", 0),
-            "reach": "Mobile Tech Devs",
-            "limit": "500 Chars Max"
         }
     }
 
@@ -1075,69 +961,6 @@ async def launch_linkedin_login():
 
 
 
-_REDDIT_LOGIN_PROC = None
-_THREADS_LOGIN_PROC = None
-
-@app.post("/api/auth/launch-reddit-login")
-async def launch_reddit_login():
-    global _REDDIT_LOGIN_PROC
-    if _REDDIT_LOGIN_PROC and _REDDIT_LOGIN_PROC.poll() is not None:
-        _REDDIT_LOGIN_PROC = None
-
-    script_path = config.BASE_DIR / "scripts" / "login_reddit.py"
-    venv_py = config.BASE_DIR / "venv" / "Scripts" / "python.exe"
-    py_bin = str(venv_py) if venv_py.exists() else sys.executable
-
-    creation_flags = 0
-    if sys.platform == "win32":
-        creation_flags = subprocess.CREATE_NEW_CONSOLE
-
-    try:
-        if not (_REDDIT_LOGIN_PROC and _REDDIT_LOGIN_PROC.poll() is None):
-            _REDDIT_LOGIN_PROC = subprocess.Popen(
-                [py_bin, str(script_path)],
-                cwd=str(config.BASE_DIR),
-                creationflags=creation_flags
-            )
-    except Exception:
-        pass
-
-    return {
-        "status": "launched",
-        "message": "Reddit login browser initiated! Run 'python main.py login-reddit' in your terminal if not visible.",
-        "command": "python main.py login-reddit"
-    }
-
-@app.post("/api/auth/launch-threads-login")
-async def launch_threads_login():
-    global _THREADS_LOGIN_PROC
-    if _THREADS_LOGIN_PROC and _THREADS_LOGIN_PROC.poll() is not None:
-        _THREADS_LOGIN_PROC = None
-
-    script_path = config.BASE_DIR / "scripts" / "login_threads.py"
-    venv_py = config.BASE_DIR / "venv" / "Scripts" / "python.exe"
-    py_bin = str(venv_py) if venv_py.exists() else sys.executable
-
-    creation_flags = 0
-    if sys.platform == "win32":
-        creation_flags = subprocess.CREATE_NEW_CONSOLE
-
-    try:
-        if not (_THREADS_LOGIN_PROC and _THREADS_LOGIN_PROC.poll() is None):
-            _THREADS_LOGIN_PROC = subprocess.Popen(
-                [py_bin, str(script_path)],
-                cwd=str(config.BASE_DIR),
-                creationflags=creation_flags
-            )
-    except Exception:
-        pass
-
-    return {
-        "status": "launched",
-        "message": "Threads login browser initiated! Run 'python main.py login-threads' in your terminal if not visible.",
-        "command": "python main.py login-threads"
-    }
-
 @app.post("/api/auth/launch-x-login")
 
 async def launch_x_login():
@@ -1194,7 +1017,7 @@ async def get_autopilot_status():
         "running": is_running,
         "status": "Autopilot Active (24/7)" if is_running else "Autopilot Idle",
         "interval_minutes": "25 - 50 mins",
-        "platforms": ["𝕏", "Bluesky", "LinkedIn", "Threads"]
+        "platforms": ["𝕏", "Bluesky", "LinkedIn"]
     }
 
 @app.post("/api/autopilot/toggle")
@@ -1278,47 +1101,6 @@ async def follow_linkedin_network_endpoint(background_tasks: BackgroundTasks):
             
     background_tasks.add_task(run_follower)
     return {"success": True, "message": "Started following top AI leaders and organizations in background!"}
-
-class PublishRedditRequest(BaseModel):
-
-    subreddit: str
-
-    title: str
-
-    text: str
-
-
-class PublishThreadsRequest(BaseModel):
-
-    text: str
-
-
-@app.post("/api/action/publish-reddit")
-
-async def publish_reddit_action(req: PublishRedditRequest):
-    from src.scheduler import AutomaterEngine
-    engine = AutomaterEngine(dry_run=False)
-    ok = engine.execute_reddit_custom_post(req.subreddit, req.title, req.text)
-    status = "success" if ok else "failed"
-    return {
-        "status": status,
-        "message": "Reddit post completed by the guarded automation path." if ok else "Reddit post was not sent; see the automation log.",
-    }
-
-
-@app.post("/api/action/publish-threads")
-
-async def publish_threads_action(req: PublishThreadsRequest):
-    from src.scheduler import AutomaterEngine
-    engine = AutomaterEngine(dry_run=False)
-    ok = engine.execute_threads_custom_post(req.text)
-    return {
-        "status": "success" if ok else "failed",
-        "message": "Threads post completed by the guarded automation path." if ok else "Threads post was not sent; see the automation log.",
-    }
-
-
-
 
 class SettingsRequest(BaseModel):
 
@@ -1446,7 +1228,7 @@ AVAILABLE_TOPICS = [
 
         "desc": "Calling out tech myths, overhyped trends, and bold unpopular predictions",
 
-        "best_for": ["x", "threads"]
+        "best_for": ["x"]
 
     },
 
@@ -1460,7 +1242,7 @@ AVAILABLE_TOPICS = [
 
         "desc": "Bengaluru potholes, startup hustle satire, corporate irony and developer life",
 
-        "best_for": ["x", "threads"]
+        "best_for": ["x"]
 
     },
 
@@ -1516,7 +1298,7 @@ AVAILABLE_TOPICS = [
 
         "desc": "Open-ended prompts asking developers and creators for their honest workflows",
 
-        "best_for": ["threads", "x"]
+        "best_for": ["x"]
 
     }
 
@@ -1530,9 +1312,7 @@ DEFAULT_TOPIC_ROUTING = {
 
     "bluesky": ["ai_benchmarks", "open_source"],
 
-    "linkedin": ["ai_benchmarks", "b2b_thought_leadership", "market_finance"],
-
-    "threads": ["contrarian_takes", "tech_culture", "community_discussions"]
+    "linkedin": ["ai_benchmarks", "b2b_thought_leadership", "market_finance"]
 
 }
 
@@ -1786,97 +1566,6 @@ async def record_copy(req: RecordCopyRequest):
     )
 
     return {"status": "success", "platform": req.platform}
-
-
-
-@app.get("/api/reddit/subreddits")
-
-async def get_reddit_subreddits_api():
-
-    from src.reddit_client import RedditClient
-
-    client = RedditClient()
-
-    return {"subreddits": client.get_target_subreddits()}
-
-
-
-class RedditDraftRequest(BaseModel):
-
-    title: str
-
-    summary: Optional[str] = ""
-
-    company: Optional[str] = ""
-
-    subreddit: Optional[str] = "r/LocalLLaMA"
-
-
-
-@app.post("/api/reddit/draft")
-
-async def draft_reddit_api(req: RedditDraftRequest):
-
-    try:
-
-        from src.ai_generator import AIGenerator
-
-        from src.reddit_client import RedditClient
-
-        ai = AIGenerator()
-
-        result = ai.generate_reddit_post(
-
-            title=req.title,
-
-            summary=req.summary or "",
-
-            company=req.company or "",
-
-            subreddit=req.subreddit or "r/LocalLLaMA"
-
-        )
-
-        client = RedditClient()
-
-        submit_url = client.generate_submit_url(req.subreddit or "r/LocalLLaMA", result.get("title", ""), result.get("body", ""))
-
-
-
-        tracker = ActivityTracker(config.BASE_DIR / "trial_metrics.json", config.BASE_DIR / "post_history.json")
-
-        tracker.record_event(
-
-            action_type="reddit_draft",
-
-            status="success",
-
-            target_identifier=req.subreddit or "r/LocalLLaMA",
-
-            content_preview=result.get("title", "")[:80],
-
-            duration_seconds=1.0,
-
-            is_dry_run=False
-
-        )
-
-        return {
-
-            "status": "success",
-
-            "title": result.get("title", ""),
-
-            "body": result.get("body", ""),
-
-            "submit_url": submit_url
-
-        }
-
-    except Exception as e:
-
-        return {"status": "error", "message": str(e)}
-
 
 
 @app.get("/api/products")

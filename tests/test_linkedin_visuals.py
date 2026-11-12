@@ -308,10 +308,34 @@ class TestLinkedInVisuals(unittest.TestCase):
         )
         res_path = res.get("path")
         self.assertTrue(os.path.exists(res_path))
+        png_path = res.get("png_path")
+        self.assertTrue(png_path and os.path.exists(png_path))
         with Image.open(res_path) as im:
             self.assertEqual(im.size, (1080, 1350))
             self.assertTrue(im.is_animated)
             self.assertGreaterEqual(im.n_frames, 10)
+        with Image.open(png_path) as png:
+            self.assertEqual(png.size, (1080, 1350))
+
+    def test_editorial_rejects_generic_placeholder_spec(self):
+        from src.linkedin_diagrams import render_editorial_architecture_gif
+
+        generic_spec = {
+            "title": "Generic Pipeline",
+            "subtitle": "Placeholder components that should never ship.",
+            "input_label": "PAYLOAD",
+            "router_label": "Gateway",
+            "components": [
+                {"name": "Parser & Schema", "role": "Validates input"},
+                {"name": "Core Engine Worker", "role": "Executes work"},
+                {"name": "Cache Layer", "role": "Fast path"},
+                {"name": "Storage Sink", "role": "Persists state"},
+            ],
+            "metrics": [],
+            "steps": [],
+        }
+        with self.assertRaises(ValueError):
+            render_editorial_architecture_gif(spec=generic_spec, base_name="test_generic_reject", frames=2)
 
 
 if __name__ == "__main__":

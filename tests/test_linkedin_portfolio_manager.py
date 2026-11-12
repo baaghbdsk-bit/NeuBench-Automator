@@ -37,6 +37,29 @@ class TestLinkedInPortfolioManager(unittest.TestCase):
         fmt, reason = self.mgr.decide_portfolio_format(topic, explicit_format="text_only")
         self.assertEqual(fmt, "text_only")
 
+    def test_rotation_breaks_repeated_flow_gif(self):
+        topic = "AllReduce Ring Topology: Real-time Gradient Dispatch Flow"
+        fmt, reason = self.mgr.decide_portfolio_format(
+            topic, recent_formats=["animated_flow_gif", "animated_flow_gif"]
+        )
+        self.assertEqual(fmt, "notebook_carousel")
+        self.assertIn("Rotation applied", reason)
+
+    def test_rotation_breaks_repeated_notebook_carousel(self):
+        topic = "B-Tree Internals and Page Splitting: Engineering Study Notes"
+        fmt, reason = self.mgr.decide_portfolio_format(
+            topic, recent_formats=["notebook_carousel", "notebook_carousel"]
+        )
+        self.assertEqual(fmt, "animated_flow_gif")
+        self.assertIn("Rotation applied", reason)
+
+    def test_no_rotation_when_recent_formats_differ(self):
+        topic = "AllReduce Ring Topology: Real-time Gradient Dispatch Flow"
+        fmt, _ = self.mgr.decide_portfolio_format(
+            topic, recent_formats=["notebook_carousel", "animated_flow_gif"]
+        )
+        self.assertEqual(fmt, "animated_flow_gif")
+
     def test_validate_article_quality_too_short(self):
         short_text = "Here is a brief post about databases. They are fast."
         ok, reason = self.mgr.validate_article_quality(short_text)

@@ -152,7 +152,7 @@ class BlueskyClient:
                     target_media = str(gif_candidate)
                 else:
                     try:
-                        from src.manim_renderer import convert_mp4_to_gif
+                        from src.ffmpeg_utils import convert_mp4_to_gif
                         if convert_mp4_to_gif(target_media, str(gif_candidate)):
                             target_media = str(gif_candidate)
                     except Exception as ex:

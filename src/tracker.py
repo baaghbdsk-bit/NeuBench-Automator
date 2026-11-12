@@ -103,14 +103,8 @@ class ActivityTracker:
             "original_posts": 0,
             "replies": 0,
             "reposts": 0,
-            "youtube_shorts": 0,
-            "instagram_carousels": 0,
-            "instagram_reels": 0,
             "linkedin_posts": 0,
             "linkedin_peer_comments": 0,
-            "devto_articles": 0,
-            "pinterest_pins": 0,
-            "threads_posts": 0,
             "bluesky_posts": 0,
             "total_actions": 0
         }
@@ -124,22 +118,10 @@ class ActivityTracker:
                     counts["replies"] += 1
                 elif atype in ("repost", "quote_tweet"):
                     counts["reposts"] += 1
-                elif atype in ("youtube", "youtube_short"):
-                    counts["youtube_shorts"] += 1
-                elif atype in ("instagram", "instagram_carousel"):
-                    counts["instagram_carousels"] += 1
-                elif atype in ("instagram_reel", "instagram_reels"):
-                    counts["instagram_reels"] = counts.get("instagram_reels", 0) + 1
                 elif atype in ("linkedin", "linkedin_post"):
                     counts["linkedin_posts"] += 1
                 elif atype == "linkedin_peer_comment":
                     counts["linkedin_peer_comments"] += 1
-                elif atype in ("devto", "devto_article"):
-                    counts["devto_articles"] += 1
-                elif atype in ("pinterest", "pinterest_pin"):
-                    counts["pinterest_pins"] += 1
-                elif atype in ("threads", "threads_post"):
-                    counts["threads_posts"] += 1
                 elif atype in ("bluesky", "bluesky_post"):
                     counts["bluesky_posts"] += 1
         return counts

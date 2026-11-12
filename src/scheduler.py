@@ -37,7 +37,7 @@ from rich.console import Console
 
 import config
 
-from src.trend_hunter import TrendHunter, LINKEDIN_PILLAR_ROTATION, detect_trend_sensitivity
+from src.trend_hunter import TrendHunter, LINKEDIN_PILLAR_ROTATION, detect_trend_sensitivity, is_linkedin_relevant_trend
 
 from src.ai_generator import AIGenerator
 
@@ -1590,6 +1590,20 @@ class AutomaterEngine:
             )
             today_li = max(count_posts_on_date(post_state, today_str), event_count)
 
+            # Enforce the daily LinkedIn post cap across every workflow/runner.
+            if not self.safety.dry_run and not force and today_li >= max_li:
+                reason = f"LinkedIn daily cap reached ({today_li}/{max_li})"
+                console.print(f"[yellow][skip] {reason}. Skipping.[/yellow]")
+                self.tracker.record_event(
+                    action_type="linkedin_post",
+                    status="skipped",
+                    target_identifier="LinkedIn daily cap",
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=False,
+                )
+                return False
+
             # Enforce LinkedIn cadence and cooldown (minimum 3 hours between posts unless forced or dry run)
             if not self.safety.dry_run and not force:
                 last_time = last_post_at(post_state)
@@ -1702,6 +1716,16 @@ class AutomaterEngine:
                         live_signals = self.hunter.get_tech_news() + self.hunter.get_huggingface_daily_papers()
                     except Exception:
                         pass
+
+                live_signals = [
+                    signal for signal in live_signals
+                    if is_linkedin_relevant_trend(
+                        title=str(signal.get("title", "")),
+                        summary=str(signal.get("summary", "")),
+                        category=str(signal.get("category", "")),
+                        source=str(signal.get("source", "")),
+                    )
+                ]
 
                 # Filter live signals by recent deduplication
                 available_live_trends = [
@@ -1839,10 +1863,16 @@ class AutomaterEngine:
             topic_summary = str(selected_trend.get("summary") or "").strip()
 
             # Autonomous Portfolio Manager: decides best visual format (or text-only)
+            recent_formats = [
+                str(entry.get("visual_format", "")).strip()
+                for entry in post_state.get("posts", [])[-6:]
+                if isinstance(entry, dict) and entry.get("visual_format")
+            ][::-1]
             visual_fmt, format_reason = portfolio.decide_portfolio_format(
                 topic_title,
                 summary=topic_summary,
-                audience=target_demographic
+                audience=target_demographic,
+                recent_formats=recent_formats
             )
             console.print(f"[bold magenta]🎨 Portfolio Manager Format Decision:[/bold magenta] [cyan]{visual_fmt}[/cyan] ({format_reason})")
 
@@ -1884,10 +1914,16 @@ class AutomaterEngine:
                     )
                     gif_res = render_editorial_architecture_gif(arch_spec)
                     if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
-                        media_path = gif_res["gif_path"]
+                        prefer_static = os.getenv("LINKEDIN_PREFER_STATIC_VISUALS", "true").lower() in ("true", "1")
+                        png_path = str(gif_res.get("png_path") or "")
+                        if prefer_static and png_path and Path(png_path).exists():
+                            media_path = png_path
+                            console.print("[dim]Attaching static PNG (sharper in-feed than a looping GIF).[/dim]")
+                        else:
+                            media_path = gif_res["gif_path"]
                         media_title = str(topic_title)[:100]
                         console.print(
-                            f"[bold magenta]🎞️ Topic-Specific Architecture Flow Looping GIF ready: {media_path}[/bold magenta]"
+                            f"[bold magenta]Topic-Specific Architecture Visual ready: {media_path}[/bold magenta]"
                         )
                 except Exception as gif_err:
                     console.print(f"[yellow]Editorial flow GIF render skipped: {gif_err}. Suppressing to text-only.[/yellow]")
@@ -1957,6 +1993,8 @@ class AutomaterEngine:
                 else:
                     console.print(f"[bold green]🎯 Verified topic-specific LinkedIn attachment:[/bold green] {media_path}")
 
+            recorded_visual_format = visual_fmt if media_path else "text_only"
+
             ok, msg = automater.post(
                 li_text,
                 image_path=media_path,
@@ -1977,6 +2015,7 @@ class AutomaterEngine:
                         status="success",
                         posted_at=now_iso,
                         post_urn=post_urn,
+                        visual_format=recorded_visual_format,
                     )
                     save_post_history(post_state, POST_HISTORY_FILE)
                     self.tracker.history.setdefault("posted_tweets", []).append(f"li:{selected_trend['title']}")
@@ -1994,6 +2033,7 @@ class AutomaterEngine:
                         content=li_text,
                         status="unknown",
                         posted_at=now_iso,
+                        visual_format=recorded_visual_format,
                     )
                     save_post_history(post_state, POST_HISTORY_FILE)
                 except Exception as error:

@@ -333,7 +333,7 @@ INITIAL_INDIAN_ACCOUNTS_SEED: List[Dict[str, Any]] = [
         "category": "Entertainment & Sports",
         "subcategory": "Creator Culture & Finance Humor",
         "relevance_score": 9,
-        "topics": ["Memes", "Personal Finance", "Internet Culture", "YouTube Creators"],
+            "topics": ["Memes", "Personal Finance", "Internet Culture", "Creator Economy"],
         "is_sensitive": False,
         "priority_tier": 1
     }

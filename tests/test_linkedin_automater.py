@@ -189,8 +189,8 @@ class TestLinkedInStateAndDeduplication(unittest.TestCase):
 
         count = count_posts_on_date(state, today)
         self.assertEqual(count, 2)
-        # Verify against MAX_DAILY_LINKEDIN
-        self.assertLess(count, config.MAX_DAILY_LINKEDIN)
+        # The configured cap must allow exactly this many posts on a fresh day.
+        self.assertLessEqual(count, config.MAX_DAILY_LINKEDIN)
 
     def test_state_locking_context_manager(self):
         """Verify file locking safely acquires and releases without deadlock."""

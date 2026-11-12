@@ -43,6 +43,54 @@ def fit_font(draw: ImageDraw.ImageDraw, text: str, max_w: int, max_size: int = 1
             return f
     return get_font(min_size, kind)
 
+
+def fit_heading(
+    draw: ImageDraw.ImageDraw,
+    text: str,
+    max_w: int,
+    max_size: int = 36,
+    min_size: int = 24,
+    max_lines: int = 2,
+    kind: str = "serif_bold",
+) -> Tuple[Any, List[str]]:
+    """Return the largest font size and word-wrapped lines that fit both width and line budget."""
+    words = str(text).split()
+    for size in range(max_size, min_size - 1, -1):
+        font = get_font(size, kind)
+        lines: List[str] = []
+        current = ""
+        for word in words:
+            trial = f"{current} {word}".strip()
+            if draw.textlength(trial, font=font) <= max_w:
+                current = trial
+            else:
+                if current:
+                    lines.append(current)
+                current = word
+        if current:
+            lines.append(current)
+        if len(lines) <= max_lines and all(draw.textlength(line, font=font) <= max_w for line in lines):
+            return font, lines
+    return get_font(min_size, kind), [str(text)[:80]]
+
+
+def _detect_generic_components(spec: Dict[str, Any]) -> List[str]:
+    """Return component names that match the portfolio manager's generic-placeholder blocklist."""
+    try:
+        from src.linkedin_portfolio_manager import GENERIC_COMPONENT_BLOCKLIST
+    except Exception:
+        return []
+
+    blocklist = [str(term).lower() for term in GENERIC_COMPONENT_BLOCKLIST]
+    detected = []
+    for component in spec.get("components", []):
+        if not isinstance(component, dict):
+            continue
+        name = str(component.get("name", "")).strip()
+        if name and any(term in name.lower() for term in blocklist):
+            detected.append(name)
+    return detected
+
 W, H = 1080, 1350
 MARGIN = 92
 CONTENT_W = W - (MARGIN * 2)
@@ -506,26 +554,36 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
     draw.rounded_rectangle([MARGIN, 44, MARGIN + 280, 78], radius=6, fill=(241, 245, 249))
     draw.text((MARGIN + 16, 52), "// NEUBENCH ARCHITECTURE", fill=(14, 116, 144), font=get_font(14, "sans_bold"))
 
-    draw.text((MARGIN, 92), f"Understanding {title[:32]}", fill=(15, 23, 42), font=get_font(38, "serif_bold"))
-    draw.text((MARGIN, 146), f"{subtitle[:70]} · Save this.", fill=(71, 85, 105), font=get_font(20, "sans"))
+    title_font, title_lines = fit_heading(draw, title, CONTENT_W, max_size=36, min_size=24, max_lines=2)
+    title_y = 88
+    for line in title_lines:
+        draw.text((MARGIN, title_y), line, fill=(15, 23, 42), font=title_font)
+        title_y += int(getattr(title_font, "size", 34) * 1.16)
 
-    draw_dashed_line(draw, (MARGIN, 195), (W - MARGIN, 195), (203, 213, 225))
+    subtitle_text = f"{subtitle} · Save this." if subtitle else "Save this."
+    subtitle_font = fit_font(draw, subtitle_text, CONTENT_W, max_size=20, min_size=15, kind="sans")
+    draw.text((MARGIN, title_y + 2), subtitle_text, fill=(71, 85, 105), font=subtitle_font)
+
+    header_rule_y = max(196, title_y + 2 + int(getattr(subtitle_font, "size", 20) * 1.7))
+    draw_dashed_line(draw, (MARGIN, header_rule_y), (W - MARGIN, header_rule_y), (203, 213, 225))
 
     # 2. Section 1: Architecture Pipeline & Moving Flow Pointer
-    draw.text((MARGIN, 210), "1. SYSTEM FLOW & ROUTING MECHANICS", fill=(15, 23, 42), font=get_font(21, "sans_bold"))
+    draw.text((MARGIN, header_rule_y + 14), "1. SYSTEM FLOW & ROUTING MECHANICS", fill=(15, 23, 42), font=get_font(21, "sans_bold"))
 
     # Ingestion Box (Left)
     in_box = [MARGIN, 260, MARGIN + 210, 350]
     draw.rounded_rectangle(in_box, radius=10, fill=(248, 250, 252), outline=(226, 232, 240), width=2)
-    in_label = str(spec.get("input_label", "INPUT STREAM"))[:20]
-    draw.text((MARGIN + 20, 276), in_label, fill=(15, 23, 42), font=get_font(16, "sans_bold"))
+    in_label = str(spec.get("input_label", "INPUT STREAM")).strip()
+    in_font = fit_font(draw, in_label, 170, max_size=16, min_size=12, kind="sans_bold")
+    draw.text((MARGIN + 20, 276), in_label, fill=(15, 23, 42), font=in_font)
     draw.text((MARGIN + 20, 305), "Context stream payload", fill=(71, 85, 105), font=get_font(14, "sans"))
 
     # Router Box (Middle)
     r_box = [MARGIN + 290, 245, MARGIN + 530, 365]
     draw.rounded_rectangle(r_box, radius=12, fill=(15, 23, 42), outline=(226, 232, 240), width=2)
-    r_label = str(spec.get("router_label", "Top-K Router"))[:22]
-    draw.text((MARGIN + 310, 268), r_label, fill=(255, 255, 255), font=get_font(17, "sans_bold"))
+    r_label = str(spec.get("router_label", "Top-K Router")).strip()
+    r_font = fit_font(draw, r_label, 200, max_size=17, min_size=12, kind="sans_bold")
+    draw.text((MARGIN + 310, 268), r_label, fill=(255, 255, 255), font=r_font)
     draw.text((MARGIN + 310, 298), "Softmax gate scores", fill=(148, 163, 184), font=get_font(14, "sans"))
     draw.text((MARGIN + 310, 322), "Selects active paths", fill=(245, 158, 11), font=get_font(13, "sans_bold"))
 
@@ -568,10 +626,13 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
         c_w = 3 if card_highlight else 2
         draw.rounded_rectangle([comp_x0, cy0, comp_x1, cy1], radius=8, fill=c_fill, outline=c_outline, width=c_w)
 
-        c_name = str(c.get("name", f"Engine {idx+1}"))[:20]
-        c_role = str(c.get("role", "Execution stage"))[:24]
-        draw.text((comp_x0 + 16, cy0 + 10), c_name, fill=(15, 23, 42), font=get_font(15, "sans_bold"))
-        draw.text((comp_x0 + 16, cy0 + 32), c_role, fill=(71, 85, 105), font=get_font(13, "sans"))
+        c_name = str(c.get("name", f"Engine {idx+1}")).strip()
+        c_role = str(c.get("role", "Execution stage")).strip()
+        name_max = (comp_x1 - comp_x0) - (130 if c.get("score") else 32)
+        c_name_font = fit_font(draw, c_name, name_max, max_size=15, min_size=11, kind="sans_bold")
+        c_role_font = fit_font(draw, c_role, (comp_x1 - comp_x0) - 32, max_size=13, min_size=10, kind="sans")
+        draw.text((comp_x0 + 16, cy0 + 10), c_name, fill=(15, 23, 42), font=c_name_font)
+        draw.text((comp_x0 + 16, cy0 + 32), c_role, fill=(71, 85, 105), font=c_role_font)
 
         if card_highlight and c.get("score"):
             score_txt = f"[{c['score']} ACTIVE]"
@@ -625,8 +686,12 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
     bar_h = 24
     for m_idx, m in enumerate(metrics[:3]):
         my = m_start_y + m_idx * 68
-        draw.text((MARGIN, my), str(m["label"])[:32], fill=(15, 23, 42), font=get_font(15, "sans_bold"))
-        draw.text((W - MARGIN - 260, my), str(m["val"])[:32], fill=(71, 85, 105), font=get_font(14, "sans"))
+        m_label = str(m["label"]).strip()
+        m_val = str(m["val"]).strip()
+        m_label_font = fit_font(draw, m_label, 430, max_size=15, min_size=11, kind="sans_bold")
+        m_val_font = fit_font(draw, m_val, 260, max_size=14, min_size=10, kind="sans")
+        draw.text((MARGIN, my), m_label, fill=(15, 23, 42), font=m_label_font)
+        draw.text((W - MARGIN - 260, my), m_val, fill=(71, 85, 105), font=m_val_font)
 
         draw.rounded_rectangle([MARGIN, my + 26, W - MARGIN, my + 26 + bar_h], radius=6, fill=(241, 245, 249))
 
@@ -667,13 +732,17 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
         draw.rounded_rectangle([MARGIN + 16, sy0 + 16, MARGIN + 104, sy1 - 16], radius=6, fill=badge_col)
         draw.text((MARGIN + 28, sy0 + 26), f"STEP {st.get('num', s_idx+1)}", fill=(255, 255, 255), font=get_font(13, "sans_bold"))
 
-        draw.text((MARGIN + 120, sy0 + 14), str(st.get("name", f"Stage {s_idx+1}"))[:28], fill=(15, 23, 42), font=get_font(16, "sans_bold"))
-        draw.text((MARGIN + 120, sy0 + 38), str(st.get("desc", ""))[:65], fill=(71, 85, 105), font=get_font(14, "sans"))
+        step_name = str(st.get("name", f"Stage {s_idx+1}")).strip()
+        step_desc = str(st.get("desc", "")).strip()
+        step_name_font = fit_font(draw, step_name, 760, max_size=16, min_size=11, kind="sans_bold")
+        step_desc_font = fit_font(draw, step_desc, 760, max_size=14, min_size=10, kind="sans")
+        draw.text((MARGIN + 120, sy0 + 14), step_name, fill=(15, 23, 42), font=step_name_font)
+        draw.text((MARGIN + 120, sy0 + 38), step_desc, fill=(71, 85, 105), font=step_desc_font)
 
     # 5. Footer
     draw_dashed_line(draw, (MARGIN, 1225), (W - MARGIN, 1225), (203, 213, 225))
     draw.text((MARGIN, 1245), "NeuBench Systems Architecture Series · app.neubench.workers.dev", fill=(71, 85, 105), font=get_font(14, "sans_bold"))
-    draw.text((W - MARGIN - 140, 1245), "Save this 📌", fill=(245, 158, 11), font=get_font(14, "sans_bold"))
+    draw.text((W - MARGIN - 90, 1245), "Save this", fill=(245, 158, 11), font=get_font(14, "sans_bold"))
 
     return im
 
@@ -688,6 +757,14 @@ def render_editorial_architecture_gif(
     Renders an editorial 1080x1350 animated architecture flow GIF with traveling pulse,
     branching arrows, active component illumination, and lifecycle matrix.
     """
+    detected_generic = _detect_generic_components(spec)
+    if len(detected_generic) >= 2:
+        raise ValueError(
+            "Refusing to render a generic architecture spec. "
+            f"Placeholder components detected: {', '.join(sorted(set(detected_generic)))}. "
+            "Regenerate a topic-specific spec or publish text-only."
+        )
+
     title = str(spec.get("title") or "System Architecture").strip()
     if not base_name:
         digest = hashlib.md5(f"{title}_{len(spec.get('components', []))}".encode("utf-8")).hexdigest()[:8]
@@ -714,6 +791,7 @@ def render_editorial_architecture_gif(
         "folder": str(folder),
         "path": str(gif_path),
         "gif_path": str(gif_path),
+        "png_path": str(preview_path),
         "preview_path": str(preview_path),
         "frames": frames,
         "duration_ms": duration,
@@ -748,7 +826,12 @@ def build_editorial_architecture_spec(
                 summary=summary,
                 target_audience=audience
             )
-            if spec and spec.get("components") and len(spec["components"]) >= 4:
+            if (
+                spec
+                and spec.get("components")
+                and len(spec["components"]) >= 4
+                and len(_detect_generic_components(spec)) < 2
+            ):
                 return spec
         except Exception as e:
             print(f"[linkedin_diagrams] AI spec generation notice: {e}")

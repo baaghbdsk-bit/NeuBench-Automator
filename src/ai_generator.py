@@ -1050,36 +1050,6 @@ Rules:
         cleaned_text = clean_linkedin_formatting(text)
         return append_hashtags(cleaned_text, ["#ArtificialIntelligence", "#MachineLearning", "#AIEngineering", "#Coding", "#TechEducation"], max_len=2950)
 
-    def generate_threads_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
-        """Generates an ultra-casual, highly relatable discussion post for Threads with stacked vertical lines and comment bait."""
-        prompt = f"""
-Everyday Topic: "{title}"
-Context: "{summary}"
-
-Write a viral, ultra-relatable post for Meta Threads designed to generate dozens of replies.
-Formatting & Algorithmic Rules:
-1. STACKED VERTICAL FORMAT: Write in 2-3 short, clean sentences separated by an empty line (double newline) to maximize mobile dwell time.
-2. CONVERSATION HOOK AT THE END: End with a natural, low-barrier question or provocation that invites comments (e.g. "Tell me I'm not the only one.", "What's your version of this?", "Who else does this?", "Be honest.").
-3. TONE: Warm, funny, self-deprecating, 100% human. Zero corporate jargon, zero tech talk, zero politics.
-4. Clean text strictly under 280 characters.
-5. Strictly NO URLs, NO buzzwords.
-6. Output ONLY the raw post text.
-"""
-        text = self._generate_with_fallback(prompt, CASUAL_SYSTEM_PROMPT, temperature=0.94).strip('"').strip()
-        import re
-        # Strictly remove any URLs and NeuBench branding from casual Threads takes
-        clean = re.sub(r'https?://\S+', '', text).strip()
-        clean = re.sub(r'(?i)\bneubench(\.netlify\.app)?\b', '', clean).strip()
-        clean = re.sub(r'\s+', ' ', clean).strip()
-        return append_hashtags(clean, ["#Relatable"], max_len=300)
-
-    def generate_casual_threads_take(self, title: str = "", summary: str = "") -> str:
-        """Explicit casual Threads take generator."""
-        return self.generate_threads_take(title, summary)
-
-
-
-
     def generate_linkedin_comment_reply(self, post_text: str, commenter_name: str, comment_text: str) -> str:
         """
         Generates a courteous, authoritative, and professional B2B engineering reply
