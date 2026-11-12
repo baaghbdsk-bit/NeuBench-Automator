@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-11T23:52:48.312581+00:00",
+    "last_updated": "2026-11-12T00:03:25.331893+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 968,
-    "original_posts_attempted": 234,
-    "original_posts_succeeded": 198,
+    "total_cycles_executed": 972,
+    "original_posts_attempted": 236,
+    "original_posts_succeeded": 200,
     "replies_attempted": 79,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 184,
+    "actions_skipped": 185,
     "failed_operations": 56,
-    "ai_generation_requests": 514,
+    "ai_generation_requests": 517,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4468,6 +4468,46 @@
       "content_preview": "Rimi Tomy's energy is the only renewable power source that could actually solve the global energy crisis. Put her on a t",
       "reason": "",
       "duration_s": 79.04
+    },
+    {
+      "timestamp": "2026-11-12T00:02:12.837444+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "isabelle huppert",
+      "content_preview": "Isabelle Huppert starring in her 47th psychological thriller this year about a woman who stares blankly at a wall while ",
+      "reason": "",
+      "duration_s": 26.22
+    },
+    {
+      "timestamp": "2026-11-12T00:02:12.855950+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 179.5m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T00:02:18.089048+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Jensen Huang accused of having another affair — with an Nvidia exec",
+      "content_preview": "Insider threat vectors aren't just about compromised credentials or supply chain injection. Executive governance failure",
+      "reason": "",
+      "duration_s": 5.23
+    },
+    {
+      "timestamp": "2026-11-12T00:03:25.326738+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "umass vs toledo",
+      "content_preview": "People really out here treating UMass vs Toledo like it’s the climax of a cinematic universe. Bro, even the background e",
+      "reason": "",
+      "duration_s": 66.69
     }
   ]
 }
