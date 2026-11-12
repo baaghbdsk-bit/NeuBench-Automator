@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T06:03:36.510731+00:00",
+    "last_updated": "2026-11-12T07:03:31.864840+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1006,
-    "original_posts_attempted": 251,
-    "original_posts_succeeded": 215,
+    "total_cycles_executed": 1010,
+    "original_posts_attempted": 253,
+    "original_posts_succeeded": 217,
     "replies_attempted": 80,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 192,
+    "actions_skipped": 193,
     "failed_operations": 57,
-    "ai_generation_requests": 544,
+    "ai_generation_requests": 547,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4848,6 +4848,46 @@
       "content_preview": "Mom: We have Clarkson at home.\nClarkson at home: जोश क्लार्कसन \n\nBro’s out here dropping takes hotter than a local train",
       "reason": "",
       "duration_s": 79.84
+    },
+    {
+      "timestamp": "2026-11-12T07:02:10.575698+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "james acaster",
+      "content_preview": "James Acaster looking like he’s about to overthrow the British monarchy using only a pastel cardigan and unresolved chil",
+      "reason": "",
+      "duration_s": 27.27
+    },
+    {
+      "timestamp": "2026-11-12T07:02:10.599687+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T07:02:16.645595+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Interactive Visual Gym: Evaluating Visual Interaction Models with Simulated Users in Interactive Worlds",
+      "content_preview": "Offline replay fails for visual assistants because it misses closed-loop feedback: model responses alter subsequent user",
+      "reason": "",
+      "duration_s": 6.04
+    },
+    {
+      "timestamp": "2026-11-12T07:03:31.857607+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "france vs italy",
+      "content_preview": "People out here fighting over France vs Italy like both countries aren't just one bad croissant or burnt noodle away fro",
+      "reason": "",
+      "duration_s": 74.53
     }
   ]
 }
