@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T15:02:47.756015+00:00",
+    "last_updated": "2026-11-12T16:03:22.673453+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1048,
-    "original_posts_attempted": 265,
-    "original_posts_succeeded": 226,
+    "total_cycles_executed": 1052,
+    "original_posts_attempted": 266,
+    "original_posts_succeeded": 227,
     "replies_attempted": 86,
     "replies_succeeded": 25,
-    "reposts_attempted": 50,
+    "reposts_attempted": 51,
     "reposts_succeeded": 13,
-    "actions_skipped": 209,
+    "actions_skipped": 211,
     "failed_operations": 60,
-    "ai_generation_requests": 569,
+    "ai_generation_requests": 571,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T04:03:03.803706+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "leaky black",
-      "content_preview": "People logging onto Twitter today ready to give a masterclass geopolitics lecture on \"leaky black\" only to find out it’s",
-      "reason": "",
-      "duration_s": 29.7
-    },
-    {
-      "timestamp": "2026-11-07T04:03:15.136826+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Docker vs. Virtual Machines: The Ultimate Architectural Comparison\n\nBoth Docker and Virtual Machines are essential tools",
-      "reason": "",
-      "duration_s": 11.33
-    },
-    {
-      "timestamp": "2026-11-07T04:03:17.884433+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
-      "content_preview": "SwarmEvolve replaces bulky text-based CoT with latent-space agent swarms for evolutionary search. Bypassing token genera",
-      "reason": "",
-      "duration_s": 2.75
-    },
-    {
-      "timestamp": "2026-11-07T04:03:46.826169+00:00",
-      "action_type": "quote_tweet",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/IndianTechGuide/status/2118916386969813109",
-      "content_preview": "Bro just standing on a stage reading an envelope while tech bros in Bangalore pretend this is a moon landing.",
-      "reason": "",
-      "duration_s": 28.39
-    },
     {
       "timestamp": "2026-11-07T05:02:45.263303+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (51/40).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T16:03:05.259826+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "nintendo black friday game discounts",
+      "content_preview": "Nintendo really looking at a 7-year-old port and going \"best I can do is $59.89, take it or leave it, you peasants.\" \n\n#",
+      "reason": "",
+      "duration_s": 28.12
+    },
+    {
+      "timestamp": "2026-11-12T16:03:05.291410+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T16:03:22.005871+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ScrapeBench: Evaluating Legal Compliance of AI Agents in Website Scraping",
+      "content_preview": "Autonomous agents frequently bypass robots.txt and rate limits, introducing silent liability. ScrapeBench evaluates agen",
+      "reason": "",
+      "duration_s": 16.71
+    },
+    {
+      "timestamp": "2026-11-12T16:03:22.673429+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (53/40).",
+      "duration_s": 0.0
     }
   ]
 }
