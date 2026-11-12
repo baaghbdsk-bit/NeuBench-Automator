@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T11:12:09.243720+00:00",
+    "last_updated": "2026-11-12T12:02:16.316762+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1028,
-    "original_posts_attempted": 260,
-    "original_posts_succeeded": 222,
+    "total_cycles_executed": 1032,
+    "original_posts_attempted": 261,
+    "original_posts_succeeded": 223,
     "replies_attempted": 82,
     "replies_succeeded": 25,
-    "reposts_attempted": 49,
+    "reposts_attempted": 50,
     "reposts_succeeded": 13,
-    "actions_skipped": 199,
+    "actions_skipped": 201,
     "failed_operations": 59,
-    "ai_generation_requests": 559,
+    "ai_generation_requests": 561,
     "ai_generation_failures": 4,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T00:02:42.559254+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "baylor basketball",
-      "content_preview": "Imagine making your whole personality about Baylor basketball just to lose in March and go back to explaining crypto to ",
-      "reason": "",
-      "duration_s": 23.67
-    },
-    {
-      "timestamp": "2026-11-07T00:02:53.420166+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Stack vs Queue: Architectural Comparison\n\nCall stack recursion state vs message pipeline asynchronous buffering.\n\nI summ",
-      "reason": "",
-      "duration_s": 10.86
-    },
-    {
-      "timestamp": "2026-11-07T00:02:56.341764+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
-      "content_preview": "A $1.25T valuation demands brutal inference economics. When capital scales this aggressively, the engineering bottleneck",
-      "reason": "",
-      "duration_s": 2.92
-    },
-    {
-      "timestamp": "2026-11-07T00:04:05.305346+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "पेट्रोल",
-      "content_preview": "People treating petrol price hikes like a seasonal wardrobe change. Complain for 3 days, post a story from a vintage car",
-      "reason": "",
-      "duration_s": 68.31
-    },
     {
       "timestamp": "2026-11-07T01:02:36.525753+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Your 99th percentile tail latencies on Apache Cassandra are spiking not because of your queries, but because a single ga",
       "reason": "",
       "duration_s": 44.37
+    },
+    {
+      "timestamp": "2026-11-12T12:02:04.378988+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "погода",
+      "content_preview": "Me: \"I want to be dramatic and moody like a cinematic masterpiece.\"\nThe weather: \"Say less, I’ll match your entire psych",
+      "reason": "",
+      "duration_s": 25.47
+    },
+    {
+      "timestamp": "2026-11-12T12:02:04.398187+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T12:02:15.852077+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Evolving Infra: Agent-Adaptive LLM Serving at Scale",
+      "content_preview": "Agentic workloads break rigid prefill-decode disaggregation. Static KV cache management and coarse signals lead to tail-",
+      "reason": "",
+      "duration_s": 11.44
+    },
+    {
+      "timestamp": "2026-11-12T12:02:16.316743+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (44/40).",
+      "duration_s": 0.0
     }
   ]
 }
