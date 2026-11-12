@@ -1,21 +1,21 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T07:03:31.864840+00:00",
+    "last_updated": "2026-11-12T08:03:42.057744+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1010,
-    "original_posts_attempted": 253,
-    "original_posts_succeeded": 217,
+    "total_cycles_executed": 1015,
+    "original_posts_attempted": 256,
+    "original_posts_succeeded": 219,
     "replies_attempted": 80,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 193,
-    "failed_operations": 57,
-    "ai_generation_requests": 547,
-    "ai_generation_failures": 2,
+    "actions_skipped": 194,
+    "failed_operations": 58,
+    "ai_generation_requests": 551,
+    "ai_generation_failures": 3,
     "rate_limits_encountered": 0
   },
   "recent_events": [
@@ -4888,6 +4888,56 @@
       "content_preview": "People out here fighting over France vs Italy like both countries aren't just one bad croissant or burnt noodle away fro",
       "reason": "",
       "duration_s": 74.53
+    },
+    {
+      "timestamp": "2026-11-12T08:02:11.110771+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cathay pacific",
+      "content_preview": "Nothing humbles you quite like Cathay Pacific losing your luggage and then sending a survey asking how you enjoyed the e",
+      "reason": "",
+      "duration_s": 20.77
+    },
+    {
+      "timestamp": "2026-11-12T08:02:11.135186+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T08:02:16.408328+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Module-Aware Optimization for Graph Neural Networks",
+      "content_preview": "GNN message-passing bottlenecks demand more than coordinate-wise Adam or matrix-aware Muon. Module-aware updates respect",
+      "reason": "",
+      "duration_s": 5.27
+    },
+    {
+      "timestamp": "2026-11-12T08:03:17.163157+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "a24",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+      "duration_s": 60.11
+    },
+    {
+      "timestamp": "2026-11-12T08:03:42.051057+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "pete davidson",
+      "content_preview": "Pete Davidson out here collecting pop-culture icons like Infinity Stones using nothing more than sweatpants and unresolv",
+      "reason": "",
+      "duration_s": 85.0
     }
   ]
 }
