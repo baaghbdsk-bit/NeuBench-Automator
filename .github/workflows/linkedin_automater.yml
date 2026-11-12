@@ -18,7 +18,7 @@ on:
         type: string
 
 concurrency:
-  group: neubench-linkedin-state
+  group: neubench-state-sync
   cancel-in-progress: false
 
 permissions:
