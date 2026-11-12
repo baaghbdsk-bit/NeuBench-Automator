@@ -1,20 +1,20 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T04:53:50.379561+00:00",
+    "last_updated": "2026-11-12T05:03:13.629632+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 998,
-    "original_posts_attempted": 247,
-    "original_posts_succeeded": 211,
+    "total_cycles_executed": 1002,
+    "original_posts_attempted": 249,
+    "original_posts_succeeded": 213,
     "replies_attempted": 80,
     "replies_succeeded": 25,
     "reposts_attempted": 49,
     "reposts_succeeded": 13,
-    "actions_skipped": 190,
+    "actions_skipped": 191,
     "failed_operations": 57,
-    "ai_generation_requests": 538,
+    "ai_generation_requests": 541,
     "ai_generation_failures": 2,
     "rate_limits_encountered": 0
   },
@@ -4768,6 +4768,46 @@
       "content_preview": "Me finding out who Sidy Cissoko is purely through Twitter timelines acting like he's the geopolitical pivot point of the",
       "reason": "",
       "duration_s": 62.93
+    },
+    {
+      "timestamp": "2026-11-12T05:01:56.182550+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "jessica chastain",
+      "content_preview": "Jessica Chastain could read the ingredient list of a shampoo bottle and somehow make it sound like a multi-layered Oscar",
+      "reason": "",
+      "duration_s": 21.75
+    },
+    {
+      "timestamp": "2026-11-12T05:01:56.205813+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-12T05:02:01.983131+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "The unfolding Jensen Huang scandal: a timeline",
+      "content_preview": "Geopolitical export controls meet supply chain friction. As silicon allocation becomes a national security vector, compl",
+      "reason": "",
+      "duration_s": 5.77
+    },
+    {
+      "timestamp": "2026-11-12T05:03:13.624664+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ind u19",
+      "content_preview": "Adulting is hard, but watching the Ind U19 boys casually unearth the next decade of national trauma therapists is pure e",
+      "reason": "",
+      "duration_s": 71.2
     }
   ]
 }
