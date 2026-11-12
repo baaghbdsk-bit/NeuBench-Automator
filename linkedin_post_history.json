@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-12T11:12:09.231705+00:00",
+  "last_success_at": "2026-11-12T19:55:10.404939+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -862,6 +862,16 @@
       "posted_at": "2026-11-12T11:12:09.231705+00:00",
       "post_urn": "urn:li:share:7526602730044395520",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:75d6906314b9bf023d40e5f47ad434b2",
+      "title": "PostgreSQL WAL (Write-Ahead Logging) Deep Dive",
+      "url": "",
+      "content_hash": "ec4ff1808de6cfca4582deee20f49f2a",
+      "status": "success",
+      "posted_at": "2026-11-12T19:55:10.404939+00:00",
+      "post_urn": "urn:li:ugcPost:7526734353582825472",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -950,6 +960,7 @@
     "li:What is an API? The Digital Waiter of the Internet",
     "li:How Recommendation Algorithms Guess Your Favorite YouTube Video",
     "li:Redis Cache Invalidation Patterns",
-    "li:ScyllaDB vs. Cassandra: The Architectural Fork in Wide-Column Stores"
+    "li:ScyllaDB vs. Cassandra: The Architectural Fork in Wide-Column Stores",
+    "li:PostgreSQL WAL (Write-Ahead Logging) Deep Dive"
   ]
 }
