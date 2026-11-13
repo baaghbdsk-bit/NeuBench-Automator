@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T03:03:31.639980+00:00",
+    "last_updated": "2026-11-13T04:03:01.452394+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1106,
-    "original_posts_attempted": 284,
-    "original_posts_succeeded": 245,
+    "total_cycles_executed": 1110,
+    "original_posts_attempted": 286,
+    "original_posts_succeeded": 247,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 231,
+    "actions_skipped": 232,
     "failed_operations": 60,
-    "ai_generation_requests": 605,
+    "ai_generation_requests": 608,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T17:02:44.100361+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T17:02:49.878893+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
-      "content_preview": "StepX-OPD decouples multi-teacher alignment from few-step sampling in diffusion models, resolving the classic capability",
-      "reason": "",
-      "duration_s": 5.77
-    },
-    {
-      "timestamp": "2026-11-07T17:02:50.648213+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (54/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T18:03:07.141634+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "seher hone ko hai",
-      "content_preview": "Seher hone ko hai\" bro you’ve been doomscrolling since midnight, your sleep schedule is hanging by a thread, and your bi",
-      "reason": "",
-      "duration_s": 31.17
-    },
     {
       "timestamp": "2026-11-07T18:03:07.162829+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Anthony Davis looking at a feather floating towards him and suddenly being listed as 'Out for 4-6 weeks with atmospheric",
       "reason": "",
       "duration_s": 72.88
+    },
+    {
+      "timestamp": "2026-11-13T04:01:53.558616+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cameron green",
+      "content_preview": "Cameron Green looks like he was custom-built in a lab by Australian biomechanics to make the rest of us feel deeply inad",
+      "reason": "",
+      "duration_s": 20.99
+    },
+    {
+      "timestamp": "2026-11-13T04:01:53.582093+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T04:01:59.427241+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+      "content_preview": "Running a 145B parameter model locally via Edge0 forces a hard look at memory bandwidth and quantization trade-offs. Imp",
+      "reason": "",
+      "duration_s": 5.84
+    },
+    {
+      "timestamp": "2026-11-13T04:03:01.446966+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "shaq",
+      "content_preview": "Shaq is out here investing in literal gas stations and ring doorbells while the rest of us are stressing over a $4 deliv",
+      "reason": "",
+      "duration_s": 61.52
     }
   ]
 }
