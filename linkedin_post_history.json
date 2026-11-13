@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-13T00:02:25.560028+00:00",
+  "last_success_at": "2026-11-13T01:51:03.687717+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -882,6 +882,16 @@
       "posted_at": "2026-11-13T00:02:25.560028+00:00",
       "post_urn": "urn:li:share:7526796576367919106",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:205423eb89237cd5e9a6b98eaed19be4",
+      "title": "Agentic Workflows: Sequential Chains vs. Dynamic Graphs in LLMs",
+      "url": "",
+      "content_hash": "c7d1598811b5d6f0d69e5d3fddbbe117",
+      "status": "success",
+      "posted_at": "2026-11-13T01:51:03.687717+00:00",
+      "post_urn": "urn:li:share:7526823913838821376",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -972,6 +982,7 @@
     "li:Redis Cache Invalidation Patterns",
     "li:ScyllaDB vs. Cassandra: The Architectural Fork in Wide-Column Stores",
     "li:PostgreSQL WAL (Write-Ahead Logging) Deep Dive",
-    "li:CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters"
+    "li:CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters",
+    "li:Agentic Workflows: Sequential Chains vs. Dynamic Graphs in LLMs"
   ]
 }

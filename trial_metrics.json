@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T01:03:23.685808+00:00",
+    "last_updated": "2026-11-13T01:51:03.701616+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1093,
+    "total_cycles_executed": 1094,
     "original_posts_attempted": 278,
     "original_posts_succeeded": 239,
     "replies_attempted": 93,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 228,
     "failed_operations": 60,
-    "ai_generation_requests": 595,
+    "ai_generation_requests": 596,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T14:43:27.893251+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ben shelton",
-      "content_preview": "Ben Shelton screaming into the camera after hitting an unforced error in the second round is the exact same energy as gu",
-      "reason": "",
-      "duration_s": 34.9
-    },
     {
       "timestamp": "2026-11-07T14:43:27.913973+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Charlie Sheen trending in 2024 is the ultimate proof that the internet refuses to let go of its vintage trash fire. Bro ",
       "reason": "",
       "duration_s": 78.71
+    },
+    {
+      "timestamp": "2026-11-13T01:51:03.701599+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your linear LLM chain will fail the moment a user inputs a non-standard request, wasting thousands of tokens and burning",
+      "reason": "",
+      "duration_s": 18.26
     }
   ]
 }
