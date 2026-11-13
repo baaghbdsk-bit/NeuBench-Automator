@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T11:43:23.166282+00:00",
+    "last_updated": "2026-11-13T12:02:12.833195+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1143,
-    "original_posts_attempted": 300,
-    "original_posts_succeeded": 261,
+    "total_cycles_executed": 1147,
+    "original_posts_attempted": 301,
+    "original_posts_succeeded": 262,
     "replies_attempted": 95,
     "replies_succeeded": 25,
-    "reposts_attempted": 52,
+    "reposts_attempted": 53,
     "reposts_succeeded": 13,
-    "actions_skipped": 242,
+    "actions_skipped": 244,
     "failed_operations": 60,
-    "ai_generation_requests": 631,
+    "ai_generation_requests": 633,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T00:02:53.731795+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A US intelligence memo circulated earlier this year revealed that China's Ministry of State Security recruited a Megaspe",
-      "reason": "",
-      "duration_s": 9.52
-    },
-    {
-      "timestamp": "2026-11-08T00:02:58.137707+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
-      "content_preview": "Text-based LLM evolutionary search is bottlenecked by verbose reasoning tokens and redundant serialization overhead. Swa",
-      "reason": "",
-      "duration_s": 4.4
-    },
-    {
-      "timestamp": "2026-11-08T00:04:08.675559+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "svengoolie tonight",
-      "content_preview": "Imagine doomscrolling geopolitical collapse and economic ruin on X, only to pause and realize nerds are trending \"Svengo",
-      "reason": "",
-      "duration_s": 69.73
-    },
-    {
-      "timestamp": "2026-11-08T01:03:05.725283+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "toluca - monterrey",
-      "content_preview": "Toluca vs Monterrey is just 22 guys running around at high altitude proving once and for all that millions of pesos can ",
-      "reason": "",
-      "duration_s": 29.06
-    },
     {
       "timestamp": "2026-11-08T01:03:10.324523+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (43/40).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-13T12:02:07.525184+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "ശശി തരൂര്",
+      "content_preview": "Trying to understand Shashi Tharoor's tweets without a thesaurus, Oxford English dictionary, and a PhD in ancient Greek ",
+      "reason": "",
+      "duration_s": 24.18
+    },
+    {
+      "timestamp": "2026-11-13T12:02:07.549466+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T12:02:12.204715+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying Tensor Parallelism in Distributed LLM Inference",
+      "content_preview": "When weights exceed HBM, sharding columns and rows across devices—rather than samples—minimizes per-layer communication ",
+      "reason": "",
+      "duration_s": 4.65
+    },
+    {
+      "timestamp": "2026-11-13T12:02:12.833169+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (45/40).",
+      "duration_s": 0.01
     }
   ]
 }
