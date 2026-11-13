@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T06:04:25.671372+00:00",
+    "last_updated": "2026-11-13T07:03:43.134962+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1118,
-    "original_posts_attempted": 290,
-    "original_posts_succeeded": 251,
+    "total_cycles_executed": 1122,
+    "original_posts_attempted": 292,
+    "original_posts_succeeded": 253,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 234,
+    "actions_skipped": 235,
     "failed_operations": 60,
-    "ai_generation_requests": 614,
+    "ai_generation_requests": 617,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T19:45:17.963851+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "winthrop basketball",
-      "content_preview": "Imagine explaining to your ancestors who hunted mammoths for survival that you’re currently pacing your living room beca",
-      "reason": "",
-      "duration_s": 29.91
-    },
-    {
-      "timestamp": "2026-11-07T19:45:17.977576+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T19:45:20.124168+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "The end of Microsoft Research's AI Frontiers group",
-      "content_preview": "The dissolution of MSR’s AI Frontiers signals a shift: foundational blue-sky R&D is consolidating into product-driven or",
-      "reason": "",
-      "duration_s": 2.14
-    },
-    {
-      "timestamp": "2026-11-07T19:45:20.708983+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (60/28).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-07T20:02:29.720849+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "San Francisco weather is just a tech bro: promises a sunny ecosystem, crashes within 5 minutes, and gaslights you into w",
       "reason": "",
       "duration_s": 75.98
+    },
+    {
+      "timestamp": "2026-11-13T07:02:21.697556+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "bernard tomic",
+      "content_preview": "Bernard Tomic playing tennis with the exact same enthusiasm I bring to a Monday morning Zoom call where someone says \"le",
+      "reason": "",
+      "duration_s": 22.81
+    },
+    {
+      "timestamp": "2026-11-13T07:02:21.727030+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T07:02:29.241711+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Do Multimodal Models Decide Consistently on Equivalent Optical Spectra?",
+      "content_preview": "Representation invariance is non-negotiable for scientific LLMs. If switching from an nm table to an eV plot flips model",
+      "reason": "",
+      "duration_s": 7.51
+    },
+    {
+      "timestamp": "2026-11-13T07:03:43.123358+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "diane morgan",
+      "content_preview": "Diane Morgan playing Philomena Cunk is just method acting for anyone who has ever survived a family WhatsApp group chat.",
+      "reason": "",
+      "duration_s": 73.21
     }
   ]
 }
