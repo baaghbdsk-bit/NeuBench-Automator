@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-13T01:51:03.687717+00:00",
+  "last_success_at": "2026-11-13T11:00:33.661172+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -892,6 +892,16 @@
       "posted_at": "2026-11-13T01:51:03.687717+00:00",
       "post_urn": "urn:li:share:7526823913838821376",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:d23d962bbec5c13631d5b22cbb08379f",
+      "title": "How Self-Driving Cars See the Road",
+      "url": "",
+      "content_hash": "55b9797fb40e936e788e8c46375bda7a",
+      "status": "success",
+      "posted_at": "2026-11-13T11:00:33.661172+00:00",
+      "post_urn": "urn:li:share:7526962200696094720",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -983,6 +993,7 @@
     "li:ScyllaDB vs. Cassandra: The Architectural Fork in Wide-Column Stores",
     "li:PostgreSQL WAL (Write-Ahead Logging) Deep Dive",
     "li:CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters",
-    "li:Agentic Workflows: Sequential Chains vs. Dynamic Graphs in LLMs"
+    "li:Agentic Workflows: Sequential Chains vs. Dynamic Graphs in LLMs",
+    "li:How Self-Driving Cars See the Road"
   ]
 }

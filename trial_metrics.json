@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T10:03:55.761451+00:00",
+    "last_updated": "2026-11-13T11:00:33.670000+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1134,
+    "total_cycles_executed": 1135,
     "original_posts_attempted": 298,
     "original_posts_succeeded": 259,
     "replies_attempted": 93,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 238,
     "failed_operations": 60,
-    "ai_generation_requests": 626,
+    "ai_generation_requests": 627,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T23:02:19.846873+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "हैं",
-      "content_preview": "Bro wrote a whole paragraph of absolute garbage and my brain’s only response is just a deeply disappointed \"हैं?",
-      "reason": "",
-      "duration_s": 18.56
-    },
     {
       "timestamp": "2026-11-07T23:02:29.216305+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Me trying to act like I know who Christian Langmo is so I don’t look out of touch on main timeline today. #Tennis #Sport",
       "reason": "",
       "duration_s": 70.37
+    },
+    {
+      "timestamp": "2026-11-13T11:00:33.669974+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "How Self-Driving Cars See the Road\n\nUnderstanding the real-world mechanics of How Self-Driving Cars See the Road is one ",
+      "reason": "",
+      "duration_s": 13.34
     }
   ]
 }
