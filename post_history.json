@@ -437,7 +437,11 @@
     "josh simmons",
     "bsky:How AI visionary Jensen Huang was undone by his own bad decisions",
     "jessica pegula",
-    "bsky:FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control"
+    "bsky:FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control",
+    "curaçao vs panama",
+    "li:CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters",
+    "bsky:Scandal-hit Nvidia CEO Jensen Huang quits, plunging AI chipmaking giant into turmoil",
+    "high surf warning"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -658,7 +662,9 @@
     "3aa45df923b56d47ffb6e4728f1a9d3ea52765dfce4c3e4f571e844faa6c63e8",
     "8136ca15d90e4efbd67941ef70d415d135e184255841d39330c6a47e18d6acdf",
     "a504b28fcfdaaeeed04a62ed4aa0f396e1ea18b0a02143394c8cb2475592479d",
-    "ab315be14647cf4436b155d5800209ba63a04f65a8499b8848773e371bfe0ce5"
+    "ab315be14647cf4436b155d5800209ba63a04f65a8499b8848773e371bfe0ce5",
+    "6737f07202265abba8452f05e98c9f4bc8cf6dc3d42cdbccfd76e11de14e5536",
+    "4e0147225b7de0b2923d8552a857b5ecbb57efd7020f17104d1b01a0faeb47f5"
   ],
   "pending_x_actions": [
     {
@@ -851,7 +857,8 @@
         "post:a917e6e484a96491b960379e14ed4cba01403d188808cc7f2a69d3c739bac049",
         "post:b2b157b0d7d73a9d1ec973e2b4fd5b8e71509797aa2155197124388e3293b2fe",
         "post:186eae62c075f7973314611833a5e16c40052b7f89e89b11e03c383e0df2603e",
-        "post:53a29f94f0bf809e59144084c7fe390b8407322616a91b8ca2f94364b09e7270"
+        "post:53a29f94f0bf809e59144084c7fe390b8407322616a91b8ca2f94364b09e7270",
+        "post:cfbd7322c6839be71b7443c76b161d336eb3d09330b2911e0eab7d3783cf61b3"
       ],
       "pending": []
     },

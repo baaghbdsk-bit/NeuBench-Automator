@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-12T23:02:09.209893+00:00",
+    "last_updated": "2026-11-13T00:03:33.800133+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1085,
-    "original_posts_attempted": 274,
-    "original_posts_succeeded": 235,
+    "total_cycles_executed": 1089,
+    "original_posts_attempted": 276,
+    "original_posts_succeeded": 237,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
     "actions_skipped": 227,
     "failed_operations": 60,
-    "ai_generation_requests": 588,
+    "ai_generation_requests": 592,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T12:02:56.778031+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T12:03:01.124292+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Crusoe sells troubled Wyoming data center project to Google",
-      "content_preview": "The Crusoe-Google Wyoming DC buyout exposes the brutal reality of AI infra: MW scaling is bottlenecked by grid interconn",
-      "reason": "",
-      "duration_s": 4.34
-    },
-    {
-      "timestamp": "2026-11-07T12:03:01.692796+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (44/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-07T13:02:47.978254+00:00",
-      "action_type": "linkedin",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8) to protect organic algorithmic distribution.",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-07T14:03:02.080865+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (70/40).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-13T00:02:04.656656+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "curaçao vs panama",
+      "content_preview": "Me trying to act like I've watched every minute of Curaçao vs Panama so I don't look uncultured in the group chat. #Foot",
+      "reason": "",
+      "duration_s": 19.86
+    },
+    {
+      "timestamp": "2026-11-13T00:02:25.978952+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Training a 175-billion parameter LLM requires moving petabytes of tensors across nodes faster than the silicon can compu",
+      "reason": "",
+      "duration_s": 21.3
+    },
+    {
+      "timestamp": "2026-11-13T00:02:31.993985+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Scandal-hit Nvidia CEO Jensen Huang quits, plunging AI chipmaking giant into turmoil",
+      "content_preview": "Leadership volatility at the top of a hardware monopoly changes nothing about the foundational physics of inference scal",
+      "reason": "",
+      "duration_s": 5.92
+    },
+    {
+      "timestamp": "2026-11-13T00:03:33.792117+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "high surf warning",
+      "content_preview": "Meteorologists issuing a \"high surf warning\" just so influencers can risk their lives for a 7-second Reel of them gettin",
+      "reason": "",
+      "duration_s": 61.1
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-12T19:55:10.404939+00:00",
+  "last_success_at": "2026-11-13T00:02:25.560028+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -872,6 +872,16 @@
       "posted_at": "2026-11-12T19:55:10.404939+00:00",
       "post_urn": "urn:li:ugcPost:7526734353582825472",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:daa703cf24a01275e292a80b3621c7e3",
+      "title": "CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters",
+      "url": "",
+      "content_hash": "e7b0573ab55438241649da7f661becff",
+      "status": "success",
+      "posted_at": "2026-11-13T00:02:25.560028+00:00",
+      "post_urn": "urn:li:share:7526796576367919106",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -961,6 +971,7 @@
     "li:How Recommendation Algorithms Guess Your Favorite YouTube Video",
     "li:Redis Cache Invalidation Patterns",
     "li:ScyllaDB vs. Cassandra: The Architectural Fork in Wide-Column Stores",
-    "li:PostgreSQL WAL (Write-Ahead Logging) Deep Dive"
+    "li:PostgreSQL WAL (Write-Ahead Logging) Deep Dive",
+    "li:CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters"
   ]
 }
