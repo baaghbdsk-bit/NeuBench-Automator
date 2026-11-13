@@ -444,7 +444,10 @@
     "high surf warning",
     "gal gadot",
     "bsky:Gemini 4 Hydrogen and Orchestrator",
-    "charlie sheen"
+    "charlie sheen",
+    "arvell reese",
+    "bsky:What are Vector Embeddings? The Secret Language of AI Brains",
+    "cold war"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -669,7 +672,9 @@
     "6737f07202265abba8452f05e98c9f4bc8cf6dc3d42cdbccfd76e11de14e5536",
     "4e0147225b7de0b2923d8552a857b5ecbb57efd7020f17104d1b01a0faeb47f5",
     "9e82cff589fc56e90525ff81ce332615c4c05c1209527e011b121787af34ab7a",
-    "8be3c1078a678d4556a41a40a2d9f9c4a23238d6e03bb0a1eec78e5160f66921"
+    "8be3c1078a678d4556a41a40a2d9f9c4a23238d6e03bb0a1eec78e5160f66921",
+    "0253bcc84602b932364447b1e99722353966c24f59c86532c2a92434897f5bad",
+    "4ef09d761099283677f8f63a7d28f32622e56c389768cc3d868c334bdbbc1208"
   ],
   "pending_x_actions": [
     {
@@ -864,7 +869,8 @@
         "post:186eae62c075f7973314611833a5e16c40052b7f89e89b11e03c383e0df2603e",
         "post:53a29f94f0bf809e59144084c7fe390b8407322616a91b8ca2f94364b09e7270",
         "post:cfbd7322c6839be71b7443c76b161d336eb3d09330b2911e0eab7d3783cf61b3",
-        "post:71490c0bddec67c82e8bba42fca7c88cfa2e378fcb5897e05f1d54dbf1737cc1"
+        "post:71490c0bddec67c82e8bba42fca7c88cfa2e378fcb5897e05f1d54dbf1737cc1",
+        "post:39d3f790c3903aeebbeae720b5d265a0673cea9af25b92caceb23bf3d354fd7c"
       ],
       "pending": []
     },

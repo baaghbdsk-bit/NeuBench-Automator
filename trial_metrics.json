@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T01:51:03.701616+00:00",
+    "last_updated": "2026-11-13T02:03:56.812838+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1094,
-    "original_posts_attempted": 278,
-    "original_posts_succeeded": 239,
+    "total_cycles_executed": 1098,
+    "original_posts_attempted": 280,
+    "original_posts_succeeded": 241,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 228,
+    "actions_skipped": 229,
     "failed_operations": 60,
-    "ai_generation_requests": 596,
+    "ai_generation_requests": 599,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T14:43:27.913973+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T14:43:32.651674+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Sequoia shutting down its Scouts program marks the end of an era",
-      "content_preview": "Decentralized scouting networks fail for the same reason gossip protocols degrade: high signaling noise, low routing fid",
-      "reason": "",
-      "duration_s": 4.73
-    },
-    {
-      "timestamp": "2026-11-07T14:43:33.465287+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (48/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T15:02:52.568052+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "rcd espanyol - deportivo",
-      "content_preview": "Espanyol vs Deportivo fans treating a mid-table Segunda clash like it’s the literal fall of the Roman Empire is the exac",
-      "reason": "",
-      "duration_s": 29.36
-    },
     {
       "timestamp": "2026-11-07T15:02:52.581064+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Your linear LLM chain will fail the moment a user inputs a non-standard request, wasting thousands of tokens and burning",
       "reason": "",
       "duration_s": 18.26
+    },
+    {
+      "timestamp": "2026-11-13T02:02:35.893092+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "arvell reese",
+      "content_preview": "Bro's out here playing defense like his rent is due tomorrow and the landlord is standing in the huddle. Absolute cinema",
+      "reason": "",
+      "duration_s": 20.85
+    },
+    {
+      "timestamp": "2026-11-13T02:02:35.921547+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T02:02:43.315807+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What are Vector Embeddings? The Secret Language of AI Brains",
+      "content_preview": "Meaning becomes distance: semantic similarity maps to geometric proximity in high-dimensional space. \n\nLike a playground",
+      "reason": "",
+      "duration_s": 7.39
+    },
+    {
+      "timestamp": "2026-11-13T02:03:56.804603+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cold war",
+      "content_preview": "My ex and I are running a geopolitical masterclass in silent treatment that makes the actual Cold War look like a couple",
+      "reason": "",
+      "duration_s": 72.67
     }
   ]
 }
