@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T13:02:14.641263+00:00",
+    "last_updated": "2026-11-13T14:02:24.017949+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1151,
-    "original_posts_attempted": 302,
-    "original_posts_succeeded": 263,
-    "replies_attempted": 96,
+    "total_cycles_executed": 1155,
+    "original_posts_attempted": 303,
+    "original_posts_succeeded": 264,
+    "replies_attempted": 97,
     "replies_succeeded": 25,
     "reposts_attempted": 53,
     "reposts_succeeded": 13,
-    "actions_skipped": 246,
+    "actions_skipped": 248,
     "failed_operations": 60,
-    "ai_generation_requests": 635,
+    "ai_generation_requests": 637,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T02:03:59.412580+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "urban meyer",
-      "content_preview": "Urban Meyer failing upward into another media job is just corporate America telling you that failing publicly while bein",
-      "reason": "",
-      "duration_s": 66.43
-    },
-    {
-      "timestamp": "2026-11-08T03:02:34.835767+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "josh brolin",
-      "content_preview": "Josh Brolin out here meditating in a canyon, drinking cactus water, and journaling about his masculine rage like men in ",
-      "reason": "",
-      "duration_s": 27.57
-    },
-    {
-      "timestamp": "2026-11-08T03:02:38.001905+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
-      "content_preview": "Raw tool outputs destroy agent attention via context bloating. Latent context compression keeps observations in vector s",
-      "reason": "",
-      "duration_s": 3.15
-    },
-    {
-      "timestamp": "2026-11-08T03:03:39.857631+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "hawks",
-      "content_preview": "men posting about geopolitical \"hawks\" like they wouldn't hyperventilate if the waiter brought them the wrong oat milk l",
-      "reason": "",
-      "duration_s": 61.26
-    },
     {
       "timestamp": "2026-11-08T03:19:53.377792+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (47/40).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T14:02:18.179913+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "बीबीसी हिन्दी",
+      "content_preview": "Me waking up to see #BBCHindi trending for the millionth time without any new plot twists is like watching a rerun of a ",
+      "reason": "",
+      "duration_s": 31.91
+    },
+    {
+      "timestamp": "2026-11-13T14:02:18.204424+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T14:02:23.414707+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
+      "content_preview": "Isolating variables in robotic control agents is notoriously messy. JustRUA systematically dissects GPT-6 Astra's RoboDo",
+      "reason": "",
+      "duration_s": 5.2
+    },
+    {
+      "timestamp": "2026-11-13T14:02:24.017927+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (49/40).",
+      "duration_s": 0.0
     }
   ]
 }
