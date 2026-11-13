@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T00:03:33.800133+00:00",
+    "last_updated": "2026-11-13T01:03:23.685808+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1089,
-    "original_posts_attempted": 276,
-    "original_posts_succeeded": 237,
+    "total_cycles_executed": 1093,
+    "original_posts_attempted": 278,
+    "original_posts_succeeded": 239,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 227,
+    "actions_skipped": 228,
     "failed_operations": 60,
-    "ai_generation_requests": 592,
+    "ai_generation_requests": 595,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T14:03:02.080865+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "cagliari vs frosinone",
-      "content_preview": "Cagliari vs Frosinone is strictly a psychological torture experiment for people who claim they \"just love the tactical d",
-      "reason": "",
-      "duration_s": 27.13
-    },
-    {
-      "timestamp": "2026-11-07T14:03:02.093562+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T14:03:06.407976+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
-      "content_preview": "Appending raw tool outputs to agent contexts destroys attention over multi-step tasks. Latent context compression replac",
-      "reason": "",
-      "duration_s": 4.31
-    },
-    {
-      "timestamp": "2026-11-07T14:03:06.926677+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (46/28).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-07T14:43:27.893251+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Meteorologists issuing a \"high surf warning\" just so influencers can risk their lives for a 7-second Reel of them gettin",
       "reason": "",
       "duration_s": 61.1
+    },
+    {
+      "timestamp": "2026-11-13T01:01:57.867694+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "gal gadot",
+      "content_preview": "Gal Gadot delivering lines with the emotional range of a very pretty smartphone auto-correct is my favorite genre of blo",
+      "reason": "",
+      "duration_s": 18.25
+    },
+    {
+      "timestamp": "2026-11-13T01:01:57.888235+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 59.5m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T01:02:04.465491+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Gemini 4 Hydrogen and Orchestrator",
+      "content_preview": "Deconstructing orchestrator patterns for multi-tier inference: managing state and execution graphs across distributed no",
+      "reason": "",
+      "duration_s": 6.57
+    },
+    {
+      "timestamp": "2026-11-13T01:03:23.680209+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "charlie sheen",
+      "content_preview": "Charlie Sheen trending in 2024 is the ultimate proof that the internet refuses to let go of its vintage trash fire. Bro ",
+      "reason": "",
+      "duration_s": 78.71
     }
   ]
 }
