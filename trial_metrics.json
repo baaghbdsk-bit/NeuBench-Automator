@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T14:02:24.017949+00:00",
+    "last_updated": "2026-11-13T15:02:43.127326+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1155,
-    "original_posts_attempted": 303,
-    "original_posts_succeeded": 264,
-    "replies_attempted": 97,
+    "total_cycles_executed": 1159,
+    "original_posts_attempted": 304,
+    "original_posts_succeeded": 265,
+    "replies_attempted": 98,
     "replies_succeeded": 25,
     "reposts_attempted": 53,
     "reposts_succeeded": 13,
-    "actions_skipped": 248,
+    "actions_skipped": 250,
     "failed_operations": 60,
-    "ai_generation_requests": 637,
+    "ai_generation_requests": 639,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T03:19:53.377792+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "jalen johnson",
-      "content_preview": "Y’all only talking about Jalen Johnson now because your fantasy team is in the absolute mud and you need a waiver wire s",
-      "reason": "",
-      "duration_s": 24.7
-    },
-    {
-      "timestamp": "2026-11-08T03:19:57.649616+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
-      "content_preview": "Signed offline RAG packs secure provenance, not semantic fidelity. If vectors drift from text, edge inference silently h",
-      "reason": "",
-      "duration_s": 4.26
-    },
-    {
-      "timestamp": "2026-11-08T03:20:45.008711+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "partidos de liga mx",
-      "content_preview": "Paying to watch 90 minutes of 11 guys jogging backwards while the VAR takes 20 minutes to review a nonexistent foul just",
-      "reason": "",
-      "duration_s": 46.82
-    },
-    {
-      "timestamp": "2026-11-08T04:02:39.467564+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Moral policing uncle-aunt networks",
-      "content_preview": "The colony uncles will watch their builder steal 40 feet of common land, ignore the toxic garbage dump next door, and br",
-      "reason": "",
-      "duration_s": 30.25
-    },
     {
       "timestamp": "2026-11-08T04:02:43.831730+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (49/40).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-13T15:02:20.792166+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "michael wilbon",
+      "content_preview": "Michael Wilbon on television yelling about kids today while wearing the exact same grandpa sweater for the last 15 years",
+      "reason": "",
+      "duration_s": 30.03
+    },
+    {
+      "timestamp": "2026-11-13T15:02:20.822583+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T15:02:42.296509+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Uber confirms hackers stole thousands of drivers’ license information in data breach",
+      "content_preview": "Third-party AI inference pipelines are becoming high-value target vectors for data exfiltration. If PII hits external mo",
+      "reason": "",
+      "duration_s": 21.47
+    },
+    {
+      "timestamp": "2026-11-13T15:02:43.127299+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (51/40).",
+      "duration_s": 0.01
     }
   ]
 }
