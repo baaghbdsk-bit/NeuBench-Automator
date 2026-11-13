@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T16:02:17.945253+00:00",
+    "last_updated": "2026-11-13T17:02:50.827694+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1163,
-    "original_posts_attempted": 305,
-    "original_posts_succeeded": 266,
-    "replies_attempted": 98,
+    "total_cycles_executed": 1167,
+    "original_posts_attempted": 306,
+    "original_posts_succeeded": 267,
+    "replies_attempted": 99,
     "replies_succeeded": 25,
     "reposts_attempted": 54,
     "reposts_succeeded": 13,
-    "actions_skipped": 252,
+    "actions_skipped": 254,
     "failed_operations": 60,
-    "ai_generation_requests": 641,
+    "ai_generation_requests": 643,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T05:03:47.356288+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "john mulaney",
-      "content_preview": "John Mulaney really went from \"I'm a polite boy who loves retro diners\" to a 4-hour Netflix special about his entire lif",
-      "reason": "",
-      "duration_s": 67.38
-    },
-    {
-      "timestamp": "2026-11-08T06:02:41.940011+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "dave chappelle",
-      "content_preview": "People acting like Dave Chappelle held a gun to their head and forced them to watch a Netflix special are exhausting. Ju",
-      "reason": "",
-      "duration_s": 25.55
-    },
-    {
-      "timestamp": "2026-11-08T06:02:46.221817+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "NeuBench data shows up to 40% variance in real-world TTFT and token throughput across hosted LLM endpoints. Same weights",
-      "reason": "",
-      "duration_s": 4.26
-    },
-    {
-      "timestamp": "2026-11-08T06:03:53.499928+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "connor mcdavid",
-      "content_preview": "Connor McDavid really looks like a guy who was lab-grown in Edmonton just to suffer 82 games a year for a franchise whos",
-      "reason": "",
-      "duration_s": 66.7
-    },
     {
       "timestamp": "2026-11-08T08:02:43.663218+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (53/40).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T17:02:45.134902+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "portugal national football team u17",
+      "content_preview": "Portugal U17 out here playing like their inheritance depends on it while senior teams just vibe. Bro, these kids are run",
+      "reason": "",
+      "duration_s": 27.22
+    },
+    {
+      "timestamp": "2026-11-13T17:02:45.176685+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T17:02:50.246701+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Experience-Handoff Reinforcement Learning for Recursive Self-Improvement",
+      "content_preview": "Scalar RL rewards discard trajectory nuance. Experience-Handoff RL passes raw env data like stack traces directly to the",
+      "reason": "",
+      "duration_s": 5.06
+    },
+    {
+      "timestamp": "2026-11-13T17:02:50.827669+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (55/40).",
+      "duration_s": 0.0
     }
   ]
 }
