@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T22:02:50.850475+00:00",
+    "last_updated": "2026-11-13T23:02:23.926132+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1192,
-    "original_posts_attempted": 312,
-    "original_posts_succeeded": 273,
-    "replies_attempted": 104,
+    "total_cycles_executed": 1196,
+    "original_posts_attempted": 313,
+    "original_posts_succeeded": 274,
+    "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 266,
+    "actions_skipped": 268,
     "failed_operations": 60,
-    "ai_generation_requests": 656,
+    "ai_generation_requests": 658,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T13:03:00.758964+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
-      "content_preview": "Running a 284B MoE on 64GB RAM without a GPU is a masterclass in aggressive offloading and bandwidth optimization. Laten",
-      "reason": "",
-      "duration_s": 6.36
-    },
-    {
-      "timestamp": "2026-11-08T13:03:01.537661+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (45/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T14:02:42.874638+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "oneplus coloros 17 update schedule",
-      "content_preview": "Waiting for the OnePlus ColorOS update schedule takes longer than a Bollywood trilogy’s post-production phase. At this r",
-      "reason": "",
-      "duration_s": 31.45
-    },
-    {
-      "timestamp": "2026-11-08T14:02:54.445227+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "In-depth technical breakdown of tata motors share price for engineers and architects...\n\nDetailed 6-page field notes att",
-      "reason": "",
-      "duration_s": 11.56
-    },
     {
       "timestamp": "2026-11-08T14:03:00.499179+00:00",
       "action_type": "bluesky_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (68/40).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T23:02:17.869436+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "north alabama vs miami fl",
+      "content_preview": "Watching North Alabama vs Miami FL is like watching an indie art-house film try to fight a billion-dollar Marvel CGI fes",
+      "reason": "",
+      "duration_s": 23.98
+    },
+    {
+      "timestamp": "2026-11-13T23:02:17.901285+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T23:02:23.110864+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
+      "content_preview": "CFD surrogate models often fail on transient turbulence due to over-smoothed validation sets. TurtLES changes that: a ra",
+      "reason": "",
+      "duration_s": 5.2
+    },
+    {
+      "timestamp": "2026-11-13T23:02:23.926103+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (70/40).",
       "duration_s": 0.01
     }
   ]
