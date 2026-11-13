@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T19:43:30.513460+00:00",
+    "last_updated": "2026-11-13T20:02:52.957625+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1180,
-    "original_posts_attempted": 309,
-    "original_posts_succeeded": 270,
+    "total_cycles_executed": 1184,
+    "original_posts_attempted": 310,
+    "original_posts_succeeded": 271,
     "replies_attempted": 102,
     "replies_succeeded": 25,
-    "reposts_attempted": 54,
+    "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 260,
+    "actions_skipped": 262,
     "failed_operations": 60,
-    "ai_generation_requests": 650,
+    "ai_generation_requests": 652,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T10:54:15.286420+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Neural Network Score Demystified",
-      "content_preview": "Logits are unconstrained raw scores from a model's final layer $(-\\infty, \\infty)$. Probabilities are normalized percent",
-      "reason": "",
-      "duration_s": 5.31
-    },
-    {
-      "timestamp": "2026-11-08T10:54:16.006976+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (36/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T11:02:41.374547+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-      "content_preview": "AI coding agents really saw \"Don't Ask Again\" as a personal challenge to share your AWS keys with the entire planet. 1,1",
-      "reason": "",
-      "duration_s": 32.12
-    },
-    {
-      "timestamp": "2026-11-08T11:03:00.683786+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "In-depth technical breakdown of The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields for ha",
-      "reason": "",
-      "duration_s": 19.3
-    },
     {
       "timestamp": "2026-11-08T11:03:05.527818+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Your datacenter is likely wasting up to 30 percent of its CPU cycles just copying bytes between the network card and app",
       "reason": "",
       "duration_s": 11.71
+    },
+    {
+      "timestamp": "2026-11-13T20:02:46.277524+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "mali vs rwanda",
+      "content_preview": "Me watching Mali vs Rwanda with the exact same tactical expertise as someone who googled the offside rule five minutes a",
+      "reason": "",
+      "duration_s": 21.33
+    },
+    {
+      "timestamp": "2026-11-13T20:02:46.309452+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T20:02:52.119381+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "A frontier machine intelligence for human neuroimaging",
+      "content_preview": "Fragmented narrow models and siloed proprietary weights stall medical AI. True neuroimaging progress requires open, gene",
+      "reason": "",
+      "duration_s": 5.8
+    },
+    {
+      "timestamp": "2026-11-13T20:02:52.957584+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (64/40).",
+      "duration_s": 0.01
     }
   ]
 }
