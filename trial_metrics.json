@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T15:02:43.127326+00:00",
+    "last_updated": "2026-11-13T16:02:17.945253+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1159,
-    "original_posts_attempted": 304,
-    "original_posts_succeeded": 265,
+    "total_cycles_executed": 1163,
+    "original_posts_attempted": 305,
+    "original_posts_succeeded": 266,
     "replies_attempted": 98,
     "replies_succeeded": 25,
-    "reposts_attempted": 53,
+    "reposts_attempted": 54,
     "reposts_succeeded": 13,
-    "actions_skipped": 250,
+    "actions_skipped": 252,
     "failed_operations": 60,
-    "ai_generation_requests": 639,
+    "ai_generation_requests": 641,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T04:02:43.831730+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "NeuBench data reveals up to 40% variance in real-world token throughput across hosted LLM endpoints. TTFT jitter and que",
-      "reason": "",
-      "duration_s": 4.35
-    },
-    {
-      "timestamp": "2026-11-08T04:03:49.629898+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "tatiana suarez",
-      "content_preview": "Tatiana Suarez has spent more time injured than my car has spent on the actual road, and yet she’s still one win away fr",
-      "reason": "",
-      "duration_s": 64.2
-    },
-    {
-      "timestamp": "2026-11-08T05:02:33.498857+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Middle-class investment paranoia",
-      "content_preview": "Uncles really be locking up their life savings in a 6% FD while inflation eats it alive, then look at you like you’re sn",
-      "reason": "X rejected the tweet submission.",
-      "duration_s": 27.17
-    },
-    {
-      "timestamp": "2026-11-08T05:02:39.520559+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Goodbye Claude, Hello Pi",
-      "content_preview": "Swapping frontier reasoning for low-latency conversational models changes the inference economics, but watch your contex",
-      "reason": "",
-      "duration_s": 6.01
-    },
     {
       "timestamp": "2026-11-08T05:03:47.356288+00:00",
       "action_type": "original_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (51/40).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T16:02:12.037285+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "நரேந்திர மோடி",
+      "content_preview": "Bro drops a surprise Monday morning lecture on us like a director cutting a mass hero teaser with zero context. Netflix ",
+      "reason": "",
+      "duration_s": 25.93
+    },
+    {
+      "timestamp": "2026-11-13T16:02:12.069218+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T16:02:17.184894+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Watch: How a server outage took down Microsoft Teams and Outlook",
+      "content_preview": "Another global outage tied to centralized auth dependencies. When a single region/service failure cascades across Teams,",
+      "reason": "",
+      "duration_s": 5.11
+    },
+    {
+      "timestamp": "2026-11-13T16:02:17.945226+00:00",
+      "action_type": "repost",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (53/40).",
       "duration_s": 0.01
     }
   ]
