@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T17:02:50.827694+00:00",
+    "last_updated": "2026-11-13T18:02:14.129536+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1167,
-    "original_posts_attempted": 306,
-    "original_posts_succeeded": 267,
-    "replies_attempted": 99,
+    "total_cycles_executed": 1171,
+    "original_posts_attempted": 307,
+    "original_posts_succeeded": 268,
+    "replies_attempted": 100,
     "replies_succeeded": 25,
     "reposts_attempted": 54,
     "reposts_succeeded": 13,
-    "actions_skipped": 254,
+    "actions_skipped": 256,
     "failed_operations": 60,
-    "ai_generation_requests": 643,
+    "ai_generation_requests": 645,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T08:02:43.663218+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "celine dion",
-      "content_preview": "People crying over Celine Dion videos like she’s not a billionaire vocal elite who lives in a climate-controlled monolit",
-      "reason": "",
-      "duration_s": 26.96
-    },
-    {
-      "timestamp": "2026-11-08T08:02:48.826713+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "NeuBench data reveals up to 40% variance in real-world token throughput across hosted LLM endpoints. TTFT jitter and que",
-      "reason": "",
-      "duration_s": 5.12
-    },
-    {
-      "timestamp": "2026-11-08T08:03:54.212583+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "inundación",
-      "content_preview": "El alcalde sale en bote a decir que “la situación está bajo control” mientras los peces ya pagan alquiler en la sala de ",
-      "reason": "",
-      "duration_s": 64.77
-    },
-    {
-      "timestamp": "2026-11-08T09:02:42.596808+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "australia vs samoa",
-      "content_preview": "Rugby league really has people whose entire bloodline is from Western Sydney screaming \"Aussie pride\" like their grandad",
-      "reason": "",
-      "duration_s": 35.81
-    },
     {
       "timestamp": "2026-11-08T09:02:47.711326+00:00",
       "action_type": "bluesky_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (55/40).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-13T18:02:07.814133+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "rahu ketu peyarchi 2026",
+      "content_preview": "My entire career path is already a cosmic disaster, but sure, let’s blame the 2026 Rahu Ketu Peyarchi when my Wi-Fi drop",
+      "reason": "",
+      "duration_s": 23.36
+    },
+    {
+      "timestamp": "2026-11-13T18:02:07.836450+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T18:02:13.534726+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What are Vector Embeddings? The Secret Language AI Uses to Understand Meaning",
+      "content_preview": "In vector spaces, semantic distance equals relational proximity. Think of a high-dimensional seating chart: similar inte",
+      "reason": "",
+      "duration_s": 5.69
+    },
+    {
+      "timestamp": "2026-11-13T18:02:14.129510+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (57/40).",
       "duration_s": 0.0
     }
   ]
