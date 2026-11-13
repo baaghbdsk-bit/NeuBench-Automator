@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T05:03:52.557880+00:00",
+    "last_updated": "2026-11-13T06:04:25.671372+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1114,
-    "original_posts_attempted": 288,
-    "original_posts_succeeded": 249,
+    "total_cycles_executed": 1118,
+    "original_posts_attempted": 290,
+    "original_posts_succeeded": 251,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 233,
+    "actions_skipped": 234,
     "failed_operations": 60,
-    "ai_generation_requests": 611,
+    "ai_generation_requests": 614,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T19:02:36.164024+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T19:02:38.677462+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "The End of AI Frontiers",
-      "content_preview": "The era of brute-force scaling is hitting diminishing marginal returns. Real engineering focus is shifting from raw para",
-      "reason": "",
-      "duration_s": 2.51
-    },
-    {
-      "timestamp": "2026-11-07T19:02:39.478833+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (58/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T19:27:19.553418+00:00",
-      "action_type": "linkedin",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8) to protect organic algorithmic distribution.",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-07T19:45:17.963851+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Checking the td power share price gives me the exact same adrenaline rush as watching a 3-hour indie movie with no plot.",
       "reason": "",
       "duration_s": 77.38
+    },
+    {
+      "timestamp": "2026-11-13T06:02:55.801168+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "noah gragson",
+      "content_preview": "Bro managed to speedrun a career reset faster than my Wi-Fi disconnects during a crucial Zoom call. Impressive efficienc",
+      "reason": "",
+      "duration_s": 20.3
+    },
+    {
+      "timestamp": "2026-11-13T06:02:55.833280+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T06:03:08.781216+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Numbers Behind AI Decision Making",
+      "content_preview": "Logits are raw, unconstrained model scores (opinions). Softmax maps them to probabilities. \n\nPro-tip: Never compute loss",
+      "reason": "",
+      "duration_s": 12.94
+    },
+    {
+      "timestamp": "2026-11-13T06:04:25.662623+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "san francisco weather",
+      "content_preview": "San Francisco weather is just a tech bro: promises a sunny ecosystem, crashes within 5 minutes, and gaslights you into w",
+      "reason": "",
+      "duration_s": 75.98
     }
   ]
 }
