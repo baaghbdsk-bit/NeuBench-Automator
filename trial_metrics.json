@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T07:03:43.134962+00:00",
+    "last_updated": "2026-11-13T08:03:15.724068+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1122,
-    "original_posts_attempted": 292,
-    "original_posts_succeeded": 253,
+    "total_cycles_executed": 1126,
+    "original_posts_attempted": 294,
+    "original_posts_succeeded": 255,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 235,
+    "actions_skipped": 236,
     "failed_operations": 60,
-    "ai_generation_requests": 617,
+    "ai_generation_requests": 620,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T20:02:29.720849+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "wku vs middle tenn.",
-      "content_preview": "People treating WKU vs Middle Tenn like it’s El Clásico instead of a mid-week Conference USA sickos special are wild. Go",
-      "reason": "",
-      "duration_s": 28.18
-    },
-    {
-      "timestamp": "2026-11-07T20:02:29.741755+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T20:02:33.802414+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
-      "content_preview": "FP8 quantization on autonomous coding agents: NeuBench data shows marginal accuracy loss on syntax, but a sharp drop on ",
-      "reason": "",
-      "duration_s": 4.06
-    },
-    {
-      "timestamp": "2026-11-07T20:02:34.584115+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (62/28).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-07T21:02:38.226386+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Diane Morgan playing Philomena Cunk is just method acting for anyone who has ever survived a family WhatsApp group chat.",
       "reason": "",
       "duration_s": 73.21
+    },
+    {
+      "timestamp": "2026-11-13T08:02:03.293792+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "સમાચાર",
+      "content_preview": "Watching news anchors scream at 9 PM like their Wi-Fi just got disconnected right before the season finale. Peak enterta",
+      "reason": "",
+      "duration_s": 21.17
+    },
+    {
+      "timestamp": "2026-11-13T08:02:03.321940+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T08:02:09.515393+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Evidence-Guided Recovery for AI Agents with Ambiguous Tool Outcomes and Partial Execution",
+      "content_preview": "Tool timeouts leave agents in hell: partial execution, ghost writes, in-flight unknowns. Evidence-guided recovery treats",
+      "reason": "",
+      "duration_s": 6.19
+    },
+    {
+      "timestamp": "2026-11-13T08:03:15.715710+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "new zealand breakers",
+      "content_preview": "Imagine flying 12 hours just to play basketball in a country shaped like a boot, only to be named \"Breakers.\" Bro, the o",
+      "reason": "",
+      "duration_s": 65.47
     }
   ]
 }
