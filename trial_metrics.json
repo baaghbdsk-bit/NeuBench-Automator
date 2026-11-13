@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T20:02:52.957625+00:00",
+    "last_updated": "2026-11-13T21:02:10.878817+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1184,
-    "original_posts_attempted": 310,
-    "original_posts_succeeded": 271,
-    "replies_attempted": 102,
+    "total_cycles_executed": 1188,
+    "original_posts_attempted": 311,
+    "original_posts_succeeded": 272,
+    "replies_attempted": 103,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 262,
+    "actions_skipped": 264,
     "failed_operations": 60,
-    "ai_generation_requests": 652,
+    "ai_generation_requests": 654,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T11:03:05.527818+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Vector Embedding? Turning Meaning into Coordinates",
-      "content_preview": "Vector embeddings map semantic proximity to spatial coordinates. Think of organizing a locker: math books sit beside cal",
-      "reason": "",
-      "duration_s": 4.84
-    },
-    {
-      "timestamp": "2026-11-08T11:03:06.537005+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (39/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T12:02:28.275370+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Agent memory needs its OpenTelemetry moment",
-      "content_preview": "Bro really said AI agents need an OpenTelemetry moment for their memory just to forget my prompt three messages later. W",
-      "reason": "",
-      "duration_s": 24.99
-    },
-    {
-      "timestamp": "2026-11-08T12:02:47.640972+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "In-depth technical breakdown of How Distributed Consensus Survives Split-Brain: Raft Under the Hood for engineers and ar",
-      "reason": "",
-      "duration_s": 19.35
-    },
     {
       "timestamp": "2026-11-08T12:02:52.816223+00:00",
       "action_type": "bluesky_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (64/40).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T21:02:04.843366+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "nintendo black friday sale",
+      "content_preview": "Nintendo really saw people struggling to pay rent and said \"Best we can do is $3 off a 7-year-old port of a Wii U game.\"",
+      "reason": "",
+      "duration_s": 21.76
+    },
+    {
+      "timestamp": "2026-11-13T21:02:04.871837+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T21:02:10.111496+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
+      "content_preview": "Feature-matching benchmarks assume static scenes. Over dense urban intersections, moving traffic triggers consensus capt",
+      "reason": "",
+      "duration_s": 5.23
+    },
+    {
+      "timestamp": "2026-11-13T21:02:10.878787+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (66/40).",
       "duration_s": 0.01
     }
   ]
