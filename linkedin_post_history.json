@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-13T11:00:33.661172+00:00",
+  "last_success_at": "2026-11-13T19:43:30.493650+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -902,6 +902,16 @@
       "posted_at": "2026-11-13T11:00:33.661172+00:00",
       "post_urn": "urn:li:share:7526962200696094720",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:4a7a84e1b9bc71756ff1ae5d3da5ec31",
+      "title": "RDMA over Converged Ethernet (RoCEv2): Bypassing the Kernel for Microsecond-Scale Distributed Inference",
+      "url": "",
+      "content_hash": "e65b667264dd69cf9f5bf5990f48a387",
+      "status": "success",
+      "posted_at": "2026-11-13T19:43:30.493650+00:00",
+      "post_urn": "urn:li:share:7527093803736899585",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -994,6 +1004,7 @@
     "li:PostgreSQL WAL (Write-Ahead Logging) Deep Dive",
     "li:CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters",
     "li:Agentic Workflows: Sequential Chains vs. Dynamic Graphs in LLMs",
-    "li:How Self-Driving Cars See the Road"
+    "li:How Self-Driving Cars See the Road",
+    "li:RDMA over Converged Ethernet (RoCEv2): Bypassing the Kernel for Microsecond-Scale Distributed Inference"
   ]
 }
