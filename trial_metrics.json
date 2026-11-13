@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T02:24:35.714296+00:00",
+    "last_updated": "2026-11-13T03:03:31.639980+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1102,
-    "original_posts_attempted": 282,
-    "original_posts_succeeded": 243,
+    "total_cycles_executed": 1106,
+    "original_posts_attempted": 284,
+    "original_posts_succeeded": 245,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 230,
+    "actions_skipped": 231,
     "failed_operations": 60,
-    "ai_generation_requests": 602,
+    "ai_generation_requests": 605,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T16:02:43.670522+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T16:02:52.251729+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "NeuBench data shows up to 40% variance in real-world token throughput across hosted LLM endpoints. TTFT and decoding spe",
-      "reason": "",
-      "duration_s": 8.58
-    },
-    {
-      "timestamp": "2026-11-07T16:02:53.066489+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (52/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T17:02:44.079496+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "maryland vs purdue",
-      "content_preview": "Maryland and Purdue playing basketball like they’re both personally offended by the concept of a basket. Absolute terror",
-      "reason": "",
-      "duration_s": 26.8
-    },
     {
       "timestamp": "2026-11-07T17:02:44.100361+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Watching US politicians try to pronounce foreign names is the exact same energy as me trying to explain the entire cinem",
       "reason": "",
       "duration_s": 74.55
+    },
+    {
+      "timestamp": "2026-11-13T03:02:12.387601+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "aj dybantsa",
+      "content_preview": "Bro's out here playing basketball like he’s rendering a 20-year-old’s entire life path before even finishing high school",
+      "reason": "",
+      "duration_s": 29.68
+    },
+    {
+      "timestamp": "2026-11-13T03:02:12.412408+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T03:02:18.177348+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Muse can now place calls to US businesses — if you pay",
+      "content_preview": "Telephony integration for LLMs isn't an intelligence problem; it's a deterministic state-machine and latency budget prob",
+      "reason": "",
+      "duration_s": 5.76
+    },
+    {
+      "timestamp": "2026-11-13T03:03:31.633187+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "anthony davis",
+      "content_preview": "Anthony Davis looking at a feather floating towards him and suddenly being listed as 'Out for 4-6 weeks with atmospheric",
+      "reason": "",
+      "duration_s": 72.88
     }
   ]
 }
