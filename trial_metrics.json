@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T04:03:01.452394+00:00",
+    "last_updated": "2026-11-13T05:03:52.557880+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1110,
-    "original_posts_attempted": 286,
-    "original_posts_succeeded": 247,
+    "total_cycles_executed": 1114,
+    "original_posts_attempted": 288,
+    "original_posts_succeeded": 249,
     "replies_attempted": 93,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 232,
+    "actions_skipped": 233,
     "failed_operations": 60,
-    "ai_generation_requests": 608,
+    "ai_generation_requests": 611,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T18:03:07.162829+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (8/8)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T18:03:11.618426+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Amazon’s new basic Kindle proves you don’t need all the bells and whistles",
-      "content_preview": "Radical simplicity wins. Stripping non-essential features lowered weight and improved the E Ink refresh pipeline. Good h",
-      "reason": "",
-      "duration_s": 4.45
-    },
-    {
-      "timestamp": "2026-11-07T18:03:12.480699+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (56/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-07T19:02:36.144716+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "jordyn tyson",
-      "content_preview": "People on here treating Jordyn Tyson’s career like they’re the head scout for an NFL franchise when the only thing you’v",
-      "reason": "",
-      "duration_s": 29.6
-    },
     {
       "timestamp": "2026-11-07T19:02:36.164024+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "Shaq is out here investing in literal gas stations and ring doorbells while the rest of us are stressing over a $4 deliv",
       "reason": "",
       "duration_s": 61.52
+    },
+    {
+      "timestamp": "2026-11-13T05:02:20.657427+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "अमृत भारत एक्सप्रेस",
+      "content_preview": "Amrit Bharat Express is basically a time machine that still reaches tomorrow, yesterday, and never all at once. Peak Ind",
+      "reason": "",
+      "duration_s": 30.29
+    },
+    {
+      "timestamp": "2026-11-13T05:02:20.686599+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T05:02:34.418729+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Kernel Bypassing with DPDK / io_uring",
+      "content_preview": "Eliminating syscall context-switch overhead for sub-microsecond networking via DPDK or io_uring is powerful, but profile",
+      "reason": "",
+      "duration_s": 13.72
+    },
+    {
+      "timestamp": "2026-11-13T05:03:52.549722+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "td power share price",
+      "content_preview": "Checking the td power share price gives me the exact same adrenaline rush as watching a 3-hour indie movie with no plot.",
+      "reason": "",
+      "duration_s": 77.38
     }
   ]
 }
