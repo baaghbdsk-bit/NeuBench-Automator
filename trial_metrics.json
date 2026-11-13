@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T18:56:30.201027+00:00",
+    "last_updated": "2026-11-13T19:02:07.708154+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1175,
-    "original_posts_attempted": 308,
-    "original_posts_succeeded": 269,
-    "replies_attempted": 101,
+    "total_cycles_executed": 1179,
+    "original_posts_attempted": 309,
+    "original_posts_succeeded": 270,
+    "replies_attempted": 102,
     "replies_succeeded": 25,
     "reposts_attempted": 54,
     "reposts_succeeded": 13,
-    "actions_skipped": 258,
+    "actions_skipped": 260,
     "failed_operations": 60,
-    "ai_generation_requests": 647,
+    "ai_generation_requests": 649,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T10:02:50.716507+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Agent memory needs its OpenTelemetry moment",
-      "content_preview": "Agent memory is a black box. We debug vector state, prompt caches, and retrieval drift by guessing. \n\nWe need distribute",
-      "reason": "",
-      "duration_s": 6.09
-    },
-    {
-      "timestamp": "2026-11-08T10:02:51.561491+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (32/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T10:24:59.791160+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "In-depth technical breakdown of What is an Inverted Index? for engineers and architects, covering core architectural pri",
-      "reason": "",
-      "duration_s": 12.81
-    },
-    {
-      "timestamp": "2026-11-08T10:53:55.315310+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What I run on my $10 USD OpenStick homelab",
-      "content_preview": "Bro really built a Skynet replica on a $10 USB stick just to ask it for pancake recipes. Tech bros will literally avoid ",
-      "reason": "",
-      "duration_s": 25.96
-    },
     {
       "timestamp": "2026-11-08T10:54:09.328640+00:00",
       "action_type": "linkedin_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (59/40).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T19:01:59.766676+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "mlb free agency",
+      "content_preview": "Brots really treating MLB free agency like it’s the transfer window, waiting for one guy to bankrupt a franchise for the",
+      "reason": "",
+      "duration_s": 21.77
+    },
+    {
+      "timestamp": "2026-11-13T19:01:59.800934+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T19:02:06.983966+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Probabilities Behind Machine Learning",
+      "content_preview": "Logits are raw, unconstrained model scores ($\\in [-\\infty, +\\infty]$). Raw broccoli preference: -10; pepperoni: +15. \n\nS",
+      "reason": "",
+      "duration_s": 7.18
+    },
+    {
+      "timestamp": "2026-11-13T19:02:07.708123+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (61/40).",
       "duration_s": 0.01
     }
   ]
