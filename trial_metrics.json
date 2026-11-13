@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T21:02:10.878817+00:00",
+    "last_updated": "2026-11-13T22:02:50.850475+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1188,
-    "original_posts_attempted": 311,
-    "original_posts_succeeded": 272,
-    "replies_attempted": 103,
+    "total_cycles_executed": 1192,
+    "original_posts_attempted": 312,
+    "original_posts_succeeded": 273,
+    "replies_attempted": 104,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 264,
+    "actions_skipped": 266,
     "failed_operations": 60,
-    "ai_generation_requests": 654,
+    "ai_generation_requests": 656,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T12:02:52.816223+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Demystifying Continuous Batching in LLM Inference Engines",
-      "content_preview": "Static batching leaves tensor cores starved at sequence boundaries. Continuous batching schedules at the token level, sw",
-      "reason": "",
-      "duration_s": 5.17
-    },
-    {
-      "timestamp": "2026-11-08T12:02:53.463286+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (42/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T13:02:34.870097+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Kirlian Photography: Building Your Own Equipment",
-      "content_preview": "Bro really looked at his existential dread and thought, \"you know what would fix this? Building a high-voltage death tra",
-      "reason": "",
-      "duration_s": 30.56
-    },
-    {
-      "timestamp": "2026-11-08T13:02:54.391684+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "In-depth technical breakdown of How LLM Context Windows Work Under the Hood for engineers and architects. We examine the",
-      "reason": "",
-      "duration_s": 19.51
-    },
     {
       "timestamp": "2026-11-08T13:03:00.758964+00:00",
       "action_type": "bluesky_post",
@@ -5017,6 +4977,46 @@
       "target": "",
       "content_preview": "",
       "reason": "Total daily limit reached (66/40).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T22:02:44.050183+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "cnn",
+      "content_preview": "Watching CNN for news is like waiting for a Marvel post-credit scene that never comes, just 45 minutes of breaking news ",
+      "reason": "",
+      "duration_s": 22.38
+    },
+    {
+      "timestamp": "2026-11-13T22:02:44.079016+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T22:02:50.049320+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Math Behind AI Predictions",
+      "content_preview": "Logits are raw model opinions: unbounded vectors where absolute magnitude matters less than relative delta. Softmax acts",
+      "reason": "",
+      "duration_s": 5.96
+    },
+    {
+      "timestamp": "2026-11-13T22:02:50.850443+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (68/40).",
       "duration_s": 0.01
     }
   ]
