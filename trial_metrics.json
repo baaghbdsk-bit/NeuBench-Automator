@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T11:02:34.545301+00:00",
+    "last_updated": "2026-11-13T11:43:23.166282+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1139,
-    "original_posts_attempted": 299,
-    "original_posts_succeeded": 260,
-    "replies_attempted": 94,
+    "total_cycles_executed": 1143,
+    "original_posts_attempted": 300,
+    "original_posts_succeeded": 261,
+    "replies_attempted": 95,
     "replies_succeeded": 25,
     "reposts_attempted": 52,
     "reposts_succeeded": 13,
-    "actions_skipped": 240,
+    "actions_skipped": 242,
     "failed_operations": 60,
-    "ai_generation_requests": 629,
+    "ai_generation_requests": 631,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-07T23:15:54.768630+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "In-depth technical breakdown of After the midterms, things are looking rocky for Elon Musk and data centers for engineer",
-      "reason": "",
-      "duration_s": 10.56
-    },
-    {
-      "timestamp": "2026-11-07T23:15:58.893688+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-      "content_preview": "UX friction drives dangerous security workarounds. When AI tooling prioritizes velocity by caching credentials via \"Don'",
-      "reason": "",
-      "duration_s": 4.12
-    },
-    {
-      "timestamp": "2026-11-07T23:15:59.613202+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (74/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T00:02:44.202976+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "nets vs hawks",
-      "content_preview": "Watching Nets vs Hawks is just NBA rock-paper-scissors for people who hate themselves and enjoy 3 hours of turnovers.",
-      "reason": "",
-      "duration_s": 23.79
-    },
     {
       "timestamp": "2026-11-08T00:02:53.731795+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (41/40).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T11:43:17.178514+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "espncricinfo",
+      "content_preview": "Nothing humbles a man faster than writing a 3-paragraph tactical essay on ESPNcricinfo only to get out-nerded by a 19-ye",
+      "reason": "",
+      "duration_s": 22.11
+    },
+    {
+      "timestamp": "2026-11-13T11:43:17.196230+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T11:43:22.726956+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Distributed Deadlock Detection Algorithms",
+      "content_preview": "Edge-chasing for distributed deadlocks sounds sophisticated, but tracing wait-for graphs across partitions burns network",
+      "reason": "",
+      "duration_s": 5.53
+    },
+    {
+      "timestamp": "2026-11-13T11:43:23.166263+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (43/40).",
+      "duration_s": 0.0
     }
   ]
 }
