@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-13T18:02:14.129536+00:00",
+    "last_updated": "2026-11-13T18:56:30.201027+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1171,
-    "original_posts_attempted": 307,
-    "original_posts_succeeded": 268,
-    "replies_attempted": 100,
+    "total_cycles_executed": 1175,
+    "original_posts_attempted": 308,
+    "original_posts_succeeded": 269,
+    "replies_attempted": 101,
     "replies_succeeded": 25,
     "reposts_attempted": 54,
     "reposts_succeeded": 13,
-    "actions_skipped": 256,
+    "actions_skipped": 258,
     "failed_operations": 60,
-    "ai_generation_requests": 645,
+    "ai_generation_requests": 647,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T09:02:47.711326+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
-      "content_preview": "Text-based LLM evolutionary search bottlenecks on round-trip token generation. SwarmEvolve bypasses this by operating in",
-      "reason": "",
-      "duration_s": 5.09
-    },
-    {
-      "timestamp": "2026-11-08T09:02:48.473890+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (29/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T10:02:31.360736+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Goodbye Claude, Hello Pi",
-      "content_preview": "Bro really broke up with an AGI-level therapist just to chat with a digital golden retriever that asks \"how's your menta",
-      "reason": "",
-      "duration_s": 26.95
-    },
-    {
-      "timestamp": "2026-11-08T10:02:44.621388+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Stateless Large Context Windows vs Agentic Memory Systems: Architectural Comparison\n\nComparing brute-force massive conte",
-      "reason": "",
-      "duration_s": 13.24
-    },
     {
       "timestamp": "2026-11-08T10:02:50.716507+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (57/40).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-13T18:56:24.701262+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "egypt vs malawi",
+      "content_preview": "Bro really asked for a heavyweight title fight and scheduled Egypt vs Malawi. This ain't a match, this is a Netflix docu",
+      "reason": "",
+      "duration_s": 23.02
+    },
+    {
+      "timestamp": "2026-11-13T18:56:24.735674+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-13T18:56:29.322574+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Odds Before the Probability Mask",
+      "content_preview": "Logits are raw model scores—unbounded preferences before Softmax forces them into a 100% distribution. \n\nNever compute c",
+      "reason": "",
+      "duration_s": 4.58
+    },
+    {
+      "timestamp": "2026-11-13T18:56:30.200996+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (59/40).",
+      "duration_s": 0.01
     }
   ]
 }
