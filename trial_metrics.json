@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T04:01:56.558311+00:00",
+    "last_updated": "2026-11-14T05:01:53.405736+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1216,
-    "original_posts_attempted": 320,
+    "total_cycles_executed": 1219,
+    "original_posts_attempted": 321,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 273,
-    "failed_operations": 65,
-    "ai_generation_requests": 673,
+    "actions_skipped": 274,
+    "failed_operations": 66,
+    "ai_generation_requests": 675,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T18:02:55.091568+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "tcs share price",
-      "content_preview": "TCS share price moving faster in a single trading session than a fresher’s starting package has moved in the last 15 yea",
-      "reason": "",
-      "duration_s": 31.32
-    },
-    {
-      "timestamp": "2026-11-08T18:03:56.846365+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Large Language Models are completely stateless functions. A 70-billion parameter model forgets everything the exact mill",
-      "reason": "",
-      "duration_s": 61.73
-    },
-    {
-      "timestamp": "2026-11-08T18:04:22.269578+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "I'm not a fan of Deno's security model (2024)",
-      "content_preview": "Deno’s CLI flags (`--allow-net`) fail supply-chain security: transitive deps force `--allow-all`. Isolation belongs at t",
-      "reason": "",
-      "duration_s": 25.41
-    },
     {
       "timestamp": "2026-11-08T18:04:23.083511+00:00",
       "action_type": "reply",
@@ -5018,6 +4988,36 @@
       "content_preview": "VAE latents scaled training, but spatial-temporal compression now walls off high-res, low-latency control loops. Quadrup",
       "reason": "",
       "duration_s": 5.98
+    },
+    {
+      "timestamp": "2026-11-14T05:01:46.986163+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending your entire paycheck on 1M tokens just for the AI to hallucinate a syntax error faster. We are truly living in ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.16
+    },
+    {
+      "timestamp": "2026-11-14T05:01:47.006486+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T05:01:53.397056+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Math Behind AI Decisions",
+      "content_preview": "Treat logits as unbounded directional votes—like raw judge scores before normalization. Only use Softmax when you need p",
+      "reason": "",
+      "duration_s": 6.38
     }
   ]
 }
