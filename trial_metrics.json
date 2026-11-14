@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T10:27:56.587634+00:00",
+    "last_updated": "2026-11-14T11:01:45.873099+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1238,
-    "original_posts_attempted": 327,
+    "total_cycles_executed": 1241,
+    "original_posts_attempted": 328,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 280,
-    "failed_operations": 72,
-    "ai_generation_requests": 688,
+    "actions_skipped": 281,
+    "failed_operations": 73,
+    "ai_generation_requests": 690,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T22:03:06.510438+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is KV Cache in Large Language Models?",
-      "content_preview": "Treat prompt tokens as static memory: compute Keys & Values once, cache them, and only evaluate attention for new tokens",
-      "reason": "",
-      "duration_s": 4.94
-    },
-    {
-      "timestamp": "2026-11-08T22:03:07.068965+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (80/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-08T22:07:44.085707+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Every time an LLM application forgets a critical constraint three turns deep into a conversation, your users experience ",
-      "reason": "",
-      "duration_s": 43.88
-    },
     {
       "timestamp": "2026-11-08T23:02:34.455154+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Your 70B parameter LLM might process tokens in milliseconds, but your serving engine is likely wasting 70 percent of its",
       "reason": "",
       "duration_s": 10.05
+    },
+    {
+      "timestamp": "2026-11-14T11:01:38.825499+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending your entire monthly salary just to make an AI code a button that actually centers itself. We are living in a sc",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 0.89
+    },
+    {
+      "timestamp": "2026-11-14T11:01:38.840019+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T11:01:45.651473+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "NeuBench telemetry across 260+ models highlights a hard truth: reasoning drift on long-horizon coding spikes inference c",
+      "reason": "",
+      "duration_s": 6.81
     }
   ]
 }
