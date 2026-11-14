@@ -1,9 +1,5 @@
 {
   "posted_tweets": [
-    "பொறியியல்",
-    "Ghostty 1.4.0",
-    "New 14‑inch MacBook Pro with M6",
-    "weather forecast",
     "Kodiak lands first commercial deal to supply driverless trucks for public highways",
     "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
     "th:कंपनी",
@@ -499,7 +495,11 @@
     "cnn",
     "bsky:What is a Logit? The Raw Math Behind AI Predictions",
     "north alabama vs miami fl",
-    "bsky:TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates"
+    "bsky:TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
+    "colombia vs chile",
+    "li:How Agentic Tool-Use Loops Work Under the Hood",
+    "bsky:The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
+    "ब्याज"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -759,7 +759,9 @@
     "59e56443ac9c808a18b47dc6b9aba07ec95781887a5ca6df182bc9b8117310ef",
     "a938f6b154ee1570c6a0d52cc3248d7565e62340e0b9ebfa97bc1ec144d48ed2",
     "80f27c6ad2335bc965a71afacff255535f025e50f1ce5818cca990cd925089b1",
-    "1e13574bb9151810ccb1d91d32a6beda04201d704f715b875695daaaf67e8c20"
+    "1e13574bb9151810ccb1d91d32a6beda04201d704f715b875695daaaf67e8c20",
+    "0b22191cdcb1b6bad6eb19b0301f0facd3dba7465fee16d6a79e6160f2826d6a",
+    "af86e9f65f8a40c42ed2c0609dd5e0bdd3263af1eb1aad0f602a474121ec4078"
   ],
   "pending_x_actions": [
     {
@@ -979,7 +981,8 @@
         "post:6b158c8fb1492b6aa0ae2e33bfdef55b689b2eff3c3fc27efd0aa20c68f2bd83",
         "post:435286037a00d3b83cbc498c6a0d0656c21bb4df28d255da901fc39827160c4d",
         "post:560263727e45d29345a70211009ea67085fb9b1a58f92732b73dbfd2603e6861",
-        "post:d8e0449c36787f12ff4be8ce318324ad1403cb8d87bb138a282e6bf5f9a33548"
+        "post:d8e0449c36787f12ff4be8ce318324ad1403cb8d87bb138a282e6bf5f9a33548",
+        "post:c8264bb66dd0213ec45a85d38bb7602c2deda0ab6cafee1834d20a676b90a82f"
       ],
       "pending": []
     },

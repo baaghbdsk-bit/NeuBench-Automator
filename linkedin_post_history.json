@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-13T19:43:30.493650+00:00",
+  "last_success_at": "2026-11-14T00:02:19.117267+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -912,6 +912,16 @@
       "posted_at": "2026-11-13T19:43:30.493650+00:00",
       "post_urn": "urn:li:share:7527093803736899585",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:a4a4a5dcdbb27377b1a11177980ac100",
+      "title": "How Agentic Tool-Use Loops Work Under the Hood",
+      "url": "",
+      "content_hash": "00e9db576d3da5871d1c47f29341fc5b",
+      "status": "success",
+      "posted_at": "2026-11-14T00:02:19.117267+00:00",
+      "post_urn": "urn:li:ugcPost:7527158936370679808",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1005,6 +1015,7 @@
     "li:CXL (Compute Express Link) vs. InfiniBand for Distributed AI Clusters",
     "li:Agentic Workflows: Sequential Chains vs. Dynamic Graphs in LLMs",
     "li:How Self-Driving Cars See the Road",
-    "li:RDMA over Converged Ethernet (RoCEv2): Bypassing the Kernel for Microsecond-Scale Distributed Inference"
+    "li:RDMA over Converged Ethernet (RoCEv2): Bypassing the Kernel for Microsecond-Scale Distributed Inference",
+    "li:How Agentic Tool-Use Loops Work Under the Hood"
   ]
 }
