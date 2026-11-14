@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-14T01:27:49.019769+00:00",
+  "last_success_at": "2026-11-14T10:27:56.573969+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -932,6 +932,16 @@
       "posted_at": "2026-11-14T01:27:49.019769+00:00",
       "post_urn": "urn:li:share:7527180452575608832",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:fa5c98d485f7098d6339580430880a67",
+      "title": "Demystifying Continuous Batching: How LLM Inference Engines Serve Thousands Simultaneously",
+      "url": "",
+      "content_hash": "00c7d8d4ad0de590c5b6c3e53c86e412",
+      "status": "success",
+      "posted_at": "2026-11-14T10:27:56.573969+00:00",
+      "post_urn": "urn:li:share:7527316380883267584",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1027,6 +1037,7 @@
     "li:How Self-Driving Cars See the Road",
     "li:RDMA over Converged Ethernet (RoCEv2): Bypassing the Kernel for Microsecond-Scale Distributed Inference",
     "li:How Agentic Tool-Use Loops Work Under the Hood",
-    "li:Demystifying Continuous Batching in LLM Inference Engines"
+    "li:Demystifying Continuous Batching in LLM Inference Engines",
+    "li:Demystifying Continuous Batching: How LLM Inference Engines Serve Thousands Simultaneously"
   ]
 }

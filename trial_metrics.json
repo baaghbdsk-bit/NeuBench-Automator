@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T10:01:58.568761+00:00",
+    "last_updated": "2026-11-14T10:27:56.587634+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1237,
+    "total_cycles_executed": 1238,
     "original_posts_attempted": 327,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 280,
     "failed_operations": 72,
-    "ai_generation_requests": 687,
+    "ai_generation_requests": 688,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T22:03:01.563675+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Hardcoding your domain knowledge into a 200,000-token system prompt is like packing your entire engineering library into",
-      "reason": "",
-      "duration_s": 20.07
-    },
     {
       "timestamp": "2026-11-08T22:03:06.510438+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Multi-agent systems fail when state sharing ignores granularity. Group-evolving agents need precise boundaries: what is ",
       "reason": "",
       "duration_s": 4.19
+    },
+    {
+      "timestamp": "2026-11-14T10:27:56.587612+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your 70B parameter LLM might process tokens in milliseconds, but your serving engine is likely wasting 70 percent of its",
+      "reason": "",
+      "duration_s": 10.05
     }
   ]
 }
