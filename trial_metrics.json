@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T18:03:31.135259+00:00",
+    "last_updated": "2026-11-14T19:01:46.674124+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1266,
-    "original_posts_attempted": 336,
+    "total_cycles_executed": 1269,
+    "original_posts_attempted": 337,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 289,
-    "failed_operations": 81,
-    "ai_generation_requests": 707,
+    "actions_skipped": 290,
+    "failed_operations": 82,
+    "ai_generation_requests": 709,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T04:03:02.517788+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "1,122 public repositories exposed sensitive API keys and database credentials because of a single UI convenience feature",
-      "reason": "",
-      "duration_s": 22.2
-    },
-    {
-      "timestamp": "2026-11-09T04:03:08.220770+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "The Last Mile to the Real World: Agent-Native Primitives as Reusable Building Blocks for Solving Real-World Tasks",
-      "content_preview": "Frontier models still stall on real-world agency: Terminal-Bench 4.0 shows top setups peak at 37-51% resolution. Raw inf",
-      "reason": "",
-      "duration_s": 5.7
-    },
-    {
-      "timestamp": "2026-11-09T04:04:18.025729+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ben stiller",
-      "content_preview": "Ben Stiller walking into a room like he’s about to recreate Zoolander just to cope with the absolute circus of modern in",
-      "reason": "",
-      "duration_s": 69.07
-    },
     {
       "timestamp": "2026-11-09T05:03:14.809874+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "A single unresponsive microservice can silently take down an entire enterprise architecture in less than five seconds. \n",
       "reason": "",
       "duration_s": 10.94
+    },
+    {
+      "timestamp": "2026-11-14T19:01:41.133267+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "LLMs having existential dread and drifting on long-horizon coding tasks while my bank account drains per token. At this ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.14
+    },
+    {
+      "timestamp": "2026-11-14T19:01:41.149939+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T19:01:46.522630+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Transportation secretary blames ‘routine’ equipment upgrade for grounding flights nationwide",
+      "content_preview": "A \"routine\" equipment upgrade taking down national airspace highlights a classic distributed systems failure: missing ca",
+      "reason": "",
+      "duration_s": 5.36
     }
   ]
 }
