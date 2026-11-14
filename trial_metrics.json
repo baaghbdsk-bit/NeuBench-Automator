@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T14:01:49.716687+00:00",
+    "last_updated": "2026-11-14T15:02:05.773017+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1250,
-    "original_posts_attempted": 331,
+    "total_cycles_executed": 1253,
+    "original_posts_attempted": 332,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 284,
-    "failed_operations": 76,
-    "ai_generation_requests": 696,
+    "actions_skipped": 285,
+    "failed_operations": 77,
+    "ai_generation_requests": 698,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T01:02:47.583402+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A standard distributed trace captures milliseconds across microservices. An agentic trace spans minutes, executes hundre",
-      "reason": "",
-      "duration_s": 20.37
-    },
-    {
-      "timestamp": "2026-11-09T01:02:52.976283+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
-      "content_preview": "KetchUp: an open-source CAD alternative leveraging Rust for memory safety and WebGPU for direct hardware-accelerated ren",
-      "reason": "",
-      "duration_s": 5.39
-    },
-    {
-      "timestamp": "2026-11-09T01:04:05.044888+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "gary sinise",
-      "content_preview": "Gary Sinise playing Lt. Dan is the only reason half of us survived high school history projects about Vietnam. Absolute ",
-      "reason": "",
-      "duration_s": 71.6
-    },
     {
       "timestamp": "2026-11-09T01:19:59.937966+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Complex retries amplify outages. A simple circuit breaker fails fast, protecting down-stream memory and thread pools. Pr",
       "reason": "",
       "duration_s": 6.26
+    },
+    {
+      "timestamp": "2026-11-14T15:01:45.589110+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending half my salary on token costs just for an LLM to hallucinate a python loop is the modern corporate equivalent o",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.9
+    },
+    {
+      "timestamp": "2026-11-14T15:01:45.608232+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T15:02:05.764475+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Generative AI uses more energy on non-English text",
+      "content_preview": "Sub-optimal tokenization hurts non-English inference. Lower BPE vocab coverage forces longer sequence lengths, directly ",
+      "reason": "",
+      "duration_s": 20.15
     }
   ]
 }
