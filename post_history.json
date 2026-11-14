@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
     "th:कंपनी",
     "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
     "parma vs udinese",
@@ -499,7 +498,8 @@
     "li:How Agentic Tool-Use Loops Work Under the Hood",
     "bsky:The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
     "ब्याज",
-    "bsky:What is GPU Memory Fragmentation?"
+    "bsky:What is GPU Memory Fragmentation?",
+    "bsky:EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -983,7 +983,8 @@
         "post:560263727e45d29345a70211009ea67085fb9b1a58f92732b73dbfd2603e6861",
         "post:d8e0449c36787f12ff4be8ce318324ad1403cb8d87bb138a282e6bf5f9a33548",
         "post:c8264bb66dd0213ec45a85d38bb7602c2deda0ab6cafee1834d20a676b90a82f",
-        "post:350b94351eb8624f0ce67cf169efd9e7d3eb53a7aa5e4300a80bc59596a20579"
+        "post:350b94351eb8624f0ce67cf169efd9e7d3eb53a7aa5e4300a80bc59596a20579",
+        "post:c5ba530a282b0975b8363915d45ceaff2e5e2b7a1ed06fe2c472f98282005c74"
       ],
       "pending": []
     },
