@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T03:01:57.687895+00:00",
+    "last_updated": "2026-11-14T04:01:56.558311+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1213,
-    "original_posts_attempted": 319,
+    "total_cycles_executed": 1216,
+    "original_posts_attempted": 320,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 272,
-    "failed_operations": 64,
-    "ai_generation_requests": 671,
+    "actions_skipped": 273,
+    "failed_operations": 65,
+    "ai_generation_requests": 673,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T17:24:52.553996+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (60/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T17:39:43.951947+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "What if you could check if an item exists in a billion-row dataset in under a microsecond, using only a fraction of a me",
-      "reason": "",
-      "duration_s": 44.81
-    },
-    {
-      "timestamp": "2026-11-08T17:57:14.386129+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "When a 70-parameter model fits comfortably on your local machine, it is easy to forget that training a 500-billion param",
-      "reason": "",
-      "duration_s": 19.42
-    },
     {
       "timestamp": "2026-11-08T18:02:55.091568+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "The ecosystem's over-reliance on GPU-subsidized venture cap was a single-point-of-failure disguised as an investment the",
       "reason": "",
       "duration_s": 4.74
+    },
+    {
+      "timestamp": "2026-11-14T04:01:50.532893+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley prices for a model that hallucinates python scripts while DeepSeek runs circles around it for the ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.3
+    },
+    {
+      "timestamp": "2026-11-14T04:01:50.561020+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T04:01:56.551387+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+      "content_preview": "VAE latents scaled training, but spatial-temporal compression now walls off high-res, low-latency control loops. Quadrup",
+      "reason": "",
+      "duration_s": 5.98
     }
   ]
 }
