@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T08:01:42.791040+00:00",
+    "last_updated": "2026-11-14T08:18:19.718249+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1228,
-    "original_posts_attempted": 324,
+    "total_cycles_executed": 1231,
+    "original_posts_attempted": 325,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 277,
-    "failed_operations": 69,
-    "ai_generation_requests": 681,
+    "actions_skipped": 278,
+    "failed_operations": 70,
+    "ai_generation_requests": 683,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T21:02:51.760674+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
-      "content_preview": "Inventing \"Multi-Teacher On-Policy Distillation\" just so an AI doesn't spell a poster title like a drunk toddler and giv",
-      "reason": "",
-      "duration_s": 31.47
-    },
-    {
-      "timestamp": "2026-11-08T21:03:29.063070+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Switching a high-throughput user agent from a 175B+ cloud LLM to a sub-3B specialized micro-architecture cut context lat",
-      "reason": "",
-      "duration_s": 37.3
-    },
-    {
-      "timestamp": "2026-11-08T21:03:54.828557+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "PagedAttention Demystified: Virtual Memory for LLM KV Cache",
-      "content_preview": "Pre-allocating contiguous VRAM for dynamic KV cache scales poorly. PagedAttention borrows OS virtual memory: page the ca",
-      "reason": "",
-      "duration_s": 25.76
-    },
     {
       "timestamp": "2026-11-08T21:03:55.395355+00:00",
       "action_type": "reply",
@@ -5018,6 +4988,36 @@
       "content_preview": "Hardware iteration without architectural delta is just noise. Kindle Colorsoft v2 sheds millimeters, but if the display ",
       "reason": "",
       "duration_s": 5.14
+    },
+    {
+      "timestamp": "2026-11-14T08:18:13.407954+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley rent prices just to watch an AI hallucinate a Python loop for 45 minutes while DeepSeek does it fo",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.31
+    },
+    {
+      "timestamp": "2026-11-14T08:18:13.425041+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T08:18:19.539923+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "NeuBench telemetry across 260+ models highlights a hard truth: long-horizon coding exposes severe reasoning drift. The c",
+      "reason": "",
+      "duration_s": 6.11
     }
   ]
 }
