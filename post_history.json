@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "konyaspor vs galatasaray",
     "Google’s first data center satellite is online and writing poetry",
     "uttarakhand helicopter crash",
     "jiri lehecka",
@@ -499,7 +498,8 @@
     "bsky:Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
     "bsky:Unsloth Qwen3.8-27B Quantizations – Dynamic v3.1 Update",
     "bsky:Amazon’s new Kindle Colorsoft is a premium e-reader with a premium price",
-    "bsky:Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)"
+    "bsky:Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+    "bsky:Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -992,7 +992,8 @@
         "post:86d49f292f36a14a15dc57c3381bf15f32a4b40b74be8c09698b2e5748f52346",
         "post:ddd8ea6a5db35686c0386ac561f062ad43f91b2a9a83a955e01e0bd767c9f28f",
         "post:e68c33244df9dd377a4665fd94dbc7039e0cbfa734acae6510e6193122f1d2a6",
-        "post:604a7527db119ee2a575babc9a10140a4c43c8080c3fc898be8c693134537aee"
+        "post:604a7527db119ee2a575babc9a10140a4c43c8080c3fc898be8c693134537aee",
+        "post:cd4dfc3a05c3f08be392f8262b0ae170ff88a7261d44f0e5d6d43c3455c70c17"
       ],
       "pending": []
     },

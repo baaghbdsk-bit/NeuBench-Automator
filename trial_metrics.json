@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T08:18:19.718249+00:00",
+    "last_updated": "2026-11-14T09:01:56.189724+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1231,
-    "original_posts_attempted": 325,
+    "total_cycles_executed": 1234,
+    "original_posts_attempted": 326,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 278,
-    "failed_operations": 70,
-    "ai_generation_requests": 683,
+    "actions_skipped": 279,
+    "failed_operations": 71,
+    "ai_generation_requests": 685,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T21:03:55.395355+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (74/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-08T21:29:18.930583+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "barca",
-      "content_preview": "Barca fans really out here writing entire LinkedIn essays about \"financial leverage\" just to lose 3-0 to a team sponsore",
-      "reason": "",
-      "duration_s": 24.68
-    },
-    {
-      "timestamp": "2026-11-08T21:30:05.751535+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your production serverless bill costs more per month than a fully autonomous Kubernetes cluster running on a USB stick s",
-      "reason": "",
-      "duration_s": 46.81
-    },
     {
       "timestamp": "2026-11-08T21:30:10.924003+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "NeuBench telemetry across 260+ models highlights a hard truth: long-horizon coding exposes severe reasoning drift. The c",
       "reason": "",
       "duration_s": 6.11
+    },
+    {
+      "timestamp": "2026-11-14T09:01:48.696303+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Watching Silicon Valley play 'whose API is cheaper' while my code still needs 47 iterations just to center a div. Truly ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.48
+    },
+    {
+      "timestamp": "2026-11-14T09:01:48.717645+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T09:01:56.181403+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "content_preview": "Circular capex loops in AI infrastructure distort real compute demand. When hardware allocation follows venture funding ",
+      "reason": "",
+      "duration_s": 7.46
     }
   ]
 }
