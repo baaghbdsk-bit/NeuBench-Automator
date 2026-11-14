@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "th:कंपनी",
     "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
     "parma vs udinese",
     "Why Is This Fingerprinting Script Creating Bioweapons?",
@@ -499,7 +498,8 @@
     "bsky:The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
     "ब्याज",
     "bsky:What is GPU Memory Fragmentation?",
-    "bsky:EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming"
+    "bsky:EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
+    "bsky:Anthropic Upgrades Claude Code Projects to Run Parallel AI Workers Hands-Free"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -984,7 +984,8 @@
         "post:d8e0449c36787f12ff4be8ce318324ad1403cb8d87bb138a282e6bf5f9a33548",
         "post:c8264bb66dd0213ec45a85d38bb7602c2deda0ab6cafee1834d20a676b90a82f",
         "post:350b94351eb8624f0ce67cf169efd9e7d3eb53a7aa5e4300a80bc59596a20579",
-        "post:c5ba530a282b0975b8363915d45ceaff2e5e2b7a1ed06fe2c472f98282005c74"
+        "post:c5ba530a282b0975b8363915d45ceaff2e5e2b7a1ed06fe2c472f98282005c74",
+        "post:4a79cd405b63d4c83b813985f4bf2ce7fb9da5c4d459ff68afb32edd3a30a2a2"
       ],
       "pending": []
     },

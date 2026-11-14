@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T01:27:49.031097+00:00",
+    "last_updated": "2026-11-14T02:01:44.920718+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1207,
-    "original_posts_attempted": 317,
+    "total_cycles_executed": 1210,
+    "original_posts_attempted": 318,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 270,
-    "failed_operations": 62,
-    "ai_generation_requests": 667,
+    "actions_skipped": 271,
+    "failed_operations": 63,
+    "ai_generation_requests": 669,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T17:02:57.714704+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "B-Tree (Balanced Tree) vs LSM-Tree (Log-Structured Merge-Tree): Architectural Comparison\n\nB-Trees dominate traditional r",
-      "reason": "",
-      "duration_s": 13.25
-    },
-    {
-      "timestamp": "2026-11-08T17:03:04.575005+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "TechCrunch Mobility: The Cybertruck experiment is over",
-      "content_preview": "Hardware pivots reveal brutal production realities. When vehicle iteration cycles collide with reality, telemetry and ed",
-      "reason": "",
-      "duration_s": 6.84
-    },
-    {
-      "timestamp": "2026-11-08T17:03:05.227057+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (57/28).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-08T17:24:29.317395+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "If you serve Large Language Models like traditional web APIs, your GPU utilization will inevitably flatline below twenty",
       "reason": "",
       "duration_s": 19.68
+    },
+    {
+      "timestamp": "2026-11-14T02:01:38.877225+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Broke: Asking Claude to write your code.\nWoke: Watching your API bill bankrupt a small nation because your AI decided to",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.18
+    },
+    {
+      "timestamp": "2026-11-14T02:01:38.895205+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T02:01:44.600223+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Anthropic Upgrades Claude Code Projects to Run Parallel AI Workers Hands-Free",
+      "content_preview": "Parallelizing agentic workflows shifts the primary bottleneck from generation to context window consistency and merge co",
+      "reason": "",
+      "duration_s": 5.69
     }
   ]
 }
