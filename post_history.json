@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Google’s first data center satellite is online and writing poetry",
     "uttarakhand helicopter crash",
     "jiri lehecka",
     "US Army practices digging temporary battlefield graves",
@@ -499,7 +498,8 @@
     "bsky:Unsloth Qwen3.8-27B Quantizations – Dynamic v3.1 Update",
     "bsky:Amazon’s new Kindle Colorsoft is a premium e-reader with a premium price",
     "bsky:Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-    "bsky:Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs"
+    "bsky:Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+    "bsky:What is KV Caching in Large Language Models?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -995,7 +995,8 @@
         "post:604a7527db119ee2a575babc9a10140a4c43c8080c3fc898be8c693134537aee",
         "post:cd4dfc3a05c3f08be392f8262b0ae170ff88a7261d44f0e5d6d43c3455c70c17",
         "post:04303ddebf3df5b637897143139940894672dca4dc5a597f37ea7de789897b51",
-        "post:932bf97fcbdf30029d0d8ad713ed1ae8e519f3d642e2f9af59e6a991613c159a"
+        "post:932bf97fcbdf30029d0d8ad713ed1ae8e519f3d642e2f9af59e6a991613c159a",
+        "post:5eab5643dc18e0c9a4cd15262a2557830ec1deb7ec38c664c313ed87598e1b05"
       ],
       "pending": []
     },
