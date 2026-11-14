@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Key points at a glance",
     "rd:Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
     "th:Backdoors in official Claude Code extensions",
     "Skip the small talk: Make game-changing connections at TechCrunch Founder Summit with Braindate",
@@ -499,7 +498,8 @@
     "bsky:Anthropic Upgrades Claude Code Projects to Run Parallel AI Workers Hands-Free",
     "bsky:Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
     "bsky:Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-    "bsky:What is a Logit? The Raw Math Behind AI Decisions"
+    "bsky:What is a Logit? The Raw Math Behind AI Decisions",
+    "bsky:Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -988,7 +988,8 @@
         "post:4a79cd405b63d4c83b813985f4bf2ce7fb9da5c4d459ff68afb32edd3a30a2a2",
         "post:5d71413a6a4825f31dee3adf3fae75cc1c424c7f582a6a03ea770ae49bbed42a",
         "post:61eec78b495e87078dc29e1bca0e038affc869e301c4e16dd66ce3e652d25fc4",
-        "post:5f6d3a315e693ad0fda6616597aa65bd4e47dd60956769e276cc4b5b5ca04064"
+        "post:5f6d3a315e693ad0fda6616597aa65bd4e47dd60956769e276cc4b5b5ca04064",
+        "post:86d49f292f36a14a15dc57c3381bf15f32a4b40b74be8c09698b2e5748f52346"
       ],
       "pending": []
     },

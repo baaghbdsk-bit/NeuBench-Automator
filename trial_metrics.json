@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T05:01:53.405736+00:00",
+    "last_updated": "2026-11-14T06:01:55.454789+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1219,
-    "original_posts_attempted": 321,
+    "total_cycles_executed": 1222,
+    "original_posts_attempted": 322,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 274,
-    "failed_operations": 66,
-    "ai_generation_requests": 675,
+    "actions_skipped": 275,
+    "failed_operations": 67,
+    "ai_generation_requests": 677,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T18:04:23.083511+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (65/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T19:02:48.870985+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
-      "content_preview": "Researchers just proved AI tools don't need to speak in full text. Even machine learning algorithms are adopting the \"I ",
-      "reason": "",
-      "duration_s": 31.11
-    },
-    {
-      "timestamp": "2026-11-08T19:03:50.044284+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Sending your entire project workspace to an LLM via a coding CLI takes milliseconds, but a single leaked .env file or ha",
-      "reason": "",
-      "duration_s": 61.17
-    },
     {
       "timestamp": "2026-11-08T19:04:05.946663+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Treat logits as unbounded directional votes—like raw judge scores before normalization. Only use Softmax when you need p",
       "reason": "",
       "duration_s": 6.38
+    },
+    {
+      "timestamp": "2026-11-14T06:01:48.081378+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley rent to watch an AI hallucinate a Python loop while DeepSeek does it for the price of a cutting Ch",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 6.62
+    },
+    {
+      "timestamp": "2026-11-14T06:01:48.290031+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T06:01:55.449452+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
+      "content_preview": "Multi-agent memory sharing fails when we treat state as monolithic. Effective group evolution demands multi-granularity ",
+      "reason": "",
+      "duration_s": 6.83
     }
   ]
 }
