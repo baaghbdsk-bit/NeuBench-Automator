@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T02:01:44.920718+00:00",
+    "last_updated": "2026-11-14T03:01:57.687895+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1210,
-    "original_posts_attempted": 318,
+    "total_cycles_executed": 1213,
+    "original_posts_attempted": 319,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 271,
-    "failed_operations": 63,
-    "ai_generation_requests": 669,
+    "actions_skipped": 272,
+    "failed_operations": 64,
+    "ai_generation_requests": 671,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T17:24:29.317395+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "sbi share price",
-      "content_preview": "Trying to buy SBI shares at 2 PM is basically the stock market version of reaching a bank branch just as the guy closes ",
-      "reason": "",
-      "duration_s": 24.94
-    },
-    {
-      "timestamp": "2026-11-08T17:24:46.392327+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Massive Context Windows vs Retrieval-Augmented Generation (RAG): Architectural Comparison\n\nWhen your Large Language Mode",
-      "reason": "",
-      "duration_s": 17.06
-    },
-    {
-      "timestamp": "2026-11-08T17:24:51.891353+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Vector Embedding?",
-      "content_preview": "Meaning becomes math: vector embeddings project semantic proximity into geometric space. Think of it as high-dimensional",
-      "reason": "",
-      "duration_s": 4.78
-    },
     {
       "timestamp": "2026-11-08T17:24:52.553996+00:00",
       "action_type": "reply",
@@ -5018,6 +4988,36 @@
       "content_preview": "Parallelizing agentic workflows shifts the primary bottleneck from generation to context window consistency and merge co",
       "reason": "",
       "duration_s": 5.69
+    },
+    {
+      "timestamp": "2026-11-14T03:01:52.912332+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Bro really filed for bankruptcy just to debug a missing semicolon because Claude needed 2 million tokens of emotional su",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.59
+    },
+    {
+      "timestamp": "2026-11-14T03:01:52.933021+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T03:01:57.679894+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
+      "content_preview": "The ecosystem's over-reliance on GPU-subsidized venture cap was a single-point-of-failure disguised as an investment the",
+      "reason": "",
+      "duration_s": 4.74
     }
   ]
 }
