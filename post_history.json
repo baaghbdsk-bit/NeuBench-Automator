@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "uttarakhand helicopter crash",
     "jiri lehecka",
     "US Army practices digging temporary battlefield graves",
     "daniel vogelbach",
@@ -499,7 +498,8 @@
     "bsky:Amazon’s new Kindle Colorsoft is a premium e-reader with a premium price",
     "bsky:Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
     "bsky:Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
-    "bsky:What is KV Caching in Large Language Models?"
+    "bsky:What is KV Caching in Large Language Models?",
+    "bsky:Circuit Breakers in Distributed Microservices"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -997,7 +997,8 @@
         "post:04303ddebf3df5b637897143139940894672dca4dc5a597f37ea7de789897b51",
         "post:932bf97fcbdf30029d0d8ad713ed1ae8e519f3d642e2f9af59e6a991613c159a",
         "post:5eab5643dc18e0c9a4cd15262a2557830ec1deb7ec38c664c313ed87598e1b05",
-        "post:90b13b5ee8b9058f740a1383cd0b19b2b562e07f780b23598e2bb5d66c63057a"
+        "post:90b13b5ee8b9058f740a1383cd0b19b2b562e07f780b23598e2bb5d66c63057a",
+        "post:66c32f4467a8cd1fb59dab6afaf1cba52e73b301d06d16938e703477d2ddb9e5"
       ],
       "pending": []
     },

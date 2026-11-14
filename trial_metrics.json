@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T13:01:49.784878+00:00",
+    "last_updated": "2026-11-14T14:01:49.716687+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1247,
-    "original_posts_attempted": 330,
+    "total_cycles_executed": 1250,
+    "original_posts_attempted": 331,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 283,
-    "failed_operations": 75,
-    "ai_generation_requests": 694,
+    "actions_skipped": 284,
+    "failed_operations": 76,
+    "ai_generation_requests": 696,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T00:03:17.045536+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Demystifying MVCC: How Databases Read and Write Simultaneously Without Locking",
-      "content_preview": "In MVCC, readers never block writers and writers never block readers—but uncollected stale versions will quietly degrade",
-      "reason": "",
-      "duration_s": 14.23
-    },
-    {
-      "timestamp": "2026-11-09T00:04:28.208470+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "erin andrews",
-      "content_preview": "Erin Andrews dodging 300lb linemen in high heels while keeping her hair flawless just to hear a coach say \"we gotta exec",
-      "reason": "",
-      "duration_s": 70.47
-    },
-    {
-      "timestamp": "2026-11-09T01:02:27.209167+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "trent mcduffie",
-      "content_preview": "Wish my life had the stability and lock-down discipline of Trent McDuffie in single coverage. Man is putting elite recei",
-      "reason": "",
-      "duration_s": 29.29
-    },
     {
       "timestamp": "2026-11-09T01:02:47.583402+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "TTFT and token throughput variance hits 40% across hosted LLM endpoints under identical workloads. Infrastructure multi-",
       "reason": "",
       "duration_s": 6.48
+    },
+    {
+      "timestamp": "2026-11-14T14:01:43.418381+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI model’s token drift during long-horizon codi",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.18
+    },
+    {
+      "timestamp": "2026-11-14T14:01:43.439288+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T14:01:49.708468+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Circuit Breakers in Distributed Microservices",
+      "content_preview": "Complex retries amplify outages. A simple circuit breaker fails fast, protecting down-stream memory and thread pools. Pr",
+      "reason": "",
+      "duration_s": 6.26
     }
   ]
 }
