@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T16:01:48.187042+00:00",
+    "last_updated": "2026-11-14T16:14:39.273541+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1256,
-    "original_posts_attempted": 333,
+    "total_cycles_executed": 1259,
+    "original_posts_attempted": 334,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 286,
-    "failed_operations": 78,
-    "ai_generation_requests": 700,
+    "actions_skipped": 287,
+    "failed_operations": 79,
+    "ai_generation_requests": 702,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T01:22:08.741964+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "fbi season 9 cast changes",
-      "content_preview": "At this point, the FBI cast changes faster than my ex changing their personality for a new talking stage. Can we just le",
-      "reason": "",
-      "duration_s": 79.58
-    },
-    {
-      "timestamp": "2026-11-09T02:02:49.986940+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "జాతకం",
-      "content_preview": "Mom: \"Your kundali says Shani is active.\"\nMe, unemployed at 2AM watching random YouTube tutorials: \"Yeah, thanks. Pretty",
-      "reason": "",
-      "duration_s": 32.44
-    },
-    {
-      "timestamp": "2026-11-09T02:03:10.527792+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your AI agent successfully completed 1,000 reasoning steps, but it just hallucinated a file path from three turns ago be",
-      "reason": "",
-      "duration_s": 20.53
-    },
     {
       "timestamp": "2026-11-09T02:03:16.030465+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Hardware iteration without architectural delta is just noise. Kindle Colorsoft v2 sheds millimeters, but if the display ",
       "reason": "",
       "duration_s": 6.38
+    },
+    {
+      "timestamp": "2026-11-14T16:14:33.104689+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley prices to watch an AI hallucinate a Python script is my Roman Empire. #AI #TechTrends",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.09
+    },
+    {
+      "timestamp": "2026-11-14T16:14:33.129682+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T16:14:39.081216+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+      "content_preview": "NeuBench data reveals up to 40% variance in real-world token throughput across major LLM APIs. Hidden queuing delays & K",
+      "reason": "",
+      "duration_s": 5.94
     }
   ]
 }
