@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T18:01:46.681362+00:00",
+    "last_updated": "2026-11-14T18:03:31.135259+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1265,
+    "total_cycles_executed": 1266,
     "original_posts_attempted": 336,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 289,
     "failed_operations": 81,
-    "ai_generation_requests": 706,
+    "ai_generation_requests": 707,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T04:02:40.308893+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "connor hellebuyck",
-      "content_preview": "Connor Hellebuyck stopping 48 shots a night while his defense glides around like NPCs in low-power mode is a masterclass",
-      "reason": "",
-      "duration_s": 30.19
-    },
     {
       "timestamp": "2026-11-09T04:03:02.517788+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "The AI graveyard isn't just about bad markets; it's the cost of ignoring inference economics, memory walls, and fragile ",
       "reason": "",
       "duration_s": 4.58
+    },
+    {
+      "timestamp": "2026-11-14T18:03:31.135236+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "A single unresponsive microservice can silently take down an entire enterprise architecture in less than five seconds. \n",
+      "reason": "",
+      "duration_s": 10.94
     }
   ]
 }

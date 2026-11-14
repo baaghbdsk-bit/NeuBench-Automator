@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-14T10:27:56.573969+00:00",
+  "last_success_at": "2026-11-14T18:03:31.123845+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -942,6 +942,16 @@
       "posted_at": "2026-11-14T10:27:56.573969+00:00",
       "post_urn": "urn:li:share:7527316380883267584",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:d6fe879002db89836fb9bf5ce6c1f501",
+      "title": "Circuit Breakers in Distributed Microservices",
+      "url": "",
+      "content_hash": "809d4684dd4adf7960dcd79cc6a3421f",
+      "status": "success",
+      "posted_at": "2026-11-14T18:03:31.123845+00:00",
+      "post_urn": "urn:li:share:7527431028198768640",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1038,6 +1048,7 @@
     "li:RDMA over Converged Ethernet (RoCEv2): Bypassing the Kernel for Microsecond-Scale Distributed Inference",
     "li:How Agentic Tool-Use Loops Work Under the Hood",
     "li:Demystifying Continuous Batching in LLM Inference Engines",
-    "li:Demystifying Continuous Batching: How LLM Inference Engines Serve Thousands Simultaneously"
+    "li:Demystifying Continuous Batching: How LLM Inference Engines Serve Thousands Simultaneously",
+    "li:Circuit Breakers in Distributed Microservices"
   ]
 }
