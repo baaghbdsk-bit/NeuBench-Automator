@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T22:01:48.249476+00:00",
+    "last_updated": "2026-11-14T22:25:23.121425+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1281,
+    "total_cycles_executed": 1282,
     "original_posts_attempted": 341,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 294,
     "failed_operations": 86,
-    "ai_generation_requests": 717,
+    "ai_generation_requests": 718,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T07:03:29.034032+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (34/28).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-09T08:02:41.901934+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Logits are raw, unnormalized model outputs—unbounded continuous values representing directional preference. \n\nThink of t",
       "reason": "",
       "duration_s": 5.46
+    },
+    {
+      "timestamp": "2026-11-14T22:25:23.121404+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Every production AI agent looks brilliant in a Jupyter notebook, but when traffic hits 10,000 concurrent sessions, state",
+      "reason": "",
+      "duration_s": 27.94
     }
   ]
 }
