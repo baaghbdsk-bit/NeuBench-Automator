@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T12:01:49.150624+00:00",
+    "last_updated": "2026-11-14T13:01:49.784878+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1244,
-    "original_posts_attempted": 329,
+    "total_cycles_executed": 1247,
+    "original_posts_attempted": 330,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 282,
-    "failed_operations": 74,
-    "ai_generation_requests": 692,
+    "actions_skipped": 283,
+    "failed_operations": 75,
+    "ai_generation_requests": 694,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T23:03:24.282173+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (84/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-09T00:02:40.539554+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "star wars ahsoka season 2",
-      "content_preview": "Disney really looked at Ahsoka Season 1 pacing and said, \"Let’s give them more of that staring contest in space.\" Can’t ",
-      "reason": "",
-      "duration_s": 26.24
-    },
-    {
-      "timestamp": "2026-11-09T00:03:02.804479+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A stateless LLM prompt is like hiring a brilliant consultant with absolute zero short-term memory, zero access to compan",
-      "reason": "",
-      "duration_s": 22.25
-    },
     {
       "timestamp": "2026-11-09T00:03:17.045536+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "LLM inference isn't re-reading the whole manuscript for every token. KV caching stores past Key-Value states in memory—l",
       "reason": "",
       "duration_s": 5.75
+    },
+    {
+      "timestamp": "2026-11-14T13:01:43.264790+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying venture capital prices for models to hallucinate Python code while DeepSeek runs circles on pennies. Peak silicon",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.04
+    },
+    {
+      "timestamp": "2026-11-14T13:01:43.286354+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T13:01:49.776345+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
+      "content_preview": "TTFT and token throughput variance hits 40% across hosted LLM endpoints under identical workloads. Infrastructure multi-",
+      "reason": "",
+      "duration_s": 6.48
     }
   ]
 }
