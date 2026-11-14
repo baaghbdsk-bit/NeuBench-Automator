@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "US Army practices digging temporary battlefield graves",
     "daniel vogelbach",
     "poland",
     "Infinite Mac: BeOS",
@@ -499,7 +498,8 @@
     "bsky:Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
     "bsky:What is KV Caching in Large Language Models?",
     "bsky:Circuit Breakers in Distributed Microservices",
-    "bsky:Generative AI uses more energy on non-English text"
+    "bsky:Generative AI uses more energy on non-English text",
+    "bsky:The AI graveyard: a running list of projects and startups that didn’t make it"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1002,7 +1002,8 @@
         "post:414eb9dbff6cbd556b916683ab0fe6121fa185acee2e2896e9f0454c9b085821",
         "post:1c24084aae102183ca710aff6f18e055d3cc7b272f09ad2d3dac2f7fabca0a82",
         "post:be7a578ac085c92f61a46d19f6555856c3aa997282f666102d5493a85609532d",
-        "post:825c700d822abf0afb63537093c3298b4bf3efd512be52599c6e4ea2e1208b32"
+        "post:825c700d822abf0afb63537093c3298b4bf3efd512be52599c6e4ea2e1208b32",
+        "post:2414867bd22fe5e15613325d4871c8ae1fd005f60b2e6cbb76b79364622345df"
       ],
       "pending": []
     },

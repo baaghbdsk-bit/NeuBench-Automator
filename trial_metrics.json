@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T17:02:10.834945+00:00",
+    "last_updated": "2026-11-14T18:01:46.681362+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1262,
-    "original_posts_attempted": 335,
+    "total_cycles_executed": 1265,
+    "original_posts_attempted": 336,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 288,
-    "failed_operations": 80,
-    "ai_generation_requests": 704,
+    "actions_skipped": 289,
+    "failed_operations": 81,
+    "ai_generation_requests": 706,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T03:03:10.244481+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your LLM application has zero observability into its own short-term state, and it is quietly failing in production. \n\nWe",
-      "reason": "",
-      "duration_s": 20.8
-    },
-    {
-      "timestamp": "2026-11-09T03:03:28.807930+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Quantities Driving Neural Networks",
-      "content_preview": "Logits are unnormalized scores. Fused losses (`CrossEntropyLoss`) expect raw logits to leverage LogSumExp for numerical ",
-      "reason": "",
-      "duration_s": 18.56
-    },
-    {
-      "timestamp": "2026-11-09T03:04:43.124053+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "shakira",
-      "content_preview": "Shakira really looked at a multi-million dollar tax fraud case and said \"my hips don't lie, but my accountant sure does.",
-      "reason": "",
-      "duration_s": 73.69
-    },
     {
       "timestamp": "2026-11-09T04:02:40.308893+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Cross-embodiment manipulation fails when aligning disparate sensorimotor spaces directly. EgoX solves this via \"embodime",
       "reason": "",
       "duration_s": 9.74
+    },
+    {
+      "timestamp": "2026-11-14T18:01:41.980367+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Billion-dollar AI labs crying over frontier reasoning drift while my code still breaks because I forgot a single semicol",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.07
+    },
+    {
+      "timestamp": "2026-11-14T18:01:42.000612+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T18:01:46.590490+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "content_preview": "The AI graveyard isn't just about bad markets; it's the cost of ignoring inference economics, memory walls, and fragile ",
+      "reason": "",
+      "duration_s": 4.58
     }
   ]
 }
