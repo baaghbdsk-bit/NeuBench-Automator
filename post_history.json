@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Infinite Mac: BeOS",
     "worlds 2026",
     "सैमसंग",
     "Intel’s stock crashes, knocking $12B from government’s stake",
@@ -499,7 +498,8 @@
     "bsky:Generative AI uses more energy on non-English text",
     "bsky:The AI graveyard: a running list of projects and startups that didn’t make it",
     "bsky:Transportation secretary blames ‘routine’ equipment upgrade for grounding flights nationwide",
-    "bsky:What is a Logit? The Raw Numerical Engine Behind AI Probabilities"
+    "bsky:What is a Logit? The Raw Numerical Engine Behind AI Probabilities",
+    "bsky:What is a Logit? The Raw Numerical Engine Behind AI Decisions"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1007,7 +1007,8 @@
         "post:bf7b02c7274aaba6e8e47fae7fb7bf30325b63d63ecc1ee9c998efaf71bb5596",
         "post:83b9f18b6ba72fbadab52dd1737a75bc2a53c3840666fba23a2fbd17529d4631",
         "post:c260896a5cf5974bdffd5d18f002c94ec2255d436d32faf4eeff95e4287470f1",
-        "post:c93b9b289f09f8239afc7ff8564cd94ebb27dd918b25ba24a826699475b2f5fc"
+        "post:c93b9b289f09f8239afc7ff8564cd94ebb27dd918b25ba24a826699475b2f5fc",
+        "post:a85218864ef34bf973f244241b331dee098f619a4a96f75c61fb9d7cd5be6e38"
       ],
       "pending": []
     },
