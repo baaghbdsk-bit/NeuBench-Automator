@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-14T00:02:19.117267+00:00",
+  "last_success_at": "2026-11-14T01:27:49.019769+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -922,6 +922,16 @@
       "posted_at": "2026-11-14T00:02:19.117267+00:00",
       "post_urn": "urn:li:ugcPost:7527158936370679808",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:8754e6193bc477f2eba3c508e019f69a",
+      "title": "Demystifying Continuous Batching in LLM Inference Engines",
+      "url": "",
+      "content_hash": "c54f1c3690dec2f3e6ba22dc9052cf12",
+      "status": "success",
+      "posted_at": "2026-11-14T01:27:49.019769+00:00",
+      "post_urn": "urn:li:share:7527180452575608832",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1016,6 +1026,7 @@
     "li:Agentic Workflows: Sequential Chains vs. Dynamic Graphs in LLMs",
     "li:How Self-Driving Cars See the Road",
     "li:RDMA over Converged Ethernet (RoCEv2): Bypassing the Kernel for Microsecond-Scale Distributed Inference",
-    "li:How Agentic Tool-Use Loops Work Under the Hood"
+    "li:How Agentic Tool-Use Loops Work Under the Hood",
+    "li:Demystifying Continuous Batching in LLM Inference Engines"
   ]
 }

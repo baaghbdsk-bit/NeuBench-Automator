@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T01:02:20.178918+00:00",
+    "last_updated": "2026-11-14T01:27:49.031097+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1206,
+    "total_cycles_executed": 1207,
     "original_posts_attempted": 317,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 270,
     "failed_operations": 62,
-    "ai_generation_requests": 666,
+    "ai_generation_requests": 667,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T17:02:44.455126+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "bosch share price",
-      "content_preview": "Bosch share price hitting the roof while my washing machine makes sounds like a helicopter about to land in my living ro",
-      "reason": "",
-      "duration_s": 24.02
-    },
     {
       "timestamp": "2026-11-08T17:02:57.714704+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "EgoX aligns heterogeneous cross-embodiment demonstrations via \"embodiment dreaming,\" mitigating morphology & sensor gaps",
       "reason": "",
       "duration_s": 5.96
+    },
+    {
+      "timestamp": "2026-11-14T01:27:49.031077+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "If you serve Large Language Models like traditional web APIs, your GPU utilization will inevitably flatline below twenty",
+      "reason": "",
+      "duration_s": 19.68
     }
   ]
 }
