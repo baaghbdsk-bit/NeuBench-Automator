@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T00:03:28.741893+00:00",
+    "last_updated": "2026-11-14T00:34:12.297021+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1200,
-    "original_posts_attempted": 315,
+    "total_cycles_executed": 1203,
+    "original_posts_attempted": 316,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 268,
-    "failed_operations": 60,
-    "ai_generation_requests": 662,
+    "actions_skipped": 269,
+    "failed_operations": 61,
+    "ai_generation_requests": 664,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T15:02:46.055386+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Quadrillion-parameter transformers and how to train them",
-      "content_preview": "Quadrillion-param models break standard 3D parallelism. At that scale, memory bandwidth and interconnect latency dominat",
-      "reason": "",
-      "duration_s": 5.42
-    },
-    {
-      "timestamp": "2026-11-08T15:02:48.380940+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (51/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-08T16:02:33.670194+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "hindalco share price",
-      "content_preview": "Checking Hindalco's share price is just stock market astrology for people who enjoy watching their life savings turn int",
-      "reason": "",
-      "duration_s": 29.36
-    },
     {
       "timestamp": "2026-11-08T16:03:18.916319+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Pyar ka toh pata nahi par is desh mein 'b्याज' hi ek aisi cheez hai jo bina mange raat-raat bhar badhti rehti hai. Loan ",
       "reason": "",
       "duration_s": 62.83
+    },
+    {
+      "timestamp": "2026-11-14T00:34:06.244849+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "ihsaa football",
+      "content_preview": "Adults in suburban bleachers acting like their kid’s high school football game is Game 7 of the Super Bowl is the exact ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.67
+    },
+    {
+      "timestamp": "2026-11-14T00:34:06.267877+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 31.8m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T00:34:12.287671+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is GPU Memory Fragmentation?",
+      "content_preview": "Treat GPU VRAM like a hard-real-time memory bus. Dynamic allocations cause fragmentation—total free space ≠ contiguous s",
+      "reason": "",
+      "duration_s": 6.01
     }
   ]
 }
