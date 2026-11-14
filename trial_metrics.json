@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T16:14:39.273541+00:00",
+    "last_updated": "2026-11-14T17:02:10.834945+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1259,
-    "original_posts_attempted": 334,
+    "total_cycles_executed": 1262,
+    "original_posts_attempted": 335,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 287,
-    "failed_operations": 79,
-    "ai_generation_requests": 702,
+    "actions_skipped": 288,
+    "failed_operations": 80,
+    "ai_generation_requests": 704,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T02:03:16.030465+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Vector Embedding? The Secret GPS of AI",
-      "content_preview": "Computers compute math, not semantics. Vector embeddings map unstructured data into high-dimensional coordinate spaces w",
-      "reason": "",
-      "duration_s": 5.5
-    },
-    {
-      "timestamp": "2026-11-09T02:04:39.731155+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "simmons bears",
-      "content_preview": "Ben Simmons playing basketball with the intensity of a hibernating grizzly bear is the crossover event nobody asked for.",
-      "reason": "",
-      "duration_s": 82.84
-    },
-    {
-      "timestamp": "2026-11-09T03:02:49.432923+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "cairo santos",
-      "content_preview": "Cairo Santos making kicks look so casual while the rest of us stress over sending a simple \"sounds good\" email. Absolute",
-      "reason": "",
-      "duration_s": 22.77
-    },
     {
       "timestamp": "2026-11-09T03:03:10.244481+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "NeuBench data reveals up to 40% variance in real-world token throughput across major LLM APIs. Hidden queuing delays & K",
       "reason": "",
       "duration_s": 5.94
+    },
+    {
+      "timestamp": "2026-11-14T17:02:00.919344+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "LLMs having existential dread and drifting away from logic while your API bill costs a kidney. Can't wait to pay Silicon",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.25
+    },
+    {
+      "timestamp": "2026-11-14T17:02:00.937386+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T17:02:10.695331+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
+      "content_preview": "Cross-embodiment manipulation fails when aligning disparate sensorimotor spaces directly. EgoX solves this via \"embodime",
+      "reason": "",
+      "duration_s": 9.74
     }
   ]
 }
