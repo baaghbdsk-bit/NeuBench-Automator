@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T06:01:55.454789+00:00",
+    "last_updated": "2026-11-14T07:01:44.473299+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1222,
-    "original_posts_attempted": 322,
+    "total_cycles_executed": 1225,
+    "original_posts_attempted": 323,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 275,
-    "failed_operations": 67,
-    "ai_generation_requests": 677,
+    "actions_skipped": 276,
+    "failed_operations": 68,
+    "ai_generation_requests": 679,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T19:04:05.946663+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Vector Embeddings: How AI Gives Words Secret Map Coordinates",
-      "content_preview": "Embeddings project discrete tokens into continuous high-dimensional manifolds. By assigning latent feature coordinates, ",
-      "reason": "",
-      "duration_s": 15.9
-    },
-    {
-      "timestamp": "2026-11-08T19:04:06.521182+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (68/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T20:02:41.505894+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
-      "content_preview": "AI researchers found out signed vectors can be fully verified while secretly encoding completely fake text. Congrats to ",
-      "reason": "",
-      "duration_s": 31.52
-    },
     {
       "timestamp": "2026-11-08T20:03:08.976690+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Multi-agent memory sharing fails when we treat state as monolithic. Effective group evolution demands multi-granularity ",
       "reason": "",
       "duration_s": 6.83
+    },
+    {
+      "timestamp": "2026-11-14T07:01:37.931605+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Watching tech bros hyperventilate over token costs and reasoning drift like they’re trading crypto during a market crash",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.02
+    },
+    {
+      "timestamp": "2026-11-14T07:01:37.944721+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T07:01:44.468030+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Unsloth Qwen3.8-27B Quantizations – Dynamic v3.1 Update",
+      "content_preview": "Unsloth’s Qwen2.5-27B (Qwen3.8) dynamic v3.1 quants hit that sweet spot between memory bandwidth limits and perplexity r",
+      "reason": "",
+      "duration_s": 6.52
     }
   ]
 }
