@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T15:02:05.773017+00:00",
+    "last_updated": "2026-11-14T16:01:48.187042+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1253,
-    "original_posts_attempted": 332,
+    "total_cycles_executed": 1256,
+    "original_posts_attempted": 333,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 285,
-    "failed_operations": 77,
-    "ai_generation_requests": 698,
+    "actions_skipped": 286,
+    "failed_operations": 78,
+    "ai_generation_requests": 700,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T01:19:59.937966+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "pelicans vs clippers",
-      "content_preview": "Watching Pelicans vs Clippers is basically paying to watch two middle-management teams argue over who has to work this w",
-      "reason": "",
-      "duration_s": 31.25
-    },
-    {
-      "timestamp": "2026-11-09T01:20:42.348985+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Inside an AI Coding Agent: How It Reads Your Code (And Why 'Super-Permissions' Can Leak Secrets)\n\nAI coding assistants w",
-      "reason": "",
-      "duration_s": 42.4
-    },
-    {
-      "timestamp": "2026-11-09T01:20:48.353436+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LLM API Outage Frequency & Degradation Index",
-      "content_preview": "Frontier LLM reliability isn't binary. NeuBench tracking reveals that tail latency spikes and silent degradation outnumb",
-      "reason": "",
-      "duration_s": 6.0
-    },
     {
       "timestamp": "2026-11-09T01:22:08.741964+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Sub-optimal tokenization hurts non-English inference. Lower BPE vocab coverage forces longer sequence lengths, directly ",
       "reason": "",
       "duration_s": 20.15
+    },
+    {
+      "timestamp": "2026-11-14T16:01:41.777005+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Bro we are out here downloading 260+ models just to watch an AI overthink a simple loop for 4 minutes and charge us a mo",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.37
+    },
+    {
+      "timestamp": "2026-11-14T16:01:41.793710+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T16:01:48.179955+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Amazon’s new Kindle Colorsoft is a premium e-reader with a premium price",
+      "content_preview": "Hardware iteration without architectural delta is just noise. Kindle Colorsoft v2 sheds millimeters, but if the display ",
+      "reason": "",
+      "duration_s": 6.38
     }
   ]
 }
