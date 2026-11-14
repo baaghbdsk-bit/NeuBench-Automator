@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T09:01:56.189724+00:00",
+    "last_updated": "2026-11-14T10:01:58.568761+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1234,
-    "original_posts_attempted": 326,
+    "total_cycles_executed": 1237,
+    "original_posts_attempted": 327,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 279,
-    "failed_operations": 71,
-    "ai_generation_requests": 685,
+    "actions_skipped": 280,
+    "failed_operations": 72,
+    "ai_generation_requests": 687,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-08T21:30:10.924003+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "How I Fight AI Brain Fry",
-      "content_preview": "Cognitive load shift is real. When reviewing high volumes of LLM-generated code, context fatigue degrades semantic verif",
-      "reason": "",
-      "duration_s": 5.17
-    },
-    {
-      "timestamp": "2026-11-08T21:30:11.731867+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (77/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-08T22:02:41.484113+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Middle-class investment paranoia",
-      "content_preview": "Uncle will proudly watch his life savings get cooked by 8% inflation while locked in a 6% FD, but the second you buy a ₹",
-      "reason": "",
-      "duration_s": 26.16
-    },
     {
       "timestamp": "2026-11-08T22:03:01.563675+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Circular capex loops in AI infrastructure distort real compute demand. When hardware allocation follows venture funding ",
       "reason": "",
       "duration_s": 7.46
+    },
+    {
+      "timestamp": "2026-11-14T10:01:54.343377+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Deploying models to fix my code just to watch the API bill cost more than my actual freelance gig. We’re really paying S",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.21
+    },
+    {
+      "timestamp": "2026-11-14T10:01:54.364503+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-14T10:01:58.559875+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
+      "content_preview": "Multi-agent systems fail when state sharing ignores granularity. Group-evolving agents need precise boundaries: what is ",
+      "reason": "",
+      "duration_s": 4.19
     }
   ]
 }
