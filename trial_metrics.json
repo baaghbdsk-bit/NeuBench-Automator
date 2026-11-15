@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T07:02:09.016767+00:00",
+    "last_updated": "2026-11-15T08:02:02.464157+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1313,
-    "original_posts_attempted": 351,
+    "total_cycles_executed": 1316,
+    "original_posts_attempted": 352,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 302,
-    "failed_operations": 96,
-    "ai_generation_requests": 741,
+    "actions_skipped": 303,
+    "failed_operations": 97,
+    "ai_generation_requests": 743,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T14:02:53.232334+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (56/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-09T15:09:06.393947+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "russell brand movies",
-      "content_preview": "Watching a Russell Brand movie is just aggressive improv by a guy who smells like patchouli and questionable political p",
-      "reason": "",
-      "duration_s": 26.2
-    },
-    {
-      "timestamp": "2026-11-09T15:09:29.155605+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A modern CPU boasts a blistering 5.0 GHz clock speed, yet it will lose a matrix multiplication race to a GPU clocked at ",
-      "reason": "",
-      "duration_s": 22.75
-    },
     {
       "timestamp": "2026-11-09T15:09:35.481536+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "NeuBench speed testing reveals up to 40% variance in real-world token throughput across major hosted LLM APIs. Don't let",
       "reason": "",
       "duration_s": 4.29
+    },
+    {
+      "timestamp": "2026-11-15T08:01:55.869258+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying $50 to watch an AI overthink a bug for 10 minutes just to suggest `npm install left-pad`. Truly we are living in ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.23
+    },
+    {
+      "timestamp": "2026-11-15T08:01:55.892333+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T08:02:02.457201+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+      "content_preview": "VAE latent spaces solved video gen tractability, but spatiotemporal compression now bottlenecks high-res control. Liftin",
+      "reason": "",
+      "duration_s": 6.55
     }
   ]
 }
