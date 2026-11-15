@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-14T22:25:23.112566+00:00",
+  "last_success_at": "2026-11-15T01:26:45.601508+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -962,6 +962,16 @@
       "posted_at": "2026-11-14T22:25:23.112566+00:00",
       "post_urn": "urn:li:share:7527496930621571072",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:4813765911118d8ed992c0c27b79f982",
+      "title": "What is an Inverted Index? The Data Structure Powering Search Engines",
+      "url": "",
+      "content_hash": "6dd0a146987d6272e5330ab0b09a5fe9",
+      "status": "success",
+      "posted_at": "2026-11-15T01:26:45.601508+00:00",
+      "post_urn": "urn:li:ugcPost:7527542576099270656",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1060,6 +1070,7 @@
     "li:Demystifying Continuous Batching in LLM Inference Engines",
     "li:Demystifying Continuous Batching: How LLM Inference Engines Serve Thousands Simultaneously",
     "li:Circuit Breakers in Distributed Microservices",
-    "li:Stateful vs. Stateless AI Agents: Choosing the Right Memory Paradigm for Autonomous Workflows"
+    "li:Stateful vs. Stateless AI Agents: Choosing the Right Memory Paradigm for Autonomous Workflows",
+    "li:What is an Inverted Index? The Data Structure Powering Search Engines"
   ]
 }
