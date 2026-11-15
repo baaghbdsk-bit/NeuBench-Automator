@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T14:01:47.653529+00:00",
+    "last_updated": "2026-11-15T15:02:09.337167+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1337,
-    "original_posts_attempted": 359,
+    "total_cycles_executed": 1340,
+    "original_posts_attempted": 360,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 310,
-    "failed_operations": 104,
-    "ai_generation_requests": 757,
+    "actions_skipped": 311,
+    "failed_operations": 105,
+    "ai_generation_requests": 759,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T20:02:36.999254+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Scores Behind Neural Network Decisions",
-      "content_preview": "Logits are raw, unscaled vector scores—akin to arcade points before global ranking percentages are computed. They determ",
-      "reason": "",
-      "duration_s": 4.74
-    },
-    {
-      "timestamp": "2026-11-09T20:02:38.560017+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (71/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-09T20:18:37.367263+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ott releases this week",
-      "content_preview": "Me looking at this week's OTT lineup: 47 crime thrillers about a depressed cop in a foggy European town, 3 true crime do",
-      "reason": "",
-      "duration_s": 32.98
-    },
     {
       "timestamp": "2026-11-09T20:18:37.393354+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Absolute position embeddings (learned/sinusoidal) hardcode context windows. RoPE rotates Q/K in complex space, encoding ",
       "reason": "",
       "duration_s": 5.22
+    },
+    {
+      "timestamp": "2026-11-15T15:02:04.752145+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Debugging code for 6 hours just to watch an AI model have an existential crisis over a missing semicolon and charge you ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 0.97
+    },
+    {
+      "timestamp": "2026-11-15T15:02:04.766252+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T15:02:09.331289+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+      "content_preview": "VAE latent compression enabled tractable video gen, but 2x spatial scaling quadruples token counts and breaks control gr",
+      "reason": "",
+      "duration_s": 4.56
     }
   ]
 }
