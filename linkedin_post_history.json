@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-15T06:33:29.941899+00:00",
+  "last_success_at": "2026-11-15T16:23:33.884449+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -992,6 +992,16 @@
       "posted_at": "2026-11-15T06:33:29.941899+00:00",
       "post_urn": "urn:li:ugcPost:7527619768174940160",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:3044c7bd6b54d582a1b5e7babb425045",
+      "title": "Demystifying Context Window Compression via State Space Models (Mamba)",
+      "url": "",
+      "content_hash": "e65a0a09b61add1c2cbdde05c647b519",
+      "status": "success",
+      "posted_at": "2026-11-15T16:23:33.884449+00:00",
+      "post_urn": "urn:li:share:7527768264010145792",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1093,6 +1103,7 @@
     "li:Stateful vs. Stateless AI Agents: Choosing the Right Memory Paradigm for Autonomous Workflows",
     "li:What is an Inverted Index? The Data Structure Powering Search Engines",
     "li:What is Non-Uniform Memory Access (NUMA) Latency Cliff?",
-    "li:How Touchscreens Actually Feel Your Finger: The Magic of Capacitance"
+    "li:How Touchscreens Actually Feel Your Finger: The Magic of Capacitance",
+    "li:Demystifying Context Window Compression via State Space Models (Mamba)"
   ]
 }

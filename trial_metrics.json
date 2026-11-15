@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T16:02:13.904647+00:00",
+    "last_updated": "2026-11-15T16:23:33.894048+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1343,
+    "total_cycles_executed": 1344,
     "original_posts_attempted": 361,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 312,
     "failed_operations": 106,
-    "ai_generation_requests": 761,
+    "ai_generation_requests": 762,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T21:02:45.025886+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "aryna sabalenka",
-      "content_preview": "Aryna Sabalenka hitting tennis balls like her life depends on it while the rest of us hyperventilate just walking up a f",
-      "reason": "",
-      "duration_s": 27.99
-    },
     {
       "timestamp": "2026-11-09T21:02:45.051560+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Mandating AI code to be open-source ignores attribution mechanics and copyright lineage. If deterministic outputs derive",
       "reason": "",
       "duration_s": 4.64
+    },
+    {
+      "timestamp": "2026-11-15T16:23:33.894019+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Transformer context windows are hitting a brutal physics wall where doubling sequence length quadruples your compute cos",
+      "reason": "",
+      "duration_s": 10.27
     }
   ]
 }
