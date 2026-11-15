@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "I took two iPhones on vacation. The Duo won me over.",
     "kick",
     "Ukrainian evacuees reunite with family after years trapped in Russia-occupied city",
     "Pile-ins, payouts, and pacing pressure: the investors behind the VCs open up",
@@ -499,7 +498,8 @@
     "bsky:What is KV Caching in LLMs?",
     "bsky:What is a Logit? The Raw Vector Before the Probability Curtain",
     "li:What is Non-Uniform Memory Access (NUMA) Latency Cliff?",
-    "bsky:What is a Logit? The Raw Scoring Engine Behind Modern Neural Networks"
+    "bsky:What is a Logit? The Raw Scoring Engine Behind Modern Neural Networks",
+    "bsky:Raft Consensus vs Paxos in High Scale Clusters"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1021,7 +1021,8 @@
         "post:6692bbbcc17c94f25cfea92308052f424c30b0101814a8dcaf14813f373fe11f",
         "post:9d3ec79c30ff73d6cc0a4f040eaa30df7d80db2722582f5a5f016c0680f0cc6e",
         "post:167162e752574a86bed62276e224d7f33f1f819bce456a8794006278dc02cb06",
-        "post:c7582513972774766b9848534208f1ef27715d3133ae7ab1b26a183d72aa0157"
+        "post:c7582513972774766b9848534208f1ef27715d3133ae7ab1b26a183d72aa0157",
+        "post:e232da8ec78f7a4382acc9637cdf2e2a9f8d72180cc2023c2166db7b19d10144"
       ],
       "pending": []
     },
