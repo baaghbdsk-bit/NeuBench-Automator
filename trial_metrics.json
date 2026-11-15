@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T06:01:49.568085+00:00",
+    "last_updated": "2026-11-15T06:33:29.951136+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1309,
+    "total_cycles_executed": 1310,
     "original_posts_attempted": 350,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 301,
     "failed_operations": 95,
-    "ai_generation_requests": 738,
+    "ai_generation_requests": 739,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T13:02:42.819386+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (54/28).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-09T14:02:46.529948+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Frontier reasoning drift on long-horizon tasks reveals stark inference cost divergences between DeepSeek, Claude, and Ge",
       "reason": "",
       "duration_s": 6.26
+    },
+    {
+      "timestamp": "2026-11-15T06:33:29.951108+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Ever wonder how your phone can feel a feather-light tap, yet completely ignore a piece of plastic or wood? \n\nYou do not ",
+      "reason": "",
+      "duration_s": 22.19
     }
   ]
 }

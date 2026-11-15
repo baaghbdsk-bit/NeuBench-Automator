@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-15T05:02:32.135965+00:00",
+  "last_success_at": "2026-11-15T06:33:29.941899+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -982,6 +982,16 @@
       "posted_at": "2026-11-15T05:02:32.135965+00:00",
       "post_urn": "urn:li:share:7527596877064634368",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:554737e0f44b354d2bc085a65c294e05",
+      "title": "How Touchscreens Actually Feel Your Finger: The Magic of Capacitance",
+      "url": "",
+      "content_hash": "f4a4294a4e6d48bc3d83ac6115497cb4",
+      "status": "success",
+      "posted_at": "2026-11-15T06:33:29.941899+00:00",
+      "post_urn": "urn:li:ugcPost:7527619768174940160",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1082,6 +1092,7 @@
     "li:Circuit Breakers in Distributed Microservices",
     "li:Stateful vs. Stateless AI Agents: Choosing the Right Memory Paradigm for Autonomous Workflows",
     "li:What is an Inverted Index? The Data Structure Powering Search Engines",
-    "li:What is Non-Uniform Memory Access (NUMA) Latency Cliff?"
+    "li:What is Non-Uniform Memory Access (NUMA) Latency Cliff?",
+    "li:How Touchscreens Actually Feel Your Finger: The Magic of Capacitance"
   ]
 }
