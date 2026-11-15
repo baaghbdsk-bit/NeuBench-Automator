@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-14T23:01:47.441360+00:00",
+    "last_updated": "2026-11-15T00:02:10.699616+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1285,
-    "original_posts_attempted": 342,
+    "total_cycles_executed": 1288,
+    "original_posts_attempted": 343,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 295,
-    "failed_operations": 87,
-    "ai_generation_requests": 720,
+    "actions_skipped": 296,
+    "failed_operations": 88,
+    "ai_generation_requests": 722,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T08:03:50.647818+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (37/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-09T08:53:00.723759+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "kaviya maran",
-      "content_preview": "IPL cameramen will literally ignore a hat-trick ball just to keep Kaviya Maran’s micro-expressions in crystal clear 4K. ",
-      "reason": "",
-      "duration_s": 30.34
-    },
-    {
-      "timestamp": "2026-11-09T08:54:02.919205+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Training a 70-billion parameter model across 1,024 GPUs should theoretically saturate your network fabric instantly. If ",
-      "reason": "",
-      "duration_s": 62.19
-    },
     {
       "timestamp": "2026-11-09T08:54:25.292590+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "A Tensor Core is like a hardware stamp multiplying entire blocks of numbers at once. \n\nAlways align tensor dims to hardw",
       "reason": "",
       "duration_s": 5.23
+    },
+    {
+      "timestamp": "2026-11-15T00:02:06.460483+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley rent just to watch my AI hallucinate a Python script slower than a 2004 dial-up modem. Truly we ar",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 0.97
+    },
+    {
+      "timestamp": "2026-11-15T00:02:06.475155+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 96.7m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T00:02:10.693587+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
+      "content_preview": "Multi-agent memory sharing fails when heterogeneous models store context differently. True system evolution demands mult",
+      "reason": "",
+      "duration_s": 4.21
     }
   ]
 }
