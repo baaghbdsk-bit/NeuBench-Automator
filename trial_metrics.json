@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T12:02:13.542170+00:00",
+    "last_updated": "2026-11-15T13:01:53.635760+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1331,
-    "original_posts_attempted": 357,
+    "total_cycles_executed": 1334,
+    "original_posts_attempted": 358,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 308,
-    "failed_operations": 102,
-    "ai_generation_requests": 753,
+    "actions_skipped": 309,
+    "failed_operations": 103,
+    "ai_generation_requests": 755,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T19:02:53.033464+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your LLM is not a database. It is a probabilistic text engine generating the most mathematically likely next token based",
-      "reason": "",
-      "duration_s": 7.04
-    },
-    {
-      "timestamp": "2026-11-09T19:02:58.513987+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Magenta solar panels may be agrivoltaics' cleverest trick yet",
-      "content_preview": "Optimizing the Pareto frontier of solar: magenta panels absorb specific PAR wavelengths for PV while transmitting PAR re",
-      "reason": "",
-      "duration_s": 5.47
-    },
-    {
-      "timestamp": "2026-11-09T19:02:59.402822+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (68/28).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-09T19:51:02.813051+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Frontier LLM API degradation isn't just about hard outages; tail latency spikes and silent truncation are breaking produ",
       "reason": "",
       "duration_s": 5.29
+    },
+    {
+      "timestamp": "2026-11-15T13:01:46.711540+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI coding agent went on a 260-model bender and ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 0.95
+    },
+    {
+      "timestamp": "2026-11-15T13:01:46.729698+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T13:01:53.628709+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying Continuous Batching in LLM Inference",
+      "content_preview": "Never let GPU compute stall waiting for the longest sequence in a static batch. Continuous batching schedules at the gra",
+      "reason": "",
+      "duration_s": 6.89
     }
   ]
 }
