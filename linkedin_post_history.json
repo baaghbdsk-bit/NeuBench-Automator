@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-15T01:26:45.601508+00:00",
+  "last_success_at": "2026-11-15T05:02:32.135965+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -972,6 +972,16 @@
       "posted_at": "2026-11-15T01:26:45.601508+00:00",
       "post_urn": "urn:li:ugcPost:7527542576099270656",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:896c84ec54681d4be3478892e4d8e47c",
+      "title": "What is Non-Uniform Memory Access (NUMA) Latency Cliff?",
+      "url": "",
+      "content_hash": "a7d6b8d29997a4bfabf4e2f4de49ae4d",
+      "status": "success",
+      "posted_at": "2026-11-15T05:02:32.135965+00:00",
+      "post_urn": "urn:li:share:7527596877064634368",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1071,6 +1081,7 @@
     "li:Demystifying Continuous Batching: How LLM Inference Engines Serve Thousands Simultaneously",
     "li:Circuit Breakers in Distributed Microservices",
     "li:Stateful vs. Stateless AI Agents: Choosing the Right Memory Paradigm for Autonomous Workflows",
-    "li:What is an Inverted Index? The Data Structure Powering Search Engines"
+    "li:What is an Inverted Index? The Data Structure Powering Search Engines",
+    "li:What is Non-Uniform Memory Access (NUMA) Latency Cliff?"
   ]
 }

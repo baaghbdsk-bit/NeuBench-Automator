@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "ರೋಹಿತ್ ಶರ್ಮಾ",
     "court",
     "I took two iPhones on vacation. The Duo won me over.",
     "kick",
@@ -499,7 +498,8 @@
     "bsky:Nvidia deliberately kept GPU prices high through circular financing deals",
     "li:What is an Inverted Index? The Data Structure Powering Search Engines",
     "bsky:What is KV Caching in LLMs?",
-    "bsky:What is a Logit? The Raw Vector Before the Probability Curtain"
+    "bsky:What is a Logit? The Raw Vector Before the Probability Curtain",
+    "li:What is Non-Uniform Memory Access (NUMA) Latency Cliff?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1015,7 +1015,8 @@
         "post:f25491f53541a27c18364f917188b81e0b1dfa518bc17fc1c27035e8edabcf8f",
         "post:95cf70e8fb3d32ccd5e37b26948fc6244827147587772847f23eb84436504222",
         "post:0cbcac0e84bfa5010e4de90433d2821a81fda966b77749993503dc01064449ac",
-        "post:7e18fcb881971b1f43440073eb00e73bd29262cb214c771a009896b957f4332e"
+        "post:7e18fcb881971b1f43440073eb00e73bd29262cb214c771a009896b957f4332e",
+        "post:ff913dcc4935d6386770b994c9b8947f7635ff01352e53129998c6bc17dbe6e9"
       ],
       "pending": []
     },
