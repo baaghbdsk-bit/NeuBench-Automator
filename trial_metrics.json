@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T00:02:10.699616+00:00",
+    "last_updated": "2026-11-15T01:02:00.072870+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1288,
-    "original_posts_attempted": 343,
+    "total_cycles_executed": 1291,
+    "original_posts_attempted": 344,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 296,
-    "failed_operations": 88,
-    "ai_generation_requests": 722,
+    "actions_skipped": 297,
+    "failed_operations": 89,
+    "ai_generation_requests": 724,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T08:54:25.292590+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Demystifying Rotary Position Embeddings (RoPE): How Modern LLMs Keep Track of Token Order",
-      "content_preview": "Absolute position tracks fixed token indices. RoPE rotates Q/K vector pairs by position-scaled angles: the attention dot",
-      "reason": "",
-      "duration_s": 22.37
-    },
-    {
-      "timestamp": "2026-11-09T08:54:25.889353+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (40/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-09T09:02:39.605448+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "top",
-      "content_preview": "Bro really typed \"how to be on top\" into Google like his corporate overlord is gonna hand him a promotion instead of ano",
-      "reason": "",
-      "duration_s": 31.35
-    },
     {
       "timestamp": "2026-11-09T09:04:05.606653+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Multi-agent memory sharing fails when heterogeneous models store context differently. True system evolution demands mult",
       "reason": "",
       "duration_s": 4.21
+    },
+    {
+      "timestamp": "2026-11-15T01:01:53.766556+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Watching tech bros panic over reasoning drift and token costs is better entertainment than any summer blockbuster. Bro, ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.37
+    },
+    {
+      "timestamp": "2026-11-15T01:01:53.784522+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 156.5m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T01:02:00.051066+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Nvidia deliberately kept GPU prices high through circular financing deals",
+      "content_preview": "Financial engineering propping up hardware margins distorts true compute economics. When market clearing prices are arti",
+      "reason": "",
+      "duration_s": 6.26
     }
   ]
 }

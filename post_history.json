@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "सैमसंग",
     "Intel’s stock crashes, knocking $12B from government’s stake",
     "new york marathon 2026",
     "marco palestra",
@@ -499,7 +498,8 @@
     "bsky:Transportation secretary blames ‘routine’ equipment upgrade for grounding flights nationwide",
     "bsky:What is a Logit? The Raw Numerical Engine Behind AI Probabilities",
     "bsky:What is a Logit? The Raw Numerical Engine Behind AI Decisions",
-    "bsky:Demystifying GPU Tensor Cores and Mixed-Precision MMA Pipelines"
+    "bsky:Demystifying GPU Tensor Cores and Mixed-Precision MMA Pipelines",
+    "bsky:Nvidia deliberately kept GPU prices high through circular financing deals"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1010,7 +1010,8 @@
         "post:c93b9b289f09f8239afc7ff8564cd94ebb27dd918b25ba24a826699475b2f5fc",
         "post:a85218864ef34bf973f244241b331dee098f619a4a96f75c61fb9d7cd5be6e38",
         "post:62104d640a37cee6e238f49c647f5210630ae69ac22841f539d48ee5cc89e475",
-        "post:a2c4e60d40759fc27e727ccf852a206c8b7e0b3fdb1ae3835b8f3d004c614f77"
+        "post:a2c4e60d40759fc27e727ccf852a206c8b7e0b3fdb1ae3835b8f3d004c614f77",
+        "post:de6c85203efddad5e78320dd61d114339f2a5def4eb0d51f49becf550e40c16d"
       ],
       "pending": []
     },
