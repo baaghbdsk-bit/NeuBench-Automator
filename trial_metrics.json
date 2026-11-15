@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T20:01:56.481905+00:00",
+    "last_updated": "2026-11-15T21:02:11.139388+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1359,
-    "original_posts_attempted": 366,
+    "total_cycles_executed": 1362,
+    "original_posts_attempted": 367,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 317,
-    "failed_operations": 111,
-    "ai_generation_requests": 772,
+    "actions_skipped": 318,
+    "failed_operations": 112,
+    "ai_generation_requests": 774,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T01:02:25.016851+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 120.0m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-10T01:02:30.545083+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is KV Caching? The Secret to Fast LLM Generation",
-      "content_preview": "Never recompute prior attention states. KV caching trades precious VRAM for generational throughput by memoizing past Ke",
-      "reason": "",
-      "duration_s": 5.52
-    },
-    {
-      "timestamp": "2026-11-10T02:02:14.492869+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "mohammed siraj",
-      "content_preview": "Mohammed Siraj goes from defending boundaries like his life depends on it to throwing his hands up in sheer disbelief wh",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.72
-    },
     {
       "timestamp": "2026-11-10T02:02:14.506690+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Hardware fragmentation in AV stacks is inevitable under export controls. When substituting Nvidia silicon, the real engi",
       "reason": "",
       "duration_s": 5.44
+    },
+    {
+      "timestamp": "2026-11-15T21:02:04.283955+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending $400 in API tokens just to watch Claude existential-dread its way through a simple CSS fix while DeepSeek speed",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.26
+    },
+    {
+      "timestamp": "2026-11-15T21:02:04.305535+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T21:02:11.130577+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "NeuBench telemetry on 260+ models shows stark trade-offs in reasoning drift and token economics for long-horizon coding.",
+      "reason": "",
+      "duration_s": 6.81
     }
   ]
 }
