@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T11:02:07.926067+00:00",
+    "last_updated": "2026-11-15T12:02:13.542170+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1328,
-    "original_posts_attempted": 356,
+    "total_cycles_executed": 1331,
+    "original_posts_attempted": 357,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 307,
-    "failed_operations": 101,
-    "ai_generation_requests": 751,
+    "actions_skipped": 308,
+    "failed_operations": 102,
+    "ai_generation_requests": 753,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T18:03:05.125386+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is KV Caching? The LLM Memory Trick That Stops Infinite Re-Calculation",
-      "content_preview": "Never recompute what you can remember; memory is cheap compared to matrix multiplication loops. \n\nKV caching stores past",
-      "reason": "",
-      "duration_s": 5.69
-    },
-    {
-      "timestamp": "2026-11-09T18:03:05.922525+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (65/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-09T19:02:45.984303+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "mike tomlin dallas cowboys coaching rumors",
-      "content_preview": "Mike Tomlin leaving Pittsburgh for the Dallas circus is the exact kind of reality TV chaos this timeline needs. Let the ",
-      "reason": "",
-      "duration_s": 34.23
-    },
     {
       "timestamp": "2026-11-09T19:02:53.033464+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Logits are unnormalized raw scores—system opinions before Softmax translates them into a probability distribution summin",
       "reason": "",
       "duration_s": 4.93
+    },
+    {
+      "timestamp": "2026-11-15T12:02:08.224970+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI model had a severe reasoning drift while deb",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.14
+    },
+    {
+      "timestamp": "2026-11-15T12:02:08.239901+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T12:02:13.536015+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM API Outage Frequency & Degradation Index",
+      "content_preview": "Frontier LLM API degradation isn't just about hard outages; tail latency spikes and silent truncation are breaking produ",
+      "reason": "",
+      "duration_s": 5.29
     }
   ]
 }
