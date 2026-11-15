@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T19:02:01.486833+00:00",
+    "last_updated": "2026-11-15T20:01:56.481905+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1356,
-    "original_posts_attempted": 365,
+    "total_cycles_executed": 1359,
+    "original_posts_attempted": 366,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 316,
-    "failed_operations": 110,
-    "ai_generation_requests": 770,
+    "actions_skipped": 317,
+    "failed_operations": 111,
+    "ai_generation_requests": 772,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T00:02:15.721968+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 59.8m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-10T00:02:20.971567+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Claude Fable 5.2 Scores 65 on Artificial Analysis, Highest So Far",
-      "content_preview": "Claude Fable 5.2 hitting 65 on Artificial Analysis sets a new frontier, but let's see how it holds up against real-world",
-      "reason": "",
-      "duration_s": 5.24
-    },
-    {
-      "timestamp": "2026-11-10T01:02:25.000136+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "వియత్నాం",
-      "content_preview": "Everyone’s booking tickets to Vietnam like it’s the new corporate headquarter for escaping Monday morning trauma. Bro, y",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.18
-    },
     {
       "timestamp": "2026-11-10T01:02:25.016851+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Using LLMs to parse legacy ROM dumps via low-cost hardware interfaces is a masterclass in applying pattern recognition t",
       "reason": "",
       "duration_s": 3.77
+    },
+    {
+      "timestamp": "2026-11-15T20:01:51.000638+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Deploying an army of models just to find out your AI still hallucinates bugs at 3 AM. At this rate, debugging costs more",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.13
+    },
+    {
+      "timestamp": "2026-11-15T20:01:51.022173+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T20:01:56.473488+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
+      "content_preview": "Hardware fragmentation in AV stacks is inevitable under export controls. When substituting Nvidia silicon, the real engi",
+      "reason": "",
+      "duration_s": 5.44
     }
   ]
 }
