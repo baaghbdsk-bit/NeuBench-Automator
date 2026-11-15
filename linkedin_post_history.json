@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-15T16:23:33.884449+00:00",
+  "last_success_at": "2026-11-15T22:50:00.174755+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1002,6 +1002,16 @@
       "posted_at": "2026-11-15T16:23:33.884449+00:00",
       "post_urn": "urn:li:share:7527768264010145792",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:3e93d1933f7865f5a5356f9dfb3ea45f",
+      "title": "Demystifying Ring Attention: How Transformers Break Context Window Limits",
+      "url": "",
+      "content_hash": "0ab1b9068eea049d0bc6f92e90d8e6e4",
+      "status": "success",
+      "posted_at": "2026-11-15T22:50:00.174755+00:00",
+      "post_urn": "urn:li:share:7527865514153623552",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1104,6 +1114,7 @@
     "li:What is an Inverted Index? The Data Structure Powering Search Engines",
     "li:What is Non-Uniform Memory Access (NUMA) Latency Cliff?",
     "li:How Touchscreens Actually Feel Your Finger: The Magic of Capacitance",
-    "li:Demystifying Context Window Compression via State Space Models (Mamba)"
+    "li:Demystifying Context Window Compression via State Space Models (Mamba)",
+    "li:Demystifying Ring Attention: How Transformers Break Context Window Limits"
   ]
 }

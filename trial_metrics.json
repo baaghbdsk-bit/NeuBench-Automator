@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T22:16:52.885936+00:00",
+    "last_updated": "2026-11-15T22:50:00.188324+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1368,
+    "total_cycles_executed": 1369,
     "original_posts_attempted": 369,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 320,
     "failed_operations": 114,
-    "ai_generation_requests": 778,
+    "ai_generation_requests": 779,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T03:59:50.099624+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "zion williamson",
-      "content_preview": "Zion Williamson moves with the explosive speed of a man trying to beat the closing time at a Louisiana all-you-can-eat b",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 6.33
-    },
     {
       "timestamp": "2026-11-10T03:59:50.119677+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Logits are raw model opinions before the softmax transformation. Think of them like unnormalized game points scored by t",
       "reason": "",
       "duration_s": 5.36
+    },
+    {
+      "timestamp": "2026-11-15T22:50:00.188305+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Loading a million-token document into a Large Language Model sounds futuristic, but under the hood, standard self-attent",
+      "reason": "",
+      "duration_s": 18.16
     }
   ]
 }
