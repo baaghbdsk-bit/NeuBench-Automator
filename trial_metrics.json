@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T22:50:00.188324+00:00",
+    "last_updated": "2026-11-15T23:02:03.915608+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1369,
-    "original_posts_attempted": 369,
+    "total_cycles_executed": 1372,
+    "original_posts_attempted": 370,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 320,
-    "failed_operations": 114,
-    "ai_generation_requests": 779,
+    "actions_skipped": 321,
+    "failed_operations": 115,
+    "ai_generation_requests": 781,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T03:59:50.119677+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 23.5m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-10T03:59:57.373249+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Anthropic reportedly plans to move forward with IPO plans",
-      "content_preview": "Public markets demand predictable inference economics and CAPEX amortization. If Anthropic moves to an IPO, watch how th",
-      "reason": "",
-      "duration_s": 7.25
-    },
-    {
-      "timestamp": "2026-11-10T04:06:13.718714+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "jeffrey epstein",
-      "content_preview": "Netflix is definitely already greenlighting a 6-part true crime docuseries about the Epstein flight logs just to end it ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.4
-    },
     {
       "timestamp": "2026-11-10T04:06:13.739433+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Loading a million-token document into a Large Language Model sounds futuristic, but under the hood, standard self-attent",
       "reason": "",
       "duration_s": 18.16
+    },
+    {
+      "timestamp": "2026-11-15T23:01:58.900355+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending my entire monthly salary just to watch an LLM hallucinate a syntax error on loop. AI is basically just expensiv",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.11
+    },
+    {
+      "timestamp": "2026-11-15T23:01:58.922136+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (5/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T23:02:03.907196+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Is bad news for Jensen Huang also bad news for the AI industry?",
+      "content_preview": "Nvidia’s capex dominance != the foundational velocity of ML. Hardware consolidation risks single-vendor bottlenecks, but",
+      "reason": "",
+      "duration_s": 4.98
     }
   ]
 }

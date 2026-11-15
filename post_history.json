@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "It's the Memory Latency, Stupid",
     "OpenAI reportedly lowers funding target for new round",
     "'We came back from hell', say Ukrainians after years in Russia-occupied front-line city",
     "समाचार खबरें",
@@ -499,7 +498,8 @@
     "bsky:TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
     "bsky:Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]",
     "bsky:Your Agent Will Pick the Hackable One",
-    "bsky:What is a Logit? The Raw Neural Network Currency"
+    "bsky:What is a Logit? The Raw Neural Network Currency",
+    "bsky:Is bad news for Jensen Huang also bad news for the AI industry?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1036,7 +1036,8 @@
         "post:f9165babc320039de17ca1b0b0638f9799113f53fc222b31fbd048bfb884b1a8",
         "post:99fffd53fb4c4dfcf51741a87b0b94d1e176b1d95b64f99958f38c1fa1545525",
         "post:1a230a74c3fa12dc6610c31bee459501d057c411e199f04ec8523ba6b7d1e2da",
-        "post:8a3e2fd683824237abef3a3d0c3b915ecdaf58fcf58494316b423d1796dce16e"
+        "post:8a3e2fd683824237abef3a3d0c3b915ecdaf58fcf58494316b423d1796dce16e",
+        "post:63c430c7c4059d42d9960b48faf66a35f17d8f5d76f620b289f5fc3e47de36c6"
       ],
       "pending": []
     },
