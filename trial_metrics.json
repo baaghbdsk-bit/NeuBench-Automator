@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T17:01:59.864414+00:00",
+    "last_updated": "2026-11-15T18:01:56.053120+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1350,
-    "original_posts_attempted": 363,
+    "total_cycles_executed": 1353,
+    "original_posts_attempted": 364,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 314,
-    "failed_operations": 108,
-    "ai_generation_requests": 766,
+    "actions_skipped": 315,
+    "failed_operations": 109,
+    "ai_generation_requests": 768,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T22:02:18.529306+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (76/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-09T23:02:15.355328+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "పవన్ కళ్యాణ్",
-      "content_preview": "Man dodging shoot schedules, manifesto promises, and script narrations like Neo dodging bullets in Matrix. Absolute mult",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.36
-    },
-    {
-      "timestamp": "2026-11-09T23:02:26.442700+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Modern NVMe drives can stream data at 7 GB/s, yet traditional AI pipelines crawl at a fraction of that speed during larg",
-      "reason": "",
-      "duration_s": 11.08
-    },
     {
       "timestamp": "2026-11-09T23:02:30.902499+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "EgoX solves cross-embodiment scaling by aligning human, real, and sim data via \"embodiment dreaming\"—bridging kinematic ",
       "reason": "",
       "duration_s": 6.48
+    },
+    {
+      "timestamp": "2026-11-15T18:01:50.212756+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI coding agent went on a 260-model bender and ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.27
+    },
+    {
+      "timestamp": "2026-11-15T18:01:50.232862+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T18:01:55.919693+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
+      "content_preview": "Geopolitical chip restrictions forcing China’s AV stack to pivot from Nvidia. Fallback architectures rely on domestic AS",
+      "reason": "",
+      "duration_s": 5.68
     }
   ]
 }
