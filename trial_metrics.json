@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T03:01:54.113570+00:00",
+    "last_updated": "2026-11-15T04:01:55.408392+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1300,
-    "original_posts_attempted": 347,
+    "total_cycles_executed": 1303,
+    "original_posts_attempted": 348,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 299,
-    "failed_operations": 92,
-    "ai_generation_requests": 731,
+    "actions_skipped": 300,
+    "failed_operations": 93,
+    "ai_generation_requests": 733,
     "ai_generation_failures": 5,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T11:03:59.060312+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Authorization Drift in LLM Agents: Evaluating Boundary Compliance in Multi-Step Tool Use",
-      "content_preview": "LLM agents executing multi-step tool use often exhibit authorization drift across data, scope, and time—without adversar",
-      "reason": "",
-      "duration_s": 15.22
-    },
-    {
-      "timestamp": "2026-11-09T11:03:59.615417+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (49/28).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-09T12:02:52.675203+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "cpu-z 64gb ram drop",
-      "content_preview": "Bro dropped 64GB RAM just to open 4 tabs of Chrome and still complain about lag. We are not building NASA rockets, we ar",
-      "reason": "",
-      "duration_s": 34.24
-    },
     {
       "timestamp": "2026-11-09T12:03:11.687821+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Treat logits as unbounded utility scores, not probabilities. High positive = strong conviction; negative = opposition. \n",
       "reason": "",
       "duration_s": 6.45
+    },
+    {
+      "timestamp": "2026-11-15T04:01:49.245813+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Companies out here choosing AI models like they’re picking a Bollywood hero for a ₹600cr epic—either bankrupting the stu",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.27
+    },
+    {
+      "timestamp": "2026-11-15T04:01:49.268144+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 155.1m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T04:01:55.399883+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
+      "content_preview": "Benchmarking UAV stabilization on static scenes breaks down over dynamic intersections. Moving vehicles hijack feature-m",
+      "reason": "",
+      "duration_s": 6.12
     }
   ]
 }
