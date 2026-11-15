@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T18:01:56.053120+00:00",
+    "last_updated": "2026-11-15T19:02:01.486833+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1353,
-    "original_posts_attempted": 364,
+    "total_cycles_executed": 1356,
+    "original_posts_attempted": 365,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 315,
-    "failed_operations": 109,
-    "ai_generation_requests": 768,
+    "actions_skipped": 316,
+    "failed_operations": 110,
+    "ai_generation_requests": 770,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T23:02:30.902499+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is Speculative Decoding?",
-      "content_preview": "Speculative decoding in LLMs: Use a cheap assistant to draft and a smart reviewer to verify. Parallelism makes batch val",
-      "reason": "",
-      "duration_s": 4.45
-    },
-    {
-      "timestamp": "2026-11-09T23:02:31.557965+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (78/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-10T00:02:15.701793+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "grizzlies vs raptors",
-      "content_preview": "Jurassic Park vs. The Revenant. Whichever wins, humanity loses. Just let them fight in the wild and broadcast it on Prim",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.28
-    },
     {
       "timestamp": "2026-11-10T00:02:15.721968+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Geopolitical chip restrictions forcing China’s AV stack to pivot from Nvidia. Fallback architectures rely on domestic AS",
       "reason": "",
       "duration_s": 5.68
+    },
+    {
+      "timestamp": "2026-11-15T19:01:57.686176+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley rents just to watch AI hallucinate my semicolons while DeepSeek does it for the price of half a cu",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 0.97
+    },
+    {
+      "timestamp": "2026-11-15T19:01:57.702591+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T19:02:01.480808+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]",
+      "content_preview": "Using LLMs to parse legacy ROM dumps via low-cost hardware interfaces is a masterclass in applying pattern recognition t",
+      "reason": "",
+      "duration_s": 3.77
     }
   ]
 }

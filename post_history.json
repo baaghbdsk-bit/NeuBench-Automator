@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "'It's been killing me!' Celebrity Traitors winners relieved the secret is out",
     "apple tv",
     "app state vs ga southern",
     "It's the Memory Latency, Stupid",
@@ -499,7 +498,8 @@
     "bsky:Demystifying Continuous Batching in LLM Inference",
     "bsky:Understanding Positional Embeddings in Modern LLMs",
     "bsky:All AI-generated code should be Open Source",
-    "bsky:TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry"
+    "bsky:TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
+    "bsky:Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1031,7 +1031,8 @@
         "post:a28654968ed4971780dcaf89bbc2b09b7067388b1eb115e3488fb220adf3f58c",
         "post:86413a1450cef21ce8607fffc6b1f519f8bc1637c7d049110cf5f130d39daa1d",
         "post:a1d75c2108861a7e9e957119f3547ad72c36619f28fc74a7e49b40bdf943b35e",
-        "post:6786bbcd20cc0af0de4c131107894587a4a7efd44bfa14fd1d2719626cb650dc"
+        "post:6786bbcd20cc0af0de4c131107894587a4a7efd44bfa14fd1d2719626cb650dc",
+        "post:365828c281fa1c09a46cdee8c18d056965a494bf02da47ef837ea2a08dc70163"
       ],
       "pending": []
     },
