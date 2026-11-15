@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T21:02:11.139388+00:00",
+    "last_updated": "2026-11-15T22:01:57.057784+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1362,
-    "original_posts_attempted": 367,
+    "total_cycles_executed": 1365,
+    "original_posts_attempted": 368,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 318,
-    "failed_operations": 112,
-    "ai_generation_requests": 774,
+    "actions_skipped": 319,
+    "failed_operations": 113,
+    "ai_generation_requests": 776,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T02:02:14.506690+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 179.8m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-10T02:02:20.587620+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ODE Policy: Robot Learning via Action Dynamics, Not Actions",
-      "content_preview": "Mapping discrete observations directly to action values ignores the continuity of physical space. ODE policies model act",
-      "reason": "",
-      "duration_s": 6.08
-    },
-    {
-      "timestamp": "2026-11-10T03:14:11.240302+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "lsu basketball",
-      "content_preview": "Watching LSU basketball is basically an extreme sport for your blood pressure where defense is strictly optional and vib",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 3.22
-    },
     {
       "timestamp": "2026-11-10T03:14:23.550396+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "NeuBench telemetry on 260+ models shows stark trade-offs in reasoning drift and token economics for long-horizon coding.",
       "reason": "",
       "duration_s": 6.81
+    },
+    {
+      "timestamp": "2026-11-15T22:01:51.342915+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying rent for my apartment is cheaper than running a single complex coding prompt on these new LLMs. We are officially",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.11
+    },
+    {
+      "timestamp": "2026-11-15T22:01:51.363481+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T22:01:57.049211+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Your Agent Will Pick the Hackable One",
+      "content_preview": "Autonomous agents optimize for completion speed, not zero-day hygiene. When friction drops, security checks are bypassed",
+      "reason": "",
+      "duration_s": 5.67
     }
   ]
 }

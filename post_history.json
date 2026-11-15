@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "apple tv",
     "app state vs ga southern",
     "It's the Memory Latency, Stupid",
     "OpenAI reportedly lowers funding target for new round",
@@ -499,7 +498,8 @@
     "bsky:Understanding Positional Embeddings in Modern LLMs",
     "bsky:All AI-generated code should be Open Source",
     "bsky:TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
-    "bsky:Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]"
+    "bsky:Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]",
+    "bsky:Your Agent Will Pick the Hackable One"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1034,7 +1034,8 @@
         "post:6786bbcd20cc0af0de4c131107894587a4a7efd44bfa14fd1d2719626cb650dc",
         "post:365828c281fa1c09a46cdee8c18d056965a494bf02da47ef837ea2a08dc70163",
         "post:f9165babc320039de17ca1b0b0638f9799113f53fc222b31fbd048bfb884b1a8",
-        "post:99fffd53fb4c4dfcf51741a87b0b94d1e176b1d95b64f99958f38c1fa1545525"
+        "post:99fffd53fb4c4dfcf51741a87b0b94d1e176b1d95b64f99958f38c1fa1545525",
+        "post:1a230a74c3fa12dc6610c31bee459501d057c411e199f04ec8523ba6b7d1e2da"
       ],
       "pending": []
     },
