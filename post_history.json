@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "aishwarya rai",
     "wednesday",
     "'It's been killing me!' Celebrity Traitors winners relieved the secret is out",
     "apple tv",
@@ -499,7 +498,8 @@
     "bsky:Raft Consensus vs Paxos in High Scale Clusters",
     "bsky:What is a Logit? The Raw Numbers Behind AI Confidence",
     "bsky:Demystifying Continuous Batching in LLM Inference",
-    "bsky:Understanding Positional Embeddings in Modern LLMs"
+    "bsky:Understanding Positional Embeddings in Modern LLMs",
+    "bsky:All AI-generated code should be Open Source"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1027,7 +1027,8 @@
         "post:85f8f45ed00e45334b652daba5beeeefb13ba2b374fc9b8accf0c0258173ba13",
         "post:a3b73d30d73cce41fded0c8c813602ae069f121ed254ed6f68de8bd0d3d33514",
         "post:a05b6d11176357a69522cd72defa04c5ec3f8a15e476a4e77b03229af3eb1fe7",
-        "post:d63930aa5f85185b242420b1b790ff66cd0e297dc29f085b4713ecf412262276"
+        "post:d63930aa5f85185b242420b1b790ff66cd0e297dc29f085b4713ecf412262276",
+        "post:a28654968ed4971780dcaf89bbc2b09b7067388b1eb115e3488fb220adf3f58c"
       ],
       "pending": []
     },

@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T15:02:09.337167+00:00",
+    "last_updated": "2026-11-15T16:02:13.904647+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1340,
-    "original_posts_attempted": 360,
+    "total_cycles_executed": 1343,
+    "original_posts_attempted": 361,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 311,
-    "failed_operations": 105,
-    "ai_generation_requests": 759,
+    "actions_skipped": 312,
+    "failed_operations": 106,
+    "ai_generation_requests": 761,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-09T20:18:37.393354+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 27.6m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-09T20:18:43.634380+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy",
-      "content_preview": "C-suite optics shifting as GPU allocation meets regulatory scrutiny. When hardware monopolists start missing developer s",
-      "reason": "",
-      "duration_s": 6.24
-    },
-    {
-      "timestamp": "2026-11-09T20:18:44.424279+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (73/28).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-09T21:02:45.025886+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "VAE latent compression enabled tractable video gen, but 2x spatial scaling quadruples token counts and breaks control gr",
       "reason": "",
       "duration_s": 4.56
+    },
+    {
+      "timestamp": "2026-11-15T16:02:09.229890+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying $50 to watch an AI overthink a simple loop for 10 minutes just to output \"As an AI model...\" \n\nBro, I could hire ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.54
+    },
+    {
+      "timestamp": "2026-11-15T16:02:09.251876+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T16:02:13.895633+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "All AI-generated code should be Open Source",
+      "content_preview": "Mandating AI code to be open-source ignores attribution mechanics and copyright lineage. If deterministic outputs derive",
+      "reason": "",
+      "duration_s": 4.64
     }
   ]
 }
