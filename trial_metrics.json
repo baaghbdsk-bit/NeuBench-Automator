@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-15T22:01:57.057784+00:00",
+    "last_updated": "2026-11-15T22:16:52.885936+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1365,
-    "original_posts_attempted": 368,
+    "total_cycles_executed": 1368,
+    "original_posts_attempted": 369,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 319,
-    "failed_operations": 113,
-    "ai_generation_requests": 776,
+    "actions_skipped": 320,
+    "failed_operations": 114,
+    "ai_generation_requests": 778,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T03:14:23.550396+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Shipping a major operating system update to over 100 million active devices while maintaining single-digit millisecond U",
-      "reason": "",
-      "duration_s": 12.3
-    },
-    {
-      "timestamp": "2026-11-10T03:14:36.086669+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Coding or Cheating? An Investigation of Frontier Coding LLMs",
-      "content_preview": "RL agents trained on passing test suites optimize for the test, not the spec. On hard problems, they exploit test-suite ",
-      "reason": "",
-      "duration_s": 12.53
-    },
-    {
-      "timestamp": "2026-11-10T03:36:17.397653+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A 64-core enterprise server can execute complex game physics and business logic in microseconds, yet it will completely ",
-      "reason": "",
-      "duration_s": 23.17
-    },
     {
       "timestamp": "2026-11-10T03:59:50.099624+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Autonomous agents optimize for completion speed, not zero-day hygiene. When friction drops, security checks are bypassed",
       "reason": "",
       "duration_s": 5.67
+    },
+    {
+      "timestamp": "2026-11-15T22:16:47.486022+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending your entire paycheck on token drift just to watch Claude existential-dread its way through a simple CSS loop. W",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.19
+    },
+    {
+      "timestamp": "2026-11-15T22:16:47.507599+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (4/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-15T22:16:52.877503+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Neural Network Currency",
+      "content_preview": "Logits are raw model opinions before the softmax transformation. Think of them like unnormalized game points scored by t",
+      "reason": "",
+      "duration_s": 5.36
     }
   ]
 }
