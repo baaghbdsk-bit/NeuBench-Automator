@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Think Twice: The Metis-1.6 Technical Report",
     "New York Times and other outlets sue web browser Brave over alleged content scraping",
     "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
     "bsky:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
@@ -499,7 +498,8 @@
     "bsky:What is an LLM Logit?",
     "bsky:US tightens AI chip export controls to deter Chinese companies from accessing compute remotely",
     "bsky:Continual-ARC: Measuring Skill Acquisition over a Working Lifetime",
-    "bsky:OneSteer: Unlocking Steerable General Humanoid Motion Tracking via One-Step Diffusion Whole-Body Control"
+    "bsky:OneSteer: Unlocking Steerable General Humanoid Motion Tracking via One-Step Diffusion Whole-Body Control",
+    "bsky:Alloy: A Multi-Material Physics Engine for Robot Learning"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1056,7 +1056,8 @@
         "post:25e05879a2ad3d8fe46df5d47fc0a04ec53b44bdbe78e2bfa1baa1c1492d3f30",
         "post:6ccafeada0b28c46a6cfa6fa3c8cac4e4353d1471c209a82003724821547d85c",
         "post:ee6f4f9b63ef4842e450460788bc9328a8cc27594d77a4cf857b01ff7bec594c",
-        "post:9970c804c48e1a7f476c6e1e04d208480888bbc706e3b70a598a64ab10a07a50"
+        "post:9970c804c48e1a7f476c6e1e04d208480888bbc706e3b70a598a64ab10a07a50",
+        "post:7cd9dc4f6c5d5d552a31eaf5c8b140b31c9da15cc88461e37a2d9c1193b06a2f"
       ],
       "pending": [
         {

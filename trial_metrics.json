@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T18:01:56.450086+00:00",
+    "last_updated": "2026-11-16T19:02:36.145733+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1432,
-    "original_posts_attempted": 390,
+    "total_cycles_executed": 1435,
+    "original_posts_attempted": 391,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 339,
-    "failed_operations": 136,
-    "ai_generation_requests": 823,
-    "ai_generation_failures": 6,
+    "actions_skipped": 340,
+    "failed_operations": 137,
+    "ai_generation_requests": 825,
+    "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-11T17:11:14.370065+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "काव्या मारन",
-      "content_preview": "Cameramen missing every single wicket just to zoom in on Kavya Maran's soul-crushing disappointment is the real premium ",
-      "reason": "",
-      "duration_s": 35.44
-    },
-    {
-      "timestamp": "2026-11-11T17:11:14.390418+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 1.7m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-11T17:11:28.855453+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "From Tool State to Scientific Action: Auditing Decision Provenance in Biomedical Research Agents",
-      "content_preview": "Deterministic output doesn't mean correct provenance. BioAgent-DF audits biomedical agents by restoring/transplanting st",
-      "reason": "",
-      "duration_s": 14.46
-    },
     {
       "timestamp": "2026-11-11T17:12:46.457176+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "OneSteer achieves real-time humanoid control by combining multi-step diffusion tracking with one-step test-time steering",
       "reason": "",
       "duration_s": 4.91
+    },
+    {
+      "timestamp": "2026-11-16T19:02:27.593457+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+      "duration_s": 20.16
+    },
+    {
+      "timestamp": "2026-11-16T19:02:27.649834+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.04
+    },
+    {
+      "timestamp": "2026-11-16T19:02:36.138003+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Alloy: A Multi-Material Physics Engine for Robot Learning",
+      "content_preview": "Multi-material simulation usually means stitching disparate solvers together, introducing severe integration drift and l",
+      "reason": "",
+      "duration_s": 8.48
     }
   ]
 }
