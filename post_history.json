@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Democrats are used to heartbreak in Texas - could Talarico turn the tide?",
     "रामलीला मैदान, दिल्ली",
     "celtic fc",
     "झिम्बाब्वे वि अफगाणिस्तान",
@@ -499,7 +498,8 @@
     "bsky:CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving",
     "li:LLM KV Cache Eviction and PagedAttention",
     "bsky:eDIAR: Training-Free Open-Speaker Streaming Diarization for Long Meetings and Large Archives via e-means",
-    "bsky:Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents"
+    "bsky:Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
+    "bsky:MMFlash: Faster Speculative Decoding for Vision-Language Models"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1046,7 +1046,8 @@
         "post:41d4c2e212e08110394ba2e4127c32fd7813cdc81c4f78312e4c9b5cd9f1b531",
         "post:22f43e82e5a3d3566bfc090db8257c159a4b4b29ad534631221e145d3f551ff7",
         "post:9a472c6047ead8cb84edc8cf583f7e2ceaae73f0ab99ecf2fc3e52c853084241",
-        "post:85de38e89eb85cc50a947ae3a08f6c473d6580ec4f335ea6463c3f0f538fbe8c"
+        "post:85de38e89eb85cc50a947ae3a08f6c473d6580ec4f335ea6463c3f0f538fbe8c",
+        "post:4d64914ae0fe17cb7e39dccb0be63799fe4369001e134fc066312710d502f51f"
       ],
       "pending": [
         {
