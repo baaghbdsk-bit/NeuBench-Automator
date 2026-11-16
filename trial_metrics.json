@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T16:02:20.447274+00:00",
+    "last_updated": "2026-11-16T18:01:56.450086+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1429,
-    "original_posts_attempted": 389,
+    "total_cycles_executed": 1432,
+    "original_posts_attempted": 390,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 338,
-    "failed_operations": 135,
-    "ai_generation_requests": 821,
+    "actions_skipped": 339,
+    "failed_operations": 136,
+    "ai_generation_requests": 823,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T22:02:38.371465+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (30/28).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-11T17:07:53.569520+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "At 3.3 volts, a CPU is a raging inferno of electrical noise, yet it executes billions of precise calculations per second",
-      "reason": "",
-      "duration_s": 9.65
-    },
-    {
-      "timestamp": "2026-11-11T17:09:30.994039+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Horizontal Pod Autoscaling Mechanics\n\nUnderstanding the real-world mechanics of Horizontal Pod Autoscaling Mechanics is ",
-      "reason": "",
-      "duration_s": 14.38
-    },
     {
       "timestamp": "2026-11-11T17:11:14.370065+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Continual learning benchmarks often fail to measure true lifetime skill acquisition, remaining domain-locked and statele",
       "reason": "",
       "duration_s": 9.81
+    },
+    {
+      "timestamp": "2026-11-16T18:01:51.387721+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley rent just to watch my AI hallucinate a Python loop for 45 minutes while bankrupting my API credits",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.1
+    },
+    {
+      "timestamp": "2026-11-16T18:01:51.401941+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T18:01:56.320751+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "OneSteer: Unlocking Steerable General Humanoid Motion Tracking via One-Step Diffusion Whole-Body Control",
+      "content_preview": "OneSteer achieves real-time humanoid control by combining multi-step diffusion tracking with one-step test-time steering",
+      "reason": "",
+      "duration_s": 4.91
     }
   ]
 }
