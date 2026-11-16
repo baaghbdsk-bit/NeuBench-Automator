@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T10:02:11.787001+00:00",
+    "last_updated": "2026-11-16T11:02:02.018861+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1408,
-    "original_posts_attempted": 382,
+    "total_cycles_executed": 1411,
+    "original_posts_attempted": 383,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 331,
-    "failed_operations": 128,
-    "ai_generation_requests": 807,
+    "actions_skipped": 332,
+    "failed_operations": 129,
+    "ai_generation_requests": 809,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T17:02:22.778891+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "How the Internet Actually Works",
-      "content_preview": "The internet is a global highway system for packets. Simplicity and measurable profiling of socket buffers and MTUs alwa",
-      "reason": "",
-      "duration_s": 4.6
-    },
-    {
-      "timestamp": "2026-11-10T18:02:25.818098+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "stubhub",
-      "content_preview": "Nothing humbles you faster than watching a concert ticket price jump from $50 to $4,200 on StubHub because of \"dynamic p",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.41
-    },
-    {
-      "timestamp": "2026-11-10T18:02:49.255189+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "B-Tree vs. LSM-Tree: How Databases Store and Write Your Data\n\nUnderstanding the real-world mechanics of B-Tree vs. LSM-T",
-      "reason": "",
-      "duration_s": 23.43
-    },
     {
       "timestamp": "2026-11-10T18:02:55.140472+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "LLM KV cache: memoize Key/Value tensors to skip recomputing attention over historical context. \n\nAnalogy: keeping past p",
       "reason": "",
       "duration_s": 4.89
+    },
+    {
+      "timestamp": "2026-11-16T11:01:56.579798+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying a month's rent to watch an AI overthink a 5-line bug for 40 minutes just to suggest turning it off and on again. ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.17
+    },
+    {
+      "timestamp": "2026-11-16T11:01:56.601136+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T11:02:02.008431+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Vector Embedding? The Secret Language of AI",
+      "content_preview": "Meaning is distance: in high-dimensional spaces, semantic similarity maps to geometric proximity. Imagine stat grids for",
+      "reason": "",
+      "duration_s": 5.4
     }
   ]
 }
