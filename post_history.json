@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "OpenAI reportedly lowers funding target for new round",
     "'We came back from hell', say Ukrainians after years in Russia-occupied front-line city",
     "समाचार खबरें",
     "colorado vs chicago",
@@ -499,7 +498,8 @@
     "bsky:Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]",
     "bsky:Your Agent Will Pick the Hackable One",
     "bsky:What is a Logit? The Raw Neural Network Currency",
-    "bsky:Is bad news for Jensen Huang also bad news for the AI industry?"
+    "bsky:Is bad news for Jensen Huang also bad news for the AI industry?",
+    "bsky:Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1037,7 +1037,8 @@
         "post:99fffd53fb4c4dfcf51741a87b0b94d1e176b1d95b64f99958f38c1fa1545525",
         "post:1a230a74c3fa12dc6610c31bee459501d057c411e199f04ec8523ba6b7d1e2da",
         "post:8a3e2fd683824237abef3a3d0c3b915ecdaf58fcf58494316b423d1796dce16e",
-        "post:63c430c7c4059d42d9960b48faf66a35f17d8f5d76f620b289f5fc3e47de36c6"
+        "post:63c430c7c4059d42d9960b48faf66a35f17d8f5d76f620b289f5fc3e47de36c6",
+        "post:4a8cf6e5693e34e47b5e7644e2e2f0da10e86d08532763a540213165e73bf2b2"
       ],
       "pending": []
     },
