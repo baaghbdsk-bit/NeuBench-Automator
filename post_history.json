@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
     "bsky:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
     "th:IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
     "Free dhaniya and mirchi entitlement",
@@ -499,7 +498,8 @@
     "bsky:Continual-ARC: Measuring Skill Acquisition over a Working Lifetime",
     "bsky:OneSteer: Unlocking Steerable General Humanoid Motion Tracking via One-Step Diffusion Whole-Body Control",
     "bsky:Alloy: A Multi-Material Physics Engine for Robot Learning",
-    "bsky:HTTP/1.1 vs HTTP/2 vs HTTP/3"
+    "bsky:HTTP/1.1 vs HTTP/2 vs HTTP/3",
+    "bsky:Dual Flow: Joint Image-Measurement Interpolation for Inverse Problems"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1058,7 +1058,8 @@
         "post:ee6f4f9b63ef4842e450460788bc9328a8cc27594d77a4cf857b01ff7bec594c",
         "post:9970c804c48e1a7f476c6e1e04d208480888bbc706e3b70a598a64ab10a07a50",
         "post:7cd9dc4f6c5d5d552a31eaf5c8b140b31c9da15cc88461e37a2d9c1193b06a2f",
-        "post:34009e0fae72ac6cf13c940e9e1b92010bb505662c042afdeea554f832b94775"
+        "post:34009e0fae72ac6cf13c940e9e1b92010bb505662c042afdeea554f832b94775",
+        "post:4ecef4f57b5d8805b694c65e33cf443453b77fdd01e4c5255031cf85235b09fc"
       ],
       "pending": [
         {
