@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T11:02:02.018861+00:00",
+    "last_updated": "2026-11-16T12:02:11.730769+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1411,
-    "original_posts_attempted": 383,
+    "total_cycles_executed": 1414,
+    "original_posts_attempted": 384,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 332,
-    "failed_operations": 129,
-    "ai_generation_requests": 809,
+    "actions_skipped": 333,
+    "failed_operations": 130,
+    "ai_generation_requests": 811,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T18:02:55.140472+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LCM-Promo: An LLM-Based Uplift Model for Promotion Allocation",
-      "content_preview": "Finetuning LLMs on transactional logs to learn monotonic promotion-response curves (LCM-Promo) bridges generative priors",
-      "reason": "",
-      "duration_s": 5.88
-    },
-    {
-      "timestamp": "2026-11-10T19:02:41.147916+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Scrum master daily rituals",
-      "content_preview": "We have 6 project managers, 2 scrum masters, and 1 guy named Dave who’s currently fighting for his life writing the enti",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.63
-    },
-    {
-      "timestamp": "2026-11-10T19:02:41.175045+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 59.9m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-10T19:02:47.330463+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Meaning is distance: in high-dimensional spaces, semantic similarity maps to geometric proximity. Imagine stat grids for",
       "reason": "",
       "duration_s": 5.4
+    },
+    {
+      "timestamp": "2026-11-16T12:02:05.152336+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI coding agent went on a 260-model bender and ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 8.57
+    },
+    {
+      "timestamp": "2026-11-16T12:02:05.169791+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T12:02:11.723707+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Mobile AI Factory: Building Specialized Language Models for Your Mobile Device",
+      "content_preview": "Mobile SLMs solve privacy & latency constraints, but manual fine-tuning per device class doesn't scale. Mobile AI Factor",
+      "reason": "",
+      "duration_s": 6.52
     }
   ]
 }

@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "झिम्बाब्वे वि अफगाणिस्तान",
     "Here’s what ‘renoa’ — the first new fiber in 25 years — feels like",
     "Proving and improving the Platonic Representation Hypothesis with JEPAs",
     "tuten",
@@ -499,7 +498,8 @@
     "bsky:Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
     "bsky:MMFlash: Faster Speculative Decoding for Vision-Language Models",
     "bsky:What is an LLM KV Cache?",
-    "bsky:What is a Vector Embedding? The Secret Language of AI"
+    "bsky:What is a Vector Embedding? The Secret Language of AI",
+    "bsky:Mobile AI Factory: Building Specialized Language Models for Your Mobile Device"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1049,7 +1049,8 @@
         "post:85de38e89eb85cc50a947ae3a08f6c473d6580ec4f335ea6463c3f0f538fbe8c",
         "post:4d64914ae0fe17cb7e39dccb0be63799fe4369001e134fc066312710d502f51f",
         "post:b0fbf95b3b32547f5013fc0271e6be6b3dfa8e5f0e08078b56110f03521b6a82",
-        "post:5bcd7c3ff8205f3e6812f7022dba6b484743732c2a503aaf5b1cb3d5d2aea5a1"
+        "post:5bcd7c3ff8205f3e6812f7022dba6b484743732c2a503aaf5b1cb3d5d2aea5a1",
+        "post:81b048b5048bb41ef7d14e597174eddf748876028bbc2a94aa5705ec666af29c"
       ],
       "pending": [
         {
