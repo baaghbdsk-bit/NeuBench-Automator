@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T19:02:36.145733+00:00",
+    "last_updated": "2026-11-16T19:38:13.343393+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1435,
+    "total_cycles_executed": 1436,
     "original_posts_attempted": 391,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 340,
     "failed_operations": 137,
-    "ai_generation_requests": 825,
+    "ai_generation_requests": 826,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-11T17:12:46.457176+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "usman nurmagomedov",
-      "content_preview": "Another Nurmagomedov born to make people question their entire life choices and grappling credentials while trying to ge",
-      "reason": "",
-      "duration_s": 76.9
-    },
     {
       "timestamp": "2026-11-11T17:34:32.123606+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Multi-material simulation usually means stitching disparate solvers together, introducing severe integration drift and l",
       "reason": "",
       "duration_s": 8.48
+    },
+    {
+      "timestamp": "2026-11-16T19:38:13.343374+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your expensive A100 GPU cluster is sitting idle 60 percent of the time during LLM inference, and static batching is the ",
+      "reason": "",
+      "duration_s": 30.45
     }
   ]
 }

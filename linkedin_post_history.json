@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-16T06:02:13.826717+00:00",
+  "last_success_at": "2026-11-16T19:38:13.332822+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1032,6 +1032,16 @@
       "posted_at": "2026-11-16T06:02:13.826717+00:00",
       "post_urn": "urn:li:share:7527974288105259008",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:18976291c620ccefb34f176eb7484a64",
+      "title": "Continuous Batching in LLM Inference: The Pipeline Revolution for High-Throughput APIs",
+      "url": "",
+      "content_hash": "975ec0c664c2e65876623376aaa4a2b9",
+      "status": "success",
+      "posted_at": "2026-11-16T19:38:13.332822+00:00",
+      "post_urn": "urn:li:ugcPost:7528179637655453697",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1137,6 +1147,7 @@
     "li:Demystifying Context Window Compression via State Space Models (Mamba)",
     "li:Demystifying Ring Attention: How Transformers Break Context Window Limits",
     "li:Demystifying Ring Attention: Scaling Context Windows Without O(N^2) VRAM Meltdowns",
-    "li:LLM KV Cache Eviction and PagedAttention"
+    "li:LLM KV Cache Eviction and PagedAttention",
+    "li:Continuous Batching in LLM Inference: The Pipeline Revolution for High-Throughput APIs"
   ]
 }
