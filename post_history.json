@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "powerball winning numbers",
     "rockstar games gta vi",
     "Cambridge scientist dies in Spanish train crash",
     "Democrats are used to heartbreak in Texas - could Talarico turn the tide?",
@@ -499,7 +498,8 @@
     "bsky:Qwen4-Max",
     "bsky:What is a KV Cache? The Memory Shortcut that Makes LLMs Fly",
     "bsky:GH-AWTrace: A Large-Scale Dataset of GitHub Agentic Workflow Execution Logs",
-    "bsky:CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving"
+    "bsky:CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving",
+    "li:LLM KV Cache Eviction and PagedAttention"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1046,7 +1046,19 @@
         "post:41d4c2e212e08110394ba2e4127c32fd7813cdc81c4f78312e4c9b5cd9f1b531",
         "post:22f43e82e5a3d3566bfc090db8257c159a4b4b29ad534631221e145d3f551ff7"
       ],
-      "pending": []
+      "pending": [
+        {
+          "reservation_id": "031fa3d0609a42b994ab6d045bbb0b3a",
+          "identity": "post:d404ddea32e42c16562cf0e2230ef7b3bf6f712ed3984f12d15dadb150a3025a",
+          "action_type": "post",
+          "target": "JVT: Just Video Transformer makes pixel-space video diffusion simple",
+          "preview": "Bypassing pretrained autoencoders for raw pixel-space video diffusion? JVT uses large-patch DiT architectures to simplify training pipelines, trading memory foo",
+          "status": "unknown",
+          "reserved_at": "2026-11-16T06:02:17.931749+00:00",
+          "unknown_at": "2026-11-16T06:02:28.424454+00:00",
+          "reason": "Bluesky network error after submission: HTTPSConnectionPool(host='bsky.social', port=443): Read timed out. (read timeout=10)"
+        }
+      ]
     },
     "threads": {
       "completed": [],
