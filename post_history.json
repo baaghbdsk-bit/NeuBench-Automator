@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Ask HN: Which TV do you recommend for privacy?",
     "austin reaves",
     "month",
     "Think Twice: The Metis-1.6 Technical Report",
@@ -499,7 +498,8 @@
     "bsky:Mobile AI Factory: Building Specialized Language Models for Your Mobile Device",
     "bsky:V-JEPA-LM: Video-Language Models That Read Dynamics Beyond Static, Text-Aligned Representations",
     "bsky:Zoox robotaxis are now on the Uber app in Las Vegas",
-    "bsky:What is an LLM Logit?"
+    "bsky:What is an LLM Logit?",
+    "bsky:US tightens AI chip export controls to deter Chinese companies from accessing compute remotely"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1053,7 +1053,8 @@
         "post:81b048b5048bb41ef7d14e597174eddf748876028bbc2a94aa5705ec666af29c",
         "post:5eb784ab7905d60c1a6800e94f1bbe88c3ee8e6573c3b4ecbb0c932feb5b192f",
         "post:33b79477057ff36aed1eb83e156234bc4e2f654b90d7c47f38dfe150845286b5",
-        "post:25e05879a2ad3d8fe46df5d47fc0a04ec53b44bdbe78e2bfa1baa1c1492d3f30"
+        "post:25e05879a2ad3d8fe46df5d47fc0a04ec53b44bdbe78e2bfa1baa1c1492d3f30",
+        "post:6ccafeada0b28c46a6cfa6fa3c8cac4e4353d1471c209a82003724821547d85c"
       ],
       "pending": [
         {
