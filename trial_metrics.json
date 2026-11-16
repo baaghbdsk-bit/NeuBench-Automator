@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T06:02:28.426021+00:00",
+    "last_updated": "2026-11-16T07:02:05.024981+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1396,
-    "original_posts_attempted": 378,
+    "total_cycles_executed": 1399,
+    "original_posts_attempted": 379,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 327,
-    "failed_operations": 124,
-    "ai_generation_requests": 799,
+    "actions_skipped": 328,
+    "failed_operations": 125,
+    "ai_generation_requests": 801,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T13:09:24.873650+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "gas buddy",
-      "content_preview": "Checking GasBuddy to save 4 cents a gallon just to spend $8 on an iced coffee for the 7-minute drive. Financial literacy",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 8.21
-    },
-    {
-      "timestamp": "2026-11-10T13:09:42.123823+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Feeding an entire 300-page textbook into an LLM used to be an architectural impossibility, yet today models process mill",
-      "reason": "",
-      "duration_s": 17.24
-    },
-    {
-      "timestamp": "2026-11-10T13:09:45.946693+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Cyberattacks threaten to make open-source AI a little less open, Hugging Face exec warns",
-      "content_preview": "Unsanitized model weights are an arbitrary code execution vector. As supply-chain attacks scale, open-weight ecosystems ",
-      "reason": "",
-      "duration_s": 3.82
-    },
     {
       "timestamp": "2026-11-10T14:13:16.879081+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Bypassing pretrained autoencoders for raw pixel-space video diffusion? JVT uses large-patch DiT architectures to simplif",
       "reason": "Bluesky network error after submission: HTTPSConnectionPool(host='bsky.social', port=443): Read timed out. (read timeout=10)",
       "duration_s": 14.57
+    },
+    {
+      "timestamp": "2026-11-16T07:01:59.399566+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying enterprise prices for AI just to watch it hallucinate a Python loop while taking 4 business days to respond. Mean",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.26
+    },
+    {
+      "timestamp": "2026-11-16T07:01:59.420893+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T07:02:05.016670+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "eDIAR: Training-Free Open-Speaker Streaming Diarization for Long Meetings and Large Archives via e-means",
+      "content_preview": "Fixed-slot streaming diarizers break on unknown speaker counts. eDIAR removes this bottleneck training-free via e-means,",
+      "reason": "",
+      "duration_s": 5.59
     }
   ]
 }

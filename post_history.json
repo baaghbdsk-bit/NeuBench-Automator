@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "rockstar games gta vi",
     "Cambridge scientist dies in Spanish train crash",
     "Democrats are used to heartbreak in Texas - could Talarico turn the tide?",
     "रामलीला मैदान, दिल्ली",
@@ -499,7 +498,8 @@
     "bsky:What is a KV Cache? The Memory Shortcut that Makes LLMs Fly",
     "bsky:GH-AWTrace: A Large-Scale Dataset of GitHub Agentic Workflow Execution Logs",
     "bsky:CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving",
-    "li:LLM KV Cache Eviction and PagedAttention"
+    "li:LLM KV Cache Eviction and PagedAttention",
+    "bsky:eDIAR: Training-Free Open-Speaker Streaming Diarization for Long Meetings and Large Archives via e-means"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1044,7 +1044,8 @@
         "post:6e326939be52502f520439ad0ca10b0fb62cac6540bfcf5b9b792a64edc00a9e",
         "post:98649ba1dcd4792ce9e8f84b7b5804af61c1d98e785fbbf9661a66550fc06bfd",
         "post:41d4c2e212e08110394ba2e4127c32fd7813cdc81c4f78312e4c9b5cd9f1b531",
-        "post:22f43e82e5a3d3566bfc090db8257c159a4b4b29ad534631221e145d3f551ff7"
+        "post:22f43e82e5a3d3566bfc090db8257c159a4b4b29ad534631221e145d3f551ff7",
+        "post:9a472c6047ead8cb84edc8cf583f7e2ceaae73f0ab99ecf2fc3e52c853084241"
       ],
       "pending": [
         {
