@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T12:15:17.586779+00:00",
+    "last_updated": "2026-11-16T13:02:00.182220+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1417,
-    "original_posts_attempted": 385,
+    "total_cycles_executed": 1420,
+    "original_posts_attempted": 386,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 334,
-    "failed_operations": 131,
-    "ai_generation_requests": 813,
+    "actions_skipped": 335,
+    "failed_operations": 132,
+    "ai_generation_requests": 815,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T19:11:13.016764+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google",
-      "content_preview": "Structured business profiles in LLM inference pipelines shift the retrieval paradigm. Deterministic index lookups meet p",
-      "reason": "",
-      "duration_s": 5.65
-    },
-    {
-      "timestamp": "2026-11-10T20:02:25.587361+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "raiders record",
-      "content_preview": "Being a Raiders fan is just paying a monthly subscription to emotional damage with zero chance of a software update. #Ra",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.63
-    },
-    {
-      "timestamp": "2026-11-10T20:02:25.605263+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 119.6m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-10T20:02:31.594055+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "V-JEPA-LM couples dense spatio-temporal dynamics from video-only pretraining with LLMs. The engineering win: bypassing s",
       "reason": "",
       "duration_s": 7.29
+    },
+    {
+      "timestamp": "2026-11-16T13:01:51.453728+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Debugging your code for 6 hours only to realize the AI model cost you your entire month’s rent just to hallucinate a mis",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.55
+    },
+    {
+      "timestamp": "2026-11-16T13:01:51.475538+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T13:02:00.173663+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Zoox robotaxis are now on the Uber app in Las Vegas",
+      "content_preview": "Zoox routing AV telemetry through Uber’s dispatch layer in Vegas is a pragmatic play on asset utilization and inference ",
+      "reason": "",
+      "duration_s": 8.69
     }
   ]
 }
