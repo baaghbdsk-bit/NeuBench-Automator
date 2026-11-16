@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "aus vs afg",
     "Data centers are now a midterm issue, even in Brooklyn",
     "powerball winning numbers",
     "rockstar games gta vi",
@@ -499,7 +498,8 @@
     "li:Demystifying Ring Attention: Scaling Context Windows Without O(N^2) VRAM Meltdowns",
     "bsky:Apple launches new app to study how people use AI for health",
     "bsky:Qwen4-Max",
-    "bsky:What is a KV Cache? The Memory Shortcut that Makes LLMs Fly"
+    "bsky:What is a KV Cache? The Memory Shortcut that Makes LLMs Fly",
+    "bsky:GH-AWTrace: A Large-Scale Dataset of GitHub Agentic Workflow Execution Logs"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1042,7 +1042,8 @@
         "post:b4b1894369251d8edf6285d40e6610664ac7628e0223422040cc733b96d1a1c0",
         "post:1e7ab58df7dab88335553d399f567d4d5a0c07601ceca54553a1a8ed2b9a63c7",
         "post:6e326939be52502f520439ad0ca10b0fb62cac6540bfcf5b9b792a64edc00a9e",
-        "post:98649ba1dcd4792ce9e8f84b7b5804af61c1d98e785fbbf9661a66550fc06bfd"
+        "post:98649ba1dcd4792ce9e8f84b7b5804af61c1d98e785fbbf9661a66550fc06bfd",
+        "post:41d4c2e212e08110394ba2e4127c32fd7813cdc81c4f78312e4c9b5cd9f1b531"
       ],
       "pending": []
     },
