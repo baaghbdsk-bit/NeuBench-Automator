@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "रामलीला मैदान, दिल्ली",
     "celtic fc",
     "झिम्बाब्वे वि अफगाणिस्तान",
     "Here’s what ‘renoa’ — the first new fiber in 25 years — feels like",
@@ -499,7 +498,8 @@
     "li:LLM KV Cache Eviction and PagedAttention",
     "bsky:eDIAR: Training-Free Open-Speaker Streaming Diarization for Long Meetings and Large Archives via e-means",
     "bsky:Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
-    "bsky:MMFlash: Faster Speculative Decoding for Vision-Language Models"
+    "bsky:MMFlash: Faster Speculative Decoding for Vision-Language Models",
+    "bsky:What is an LLM KV Cache?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1047,7 +1047,8 @@
         "post:22f43e82e5a3d3566bfc090db8257c159a4b4b29ad534631221e145d3f551ff7",
         "post:9a472c6047ead8cb84edc8cf583f7e2ceaae73f0ab99ecf2fc3e52c853084241",
         "post:85de38e89eb85cc50a947ae3a08f6c473d6580ec4f335ea6463c3f0f538fbe8c",
-        "post:4d64914ae0fe17cb7e39dccb0be63799fe4369001e134fc066312710d502f51f"
+        "post:4d64914ae0fe17cb7e39dccb0be63799fe4369001e134fc066312710d502f51f",
+        "post:b0fbf95b3b32547f5013fc0271e6be6b3dfa8e5f0e08078b56110f03521b6a82"
       ],
       "pending": [
         {

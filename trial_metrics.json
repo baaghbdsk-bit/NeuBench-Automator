@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T09:02:16.455140+00:00",
+    "last_updated": "2026-11-16T10:02:11.787001+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1405,
-    "original_posts_attempted": 381,
+    "total_cycles_executed": 1408,
+    "original_posts_attempted": 382,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 330,
-    "failed_operations": 127,
-    "ai_generation_requests": 805,
+    "actions_skipped": 331,
+    "failed_operations": 128,
+    "ai_generation_requests": 807,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T15:08:28.848809+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "SWAM: Scaling World Action Models with Cross-Modal Alignment",
-      "content_preview": "SWAM highlights a critical blind spot: joint video-action forecasting breaks existing language alignment learned from pr",
-      "reason": "",
-      "duration_s": 13.28
-    },
-    {
-      "timestamp": "2026-11-10T17:02:18.156994+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "49ers–raiders rivalry",
-      "content_preview": "Bay Area fans treating a preseason game like it’s the battle of Helm's Deep over zip codes. Bro, your rent is $4k, just ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 3.89
-    },
-    {
-      "timestamp": "2026-11-10T17:02:18.170006+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 127.7m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-10T17:02:22.778891+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Extending diffusion-based speculative decoding (like DFlash) to VLMs requires parallelizing token block proposals across",
       "reason": "",
       "duration_s": 3.7
+    },
+    {
+      "timestamp": "2026-11-16T10:02:06.853892+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending 50 bucks in API tokens just for an LLM to hallucinate a python loop that creates a black hole. We are living in",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.16
+    },
+    {
+      "timestamp": "2026-11-16T10:02:06.875798+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T10:02:11.778378+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is an LLM KV Cache?",
+      "content_preview": "LLM KV cache: memoize Key/Value tensors to skip recomputing attention over historical context. \n\nAnalogy: keeping past p",
+      "reason": "",
+      "duration_s": 4.89
     }
   ]
 }
