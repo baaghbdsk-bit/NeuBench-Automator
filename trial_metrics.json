@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T07:02:05.024981+00:00",
+    "last_updated": "2026-11-16T08:01:56.957354+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1399,
-    "original_posts_attempted": 379,
+    "total_cycles_executed": 1402,
+    "original_posts_attempted": 380,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 328,
-    "failed_operations": 125,
-    "ai_generation_requests": 801,
+    "actions_skipped": 329,
+    "failed_operations": 126,
+    "ai_generation_requests": 803,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T14:13:16.879081+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "country music singer dies",
-      "content_preview": "Another country singer gone? Man, 2024 is running through cowboy hats faster than tech bros running through crypto scams",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.21
-    },
-    {
-      "timestamp": "2026-11-10T14:13:16.895552+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 63.6m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-10T14:13:22.890794+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "How Self-Driving Cars See the Road",
-      "content_preview": "Multimodal perception pipelines mirror distributed systems: cameras provide high-throughput semantic streams, LiDAR adds",
-      "reason": "",
-      "duration_s": 5.99
-    },
     {
       "timestamp": "2026-11-10T14:54:38.932306+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Fixed-slot streaming diarizers break on unknown speaker counts. eDIAR removes this bottleneck training-free via e-means,",
       "reason": "",
       "duration_s": 5.59
+    },
+    {
+      "timestamp": "2026-11-16T08:01:52.169545+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending my entire monthly grocery budget just to watch Claude and DeepSeek argue over a single Python loop. The future ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.12
+    },
+    {
+      "timestamp": "2026-11-16T08:01:52.190660+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T08:01:56.945669+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
+      "content_preview": "Agent self-modification is a trap without rigorous evidence governance. Local gains in interaction histories routinely m",
+      "reason": "",
+      "duration_s": 4.74
     }
   ]
 }
