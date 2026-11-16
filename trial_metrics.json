@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T22:01:46.963476+00:00",
+    "last_updated": "2026-11-16T23:02:01.162855+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1445,
-    "original_posts_attempted": 394,
+    "total_cycles_executed": 1448,
+    "original_posts_attempted": 395,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 343,
-    "failed_operations": 140,
-    "ai_generation_requests": 832,
+    "actions_skipped": 344,
+    "failed_operations": 141,
+    "ai_generation_requests": 834,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-11T19:02:28.349514+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Faster Retrieval for Better, More Efficient RAG",
-      "content_preview": "Faster retrieval in RAG pipelines directly impacts tail latency and token economics. Optimizing index layout and reducin",
-      "reason": "",
-      "duration_s": 5.51
-    },
-    {
-      "timestamp": "2026-11-11T19:03:43.074650+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "landfill",
-      "content_preview": "Half of my ex's dating profile and 90% of cinematic universes released this year belong in the same place. #Cinema",
-      "reason": "",
-      "duration_s": 72.29
-    },
-    {
-      "timestamp": "2026-11-11T20:02:10.452312+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "american airlines international route cancellations 2027",
-      "content_preview": "American Airlines canceling international routes for 2027 so early just means they want to ruin your vacation plans with",
-      "reason": "",
-      "duration_s": 26.91
-    },
     {
       "timestamp": "2026-11-11T20:02:10.471096+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Distilling diffusion models cuts latency but causes severe diversity collapse. Probing internal activations reveals the ",
       "reason": "",
       "duration_s": 4.91
+    },
+    {
+      "timestamp": "2026-11-16T23:01:48.232657+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Debugging my code for 6 hours only to realize the AI model charged me the GDP of a small nation just to tell me to add a",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.09
+    },
+    {
+      "timestamp": "2026-11-16T23:01:48.254586+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T23:02:01.154396+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Apple reveals new Mac security controls as AI agents raise privacy risks",
+      "content_preview": "macOS 27.3 brings granular permission boundaries for autonomous AI agents. Necessary hardening given agentic privilege e",
+      "reason": "",
+      "duration_s": 12.89
     }
   ]
 }
