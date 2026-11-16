@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T04:02:18.648273+00:00",
+    "last_updated": "2026-11-16T05:01:54.697398+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1390,
-    "original_posts_attempted": 376,
+    "total_cycles_executed": 1393,
+    "original_posts_attempted": 377,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 326,
-    "failed_operations": 121,
-    "ai_generation_requests": 794,
+    "actions_skipped": 327,
+    "failed_operations": 122,
+    "ai_generation_requests": 796,
     "ai_generation_failures": 6,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-10T10:07:36.666943+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your smartphone knows where your finger is before you even press down, and it does it through a sheet of glass using inv",
-      "reason": "",
-      "duration_s": 19.19
-    },
-    {
-      "timestamp": "2026-11-10T10:07:42.220767+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Scoring Engine Behind AI Predictions",
-      "content_preview": "Think of logits like raw judge scores (-3, 12, 45) before normalization. \n\nEngineering rule: Never apply Softmax before ",
-      "reason": "",
-      "duration_s": 5.55
-    },
-    {
-      "timestamp": "2026-11-10T11:04:35.025865+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "miami hurricanes football",
-      "content_preview": "Miami fans really wake up every September acting like a 1980s mixtape is about to take the field, only to turn into a ca",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 4.6
-    },
     {
       "timestamp": "2026-11-10T11:04:35.050553+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Most agent benchmarks only score static outputs. GH-AWTrace changes that by capturing 25k+ verified runtime execution lo",
       "reason": "",
       "duration_s": 4.64
+    },
+    {
+      "timestamp": "2026-11-16T05:01:48.837162+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying enterprise rent prices just to watch an AI hallucinate a missing semicolon for five minutes. The future is here a",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.35
+    },
+    {
+      "timestamp": "2026-11-16T05:01:48.855343+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 179.8m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-16T05:01:54.640584+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving",
+      "content_preview": "Stripping GPS from CAN logs doesn't guarantee privacy. CANTraj proves vehicle signals alone reconstruct precise trajecto",
+      "reason": "",
+      "duration_s": 5.78
     }
   ]
 }

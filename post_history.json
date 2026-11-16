@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Data centers are now a midterm issue, even in Brooklyn",
     "powerball winning numbers",
     "rockstar games gta vi",
     "Cambridge scientist dies in Spanish train crash",
@@ -499,7 +498,8 @@
     "bsky:Apple launches new app to study how people use AI for health",
     "bsky:Qwen4-Max",
     "bsky:What is a KV Cache? The Memory Shortcut that Makes LLMs Fly",
-    "bsky:GH-AWTrace: A Large-Scale Dataset of GitHub Agentic Workflow Execution Logs"
+    "bsky:GH-AWTrace: A Large-Scale Dataset of GitHub Agentic Workflow Execution Logs",
+    "bsky:CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1043,7 +1043,8 @@
         "post:1e7ab58df7dab88335553d399f567d4d5a0c07601ceca54553a1a8ed2b9a63c7",
         "post:6e326939be52502f520439ad0ca10b0fb62cac6540bfcf5b9b792a64edc00a9e",
         "post:98649ba1dcd4792ce9e8f84b7b5804af61c1d98e785fbbf9661a66550fc06bfd",
-        "post:41d4c2e212e08110394ba2e4127c32fd7813cdc81c4f78312e4c9b5cd9f1b531"
+        "post:41d4c2e212e08110394ba2e4127c32fd7813cdc81c4f78312e4c9b5cd9f1b531",
+        "post:22f43e82e5a3d3566bfc090db8257c159a4b4b29ad534631221e145d3f551ff7"
       ],
       "pending": []
     },
