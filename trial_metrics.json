@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T03:55:21.364951+00:00",
+    "last_updated": "2026-11-17T04:02:03.749653+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1464,
-    "original_posts_attempted": 400,
+    "total_cycles_executed": 1467,
+    "original_posts_attempted": 401,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 348,
-    "failed_operations": 146,
-    "ai_generation_requests": 846,
+    "actions_skipped": 349,
+    "failed_operations": 147,
+    "ai_generation_requests": 848,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-11T23:51:23.179390+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "rory mcilroy",
-      "content_preview": "Rory McIlroy treating major championships like a toxic ex he just can't stop texting is honestly the most relatable elit",
-      "reason": "",
-      "duration_s": 28.27
-    },
-    {
-      "timestamp": "2026-11-11T23:51:23.200762+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 168.7m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-11T23:51:28.608316+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "United Airlines bans AI agents from booking flights on behalf of travelers",
-      "content_preview": "Airlines blocking programmatic booking agents isn’t a security win; it’s an API failure. When determinism meets probabil",
-      "reason": "",
-      "duration_s": 5.4
-    },
     {
       "timestamp": "2026-11-11T23:52:48.306169+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Your database can handle 100,000 writes per second, but a single unexpected query spike brings your entire application t",
       "reason": "",
       "duration_s": 23.1
+    },
+    {
+      "timestamp": "2026-11-17T04:01:58.196717+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying enterprise rent to watch an AI hallucinate a Python loop is the modern equivalent of buying a VIP ticket to watch",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.94
+    },
+    {
+      "timestamp": "2026-11-17T04:01:58.274448+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T04:02:03.723032+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
+      "content_preview": "A $1B valuation in 90 days for an AI security startup highlights the massive demand for automated remediation. But veloc",
+      "reason": "",
+      "duration_s": 5.44
     }
   ]
 }
