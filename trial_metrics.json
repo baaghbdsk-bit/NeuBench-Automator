@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T07:02:27.342922+00:00",
+    "last_updated": "2026-11-17T08:01:53.718074+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1479,
-    "original_posts_attempted": 405,
+    "total_cycles_executed": 1482,
+    "original_posts_attempted": 406,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 353,
-    "failed_operations": 151,
-    "ai_generation_requests": 856,
+    "actions_skipped": 354,
+    "failed_operations": 152,
+    "ai_generation_requests": 858,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T02:02:22.286561+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Visual Similarity in Adult Word Extension and Artificial Word Learning",
-      "content_preview": "Visual similarity vs. teaching examples in lexical extension: Reanalyzing Lewis & Frank (2018) via frozen embedding spac",
-      "reason": "",
-      "duration_s": 5.52
-    },
-    {
-      "timestamp": "2026-11-12T02:03:43.182695+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "rj barrett",
-      "content_preview": "RJ Barrett dropping 30 points out of absolute nowhere is the sports equivalent of your printer suddenly working after yo",
-      "reason": "",
-      "duration_s": 80.13
-    },
-    {
-      "timestamp": "2026-11-12T03:02:24.694314+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "உழவர்",
-      "content_preview": "People will debate method acting for a 2-minute cameo while ignoring the actual method actors working 16 hours in 40°C h",
-      "reason": "",
-      "duration_s": 28.45
-    },
     {
       "timestamp": "2026-11-12T03:02:24.723272+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Vector embeddings project semantic spaces into dense numerical coordinates. Similar concepts cluster via distance metric",
       "reason": "",
       "duration_s": 4.88
+    },
+    {
+      "timestamp": "2026-11-17T08:01:47.570061+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending $400 on API tokens just for Claude to hallucinate a python script that deletes my entire system 32 folder. We t",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 1.97
+    },
+    {
+      "timestamp": "2026-11-17T08:01:47.583771+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T08:01:53.712327+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Currency of Machine Learning",
+      "content_preview": "Logits are raw vote counts—unnormalized model scores akin to team points in a game. Highest wins, but they don't represe",
+      "reason": "",
+      "duration_s": 6.12
     }
   ]
 }
