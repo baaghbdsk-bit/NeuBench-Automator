@@ -776,7 +776,9 @@ class AutomaterEngine:
         elif action_choice == "bluesky":
             return self._execute_bluesky_post(start_time)
         elif action_choice == "linkedin":
-            return self._execute_linkedin_post(start_time, force=True)
+            # Scheduled/CLI runs must honour the shared daily cap and cooldown.
+            # force=True is reserved for explicit dashboard/manual overrides.
+            return self._execute_linkedin_post(start_time, force=False)
         elif action_choice == "linkedin-replies":
             return self._execute_linkedin_comment_replies(start_time)
         elif action_choice == "linkedin-peers":

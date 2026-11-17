@@ -57,15 +57,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Cache Playwright Browsers
-        id: playwright-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
-
       - name: Install Playwright Chromium
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        # Always install. requirements.txt uses a floating Playwright version, so a
+        # cached browser can belong to a different revision and break chromium.launch().
         run: playwright install chromium --with-deps
 
       - name: Restore Browser Sessions
@@ -96,7 +90,7 @@ jobs:
           MAX_DAILY_X_ORIGINALS: '12'
           MAX_DAILY_X_REPLIES: '12'
           MAX_DAILY_X_REPOSTS: '6'
-          MAX_DAILY_LINKEDIN: '2'
+          MAX_DAILY_LINKEDIN: '8'
           MAX_DAILY_BLUESKY: '12'
           MAX_DAILY_TOTAL: '40'
         run: |
@@ -133,16 +127,16 @@ jobs:
           if [ "$ACTION" = "repost" ] || { [ "$ACTION" = "auto" ] && [ $((10#$HOUR % 4)) -eq 0 ]; }; then
             echo "🎯 Executing 𝕏 Quote-Tweet with commentary..."
             if [ "$DRY_RUN" = "true" ]; then
-              python main.py repost --dry-run || echo "Quote-tweet skipped or completed."
+              python main.py repost --dry-run
             else
-              python main.py repost || echo "Quote-tweet skipped or completed."
+              python main.py repost
             fi
           else
             echo "🎯 Executing 𝕏 Viral Sniper Reply..."
             if [ "$DRY_RUN" = "true" ]; then
-              python main.py reply --dry-run || echo "Sniper reply skipped or completed."
+              python main.py reply --dry-run
             else
-              python main.py reply || echo "Sniper reply skipped or completed."
+              python main.py reply
             fi
           fi
 
@@ -172,6 +166,20 @@ jobs:
           if [ -f "post_history.json" ]; then
             TOTAL_POSTS=$(python -c "import json; data=json.load(open('post_history.json')); print(len(data.get('posted_tweets', [])))" 2>/dev/null || echo "N/A")
             echo "- **Total Tracked Posts:** $TOTAL_POSTS" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "trial_metrics.json" ]; then
+            python - <<'PY' >> $GITHUB_STEP_SUMMARY
+          import json
+          from datetime import datetime, timezone
+
+          data = json.load(open('trial_metrics.json', encoding='utf-8'))
+          today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+          events = [e for e in data.get('recent_events', []) if e.get('timestamp', '').startswith(today)]
+          print('', '### Latest platform outcomes (UTC today)', '', sep='\n')
+          for event in events[-12:]:
+              reason = f" — {event['reason']}" if event.get('reason') else ''
+              print(f"- **{event.get('action_type')}**: {event.get('status')}{reason}")
+          PY
           fi
 
       - name: 🚨 Alert on Failure

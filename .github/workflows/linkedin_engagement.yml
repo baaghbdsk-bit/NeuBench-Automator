@@ -40,15 +40,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Cache Playwright Browsers
-        id: playwright-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
-
       - name: Install Playwright Chromium
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        # Always install: a cached browser may not match the installed Playwright revision.
         run: playwright install chromium --with-deps
 
       - name: Restore LinkedIn Browser Session
@@ -79,9 +72,9 @@ jobs:
           MAX_DAILY_TOTAL: '0'
         run: |
           if [ "$DRY_RUN" = "true" ]; then
-            python main.py linkedin-peers --dry-run || echo "LinkedIn engagement skipped (browser session unavailable from cloud runner)."
+            python main.py linkedin-peers --dry-run
           else
-            python main.py linkedin-peers || echo "LinkedIn engagement skipped (browser session unavailable from cloud runner)."
+            python main.py linkedin-peers
           fi
 
       - name: Persist LinkedIn Engagement State

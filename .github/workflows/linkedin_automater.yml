@@ -49,15 +49,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Cache Playwright Browsers
-        id: playwright-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
-
       - name: Install Playwright Chromium
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        # Always install: a cached browser may not match the installed Playwright revision.
         run: playwright install chromium --with-deps
 
       - name: Restore LinkedIn Browser Session
@@ -83,7 +76,7 @@ jobs:
           MAX_DAILY_REPLIES: '0'
           MAX_DAILY_REPOSTS: '0'
           MAX_DAILY_TOTAL: '0'
-          MAX_DAILY_LINKEDIN: '2'
+          MAX_DAILY_LINKEDIN: '8'
           LINKEDIN_MIN_INTERVAL_MINUTES: '180'
           LINKEDIN_SCHEDULE_GRACE_MINUTES: '60'
         run: |
@@ -139,6 +132,21 @@ jobs:
           if [ -f "linkedin_post_history.json" ]; then
             TOTAL=$(python -c "import json; data=json.load(open('linkedin_post_history.json')); print(len(data.get('posted_titles', [])))" 2>/dev/null || echo "N/A")
             echo "- **Tracked LinkedIn Topics:** $TOTAL" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "trial_metrics.json" ]; then
+            python - <<'PY' >> $GITHUB_STEP_SUMMARY
+          import json
+          from datetime import datetime, timezone
+
+          data = json.load(open('trial_metrics.json', encoding='utf-8'))
+          today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+          events = [e for e in data.get('recent_events', [])
+                    if e.get('timestamp', '').startswith(today) and e.get('action_type') == 'linkedin_post']
+          print('', '### Latest LinkedIn outcomes (UTC today)', '', sep='\n')
+          for event in events[-12:]:
+              reason = f" - {event['reason']}" if event.get('reason') else ''
+              print(f"- **{event.get('status')}**: {event.get('content_preview', '')[:60]}{reason}")
+          PY
           fi
 
       - name: 🚨 Alert on Failure

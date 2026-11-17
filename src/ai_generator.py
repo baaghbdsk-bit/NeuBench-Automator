@@ -155,10 +155,14 @@ def _clamp_text(value: object, limit: int, strip_urls: bool = True) -> str:
     return clipped or text[:limit]
 
 
-FALLBACK_MODELS = [
+# Honour the model configured for this run first. The previous second entry
+# ("gemini-flash-latest") is not a valid Gemini model id and returns 404, which
+# made every generation fail whenever the first model hit a 503/quota error.
+FALLBACK_MODELS = list(dict.fromkeys([
+    config.GEMINI_MODEL,
     "gemini-3.5-flash-lite",
-    "gemini-flash-latest"
-]
+    "gemini-2.0-flash",
+]))
 
 class AIGenerator:
     def __init__(self):
