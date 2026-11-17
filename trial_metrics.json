@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T22:05:49.935792+00:00",
+    "last_updated": "2026-11-17T23:06:06.456042+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1528,
-    "original_posts_attempted": 422,
-    "original_posts_succeeded": 280,
-    "replies_attempted": 107,
+    "total_cycles_executed": 1533,
+    "original_posts_attempted": 424,
+    "original_posts_succeeded": 282,
+    "replies_attempted": 108,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 371,
+    "actions_skipped": 374,
     "failed_operations": 164,
-    "ai_generation_requests": 887,
+    "ai_generation_requests": 889,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T12:02:04.378988+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "погода",
-      "content_preview": "Me: \"I want to be dramatic and moody like a cinematic masterpiece.\"\nThe weather: \"Say less, I’ll match your entire psych",
-      "reason": "",
-      "duration_s": 25.47
-    },
-    {
-      "timestamp": "2026-11-12T12:02:04.398187+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T12:02:15.852077+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Evolving Infra: Agent-Adaptive LLM Serving at Scale",
-      "content_preview": "Agentic workloads break rigid prefill-decode disaggregation. Static KV cache management and coarse signals lead to tail-",
-      "reason": "",
-      "duration_s": 11.44
-    },
-    {
-      "timestamp": "2026-11-12T12:02:16.316743+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (44/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-12T13:02:14.096940+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "jacey birch",
-      "content_preview": "Imagine waking up, minding your own business, and suddenly becoming the main character of Twitter’s collective hyperfixa",
-      "reason": "",
-      "duration_s": 21.44
-    },
     {
       "timestamp": "2026-11-12T13:02:14.118676+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "75-year-old politicians using a Gen Z PR intern to tweet \"we cooked\" right before passing a bill to ban the internet is ",
       "reason": "",
       "duration_s": 215.86
+    },
+    {
+      "timestamp": "2026-11-17T23:02:24.608053+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "uruguay vs dominican republic",
+      "content_preview": "People treating Uruguay vs Dominican Republic like El Clásico are really just desperate for any excuse to day-drink on a",
+      "reason": "",
+      "duration_s": 21.75
+    },
+    {
+      "timestamp": "2026-11-17T23:02:24.634698+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 119.4m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T23:02:24.642497+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (21/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-17T23:05:41.394756+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 196.13
+    },
+    {
+      "timestamp": "2026-11-17T23:06:06.448940+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Income tax vs public infrastructure",
+      "content_preview": "Paying 35% tax just to fund a DIY lifestyle where I also have to buy my own water, power, security, and roads. At this p",
+      "reason": "",
+      "duration_s": 221.19
     }
   ]
 }
