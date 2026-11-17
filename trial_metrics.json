@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T19:02:04.710977+00:00",
+    "last_updated": "2026-11-17T20:02:11.922388+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1515,
-    "original_posts_attempted": 417,
+    "total_cycles_executed": 1518,
+    "original_posts_attempted": 418,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 365,
-    "failed_operations": 163,
-    "ai_generation_requests": 880,
+    "actions_skipped": 366,
+    "failed_operations": 164,
+    "ai_generation_requests": 882,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T09:02:11.430759+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "yellowjackets",
-      "content_preview": "Adults in Yellowjackets: \"We need to heal from our trauma.\" \nAlso adults in Yellowjackets: let's commit three more felon",
-      "reason": "",
-      "duration_s": 29.63
-    },
-    {
-      "timestamp": "2026-11-12T09:02:11.454780+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T09:02:22.971210+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is an Epistemic Deadlock in Distributed Consensus?",
-      "content_preview": "Physical liveness ≠ epistemic convergence. An epistemic deadlock occurs when nodes wait for absolute certainty of peers'",
-      "reason": "",
-      "duration_s": 11.51
-    },
     {
       "timestamp": "2026-11-12T09:03:39.906737+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Vector embeddings map semantic similarity to Euclidean distance. Think coordinate systems for meaning: multiplayer fanta",
       "reason": "",
       "duration_s": 7.95
+    },
+    {
+      "timestamp": "2026-11-17T20:02:02.229960+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley prices to watch an AI hallucinate a Python loop while DeepSeek writes the same code for the price ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 2.34
+    },
+    {
+      "timestamp": "2026-11-17T20:02:02.252254+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T20:02:11.913393+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Invariant-Aware Harness Enforcement to Protect LLM Agents from Silent API Failures",
+      "content_preview": "HTTP 200 with silent API contract drops breaks LLM agents. Stop using LLM judges to catch downstream hallucinations caus",
+      "reason": "",
+      "duration_s": 9.65
     }
   ]
 }
