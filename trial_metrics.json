@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T06:02:39.638204+00:00",
+    "last_updated": "2026-11-17T07:02:27.342922+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1476,
-    "original_posts_attempted": 404,
+    "total_cycles_executed": 1479,
+    "original_posts_attempted": 405,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 352,
-    "failed_operations": 150,
-    "ai_generation_requests": 854,
+    "actions_skipped": 353,
+    "failed_operations": 151,
+    "ai_generation_requests": 856,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T01:03:30.557356+00:00",
-      "action_type": "reply",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/sundarpichai/status/2120581155078729728",
-      "content_preview": "Bro literally just automated my inability to pick what to watch on Netflix for 45 minutes. #AI #TechTrends",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
-      "duration_s": 42.37
-    },
-    {
-      "timestamp": "2026-11-12T02:02:16.732973+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "kelsey grammer",
-      "content_preview": "Kelsey Grammer is out here looking like the final boss of every prestige TV show that got canceled after three seasons b",
-      "reason": "",
-      "duration_s": 28.44
-    },
-    {
-      "timestamp": "2026-11-12T02:02:16.762417+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 76.8m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-12T02:02:22.286561+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Mimicking human peer review fails because subjective metrics like \"interestingness\" corrupt reward signals. PaperCritic ",
       "reason": "",
       "duration_s": 7.56
+    },
+    {
+      "timestamp": "2026-11-17T07:02:22.433438+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Rich Silicon Valley companies crying over token costs while I just spent 2 hours debugging a missing semicolon. Differen",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 0.99
+    },
+    {
+      "timestamp": "2026-11-17T07:02:22.448192+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T07:02:27.336966+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What are Vector Embeddings? The Secret Map of AI Brains",
+      "content_preview": "Vector embeddings project semantic spaces into dense numerical coordinates. Similar concepts cluster via distance metric",
+      "reason": "",
+      "duration_s": 4.88
     }
   ]
 }
