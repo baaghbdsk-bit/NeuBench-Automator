@@ -1,44 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T13:02:05.344282+00:00",
+    "last_updated": "2026-11-17T14:02:13.149493+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1497,
-    "original_posts_attempted": 411,
+    "total_cycles_executed": 1499,
+    "original_posts_attempted": 412,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 359,
-    "failed_operations": 157,
-    "ai_generation_requests": 868,
-    "ai_generation_failures": 7,
+    "actions_skipped": 360,
+    "failed_operations": 158,
+    "ai_generation_requests": 869,
+    "ai_generation_failures": 8,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T04:53:50.371772+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "sidy cissoko",
-      "content_preview": "Me finding out who Sidy Cissoko is purely through Twitter timelines acting like he's the geopolitical pivot point of the",
-      "reason": "",
-      "duration_s": 62.93
-    },
-    {
-      "timestamp": "2026-11-12T05:01:56.182550+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "jessica chastain",
-      "content_preview": "Jessica Chastain could read the ingredient list of a shampoo bottle and somehow make it sound like a multi-layered Oscar",
-      "reason": "",
-      "duration_s": 21.75
-    },
     {
       "timestamp": "2026-11-12T05:01:56.205813+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4998,26 @@
       "content_preview": "Point-cloud grasping fails on edge cases. Injecting VR human demos corrects persistent policy bottlenecks without needin",
       "reason": "",
       "duration_s": 17.34
+    },
+    {
+      "timestamp": "2026-11-17T14:02:13.125003+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+      "duration_s": 20.3
+    },
+    {
+      "timestamp": "2026-11-17T14:02:13.149464+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
     }
   ]
 }
