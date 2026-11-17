@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T15:02:38.174949+00:00",
+    "last_updated": "2026-11-17T15:10:14.511246+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1502,
-    "original_posts_attempted": 413,
+    "total_cycles_executed": 1505,
+    "original_posts_attempted": 414,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 361,
-    "failed_operations": 159,
-    "ai_generation_requests": 871,
+    "actions_skipped": 362,
+    "failed_operations": 160,
+    "ai_generation_requests": 873,
     "ai_generation_failures": 8,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T06:02:10.286365+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ducks hockey",
-      "content_preview": "Watching the Anaheim Ducks play hockey is just modern art for people who enjoy emotional damage and high-priced stadium ",
-      "reason": "",
-      "duration_s": 21.64
-    },
-    {
-      "timestamp": "2026-11-12T06:02:10.310447+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T06:02:16.152974+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Incentivizing Self-Learning in Large Language Models via Reinforcement Learning",
-      "content_preview": "Static RAG fails in unfamiliar domains. True reasoning requires tightly coupled active knowledge acquisition and inferen",
-      "reason": "",
-      "duration_s": 5.84
-    },
     {
       "timestamp": "2026-11-12T06:03:36.505646+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "A $12M raise for a domain-specific travel LLM agent. General-purpose models already handle multi-step tool use fine; the",
       "reason": "",
       "duration_s": 19.95
+    },
+    {
+      "timestamp": "2026-11-17T15:10:05.425248+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying Silicon Valley rent just to watch my AI hallucinate python syntax slower and cheaper than yesterday. Progress is ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 6.46
+    },
+    {
+      "timestamp": "2026-11-17T15:10:05.446511+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T15:10:14.502745+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Zuse: A Decision Model for European Languages",
+      "content_preview": "Zuse brings decision models—LoRA + pointer heads predicting fixed-set probabilities—to European languages across 4B, 9B,",
+      "reason": "",
+      "duration_s": 9.05
     }
   ]
 }

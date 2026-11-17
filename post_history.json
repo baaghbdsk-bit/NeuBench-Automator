@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "treveyon henderson",
     "bsky:RAG vs. Fine-Tuning",
     "Tech CEO return-to-office mandates",
     "bsky:REST vs. gRPC vs. GraphQL",
@@ -499,7 +498,8 @@
     "bsky:A Reinforcement Learning Method to Navigate SMEFT Operator Space",
     "bsky:SALA: Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models",
     "bsky:Correcting Persistent Failures in Point-Cloud Grasping Policies using Human Demonstrations in Virtual Reality",
-    "bsky:Voyage Labs raises $12 million for a specialized AI travel assistant"
+    "bsky:Voyage Labs raises $12 million for a specialized AI travel assistant",
+    "bsky:Zuse: A Decision Model for European Languages"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1078,7 +1078,8 @@
         "post:fc613a52791f884a7622a85a2f1c553e1c99b32264459b335345fdeb48554a81",
         "post:e102a7dbb3705915e4b94ca8db6bf661f218c0bd1ec7a7d95b8fc92a5ed41f61",
         "post:e625af480a0d99bc81653cb1ac6658421c75b90b5cf18d412f58859080f5275c",
-        "post:72f0647bc92d1ecba067796c45a54d20d85aefcad926bfbbd607d959067962b5"
+        "post:72f0647bc92d1ecba067796c45a54d20d85aefcad926bfbbd607d959067962b5",
+        "post:d7efd0aec5b71721b5b31588f9a9dd19bfe34a5308fb896903629477b435813a"
       ],
       "pending": [
         {
