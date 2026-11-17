@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "Astrology and Kundali in the age of quantum computing",
-    "bsky:B-Trees vs. Hash Indexes",
     "AI will replace coders vs Indian IT bodyshopping",
     "tornado warning",
     "bsky:Event Loop: Node.js & Python Asyncio",
@@ -499,7 +497,9 @@
     "bsky:Invariant-Aware Harness Enforcement to Protect LLM Agents from Silent API Failures",
     "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
     "li:Temperature vs Top-P: How Sampling Affects Output",
-    "u.s. soccer"
+    "u.s. soccer",
+    "erling haaland",
+    "Politicians on social media PR teams"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -763,7 +763,9 @@
     "0b22191cdcb1b6bad6eb19b0301f0facd3dba7465fee16d6a79e6160f2826d6a",
     "af86e9f65f8a40c42ed2c0609dd5e0bdd3263af1eb1aad0f602a474121ec4078",
     "24fe56267e2584e2b484ef46b8b35518b1d5e6beddcbd7c96c86994e67b964c6",
-    "4f25de817d18bbcbbdeacc4b5d3e98f1e615d581a0a6db1329d4fd7544ca25d3"
+    "4f25de817d18bbcbbdeacc4b5d3e98f1e615d581a0a6db1329d4fd7544ca25d3",
+    "82b185d03f3d4f0638c60d404015207cb1a089ce3bf88b0d8c859993a74d6bfd",
+    "7c984604c2cd69e3c2f02555960794ed0a3567af517e058a00b0958dafaa03dd"
   ],
   "pending_x_actions": [
     {
