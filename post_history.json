@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Git Merge vs. Squash vs. Cherry-Pick",
     "broadcom stock",
     "sumit nagal",
     "bsky:LLM vs. SLM (Small Language Models)",
@@ -499,7 +498,8 @@
     "bsky:PaperCritic: Training AI Reviewers to Assess the Soundness of Papers",
     "bsky:What are Vector Embeddings? The Secret Map of AI Brains",
     "bsky:What is a Logit? The Raw Currency of Machine Learning",
-    "bsky:Continuation-Guided LLM Evolution of Program Policies and Goal Compilers in Craftax"
+    "bsky:Continuation-Guided LLM Evolution of Program Policies and Goal Compilers in Craftax",
+    "bsky:Sage S2.1 Flash Technical Report"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1073,7 +1073,8 @@
         "post:73b3bfba3a7dd880b22fbc35c3a7ccd0a62d40b54491333504113550d0381f8a",
         "post:262dd21ad2d2cc3a65d1480810212905679bf5ba5ce31f8ffdba12fe22431445",
         "post:4d0ed849355d810da731481ee2493aa28d3ea426b38e520f116297241b8f66e6",
-        "post:0ee9fe839f47dcc57cdbbb227c1c8b2cadc14dab9eea3231648df34a18a28970"
+        "post:0ee9fe839f47dcc57cdbbb227c1c8b2cadc14dab9eea3231648df34a18a28970",
+        "post:c3529ec07f60fd139962ae76f1537f7376bbb794b2704745353641a37c70fd0d"
       ],
       "pending": [
         {

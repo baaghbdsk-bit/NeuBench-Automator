@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T09:02:16.578655+00:00",
+    "last_updated": "2026-11-17T10:03:08.606829+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1485,
-    "original_posts_attempted": 407,
+    "total_cycles_executed": 1488,
+    "original_posts_attempted": 408,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 355,
-    "failed_operations": 153,
-    "ai_generation_requests": 860,
+    "actions_skipped": 356,
+    "failed_operations": 154,
+    "ai_generation_requests": 862,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T03:54:33.403509+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "usc vs california prediction",
-      "content_preview": "Predicting USC vs California is just therapy for people who like watching defense-free roller derby on grass while prete",
-      "reason": "",
-      "duration_s": 28.04
-    },
-    {
-      "timestamp": "2026-11-12T03:54:51.295477+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Ever wonder why your video app always knows the exact next video you want to watch, keeping you hooked for hours?\n\nIt is",
-      "reason": "",
-      "duration_s": 17.88
-    },
-    {
-      "timestamp": "2026-11-12T03:54:55.466967+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "GTAGym: Real AAA Game Tasks Environment for Evaluation and Reinforcement Learning",
-      "content_preview": "Verifying agent task completion in AAA titles has long required brittle human annotation. GTAGym solves this by making s",
-      "reason": "",
-      "duration_s": 4.16
-    },
     {
       "timestamp": "2026-11-12T03:56:13.005543+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Synthesizing zero-inference code policies in Craftax hits a wall on long horizons: local optimization degrades global su",
       "reason": "",
       "duration_s": 22.95
+    },
+    {
+      "timestamp": "2026-11-17T10:02:45.405559+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying startup founder prices just to watch an AI hallucinate a missing semicolon in my React loop. At this rate, debugg",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 6.11
+    },
+    {
+      "timestamp": "2026-11-17T10:02:45.420437+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T10:03:08.600829+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Sage S2.1 Flash Technical Report",
+      "content_preview": "Sage S1.5 Flash: 320B MoE routing through dedicated molecular graph and bio-sequence encoders. Solving scientific multi-",
+      "reason": "",
+      "duration_s": 23.17
     }
   ]
 }
