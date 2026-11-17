@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-17T03:55:21.352509+00:00",
+  "last_success_at": "2026-11-17T16:02:42.095607+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1062,6 +1062,16 @@
       "posted_at": "2026-11-17T03:55:21.352509+00:00",
       "post_urn": "urn:li:share:7528304745434910721",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:d04850b09bac22e38b6d5a2d2d4a20b8",
+      "title": "What is an Inverted Index? The Secret Behind Instant Search",
+      "url": "",
+      "content_hash": "3d9b6ef9185487bc676da82855fa90db",
+      "status": "success",
+      "posted_at": "2026-11-17T16:02:42.095607+00:00",
+      "post_urn": "urn:li:ugcPost:7528487787017179136",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1170,6 +1180,7 @@
     "li:LLM KV Cache Eviction and PagedAttention",
     "li:Continuous Batching in LLM Inference: The Pipeline Revolution for High-Throughput APIs",
     "li:What Happens When You Press A Key",
-    "li:B-Tree vs. LSM-Tree: Storage Engine Architecture Trade-offs"
+    "li:B-Tree vs. LSM-Tree: Storage Engine Architecture Trade-offs",
+    "li:What is an Inverted Index? The Secret Behind Instant Search"
   ]
 }

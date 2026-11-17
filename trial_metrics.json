@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T15:10:14.511246+00:00",
+    "last_updated": "2026-11-17T16:02:42.104102+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1505,
+    "total_cycles_executed": 1506,
     "original_posts_attempted": 414,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 362,
     "failed_operations": 160,
-    "ai_generation_requests": 873,
+    "ai_generation_requests": 874,
     "ai_generation_failures": 8,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T06:03:36.505646+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "जोश क्लार्कसन",
-      "content_preview": "Mom: We have Clarkson at home.\nClarkson at home: जोश क्लार्कसन \n\nBro’s out here dropping takes hotter than a local train",
-      "reason": "",
-      "duration_s": 79.84
-    },
     {
       "timestamp": "2026-11-12T07:02:10.575698+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Zuse brings decision models—LoRA + pointer heads predicting fixed-set probabilities—to European languages across 4B, 9B,",
       "reason": "",
       "duration_s": 9.05
+    },
+    {
+      "timestamp": "2026-11-17T16:02:42.104075+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Scanning 10 million documents word-by-word takes about 5 seconds. Users abandon search bars if they wait longer than 100",
+      "reason": "",
+      "duration_s": 55.26
     }
   ]
 }
