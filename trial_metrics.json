@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-16T23:07:18.820845+00:00",
+    "last_updated": "2026-11-17T00:02:37.166912+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1451,
-    "original_posts_attempted": 396,
+    "total_cycles_executed": 1454,
+    "original_posts_attempted": 397,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
     "actions_skipped": 345,
-    "failed_operations": 142,
-    "ai_generation_requests": 836,
+    "failed_operations": 143,
+    "ai_generation_requests": 839,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-11T20:03:31.357489+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "chase young",
-      "content_preview": "Bro is named Chase Young but spends half his career running away from the actual football like it’s a group chat with hi",
-      "reason": "",
-      "duration_s": 69.0
-    },
-    {
-      "timestamp": "2026-11-11T21:02:29.075011+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ayesha curry",
-      "content_preview": "People still getting mad at Ayesha Curry for wanting her husband's attention in public will never not be hilarious. Touc",
-      "reason": "",
-      "duration_s": 33.91
-    },
-    {
-      "timestamp": "2026-11-11T21:02:42.237310+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "When 400,000 concurrent requests slam an exchange at 09:15 AM to fetch an SBI share price, a single database query will ",
-      "reason": "",
-      "duration_s": 13.13
-    },
     {
       "timestamp": "2026-11-11T21:02:50.675946+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "BrickFlow turns combinatorial 3D reconstruction into a guided search. Solving discrete physical snap-fits from images is",
       "reason": "",
       "duration_s": 8.72
+    },
+    {
+      "timestamp": "2026-11-17T00:02:12.203861+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Dropping $40 per 1M tokens just so Claude can write a React component that still invents a new JavaScript framework out ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 6.34
+    },
+    {
+      "timestamp": "2026-11-17T00:02:25.191875+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "It takes roughly 10 milliseconds for your finger to depress a mechanical keyboard switch, yet by the time that character",
+      "reason": "",
+      "duration_s": 12.98
+    },
+    {
+      "timestamp": "2026-11-17T00:02:37.159757+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use",
+      "content_preview": "OS-level telemetry tracking local dev toolchains and coding agents introduces silent privacy overhead. Engineers care ab",
+      "reason": "",
+      "duration_s": 11.72
     }
   ]
 }
