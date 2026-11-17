@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:LLM vs. SLM (Small Language Models)",
     "rinky hijikata",
     "treveyon henderson",
     "bsky:RAG vs. Fine-Tuning",
@@ -499,7 +498,8 @@
     "bsky:Continuation-Guided LLM Evolution of Program Policies and Goal Compilers in Craftax",
     "bsky:Sage S2.1 Flash Technical Report",
     "bsky:A Reinforcement Learning Method to Navigate SMEFT Operator Space",
-    "bsky:SALA: Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models"
+    "bsky:SALA: Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models",
+    "bsky:Correcting Persistent Failures in Point-Cloud Grasping Policies using Human Demonstrations in Virtual Reality"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1076,7 +1076,8 @@
         "post:0ee9fe839f47dcc57cdbbb227c1c8b2cadc14dab9eea3231648df34a18a28970",
         "post:c3529ec07f60fd139962ae76f1537f7376bbb794b2704745353641a37c70fd0d",
         "post:fc613a52791f884a7622a85a2f1c553e1c99b32264459b335345fdeb48554a81",
-        "post:e102a7dbb3705915e4b94ca8db6bf661f218c0bd1ec7a7d95b8fc92a5ed41f61"
+        "post:e102a7dbb3705915e4b94ca8db6bf661f218c0bd1ec7a7d95b8fc92a5ed41f61",
+        "post:e625af480a0d99bc81653cb1ac6658421c75b90b5cf18d412f58859080f5275c"
       ],
       "pending": [
         {

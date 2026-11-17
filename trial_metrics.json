@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T12:01:51.110326+00:00",
+    "last_updated": "2026-11-17T13:02:05.344282+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1494,
-    "original_posts_attempted": 410,
+    "total_cycles_executed": 1497,
+    "original_posts_attempted": 411,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 358,
-    "failed_operations": 156,
-    "ai_generation_requests": 866,
+    "actions_skipped": 359,
+    "failed_operations": 157,
+    "ai_generation_requests": 868,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T04:52:37.832523+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "england football team",
-      "content_preview": "England fans really spent 54 weeks acting like they’re Brazil reincarnated just to play sideways passes against Slovenia",
-      "reason": "",
-      "duration_s": 30.62
-    },
-    {
-      "timestamp": "2026-11-12T04:52:37.861055+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T04:52:46.655181+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "One Table, Many Queries: Benchmarking Generalist Tabular Models Across Generation, Imputation, and Prediction",
-      "content_preview": "Generation, imputation, and prediction probe the same joint distribution, yet we train siloed models. Do these objective",
-      "reason": "",
-      "duration_s": 8.79
-    },
     {
       "timestamp": "2026-11-12T04:53:50.371772+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "SALA decouples data collection via Semantically Aligned Latent Actions, enabling dual-axis scaling of embodied foundatio",
       "reason": "",
       "duration_s": 3.96
+    },
+    {
+      "timestamp": "2026-11-17T13:01:47.980000+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending my entire monthly salary on API tokens just so my AI can hallucinate a python script with maximum confidence. W",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 9.99
+    },
+    {
+      "timestamp": "2026-11-17T13:01:47.994212+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T13:02:05.338287+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Correcting Persistent Failures in Point-Cloud Grasping Policies using Human Demonstrations in Virtual Reality",
+      "content_preview": "Point-cloud grasping fails on edge cases. Injecting VR human demos corrects persistent policy bottlenecks without needin",
+      "reason": "",
+      "duration_s": 17.34
     }
   ]
 }
