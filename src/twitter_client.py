@@ -2,6 +2,7 @@ import sys
 import os
 import time
 import random
+import re
 
 if sys.platform == 'win32':
     try:
@@ -14,6 +15,43 @@ from typing import Optional, List, Dict, Any
 from playwright.sync_api import sync_playwright, BrowserContext
 import config
 from src.x_state import prepare_x_text
+
+
+def _parse_count(value: str) -> int:
+    """Parse X engagement labels like '1.2K' or '3M' into integers."""
+    if not value:
+        return 0
+    match = re.search(r"([\d,.]+\s*[KMB]?)", str(value), re.IGNORECASE)
+    if not match:
+        return 0
+    raw = match.group(1).replace(",", "").strip().upper()
+    multiplier = 1
+    if raw.endswith("K"):
+        multiplier, raw = 1000, raw[:-1]
+    elif raw.endswith("M"):
+        multiplier, raw = 1_000_000, raw[:-1]
+    elif raw.endswith("B"):
+        multiplier, raw = 1_000_000_000, raw[:-1]
+    try:
+        return int(float(raw) * multiplier)
+    except ValueError:
+        return 0
+
+
+def _tweet_engagement(tweet) -> int:
+    """Weighted engagement score for a Playwright tweet article."""
+    total = 0.0
+    for test_id, weight in (("like", 1), ("reply", 2), ("retweet", 3), ("views", 0.05)):
+        try:
+            node = tweet.locator(f'[data-testid="{test_id}"]').first
+            if node.count() == 0:
+                continue
+            label = node.get_attribute("aria-label") or node.inner_text()
+            total += _parse_count(label) * weight
+        except Exception:
+            continue
+    return int(total)
+
 
 class TwitterClient:
     """Automates X interactions safely with stealth, human typing jitter, and storage state."""
@@ -476,6 +514,51 @@ class TwitterClient:
                 if browser:
                     browser.close()
 
+    def get_top_tweets_from_account(self, username: str, limit: int = 3) -> list:
+        """Return the most-engaged recent tweets from a high-reach account."""
+        results = []
+        with sync_playwright() as p:
+            context, browser = self._get_context_and_browser(p)
+            page = context.pages[0] if context.pages else context.new_page()
+            try:
+                page.goto(f"https://x.com/{username}", timeout=35000)
+                page.wait_for_timeout(2500)
+                body_text = page.inner_text("body")
+                if "is blocked" in body_text or "Account suspended" in body_text:
+                    return []
+                page.evaluate("window.scrollBy(0, 600)")
+                page.wait_for_timeout(1500)
+                page.locator('article[data-testid="tweet"], article').first.wait_for(
+                    state="attached", timeout=8000
+                )
+                tweets = page.locator('article[data-testid="tweet"], article')
+                for i in range(min(tweets.count(), max(limit * 3, 10))):
+                    try:
+                        tweet = tweets.nth(i)
+                        text_el = tweet.locator('[data-testid="tweetText"]').first
+                        text = text_el.inner_text() if text_el.is_visible() else ""
+                        link_el = tweet.locator('a[href*="/status/"]').first
+                        href = link_el.get_attribute("href") if link_el else None
+                        url = f"https://x.com{href}" if href and not href.startswith("http") else href
+                        if url and len(text) > 10:
+                            results.append({
+                                "username": username,
+                                "tweet_text": text,
+                                "tweet_url": url,
+                                "engagement_score": _tweet_engagement(tweet),
+                            })
+                    except Exception:
+                        continue
+                results.sort(key=lambda item: item["engagement_score"], reverse=True)
+                return results[:limit]
+            except Exception as e:
+                print(f"[TwitterClient] Could not fetch top tweets from @{username}: {e}")
+                return []
+            finally:
+                context.close()
+                if browser:
+                    browser.close()
+
     def search_public_tweets(self, query: str, limit: int = 5) -> list:
         """Searches 𝕏 for active public discussions on trending debates or keywords."""
         if not query:
@@ -519,7 +602,8 @@ class TwitterClient:
                             results.append({
                                 "author": author,
                                 "tweet_text": tweet_text,
-                                "tweet_url": tweet_url
+                                "tweet_url": tweet_url,
+                                "engagement_score": _tweet_engagement(tweet),
                             })
                             if len(results) >= limit:
                                 break

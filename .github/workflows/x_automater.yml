@@ -76,6 +76,7 @@ jobs:
           fi
 
       - name: Execute Autonomous Broadcast Cycle
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-2.5-flash
@@ -87,12 +88,12 @@ jobs:
           PYTHONIOENCODING: utf-8
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           TRIAL_ENABLED: 'true'
-          MAX_DAILY_X_ORIGINALS: '12'
-          MAX_DAILY_X_REPLIES: '12'
-          MAX_DAILY_X_REPOSTS: '6'
+          MAX_DAILY_X_ORIGINALS: '6'
+          MAX_DAILY_X_REPLIES: '16'
+          MAX_DAILY_X_REPOSTS: '8'
           MAX_DAILY_LINKEDIN: '8'
           MAX_DAILY_BLUESKY: '12'
-          MAX_DAILY_TOTAL: '40'
+          MAX_DAILY_TOTAL: '50'
         run: |
           ACTION="${{ inputs.action || 'auto' }}"
           if [ "$DRY_RUN" = "true" ]; then
@@ -110,6 +111,7 @@ jobs:
           fi
 
       - name: 𝕏 Viral Sniper Reply / Quote-Tweet Engagement
+        continue-on-error: true
         if: ${{ (inputs.action == 'auto' || inputs.action == '' || inputs.action == 'reply' || inputs.action == 'repost') && always() }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -117,9 +119,9 @@ jobs:
           PYTHONIOENCODING: utf-8
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           TRIAL_ENABLED: 'true'
-          MAX_DAILY_X_REPLIES: '12'
-          MAX_DAILY_X_REPOSTS: '6'
-          MAX_DAILY_TOTAL: '40'
+          MAX_DAILY_X_REPLIES: '16'
+          MAX_DAILY_X_REPOSTS: '8'
+          MAX_DAILY_TOTAL: '50'
         run: |
           ACTION="${{ inputs.action || 'auto' }}"
           # Alternate between Sniper Reply and Quote-Tweet based on current hour
@@ -140,12 +142,17 @@ jobs:
             fi
           fi
 
+      - name: Snapshot X follower count
+        if: always()
+        continue-on-error: true
+        run: python scripts/x_follower_snapshot.py
+
       - name: Persist Metrics and Post History
         if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          for file in post_history.json trial_metrics.json linkedin_network.json linkedin_post_history.json linkedin_engagement_history.json; do
+          for file in post_history.json trial_metrics.json linkedin_network.json linkedin_post_history.json linkedin_engagement_history.json data/x_followers.json; do
             if [ -f "$file" ]; then
               git add "$file"
             fi
@@ -166,6 +173,10 @@ jobs:
           if [ -f "post_history.json" ]; then
             TOTAL_POSTS=$(python -c "import json; data=json.load(open('post_history.json')); print(len(data.get('posted_tweets', [])))" 2>/dev/null || echo "N/A")
             echo "- **Total Tracked Posts:** $TOTAL_POSTS" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "data/x_followers.json" ]; then
+            LATEST=$(python -c "import json; d=json.load(open('data/x_followers.json')); h=d.get('history',[]); print(h[-1].get('followers') if h else 'N/A')" 2>/dev/null || echo "N/A")
+            echo "- **X Followers (snapshot):** $LATEST" >> $GITHUB_STEP_SUMMARY
           fi
           if [ -f "trial_metrics.json" ]; then
             python - <<'PY' >> $GITHUB_STEP_SUMMARY

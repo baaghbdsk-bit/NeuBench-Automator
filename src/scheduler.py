@@ -790,6 +790,45 @@ class AutomaterEngine:
 
 
 
+    def _pick_trending_target(self, history_key: str) -> Optional[Dict[str, Any]]:
+        """Pick the highest-engagement unreplied tweet from high-reach accounts."""
+        already_used = set(self.tracker.history.get(history_key, []))
+        candidates = random.sample(VIRAL_ACCOUNTS, min(8, len(VIRAL_ACCOUNTS)))
+        best: Optional[Dict[str, Any]] = None
+        target_account = ""
+
+        for account in candidates:
+            for tweet in self.twitter.get_top_tweets_from_account(account, limit=3):
+                url = tweet.get("tweet_url")
+                if not url or url in already_used:
+                    continue
+                if best is None or tweet.get("engagement_score", 0) > best.get("engagement_score", 0):
+                    best = dict(tweet)
+                    target_account = account
+
+        if best is None:
+            try:
+                trends = self.hunter.get_candidate_trends(platform="x", limit=5)
+                queries = [t.get("title", "") for t in trends if t.get("title")]
+            except Exception:
+                queries = []
+            queries += ["Ramayana", "Bollywood", "AI", "Indian cinema", "ChatGPT", "tech"]
+            for query in queries[:8]:
+                try:
+                    for res in self.twitter.search_public_tweets(query, limit=5):
+                        url = res.get("tweet_url")
+                        if not url or url in already_used:
+                            continue
+                        if best is None or res.get("engagement_score", 0) > best.get("engagement_score", 0):
+                            best = dict(res)
+                            target_account = res.get("author") or "user"
+                except Exception as exc:
+                    console.print(f"[dim]Trending search note: {exc}[/dim]")
+
+        if best:
+            best["target_account"] = target_account
+        return best
+
     def _execute_sniper_reply(self, start_time: float) -> bool:
 
         """Finds a viral account, extracts latest tweet, and replies with high-engagement AI take."""
@@ -799,72 +838,23 @@ class AutomaterEngine:
 
         
 
-        # Sample candidate accounts to try
-
-        candidates = random.sample(VIRAL_ACCOUNTS, min(3, len(VIRAL_ACCOUNTS)))
-
-        tweet_data = {}
-
-        target_account = ""
-
-
-
-        for account in candidates:
-
-            console.print(f"[dim]Checking latest tweet from @{account}...[/dim]")
-
-            data = self.twitter.get_latest_tweet_from_account(account)
-
-            url = data.get("tweet_url")
-
-            text = data.get("tweet_text")
-
-            if url and text:
-
-                if url not in self.tracker.history["replied_urls"]:
-
-                    tweet_data = data
-
-                    target_account = account
-
-                    break
-
-                else:
-
-                    console.print(f"[dim]Already replied to {url}. Trying next candidate...[/dim]")
-
-
+        tweet_data = self._pick_trending_target("replied_urls")
+        if not tweet_data:
+            self.tracker.record_event(
+                action_type="reply",
+                status="skipped",
+                target_identifier="High-engagement target",
+                skip_or_error_reason="No high-engagement unreplied trending tweet found",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            console.print("[yellow]No high-engagement unreplied tweet found. Skipping X engagement.[/yellow]")
+            return False
 
         tweet_url = tweet_data.get("tweet_url")
-
         tweet_text = tweet_data.get("tweet_text")
-
-
-
-        if not tweet_url or not tweet_text:
-            # Fallback to searching live discussions for trending talk of the town (e.g. Ramayana, Cinema, Tech)
-            trending_search_queries = ["Ramayana", "Bollywood", "AI", "Indian cinema", "ChatGPT", "tech"]
-            search_q = random.choice(trending_search_queries)
-            console.print(f"[dim]Account check empty; searching live 𝕏 discussions for talk of the town: '{search_q}'...[/dim]")
-            try:
-                search_results = self.twitter.search_public_tweets(search_q, limit=5)
-                for res in search_results:
-                    cand_url = res.get("tweet_url")
-                    if cand_url and cand_url not in self.tracker.history.get("replied_urls", []):
-                        tweet_url = cand_url
-                        tweet_text = res.get("tweet_text", "")
-                        target_account = res.get("author") or "user"
-                        break
-            except Exception as e:
-                console.print(f"[dim]Search fallback note: {e}[/dim]")
-
-        if not tweet_url or not tweet_text:
-            console.print("[yellow]Could not find unreplied tweet among candidates. Falling back to Original Hot Take...[/yellow]")
-            return self._execute_original_post(start_time)
-
-
-
-        console.print(f"[bold]Target Tweet (@{target_account}):[/bold] {tweet_text[:80]}...")
+        target_account = tweet_data.get("target_account", "user")
+        console.print(f"[bold]Target Tweet (@{target_account}) [engagement {tweet_data.get('engagement_score', 0)}]:[/bold] {tweet_text[:80]}...")
 
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
 
@@ -978,55 +968,23 @@ class AutomaterEngine:
 
         
 
-        candidates = random.sample(VIRAL_ACCOUNTS, min(3, len(VIRAL_ACCOUNTS)))
-
-        tweet_data = {}
-
-        target_account = ""
-
-
-
-        for account in candidates:
-
-            console.print(f"[dim]Checking latest tweet from @{account} to quote...[/dim]")
-
-            data = self.twitter.get_latest_tweet_from_account(account)
-
-            url = data.get("tweet_url")
-
-            text = data.get("tweet_text")
-
-            if url and text:
-
-                if url not in self.tracker.history["reposted_urls"]:
-
-                    tweet_data = data
-
-                    target_account = account
-
-                    break
-
-                else:
-
-                    console.print(f"[dim]Already quoted {url}. Trying next candidate...[/dim]")
-
-
+        tweet_data = self._pick_trending_target("reposted_urls")
+        if not tweet_data:
+            self.tracker.record_event(
+                action_type="quote_tweet",
+                status="skipped",
+                target_identifier="High-engagement target",
+                skip_or_error_reason="No high-engagement unquoted trending tweet found",
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            console.print("[yellow]No high-engagement unquoted tweet found. Skipping X quote-tweet.[/yellow]")
+            return False
 
         tweet_url = tweet_data.get("tweet_url")
-
         tweet_text = tweet_data.get("tweet_text")
-
-
-
-        if not tweet_url or not tweet_text:
-
-            console.print("[yellow]Could not find unquoted tweet among candidates. Falling back to Original Hot Take from NeuBench/Trends...[/yellow]")
-
-            return self._execute_original_post(start_time)
-
-
-
-        console.print(f"[bold]Target Tweet (@{target_account}):[/bold] {tweet_text[:80]}...")
+        target_account = tweet_data.get("target_account", "user")
+        console.print(f"[bold]Target Tweet (@{target_account}) [engagement {tweet_data.get('engagement_score', 0)}]:[/bold] {tweet_text[:80]}...")
 
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
 
@@ -1239,6 +1197,10 @@ class AutomaterEngine:
 
         console.print("[bold magenta]🚀 Mode: Unfiltered Sarcastic / Hot Take (𝕏)[/bold magenta]")
 
+        # The omnichannel path must honour the same daily caps as direct CLI actions.
+        if not self._x_guard("original_post", start_time):
+            return False
+
         # 1. Primary: Discover candidate trends from Trend Intelligence system
         trends = []
         try:
@@ -1426,6 +1388,18 @@ class AutomaterEngine:
     def _execute_bluesky_post(self, start_time: float) -> bool:
         """Generates a developer-focused Bluesky take from a trending topic and publishes it."""
         console.print("[bold cyan]🦋 Mode: Bluesky Auto Post (AT Protocol)[/bold cyan]")
+
+        allowed, reason = self.safety.can_perform_action("bluesky", self.tracker.get_today_counts())
+        if not allowed:
+            self.tracker.record_event(
+                action_type="bluesky_post",
+                status="skipped",
+                target_identifier="Bluesky daily cap",
+                skip_or_error_reason=reason,
+                duration_seconds=time.time() - start_time,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
 
         # Cross-platform deduplication across Bluesky, LinkedIn, and X
         used_topics = set()
@@ -2061,6 +2035,23 @@ class AutomaterEngine:
 
 
 
+    def _omnichannel_budget_ok(self, action_type: str) -> bool:
+        """Stop dispatching once the shared daily action budget is consumed."""
+        counts = self.tracker.get_today_counts()
+        if self.safety.max_daily_total > 0 and counts.get("total_actions", 0) >= self.safety.max_daily_total:
+            reason = f"Total daily limit reached ({counts.get('total_actions')}/{self.safety.max_daily_total})."
+            console.print(f"[yellow][skip] {reason}[/yellow]")
+            self.tracker.record_event(
+                action_type=action_type,
+                status="skipped",
+                target_identifier="Total daily cap",
+                skip_or_error_reason=reason,
+                duration_seconds=0.0,
+                is_dry_run=self.safety.dry_run,
+            )
+            return False
+        return True
+
     def run_three_hour_omnichannel_cycle(self) -> Dict[str, bool]:
         """
         Executes unified 3-hour broadcast cycle across all 3 active platforms:
@@ -2077,21 +2068,24 @@ class AutomaterEngine:
         # 1. 𝕏 (Twitter) - Unfiltered, Sarcastic, Roasting Hot Take
         try:
             console.print("[bold magenta]🐦 1. Dispatching to 𝕏 (Unfiltered Sarcastic / Hot Debate Take)...[/bold magenta]")
-            results["x"] = self._execute_original_post(time.time())
+            if self._omnichannel_budget_ok("original_post"):
+                results["x"] = self._execute_original_post(time.time())
         except Exception as e:
             console.print(f"[red]𝕏 Error: {e}[/red]")
 
         # 2. LinkedIn - Professional Educational Article with Looping GIF
         try:
             console.print("[bold blue]💼 2. Dispatching to LinkedIn (Professional Educational Article + Looping GIF)...[/bold blue]")
-            results["linkedin"] = self._execute_linkedin_post(time.time())
+            if self._omnichannel_budget_ok("linkedin_post"):
+                results["linkedin"] = self._execute_linkedin_post(time.time())
         except Exception as e:
             console.print(f"[red]LinkedIn Error: {e}[/red]")
 
         # 3. Bluesky - Professional Technical Summary with Matching Looping GIF
         try:
             console.print("[bold cyan]🦋 3. Dispatching to Bluesky (Professional Summary + Looping GIF)...[/bold cyan]")
-            results["bluesky"] = self._execute_bluesky_post(time.time())
+            if self._omnichannel_budget_ok("bluesky_post"):
+                results["bluesky"] = self._execute_bluesky_post(time.time())
         except Exception as e:
             console.print(f"[red]Bluesky Error: {e}[/red]")
 
