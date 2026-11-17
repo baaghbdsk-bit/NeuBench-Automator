@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T18:02:27.662282+00:00",
+    "last_updated": "2026-11-17T19:02:04.710977+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1512,
-    "original_posts_attempted": 416,
+    "total_cycles_executed": 1515,
+    "original_posts_attempted": 417,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 364,
-    "failed_operations": 162,
-    "ai_generation_requests": 878,
+    "actions_skipped": 365,
+    "failed_operations": 163,
+    "ai_generation_requests": 880,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T08:02:16.408328+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Module-Aware Optimization for Graph Neural Networks",
-      "content_preview": "GNN message-passing bottlenecks demand more than coordinate-wise Adam or matrix-aware Muon. Module-aware updates respect",
-      "reason": "",
-      "duration_s": 5.27
-    },
-    {
-      "timestamp": "2026-11-12T08:03:17.163157+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "a24",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
-      "duration_s": 60.11
-    },
-    {
-      "timestamp": "2026-11-12T08:03:42.051057+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "pete davidson",
-      "content_preview": "Pete Davidson out here collecting pop-culture icons like Infinity Stones using nothing more than sweatpants and unresolv",
-      "reason": "",
-      "duration_s": 85.0
-    },
     {
       "timestamp": "2026-11-12T09:02:11.430759+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Proton’s Lumo desktop app brings local context retrieval and granular capability scopes to end-user AI. Interesting step",
       "reason": "",
       "duration_s": 15.08
+    },
+    {
+      "timestamp": "2026-11-17T19:01:56.722205+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Paying a month’s rent for an AI to debugging a single loop while it hallucinates a new programming language is the peak ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 5.06
+    },
+    {
+      "timestamp": "2026-11-17T19:01:56.743527+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (3/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T19:02:04.702456+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What are Vector Embeddings? The Secret Map of AI",
+      "content_preview": "Vector embeddings map semantic similarity to Euclidean distance. Think coordinate systems for meaning: multiplayer fanta",
+      "reason": "",
+      "duration_s": 7.95
     }
   ]
 }
