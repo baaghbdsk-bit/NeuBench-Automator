@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T20:02:11.922388+00:00",
+    "last_updated": "2026-11-17T21:06:43.309277+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1518,
-    "original_posts_attempted": 418,
-    "original_posts_succeeded": 276,
-    "replies_attempted": 105,
+    "total_cycles_executed": 1523,
+    "original_posts_attempted": 420,
+    "original_posts_succeeded": 278,
+    "replies_attempted": 106,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 366,
+    "actions_skipped": 368,
     "failed_operations": 164,
-    "ai_generation_requests": 882,
+    "ai_generation_requests": 885,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T09:03:39.906737+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "narendra modi",
-      "content_preview": "Bro wakes up, schedules a nation-wide flex, takes 3 hours of global media real estate, and still gets asked about inflat",
-      "reason": "",
-      "duration_s": 75.49
-    },
-    {
-      "timestamp": "2026-11-12T10:02:09.317531+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "gta 6 online release date",
-      "content_preview": "Brogs out here planning their GTA 6 Online character outfits like they're going to a Met Gala, completely forgetting we’",
-      "reason": "",
-      "duration_s": 24.63
-    },
-    {
-      "timestamp": "2026-11-12T10:02:09.336830+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T10:02:14.816244+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Where Does Alignment Emerge and What Does It Mean? A Closer Look at the Platonic Representation Hypothesis",
-      "content_preview": "The Platonic Representation Hypothesis suggests models converge on shared statistical spaces. But cross-modal alignment ",
-      "reason": "",
-      "duration_s": 5.47
-    },
-    {
-      "timestamp": "2026-11-12T10:02:15.377692+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (40/40).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-12T11:01:49.812463+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "HTTP 200 with silent API contract drops breaks LLM agents. Stop using LLM judges to catch downstream hallucinations caus",
       "reason": "",
       "duration_s": 9.65
+    },
+    {
+      "timestamp": "2026-11-17T21:02:34.801444+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Watching tech bros cry over token costs on long-horizon coding tasks like it's a crypto crash. Bro, just write the 10 li",
+      "reason": "",
+      "duration_s": 23.01
+    },
+    {
+      "timestamp": "2026-11-17T21:03:01.501691+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your LLM pipeline is outputting hallucinated gibberish in production, yet your prompt engineering is pristine and your b",
+      "reason": "",
+      "duration_s": 26.68
+    },
+    {
+      "timestamp": "2026-11-17T21:03:01.509505+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (21/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-17T21:06:15.520569+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 193.43
+    },
+    {
+      "timestamp": "2026-11-17T21:06:43.301670+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "u.s. soccer",
+      "content_preview": "Calling it \"soccer\" while the rest of the planet treats football like an actual religion is the ultimate American superp",
+      "reason": "",
+      "duration_s": 221.22
     }
   ]
 }

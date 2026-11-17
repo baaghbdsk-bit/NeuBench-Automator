@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "Religious dogmatism vs basic human decency",
-    "bsky:Docker vs. Kubernetes vs. Podman",
-    "The AI bubble and pitch deck madness",
     "Astrology and Kundali in the age of quantum computing",
     "bsky:B-Trees vs. Hash Indexes",
     "AI will replace coders vs Indian IT bodyshopping",
@@ -499,7 +496,10 @@
     "bsky:GPBam: A Retrieval-Aware German Public Law Exam Benchmark",
     "bsky:Proton’s Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop",
     "bsky:What are Vector Embeddings? The Secret Map of AI",
-    "bsky:Invariant-Aware Harness Enforcement to Protect LLM Agents from Silent API Failures"
+    "bsky:Invariant-Aware Harness Enforcement to Protect LLM Agents from Silent API Failures",
+    "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+    "li:Temperature vs Top-P: How Sampling Affects Output",
+    "u.s. soccer"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -761,7 +761,9 @@
     "80f27c6ad2335bc965a71afacff255535f025e50f1ce5818cca990cd925089b1",
     "1e13574bb9151810ccb1d91d32a6beda04201d704f715b875695daaaf67e8c20",
     "0b22191cdcb1b6bad6eb19b0301f0facd3dba7465fee16d6a79e6160f2826d6a",
-    "af86e9f65f8a40c42ed2c0609dd5e0bdd3263af1eb1aad0f602a474121ec4078"
+    "af86e9f65f8a40c42ed2c0609dd5e0bdd3263af1eb1aad0f602a474121ec4078",
+    "24fe56267e2584e2b484ef46b8b35518b1d5e6beddcbd7c96c86994e67b964c6",
+    "4f25de817d18bbcbbdeacc4b5d3e98f1e615d581a0a6db1329d4fd7544ca25d3"
   ],
   "pending_x_actions": [
     {

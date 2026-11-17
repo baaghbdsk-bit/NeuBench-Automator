@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-17T16:02:42.095607+00:00",
+  "last_success_at": "2026-11-17T21:03:01.355454+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1072,6 +1072,16 @@
       "posted_at": "2026-11-17T16:02:42.095607+00:00",
       "post_urn": "urn:li:ugcPost:7528487787017179136",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:1708e027993f5cbd7bddbb59aba7188f",
+      "title": "Temperature vs Top-P: How Sampling Affects Output",
+      "url": "",
+      "content_hash": "c3061793fcb05264b9b73aa1ad261996",
+      "status": "success",
+      "posted_at": "2026-11-17T21:03:01.355454+00:00",
+      "post_urn": "urn:li:share:7528563366630453248",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1181,6 +1191,7 @@
     "li:Continuous Batching in LLM Inference: The Pipeline Revolution for High-Throughput APIs",
     "li:What Happens When You Press A Key",
     "li:B-Tree vs. LSM-Tree: Storage Engine Architecture Trade-offs",
-    "li:What is an Inverted Index? The Secret Behind Instant Search"
+    "li:What is an Inverted Index? The Secret Behind Instant Search",
+    "li:Temperature vs Top-P: How Sampling Affects Output"
   ]
 }
