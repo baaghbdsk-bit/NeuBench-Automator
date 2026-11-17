@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Meta says US users can now video chat with their Muse AI avatar",
     "Family WhatsApp 'Good Morning' GIFs",
     "th:pitt basketball",
     "Everyday scams we normalized",
@@ -499,7 +498,8 @@
     "li:What Happens When You Press A Key",
     "bsky:Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use",
     "bsky:What are Vector Embeddings? The Secret Language of AI",
-    "bsky:Re-Search: Dissecting LLM Ideation Through a Two-Player Questioning Game"
+    "bsky:Re-Search: Dissecting LLM Ideation Through a Two-Player Questioning Game",
+    "bsky:Iris-Z: Scaling One Generative Model Past Specialist Geometry Models"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1065,7 +1065,8 @@
         "post:3880a74f20e10b1eda38c60bd2c45a6a78e542308ef883b032924397a4fb8743",
         "post:e4bb708e5565c3a6f0e05a6b384752dbc9bac796dfcd58577004ca24a6d2276d",
         "post:6b002c3bff22784e0258bca2aa55feb76040acfc1fa686f8078d5b502dad5bed",
-        "post:8fff1b4404c471f64f38cf012b705e5eb8bba08499effae19ca6eccc34744b6a"
+        "post:8fff1b4404c471f64f38cf012b705e5eb8bba08499effae19ca6eccc34744b6a",
+        "post:042375110530c8f6a18f87f63fdf58e57058c915c54bdd70368c1f3ff988c4ab"
       ],
       "pending": [
         {
