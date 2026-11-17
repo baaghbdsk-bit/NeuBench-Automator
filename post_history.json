@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Everyday scams we normalized",
     "bath and body works advent calendar",
     "Politicians on social media PR teams",
     "bsky:Git Rebase vs. Git Merge",
@@ -499,7 +498,8 @@
     "bsky:Re-Search: Dissecting LLM Ideation Through a Two-Player Questioning Game",
     "bsky:Iris-Z: Scaling One Generative Model Past Specialist Geometry Models",
     "bsky:Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
-    "bsky:Running coding agents without handing them my credentials"
+    "bsky:Running coding agents without handing them my credentials",
+    "bsky:Reducing Batch Makespan for LLM Agent Workloads through Inference-Environment Coordination"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1068,7 +1068,8 @@
         "post:8fff1b4404c471f64f38cf012b705e5eb8bba08499effae19ca6eccc34744b6a",
         "post:042375110530c8f6a18f87f63fdf58e57058c915c54bdd70368c1f3ff988c4ab",
         "post:50fd5db44b5e2ab3e53fdac0eb692afffc49b036efe1ee06332b2449898ab61e",
-        "post:60466fce95f771f4d076a7867ab132bf6e2420547ef7a9eeff53f4da9189ae04"
+        "post:60466fce95f771f4d076a7867ab132bf6e2420547ef7a9eeff53f4da9189ae04",
+        "post:5d65652f5f094876a7b6744af57841d11597a980cd6446efd66479254d9a3530"
       ],
       "pending": [
         {
