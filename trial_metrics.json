@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T03:02:03.351179+00:00",
+    "last_updated": "2026-11-17T03:55:21.364951+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1463,
+    "total_cycles_executed": 1464,
     "original_posts_attempted": 400,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 13,
     "actions_skipped": 348,
     "failed_operations": 146,
-    "ai_generation_requests": 845,
+    "ai_generation_requests": 846,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-11T23:03:52.896257+00:00",
-      "action_type": "reply",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/Swiggy/status/2090687847271637112",
-      "content_preview": "Bro’s really doing market research on okra while taking 55 minutes to deliver a cold khichdi. #Swiggy",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
-      "duration_s": 48.06
-    },
     {
       "timestamp": "2026-11-11T23:51:23.179390+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "The bitter lesson applies to spatial computing too. Unified generative backbones are finally replacing fragmented specia",
       "reason": "",
       "duration_s": 18.3
+    },
+    {
+      "timestamp": "2026-11-17T03:55:21.364929+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your database can handle 100,000 writes per second, but a single unexpected query spike brings your entire application t",
+      "reason": "",
+      "duration_s": 23.1
     }
   ]
 }
