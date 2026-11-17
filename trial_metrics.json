@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T14:02:13.149493+00:00",
+    "last_updated": "2026-11-17T15:02:38.174949+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1499,
-    "original_posts_attempted": 412,
+    "total_cycles_executed": 1502,
+    "original_posts_attempted": 413,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 360,
-    "failed_operations": 158,
-    "ai_generation_requests": 869,
+    "actions_skipped": 361,
+    "failed_operations": 159,
+    "ai_generation_requests": 871,
     "ai_generation_failures": 8,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T05:01:56.205813+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T05:02:01.983131+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "The unfolding Jensen Huang scandal: a timeline",
-      "content_preview": "Geopolitical export controls meet supply chain friction. As silicon allocation becomes a national security vector, compl",
-      "reason": "",
-      "duration_s": 5.77
-    },
-    {
-      "timestamp": "2026-11-12T05:03:13.624664+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ind u19",
-      "content_preview": "Adulting is hard, but watching the Ind U19 boys casually unearth the next decade of national trauma therapists is pure e",
-      "reason": "",
-      "duration_s": 71.2
-    },
     {
       "timestamp": "2026-11-12T06:02:10.286365+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "",
       "reason": "LinkedIn daily cap reached (2/2)",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T15:02:18.185149+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending half my salary on token costs just so my AI can hallucinate a brilliantly optimized bug in record time. Love th",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 5.93
+    },
+    {
+      "timestamp": "2026-11-17T15:02:18.205490+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T15:02:38.166260+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Voyage Labs raises $12 million for a specialized AI travel assistant",
+      "content_preview": "A $12M raise for a domain-specific travel LLM agent. General-purpose models already handle multi-step tool use fine; the",
+      "reason": "",
+      "duration_s": 19.95
     }
   ]
 }
