@@ -1,54 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-17T08:01:53.718074+00:00",
+    "last_updated": "2026-11-17T09:02:16.578655+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1482,
-    "original_posts_attempted": 406,
+    "total_cycles_executed": 1485,
+    "original_posts_attempted": 407,
     "original_posts_succeeded": 276,
     "replies_attempted": 105,
     "replies_succeeded": 25,
     "reposts_attempted": 55,
     "reposts_succeeded": 13,
-    "actions_skipped": 354,
-    "failed_operations": 152,
-    "ai_generation_requests": 858,
+    "actions_skipped": 355,
+    "failed_operations": 153,
+    "ai_generation_requests": 860,
     "ai_generation_failures": 7,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T03:02:24.723272+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 136.9m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T03:02:28.522449+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What Happens When You Press A Key",
-      "content_preview": "From membrane bounce to IRQ handler and screen buffer: tracing a keystroke reveals why simplicity and measurable profili",
-      "reason": "",
-      "duration_s": 3.79
-    },
-    {
-      "timestamp": "2026-11-12T03:03:49.718790+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "raphael warnock",
-      "content_preview": "Politicians seamlessly transitioning from Sunday morning sermons to DC fundraising dinners while the rest of us stress-e",
-      "reason": "",
-      "duration_s": 80.4
-    },
     {
       "timestamp": "2026-11-12T03:54:33.403509+00:00",
       "action_type": "original_post",
@@ -5018,6 +4988,36 @@
       "content_preview": "Logits are raw vote counts—unnormalized model scores akin to team points in a game. Highest wins, but they don't represe",
       "reason": "",
       "duration_s": 6.12
+    },
+    {
+      "timestamp": "2026-11-17T09:01:53.607025+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
+      "content_preview": "Spending my entire monthly salary just to watch an AI hallucinate a missing semicolon on a 1M token coding task. We are ",
+      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+      "duration_s": 3.49
+    },
+    {
+      "timestamp": "2026-11-17T09:01:53.621021+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/2)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-17T09:02:16.573045+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Continuation-Guided LLM Evolution of Program Policies and Goal Compilers in Craftax",
+      "content_preview": "Synthesizing zero-inference code policies in Craftax hits a wall on long horizons: local optimization degrades global su",
+      "reason": "",
+      "duration_s": 22.95
     }
   ]
 }
