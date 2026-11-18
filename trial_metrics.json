@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T18:20:50.067867+00:00",
+    "last_updated": "2026-11-18T19:06:00.209632+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1636,
-    "original_posts_attempted": 463,
+    "total_cycles_executed": 1641,
+    "original_posts_attempted": 465,
     "original_posts_succeeded": 291,
-    "replies_attempted": 124,
+    "replies_attempted": 125,
     "replies_succeeded": 25,
     "reposts_attempted": 60,
     "reposts_succeeded": 13,
-    "actions_skipped": 448,
+    "actions_skipped": 452,
     "failed_operations": 167,
-    "ai_generation_requests": 920,
+    "ai_generation_requests": 921,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T11:02:27.754336+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T11:02:33.658091+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Open Vision Banana: A Fully Open Recipe for Generative Visual Perception",
-      "content_preview": "Pretrained diffusion models encode robust spatial priors. Open Vision Banana unseaks vision-as-conditional-editing with ",
-      "reason": "",
-      "duration_s": 5.9
-    },
-    {
-      "timestamp": "2026-11-13T11:02:34.545270+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (41/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T11:43:17.178514+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "espncricinfo",
-      "content_preview": "Nothing humbles a man faster than writing a 3-paragraph tactical essay on ESPNcricinfo only to get out-nerded by a 19-ye",
-      "reason": "",
-      "duration_s": 22.11
-    },
-    {
-      "timestamp": "2026-11-13T11:43:17.196230+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-13T11:43:22.726956+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 65.22
+    },
+    {
+      "timestamp": "2026-11-18T19:02:11.980489+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T19:02:46.040755+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "What is a Bloom Filter?\n\nUnderstanding the real-world mechanics of What is a Bloom Filter? is one of the most critical f",
+      "reason": "",
+      "duration_s": 34.05
+    },
+    {
+      "timestamp": "2026-11-18T19:02:46.048995+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T19:06:00.141605+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 193.38
+    },
+    {
+      "timestamp": "2026-11-18T19:06:00.209606+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 193.44
     }
   ]
 }

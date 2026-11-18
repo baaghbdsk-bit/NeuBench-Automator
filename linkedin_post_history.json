@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-18T14:03:28.316614+00:00",
+  "last_success_at": "2026-11-18T19:02:45.999726+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1132,6 +1132,16 @@
       "posted_at": "2026-11-18T14:03:28.316614+00:00",
       "post_urn": "urn:li:share:7528820171436654592",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:0d4f10c0292ebc80312342a68f3aecbb",
+      "title": "What is a Bloom Filter?",
+      "url": "",
+      "content_hash": "3ad2a094070a848773e4eeb47b50aa1c",
+      "status": "success",
+      "posted_at": "2026-11-18T19:02:45.999726+00:00",
+      "post_urn": "urn:li:ugcPost:7528895491552628736",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1247,6 +1257,7 @@
     "li:What is AI Context Window Degradation? The Lost in the Middle Phenomenon",
     "li:What is Context Rot? The Silent Killer of Long-Context LLMs",
     "li:What Exactly is a Token in Modern LLMs?",
-    "li:What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory"
+    "li:What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory",
+    "li:What is a Bloom Filter?"
   ]
 }
