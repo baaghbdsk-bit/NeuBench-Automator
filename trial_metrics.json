@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T19:06:00.209632+00:00",
+    "last_updated": "2026-11-18T20:05:12.949483+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1641,
-    "original_posts_attempted": 465,
+    "total_cycles_executed": 1646,
+    "original_posts_attempted": 467,
     "original_posts_succeeded": 291,
     "replies_attempted": 125,
     "replies_succeeded": 25,
-    "reposts_attempted": 60,
+    "reposts_attempted": 61,
     "reposts_succeeded": 13,
-    "actions_skipped": 452,
+    "actions_skipped": 457,
     "failed_operations": 167,
     "ai_generation_requests": 921,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T11:43:22.726956+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Distributed Deadlock Detection Algorithms",
-      "content_preview": "Edge-chasing for distributed deadlocks sounds sophisticated, but tracing wait-for graphs across partitions burns network",
-      "reason": "",
-      "duration_s": 5.53
-    },
-    {
-      "timestamp": "2026-11-13T11:43:23.166263+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (43/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-13T12:02:07.525184+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ശശി തരൂര്",
-      "content_preview": "Trying to understand Shashi Tharoor's tweets without a thesaurus, Oxford English dictionary, and a PhD in ancient Greek ",
-      "reason": "",
-      "duration_s": 24.18
-    },
-    {
-      "timestamp": "2026-11-13T12:02:07.549466+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T12:02:12.204715+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Demystifying Tensor Parallelism in Distributed LLM Inference",
-      "content_preview": "When weights exceed HBM, sharding columns and rows across devices—rather than samples—minimizes per-layer communication ",
-      "reason": "",
-      "duration_s": 4.65
-    },
     {
       "timestamp": "2026-11-13T12:02:12.833169+00:00",
       "action_type": "repost",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 193.44
+    },
+    {
+      "timestamp": "2026-11-18T20:01:56.126601+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T20:01:56.148381+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 59.2m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T20:01:56.157817+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T20:05:12.936371+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 196.06
+    },
+    {
+      "timestamp": "2026-11-18T20:05:12.949461+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 196.07
     }
   ]
 }
