@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-17T21:03:01.355454+00:00",
+  "last_success_at": "2026-11-18T00:20:02.919784+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1082,6 +1082,16 @@
       "posted_at": "2026-11-17T21:03:01.355454+00:00",
       "post_urn": "urn:li:share:7528563366630453248",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:32f05e2da0a261b9d21d108b12400e1d",
+      "title": "What is an Ephemeral GPU Interconnect?",
+      "url": "",
+      "content_hash": "b8bc03f5b86c296147cfb2b45ecdb73a",
+      "status": "success",
+      "posted_at": "2026-11-18T00:20:02.919784+00:00",
+      "post_urn": "urn:li:ugcPost:7528612949314215936",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1192,6 +1202,7 @@
     "li:What Happens When You Press A Key",
     "li:B-Tree vs. LSM-Tree: Storage Engine Architecture Trade-offs",
     "li:What is an Inverted Index? The Secret Behind Instant Search",
-    "li:Temperature vs Top-P: How Sampling Affects Output"
+    "li:Temperature vs Top-P: How Sampling Affects Output",
+    "li:What is an Ephemeral GPU Interconnect?"
   ]
 }

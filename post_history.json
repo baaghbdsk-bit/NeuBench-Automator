@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "maverick lyon",
-    "did the stock market crash today",
-    "bsky:TCP vs. UDP",
     "zelda switch 2 pro controller",
     "Startup founders preaching hustle on LinkedIn",
     "bsky:Monolith vs. Microservices",
@@ -499,7 +496,10 @@
     "Politicians on social media PR teams",
     "uruguay vs dominican republic",
     "Income tax vs public infrastructure",
-    "ball state vs ohio"
+    "ball state vs ohio",
+    "The AI bubble and pitch deck madness",
+    "li:What is an Ephemeral GPU Interconnect?",
+    "bsky:What is a Logit? The Raw Scoring Engine Behind AI Classification"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -768,7 +768,8 @@
     "7c984604c2cd69e3c2f02555960794ed0a3567af517e058a00b0958dafaa03dd",
     "0a188e370a593b0307d5d5ca9bafec3db925ae8e85b57c0f0056a85199e5629a",
     "8545cb66e1320aa62a47595b3b8287e5a1ffe08b8c7579efbb89332a9aa36128",
-    "b0ddc6ce8057c1a6eb8e2c573b0d30e2c8db180840bd46fb2a5fa15313279ac6"
+    "b0ddc6ce8057c1a6eb8e2c573b0d30e2c8db180840bd46fb2a5fa15313279ac6",
+    "798dbe95ed8a1eca864021810766a8c1beaba4ac30e97f4a24bdb8d1219937db"
   ],
   "pending_x_actions": [
     {
@@ -803,6 +804,17 @@
       "reserved_at": "2026-11-12T01:02:57.464822+00:00",
       "unknown_at": "2026-11-12T01:03:30.554051+00:00",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates."
+    },
+    {
+      "reservation_id": "227de2e00920485cadb2e84a1167c2b7",
+      "action_type": "repost",
+      "target_identifier": "https://x.com/naval/status/1002103360646823936",
+      "content_hash": "abb48e2668bcd400a262edd815e2e4743db514bc1b0976e23424abe3e7f3cbb0",
+      "content_preview": "Step 1: Be born to wealthy parents who happened to get lucky in 1984. #TechTrends",
+      "status": "unknown",
+      "reserved_at": "2026-11-18T00:21:05.756154+00:00",
+      "unknown_at": "2026-11-18T00:21:35.964365+00:00",
+      "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates."
     }
   ],
   "platform_history": {
@@ -1090,7 +1102,8 @@
         "post:3ef0eab157df6e3224305922c122877c7ce86dc4e00133d2484b1388df439a85",
         "post:12cc05a76f02955fd57f0c4d7ecf29d2837931b724567dc783b8a2e779e3c1b4",
         "post:406cc41b75773e9e2df6813143f48eb6490f5bfe6e9afbed17230bd2403528cd",
-        "post:0f3d9ec21a0319e7c7c8871e436fabc61c4e0b9359b77caf9105ec1d1bce9bca"
+        "post:0f3d9ec21a0319e7c7c8871e436fabc61c4e0b9359b77caf9105ec1d1bce9bca",
+        "post:b82e83e0c297280433d1ca34202810cf6e80a3bcc23837c8e1e3d95a1263e47f"
       ],
       "pending": [
         {
