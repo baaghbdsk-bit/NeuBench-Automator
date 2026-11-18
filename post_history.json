@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:MCP vs. REST API",
     "bsky:StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
     "prince william kate middleton 2007 split",
     "leaky black",
@@ -499,7 +498,8 @@
     "li:What Exactly is a Token in Modern LLMs?",
     "bsky:Energy-Based Reasoners: 385x more efficient inference",
     "li:What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory",
-    "li:What is a Bloom Filter?"
+    "li:What is a Bloom Filter?",
+    "li:Asynchronous Kernel-Bypassed I/O with io_uring"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",

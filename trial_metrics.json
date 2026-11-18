@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T22:05:03.503214+00:00",
+    "last_updated": "2026-11-18T22:50:00.745499+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1657,
-    "original_posts_attempted": 471,
+    "total_cycles_executed": 1662,
+    "original_posts_attempted": 473,
     "original_posts_succeeded": 291,
-    "replies_attempted": 127,
+    "replies_attempted": 128,
     "replies_succeeded": 25,
     "reposts_attempted": 61,
     "reposts_succeeded": 13,
-    "actions_skipped": 468,
+    "actions_skipped": 472,
     "failed_operations": 167,
-    "ai_generation_requests": 921,
+    "ai_generation_requests": 922,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T15:02:42.296509+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Uber confirms hackers stole thousands of drivers’ license information in data breach",
-      "content_preview": "Third-party AI inference pipelines are becoming high-value target vectors for data exfiltration. If PII hits external mo",
-      "reason": "",
-      "duration_s": 21.47
-    },
-    {
-      "timestamp": "2026-11-13T15:02:43.127299+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (51/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T16:02:12.037285+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "நரேந்திர மோடி",
-      "content_preview": "Bro drops a surprise Monday morning lecture on us like a director cutting a mass hero teaser with zero context. Netflix ",
-      "reason": "",
-      "duration_s": 25.93
-    },
-    {
-      "timestamp": "2026-11-13T16:02:12.069218+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T16:02:17.184894+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Watch: How a server outage took down Microsoft Teams and Outlook",
-      "content_preview": "Another global outage tied to centralized auth dependencies. When a single region/service failure cascades across Teams,",
-      "reason": "",
-      "duration_s": 5.11
-    },
     {
       "timestamp": "2026-11-13T16:02:17.945226+00:00",
       "action_type": "repost",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 195.99
+    },
+    {
+      "timestamp": "2026-11-18T22:46:36.162980+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T22:46:46.629334+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Every context switch between user space and kernel space costs hundreds of CPU cycles. At millions of requests per secon",
+      "reason": "",
+      "duration_s": 10.45
+    },
+    {
+      "timestamp": "2026-11-18T22:46:46.637064+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T22:50:00.735575+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 193.52
+    },
+    {
+      "timestamp": "2026-11-18T22:50:00.745484+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 193.53
     }
   ]
 }
