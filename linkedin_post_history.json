@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-18T07:02:06.526277+00:00",
+  "last_success_at": "2026-11-18T11:02:05.534346+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1112,6 +1112,16 @@
       "posted_at": "2026-11-18T07:02:06.526277+00:00",
       "post_urn": "urn:li:share:7528714131663646720",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:5ea159f359f6e8a7475b35f937655fd3",
+      "title": "What Exactly is a Token in Modern LLMs?",
+      "url": "",
+      "content_hash": "60d74b155e8e516e64c07e2bd05965c5",
+      "status": "success",
+      "posted_at": "2026-11-18T11:02:05.534346+00:00",
+      "post_urn": "urn:li:share:7528774525581193216",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1225,6 +1235,7 @@
     "li:Temperature vs Top-P: How Sampling Affects Output",
     "li:What is an Ephemeral GPU Interconnect?",
     "li:What is AI Context Window Degradation? The Lost in the Middle Phenomenon",
-    "li:What is Context Rot? The Silent Killer of Long-Context LLMs"
+    "li:What is Context Rot? The Silent Killer of Long-Context LLMs",
+    "li:What Exactly is a Token in Modern LLMs?"
   ]
 }

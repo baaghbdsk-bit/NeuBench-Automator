@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T10:05:10.402810+00:00",
+    "last_updated": "2026-11-18T11:05:28.573960+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1591,
-    "original_posts_attempted": 445,
+    "total_cycles_executed": 1596,
+    "original_posts_attempted": 447,
     "original_posts_succeeded": 291,
-    "replies_attempted": 117,
+    "replies_attempted": 118,
     "replies_succeeded": 25,
     "reposts_attempted": 58,
     "reposts_succeeded": 13,
-    "actions_skipped": 406,
+    "actions_skipped": 409,
     "failed_operations": 167,
-    "ai_generation_requests": 915,
+    "ai_generation_requests": 917,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T01:02:04.465491+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Gemini 4 Hydrogen and Orchestrator",
-      "content_preview": "Deconstructing orchestrator patterns for multi-tier inference: managing state and execution graphs across distributed no",
-      "reason": "",
-      "duration_s": 6.57
-    },
-    {
-      "timestamp": "2026-11-13T01:03:23.680209+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "charlie sheen",
-      "content_preview": "Charlie Sheen trending in 2024 is the ultimate proof that the internet refuses to let go of its vintage trash fire. Bro ",
-      "reason": "",
-      "duration_s": 78.71
-    },
-    {
-      "timestamp": "2026-11-13T01:51:03.701599+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your linear LLM chain will fail the moment a user inputs a non-standard request, wasting thousands of tokens and burning",
-      "reason": "",
-      "duration_s": 18.26
-    },
-    {
-      "timestamp": "2026-11-13T02:02:35.893092+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "arvell reese",
-      "content_preview": "Bro's out here playing defense like his rent is due tomorrow and the landlord is standing in the huddle. Absolute cinema",
-      "reason": "",
-      "duration_s": 20.85
-    },
-    {
-      "timestamp": "2026-11-13T02:02:35.921547+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-13T02:02:43.315807+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 195.52
+    },
+    {
+      "timestamp": "2026-11-18T11:01:55.200589+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T11:02:05.545585+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "A single paragraph of code can quietly bloat your LLM inference budget by 300 percent simply because of how a word is sp",
+      "reason": "",
+      "duration_s": 10.33
+    },
+    {
+      "timestamp": "2026-11-18T11:02:12.569708+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Energy-Based Reasoners: 385x more efficient inference",
+      "content_preview": "Energy-Based Reasoners hit 385x inference efficiency by optimizing scalar energy minimization over autoregressive token ",
+      "reason": "",
+      "duration_s": 7.02
+    },
+    {
+      "timestamp": "2026-11-18T11:05:28.565110+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.42
+    },
+    {
+      "timestamp": "2026-11-18T11:05:28.573941+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 195.43
     }
   ]
 }
