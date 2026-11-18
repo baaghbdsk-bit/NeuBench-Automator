@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T14:06:45.060665+00:00",
+    "last_updated": "2026-11-18T14:51:09.431357+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1612,
-    "original_posts_attempted": 453,
+    "total_cycles_executed": 1617,
+    "original_posts_attempted": 455,
     "original_posts_succeeded": 291,
-    "replies_attempted": 120,
+    "replies_attempted": 121,
     "replies_succeeded": 25,
     "reposts_attempted": 59,
     "reposts_succeeded": 13,
-    "actions_skipped": 424,
+    "actions_skipped": 429,
     "failed_operations": 167,
     "ai_generation_requests": 918,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T05:02:34.418729+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Kernel Bypassing with DPDK / io_uring",
-      "content_preview": "Eliminating syscall context-switch overhead for sub-microsecond networking via DPDK or io_uring is powerful, but profile",
-      "reason": "",
-      "duration_s": 13.72
-    },
-    {
-      "timestamp": "2026-11-13T05:03:52.549722+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "td power share price",
-      "content_preview": "Checking the td power share price gives me the exact same adrenaline rush as watching a 3-hour indie movie with no plot.",
-      "reason": "",
-      "duration_s": 77.38
-    },
-    {
-      "timestamp": "2026-11-13T06:02:55.801168+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "noah gragson",
-      "content_preview": "Bro managed to speedrun a career reset faster than my Wi-Fi disconnects during a crucial Zoom call. Impressive efficienc",
-      "reason": "",
-      "duration_s": 20.3
-    },
-    {
-      "timestamp": "2026-11-13T06:02:55.833280+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T06:03:08.781216+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Numbers Behind AI Decision Making",
-      "content_preview": "Logits are raw, unconstrained model scores (opinions). Softmax maps them to probabilities. \n\nPro-tip: Never compute loss",
-      "reason": "",
-      "duration_s": 12.94
-    },
     {
       "timestamp": "2026-11-13T06:04:25.662623+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 195.89
+    },
+    {
+      "timestamp": "2026-11-18T14:47:52.853088+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T14:47:52.875236+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 44.4m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T14:47:52.884466+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T14:51:09.420025+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.81
+    },
+    {
+      "timestamp": "2026-11-18T14:51:09.431338+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 195.82
     }
   ]
 }
