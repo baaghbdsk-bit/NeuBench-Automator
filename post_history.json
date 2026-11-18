@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "jim caviezel",
-    "baylor basketball",
-    "li:Stack vs. Queue",
     "bsky:OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
     "पेट्रोल",
     "Gym bros vs reality",
@@ -499,7 +496,10 @@
     "bosnia and herzegovina national football team vs romania national football team standings",
     "rudy gobert",
     "bsky:Google's AI answers reducing search traffic by 40%",
-    "mexico vs jamaica"
+    "mexico vs jamaica",
+    "गुजरात टाइटन्स",
+    "bsky:As Trump and Xi meet, China's AI dreams face an unexpected hurdle: the Nvidia spy scandal",
+    "unlv vs kansas"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -773,7 +773,9 @@
     "0206a0afcf8fa152b0cb12a5bafa2ef77bf30adcffb6d32a637f9faeb4eb611a",
     "065b96ee4fd7fa1f66ff7362fe0ecaa6928d61085b6521cee076641842d308e5",
     "6598d117649e0c368e17c907034530e3c1ff1ab488162358cebe5fe746453bdc",
-    "83025dd04e3d3b3e3f35d874e0f8055413dac5dff7c8772aa1bd6b0730c3f278"
+    "83025dd04e3d3b3e3f35d874e0f8055413dac5dff7c8772aa1bd6b0730c3f278",
+    "2b9e1d6c8ed29f361b590f2780c73b8efca0c6ceeff3d0ebc8e0fb93ac367f62",
+    "6726cbee57a6634492a015c58933ebeeceb52eff5b489f2ed61442f73f8792c9"
   ],
   "pending_x_actions": [
     {
@@ -1109,7 +1111,8 @@
         "post:0f3d9ec21a0319e7c7c8871e436fabc61c4e0b9359b77caf9105ec1d1bce9bca",
         "post:b82e83e0c297280433d1ca34202810cf6e80a3bcc23837c8e1e3d95a1263e47f",
         "post:3ede53dd204b07dea5cd1f41e029263e410543e3dc52c2187c6c3fd987276805",
-        "post:415c91f9a5f77e729037354ef78261cb5f57e37657cf83487daaf044a312bed9"
+        "post:415c91f9a5f77e729037354ef78261cb5f57e37657cf83487daaf044a312bed9",
+        "post:14c1dff4ec043662fa18c5f252ebb041bc5d737c7197fa24f412c1995e709940"
       ],
       "pending": [
         {

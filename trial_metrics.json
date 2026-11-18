@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T02:06:07.336488+00:00",
+    "last_updated": "2026-11-18T03:06:10.142119+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1553,
-    "original_posts_attempted": 431,
-    "original_posts_succeeded": 288,
-    "replies_attempted": 111,
+    "total_cycles_executed": 1558,
+    "original_posts_attempted": 433,
+    "original_posts_succeeded": 290,
+    "replies_attempted": 112,
     "replies_succeeded": 25,
     "reposts_attempted": 56,
     "reposts_succeeded": 13,
-    "actions_skipped": 383,
+    "actions_skipped": 385,
     "failed_operations": 165,
-    "ai_generation_requests": 900,
+    "ai_generation_requests": 903,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T17:02:25.526308+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T17:02:46.450968+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "I'm making LLMs work on small and old devices",
-      "content_preview": "Running LLMs on legacy hardware isn't about magic; it's about ruthless quantization, cache locality, and memory bandwidt",
-      "reason": "",
-      "duration_s": 20.92
-    },
-    {
-      "timestamp": "2026-11-12T17:02:47.211798+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (55/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T18:02:16.940192+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "bruce arians",
-      "content_preview": "Bruce Arians retiring from coaching just to sit in the luxury suite looking like a mafia boss who finally outsourced his",
-      "reason": "",
-      "duration_s": 27.12
-    },
-    {
-      "timestamp": "2026-11-12T18:02:16.964337+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-12T18:02:38.344448+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "Watching Mexico vs Jamaica is basically a stress-test for my heart rate while pretending I understand tactical football.",
       "reason": "",
       "duration_s": 216.89
+    },
+    {
+      "timestamp": "2026-11-18T03:02:23.419151+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "गुजरात टाइटन्स",
+      "content_preview": "Gujarat Titans are the corporate presentation that somehow gets a promotion over the guy who actually built the company.",
+      "reason": "",
+      "duration_s": 23.52
+    },
+    {
+      "timestamp": "2026-11-18T03:02:23.449192+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 162.3m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T03:02:29.067704+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "As Trump and Xi meet, China's AI dreams face an unexpected hurdle: the Nvidia spy scandal",
+      "content_preview": "Silicon supply chains remain uniquely brittle. Geopolitical friction over hardware integrity accelerates decoupling, for",
+      "reason": "",
+      "duration_s": 5.61
+    },
+    {
+      "timestamp": "2026-11-18T03:05:47.661588+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 197.84
+    },
+    {
+      "timestamp": "2026-11-18T03:06:10.133439+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "unlv vs kansas",
+      "content_preview": "Watching UNLV vs Kansas feels less like a football game and more like watching a guy try to return a sweater at Zara wit",
+      "reason": "",
+      "duration_s": 220.31
     }
   ]
 }
