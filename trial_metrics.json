@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T12:05:21.276555+00:00",
+    "last_updated": "2026-11-18T13:05:24.946593+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1602,
-    "original_posts_attempted": 449,
+    "total_cycles_executed": 1607,
+    "original_posts_attempted": 451,
     "original_posts_succeeded": 291,
-    "replies_attempted": 118,
+    "replies_attempted": 119,
     "replies_succeeded": 25,
     "reposts_attempted": 59,
     "reposts_succeeded": 13,
-    "actions_skipped": 415,
+    "actions_skipped": 420,
     "failed_operations": 167,
     "ai_generation_requests": 917,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T03:02:12.387601+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "aj dybantsa",
-      "content_preview": "Bro's out here playing basketball like he’s rendering a 20-year-old’s entire life path before even finishing high school",
-      "reason": "",
-      "duration_s": 29.68
-    },
-    {
-      "timestamp": "2026-11-13T03:02:12.412408+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T03:02:18.177348+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Muse can now place calls to US businesses — if you pay",
-      "content_preview": "Telephony integration for LLMs isn't an intelligence problem; it's a deterministic state-machine and latency budget prob",
-      "reason": "",
-      "duration_s": 5.76
-    },
-    {
-      "timestamp": "2026-11-13T03:03:31.633187+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "anthony davis",
-      "content_preview": "Anthony Davis looking at a feather floating towards him and suddenly being listed as 'Out for 4-6 weeks with atmospheric",
-      "reason": "",
-      "duration_s": 72.88
-    },
-    {
-      "timestamp": "2026-11-13T04:01:53.558616+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "cameron green",
-      "content_preview": "Cameron Green looks like he was custom-built in a lab by Australian biomechanics to make the rest of us feel deeply inad",
-      "reason": "",
-      "duration_s": 20.99
-    },
     {
       "timestamp": "2026-11-13T04:01:53.582093+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 194.61
+    },
+    {
+      "timestamp": "2026-11-18T13:02:09.569863+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T13:02:09.670158+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 120.1m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T13:02:09.678234+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T13:05:24.936994+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 194.64
+    },
+    {
+      "timestamp": "2026-11-18T13:05:24.946564+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 194.65
     }
   ]
 }
