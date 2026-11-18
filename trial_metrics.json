@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T06:20:18.745685+00:00",
+    "last_updated": "2026-11-18T07:05:27.245693+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1572,
-    "original_posts_attempted": 438,
+    "total_cycles_executed": 1577,
+    "original_posts_attempted": 440,
     "original_posts_succeeded": 291,
-    "replies_attempted": 114,
+    "replies_attempted": 115,
     "replies_succeeded": 25,
     "reposts_attempted": 57,
     "reposts_succeeded": 13,
-    "actions_skipped": 393,
+    "actions_skipped": 396,
     "failed_operations": 166,
-    "ai_generation_requests": 909,
+    "ai_generation_requests": 911,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T21:02:40.233711+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (64/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-12T21:59:08.011337+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "nations league games",
-      "content_preview": "Clubs paying player wages for 10 months just for them to pull a hamstring in a meaningless Nations League fixture in Nov",
-      "reason": "",
-      "duration_s": 29.82
-    },
-    {
-      "timestamp": "2026-11-12T21:59:08.040976+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (5/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T21:59:12.274079+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Scoring Mechanics of Neural Networks",
-      "content_preview": "Logits are raw, unnormalized preference scores. Think of them like match points: if Team A has 50 and Team B has 10, A i",
-      "reason": "",
-      "duration_s": 4.22
-    },
-    {
-      "timestamp": "2026-11-12T21:59:13.061908+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (66/40).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-12T22:02:39.126385+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "bro tweeting about character growth like he didn't just review a $2,000 smart toaster with a notch #TechTrends",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
       "duration_s": 86.97
+    },
+    {
+      "timestamp": "2026-11-18T07:01:57.783525+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T07:02:06.537496+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Passing a 2-million-token context window to a Large Language Model does not mean the model can actually reason across th",
+      "reason": "",
+      "duration_s": 8.74
+    },
+    {
+      "timestamp": "2026-11-18T07:02:10.899521+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks",
+      "content_preview": "Xing4 pushes TeleChat further via co-designed Ascend hardware/software primitives. Scaling frontier agentic models requi",
+      "reason": "",
+      "duration_s": 4.35
+    },
+    {
+      "timestamp": "2026-11-18T07:05:27.234884+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.58
+    },
+    {
+      "timestamp": "2026-11-18T07:05:27.245674+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 195.59
     }
   ]
 }

@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "Free speech hypocrisy on social media",
-    "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
     "bsky:Meta introduces Spaces, a new way to collaborate with your Muse agent",
     "new mexico vs nevada",
     "vj edgecombe",
@@ -499,7 +497,9 @@
     "bsky:Weight-Space Programming Doesn't Need Transformers",
     "dylan harper",
     "bsky:LLM API Outage Frequency & Degradation Index",
-    "bsky:FastFrames: Video Generation at Interactive Latency"
+    "bsky:FastFrames: Video Generation at Interactive Latency",
+    "li:What is Context Rot? The Silent Killer of Long-Context LLMs",
+    "bsky:TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1127,7 +1127,8 @@
         "post:14c1dff4ec043662fa18c5f252ebb041bc5d737c7197fa24f412c1995e709940",
         "post:33136fc2c682438861968ad4d35da8169579562204897f9d5e4707f9946b04cd",
         "post:8da17d2bf2db25ddb41332bbd7775e0b61975cb976c4288e5744c5ac5243bb96",
-        "post:297457f5f498d75a7fa397595155855c096db14bf7ec6115f4508a8a73568f60"
+        "post:297457f5f498d75a7fa397595155855c096db14bf7ec6115f4508a8a73568f60",
+        "post:44c5615f7b21b3ca3c0f43b572e3640121e88062a70d0658ed5de603dcae1486"
       ],
       "pending": [
         {
