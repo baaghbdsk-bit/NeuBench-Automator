@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T13:05:24.946593+00:00",
+    "last_updated": "2026-11-18T14:06:45.060665+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1607,
-    "original_posts_attempted": 451,
+    "total_cycles_executed": 1612,
+    "original_posts_attempted": 453,
     "original_posts_succeeded": 291,
-    "replies_attempted": 119,
+    "replies_attempted": 120,
     "replies_succeeded": 25,
     "reposts_attempted": 59,
     "reposts_succeeded": 13,
-    "actions_skipped": 420,
+    "actions_skipped": 424,
     "failed_operations": 167,
-    "ai_generation_requests": 917,
+    "ai_generation_requests": 918,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T04:01:53.582093+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T04:01:59.427241+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
-      "content_preview": "Running a 145B parameter model locally via Edge0 forces a hard look at memory bandwidth and quantization trade-offs. Imp",
-      "reason": "",
-      "duration_s": 5.84
-    },
-    {
-      "timestamp": "2026-11-13T04:03:01.446966+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "shaq",
-      "content_preview": "Shaq is out here investing in literal gas stations and ring doorbells while the rest of us are stressing over a $4 deliv",
-      "reason": "",
-      "duration_s": 61.52
-    },
-    {
-      "timestamp": "2026-11-13T05:02:20.657427+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "अमृत भारत एक्सप्रेस",
-      "content_preview": "Amrit Bharat Express is basically a time machine that still reaches tomorrow, yesterday, and never all at once. Peak Ind",
-      "reason": "",
-      "duration_s": 30.29
-    },
-    {
-      "timestamp": "2026-11-13T05:02:20.686599+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-13T05:02:34.418729+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 194.65
+    },
+    {
+      "timestamp": "2026-11-18T14:02:28.723915+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T14:03:28.335668+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory\n\nUnderstanding the real-world mechanics of W",
+      "reason": "",
+      "duration_s": 59.6
+    },
+    {
+      "timestamp": "2026-11-18T14:03:28.345861+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T14:06:45.049164+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.88
+    },
+    {
+      "timestamp": "2026-11-18T14:06:45.060632+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 195.89
     }
   ]
 }
