@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T04:05:33.756333+00:00",
+    "last_updated": "2026-11-18T05:05:20.170016+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1563,
-    "original_posts_attempted": 435,
+    "total_cycles_executed": 1568,
+    "original_posts_attempted": 437,
     "original_posts_succeeded": 291,
-    "replies_attempted": 112,
+    "replies_attempted": 113,
     "replies_succeeded": 25,
     "reposts_attempted": 57,
     "reposts_succeeded": 13,
-    "actions_skipped": 387,
+    "actions_skipped": 391,
     "failed_operations": 165,
-    "ai_generation_requests": 906,
+    "ai_generation_requests": 907,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T19:02:30.721339+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (59/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-12T19:55:10.415208+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Why does a single row update in PostgreSQL require a sequential disk write of up to 16MB just to modify a few bytes?\n\nTh",
-      "reason": "",
-      "duration_s": 17.69
-    },
-    {
-      "timestamp": "2026-11-12T20:02:32.643850+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "cyber attacks today",
-      "content_preview": "Me checking my entire digital footprint today wondering which bored teenager in a basement just leaked my embarrassing 2",
-      "reason": "",
-      "duration_s": 23.97
-    },
-    {
-      "timestamp": "2026-11-12T20:02:32.667559+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (5/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T20:02:48.255676+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Nectar launches an AI agent to automate creator discovery and outreach for brands",
-      "content_preview": "Automating top-of-funnel creator discovery requires ranking heterogeneous unstructured data at scale. The engineering ch",
-      "reason": "",
-      "duration_s": 15.58
-    },
     {
       "timestamp": "2026-11-12T20:02:48.975114+00:00",
       "action_type": "repost",
@@ -5018,6 +4968,56 @@
       "content_preview": "Watching Dylan Harper ball out while my biggest athletic achievement today is successfully dodging human contact at the ",
       "reason": "",
       "duration_s": 214.04
+    },
+    {
+      "timestamp": "2026-11-18T05:01:53.253819+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T05:01:53.277663+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 60.0m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T05:02:03.464354+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LLM API Outage Frequency & Degradation Index",
+      "content_preview": "Frontier LLM API degradation isn't just about hard 500s; it's tail-latency spikes and silent token-drop rates. NeuBench ",
+      "reason": "",
+      "duration_s": 10.18
+    },
+    {
+      "timestamp": "2026-11-18T05:05:20.134033+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 196.04
+    },
+    {
+      "timestamp": "2026-11-18T05:05:20.169998+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 196.07
     }
   ]
 }

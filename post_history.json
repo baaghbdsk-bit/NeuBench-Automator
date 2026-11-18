@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:REST vs. GraphQL vs. gRPC",
     "bsky:Hundreds of Artex AI hacking tools found publicly exposed to the web",
     "Free speech hypocrisy on social media",
     "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
@@ -499,7 +498,8 @@
     "unlv vs kansas",
     "li:What is AI Context Window Degradation? The Lost in the Middle Phenomenon",
     "bsky:Weight-Space Programming Doesn't Need Transformers",
-    "dylan harper"
+    "dylan harper",
+    "bsky:LLM API Outage Frequency & Degradation Index"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1114,7 +1114,8 @@
         "post:3ede53dd204b07dea5cd1f41e029263e410543e3dc52c2187c6c3fd987276805",
         "post:415c91f9a5f77e729037354ef78261cb5f57e37657cf83487daaf044a312bed9",
         "post:14c1dff4ec043662fa18c5f252ebb041bc5d737c7197fa24f412c1995e709940",
-        "post:33136fc2c682438861968ad4d35da8169579562204897f9d5e4707f9946b04cd"
+        "post:33136fc2c682438861968ad4d35da8169579562204897f9d5e4707f9946b04cd",
+        "post:8da17d2bf2db25ddb41332bbd7775e0b61975cb976c4288e5744c5ac5243bb96"
       ],
       "pending": [
         {
