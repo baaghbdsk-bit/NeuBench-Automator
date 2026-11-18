@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T22:50:00.745499+00:00",
+    "last_updated": "2026-11-18T23:05:14.710526+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1662,
-    "original_posts_attempted": 473,
+    "total_cycles_executed": 1667,
+    "original_posts_attempted": 475,
     "original_posts_succeeded": 291,
-    "replies_attempted": 128,
+    "replies_attempted": 129,
     "replies_succeeded": 25,
     "reposts_attempted": 61,
     "reposts_succeeded": 13,
-    "actions_skipped": 472,
+    "actions_skipped": 477,
     "failed_operations": 167,
     "ai_generation_requests": 922,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T16:02:17.945226+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (53/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T17:02:45.134902+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "portugal national football team u17",
-      "content_preview": "Portugal U17 out here playing like their inheritance depends on it while senior teams just vibe. Bro, these kids are run",
-      "reason": "",
-      "duration_s": 27.22
-    },
-    {
-      "timestamp": "2026-11-13T17:02:45.176685+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T17:02:50.246701+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Experience-Handoff Reinforcement Learning for Recursive Self-Improvement",
-      "content_preview": "Scalar RL rewards discard trajectory nuance. Experience-Handoff RL passes raw env data like stack traces directly to the",
-      "reason": "",
-      "duration_s": 5.06
-    },
-    {
-      "timestamp": "2026-11-13T17:02:50.827669+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (55/40).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-13T18:02:07.814133+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 193.53
+    },
+    {
+      "timestamp": "2026-11-18T23:01:59.962154+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T23:01:59.985009+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 15.2m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T23:01:59.992510+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T23:05:14.701312+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 194.16
+    },
+    {
+      "timestamp": "2026-11-18T23:05:14.710507+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 194.16
     }
   ]
 }
