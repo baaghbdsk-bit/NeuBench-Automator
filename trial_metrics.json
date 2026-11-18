@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T01:06:00.037438+00:00",
+    "last_updated": "2026-11-18T02:06:07.336488+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1548,
-    "original_posts_attempted": 429,
-    "original_posts_succeeded": 286,
-    "replies_attempted": 110,
+    "total_cycles_executed": 1553,
+    "original_posts_attempted": 431,
+    "original_posts_succeeded": 288,
+    "replies_attempted": 111,
     "replies_succeeded": 25,
     "reposts_attempted": 56,
     "reposts_succeeded": 13,
-    "actions_skipped": 381,
+    "actions_skipped": 383,
     "failed_operations": 165,
-    "ai_generation_requests": 897,
+    "ai_generation_requests": 900,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T16:03:05.259826+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "nintendo black friday game discounts",
-      "content_preview": "Nintendo really looking at a 7-year-old port and going \"best I can do is $59.89, take it or leave it, you peasants.\" \n\n#",
-      "reason": "",
-      "duration_s": 28.12
-    },
-    {
-      "timestamp": "2026-11-12T16:03:05.291410+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T16:03:22.005871+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ScrapeBench: Evaluating Legal Compliance of AI Agents in Website Scraping",
-      "content_preview": "Autonomous agents frequently bypass robots.txt and rate limits, introducing silent liability. ScrapeBench evaluates agen",
-      "reason": "",
-      "duration_s": 16.71
-    },
-    {
-      "timestamp": "2026-11-12T16:03:22.673429+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (53/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-12T17:02:25.497116+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "robert f. kennedy jr.",
-      "content_preview": "RFjr out here raw-dogging public health policy like it's a reality TV show audition. Bro really looked at modern medicin",
-      "reason": "",
-      "duration_s": 34.61
-    },
     {
       "timestamp": "2026-11-12T17:02:25.526308+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "Checking Bosnia and Herzegovina vs Romania standings is the male equivalent of reading horoscopes to find out why your l",
       "reason": "",
       "duration_s": 213.62
+    },
+    {
+      "timestamp": "2026-11-18T02:02:23.688728+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "rudy gobert",
+      "content_preview": "Rudy Gobert plays defense like he’s trying to shield his screen from his mom while texting in 2008. Unstoppable traffic ",
+      "reason": "",
+      "duration_s": 22.67
+    },
+    {
+      "timestamp": "2026-11-18T02:02:23.718645+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 102.3m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T02:02:29.582125+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Google's AI answers reducing search traffic by 40%",
+      "content_preview": "AI summaries eating 40% of search traffic shifts the web economics model. Zero-click answers reduce publisher incentives",
+      "reason": "",
+      "duration_s": 5.85
+    },
+    {
+      "timestamp": "2026-11-18T02:05:46.106855+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.67
+    },
+    {
+      "timestamp": "2026-11-18T02:06:07.327845+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "mexico vs jamaica",
+      "content_preview": "Watching Mexico vs Jamaica is basically a stress-test for my heart rate while pretending I understand tactical football.",
+      "reason": "",
+      "duration_s": 216.89
     }
   ]
 }
