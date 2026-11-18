@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T03:06:10.142119+00:00",
+    "last_updated": "2026-11-18T04:05:33.756333+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1558,
-    "original_posts_attempted": 433,
-    "original_posts_succeeded": 290,
+    "total_cycles_executed": 1563,
+    "original_posts_attempted": 435,
+    "original_posts_succeeded": 291,
     "replies_attempted": 112,
     "replies_succeeded": 25,
-    "reposts_attempted": 56,
+    "reposts_attempted": 57,
     "reposts_succeeded": 13,
-    "actions_skipped": 385,
+    "actions_skipped": 387,
     "failed_operations": 165,
-    "ai_generation_requests": 903,
+    "ai_generation_requests": 906,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T18:02:38.344448+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Zoe Kleinman: How AI visionary Jensen Huang was undone by his own bad decisions",
-      "content_preview": "Monoculture hardware dependencies are single points of failure. When capital allocation ignores fundamental supply-chain",
-      "reason": "",
-      "duration_s": 21.37
-    },
-    {
-      "timestamp": "2026-11-12T18:02:38.930025+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (57/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-12T19:02:21.010964+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "msft",
-      "content_preview": "Me explaining to my non-tech friends that MSFT dropping slightly isn't the apocalypse, while secretly praying my cloud c",
-      "reason": "",
-      "duration_s": 25.16
-    },
-    {
-      "timestamp": "2026-11-12T19:02:21.034557+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T19:02:30.120181+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What Exactly is a Token in Modern LLMs?",
-      "content_preview": "A token isn’t a word; it’s a BPE frequency index. Common words cost 1 token; rare terms fragment into byte-level shards,",
-      "reason": "",
-      "duration_s": 9.08
-    },
     {
       "timestamp": "2026-11-12T19:02:30.721339+00:00",
       "action_type": "reply",
@@ -5018,6 +4968,56 @@
       "content_preview": "Watching UNLV vs Kansas feels less like a football game and more like watching a guy try to return a sweater at Zara wit",
       "reason": "",
       "duration_s": 220.31
+    },
+    {
+      "timestamp": "2026-11-18T04:01:42.894521+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (7/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T04:01:53.261706+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "You can feed an LLM 128k tokens of pristine documentation, yet it will completely hallucinate an API key hidden right in",
+      "reason": "",
+      "duration_s": 10.35
+    },
+    {
+      "timestamp": "2026-11-18T04:01:59.232615+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Weight-Space Programming Doesn't Need Transformers",
+      "content_preview": "Transformers won because of autograd and hardware co-design. If LLMs write target weights directly in weight-space, thos",
+      "reason": "",
+      "duration_s": 5.96
+    },
+    {
+      "timestamp": "2026-11-18T04:05:13.039459+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 193.33
+    },
+    {
+      "timestamp": "2026-11-18T04:05:33.749804+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "dylan harper",
+      "content_preview": "Watching Dylan Harper ball out while my biggest athletic achievement today is successfully dodging human contact at the ",
+      "reason": "",
+      "duration_s": 214.04
     }
   ]
 }

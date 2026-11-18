@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-18T00:20:02.919784+00:00",
+  "last_success_at": "2026-11-18T04:01:53.253911+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1092,6 +1092,16 @@
       "posted_at": "2026-11-18T00:20:02.919784+00:00",
       "post_urn": "urn:li:ugcPost:7528612949314215936",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:230dea30551e6ac4524997d10c0e8909",
+      "title": "What is AI Context Window Degradation? The Lost in the Middle Phenomenon",
+      "url": "",
+      "content_hash": "ce1f9ae148338dcfbdcec7205d92fa49",
+      "status": "success",
+      "posted_at": "2026-11-18T04:01:53.253911+00:00",
+      "post_urn": "urn:li:share:7528668776418996224",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1203,6 +1213,7 @@
     "li:B-Tree vs. LSM-Tree: Storage Engine Architecture Trade-offs",
     "li:What is an Inverted Index? The Secret Behind Instant Search",
     "li:Temperature vs Top-P: How Sampling Affects Output",
-    "li:What is an Ephemeral GPU Interconnect?"
+    "li:What is an Ephemeral GPU Interconnect?",
+    "li:What is AI Context Window Degradation? The Lost in the Middle Phenomenon"
   ]
 }

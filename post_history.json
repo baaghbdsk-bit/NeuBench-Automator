@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
-    "पेट्रोल",
-    "Gym bros vs reality",
     "li:REST vs. GraphQL vs. gRPC",
     "bsky:Hundreds of Artex AI hacking tools found publicly exposed to the web",
     "Free speech hypocrisy on social media",
@@ -499,7 +496,10 @@
     "mexico vs jamaica",
     "गुजरात टाइटन्स",
     "bsky:As Trump and Xi meet, China's AI dreams face an unexpected hurdle: the Nvidia spy scandal",
-    "unlv vs kansas"
+    "unlv vs kansas",
+    "li:What is AI Context Window Degradation? The Lost in the Middle Phenomenon",
+    "bsky:Weight-Space Programming Doesn't Need Transformers",
+    "dylan harper"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -775,7 +775,8 @@
     "6598d117649e0c368e17c907034530e3c1ff1ab488162358cebe5fe746453bdc",
     "83025dd04e3d3b3e3f35d874e0f8055413dac5dff7c8772aa1bd6b0730c3f278",
     "2b9e1d6c8ed29f361b590f2780c73b8efca0c6ceeff3d0ebc8e0fb93ac367f62",
-    "6726cbee57a6634492a015c58933ebeeceb52eff5b489f2ed61442f73f8792c9"
+    "6726cbee57a6634492a015c58933ebeeceb52eff5b489f2ed61442f73f8792c9",
+    "acb4c4b87d95f82bccec986801abfbea9aa40d3e4dca2cbd37ec4a22b7273523"
   ],
   "pending_x_actions": [
     {
@@ -1112,7 +1113,8 @@
         "post:b82e83e0c297280433d1ca34202810cf6e80a3bcc23837c8e1e3d95a1263e47f",
         "post:3ede53dd204b07dea5cd1f41e029263e410543e3dc52c2187c6c3fd987276805",
         "post:415c91f9a5f77e729037354ef78261cb5f57e37657cf83487daaf044a312bed9",
-        "post:14c1dff4ec043662fa18c5f252ebb041bc5d737c7197fa24f412c1995e709940"
+        "post:14c1dff4ec043662fa18c5f252ebb041bc5d737c7197fa24f412c1995e709940",
+        "post:33136fc2c682438861968ad4d35da8169579562204897f9d5e4707f9946b04cd"
       ],
       "pending": [
         {
