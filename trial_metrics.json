@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T07:05:27.245693+00:00",
+    "last_updated": "2026-11-18T08:06:12.398108+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1577,
-    "original_posts_attempted": 440,
+    "total_cycles_executed": 1582,
+    "original_posts_attempted": 442,
     "original_posts_succeeded": 291,
     "replies_attempted": 115,
     "replies_succeeded": 25,
-    "reposts_attempted": 57,
+    "reposts_attempted": 58,
     "reposts_succeeded": 13,
-    "actions_skipped": 396,
+    "actions_skipped": 400,
     "failed_operations": 166,
-    "ai_generation_requests": 911,
+    "ai_generation_requests": 912,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T22:02:39.126385+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "josh simmons",
-      "content_preview": "Bro really looked at the timeline and decided to become the main character of a debate nobody invited him to. Touch gras",
-      "reason": "",
-      "duration_s": 21.85
-    },
-    {
-      "timestamp": "2026-11-12T22:02:39.146001+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (5/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T22:02:43.083753+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "How AI visionary Jensen Huang was undone by his own bad decisions",
-      "content_preview": "Architecture scales until operational risk outpaces supply-chain gravity. Single points of failure in hardware pipelines",
-      "reason": "",
-      "duration_s": 3.93
-    },
-    {
-      "timestamp": "2026-11-12T22:02:43.629370+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (68/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-12T23:02:03.615957+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "jessica pegula",
-      "content_preview": "People out here stressing about inflation while Jessica Pegula's dad could literally buy the grocery store, the parking ",
-      "reason": "",
-      "duration_s": 22.19
-    },
     {
       "timestamp": "2026-11-12T23:02:03.639067+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 195.59
+    },
+    {
+      "timestamp": "2026-11-18T08:02:48.423039+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T08:02:48.445932+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 60.7m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T08:02:55.854885+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "From Repositories to Training Environments: Scaling Long-Horizon Coding Agents with Environment Evolution Loop",
+      "content_preview": "Linear validation pipelines leave training value on the table for long-horizon coding agents. True recursive self-improv",
+      "reason": "",
+      "duration_s": 7.4
+    },
+    {
+      "timestamp": "2026-11-18T08:06:12.387012+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 195.75
+    },
+    {
+      "timestamp": "2026-11-18T08:06:12.398081+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 195.76
     }
   ]
 }
