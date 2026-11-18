@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T05:05:20.170016+00:00",
+    "last_updated": "2026-11-18T06:20:18.745685+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1568,
-    "original_posts_attempted": 437,
+    "total_cycles_executed": 1572,
+    "original_posts_attempted": 438,
     "original_posts_succeeded": 291,
-    "replies_attempted": 113,
+    "replies_attempted": 114,
     "replies_succeeded": 25,
     "reposts_attempted": 57,
     "reposts_succeeded": 13,
-    "actions_skipped": 391,
-    "failed_operations": 165,
-    "ai_generation_requests": 907,
+    "actions_skipped": 393,
+    "failed_operations": 166,
+    "ai_generation_requests": 909,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-12T20:02:48.975114+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (62/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T21:02:13.438528+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "aaron taylor johnson",
-      "content_preview": "People really losing their minds over Aaron Taylor-Johnson playing James Bond like the man hasn't spent his entire caree",
-      "reason": "",
-      "duration_s": 29.74
-    },
-    {
-      "timestamp": "2026-11-12T21:02:13.461499+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (5/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-12T21:02:39.576059+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "How Compilers Optimize Code",
-      "content_preview": "From AST parsing to dead code elimination and register allocation, compilers teach us a core lesson: simplicity and meas",
-      "reason": "",
-      "duration_s": 26.11
-    },
     {
       "timestamp": "2026-11-12T21:02:40.233711+00:00",
       "action_type": "reply",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 196.07
+    },
+    {
+      "timestamp": "2026-11-18T06:18:44.147401+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T06:18:44.161945+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 136.8m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T06:18:51.256713+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "FastFrames: Video Generation at Interactive Latency",
+      "content_preview": "Autoregressive video diffusion at interactive latency remains bottlenecked by memory bandwidth and sequential attention ",
+      "reason": "",
+      "duration_s": 7.09
+    },
+    {
+      "timestamp": "2026-11-18T06:20:18.745651+00:00",
+      "action_type": "reply",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/MKBHD/status/1282750287229456385",
+      "content_preview": "bro tweeting about character growth like he didn't just review a $2,000 smart toaster with a notch #TechTrends",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
+      "duration_s": 86.97
     }
   ]
 }

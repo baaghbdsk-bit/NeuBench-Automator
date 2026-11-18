@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Hundreds of Artex AI hacking tools found publicly exposed to the web",
     "Free speech hypocrisy on social media",
     "li:SQL vs. NoSQL (PostgreSQL vs. MongoDB)",
     "bsky:Meta introduces Spaces, a new way to collaborate with your Muse agent",
@@ -499,7 +498,8 @@
     "li:What is AI Context Window Degradation? The Lost in the Middle Phenomenon",
     "bsky:Weight-Space Programming Doesn't Need Transformers",
     "dylan harper",
-    "bsky:LLM API Outage Frequency & Degradation Index"
+    "bsky:LLM API Outage Frequency & Degradation Index",
+    "bsky:FastFrames: Video Generation at Interactive Latency"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -822,6 +822,17 @@
       "reserved_at": "2026-11-18T00:21:05.756154+00:00",
       "unknown_at": "2026-11-18T00:21:35.964365+00:00",
       "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates."
+    },
+    {
+      "reservation_id": "b4afa6b9a944448b9c7d9a02fcf15067",
+      "action_type": "reply",
+      "target_identifier": "https://x.com/MKBHD/status/1282750287229456385",
+      "content_hash": "d377729fdd9e7a66679174f3be01d1924fca298a21781cad00e7f2da0782e610",
+      "content_preview": "bro tweeting about character growth like he didn't just review a $2,000 smart toaster with a notch #TechTrends",
+      "status": "unknown",
+      "reserved_at": "2026-11-18T06:19:50.252465+00:00",
+      "unknown_at": "2026-11-18T06:20:18.744358+00:00",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
     }
   ],
   "platform_history": {
@@ -1115,7 +1126,8 @@
         "post:415c91f9a5f77e729037354ef78261cb5f57e37657cf83487daaf044a312bed9",
         "post:14c1dff4ec043662fa18c5f252ebb041bc5d737c7197fa24f412c1995e709940",
         "post:33136fc2c682438861968ad4d35da8169579562204897f9d5e4707f9946b04cd",
-        "post:8da17d2bf2db25ddb41332bbd7775e0b61975cb976c4288e5744c5ac5243bb96"
+        "post:8da17d2bf2db25ddb41332bbd7775e0b61975cb976c4288e5744c5ac5243bb96",
+        "post:297457f5f498d75a7fa397595155855c096db14bf7ec6115f4508a8a73568f60"
       ],
       "pending": [
         {
