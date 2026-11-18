@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T11:43:20.448848+00:00",
+    "last_updated": "2026-11-18T12:05:21.276555+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1597,
-    "original_posts_attempted": 447,
+    "total_cycles_executed": 1602,
+    "original_posts_attempted": 449,
     "original_posts_succeeded": 291,
     "replies_attempted": 118,
     "replies_succeeded": 25,
-    "reposts_attempted": 58,
+    "reposts_attempted": 59,
     "reposts_succeeded": 13,
-    "actions_skipped": 410,
+    "actions_skipped": 415,
     "failed_operations": 167,
     "ai_generation_requests": 917,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T02:03:56.804603+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "cold war",
-      "content_preview": "My ex and I are running a geopolitical masterclass in silent treatment that makes the actual Cold War look like a couple",
-      "reason": "",
-      "duration_s": 72.67
-    },
-    {
-      "timestamp": "2026-11-13T02:23:15.437725+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "ਅਦਾਲਤ",
-      "content_preview": "Watching people argue on Twitter like they’re filing a PIL in Supreme Court when they can't even win an argument with th",
-      "reason": "",
-      "duration_s": 20.97
-    },
-    {
-      "timestamp": "2026-11-13T02:23:15.462094+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T02:23:20.524499+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Numbers Behind AI Predictions",
-      "content_preview": "Logits are raw, unscaled vector outputs from the final transformer layer—akin to secret ballot tallies. \n\nSoftmax normal",
-      "reason": "",
-      "duration_s": 5.06
-    },
-    {
-      "timestamp": "2026-11-13T02:24:35.707073+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "chris van hollen",
-      "content_preview": "Watching US politicians try to pronounce foreign names is the exact same energy as me trying to explain the entire cinem",
-      "reason": "",
-      "duration_s": 74.55
-    },
     {
       "timestamp": "2026-11-13T03:02:12.387601+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "LinkedIn cooldown active: last posted 41.2m ago (minimum interval: 180m)",
       "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-18T12:02:05.955972+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T12:02:05.977537+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 60.0m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-18T12:02:05.987786+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-18T12:05:21.265585+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 194.6
+    },
+    {
+      "timestamp": "2026-11-18T12:05:21.276533+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 194.61
     }
   ]
 }
