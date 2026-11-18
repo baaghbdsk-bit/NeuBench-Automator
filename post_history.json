@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "new mexico vs nevada",
     "vj edgecombe",
     "li:AI Agents vs. Traditional Automation",
     "bsky:Tools Need Not Speak in Text: Latent Context Compression for Agents",
@@ -499,7 +498,8 @@
     "bsky:FastFrames: Video Generation at Interactive Latency",
     "li:What is Context Rot? The Silent Killer of Long-Context LLMs",
     "bsky:TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks",
-    "bsky:From Repositories to Training Environments: Scaling Long-Horizon Coding Agents with Environment Evolution Loop"
+    "bsky:From Repositories to Training Environments: Scaling Long-Horizon Coding Agents with Environment Evolution Loop",
+    "bsky:What is a Logit? The Raw Probability Precursors in AI"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -833,6 +833,17 @@
       "reserved_at": "2026-11-18T06:19:50.252465+00:00",
       "unknown_at": "2026-11-18T06:20:18.744358+00:00",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates."
+    },
+    {
+      "reservation_id": "70f16382f5ab43f284933b03c0e5cd16",
+      "action_type": "reply",
+      "target_identifier": "https://x.com/elonmusk/status/2122408454325416322",
+      "content_hash": "e774d126ff218aa8fb1ec34f77b6fb0e25ac57012a1157fc1c3ac1785037f417",
+      "content_preview": "Bro thinks he’s catching a Uber after a Saturday night out. #SpaceX",
+      "status": "unknown",
+      "reserved_at": "2026-11-18T09:20:51.650418+00:00",
+      "unknown_at": "2026-11-18T09:21:18.606506+00:00",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
     }
   ],
   "platform_history": {
@@ -1129,7 +1140,8 @@
         "post:8da17d2bf2db25ddb41332bbd7775e0b61975cb976c4288e5744c5ac5243bb96",
         "post:297457f5f498d75a7fa397595155855c096db14bf7ec6115f4508a8a73568f60",
         "post:44c5615f7b21b3ca3c0f43b572e3640121e88062a70d0658ed5de603dcae1486",
-        "post:7ba63d0658e557bb30d4c5b3408c94528c7cdbe96b8e44e6d5487ef6c8c69b97"
+        "post:7ba63d0658e557bb30d4c5b3408c94528c7cdbe96b8e44e6d5487ef6c8c69b97",
+        "post:4673fee933167c149d444bd61244c570ef02832e0af9391030ece275deec2f2e"
       ],
       "pending": [
         {
