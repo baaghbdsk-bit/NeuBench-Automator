@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "radiation",
     "bsky:Meghan's father Thomas Markle under house arrest after child sex abuse material charge",
     "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ",
     "prate wordle",
@@ -499,7 +498,8 @@
     "bsky:Tideway: Phase-Aware Tiered Memory Management for MoE Inference on Consumer Devices",
     "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?",
     "bsky:NexSight: Verifiable Tasks for Fine-Grained Agentic Long-Video Understanding",
-    "bsky:PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents"
+    "bsky:PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents",
+    "bsky:Anthropic prices initial public offering"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -852,6 +852,17 @@
       "reserved_at": "2026-11-18T09:20:51.650418+00:00",
       "unknown_at": "2026-11-18T09:21:18.606506+00:00",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates."
+    },
+    {
+      "reservation_id": "a4e68c22c7f44f6dbe07935784920943",
+      "action_type": "repost",
+      "target_identifier": "https://x.com/karpathy/status/2105819303471976479",
+      "content_hash": "1b1701ab58902388c9320ee409bd239748de254da2025db343298e168491fb4a",
+      "content_preview": "Bro really just invented a new dialect of corporate therapy-speak because we forgot how to talk to robots. #AI",
+      "status": "unknown",
+      "reserved_at": "2026-11-19T08:25:41.041858+00:00",
+      "unknown_at": "2026-11-19T08:26:13.857355+00:00",
+      "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates."
     }
   ],
   "platform_history": {
@@ -1159,7 +1170,8 @@
         "post:f30bf884e9489dbc65b5d4bafe1d15a9e80a66960e52db3b75f77f22647847be",
         "post:a65b546239e7bd703dea175d576ad70c0f0f491db6d0736bbc47f4f0a4106af2",
         "post:0d5a953f7ab2bc05a902c915d20cb2da936f9c9f07187c59eebfacaa566a9b87",
-        "post:960a96904dfeb1b465e416219d58a8e8f6010d336eaaba559884ce81e592457b"
+        "post:960a96904dfeb1b465e416219d58a8e8f6010d336eaaba559884ce81e592457b",
+        "post:8d0d4db85be9b9145e9311ad22be5c95ce15fcbf8649eecd321d614f9cffd65f"
       ],
       "pending": [
         {
