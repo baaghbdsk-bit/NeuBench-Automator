@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T09:12:39.529798+00:00",
+    "last_updated": "2026-11-19T10:05:10.900584+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1717,
-    "original_posts_attempted": 494,
+    "total_cycles_executed": 1722,
+    "original_posts_attempted": 496,
     "original_posts_succeeded": 299,
-    "replies_attempted": 135,
+    "replies_attempted": 136,
     "replies_succeeded": 25,
     "reposts_attempted": 65,
     "reposts_succeeded": 13,
-    "actions_skipped": 504,
+    "actions_skipped": 508,
     "failed_operations": 169,
-    "ai_generation_requests": 946,
+    "ai_generation_requests": 947,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T05:01:47.006486+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T05:01:53.397056+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Math Behind AI Decisions",
-      "content_preview": "Treat logits as unbounded directional votes—like raw judge scores before normalization. Only use Softmax when you need p",
-      "reason": "",
-      "duration_s": 6.38
-    },
-    {
-      "timestamp": "2026-11-14T06:01:48.081378+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley rent to watch an AI hallucinate a Python loop while DeepSeek does it for the price of a cutting Ch",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 6.62
-    },
-    {
-      "timestamp": "2026-11-14T06:01:48.290031+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T06:01:55.449452+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
-      "content_preview": "Multi-agent memory sharing fails when we treat state as monolithic. Effective group evolution demands multi-granularity ",
-      "reason": "",
-      "duration_s": 6.83
-    },
     {
       "timestamp": "2026-11-14T07:01:37.931605+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 194.53
+    },
+    {
+      "timestamp": "2026-11-19T10:01:49.440189+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T10:01:49.455089+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 52.5m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T10:01:57.374279+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LightTAR: Light and Fast Target-Aware Representations for Multimodal Tabular Learning",
+      "content_preview": "Multimodal tabular learning bottlenecked by high-dim text/image embeddings? LightTAR replaces heavy PCA pipelines with t",
+      "reason": "",
+      "duration_s": 7.91
+    },
+    {
+      "timestamp": "2026-11-19T10:05:10.892929+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 193.01
+    },
+    {
+      "timestamp": "2026-11-19T10:05:10.900565+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 193.02
     }
   ]
 }
