@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "li:Docker vs. Virtual Machines",
-    "bsky:SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
-    "பாலம்",
     "li:Kafka vs. RabbitMQ",
     "bsky:Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
     "Election season promises vs reality",
@@ -499,7 +496,10 @@
     "li:Asynchronous Kernel-Bypassed I/O with io_uring",
     "akash deep",
     "bsky:WeightBench: Evaluating Language Models as Weight-Space Programmers",
-    "central mi vs buffalo"
+    "central mi vs buffalo",
+    "série a",
+    "bsky:Seven new models at scalable price-performance",
+    "mavericks vs warriors"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -778,7 +778,9 @@
     "6726cbee57a6634492a015c58933ebeeceb52eff5b489f2ed61442f73f8792c9",
     "acb4c4b87d95f82bccec986801abfbea9aa40d3e4dca2cbd37ec4a22b7273523",
     "22aff46aacc4cf04204f96b10ab87aecffd082fc2d6e6d3b2df9ff0e436e0d47",
-    "3f5a33c128d64124f0d752342e95bca9a07ad0efbbaf4261b63824408a28c2e8"
+    "3f5a33c128d64124f0d752342e95bca9a07ad0efbbaf4261b63824408a28c2e8",
+    "9d012d7f5eedd1b4536b7457209c6d998107fb05ac6118a8f72c76a206664c16",
+    "11426185ac346759ce0ecbf052fae3ef548faf04fa953b458214b9879d4879f9"
   ],
   "pending_x_actions": [
     {
@@ -1146,7 +1148,8 @@
         "post:4673fee933167c149d444bd61244c570ef02832e0af9391030ece275deec2f2e",
         "post:eb33730b833533adcb6fc88105d4eeafe98174d34ebecf97b334860eae6ea618",
         "post:7e737da3e8ac42e6ab7c8fdd6bff9cc6b71dbdf96c00283d89fc7fe03a2c9824",
-        "post:099defe05f694041d254c9506cdac3a3e47a814bdcb085d6dbf644bc22b469c8"
+        "post:099defe05f694041d254c9506cdac3a3e47a814bdcb085d6dbf644bc22b469c8",
+        "post:8908f2aed6cd20b5aff82764f64d95e4c2ebc985b0ced4c8daff39b28fb91ec9"
       ],
       "pending": [
         {
