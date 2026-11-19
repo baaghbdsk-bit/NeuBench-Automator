@@ -142,6 +142,26 @@ class EvidenceGateTests(unittest.TestCase):
         self.assertFalse(ok)
         self.assertTrue(any("question" in i for i in issues))
 
+    def test_voice_score_rejects_generic_explainer(self):
+        ok, _, issues = evidence_gate(
+            "What is a Bloom Filter? It is a data structure used in systems.",
+            topic_title="What is a Bloom Filter?",
+            source_context="",
+            require_voice=True,
+        )
+        self.assertFalse(ok)
+        self.assertTrue(any("weak voice" in i for i in issues))
+
+    def test_voice_score_accepts_first_person_argument(self):
+        ok, _, issues = evidence_gate(
+            "I stopped trusting bloom filters after a false positive in production. Most teams treat maybe as yes.\n\nWhat do you test first?",
+            topic_title="Bloom filters",
+            source_context="",
+            require_voice=True,
+            require_question=False,
+        )
+        self.assertTrue(ok, issues)
+
     def test_hardened_regex_catches_model_counts_and_multipliers(self):
         claims = extract_numeric_claims("I tested 260+ models and 385x throughput on 25k+ logs.")
         self.assertTrue(any("260" in c for c in claims), claims)

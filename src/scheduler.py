@@ -1456,6 +1456,7 @@ class AutomaterEngine:
             target=selected_trend["title"],
             start_time=start_time,
             source_context=str(selected_trend.get("summary") or ""),
+            require_voice=True,
         )
         if not hot_take:
             return False
@@ -1606,6 +1607,7 @@ class AutomaterEngine:
             target=selected_trend["title"],
             start_time=start_time,
             source_context=str(selected_trend.get("summary") or ""),
+            require_voice=True,
         )
         if not bsky_take:
             return False
@@ -1704,6 +1706,7 @@ class AutomaterEngine:
         target: str,
         start_time: float,
         source_context: str = "",
+        require_voice: bool = False,
     ) -> Optional[str]:
         """Reject fabricated numbers and template openers on X/Bluesky too."""
         ok, cleaned, issues = evidence_gate(
@@ -1711,6 +1714,7 @@ class AutomaterEngine:
             topic_title=target or "",
             source_context=source_context,
             require_question=False,
+            require_voice=require_voice,
         )
         if ok:
             return cleaned
@@ -2091,6 +2095,7 @@ class AutomaterEngine:
                                 candidate_text,
                                 topic_title=title,
                                 source_context=summary,
+                                require_voice=True,
                             )
                             if not draft_ok:
                                 console.print(
@@ -2237,6 +2242,7 @@ class AutomaterEngine:
                 final_text,
                 topic_title=topic_title,
                 source_context=topic_summary,
+                require_voice=True,
             )
             if not gate_ok:
                 reason = "; ".join(gate_issues[:4])

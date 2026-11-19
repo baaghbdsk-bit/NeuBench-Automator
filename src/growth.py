@@ -298,12 +298,72 @@ def validate_one_question(text: str) -> Tuple[bool, List[str]]:
     return True, []
 
 
+_VOICE_FIRST_PERSON_RE = re.compile(
+    r"\b(I|I've|I'd|I'm|I've|my|mine|we|we've|our|ours)\b", re.IGNORECASE
+)
+_VOICE_STAKES = (
+    "cost", "latency", "memory", "broke", "failed", "wrong", "trade",
+    "stall", "bottleneck", "gap", "leak", "slow", "expensive", "risk",
+    "silent", "debug", "production", "regret", "wrong", "failure",
+)
+_VOICE_STANCE = (
+    "wrong default", "overrated", "underrated", "I would not", "I'd take",
+    "I stopped", "I switched", "stop calling", "beats", "loses to",
+    "most teams", "the default is", "not worth", "hard disagree",
+    "I changed my mind", "I used to", "I'd rather",
+)
+_VOICE_TECHNICAL = (
+    "kv cache", "io_uring", "wal", "softmax", "bloom filter", "p99", "ttft",
+    "context window", "quantization", "inference", "token", "latency",
+    "memory", "index", "scheduler", "kernel", "embedding", "rag",
+    "fine-tuning", "routing", "cache", "throughput", "gpu", "batch",
+)
+
+
+def voice_quality_score(text: str, topic_title: str = "") -> Tuple[int, dict]:
+    """0–10 rubric: point of view, stakes, arguable stance, specificity, clean open."""
+    body = str(text or "")
+    lines = [line for line in body.split("\n") if line.strip()]
+    head = " ".join(lines[:2])
+    head3 = " ".join(lines[:3]).lower()
+    low = body.lower()
+
+    if re.match(r"^\s*(I\b|I've\b|I'd\b|I'm\b)", head, re.IGNORECASE):
+        pov = 2
+    elif _VOICE_FIRST_PERSON_RE.search(head):
+        pov = 1
+    else:
+        pov = 0
+
+    stakes_hits = sum(1 for word in _VOICE_STAKES if word in head.lower())
+    stakes = 2 if stakes_hits >= 2 else 1 if stakes_hits else 0
+
+    stance = 2 if any(marker.lower() in head3 for marker in _VOICE_STANCE) else (
+        1 if any(marker.lower() in low for marker in _VOICE_STANCE) else 0
+    )
+
+    topic_tokens = _topic_tokens(topic_title)
+    tech_hits = sum(1 for noun in _VOICE_TECHNICAL if noun in low)
+    topic_hits = sum(1 for token in topic_tokens if token in low)
+    detail = tech_hits + min(topic_hits, 2)
+    specificity = 2 if detail >= 2 else 1 if detail else 0
+
+    clean = 0 if _BANNED_OPENERS_RE.search(head) or head.endswith("?") else 2
+
+    score = pov + stakes + stance + specificity + clean
+    return score, {
+        "pov": pov, "stakes": stakes, "stance": stance,
+        "specificity": specificity, "clean_open": clean,
+    }
+
+
 def evidence_gate(
     text: str,
     *,
     topic_title: str = "",
     source_context: str = "",
     require_question: bool = True,
+    require_voice: bool = False,
 ) -> Tuple[bool, str, List[str]]:
     """Master pre-publish gate. Returns (ok, text, violations).
 
@@ -324,6 +384,10 @@ def evidence_gate(
     for ok, problems in checks:
         if not ok:
             issues.extend(problems)
+    if require_voice:
+        score, parts = voice_quality_score(cleaned, topic_title)
+        if score < 7 or parts["pov"] < 1 or parts["specificity"] < 1:
+            issues.append(f"weak voice {score}/10: {parts}")
     return not issues, cleaned, issues
 
 

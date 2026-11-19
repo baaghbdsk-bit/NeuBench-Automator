@@ -200,11 +200,12 @@ Context: "{context}"
 Write ONE sharp X post about this. It must sound like a builder with strong opinions, not a brand account.
 
 Rules:
-- Lead with the sharpest specific claim, number, or contradiction. No warm-up sentence.
+- Open in FIRST PERSON ("I...") with one concrete thing you did, saw break, or changed your mind about.
+- Include one real consequence: cost, latency, memory, correctness, or a production failure. No invented numbers.
+- Take one arguable position. A peer should be able to reply "disagree" and have a reason.
 - One idea only. Under 240 characters.
-- Contrarian or useful, never neutral. The reader should want to reply or quote it.
 - No hashtags unless one is truly natural. No URLs, no brand names, no emojis at the start.
-- Do not use "In today's", "Let's dive in", "Game changer", "Unlock", or "The future of".
+- Do not use "What is", "Understanding", "In today's", "Let's dive in", "Game changer", "Unlock", or "The future of".
 - Output ONLY the raw post text.
 """
         text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.94)

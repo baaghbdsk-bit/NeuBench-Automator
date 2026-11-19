@@ -48,6 +48,14 @@ code and shipped data. This file is the decision record; the reports are evidenc
   own concurrency lane with all posting caps zeroed.
 - `.github/workflows/x_automater.yml`: persists X/Bluesky/LinkedIn outcome logs.
 
+## Final quality gate
+
+`voice_quality_score()` in `src/growth.py` scores every post before publish:
+first person, real stakes, arguable stance, named mechanism, clean opener.
+Anything below 7/10 is rejected on LinkedIn, X originals and Bluesky posts.
+This is the deterministic answer to "is the content ready to compete" — the
+generic explainer that earned 3.5/10 can no longer ship.
+
 ## Kill criteria (automatic)
 
 - X replies: still 0 successes after the next 10 scheduled attempts → kill the

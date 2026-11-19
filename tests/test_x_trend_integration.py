@@ -44,7 +44,7 @@ class XTrendIntegrationTests(unittest.TestCase):
 
         with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
              patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
-             patch.object(self.engine.ai, "generate_hot_take", return_value="Quantum physics just roasted my morning coffee.") as mock_generate, \
+             patch.object(self.engine.ai, "generate_hot_take", return_value="I stopped trusting benchmark charts after a p99 spike. Most teams measure the wrong thing.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
             success = self.engine._execute_original_post(time.time())
@@ -73,7 +73,7 @@ class XTrendIntegrationTests(unittest.TestCase):
 
         with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=on_niche), \
              patch.object(self.engine.hunter, "get_candidate_trends", return_value=[]), \
-             patch.object(self.engine.ai, "generate_hot_take", return_value="Context is not free.") as mock_generate, \
+             patch.object(self.engine.ai, "generate_hot_take", return_value="I cut context length last quarter and latency dropped. Most teams overfeed their models.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
             success = self.engine._execute_original_post(time.time())
@@ -97,7 +97,7 @@ class XTrendIntegrationTests(unittest.TestCase):
         # Simulate exception in get_candidate_trends
         with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=on_niche), \
              patch.object(self.engine.hunter, "get_candidate_trends", side_effect=RuntimeError("Trend cache unavailable")), \
-             patch.object(self.engine.ai, "generate_hot_take", return_value="Routing beats scale here.") as mock_generate, \
+             patch.object(self.engine.ai, "generate_hot_take", return_value="I switched to routing small requests and cost fell. Bigger is not always better.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
             success = self.engine._execute_original_post(time.time())
@@ -135,7 +135,7 @@ class XTrendIntegrationTests(unittest.TestCase):
 
         with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
              patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
-             patch.object(self.engine.ai, "generate_hot_take", return_value="Rocket science roast.") as mock_generate, \
+             patch.object(self.engine.ai, "generate_hot_take", return_value="I watched a cryogenic test fail and the cost was obvious. Most teams skip this check.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
             success = self.engine._execute_original_post(time.time())

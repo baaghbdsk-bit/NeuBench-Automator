@@ -69,6 +69,17 @@ Engagement targets: 6 LinkedIn peer comments/day, X sniper replies every
 - Engagement workflow now runs every 3 hours and always persists its state file;
   own-post replies can cover more comments per run.
 
+## Signoff gate (2026-11-20)
+
+A post cannot publish on LinkedIn, X or Bluesky unless it scores **>=7/10** on a
+deterministic voice rubric: first-person point of view, real stakes, an arguable
+stance, a named technical mechanism, and a clean (non-template, non-question)
+first line. Generic explainers and fabricated metrics are rejected before the
+browser is opened. 101 tests pass, including the voice and evidence gates.
+
+Engagement outcomes are still collected with null values until real analytics
+are available; no gain is claimed from estimated numbers.
+
 ## Remaining risks
 
 - Profile artwork files still have brand-based filenames
