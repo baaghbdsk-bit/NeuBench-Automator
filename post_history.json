@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Crusoe sells troubled Wyoming data center project to Google",
-    "jared padalecki",
     "ucla vs minnesota predictions",
     "bsky:Paraguay's president impeached after collapse of bank",
     "new zealand vs tonga",
@@ -499,7 +497,9 @@
     "bsky:Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
     "tyler herro",
     "bsky:IDEA: Intent-Dominance Evidence Audit for Inference-Time Backdoor Detection in GUI Agents",
-    "byu basketball"
+    "byu basketball",
+    "bsky:What is Asynchronous Memory Fragmentation in GPU Tensor Cores?",
+    "will richard"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -783,7 +783,8 @@
     "11426185ac346759ce0ecbf052fae3ef548faf04fa953b458214b9879d4879f9",
     "ff0ba1270a3dcb35bf569e08bd24731ceebfa21dd4c04714c3186a2a78853b2e",
     "8a4f4b3bd1dfdaa3b0560ca728960c582a308f66874679f52d24bfbf5e6893d1",
-    "cc58fc1b400053cd2e519b99dabf37a8076685bcfd51cdea8ac44e92f8cd705c"
+    "cc58fc1b400053cd2e519b99dabf37a8076685bcfd51cdea8ac44e92f8cd705c",
+    "d71f347935dd0ca05f9edf041b7cfec51691d5d7073f066aec59de70ce0ebb1d"
   ],
   "pending_x_actions": [
     {
@@ -1154,7 +1155,8 @@
         "post:099defe05f694041d254c9506cdac3a3e47a814bdcb085d6dbf644bc22b469c8",
         "post:8908f2aed6cd20b5aff82764f64d95e4c2ebc985b0ced4c8daff39b28fb91ec9",
         "post:abdfab825338c0a5c0473a4803278f32f0c5496bbe9fe596887e117748e22d72",
-        "post:9a47c3de1e0de76a699571c7048d7782a36297c3913ca3ba0eb9ecf3f55c2739"
+        "post:9a47c3de1e0de76a699571c7048d7782a36297c3913ca3ba0eb9ecf3f55c2739",
+        "post:f30bf884e9489dbc65b5d4bafe1d15a9e80a66960e52db3b75f77f22647847be"
       ],
       "pending": [
         {
