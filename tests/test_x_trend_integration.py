@@ -42,7 +42,8 @@ class XTrendIntegrationTests(unittest.TestCase):
             }
         ]
 
-        with patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
+        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
+             patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
              patch.object(self.engine.ai, "generate_hot_take", return_value="Quantum physics just roasted my morning coffee.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
@@ -64,7 +65,8 @@ class XTrendIntegrationTests(unittest.TestCase):
             {"title": "Election season promises vs reality", "context": "Politicians promising bullet trains..."}
         ]
 
-        with patch.object(self.engine.hunter, "get_candidate_trends", return_value=[]), \
+        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
+             patch.object(self.engine.hunter, "get_candidate_trends", return_value=[]), \
              patch.object(self.engine.hunter, "get_x_unfiltered_topics", return_value=legacy_topics), \
              patch.object(self.engine.ai, "generate_hot_take", return_value="Legacy roast here.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
@@ -82,7 +84,8 @@ class XTrendIntegrationTests(unittest.TestCase):
         ]
 
         # Simulate exception in get_candidate_trends
-        with patch.object(self.engine.hunter, "get_candidate_trends", side_effect=RuntimeError("Trend cache unavailable")), \
+        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
+             patch.object(self.engine.hunter, "get_candidate_trends", side_effect=RuntimeError("Trend cache unavailable")), \
              patch.object(self.engine.hunter, "get_x_unfiltered_topics", return_value=[]), \
              patch.object(self.engine.hunter, "get_casual_topics", return_value=legacy_topics), \
              patch.object(self.engine.ai, "generate_hot_take", return_value="Traffic roast.") as mock_generate, \
@@ -121,7 +124,8 @@ class XTrendIntegrationTests(unittest.TestCase):
             }
         ]
 
-        with patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
+        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
+             patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
              patch.object(self.engine.ai, "generate_hot_take", return_value="Rocket science roast.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
@@ -152,7 +156,8 @@ class XTrendIntegrationTests(unittest.TestCase):
             {"title": "Hindu-Muslim riot inquiry commission report tabled", "context": "Communal tensions in town."}
         ]
 
-        with patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
+        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
+             patch.object(self.engine.hunter, "get_candidate_trends", return_value=candidate_trends), \
              patch.object(self.engine.hunter, "get_x_unfiltered_topics", return_value=legacy_sensitive), \
              patch.object(self.engine.hunter, "get_casual_topics", return_value=[]), \
              patch.object(self.engine.ai, "generate_hot_take") as mock_generate, \

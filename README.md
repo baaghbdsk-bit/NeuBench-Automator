@@ -324,6 +324,10 @@ To have Windows automatically start the automator whenever your PC turns on:
 
 
 
+## 🧭 Growth Playbook
+
+See [GROWTH_PLAYBOOK.md](GROWTH_PLAYBOOK.md) for positioning, cadence, guardrails and the metrics to watch.
+
 ## 🤝 Community & Support
 
 

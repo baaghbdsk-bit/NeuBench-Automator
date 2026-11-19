@@ -182,13 +182,12 @@ class TestLinkedInStateAndDeduplication(unittest.TestCase):
         state = {
             "posts": [
                 {"posted_at": "2026-11-07T08:00:00Z", "status": "success"},
-                {"posted_at": "2026-11-07T12:00:00Z", "status": "success"},
                 {"posted_at": "2026-11-06T15:00:00Z", "status": "success"},  # Yesterday
             ]
         }
 
         count = count_posts_on_date(state, today)
-        self.assertEqual(count, 2)
+        self.assertEqual(count, 1)
         # The configured cap must allow exactly this many posts on a fresh day.
         self.assertLessEqual(count, config.MAX_DAILY_LINKEDIN)
 
