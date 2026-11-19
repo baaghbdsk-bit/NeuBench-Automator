@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T18:12:08.894641+00:00",
+    "last_updated": "2026-11-19T19:05:13.779500+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1767,
-    "original_posts_attempted": 513,
+    "total_cycles_executed": 1772,
+    "original_posts_attempted": 515,
     "original_posts_succeeded": 299,
-    "replies_attempted": 143,
+    "replies_attempted": 144,
     "replies_succeeded": 25,
     "reposts_attempted": 67,
     "reposts_succeeded": 13,
-    "actions_skipped": 549,
+    "actions_skipped": 554,
     "failed_operations": 170,
     "ai_generation_requests": 951,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T19:01:41.149939+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T19:01:46.522630+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Transportation secretary blames ‘routine’ equipment upgrade for grounding flights nationwide",
-      "content_preview": "A \"routine\" equipment upgrade taking down national airspace highlights a classic distributed systems failure: missing ca",
-      "reason": "",
-      "duration_s": 5.36
-    },
-    {
-      "timestamp": "2026-11-14T20:01:45.053860+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending your entire month's rent just to watch an AI hallucinate a Python loop for 4 minutes. We truly are living in th",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.25
-    },
-    {
-      "timestamp": "2026-11-14T20:01:45.068562+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T20:01:52.054409+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LLM API Outage Frequency & Degradation Index",
-      "content_preview": "Frontier LLM API degradation isn't just about hard 500s; it's tail latency spikes and silent schema drift. If your orche",
-      "reason": "",
-      "duration_s": 6.98
-    },
     {
       "timestamp": "2026-11-14T21:01:43.179525+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "Taran, blink twice if the studio is holding your family hostage in the editing room. #Ramayana",
       "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
       "duration_s": 86.38
+    },
+    {
+      "timestamp": "2026-11-19T19:01:57.492651+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T19:01:57.515420+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 118.2m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T19:01:57.524421+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T19:05:13.768817+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.53
+    },
+    {
+      "timestamp": "2026-11-19T19:05:13.779479+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 195.54
     }
   ]
 }
