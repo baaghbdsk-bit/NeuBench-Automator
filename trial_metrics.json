@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T15:06:03.876470+00:00",
+    "last_updated": "2026-11-19T16:05:11.410260+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1753,
-    "original_posts_attempted": 508,
+    "total_cycles_executed": 1758,
+    "original_posts_attempted": 510,
     "original_posts_succeeded": 299,
     "replies_attempted": 141,
     "replies_succeeded": 25,
-    "reposts_attempted": 66,
+    "reposts_attempted": 67,
     "reposts_succeeded": 13,
-    "actions_skipped": 537,
+    "actions_skipped": 542,
     "failed_operations": 169,
     "ai_generation_requests": 949,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T16:01:41.777005+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Bro we are out here downloading 260+ models just to watch an AI overthink a simple loop for 4 minutes and charge us a mo",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.37
-    },
-    {
-      "timestamp": "2026-11-14T16:01:41.793710+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T16:01:48.179955+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Amazon’s new Kindle Colorsoft is a premium e-reader with a premium price",
-      "content_preview": "Hardware iteration without architectural delta is just noise. Kindle Colorsoft v2 sheds millimeters, but if the display ",
-      "reason": "",
-      "duration_s": 6.38
-    },
-    {
-      "timestamp": "2026-11-14T16:14:33.104689+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley prices to watch an AI hallucinate a Python script is my Roman Empire. #AI #TechTrends",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.09
-    },
-    {
-      "timestamp": "2026-11-14T16:14:33.129682+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-14T16:14:39.081216+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 197.13
+    },
+    {
+      "timestamp": "2026-11-19T16:01:56.984688+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T16:01:57.002788+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 178.9m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T16:01:57.010370+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T16:05:11.400739+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 193.8
+    },
+    {
+      "timestamp": "2026-11-19T16:05:11.410232+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 193.81
     }
   ]
 }
