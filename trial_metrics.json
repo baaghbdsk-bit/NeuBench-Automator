@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T17:07:04.860075+00:00",
+    "last_updated": "2026-11-19T18:12:08.894641+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1763,
-    "original_posts_attempted": 512,
+    "total_cycles_executed": 1767,
+    "original_posts_attempted": 513,
     "original_posts_succeeded": 299,
-    "replies_attempted": 142,
+    "replies_attempted": 143,
     "replies_succeeded": 25,
     "reposts_attempted": 67,
     "reposts_succeeded": 13,
-    "actions_skipped": 546,
-    "failed_operations": 169,
-    "ai_generation_requests": 950,
+    "actions_skipped": 549,
+    "failed_operations": 170,
+    "ai_generation_requests": 951,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T18:01:42.000612+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T18:01:46.590490+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "The AI graveyard: a running list of projects and startups that didn’t make it",
-      "content_preview": "The AI graveyard isn't just about bad markets; it's the cost of ignoring inference economics, memory walls, and fragile ",
-      "reason": "",
-      "duration_s": 4.58
-    },
-    {
-      "timestamp": "2026-11-14T18:03:31.135236+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A single unresponsive microservice can silently take down an entire enterprise architecture in less than five seconds. \n",
-      "reason": "",
-      "duration_s": 10.94
-    },
-    {
-      "timestamp": "2026-11-14T19:01:41.133267+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "LLMs having existential dread and drifting on long-horizon coding tasks while my bank account drains per token. At this ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.14
-    },
     {
       "timestamp": "2026-11-14T19:01:41.149939+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 196.65
+    },
+    {
+      "timestamp": "2026-11-19T18:10:41.989906+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T18:10:42.004624+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 66.9m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T18:10:42.011057+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T18:12:08.894598+00:00",
+      "action_type": "reply",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/taran_adarsh/status/2116565998618943966",
+      "content_preview": "Taran, blink twice if the studio is holding your family hostage in the editing room. #Ramayana",
+      "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
+      "duration_s": 86.38
     }
   ]
 }
