@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T04:15:54.633993+00:00",
+    "last_updated": "2026-11-19T05:03:05.050123+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1693,
-    "original_posts_attempted": 485,
+    "total_cycles_executed": 1698,
+    "original_posts_attempted": 487,
     "original_posts_succeeded": 299,
     "replies_attempted": 132,
     "replies_succeeded": 25,
-    "reposts_attempted": 63,
+    "reposts_attempted": 64,
     "reposts_succeeded": 13,
-    "actions_skipped": 488,
+    "actions_skipped": 492,
     "failed_operations": 168,
-    "ai_generation_requests": 938,
+    "ai_generation_requests": 939,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T23:02:17.901285+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T23:02:23.110864+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
-      "content_preview": "CFD surrogate models often fail on transient turbulence due to over-smoothed validation sets. TurtLES changes that: a ra",
-      "reason": "",
-      "duration_s": 5.2
-    },
-    {
-      "timestamp": "2026-11-13T23:02:23.926103+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (70/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T00:02:02.398058+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "colombia vs chile",
-      "content_preview": "People treating Colombia vs Chile like a polite geopolitical summit when it’s actually just a 90-minute exercise in pure",
-      "reason": "",
-      "duration_s": 24.37
-    },
-    {
-      "timestamp": "2026-11-14T00:02:19.716157+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A 70-billion parameter LLM with zero tool access is just a very expensive, highly articulate encyclopedia that still can",
-      "reason": "",
-      "duration_s": 17.3
-    },
     {
       "timestamp": "2026-11-14T00:02:25.343037+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "At this point, \"will richard\" sounds less like a guy and more like a mandatory corporate wellness module we all have to ",
       "reason": "",
       "duration_s": 75.33
+    },
+    {
+      "timestamp": "2026-11-19T04:59:38.020748+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T04:59:38.043751+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 176.8m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T04:59:47.758824+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Tideway: Phase-Aware Tiered Memory Management for MoE Inference on Consumer Devices",
+      "content_preview": "MoE inference on consumer hardware hits a wall at the PCIe bus. Tideway’s phase-aware tiered memory management solves th",
+      "reason": "",
+      "duration_s": 9.71
+    },
+    {
+      "timestamp": "2026-11-19T05:03:05.039299+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 196.54
+    },
+    {
+      "timestamp": "2026-11-19T05:03:05.050092+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 196.55
     }
   ]
 }
