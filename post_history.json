@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Paraguay's president impeached after collapse of bank",
-    "new zealand vs tonga",
     "bsky:The Components of Agent Memory",
     "radiation",
     "bsky:Meghan's father Thomas Markle under house arrest after child sex abuse material charge",
@@ -499,7 +497,9 @@
     "byu basketball",
     "bsky:What is Asynchronous Memory Fragmentation in GPU Tensor Cores?",
     "will richard",
-    "bsky:Tideway: Phase-Aware Tiered Memory Management for MoE Inference on Consumer Devices"
+    "bsky:Tideway: Phase-Aware Tiered Memory Management for MoE Inference on Consumer Devices",
+    "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?",
+    "bsky:NexSight: Verifiable Tasks for Fine-Grained Agentic Long-Video Understanding"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1157,7 +1157,8 @@
         "post:abdfab825338c0a5c0473a4803278f32f0c5496bbe9fe596887e117748e22d72",
         "post:9a47c3de1e0de76a699571c7048d7782a36297c3913ca3ba0eb9ecf3f55c2739",
         "post:f30bf884e9489dbc65b5d4bafe1d15a9e80a66960e52db3b75f77f22647847be",
-        "post:a65b546239e7bd703dea175d576ad70c0f0f491db6d0736bbc47f4f0a4106af2"
+        "post:a65b546239e7bd703dea175d576ad70c0f0f491db6d0736bbc47f4f0a4106af2",
+        "post:0d5a953f7ab2bc05a902c915d20cb2da936f9c9f07187c59eebfacaa566a9b87"
       ],
       "pending": [
         {

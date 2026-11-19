@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-19T02:02:49.738768+00:00",
+  "last_success_at": "2026-11-19T06:02:43.052386+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1162,6 +1162,16 @@
       "posted_at": "2026-11-19T02:02:49.738768+00:00",
       "post_urn": "urn:li:share:7529001203725291520",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:d4513e18a1bc4f74a8534b4b25501c29",
+      "title": "What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?",
+      "url": "",
+      "content_hash": "0d6ef3be55121b90f6c4c18b7ce24cae",
+      "status": "success",
+      "posted_at": "2026-11-19T06:02:43.052386+00:00",
+      "post_urn": "urn:li:share:7529061571587670017",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1280,6 +1290,7 @@
     "li:What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory",
     "li:What is a Bloom Filter?",
     "li:Asynchronous Kernel-Bypassed I/O with io_uring",
-    "li:Asynchronous Kernel Bypass (io_uring)"
+    "li:Asynchronous Kernel Bypass (io_uring)",
+    "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?"
   ]
 }
