@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T01:06:05.359611+00:00",
+    "last_updated": "2026-11-19T02:06:28.863052+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1677,
-    "original_posts_attempted": 479,
-    "original_posts_succeeded": 295,
-    "replies_attempted": 130,
+    "total_cycles_executed": 1682,
+    "original_posts_attempted": 481,
+    "original_posts_succeeded": 296,
+    "replies_attempted": 131,
     "replies_succeeded": 25,
     "reposts_attempted": 62,
     "reposts_succeeded": 13,
-    "actions_skipped": 481,
-    "failed_operations": 167,
-    "ai_generation_requests": 928,
-    "ai_generation_failures": 9,
+    "actions_skipped": 482,
+    "failed_operations": 168,
+    "ai_generation_requests": 932,
+    "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T19:02:06.983966+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Probabilities Behind Machine Learning",
-      "content_preview": "Logits are raw, unconstrained model scores ($\\in [-\\infty, +\\infty]$). Raw broccoli preference: -10; pepperoni: +15. \n\nS",
-      "reason": "",
-      "duration_s": 7.18
-    },
-    {
-      "timestamp": "2026-11-13T19:02:07.708123+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (61/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T19:43:30.513442+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your datacenter is likely wasting up to 30 percent of its CPU cycles just copying bytes between the network card and app",
-      "reason": "",
-      "duration_s": 11.71
-    },
-    {
-      "timestamp": "2026-11-13T20:02:46.277524+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "mali vs rwanda",
-      "content_preview": "Me watching Mali vs Rwanda with the exact same tactical expertise as someone who googled the offside rule five minutes a",
-      "reason": "",
-      "duration_s": 21.33
-    },
-    {
-      "timestamp": "2026-11-13T20:02:46.309452+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-13T20:02:52.119381+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "Watching Mavericks vs Warriors is basically paying to watch a guy shoot 40-foot logo threes while the defense just stand",
       "reason": "",
       "duration_s": 217.34
+    },
+    {
+      "timestamp": "2026-11-19T02:02:21.127653+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Religious dogmatism vs basic human decency",
+      "content_preview": "Bro will defend Dharma on the TL with 47 paragraphs, but casually drop a Red Bull can out of a Mercedes window and break",
+      "reason": "",
+      "duration_s": 27.66
+    },
+    {
+      "timestamp": "2026-11-19T02:02:49.748190+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Every time a traditional Linux application reads from disk or sends a network packet, it pays a devastating hidden tax: ",
+      "reason": "",
+      "duration_s": 28.61
+    },
+    {
+      "timestamp": "2026-11-19T02:03:08.823511+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
+      "content_preview": "Unpatchable\" critical infrastructure isn't a new AI threat—it's a legacy technical debt crisis meeting automated fuzzing",
+      "reason": "",
+      "duration_s": 19.07
+    },
+    {
+      "timestamp": "2026-11-19T02:06:24.512472+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.07
+    },
+    {
+      "timestamp": "2026-11-19T02:06:28.863009+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "kimberly williams-paisley",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://aistudio.google.com/docs/get-started).', 'status': 'NOT_FOUND'}}",
+      "duration_s": 199.42
     }
   ]
 }

@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "li:Kafka vs. RabbitMQ",
-    "bsky:Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
-    "Election season promises vs reality",
     "মাধুরী দীক্ষিত",
     "bsky:Sequoia shutting down its Scouts program marks the end of an era",
     "taurus horoscope today",
@@ -499,7 +496,10 @@
     "central mi vs buffalo",
     "série a",
     "bsky:Seven new models at scalable price-performance",
-    "mavericks vs warriors"
+    "mavericks vs warriors",
+    "Religious dogmatism vs basic human decency",
+    "li:Asynchronous Kernel Bypass (io_uring)",
+    "bsky:Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -780,7 +780,8 @@
     "22aff46aacc4cf04204f96b10ab87aecffd082fc2d6e6d3b2df9ff0e436e0d47",
     "3f5a33c128d64124f0d752342e95bca9a07ad0efbbaf4261b63824408a28c2e8",
     "9d012d7f5eedd1b4536b7457209c6d998107fb05ac6118a8f72c76a206664c16",
-    "11426185ac346759ce0ecbf052fae3ef548faf04fa953b458214b9879d4879f9"
+    "11426185ac346759ce0ecbf052fae3ef548faf04fa953b458214b9879d4879f9",
+    "ff0ba1270a3dcb35bf569e08bd24731ceebfa21dd4c04714c3186a2a78853b2e"
   ],
   "pending_x_actions": [
     {
@@ -1149,7 +1150,8 @@
         "post:eb33730b833533adcb6fc88105d4eeafe98174d34ebecf97b334860eae6ea618",
         "post:7e737da3e8ac42e6ab7c8fdd6bff9cc6b71dbdf96c00283d89fc7fe03a2c9824",
         "post:099defe05f694041d254c9506cdac3a3e47a814bdcb085d6dbf644bc22b469c8",
-        "post:8908f2aed6cd20b5aff82764f64d95e4c2ebc985b0ced4c8daff39b28fb91ec9"
+        "post:8908f2aed6cd20b5aff82764f64d95e4c2ebc985b0ced4c8daff39b28fb91ec9",
+        "post:abdfab825338c0a5c0473a4803278f32f0c5496bbe9fe596887e117748e22d72"
       ],
       "pending": [
         {

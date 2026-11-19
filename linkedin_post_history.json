@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-18T22:46:46.618742+00:00",
+  "last_success_at": "2026-11-19T02:02:49.738768+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1152,6 +1152,16 @@
       "posted_at": "2026-11-18T22:46:46.618742+00:00",
       "post_urn": "urn:li:share:7528951865883947008",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:341cf01d23b6172ed92eeab94f989aaf",
+      "title": "Asynchronous Kernel Bypass (io_uring)",
+      "url": "",
+      "content_hash": "13fdf067da49c8aaaaa72117bb7a6a0d",
+      "status": "success",
+      "posted_at": "2026-11-19T02:02:49.738768+00:00",
+      "post_urn": "urn:li:share:7529001203725291520",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1269,6 +1279,7 @@
     "li:What Exactly is a Token in Modern LLMs?",
     "li:What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory",
     "li:What is a Bloom Filter?",
-    "li:Asynchronous Kernel-Bypassed I/O with io_uring"
+    "li:Asynchronous Kernel-Bypassed I/O with io_uring",
+    "li:Asynchronous Kernel Bypass (io_uring)"
   ]
 }
