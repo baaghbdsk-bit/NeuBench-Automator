@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "মাধুরী দীক্ষিত",
-    "bsky:Sequoia shutting down its Scouts program marks the end of an era",
-    "taurus horoscope today",
     "bsky:Crusoe sells troubled Wyoming data center project to Google",
     "jared padalecki",
     "ucla vs minnesota predictions",
@@ -499,7 +496,10 @@
     "mavericks vs warriors",
     "Religious dogmatism vs basic human decency",
     "li:Asynchronous Kernel Bypass (io_uring)",
-    "bsky:Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’"
+    "bsky:Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
+    "tyler herro",
+    "bsky:IDEA: Intent-Dominance Evidence Audit for Inference-Time Backdoor Detection in GUI Agents",
+    "byu basketball"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -781,7 +781,9 @@
     "3f5a33c128d64124f0d752342e95bca9a07ad0efbbaf4261b63824408a28c2e8",
     "9d012d7f5eedd1b4536b7457209c6d998107fb05ac6118a8f72c76a206664c16",
     "11426185ac346759ce0ecbf052fae3ef548faf04fa953b458214b9879d4879f9",
-    "ff0ba1270a3dcb35bf569e08bd24731ceebfa21dd4c04714c3186a2a78853b2e"
+    "ff0ba1270a3dcb35bf569e08bd24731ceebfa21dd4c04714c3186a2a78853b2e",
+    "8a4f4b3bd1dfdaa3b0560ca728960c582a308f66874679f52d24bfbf5e6893d1",
+    "cc58fc1b400053cd2e519b99dabf37a8076685bcfd51cdea8ac44e92f8cd705c"
   ],
   "pending_x_actions": [
     {
@@ -1151,7 +1153,8 @@
         "post:7e737da3e8ac42e6ab7c8fdd6bff9cc6b71dbdf96c00283d89fc7fe03a2c9824",
         "post:099defe05f694041d254c9506cdac3a3e47a814bdcb085d6dbf644bc22b469c8",
         "post:8908f2aed6cd20b5aff82764f64d95e4c2ebc985b0ced4c8daff39b28fb91ec9",
-        "post:abdfab825338c0a5c0473a4803278f32f0c5496bbe9fe596887e117748e22d72"
+        "post:abdfab825338c0a5c0473a4803278f32f0c5496bbe9fe596887e117748e22d72",
+        "post:9a47c3de1e0de76a699571c7048d7782a36297c3913ca3ba0eb9ecf3f55c2739"
       ],
       "pending": [
         {

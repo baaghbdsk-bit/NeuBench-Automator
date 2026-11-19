@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T02:49:59.318234+00:00",
+    "last_updated": "2026-11-19T03:06:05.681069+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1683,
-    "original_posts_attempted": 481,
-    "original_posts_succeeded": 296,
-    "replies_attempted": 131,
+    "total_cycles_executed": 1688,
+    "original_posts_attempted": 483,
+    "original_posts_succeeded": 298,
+    "replies_attempted": 132,
     "replies_succeeded": 25,
     "reposts_attempted": 62,
     "reposts_succeeded": 13,
-    "actions_skipped": 483,
+    "actions_skipped": 485,
     "failed_operations": 168,
-    "ai_generation_requests": 932,
+    "ai_generation_requests": 935,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T20:02:52.957584+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (64/40).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T21:02:04.843366+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "nintendo black friday sale",
-      "content_preview": "Nintendo really saw people struggling to pay rent and said \"Best we can do is $3 off a 7-year-old port of a Wii U game.\"",
-      "reason": "",
-      "duration_s": 21.76
-    },
-    {
-      "timestamp": "2026-11-13T21:02:04.871837+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T21:02:10.111496+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
-      "content_preview": "Feature-matching benchmarks assume static scenes. Over dense urban intersections, moving traffic triggers consensus capt",
-      "reason": "",
-      "duration_s": 5.23
-    },
-    {
-      "timestamp": "2026-11-13T21:02:10.878787+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (66/40).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-13T22:02:44.050183+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "LinkedIn cooldown active: last posted 47.2m ago (minimum interval: 180m)",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T03:02:22.358602+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "tyler herro",
+      "content_preview": "Tyler Herro plays basketball like he’s got a 4 PM reservation at a Nobu nobody asked him to make and an extremely loud S",
+      "reason": "",
+      "duration_s": 23.14
+    },
+    {
+      "timestamp": "2026-11-19T03:02:22.388582+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 59.5m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T03:02:27.451964+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "IDEA: Intent-Dominance Evidence Audit for Inference-Time Backdoor Detection in GUI Agents",
+      "content_preview": "GUI agents from unvetted checkpoints are supply-chain time bombs. Visual triggers bypass static weights. We need runtime",
+      "reason": "",
+      "duration_s": 5.05
+    },
+    {
+      "timestamp": "2026-11-19T03:05:43.065906+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 194.88
+    },
+    {
+      "timestamp": "2026-11-19T03:06:05.671905+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "byu basketball",
+      "content_preview": "BYU basketball fans treating a standard Tuesday night game like they’re single-handedly defending the honor of the entir",
+      "reason": "",
+      "duration_s": 217.49
     }
   ]
 }
