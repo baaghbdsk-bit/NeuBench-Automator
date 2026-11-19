@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "रेलवे स्टेशन",
     "cagliari vs frosinone",
     "ben shelton",
     "rcd espanyol - deportivo",
@@ -499,7 +498,8 @@
     "bsky:Anthropic prices initial public offering",
     "li:What is Shadow Paging in Database Engines?",
     "bsky:What is a Logit? The Raw Neural Network Currency Demystified",
-    "bsky:LightTAR: Light and Fast Target-Aware Representations for Multimodal Tabular Learning"
+    "bsky:LightTAR: Light and Fast Target-Aware Representations for Multimodal Tabular Learning",
+    "bsky:Gemini 4 Neon"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1173,7 +1173,8 @@
         "post:960a96904dfeb1b465e416219d58a8e8f6010d336eaaba559884ce81e592457b",
         "post:8d0d4db85be9b9145e9311ad22be5c95ce15fcbf8649eecd321d614f9cffd65f",
         "post:3111f82b0966ca37ab8e75b51ac04e803ba627c6d7d820bbf79d38ce082edc38",
-        "post:c635ec1692d2bfc73d9da4b8deb202df78888dff8d1ca76bc6ca11825defc465"
+        "post:c635ec1692d2bfc73d9da4b8deb202df78888dff8d1ca76bc6ca11825defc465",
+        "post:7e4844c95d213acf1e0bb76d2039099b42f1d645accafe3a74f56bf73bea6461"
       ],
       "pending": [
         {

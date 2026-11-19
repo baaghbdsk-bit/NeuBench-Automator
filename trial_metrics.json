@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T10:05:10.900584+00:00",
+    "last_updated": "2026-11-19T11:08:46.180832+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1722,
-    "original_posts_attempted": 496,
+    "total_cycles_executed": 1727,
+    "original_posts_attempted": 498,
     "original_posts_succeeded": 299,
-    "replies_attempted": 136,
+    "replies_attempted": 137,
     "replies_succeeded": 25,
     "reposts_attempted": 65,
     "reposts_succeeded": 13,
-    "actions_skipped": 508,
+    "actions_skipped": 512,
     "failed_operations": 169,
-    "ai_generation_requests": 947,
+    "ai_generation_requests": 948,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T07:01:37.931605+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Watching tech bros hyperventilate over token costs and reasoning drift like they’re trading crypto during a market crash",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.02
-    },
-    {
-      "timestamp": "2026-11-14T07:01:37.944721+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T07:01:44.468030+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Unsloth Qwen3.8-27B Quantizations – Dynamic v3.1 Update",
-      "content_preview": "Unsloth’s Qwen2.5-27B (Qwen3.8) dynamic v3.1 quants hit that sweet spot between memory bandwidth limits and perplexity r",
-      "reason": "",
-      "duration_s": 6.52
-    },
-    {
-      "timestamp": "2026-11-14T08:01:37.398732+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI coding agent went on a 260-model bender and ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.88
-    },
-    {
-      "timestamp": "2026-11-14T08:01:37.416129+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-14T08:01:42.560654+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 193.02
+    },
+    {
+      "timestamp": "2026-11-19T11:05:23.396885+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T11:05:23.421054+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 116.1m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T11:05:29.116243+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Gemini 4 Neon",
+      "content_preview": "Evaluating Gemini 4 Neon requires looking past the parameter count to memory bandwidth bottlenecks and KV-cache eviction",
+      "reason": "",
+      "duration_s": 5.69
+    },
+    {
+      "timestamp": "2026-11-19T11:08:46.169165+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 196.16
+    },
+    {
+      "timestamp": "2026-11-19T11:08:46.180800+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 196.17
     }
   ]
 }
