@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-19T09:09:17.766389+00:00",
+  "last_success_at": "2026-11-19T13:03:00.268906+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1182,6 +1182,16 @@
       "posted_at": "2026-11-19T09:09:17.766389+00:00",
       "post_urn": "urn:li:share:7529108527601180672",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:82ddd78c43d1f9b1b3f0712983dea89e",
+      "title": "What is Database Isolation Level? Concurrency vs. Consistency Demystified",
+      "url": "",
+      "content_hash": "2963878b28f8e7e9a7e49291aed89c86",
+      "status": "success",
+      "posted_at": "2026-11-19T13:03:00.268906+00:00",
+      "post_urn": "urn:li:ugcPost:7529167339620114432",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1302,6 +1312,7 @@
     "li:Asynchronous Kernel-Bypassed I/O with io_uring",
     "li:Asynchronous Kernel Bypass (io_uring)",
     "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?",
-    "li:What is Shadow Paging in Database Engines?"
+    "li:What is Shadow Paging in Database Engines?",
+    "li:What is Database Isolation Level? Concurrency vs. Consistency Demystified"
   ]
 }

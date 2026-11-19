@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T12:10:32.448978+00:00",
+    "last_updated": "2026-11-19T13:06:15.243739+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1733,
-    "original_posts_attempted": 500,
+    "total_cycles_executed": 1738,
+    "original_posts_attempted": 502,
     "original_posts_succeeded": 299,
-    "replies_attempted": 137,
+    "replies_attempted": 138,
     "replies_succeeded": 25,
     "reposts_attempted": 66,
     "reposts_succeeded": 13,
-    "actions_skipped": 518,
+    "actions_skipped": 522,
     "failed_operations": 169,
-    "ai_generation_requests": 948,
+    "ai_generation_requests": 949,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T09:01:56.181403+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
-      "content_preview": "Circular capex loops in AI infrastructure distort real compute demand. When hardware allocation follows venture funding ",
-      "reason": "",
-      "duration_s": 7.46
-    },
-    {
-      "timestamp": "2026-11-14T10:01:54.343377+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Deploying models to fix my code just to watch the API bill cost more than my actual freelance gig. We’re really paying S",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.21
-    },
-    {
-      "timestamp": "2026-11-14T10:01:54.364503+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T10:01:58.559875+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
-      "content_preview": "Multi-agent systems fail when state sharing ignores granularity. Group-evolving agents need precise boundaries: what is ",
-      "reason": "",
-      "duration_s": 4.19
-    },
-    {
-      "timestamp": "2026-11-14T10:27:56.587612+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your 70B parameter LLM might process tokens in milliseconds, but your serving engine is likely wasting 70 percent of its",
-      "reason": "",
-      "duration_s": 10.05
-    },
     {
       "timestamp": "2026-11-14T11:01:38.825499+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 197.36
+    },
+    {
+      "timestamp": "2026-11-19T13:01:58.049811+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T13:03:00.278155+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Imagine two users clicking \"Buy Now\" on the last concert ticket in stock at the exact same millisecond. Without strict d",
+      "reason": "",
+      "duration_s": 62.22
+    },
+    {
+      "timestamp": "2026-11-19T13:03:00.286744+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T13:06:15.234717+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 194.34
+    },
+    {
+      "timestamp": "2026-11-19T13:06:15.243721+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 194.35
     }
   ]
 }

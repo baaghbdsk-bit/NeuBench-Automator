@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "cagliari vs frosinone",
     "ben shelton",
     "rcd espanyol - deportivo",
     "marcus freeman",
@@ -499,7 +498,8 @@
     "li:What is Shadow Paging in Database Engines?",
     "bsky:What is a Logit? The Raw Neural Network Currency Demystified",
     "bsky:LightTAR: Light and Fast Target-Aware Representations for Multimodal Tabular Learning",
-    "bsky:Gemini 4 Neon"
+    "bsky:Gemini 4 Neon",
+    "li:What is Database Isolation Level? Concurrency vs. Consistency Demystified"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
