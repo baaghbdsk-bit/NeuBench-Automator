@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T21:01:53.263262+00:00",
+    "last_updated": "2026-11-19T22:01:52.146839+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1782,
-    "original_posts_attempted": 517,
+    "total_cycles_executed": 1786,
+    "original_posts_attempted": 518,
     "original_posts_succeeded": 299,
-    "replies_attempted": 145,
+    "replies_attempted": 146,
     "replies_succeeded": 25,
     "reposts_attempted": 68,
     "reposts_succeeded": 13,
-    "actions_skipped": 564,
+    "actions_skipped": 568,
     "failed_operations": 170,
     "ai_generation_requests": 951,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T23:01:41.942301+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending your entire life savings on token costs just to watch an AI hallucinate a Python loop for 4 minutes is the 2026",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.22
-    },
-    {
-      "timestamp": "2026-11-14T23:01:41.958981+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (5/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T23:01:47.196878+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Demystifying GPU Tensor Cores and Mixed-Precision MMA Pipelines",
-      "content_preview": "A Tensor Core is like a hardware stamp multiplying entire blocks of numbers at once. \n\nAlways align tensor dims to hardw",
-      "reason": "",
-      "duration_s": 5.23
-    },
-    {
-      "timestamp": "2026-11-15T00:02:06.460483+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley rent just to watch my AI hallucinate a Python script slower than a 2004 dial-up modem. Truly we ar",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.97
-    },
     {
       "timestamp": "2026-11-15T00:02:06.475155+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Total daily limit reached (25/20).",
       "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T22:01:51.672458+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Total daily cap",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T22:01:51.681075+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Total daily cap",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T22:01:51.687266+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Total daily cap",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T22:01:52.146820+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.0
     }
   ]
 }
