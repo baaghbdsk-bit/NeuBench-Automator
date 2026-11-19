@@ -1,8 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
-    "prince william kate middleton 2007 split",
-    "leaky black",
     "li:Docker vs. Virtual Machines",
     "bsky:SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
     "பாலம்",
@@ -499,7 +496,10 @@
     "bsky:Energy-Based Reasoners: 385x more efficient inference",
     "li:What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory",
     "li:What is a Bloom Filter?",
-    "li:Asynchronous Kernel-Bypassed I/O with io_uring"
+    "li:Asynchronous Kernel-Bypassed I/O with io_uring",
+    "akash deep",
+    "bsky:WeightBench: Evaluating Language Models as Weight-Space Programmers",
+    "central mi vs buffalo"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -776,7 +776,9 @@
     "83025dd04e3d3b3e3f35d874e0f8055413dac5dff7c8772aa1bd6b0730c3f278",
     "2b9e1d6c8ed29f361b590f2780c73b8efca0c6ceeff3d0ebc8e0fb93ac367f62",
     "6726cbee57a6634492a015c58933ebeeceb52eff5b489f2ed61442f73f8792c9",
-    "acb4c4b87d95f82bccec986801abfbea9aa40d3e4dca2cbd37ec4a22b7273523"
+    "acb4c4b87d95f82bccec986801abfbea9aa40d3e4dca2cbd37ec4a22b7273523",
+    "22aff46aacc4cf04204f96b10ab87aecffd082fc2d6e6d3b2df9ff0e436e0d47",
+    "3f5a33c128d64124f0d752342e95bca9a07ad0efbbaf4261b63824408a28c2e8"
   ],
   "pending_x_actions": [
     {
@@ -1143,7 +1145,8 @@
         "post:7ba63d0658e557bb30d4c5b3408c94528c7cdbe96b8e44e6d5487ef6c8c69b97",
         "post:4673fee933167c149d444bd61244c570ef02832e0af9391030ece275deec2f2e",
         "post:eb33730b833533adcb6fc88105d4eeafe98174d34ebecf97b334860eae6ea618",
-        "post:7e737da3e8ac42e6ab7c8fdd6bff9cc6b71dbdf96c00283d89fc7fe03a2c9824"
+        "post:7e737da3e8ac42e6ab7c8fdd6bff9cc6b71dbdf96c00283d89fc7fe03a2c9824",
+        "post:099defe05f694041d254c9506cdac3a3e47a814bdcb085d6dbf644bc22b469c8"
       ],
       "pending": [
         {

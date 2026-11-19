@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-18T23:05:14.710526+00:00",
+    "last_updated": "2026-11-19T00:06:54.350621+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1667,
-    "original_posts_attempted": 475,
-    "original_posts_succeeded": 291,
+    "total_cycles_executed": 1672,
+    "original_posts_attempted": 477,
+    "original_posts_succeeded": 293,
     "replies_attempted": 129,
     "replies_succeeded": 25,
-    "reposts_attempted": 61,
+    "reposts_attempted": 62,
     "reposts_succeeded": 13,
-    "actions_skipped": 477,
+    "actions_skipped": 479,
     "failed_operations": 167,
-    "ai_generation_requests": 922,
+    "ai_generation_requests": 925,
     "ai_generation_failures": 9,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-13T18:02:07.814133+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "rahu ketu peyarchi 2026",
-      "content_preview": "My entire career path is already a cosmic disaster, but sure, let’s blame the 2026 Rahu Ketu Peyarchi when my Wi-Fi drop",
-      "reason": "",
-      "duration_s": 23.36
-    },
-    {
-      "timestamp": "2026-11-13T18:02:07.836450+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-13T18:02:13.534726+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What are Vector Embeddings? The Secret Language AI Uses to Understand Meaning",
-      "content_preview": "In vector spaces, semantic distance equals relational proximity. Think of a high-dimensional seating chart: similar inte",
-      "reason": "",
-      "duration_s": 5.69
-    },
-    {
-      "timestamp": "2026-11-13T18:02:14.129510+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (57/40).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-13T18:56:24.701262+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "egypt vs malawi",
-      "content_preview": "Bro really asked for a heavyweight title fight and scheduled Egypt vs Malawi. This ain't a match, this is a Netflix docu",
-      "reason": "",
-      "duration_s": 23.02
-    },
     {
       "timestamp": "2026-11-13T18:56:24.735674+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 194.16
+    },
+    {
+      "timestamp": "2026-11-19T00:03:10.338976+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "akash deep",
+      "content_preview": "Bro really woke up, looked at the opposition’s best batter, and decided \"nah, we’re ending this session early today.\" Ab",
+      "reason": "",
+      "duration_s": 22.02
+    },
+    {
+      "timestamp": "2026-11-19T00:03:10.375183+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 76.4m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T00:03:16.466326+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
+      "content_preview": "LLMs as weight-space programmers: generating and repairing neural network parameters directly without gradient descent. ",
+      "reason": "",
+      "duration_s": 6.08
+    },
+    {
+      "timestamp": "2026-11-19T00:06:32.532496+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 195.3
+    },
+    {
+      "timestamp": "2026-11-19T00:06:54.341507+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "central mi vs buffalo",
+      "content_preview": "Watching Central Michigan vs Buffalo on a Tuesday night is the exact moment you have to seriously evaluate every life ch",
+      "reason": "",
+      "duration_s": 217.11
     }
   ]
 }
