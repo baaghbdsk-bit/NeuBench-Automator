@@ -61,14 +61,19 @@ class XTrendIntegrationTests(unittest.TestCase):
             self.assertNotIn("URL:", called_context)
 
     def test_empty_cache_falls_back_to_legacy_topics(self):
-        legacy_topics = [
-            {"title": "Election season promises vs reality", "context": "Politicians promising bullet trains..."}
+        on_niche = [
+            {
+                "title": "Why context windows are not free",
+                "summary": "Long context costs memory and latency.",
+                "category": "ai_tech",
+                "source": "Builder Notes",
+                "url": "",
+            }
         ]
 
-        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
+        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=on_niche), \
              patch.object(self.engine.hunter, "get_candidate_trends", return_value=[]), \
-             patch.object(self.engine.hunter, "get_x_unfiltered_topics", return_value=legacy_topics), \
-             patch.object(self.engine.ai, "generate_hot_take", return_value="Legacy roast here.") as mock_generate, \
+             patch.object(self.engine.ai, "generate_hot_take", return_value="Context is not free.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
             success = self.engine._execute_original_post(time.time())
@@ -76,19 +81,23 @@ class XTrendIntegrationTests(unittest.TestCase):
 
             mock_generate.assert_called_once()
             called_title, _ = mock_generate.call_args[0]
-            self.assertEqual(called_title, "Election season promises vs reality")
+            self.assertEqual(called_title, "Why context windows are not free")
 
     def test_trend_source_failure_falls_back_safely(self):
-        legacy_topics = [
-            {"title": "Bengaluru traffic & Silk Board signals", "context": "Moving 200 meters in 45 mins..."}
+        on_niche = [
+            {
+                "title": "Cheap models vs frontier models",
+                "summary": "Most production features do not need the largest model.",
+                "category": "ai_tech",
+                "source": "Builder Notes",
+                "url": "",
+            }
         ]
 
         # Simulate exception in get_candidate_trends
-        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=[]), \
+        with patch.object(self.engine.hunter, "get_x_growth_topics", return_value=on_niche), \
              patch.object(self.engine.hunter, "get_candidate_trends", side_effect=RuntimeError("Trend cache unavailable")), \
-             patch.object(self.engine.hunter, "get_x_unfiltered_topics", return_value=[]), \
-             patch.object(self.engine.hunter, "get_casual_topics", return_value=legacy_topics), \
-             patch.object(self.engine.ai, "generate_hot_take", return_value="Traffic roast.") as mock_generate, \
+             patch.object(self.engine.ai, "generate_hot_take", return_value="Routing beats scale here.") as mock_generate, \
              patch.object(self.engine.twitter, "post_tweet", return_value=True):
 
             success = self.engine._execute_original_post(time.time())
@@ -96,7 +105,7 @@ class XTrendIntegrationTests(unittest.TestCase):
 
             mock_generate.assert_called_once()
             called_title, _ = mock_generate.call_args[0]
-            self.assertEqual(called_title, "Bengaluru traffic & Silk Board signals")
+            self.assertEqual(called_title, "Cheap models vs frontier models")
 
     def test_sensitive_content_retains_safeguards_and_is_skipped(self):
         candidate_trends = [

@@ -142,6 +142,12 @@ class EvidenceGateTests(unittest.TestCase):
         self.assertFalse(ok)
         self.assertTrue(any("question" in i for i in issues))
 
+    def test_hardened_regex_catches_model_counts_and_multipliers(self):
+        claims = extract_numeric_claims("I tested 260+ models and 385x throughput on 25k+ logs.")
+        self.assertTrue(any("260" in c for c in claims), claims)
+        self.assertTrue(any("385" in c for c in claims), claims)
+        self.assertTrue(any("25k" in c.lower() for c in claims), claims)
+
     def test_extract_numeric_claims_normalises_units(self):
         ok_a, _ = validate_no_number_without_source("It costs 5 microseconds.", "measured 5µs here")
         ok_b, _ = validate_no_number_without_source("It costs 5 microseconds.", "")

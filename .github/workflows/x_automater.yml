@@ -143,24 +143,6 @@ jobs:
             fi
           fi
 
-      - name: 🦋 Bluesky Reply Engagement
-        continue-on-error: true
-        if: ${{ (inputs.action == 'auto' || inputs.action == '' || inputs.action == 'bluesky-replies') && always() }}
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-2.5-flash
-          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
-          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
-          PYTHONIOENCODING: utf-8
-          DRY_RUN: ${{ inputs.dry_run || 'false' }}
-          TRIAL_ENABLED: 'true'
-        run: |
-          if [ "$DRY_RUN" = "true" ]; then
-            python main.py bluesky-replies --dry-run
-          else
-            python main.py bluesky-replies
-          fi
-
       - name: Snapshot X follower count
         if: always()
         continue-on-error: true
@@ -171,7 +153,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          for file in post_history.json trial_metrics.json linkedin_network.json linkedin_post_history.json linkedin_engagement_history.json data/x_followers.json data/linkedin_outcomes.json; do
+          for file in post_history.json trial_metrics.json linkedin_network.json linkedin_post_history.json linkedin_engagement_history.json data/x_followers.json data/linkedin_outcomes.json data/bluesky_outcomes.json data/x_outcomes.json; do
             if [ -f "$file" ]; then
               git add "$file"
             fi

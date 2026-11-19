@@ -70,6 +70,7 @@ from src.x_state import (
     complete_reservation,
     content_hash as x_content_hash,
     prepare_x_text,
+    prune_unknown_reservations,
     reserve_original,
     reserve_target,
 )
@@ -451,7 +452,13 @@ class AutomaterEngine:
         if not self._x_guard("reply", start_time):
             return False
         try:
-            reply_text = sanitize_publish_text(self.ai.generate_sniper_reply("tweet_author", target_text or "Viral debate"))
+            reply_text = self._publish_gate(
+                self.ai.generate_sniper_reply("tweet_author", target_text or "Viral debate"),
+                action_type="reply", target="tweet_author", start_time=start_time,
+                source_context=target_text or "",
+            )
+            if not reply_text:
+                return False
         except Exception as error:
             self.last_x_message = f"X reply generation failed: {error}"
             self.tracker.record_event(
@@ -534,7 +541,13 @@ class AutomaterEngine:
         if not self._x_guard("quote_tweet", start_time):
             return False
         try:
-            quote_text = sanitize_publish_text(self.ai.generate_quote_tweet_commentary("tweet_author", target_text or "Viral debate"))
+            quote_text = self._publish_gate(
+                self.ai.generate_quote_tweet_commentary("tweet_author", target_text or "Viral debate"),
+                action_type="quote_tweet", target="tweet_author", start_time=start_time,
+                source_context=target_text or "",
+            )
+            if not quote_text:
+                return False
         except Exception as error:
             self.last_x_message = f"X quote-tweet generation failed: {error}"
             self.tracker.record_event(
@@ -832,12 +845,33 @@ class AutomaterEngine:
     def _pick_trending_target(self, history_key: str) -> Optional[Dict[str, Any]]:
         """Pick the highest-engagement unreplied tweet, biased toward AI/tech accounts."""
         already_used = set(self.tracker.history.get(history_key, []))
-        accounts = (
-            random.sample(GROWTH_ACCOUNTS, min(6, len(GROWTH_ACCOUNTS)))
-            + random.sample(VIRAL_ACCOUNTS, min(2, len(VIRAL_ACCOUNTS)))
-        )
+        try:
+            released = prune_unknown_reservations(self.history_file)
+            if released:
+                console.print(f"[dim]Released {released} stale unknown X reservations.[/dim]")
+        except Exception:
+            pass
+        # AI-engineering accounts only. The old viral/gossip list produced
+        # off-niche roasts on a personal developer profile (red-team veto).
+        accounts = random.sample(GROWTH_ACCOUNTS, min(8, len(GROWTH_ACCOUNTS)))
         best: Optional[Dict[str, Any]] = None
         target_account = ""
+
+        if not self.safety.dry_run:
+            try:
+                if not self.twitter.is_logged_in():
+                    console.print("[yellow]X session is not authenticated. Skipping reply discovery early.[/yellow]")
+                    self.tracker.record_event(
+                        action_type="reply",
+                        status="skipped",
+                        target_identifier="X session",
+                        skip_or_error_reason="X browser session not authenticated; discovery skipped",
+                        duration_seconds=0,
+                        is_dry_run=False,
+                    )
+                    return None
+            except Exception as exc:
+                console.print(f"[dim]X session check note: {exc}[/dim]")
 
         try:
             batch = self.twitter.get_top_tweets_from_accounts(accounts, limit=2)
@@ -910,7 +944,13 @@ class AutomaterEngine:
 
         try:
 
-            reply_content = sanitize_publish_text(self.ai.generate_sniper_reply(target_account, tweet_text))
+            reply_content = self._publish_gate(
+                self.ai.generate_sniper_reply(target_account, tweet_text),
+                action_type="reply", target=target_account, start_time=start_time,
+                source_context=tweet_text or "",
+            )
+            if not reply_content:
+                return False
 
         except Exception as e:
 
@@ -1040,7 +1080,13 @@ class AutomaterEngine:
 
         try:
 
-            commentary = sanitize_publish_text(self.ai.generate_quote_tweet_commentary(target_account, tweet_text))
+            commentary = self._publish_gate(
+                self.ai.generate_quote_tweet_commentary(target_account, tweet_text),
+                action_type="quote_tweet", target=target_account, start_time=start_time,
+                source_context=tweet_text or "",
+            )
+            if not commentary:
+                return False
 
         except Exception as e:
 
@@ -1271,11 +1317,33 @@ class AutomaterEngine:
             else:
                 trends = trends + growth_topics
 
-        # 2. Fallback: If new trend system returns no candidates or fails, use legacy topics
+        # Hard niche filter. Historical data showed 87% of shipped X posts were
+        # sport/politics/finance/memes. Only AI-engineering pillars ship now.
+        def _on_niche_x(topic: dict) -> bool:
+            category = str(topic.get("category", "")).lower()
+            source = str(topic.get("source", "")).lower()
+            off_niche = {
+                "viral_culture", "wealth_finance", "work_life_debates",
+                "sports", "entertainment", "politics", "cinema", "celebrity",
+            }
+            if category in off_niche or source in {"casual topics", "viral culture"}:
+                return False
+            return True
+
+        trends = [t for t in trends if _on_niche_x(t)]
+
+        # 2. Fallback: only the curated builder bank or on-niche live signals.
+        # Generic casual topics are never used for autonomous X posts.
         if not trends:
-            trends = self.hunter.get_x_unfiltered_topics()
-            if not trends:
-                trends = self.hunter.get_casual_topics()
+            try:
+                trends = [t for t in self.hunter.get_candidate_trends(platform="x", limit=15) if _on_niche_x(t)]
+            except Exception:
+                trends = []
+        if not trends:
+            try:
+                trends = list(self.hunter.get_x_growth_topics())
+            except Exception:
+                trends = []
 
         if not trends:
             console.print("[red]No topics discovered. Skipping...[/red]")
@@ -1302,9 +1370,15 @@ class AutomaterEngine:
             selected_trend = t
             break
 
-        # Fallback to legacy non-sensitive topics if all candidate trends were used or sensitive
+        # Fallback to curated builder topics if every live candidate was used or sensitive.
         if not selected_trend:
-            legacy_topics = self.hunter.get_x_unfiltered_topics() + self.hunter.get_casual_topics()
+            try:
+                legacy_topics = [
+                    t for t in self.hunter.get_x_growth_topics()
+                    if str(t.get("title", "")) not in posted_history and not t.get("is_sensitive", False)
+                ]
+            except Exception:
+                legacy_topics = []
             for t in legacy_topics:
                 t_title = t.get("title", "")
                 if not t_title or t_title in posted_history:
@@ -1376,7 +1450,15 @@ class AutomaterEngine:
 
 
 
-        hot_take = sanitize_publish_text(hot_take)
+        hot_take = self._publish_gate(
+            hot_take,
+            action_type="original_post",
+            target=selected_trend["title"],
+            start_time=start_time,
+            source_context=str(selected_trend.get("summary") or ""),
+        )
+        if not hot_take:
+            return False
         console.print(f"[green]Generated Hot Take Draft:[/green] {hot_take}")
 
 
@@ -1437,6 +1519,11 @@ class AutomaterEngine:
         )
         if success:
             console.print("[bold green]✅ Successfully published tweet on 𝕏![/bold green]")
+            self._record_x_outcome(
+                posted_at=utc_now_iso(),
+                title=selected_trend["title"],
+                text=hot_take,
+            )
             try:
                 self.tracker.history.setdefault("posted_tweets", []).append(selected_trend["title"])
                 self.tracker.save_history()
@@ -1513,7 +1600,15 @@ class AutomaterEngine:
             self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
             bsky_take = self.ai.generate_bluesky_take(selected_trend["title"], selected_trend.get("summary", ""))
 
-        bsky_take = sanitize_publish_text(bsky_take)
+        bsky_take = self._publish_gate(
+            bsky_take,
+            action_type="bluesky_post",
+            target=selected_trend["title"],
+            start_time=start_time,
+            source_context=str(selected_trend.get("summary") or ""),
+        )
+        if not bsky_take:
+            return False
         console.print(f"[green]Generated Bluesky Draft:[/green] {bsky_take}")
 
         if not self.safety.dry_run and not self.bluesky.is_configured():
@@ -1575,6 +1670,11 @@ class AutomaterEngine:
 
         if ok:
             console.print(f"[bold cyan]✅ {msg}[/bold cyan]")
+            self._record_bluesky_outcome(
+                posted_at=utc_now_iso(),
+                title=selected_trend["title"],
+                ref=str(msg or ""),
+            )
             try:
                 self.tracker.history.setdefault("posted_tweets", []).append(f"bsky:{selected_trend['title']}")
                 self.tracker.save_history()
@@ -1595,6 +1695,83 @@ class AutomaterEngine:
     def execute_linkedin_topic_post(self, topic: str) -> bool:
         """Publish an executive article on a user-specified topic through LinkedIn Portfolio Manager."""
         return self._execute_linkedin_post(time.time(), custom_topic=topic, force=True)
+
+    def _publish_gate(
+        self,
+        text: str,
+        *,
+        action_type: str,
+        target: str,
+        start_time: float,
+        source_context: str = "",
+    ) -> Optional[str]:
+        """Reject fabricated numbers and template openers on X/Bluesky too."""
+        ok, cleaned, issues = evidence_gate(
+            text,
+            topic_title=target or "",
+            source_context=source_context,
+            require_question=False,
+        )
+        if ok:
+            return cleaned
+        reason = "; ".join(issues[:4])
+        console.print(f"[yellow]↩️ {action_type} blocked by evidence gate: {reason}[/yellow]")
+        self.tracker.record_event(
+            action_type=action_type,
+            status="skipped",
+            target_identifier=target or "Evidence gate",
+            skip_or_error_reason=reason,
+            duration_seconds=time.time() - start_time,
+            is_dry_run=self.safety.dry_run,
+        )
+        return None
+
+    def _record_x_outcome(self, *, posted_at: str, title: str, text: str) -> None:
+        path = Path("data/x_outcomes.json")
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            payload = {"version": 1, "posts": []}
+            if path.exists():
+                loaded = json.loads(path.read_text(encoding="utf-8"))
+                if isinstance(loaded, dict) and isinstance(loaded.get("posts"), list):
+                    payload = loaded
+            payload["posts"].append({
+                "posted_at": posted_at,
+                "title": str(title)[:200],
+                "text": str(text)[:280],
+                "impressions": None,
+                "likes": None,
+                "replies": None,
+                "reposts": None,
+                "profile_visits": None,
+            })
+            payload["posts"] = payload["posts"][-500:]
+            path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+        except Exception as exc:
+            console.print(f"[dim]X outcome log note: {exc}[/dim]")
+
+    def _record_bluesky_outcome(self, *, posted_at: str, title: str, ref: str) -> None:
+        path = Path("data/bluesky_outcomes.json")
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            payload = {"version": 1, "posts": []}
+            if path.exists():
+                loaded = json.loads(path.read_text(encoding="utf-8"))
+                if isinstance(loaded, dict) and isinstance(loaded.get("posts"), list):
+                    payload = loaded
+            payload["posts"].append({
+                "posted_at": posted_at,
+                "title": str(title)[:200],
+                "post_ref": str(ref)[:300],
+                "likes": None,
+                "replies": None,
+                "reposts": None,
+                "quotes": None,
+            })
+            payload["posts"] = payload["posts"][-500:]
+            path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+        except Exception as exc:
+            console.print(f"[dim]Bluesky outcome log note: {exc}[/dim]")
 
     def _record_linkedin_outcome(self, *, posted_at: str, title: str, post_urn: str, visual_format: str) -> None:
         """Create a real per-post outcome record (no invented metrics).
@@ -2489,7 +2666,13 @@ class AutomaterEngine:
         target_uri = target_p.get("uri") or target_p.get("cid") or ""
         author = target_p.get("author", {}).get("handle", "user")
         text = target_p.get("record", {}).get("text", "")
-        reply_take = sanitize_publish_text(self.ai.generate_bluesky_sniper_reply(author, text))
+        reply_take = self._publish_gate(
+            self.ai.generate_bluesky_sniper_reply(author, text),
+            action_type="bluesky_reply", target=author, start_time=start_time,
+            source_context=text or "",
+        )
+        if not reply_take:
+            return False
         ok, msg = self.bluesky.reply(target_p, reply_take)
         if ok:
             console.print(f"[bold green]✅ Replied professionally on Bluesky to @{author}: {reply_take[:60]}...[/bold green]")

@@ -72,6 +72,12 @@ def _fix_line_starts(text: str) -> str:
             continue
         if line[0].isalpha() and line[0].islower():
             line = line[0].upper() + line[1:]
+        # Brand removal can leave a lowercase clause after a full stop.
+        line = re.sub(
+            r"(?<=[.!?])\s+([a-z])",
+            lambda m: m.group(1).upper(),
+            line,
+        )
         lines.append(line)
     while lines and lines[-1] == "":
         lines.pop()
@@ -160,12 +166,13 @@ def filter_fresh_topics(
 # ==============================================================================
 
 _NUMERIC_CLAIM_RE = re.compile(
-    r"\b\d[\d,]*(?:\.\d+)?\s*[KMB]?\s*(?:"
-    r"%|percent\b|percentage\b|×|times?\b|"
+    r"\b\d[\d,]*\+?(?:\.\d+)?\+?\s*[KMB]?\+?\s*(?:"
+    r"%|percent\b|percentage\b|×|x\b|times?\b|"
     r"ms\b|milliseconds?\b|µs\b|us\b|microseconds?\b|ns\b|nanoseconds?\b|"
-    r"seconds?\b|minutes?\b|hours?\b|"
+    r"seconds?\b|minutes?\b|hours?\b|days?\b|"
     r"[KMGT]?B(?:/s)?\b|GB/s\b|TB/s\b|IOPS\b|qps\b|reqs?/s\b|"
     r"tokens?\b|cycles?\b|bits?\b|bytes?\b|writes?\b|reads?\b|"
+    r"models?\b|logs?\b|papers?\b|"
     r"thousand\b|million\b|billion\b|trillion\b|"
     r"per\s+second\b)",
     re.IGNORECASE,

@@ -286,6 +286,36 @@ def complete_reservation(
         atomic_write_json(history_file, history)
 
 
+def prune_unknown_reservations(history_file: Path, max_age_hours: int = 168) -> int:
+    """Release stale 'unknown' reservations after a week.
+
+    An unknown outcome is kept briefly to prevent duplicate posts. Keeping it
+    forever permanently locks targets (8 such entries were observed). After
+    the window, a fresh attempt with the same URL is safe.
+    """
+    removed = 0
+    with x_history_lock(history_file):
+        history = load_x_history(history_file)
+        remaining = []
+        cutoff = time.time() - max_age_hours * 3600
+        for entry in history.get("pending_x_actions", []):
+            if not isinstance(entry, dict) or entry.get("status") != "unknown":
+                remaining.append(entry)
+                continue
+            stamp = str(entry.get("unknown_at") or "")
+            try:
+                age_ok = datetime.fromisoformat(stamp.replace("Z", "+00:00")).timestamp() < cutoff
+            except Exception:
+                age_ok = True
+            if age_ok:
+                removed += 1
+            else:
+                remaining.append(entry)
+        history["pending_x_actions"] = remaining
+        atomic_write_json(history_file, history)
+    return removed
+
+
 def is_original_topic_seen(history_file: Path, target_identifier: str) -> bool:
     history = load_x_history(history_file)
     return target_identifier in history.get("posted_tweets", [])

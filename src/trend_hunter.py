@@ -1035,7 +1035,7 @@ class TrendHunter:
             },
             {
                 "title": "Real-World TTFT & Throughput Across Major LLM Hosted Endpoints",
-                "summary": "Token throughput varies up to 40% across hosted provider endpoints running the same model weights.",
+                "summary": "Token throughput varies materially across hosted provider endpoints running the same model weights.",
                 "company": "Engineering Briefs",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
@@ -1347,31 +1347,31 @@ class TrendHunter:
                 "title": "Quantization: FP16 vs INT8 vs INT4",
                 "category": "OPTIMIZATION",
                 "tagline": "Running 70B Models on Consumer Hardware",
-                "summary": "Quantization shrinks the numerical precision of neural network weights from 16-bit floating point down to 8-bit or 4-bit integers, reducing memory by up to 75% with minimal accuracy loss.",
+                "summary": "Quantization shrinks the numerical precision of neural network weights from 16-bit floating point down to 8-bit or 4-bit integers, reducing memory substantially with a small accuracy trade-off.",
                 "problem": "Running uncompressed 70B models requires 140GB+ of VRAM, pricing out indie builders and local hardware.",
                 "solution": "Quantization maps wide 16-bit float ranges into discrete integer buckets using smart scaling factors and outlier preservation.",
                 "key_takeaways": [
                     "FP16: 2 bytes per weight (Full precision baseline).",
-                    "INT8 (BitsAndBytes): 50% memory cut with virtually zero perplexity drop.",
-                    "INT4 (AWQ/GPTQ): 75% memory cut, fitting a 70B model into two 24GB GPUs."
+                    "INT8 (BitsAndBytes): a meaningful memory cut with a small perplexity cost.",
+                    "INT4 (AWQ/GPTQ): a larger memory cut that can fit a large model across a small GPU pair."
                 ],
-                "pro_tip": "AWQ (Activation-aware Weight Quantization) protects the 1% most important salient weights, preserving reasoning benchmark scores far better than naive rounding.",
-                "narration": "How do you run a giant 70 billion parameter model on a single GPU? Quantization! Instead of storing every weight as a heavy 16-bit number, we compress them into tiny 4-bit integers. It's like converting an uncompressed WAV audio file into a crystal-clear MP3. You cut memory by 75% while keeping the intelligence intact!"
+                "pro_tip": "AWQ (Activation-aware Weight Quantization) protects the most salient weights, preserving reasoning benchmark scores far better than naive rounding.",
+                "narration": "How do you run a giant 70 billion parameter model on a single GPU? Quantization! Instead of storing every weight as a heavy 16-bit number, we compress them into tiny 4-bit integers. It's like converting an uncompressed WAV audio file into a crystal-clear MP3. You cut memory substantially while keeping the intelligence intact!"
             },
             {
                 "title": "LoRA (Low-Rank Adaptation)",
                 "category": "TRAINING & ADAPTATION",
                 "tagline": "Fine-Tuning Huge Models Without Billions of Weights",
-                "summary": "Instead of updating all billions of model parameters during fine-tuning, LoRA freezes the original weights and injects two tiny low-rank matrix adapters, slashing trainable parameters by 99%.",
+                "summary": "Instead of updating all billions of model parameters during fine-tuning, LoRA freezes the original weights and injects two tiny low-rank matrix adapters, slashing the number of trainable parameters.",
                 "problem": "Full fine-tuning of a 70B model requires updating and storing gigabytes of optimizer states, requiring a multi-node GPU cluster.",
                 "solution": "LoRA decomposes the weight update matrix delta-W into two smaller matrices A and B (rank 8 to 64), updating only a fraction of a percent of parameters.",
                 "key_takeaways": [
-                    "Reduces fine-tuning VRAM requirements by over 70%.",
+                    "Reduces fine-tuning VRAM requirements substantially.",
                     "Allows swapping multiple specialized LoRA adapters on top of one base model at runtime.",
                     "Zero inference latency overhead when merged directly into base weights."
                 ],
                 "pro_tip": "QLoRA combines 4-bit quantized base models with 16-bit LoRA adapters, allowing you to fine-tune a 70B model on a single desktop RTX 3090/4090 GPU.",
-                "narration": "Fine-tuning a modern AI model used to cost thousands of dollars in cloud GPUs. Enter LoRA: Low-Rank Adaptation. Instead of retraining all 70 billion weights, LoRA freezes the entire base model and only trains a tiny pair of adapter matrices. You get 99% of full fine-tuning performance on a single consumer graphics card!"
+                "narration": "Fine-tuning a modern AI model used to cost thousands of dollars in cloud GPUs. Enter LoRA: Low-Rank Adaptation. Instead of retraining all 70 billion weights, LoRA freezes the entire base model and only trains a tiny pair of adapter matrices. You get most of the full fine-tuning performance on a single consumer graphics card!"
             },
             {
                 "title": "Retrieval-Augmented Generation (RAG)",
@@ -1548,7 +1548,7 @@ class TrendHunter:
                     "best_for": "Structured JSON extraction, edge device inference, real-time classification, local privacy."
                 },
                 "school_analogy": "An LLM is a giant encyclopedic brain that requires a data center. An SLM is a compact pocket assistant that runs directly on your laptop or phone.",
-                "pro_nuance": "In production, 80% of business tasks are simple classification or extraction. Routing those to an SLM drops inference bills by 95% and latency to under 50ms.",
+                "pro_nuance": "In production, most business tasks are simple classification or extraction. Routing those to a small model drops inference cost and latency.",
                 "tradeoff_table": [
                     ("Memory / VRAM", "140GB+ (Multi-GPU)", "4GB - 16GB (Consumer GPU/Laptop)"),
                     ("Latency (TTFT)", "200ms - 800ms", "15ms - 50ms (Blazing fast)"),
@@ -1655,7 +1655,7 @@ class TrendHunter:
                     ("Sorting (ORDER BY)", "YES (Zero cost traversal)", "NO (Requires external sort)"),
                     ("Default Choice", "YES (Postgres / MySQL default)", "Specialized only")
                 ],
-                "golden_rule": "Stick to B-Trees for 99% of relational columns; use Hash only for pure memory equality lookups."
+                "golden_rule": "Stick to B-Trees for most relational columns; use Hash only for pure memory equality lookups."
             },
             {
                 "title": "Event Loop: Node.js & Python Asyncio",
