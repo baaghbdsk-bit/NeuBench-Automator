@@ -48,17 +48,17 @@ def parse_timestamp(value: Any) -> Optional[datetime]:
 
 
 def cadence_slot_key(value: Any) -> str:
-    """Return the three-hour UTC slot used by the scheduled LinkedIn workflow."""
+    """Return the six-hour UTC slot used by the scheduled publish workflow."""
 
     parsed = value if isinstance(value, datetime) else parse_timestamp(value)
     if parsed is None:
         return ""
     parsed = parsed.astimezone(timezone.utc)
-    anchor = parsed.replace(hour=0, minute=15, second=0, microsecond=0)
+    anchor = parsed.replace(hour=0, minute=0, second=0, microsecond=0)
     if parsed < anchor:
         anchor -= timedelta(days=1)
-    slot_number = int((parsed - anchor).total_seconds() // (3 * 60 * 60))
-    return (anchor + timedelta(hours=slot_number)).isoformat()
+    slot_number = int((parsed - anchor).total_seconds() // (6 * 60 * 60))
+    return (anchor + timedelta(hours=slot_number * 6)).isoformat()
 
 
 def normalize_text(value: Any) -> str:
@@ -91,9 +91,7 @@ def topic_key(title: Any, url: Any = "") -> str:
     """Create a stable key from a canonical source URL or normalized title."""
 
     source_url = canonical_url(url)
-    # NeuBench topics intentionally share the product homepage URL; their
-    # titles are the meaningful identity in that case.
-    if source_url and "app.neubench.workers.dev" not in source_url:
+    if source_url:
         return f"url:{source_url}"
     return f"title:{content_hash(title)}"
 
@@ -266,7 +264,7 @@ def post_is_duplicate(
             return True
         if normalized_title and normalize_text(entry.get("title")) == normalized_title:
             return True
-        if source_url and "app.neubench.workers.dev" not in source_url and canonical_url(entry.get("url")) == source_url:
+        if source_url and canonical_url(entry.get("url")) == source_url:
             return True
         if generated_hash and entry.get("content_hash") == generated_hash:
             return True
@@ -349,7 +347,7 @@ def engagement_count_on_date(entries: Iterable[Dict[str, Any]], date_prefix: str
 def linkedin_state_lock() -> Iterator[None]:
     """Serialize local LinkedIn publish/engagement state transitions."""
 
-    lock_path = Path(tempfile.gettempdir()) / "neubench-linkedin-state.lock"
+    lock_path = Path(tempfile.gettempdir()) / "automation-linkedin-state.lock"
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open("a+", encoding="utf-8") as lock_handle:
         if os.name == "nt":

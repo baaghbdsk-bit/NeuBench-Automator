@@ -25,7 +25,7 @@ class SafetyEngine:
         self.max_daily_original = self.caps.get("twitter_originals", 4)
         self.max_daily_replies = self.caps.get("twitter_replies", 16)
         self.max_daily_reposts = self.caps.get("twitter_reposts", 5)
-        self.max_daily_total = int(os.getenv("MAX_DAILY_TOTAL", "28"))
+        self.max_daily_total = int(os.getenv("MAX_DAILY_TOTAL", "20"))
 
         # Indefinite 24/7 Autopilot (no expiration limit)
         self.trial_max_hours = float(os.getenv("TRIAL_MAX_HOURS", "0"))
@@ -82,7 +82,7 @@ class SafetyEngine:
         elif action_type in ("bluesky", "bluesky_post"):
             if not self.dry_run and not (config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD):
                 return False, "Bluesky credentials are not configured."
-            limit = self.caps.get("bluesky_posts", 6)
+            limit = self.caps.get("bluesky_posts", 4)
             if limit > 0 and today_counts.get("bluesky_posts", 0) >= limit:
                 return False, f"Bluesky daily cap reached ({today_counts.get('bluesky_posts')}/{limit})."
 

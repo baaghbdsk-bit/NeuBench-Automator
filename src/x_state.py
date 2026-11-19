@@ -103,7 +103,7 @@ def _lock_path(history_file: Path) -> Path:
     # Keep lock files outside the repository so a killed process cannot leave
     # an untracked file in the user's working tree.
     digest = hashlib.sha256(str(history_file.resolve()).encode("utf-8")).hexdigest()[:20]
-    return Path(tempfile.gettempdir()) / f"neubench-x-history-{digest}.lock"
+    return Path(tempfile.gettempdir()) / f"automation-x-history-{digest}.lock"
 
 
 @contextmanager

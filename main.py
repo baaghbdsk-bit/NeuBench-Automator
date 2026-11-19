@@ -78,7 +78,7 @@ def display_metrics():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="NeuBench Automater: Ultra-Fast Omnichannel Suite for 𝕏, LinkedIn, and Bluesky"
+        description="Omnichannel growth suite for 𝕏, LinkedIn, and Bluesky"
     )
     parser.add_argument(
         "action", 
@@ -153,12 +153,12 @@ def main():
     engine = AutomaterEngine(dry_run=args.dry_run)
 
     if args.action in ("start",):
-        console.print("[bold green]Starting autonomous continuous schedule (every ~3 hours across 𝕏, LinkedIn, Bluesky)...[/bold green]")
+        console.print("[bold green]Starting autonomous continuous schedule (every ~6 hours across 𝕏, LinkedIn, Bluesky)...[/bold green]")
         engine.start_scheduler()
 
     elif args.action in ("run-once", "post-all", "omnichannel"):
-        console.print(f"[bold cyan]🚀 Running 3-Hour Broadcast Cycle across 𝕏, LinkedIn & Bluesky (Dry Run: {args.dry_run})...[/bold cyan]")
-        results = engine.run_three_hour_omnichannel_cycle()
+        console.print(f"[bold cyan]🚀 Running 6-Hour Broadcast Cycle across 𝕏, LinkedIn & Bluesky (Dry Run: {args.dry_run})...[/bold cyan]")
+        results = engine.run_six_hour_omnichannel_cycle()
         if not any(results.values()) and not engine.safety.dry_run:
             sys.exit(1)
 

@@ -22,7 +22,7 @@ banner_img = BASE_DIR / "assets" / "neubench_twitter_banner.jpg"
 
 # 157 chars - exactly fits X's 160 char limit
 
-x_bio = "Real-time AI evals (app.neubench.workers.dev) | Follow: Bluesky @neubench | LinkedIn in/vishnu-gupta-b6b2951b2"
+x_bio = config.CREATOR_BIO
 
 print(f"X Bio length: {len(x_bio)} / 160 characters")
 
@@ -92,7 +92,7 @@ with sync_playwright() as p:
 
         page.keyboard.press("Backspace")
 
-        name_el.type("NeuBench", delay=40)
+        name_el.type(config.CREATOR_NAME, delay=40)
 
         page.wait_for_timeout(300)
 
@@ -130,29 +130,13 @@ with sync_playwright() as p:
 
         page.keyboard.press("Backspace")
 
-        loc_el.type("Global • AI Benchmarks", delay=30)
+        loc_el.type(config.CREATOR_LOCATION, delay=30)
 
         page.wait_for_timeout(300)
 
 
 
-    # Website URL
-
-    url_el = page.locator('input[name="url"]').first
-
-    if url_el.is_visible():
-
-        url_el.click()
-
-        page.keyboard.press("Control+A")
-
-        page.keyboard.press("Backspace")
-
-        url_el.type("https://app.neubench.workers.dev", delay=30)
-
-        page.wait_for_timeout(300)
-
-        print("Filled Website URL: https://app.neubench.workers.dev")
+    # Website URL intentionally left empty: a link in the bio competes with follow.
 
 
 

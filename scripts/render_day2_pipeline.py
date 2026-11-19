@@ -103,7 +103,7 @@ Deep Learning:   [Raw Input] ➔ [Layer 1] ➔ [Layer 2] ➔ [Layer N] ➔ [Pred
         {
             "id": "act4_summary_cta",
             "title": "Day 02 Takeaway & Summary",
-            "voice_script": "Remember this rule of thumb: When someone says AI today, they usually mean Deep Learning. Tomorrow in Day three, we uncover how computers actually learn functions. Follow NeuBench for the complete ninety-day journey.",
+            "voice_script": "Remember this rule of thumb: When someone says AI today, they usually mean Deep Learning. Tomorrow in Day three, we uncover how computers actually learn functions. Follow for the complete ninety-day journey.",
             "card_tag": "Day 02 Cheatsheet",
             "tag_color": "pill-green",
             "html": """

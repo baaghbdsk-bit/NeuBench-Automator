@@ -28,7 +28,7 @@ class TrendHunterCoreTests(unittest.TestCase):
         raw_entry = {
             "title": "DeepSeek-V3 Open-Weights Benchmark Results",
             "summary": "Full evaluation of latency and reasoning capabilities on NeuBench.",
-            "url": "https://app.neubench.workers.dev/stories/123?utm_source=twitter&ref=feed",
+            "url": "https://bench.example.com/stories/123?utm_source=twitter&ref=feed",
             "traffic": "High Signal AI",
             "category": "ai_tech",
             "published_at": "2026-11-06T12:00:00Z",
@@ -48,7 +48,7 @@ class TrendHunterCoreTests(unittest.TestCase):
             self.assertIn(field, item, f"Missing required schema field: {field}")
 
         # 2. Check canonicalized URL (tracking params stripped)
-        self.assertEqual(item["url"], "https://app.neubench.workers.dev/stories/123")
+        self.assertEqual(item["url"], "https://bench.example.com/stories/123")
         self.assertTrue(item["id"].startswith("tr_"))
         self.assertEqual(item["source"], "HackerNews")
         self.assertEqual(item["category"], "ai_tech")
@@ -158,13 +158,13 @@ class TrendHunterCoreTests(unittest.TestCase):
                 "id": "tr_high",
                 "title": "High signal NeuBench telemetry",
                 "summary": "...",
-                "source": "NeuBench Live Telemetry",
+                "source": "Engineering Briefs",
                 "category": "frontier_paper",
-                "url": "https://app.neubench.workers.dev/1",
+                "url": "https://bench.example.com/1",
                 "discovered_at": now_iso,
                 "published_at": two_hours_ago,
                 "is_sensitive": False,
-                "metadata": {"sources_seen": ["NeuBench Live Telemetry", "TechCrunch"]}  # Multi-source
+                "metadata": {"sources_seen": ["Engineering Briefs", "TechCrunch"]}  # Multi-source
             },
             {
                 "id": "tr_mid",
@@ -308,10 +308,10 @@ class TrendHunterMockFeedTests(unittest.TestCase):
 
             # Must not raise an unhandled exception
             trends = hunter.get_curated_trending_topics(use_cache=False, refresh=True)
-            # NeuBench stories are local/curated fallback and still succeed
+            # Engineering briefs are the local fallback and still succeed
             self.assertIsInstance(trends, list)
             self.assertGreaterEqual(len(trends), 1)
-            self.assertTrue(all(t["source"] == "NeuBench Live Telemetry" for t in trends))
+            self.assertTrue(all(t["source"] == "Engineering Briefs" for t in trends))
 
     @patch("feedparser.parse")
     def test_google_trends_india_preserves_attribution_and_normalizes(self, mock_feedparser):
@@ -352,7 +352,7 @@ class LinkedInTrendRelevanceTests(unittest.TestCase):
         self.assertTrue(is_linkedin_relevant_trend("KV Cache Eviction Policies for Long-Context Inference", "", "ai_tech", "HackerNews"))
         self.assertTrue(is_linkedin_relevant_trend("B-Tree vs LSM-Tree storage engines", "", "ai_tech", "HackerNews"))
         self.assertTrue(is_linkedin_relevant_trend("Latent context compression for agents", "", "frontier_paper", "Hugging Face Daily Papers"))
-        self.assertTrue(is_linkedin_relevant_trend("Frontier reasoning drift and cost per 1M tokens", "", "ai_tech", "NeuBench Live Telemetry"))
+        self.assertTrue(is_linkedin_relevant_trend("Frontier reasoning drift and cost per 1M tokens", "", "ai_tech", "Engineering Briefs"))
         self.assertTrue(is_linkedin_relevant_trend("Kubernetes autoscaling lessons from a production incident", "", "ai_tech", "HackerNews"))
 
     def test_candidate_trends_platform_filter_applies(self):

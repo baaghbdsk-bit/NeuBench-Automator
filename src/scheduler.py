@@ -78,6 +78,12 @@ from src.platform_state import (
     reserve_platform_action,
     stable_hash,
 )
+from src.growth import (
+    filter_fresh_topics,
+    is_near_duplicate_topic,
+    sanitize_plan,
+    sanitize_publish_text,
+)
 
 
 
@@ -121,6 +127,37 @@ VIRAL_ACCOUNTS = [
     "zerohedge",
     "DeItaone",
     "TrungTPhan"
+]
+
+# Growth-first reply targets: AI researchers, builders, and tools accounts.
+# Engagement on these accounts converts into follows far better than generic
+# entertainment threads.
+GROWTH_ACCOUNTS = [
+    "karpathy",
+    "sama",
+    "ylecun",
+    "levelsio",
+    "paulg",
+    "simonw",
+    "swyx",
+    "drjimfan",
+    "EMostaque",
+    "demishassabis",
+    "AndrewYNg",
+    "JeffDean",
+    "huggingface",
+    "LangChainAI",
+    "ollama",
+    "vllm_project",
+    "AIatMeta",
+    "MistralAI",
+    "deepseek_ai",
+    "AnthropicAI",
+    "OpenAI",
+    "GoogleDeepMind",
+    "perplexity_ai",
+    "cursor_ai",
+    "github",
 ]
 
 
@@ -412,7 +449,7 @@ class AutomaterEngine:
         if not self._x_guard("reply", start_time):
             return False
         try:
-            reply_text = self.ai.generate_sniper_reply("tweet_author", target_text or "Viral debate")
+            reply_text = sanitize_publish_text(self.ai.generate_sniper_reply("tweet_author", target_text or "Viral debate"))
         except Exception as error:
             self.last_x_message = f"X reply generation failed: {error}"
             self.tracker.record_event(
@@ -495,7 +532,7 @@ class AutomaterEngine:
         if not self._x_guard("quote_tweet", start_time):
             return False
         try:
-            quote_text = self.ai.generate_quote_tweet_commentary("tweet_author", target_text or "Viral debate")
+            quote_text = sanitize_publish_text(self.ai.generate_quote_tweet_commentary("tweet_author", target_text or "Viral debate"))
         except Exception as error:
             self.last_x_message = f"X quote-tweet generation failed: {error}"
             self.tracker.record_event(
@@ -747,7 +784,7 @@ class AutomaterEngine:
 
         # 5. Dispatch chosen action
         if action_choice in ("omnichannel", "post-all"):
-            results = self.run_three_hour_omnichannel_cycle()
+            results = self.run_six_hour_omnichannel_cycle()
             return any(results.values())
         elif action_choice == "mentions":
             return self._execute_x_mentions_replies(start_time)
@@ -791,20 +828,28 @@ class AutomaterEngine:
 
 
     def _pick_trending_target(self, history_key: str) -> Optional[Dict[str, Any]]:
-        """Pick the highest-engagement unreplied tweet from high-reach accounts."""
+        """Pick the highest-engagement unreplied tweet, biased toward AI/tech accounts."""
         already_used = set(self.tracker.history.get(history_key, []))
-        candidates = random.sample(VIRAL_ACCOUNTS, min(8, len(VIRAL_ACCOUNTS)))
+        accounts = (
+            random.sample(GROWTH_ACCOUNTS, min(6, len(GROWTH_ACCOUNTS)))
+            + random.sample(VIRAL_ACCOUNTS, min(2, len(VIRAL_ACCOUNTS)))
+        )
         best: Optional[Dict[str, Any]] = None
         target_account = ""
 
-        for account in candidates:
-            for tweet in self.twitter.get_top_tweets_from_account(account, limit=3):
-                url = tweet.get("tweet_url")
-                if not url or url in already_used:
-                    continue
-                if best is None or tweet.get("engagement_score", 0) > best.get("engagement_score", 0):
-                    best = dict(tweet)
-                    target_account = account
+        try:
+            batch = self.twitter.get_top_tweets_from_accounts(accounts, limit=2)
+        except Exception as exc:
+            console.print(f"[dim]Batch profile scan note: {exc}[/dim]")
+            batch = []
+
+        for tweet in batch:
+            url = tweet.get("tweet_url")
+            if not url or url in already_used:
+                continue
+            if best is None or tweet.get("engagement_score", 0) > best.get("engagement_score", 0):
+                best = dict(tweet)
+                target_account = tweet.get("username") or ""
 
         if best is None:
             try:
@@ -812,7 +857,10 @@ class AutomaterEngine:
                 queries = [t.get("title", "") for t in trends if t.get("title")]
             except Exception:
                 queries = []
-            queries += ["Ramayana", "Bollywood", "AI", "Indian cinema", "ChatGPT", "tech"]
+            queries += [
+                "LLM benchmark", "inference cost", "AI agents", "GPU memory",
+                "open source model", "context window", "fine-tuning", "vibe coding",
+            ]
             for query in queries[:8]:
                 try:
                     for res in self.twitter.search_public_tweets(query, limit=5):
@@ -860,7 +908,7 @@ class AutomaterEngine:
 
         try:
 
-            reply_content = self.ai.generate_sniper_reply(target_account, tweet_text)
+            reply_content = sanitize_publish_text(self.ai.generate_sniper_reply(target_account, tweet_text))
 
         except Exception as e:
 
@@ -990,7 +1038,7 @@ class AutomaterEngine:
 
         try:
 
-            commentary = self.ai.generate_quote_tweet_commentary(target_account, tweet_text)
+            commentary = sanitize_publish_text(self.ai.generate_quote_tweet_commentary(target_account, tweet_text))
 
         except Exception as e:
 
@@ -1208,6 +1256,19 @@ class AutomaterEngine:
         except Exception as e:
             console.print(f"[dim]Trend Intelligence candidate fetch note: {e}[/dim]")
 
+        # 1b. Growth-first blend: AI/tech pillars lead most original posts.
+        # Pure trending-topic chasing competes with millions of accounts and does
+        # not compound an audience.
+        try:
+            growth_topics = self.hunter.get_x_growth_topics()
+        except Exception:
+            growth_topics = []
+        if growth_topics:
+            if random.random() < 0.7:
+                trends = growth_topics + trends
+            else:
+                trends = trends + growth_topics
+
         # 2. Fallback: If new trend system returns no candidates or fails, use legacy topics
         if not trends:
             trends = self.hunter.get_x_unfiltered_topics()
@@ -1273,14 +1334,11 @@ class AutomaterEngine:
         if raw_summary and raw_summary != selected_trend["title"]:
             context_parts.append(raw_summary)
         source_name = selected_trend.get("source")
-        if source_name:
+        if source_name and str(source_name).strip().lower() != "engineering briefs":
             context_parts.append(f"Source: {source_name}")
         cat = selected_trend.get("category")
         if cat:
             context_parts.append(f"Category: {cat}")
-        url = selected_trend.get("url")
-        if url:
-            context_parts.append(f"URL: {url}")
         enriched_context = " | ".join(context_parts) if context_parts else raw_summary
 
         self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
@@ -1316,6 +1374,7 @@ class AutomaterEngine:
 
 
 
+        hot_take = sanitize_publish_text(hot_take)
         console.print(f"[green]Generated Hot Take Draft:[/green] {hot_take}")
 
 
@@ -1452,6 +1511,7 @@ class AutomaterEngine:
             self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
             bsky_take = self.ai.generate_bluesky_take(selected_trend["title"], selected_trend.get("summary", ""))
 
+        bsky_take = sanitize_publish_text(bsky_take)
         console.print(f"[green]Generated Bluesky Draft:[/green] {bsky_take}")
 
         if not self.safety.dry_run and not self.bluesky.is_configured():
@@ -1555,7 +1615,7 @@ class AutomaterEngine:
         with linkedin_state_lock():
             post_state = load_post_history(POST_HISTORY_FILE)
             today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-            max_li = config.CAPS_PER_PLATFORM.get("linkedin_posts", 8)
+            max_li = config.CAPS_PER_PLATFORM.get("linkedin_posts", 4)
             event_count = sum(
                 1
                 for event in self.tracker.metrics.get("recent_events", [])
@@ -1580,7 +1640,7 @@ class AutomaterEngine:
                 )
                 return False
 
-            # Enforce LinkedIn cadence and cooldown (minimum 3 hours between posts unless forced or dry run)
+            # Enforce LinkedIn cadence and cooldown (~6-hour slots; 5h floor absorbs cron jitter unless forced or dry run)
             if not self.safety.dry_run and not force:
                 last_time = last_post_at(post_state)
                 min_interval_mins = int(os.getenv("LINKEDIN_MIN_INTERVAL_MINUTES", str(config.LINKEDIN_MIN_INTERVAL_MINUTES)))
@@ -1626,7 +1686,7 @@ class AutomaterEngine:
                 selected_trend = {
                     "title": clean_title if len(clean_title) >= 10 else f"Custom LinkedIn post {content_hash(li_text)[:16]}",
                     "summary": li_text[:300],
-                    "company": "NeuBench",
+                    "company": "",
                     "url": "",
                 }
                 if post_is_duplicate(post_state, title=selected_trend["title"], content=li_text):
@@ -1681,7 +1741,7 @@ class AutomaterEngine:
                 chosen_format = CONTENT_FORMATS[(total_li // len(DEMOGRAPHIC_SPECTRUM)) % len(CONTENT_FORMATS)]
                 console.print(f"[bold]🎯 Target Demographic:[/bold] {target_demographic.upper()} | [bold]Format:[/bold] {chosen_format.upper()}")
 
-                # 1. Ingest live signals (HackerNews, arXiv, TechCrunch, NeuBench)
+                # 1. Ingest live signals (HackerNews, arXiv, TechCrunch, engineering briefs)
                 live_signals = []
                 try:
                     live_signals = self.hunter.get_candidate_trends(platform="linkedin", limit=10)
@@ -1709,6 +1769,11 @@ class AutomaterEngine:
                     if str(trend.get("title", "")).strip().lower() not in used_li
                     and not post_is_duplicate(post_state, title=str(trend.get("title", "")), url=str(trend.get("url", "")))
                 ]
+                available_live_trends = filter_fresh_topics(
+                    available_live_trends,
+                    recent_posted_topics,
+                    limit=6,
+                )
 
                 # 2. Build candidate attempts dynamically (or from user-specified custom_topic)
                 candidate_attempts = []
@@ -1721,7 +1786,7 @@ class AutomaterEngine:
                     candidate_attempts.append((mode_tag, {
                         "title": clean_topic,
                         "summary": f"In-depth architectural analysis and engineering breakdown of {clean_topic}.",
-                        "company": "NeuBench",
+                        "company": "",
                         "url": ""
                     }))
 
@@ -1740,7 +1805,10 @@ class AutomaterEngine:
                             live_news_signals=available_live_trends
                         )
                         mode_tag = "comparison" if (chosen_format == "versus_comparison" or " vs " in dynamic_topic.get("title", "").lower()) else "concept"
-                        candidate_attempts.append((mode_tag, dynamic_topic))
+                        if is_near_duplicate_topic(str(dynamic_topic.get("title", "")), recent_posted_topics):
+                            console.print("[yellow]↩️ AI ideated a topic too close to a recent post. Skipping it.[/yellow]")
+                        else:
+                            candidate_attempts.append((mode_tag, dynamic_topic))
                     except Exception as ideate_err:
                         console.print(f"[yellow]Dynamic ideation notice: {ideate_err}[/yellow]")
 
@@ -1761,6 +1829,9 @@ class AutomaterEngine:
                 for mode, item in candidate_attempts:
                     title = str(item.get("title", "")).strip()
                     summary = str(item.get("summary") or item.get("golden_rule") or "").strip()
+                    if is_near_duplicate_topic(title, recent_posted_topics):
+                        console.print(f"[yellow]↩️ Skipping near-duplicate LinkedIn topic: {title}[/yellow]")
+                        continue
                     self.tracker.metrics["lifetime_summary"]["ai_generation_requests"] += 1
 
                     try:
@@ -1814,11 +1885,14 @@ class AutomaterEngine:
                             is_valid, validation_msg = validate_educational_plan(plan)
                             if not is_valid:
                                 console.print(f"[yellow]Plan validation warning: {validation_msg} (using with fallback normalization)[/yellow]")
-                            selected_trend = {"title": title, "summary": summary, "url": str(item.get("url") or "")}
-                            li_text = candidate_text
-                            carousel_plan = plan
+                            selected_trend = {"title": sanitize_publish_text(title), "summary": summary, "url": str(item.get("url") or "")}
+                            carousel_plan = sanitize_plan(plan)
+                            li_text = sanitize_publish_text(candidate_text)
                             media_path = None
-                            first_comm = plan.get("first_comment") or "⚡ Benchmarking 266+ LLMs, latency, and systems architectures live on: https://app.neubench.workers.dev"
+                            first_comm = sanitize_publish_text(
+                                plan.get("first_comment")
+                                or "What would you test first here? I would start with the failure mode, not the happy path."
+                            )
                             break
                     except Exception as gen_err:
                         console.print(f"[yellow]Failed generation for '{title}' ({mode}): {gen_err}[/yellow]")
@@ -1930,7 +2004,7 @@ class AutomaterEngine:
                 console.print(f"[bold red]❌ Quality Gate Rejected Post for '{topic_title}': Failed executive standards. Aborting to protect portfolio integrity.[/bold red]")
                 return False
 
-            li_text = final_text
+            li_text = sanitize_publish_text(final_text)
             media_path = final_media
 
             # Ensure hashtags are included cleanly if present in plan
@@ -1948,11 +2022,9 @@ class AutomaterEngine:
 
             first_comm = None
             if carousel_plan:
-                first_comm = str(carousel_plan.get("first_comment") or "").strip()
-                site = str((carousel_plan.get("cta") or {}).get("website") or "app.neubench.workers.dev").strip()
-                if first_comm and site and "http" not in first_comm:
-                    site_url = site if site.startswith("http") else "https://" + site
-                    first_comm = f"{first_comm}\n\n{site_url}"
+                first_comm = sanitize_publish_text(
+                    str(carousel_plan.get("first_comment") or "").strip()
+                ) or None
                 if first_comm:
                     console.print(
                         f"[dim]💬 First-comment fallback ready (LinkedIn may skip it on personal tokens):[/dim] "
@@ -2052,16 +2124,16 @@ class AutomaterEngine:
             return False
         return True
 
-    def run_three_hour_omnichannel_cycle(self) -> Dict[str, bool]:
+    def run_six_hour_omnichannel_cycle(self) -> Dict[str, bool]:
         """
-        Executes unified 3-hour broadcast cycle across all 3 active platforms:
-        1. 𝕏 (Twitter): Unfiltered, sarcastic, roasting, or hot debate take (or sniper reply).
-        2. LinkedIn: Authoritative educational article with 1080x1080 looping GIF.
-        3. Bluesky: High-signal technical summary with matching 1080x1080 looping GIF.
+        Executes unified 6-hour broadcast cycle across all 3 active platforms:
+        1. 𝕏 (Twitter): AI/engineering take or reply under a growth account.
+        2. LinkedIn: long-form engineering post (capped at 1/day).
+        3. Bluesky: high-signal technical insight (no links, no brand).
         """
         start_time = time.time()
         start_iso = datetime.now(timezone.utc).isoformat()
-        console.print(f"\n[bold cyan]🚀 Starting 3-Hour Broadcast Cycle at {start_iso} (Dry Run: {self.safety.dry_run})...[/bold cyan]")
+        console.print(f"\n[bold cyan]🚀 Starting 6-Hour Broadcast Cycle at {start_iso} (Dry Run: {self.safety.dry_run})...[/bold cyan]")
         
         results = {"x": False, "linkedin": False, "bluesky": False}
 
@@ -2090,8 +2162,36 @@ class AutomaterEngine:
             console.print(f"[red]Bluesky Error: {e}[/red]")
 
         duration = round(time.time() - start_time, 1)
-        console.print(f"\n[bold green]🏁 3-Hour Broadcast Cycle Complete in {duration}s! Results: {results}[/bold green]\n")
+        console.print(f"\n[bold green]🏁 6-Hour Broadcast Cycle Complete in {duration}s! Results: {results}[/bold green]\n")
         return results
+
+    # Backwards-compatible alias for older callers/scripts.
+    run_three_hour_omnichannel_cycle = run_six_hour_omnichannel_cycle
+
+    def start_scheduler(self) -> None:
+        """Run the omnichannel broadcast cycle forever on a ~6-hour cadence."""
+        min_interval = max(1, config.POST_INTERVAL_MIN_MINUTES) * 60
+        max_interval = max(min_interval, config.POST_INTERVAL_MAX_MINUTES * 60)
+        while True:
+            try:
+                self.run_six_hour_omnichannel_cycle()
+            except KeyboardInterrupt:
+                console.print("[yellow]Scheduler stopped.[/yellow]")
+                return
+            except Exception as exc:
+                console.print(f"[red]Cycle error: {exc}[/red]")
+
+            wait_seconds = random.randint(min_interval, max_interval)
+            next_run = datetime.now(timezone.utc) + timedelta(seconds=wait_seconds)
+            console.print(
+                f"[dim]Next cycle at {next_run.isoformat()} "
+                f"(sleeping {wait_seconds / 3600:.1f}h)...[/dim]"
+            )
+            try:
+                time.sleep(wait_seconds)
+            except KeyboardInterrupt:
+                console.print("[yellow]Scheduler stopped.[/yellow]")
+                return
 
     def _execute_linkedin_comment_replies(self, start_time: float) -> bool:
         """Scans recent LinkedIn posts and replies professionally to incoming comments."""
@@ -2101,7 +2201,7 @@ class AutomaterEngine:
         with linkedin_state_lock():
             engagements = load_engagement_history(ENGAGEMENT_HISTORY_FILE)
             today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-            max_daily = config.CAPS_PER_PLATFORM.get("linkedin_peer_comments", 10)
+            max_daily = config.CAPS_PER_PLATFORM.get("linkedin_peer_comments", 6)
             remaining = max_daily - engagement_count_on_date(engagements, today_str)
             if remaining <= 0:
                 msg = f"LinkedIn engagement daily cap reached ({max_daily}/{max_daily})."
@@ -2173,7 +2273,7 @@ class AutomaterEngine:
             engagements = load_engagement_history(ENGAGEMENT_HISTORY_FILE)
             today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
             today_count = engagement_count_on_date(engagements, today_str)
-            max_daily = config.CAPS_PER_PLATFORM.get("linkedin_peer_comments", 10)
+            max_daily = config.CAPS_PER_PLATFORM.get("linkedin_peer_comments", 6)
             remaining = max_daily - today_count
             if remaining <= 0:
                 msg = f"LinkedIn engagement daily cap reached ({today_count}/{max_daily})."
@@ -2279,18 +2379,41 @@ class AutomaterEngine:
             return False
         
         search_queries = ["AI benchmark OR LLM", "machine learning architecture", "inference latency", "open source model", "deep learning"]
-        q = random.choice(search_queries)
-        posts = self.bluesky.search_viral_posts(query=q, limit=6)
-        if not posts:
-            console.print(f"[yellow]No relevant technical Bluesky posts found for '{q}'. Falling back...[/yellow]")
+        random.shuffle(search_queries)
+        own_handle = (config.BLUESKY_HANDLE or "").lower().lstrip("@")
+        replied = set(self.tracker.history.get("bluesky_replied_uris", []))
+
+        target_p = None
+        for q in search_queries[:3]:
+            posts = self.bluesky.search_viral_posts(query=q, limit=8)
+            for post in posts:
+                uri = post.get("uri") or post.get("cid") or ""
+                author_handle = (post.get("author", {}).get("handle") or "").lower()
+                if not uri or uri in replied:
+                    continue
+                if own_handle and author_handle == own_handle:
+                    continue
+                if not post.get("record", {}).get("text"):
+                    continue
+                target_p = post
+                break
+            if target_p is not None:
+                break
+
+        if target_p is None:
+            console.print("[yellow]No fresh technical Bluesky discussions found. Skipping.[/yellow]")
             return False
-        target_p = random.choice(posts[:3])
+        target_uri = target_p.get("uri") or target_p.get("cid") or ""
         author = target_p.get("author", {}).get("handle", "user")
         text = target_p.get("record", {}).get("text", "")
-        reply_take = self.ai.generate_bluesky_sniper_reply(author, text)
+        reply_take = sanitize_publish_text(self.ai.generate_bluesky_sniper_reply(author, text))
         ok, msg = self.bluesky.reply(target_p, reply_take)
         if ok:
             console.print(f"[bold green]✅ Replied professionally on Bluesky to @{author}: {reply_take[:60]}...[/bold green]")
+            uri_history = self.tracker.history.setdefault("bluesky_replied_uris", [])
+            uri_history.append(target_uri)
+            self.tracker.history["bluesky_replied_uris"] = uri_history[-200:]
+            self.tracker.save_history()
             self.tracker.record_event(
                 action_type="bluesky_reply",
                 status="success",

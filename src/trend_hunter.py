@@ -342,8 +342,8 @@ NEWS_SIGNAL_TERMS = (
 # ==============================================================================
 
 DEFAULT_SOURCE_WEIGHTS: Dict[str, float] = {
-    # High-signal verified benchmark telemetry and frontier research
-    "NeuBench Live Telemetry": 9.5,
+    # High-signal engineering briefs and frontier research
+    "Engineering Briefs": 9.5,
     "Hugging Face Daily Papers": 9.0,
     # High-signal developer and public discussions
     "HackerNews": 8.5,
@@ -435,7 +435,7 @@ def is_linkedin_relevant_trend(title: str, summary: str = "", category: str = ""
 
     category_norm = (category or "").lower()
     source_norm = (source or "").lower()
-    if "neubench" in source_norm or "hugging face" in source_norm:
+    if "engineering briefs" in source_norm or "hugging face" in source_norm:
         return True
     if category_norm in LINKEDIN_TREND_TRUSTED_CATEGORIES:
         return True
@@ -1018,48 +1018,56 @@ class TrendHunter:
                 print(f"[TrendHunter] RSS error on {source_name}: {e}")
         return items
 
-    def get_neubench_stories(self, limit: int = 6) -> List[Dict[str, Any]]:
-        """Pulls breaking AI benchmark and frontier model insights directly from NeuBench."""
+    def get_engineering_briefs(self, limit: int = 6) -> List[Dict[str, Any]]:
+        """Evergreen engineering briefs used when live sources are thin.
+
+        These are discussion prompts, not product content: each one is a
+        defensible technical claim that engineers can argue with in the replies.
+        """
         curated = [
             {
                 "title": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-                "summary": "NeuBench telemetry reveals significant latency and cost differences when evaluating long-horizon coding tasks across 260+ models.",
-                "company": "NeuBench",
+                "summary": "Latency and cost diverge sharply once long-horizon coding tasks are measured end to end instead of per-token.",
+                "company": "Engineering Briefs",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://app.neubench.workers.dev/"
+                "url": "",
             },
             {
-                "title": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-                "summary": "NeuBench speed testing shows real-world token throughput variances up to 40% across hosted provider APIs.",
-                "company": "NeuBench",
+                "title": "Real-World TTFT & Throughput Across Major LLM Hosted Endpoints",
+                "summary": "Token throughput varies up to 40% across hosted provider endpoints running the same model weights.",
+                "company": "Engineering Briefs",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://app.neubench.workers.dev/"
+                "url": "",
             },
             {
                 "title": "Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
-                "summary": "NeuBench evaluations analyze benchmark accuracy drop versus inference acceleration on local and cloud models.",
-                "company": "NeuBench",
+                "summary": "Quantization trades benchmark accuracy for inference speed, and agent loops amplify the difference.",
+                "company": "Engineering Briefs",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://app.neubench.workers.dev/"
+                "url": "",
             },
             {
                 "title": "LLM API Outage Frequency & Degradation Index",
-                "summary": "NeuBench monitoring tracks endpoint reliability and error rates across top frontier intelligence providers.",
-                "company": "NeuBench",
+                "summary": "Endpoint reliability and error rates matter more than leaderboard scores once a feature is in production.",
+                "company": "Engineering Briefs",
                 "traffic": "High Signal AI",
                 "category": "ai_tech",
-                "url": "https://app.neubench.workers.dev/"
-            }
+                "url": "",
+            },
         ]
         results = []
         for c in curated[:limit]:
-            normalized = normalize_trend_item(c, source="NeuBench Live Telemetry", default_category="ai_tech")
+            normalized = normalize_trend_item(c, source="Engineering Briefs", default_category="ai_tech")
             if normalized:
                 results.append(normalized)
         return results
+
+    # Backwards-compatible alias for older callers.
+    def get_neubench_stories(self, limit: int = 6) -> List[Dict[str, Any]]:
+        return self.get_engineering_briefs(limit=limit)
 
     def get_huggingface_daily_papers(self, limit: int = 4) -> List[Dict[str, Any]]:
         """Pulls breaking research papers from Hugging Face Daily Papers API."""
@@ -1100,9 +1108,9 @@ class TrendHunter:
 
         all_trends: List[Dict[str, Any]] = []
         try:
-            all_trends.extend(self.get_neubench_stories())
+            all_trends.extend(self.get_engineering_briefs())
         except Exception as e:
-            print(f"[TrendHunter] NeuBench stories error: {e}")
+            print(f"[TrendHunter] Engineering briefs error: {e}")
 
         try:
             all_trends.extend(self.get_huggingface_daily_papers())
@@ -1174,12 +1182,12 @@ class TrendHunter:
             return items
 
         if selected == "BENCHMARK":
-            sources = (self.get_neubench_stories, self.get_huggingface_daily_papers)
+            sources = (self.get_engineering_briefs, self.get_huggingface_daily_papers)
         elif selected == "NEWS":
-            sources = (self.get_tech_news, self.get_breaking_rss, self.get_neubench_stories)
+            sources = (self.get_tech_news, self.get_breaking_rss, self.get_engineering_briefs)
         else:
             sources = (
-                self.get_neubench_stories,
+                self.get_engineering_briefs,
                 self.get_huggingface_daily_papers,
                 self.get_tech_news,
                 self.get_breaking_rss,
@@ -1212,7 +1220,7 @@ class TrendHunter:
             haystack = f"{title} {summary}".lower()
             source_name = str(topic.get("source", "")).lower()
             has_signal = bool(re.search(r"\bai\b", haystack)) or any(term in haystack for term in signal_terms)
-            trusted_source = "neubench" in source_name or "hugging face" in source_name
+            trusted_source = "engineering briefs" in source_name or "hugging face" in source_name
             if not trusted_source and not has_signal:
                 continue
             seen.add(title.lower())
@@ -1429,7 +1437,7 @@ class TrendHunter:
         
         # Check if we can also use fresh news from TrendHunter
         try:
-            stories = self.get_neubench_stories(limit=3)
+            stories = self.get_engineering_briefs(limit=3)
             papers = self.get_huggingface_daily_papers(limit=3)
             for item in stories + papers:
                 title = item.get("title", "")
@@ -1444,11 +1452,11 @@ class TrendHunter:
                         "solution": summary[:180],
                         "key_takeaways": [
                             summary[:100],
-                            "Benchmarked continuously on NeuBench live intelligence leaderboards.",
+                            "The practical constraint is usually latency and cost, not raw capability.",
                             "Directly impacts production latency and token economics."
                         ],
-                        "pro_tip": "Track live benchmark scores and token speed across 260+ models on app.neubench.workers.dev.",
-                        "narration": f"Here is the latest breakthrough in artificial intelligence: {title}. {summary[:150]}. Evaluated live across top models on NeuBench!"
+                        "pro_tip": "Measure p95 latency and cost per successful task before comparing model quality.",
+                        "narration": f"Here is the latest shift in artificial intelligence: {title}. {summary[:150]}. The interesting part is what it changes for teams already in production."
                     })
         except Exception:
             pass
@@ -1796,4 +1804,40 @@ class TrendHunter:
             pass
         random.shuffle(unfiltered)
         return unfiltered
+
+    def get_x_growth_topics(self) -> List[Dict[str, Any]]:
+        """Evergreen AI/tech takes for X. These compound a builder audience and
+        replace generic sport/cinema roasting with defensible opinions."""
+        topics = [
+            {"title": "Cheap models vs frontier models", "context": "Most production AI features do not need a frontier model. The expensive part is usually the retry loop, not the answer."},
+            {"title": "Benchmark scores vs real latency", "context": "A model can win every public benchmark and still feel slow in production because p95 latency and queueing are not on the leaderboard."},
+            {"title": "Context window marketing", "context": "A 1M-token context window is not free. You pay for it in latency, memory, and the fact that the model still forgets the middle."},
+            {"title": "AI agents in production", "context": "Most agent demos work because the task is easy. Production agents fail on retries, permissions, and partial failures nobody demoed."},
+            {"title": "GPU cost reality", "context": "Everyone talks about model quality and nobody talks about the idle GPU bill between requests."},
+            {"title": "Fine-tuning vs prompting", "context": "Teams jump to fine-tuning before they have 50 clean examples. Most of the time a better prompt and a smaller model is the cheaper win."},
+            {"title": "Open weights vs hosted APIs", "context": "Open weights are cheaper per token until you price in the engineer who has to keep the inference stack alive."},
+            {"title": "RAG is not a search box", "context": "Most RAG failures are retrieval failures, not generation failures. Chunking and ranking matter more than swapping the model."},
+            {"title": "Vibe coding vs shipping", "context": "Vibe coding is great for prototypes and dangerous for anything with auth, billing, or a database migration."},
+            {"title": "The AI wrapper startup", "context": "A thin wrapper on an API is a feature, not a company. The defensible part is always the workflow and the data."},
+            {"title": "Token pricing race", "context": "Inference prices keep falling and teams keep building features that assume today's price is permanent."},
+            {"title": "Evals before demos", "context": "If you cannot measure it, you cannot ship it. Most AI teams still have no eval set and one very confident founder."},
+            {"title": "Latency budget", "context": "Users forgive a wrong autocomplete. They do not forgive a three-second spinner on every keystroke."},
+            {"title": "Model routing", "context": "Sending every request to the biggest model is the most expensive way to look smart."},
+            {"title": "Prompt injection", "context": "Any agent with tool access is an attack surface. If it can read the web and call APIs, it can be told to do something you did not plan."},
+            {"title": "Hiring for AI teams", "context": "The scarce skill is not prompt writing. It is debugging nondeterministic systems without losing your mind."},
+            {"title": "Reasoning models cost", "context": "A reasoning model that thinks for 40 seconds is a product decision, not a model decision."},
+            {"title": "Local LLMs on laptops", "context": "Local models are good enough for classification, extraction, and autocomplete. They are not good enough to replace your whole workflow yet."},
+            {"title": "Vector database hype", "context": "Most teams do not need a vector database. They need better chunking and a reranker."},
+            {"title": "AI coding tools", "context": "AI coding tools make experienced engineers faster and beginners more confidently wrong."},
+            {"title": "Benchmark contamination", "context": "A benchmark score is only useful if the test set was not in the training set. Nobody asks that question before posting the chart."},
+            {"title": "The 10x engineer myth", "context": "AI does not create 10x engineers. It removes the boring 40% and exposes who actually understands the system."},
+            {"title": "Startup AI budgets", "context": "The fastest way to burn a seed round in 2026 is to put a frontier model behind every button."},
+            {"title": "Observability for LLMs", "context": "You cannot debug an LLM feature with console logs. You need traces, prompts, token counts, and the exact model version."},
+        ]
+        for item in topics:
+            item.setdefault("category", "ai_tech")
+            item.setdefault("source", "Builder Notes")
+            item.setdefault("url", "")
+        random.shuffle(topics)
+        return topics
 

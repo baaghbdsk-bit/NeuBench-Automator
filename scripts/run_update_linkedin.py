@@ -6,9 +6,9 @@ sys.path.insert(0, str(BASE_DIR))
 from playwright.sync_api import sync_playwright
 import config
 
-first_name = "NeuBench"
+first_name = "Vishnu"
 last_name = "AI"
-headline = "Building NeuBench • Real-Time AI Benchmarks across 266+ Models | LLM Evals & Engineering Commentary"
+headline = "AI engineering, LLM benchmarks & developer tooling | Building in public"
 
 with sync_playwright() as p:
     ctx = p.chromium.launch_persistent_context(str(config.LINKEDIN_USER_DATA_DIR), headless=True, channel='chrome')
@@ -48,7 +48,7 @@ with sync_playwright() as p:
     hl_filled = False
     for ta in textareas:
         val = ta.input_value()
-        if any(w in val for w in ["BABU", "Student", "BBDNITM", "Lucknow", "NeuBench"]):
+        if any(w in val for w in ["BABU", "Student", "BBDNITM", "Lucknow", "NeuBench", "Creator"]):
             print('Found Headline textarea! Updating...')
             ta.click()
             ta.fill("")
@@ -60,7 +60,7 @@ with sync_playwright() as p:
         # Check third or fourth input
         for inp in visible_inputs[2:]:
             val = inp.input_value()
-            if any(w in val for w in ["BABU", "Student", "BBDNITM", "Lucknow", "NeuBench"]):
+            if any(w in val for w in ["BABU", "Student", "BBDNITM", "Lucknow", "NeuBench", "Creator"]):
                 print('Found Headline in input! Updating...')
                 inp.click()
                 inp.fill("")

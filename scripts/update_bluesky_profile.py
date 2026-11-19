@@ -28,7 +28,7 @@ load_dotenv()
 
 
 
-handle = os.getenv("BLUESKY_HANDLE", "neubench.bsky.social")
+handle = os.getenv("BLUESKY_HANDLE", "")
 
 app_pwd = os.getenv("BLUESKY_APP_PASSWORD", "")
 
@@ -126,21 +126,9 @@ profile_record = {
 
     "$type": "app.bsky.actor.profile",
 
-    "displayName": "NeuBench",
+    "displayName": config.CREATOR_NAME,
 
-    "description": (
-
-        "NeuBench: Real-time AI evals across 260+ models.\n\n"
-
-        "🌐 App: https://app.neubench.workers.dev\n"
-
-        "𝕏: x.com/GWorld34864\n"
-
-
-        "💼 LinkedIn: in/vishnu-gupta-b6b2951b2"
-
-
-    )
+    "description": config.CREATOR_BIO,
 
 }
 

@@ -14,7 +14,7 @@ if sys.platform == "win32":
 
 load_dotenv()
 
-handle = os.getenv("BLUESKY_HANDLE", "neubench.bsky.social")
+handle = os.getenv("BLUESKY_HANDLE", "")
 app_pwd = os.getenv("BLUESKY_APP_PASSWORD", "")
 
 print(f"[Bluesky Follower] Connecting as {handle}...")

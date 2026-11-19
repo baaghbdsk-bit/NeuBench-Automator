@@ -231,7 +231,7 @@ def draw_rule(draw: ImageDraw.ImageDraw, y: int, color: Tuple[int, int, int] = L
 def draw_footer(draw: ImageDraw.ImageDraw, index: int, total: int) -> None:
     draw_rule(draw, 1238, LINE_ON_PAPER)
     wordmark = get_font(18, "sans_bold")
-    draw_tracked(draw, (MARGIN, 1266), "NEUBENCH ARCHITECTURE NOTEBOOK", wordmark, ACCENT_NAVY, tracking=3)
+    draw_tracked(draw, (MARGIN, 1266), "ARCHITECTURE NOTEBOOK", wordmark, ACCENT_NAVY, tracking=3)
     page = get_font(18, "sans_bold")
     label = f"PAGE {index:02d} / {total:02d}"
     width = int(draw.textlength(label, font=page))
@@ -757,7 +757,7 @@ def _cta_slide(cta: Dict[str, Any], index: int, total: int) -> Image.Image:
     draw_tracked(draw, (MARGIN + 28, next_top + 20), "// ENGINEERING DISCUSSION", get_font(18, "sans_bold"), ACCENT_TERRACOTTA, tracking=2)
     draw_paragraph(draw, disc_prompt, get_font(21, "sans"), (MARGIN + 28, next_top + 54), CONTENT_W - 56, INK, 28, max_lines=2)
 
-    site = str(cta.get("website") or "app.neubench.workers.dev").strip()
+    site = str(cta.get("website") or "").strip()
     if site:
         pill_font = get_font(16, "sans_bold")
         pill_w = int(draw.textlength(site, font=pill_font)) + 32

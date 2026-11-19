@@ -28,7 +28,7 @@ async def get_auth_status():
         },
         "bluesky": {
             "configured": bsky_configured,
-            "handle": config.BLUESKY_HANDLE or "neubench.bsky.social"
+            "handle": config.BLUESKY_HANDLE or "@creator"
         }
     }
 

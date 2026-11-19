@@ -559,6 +559,59 @@ class TwitterClient:
                 if browser:
                     browser.close()
 
+    def get_top_tweets_from_accounts(self, usernames, limit: int = 2) -> list:
+        """Fetch recent tweets from several accounts in one browser session.
+
+        Opening a browser per account is what made engagement time out and
+        silently return nothing. One context, many profile visits.
+        """
+        results = []
+        if not usernames:
+            return results
+        with sync_playwright() as p:
+            context, browser = self._get_context_and_browser(p)
+            page = context.pages[0] if context.pages else context.new_page()
+            try:
+                for username in usernames:
+                    try:
+                        page.goto(f"https://x.com/{username}", wait_until="domcontentloaded", timeout=20000)
+                        page.wait_for_timeout(1800)
+                        body_text = page.inner_text("body")
+                        if "is blocked" in body_text or "Account suspended" in body_text:
+                            continue
+                        page.locator('article[data-testid="tweet"], article').first.wait_for(
+                            state="attached", timeout=6000
+                        )
+                        tweets = page.locator('article[data-testid="tweet"], article')
+                        collected = []
+                        for i in range(min(tweets.count(), max(limit * 3, 6))):
+                            try:
+                                tweet = tweets.nth(i)
+                                text_el = tweet.locator('[data-testid="tweetText"]').first
+                                text = text_el.inner_text() if text_el.is_visible() else ""
+                                link_el = tweet.locator('a[href*="/status/"]').first
+                                href = link_el.get_attribute("href") if link_el else None
+                                url = f"https://x.com{href}" if href and not href.startswith("http") else href
+                                if url and len(text) > 10:
+                                    collected.append({
+                                        "username": username,
+                                        "tweet_text": text,
+                                        "tweet_url": url,
+                                        "engagement_score": _tweet_engagement(tweet),
+                                    })
+                            except Exception:
+                                continue
+                        collected.sort(key=lambda item: item["engagement_score"], reverse=True)
+                        results.extend(collected[:limit])
+                    except Exception as e:
+                        print(f"[TwitterClient] Could not read @{username}: {e}")
+                        continue
+            finally:
+                context.close()
+                if browser:
+                    browser.close()
+        return results
+
     def search_public_tweets(self, query: str, limit: int = 5) -> list:
         """Searches 𝕏 for active public discussions on trending debates or keywords."""
         if not query:

@@ -14,10 +14,10 @@ load_dotenv(BASE_DIR / ".env")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
 
-POSTS_PER_DAY = int(os.getenv("POSTS_PER_DAY", "12"))
+POSTS_PER_DAY = int(os.getenv("POSTS_PER_DAY", "4"))
 REPLY_PERCENTAGE = int(os.getenv("REPLY_PERCENTAGE", "50"))
-POST_INTERVAL_MIN_MINUTES = int(os.getenv("POST_INTERVAL_MIN_MINUTES", "175"))
-POST_INTERVAL_MAX_MINUTES = int(os.getenv("POST_INTERVAL_MAX_MINUTES", "185"))
+POST_INTERVAL_MIN_MINUTES = int(os.getenv("POST_INTERVAL_MIN_MINUTES", "350"))
+POST_INTERVAL_MAX_MINUTES = int(os.getenv("POST_INTERVAL_MAX_MINUTES", "370"))
 
 # Default high-traction niches for maximum engagement
 TARGET_NICHES = [
@@ -27,13 +27,44 @@ TARGET_NICHES = [
     ).split(",") if n.strip()
 ]
 
+# ==============================================================================
+# CREATOR / GROWTH POSITIONING
+# The accounts publish as a creator, not as a product brand. Keep links out of
+# post bodies (external links suppress reach on X and LinkedIn) and keep the
+# voice narrow enough to compound an audience.
+# ==============================================================================
+CREATOR_NAME = os.getenv("CREATOR_NAME", "Vishnu")
+CREATOR_NICHE = os.getenv(
+    "CREATOR_NICHE",
+    "AI engineering, LLM benchmarks, developer tools and builder culture",
+)
+# External links in post bodies are disabled for reach. If a link is ever
+# needed, it goes in the first comment on LinkedIn, never in the post body.
+ALLOW_LINKS_IN_POSTS = os.getenv("ALLOW_LINKS_IN_POSTS", "false").lower() in ("true", "1")
+
+# Public profile copy. Growth lives here: a clear niche, no product pitch, no
+# outbound link in the bio that competes with the follow button.
+CREATOR_BIO = os.getenv(
+    "CREATOR_BIO",
+    "AI engineering, LLM benchmarks and developer tooling. Building in public.",
+)
+CREATOR_HEADLINE = os.getenv(
+    "CREATOR_HEADLINE",
+    "AI engineering, LLM benchmarks & developer tooling | Building in public",
+)
+CREATOR_LOCATION = os.getenv("CREATOR_LOCATION", "Remote")
+
+# Platform cadence (posts per day). LinkedIn is intentionally capped at 1/day:
+# >1/day suppresses reach on professional feeds.
+MAX_DAILY_LINKEDIN_POSTS = max(0, int(os.getenv("MAX_DAILY_LINKEDIN_POSTS", "1")))
+
 # Omnichannel Expansion (X, Bluesky, LinkedIn)
 BLUESKY_HANDLE = os.getenv("BLUESKY_HANDLE", "")
 BLUESKY_APP_PASSWORD = os.getenv("BLUESKY_APP_PASSWORD", "")
 LINKEDIN_ENABLED = os.getenv("LINKEDIN_ENABLED", "true").lower() in ("true", "1")
 LINKEDIN_ORGANIZATION_URN = os.getenv("LINKEDIN_ORGANIZATION_URN", "")
 LINKEDIN_API_VERSION = os.getenv("LINKEDIN_API_VERSION", "202610")
-LINKEDIN_MIN_INTERVAL_MINUTES = max(0, int(os.getenv("LINKEDIN_MIN_INTERVAL_MINUTES", "180")))
+LINKEDIN_MIN_INTERVAL_MINUTES = max(0, int(os.getenv("LINKEDIN_MIN_INTERVAL_MINUTES", "720")))
 LINKEDIN_SCHEDULE_GRACE_MINUTES = max(0, int(os.getenv("LINKEDIN_SCHEDULE_GRACE_MINUTES", "60")))
 
 # ==============================================================================
@@ -98,14 +129,14 @@ ALGORITHMIC_WINDOWS = {
 # ALGORITHMIC DAILY FREQUENCY CAPS (Guards against cannibalization & spam limits)
 # ==============================================================================
 CAPS_PER_PLATFORM = {
-    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", "2")),          # Cap at 2/day to protect reach and prevent visual fatigue
-    "linkedin_peer_comments": int(os.getenv("MAX_DAILY_LINKEDIN_PEER_COMMENTS", "10")), # Max viral comments/replies per day (commenting on others' posts)
+    "linkedin_posts": int(os.getenv("MAX_DAILY_LINKEDIN", str(MAX_DAILY_LINKEDIN_POSTS))),  # 1 post/day max
+    "linkedin_peer_comments": int(os.getenv("MAX_DAILY_LINKEDIN_PEER_COMMENTS", "6")), # Max viral comments/replies per day (commenting on others' posts)
     # Accept both the current X-specific names and the legacy names used by
     # the workflow/README so the configured caps are actually enforced.
-    "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", os.getenv("MAX_DAILY_ORIGINAL_POSTS", "8"))),
+    "twitter_originals": int(os.getenv("MAX_DAILY_X_ORIGINALS", os.getenv("MAX_DAILY_ORIGINAL_POSTS", "4"))),
     "twitter_replies": int(os.getenv("MAX_DAILY_X_REPLIES", os.getenv("MAX_DAILY_REPLIES", "24"))),
     "twitter_reposts": int(os.getenv("MAX_DAILY_X_REPOSTS", os.getenv("MAX_DAILY_REPOSTS", "6"))),
-    "bluesky_posts": int(os.getenv("MAX_DAILY_BLUESKY", "6")),            # 5-6 tech takes
+    "bluesky_posts": int(os.getenv("MAX_DAILY_BLUESKY", "4")),            # One post every 6 hours
 }
 
 MAX_DAILY_LINKEDIN = CAPS_PER_PLATFORM["linkedin_posts"]

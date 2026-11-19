@@ -32,14 +32,14 @@ class TrendAPITests(unittest.TestCase):
                 "id": "tr_ai_1",
                 "title": "Frontier Model Benchmarks Live",
                 "summary": "NeuBench reveals new latency data.",
-                "source": "NeuBench Live Telemetry",
+                "source": "Engineering Briefs",
                 "category": "ai_tech",
-                "url": "https://app.neubench.workers.dev/1",
+                "url": "https://bench.example.com/1",
                 "score": 15.2,
                 "discovered_at": datetime.now(timezone.utc).isoformat(),
                 "published_at": "2026-11-06T12:00:00Z",
                 "is_sensitive": False,
-                "metadata": {"sources_seen": ["NeuBench Live Telemetry"], "traffic": "High Signal AI"}
+                "metadata": {"sources_seen": ["Engineering Briefs"], "traffic": "High Signal AI"}
             },
             {
                 "id": "tr_news_sens",

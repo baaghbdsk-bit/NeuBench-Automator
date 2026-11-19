@@ -64,7 +64,7 @@ The current code uses LinkedIn's versioned Posts API for member publishing when 
 ### Step 5: Enable the GitHub Action
 1. Go to the **Actions** tab in GitHub.
 2. Click **NeuBench-Automator 24/7 Cloud Autopilot** $\rightarrow$ Click **Enable workflow**.
-3. Done! GitHub Actions will now automatically publish one current AI/technology post every 3 hours, answer eligible comments on your posts, and engage with viral peer posts within the combined daily engagement cap.
+3. Done! GitHub Actions will now automatically publish one current AI/technology post every 6 hours, answer eligible comments on your posts, and engage with viral peer posts within the combined daily engagement cap.
 
 ---
 
@@ -94,10 +94,10 @@ Create a `.env` file in the root directory:
 GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL=gemini-3.5-flash-lite
 LINKEDIN_ENABLED=true
-MAX_DAILY_LINKEDIN=8
-LINKEDIN_MIN_INTERVAL_MINUTES=180
+MAX_DAILY_LINKEDIN=1
+LINKEDIN_MIN_INTERVAL_MINUTES=720
 LINKEDIN_SCHEDULE_GRACE_MINUTES=60
-MAX_DAILY_LINKEDIN_PEER_COMMENTS=10
+MAX_DAILY_LINKEDIN_PEER_COMMENTS=6
 # Current LinkedIn Marketing API version (YYYYMM)
 LINKEDIN_API_VERSION=202610
 ```
@@ -127,5 +127,5 @@ A browser will pop up. Enter the LinkedIn login details and complete 2FA once. T
   ```
 
 In GitHub Actions the LinkedIn flows run on two dedicated schedules:
-- `.github/workflows/linkedin_automater.yml` — one detailed post every 3 hours (`15 */3 * * *`).
-- `.github/workflows/linkedin_engagement.yml` — viral comments/replies every 2 hours (`30 */2 * * *`, capped at 10/day).
+- `.github/workflows/linkedin_automater.yml` — manual/on-demand LinkedIn post (scheduled posts are handled by the every-6-hours omnichannel workflow).
+- `.github/workflows/linkedin_engagement.yml` — viral comments/replies every 6 hours (`30 */6 * * *`, capped at 6/day).

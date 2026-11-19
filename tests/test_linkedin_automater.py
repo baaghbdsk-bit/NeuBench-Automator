@@ -135,7 +135,7 @@ class TestLinkedInAutomater(unittest.TestCase):
 
         ok, msg = self.automater.add_comment_to_post(
             post_urn="urn:li:share:12345",
-            comment_text="Benchmarking data available at https://app.neubench.workers.dev",
+            comment_text="Benchmarking data available at https://bench.example.com",
         )
         self.assertTrue(ok)
         self.assertIn("urn:li:comment:777", msg)
@@ -144,7 +144,7 @@ class TestLinkedInAutomater(unittest.TestCase):
         payload = call_args[1]["json"]
         self.assertEqual(payload["actor"], "urn:li:person:mock123")
         self.assertEqual(payload["object"], "urn:li:share:12345")
-        self.assertIn("https://app.neubench.workers.dev", payload["message"]["text"])
+        self.assertIn("https://bench.example.com", payload["message"]["text"])
 
 
 class TestLinkedInStateAndDeduplication(unittest.TestCase):

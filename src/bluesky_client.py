@@ -1,5 +1,5 @@
 """
-Bluesky Client for NeuBench-Automator.
+Bluesky Client for the Omnichannel Suite.
 Uses official AT Protocol XRPC REST endpoints (100% free, no paid API keys, official protocol).
 """
 import re
@@ -18,8 +18,8 @@ def detect_facets(text: str) -> List[Dict[str, Any]]:
     """
     facets = []
     
-    # URL pattern (http, https or bare domains like app.neubench.workers.dev)
-    url_regex = re.compile(r"(https?://[^\s()<>]+|neubench\.vercel\.app[^\s()<>]*)")
+    # URL pattern (http, https or bare domains)
+    url_regex = re.compile(r"(https?://[^\s()<>]+)")
     for match in url_regex.finditer(text):
         raw_url = match.group(0).rstrip(".,!?:;)'\"")
         full_url = raw_url if raw_url.startswith("http") else f"https://{raw_url}"
@@ -170,7 +170,7 @@ class BlueskyClient:
                             "$type": "app.bsky.embed.images",
                             "images": [
                                 {
-                                    "alt": "NeuBench Technical Architecture and Benchmark Visualizer",
+                                    "alt": "Technical architecture and benchmark visualizer",
                                     "image": blob
                                 }
                             ]

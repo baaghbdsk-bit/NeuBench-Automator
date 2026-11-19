@@ -90,7 +90,7 @@ Weight_new = Weight_old - (Learning_Rate × Gradient)
         {
             "id": "act4_recap",
             "title": "Day 03 Cheatsheet & Summary",
-            "voice_script": "When a computer learns, it is simply minimizing mistakes across high-dimensional geometry. Tomorrow in Day four, we explore what actually constitutes a dataset. Follow NeuBench for the 90-day AI breakdown.",
+            "voice_script": "When a computer learns, it is simply minimizing mistakes across high-dimensional geometry. Tomorrow in Day four, we explore what actually constitutes a dataset. Follow for the 90-day AI breakdown.",
             "html": """
             <div class="card">
                 <div class="card-header">

@@ -68,31 +68,15 @@ from src.ai_generator import AIGenerator
 
 
 
-app = FastAPI(title="NeuBench X-Post Automator", version="2.0.0")
+app = FastAPI(title="Omnichannel Growth Suite", version="2.0.0")
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 
 
-# Cross-Promotion: Showcase NeuBench + Connect with Us
+# Cross-Promotion: Connect with the accounts we actually run
 
 ECOSYSTEM_PRODUCTS = [
-
-    {
-
-        "name": "NeuBench",
-
-        "tagline": "Curated real-time AI news feed, LLM evaluations & 266+ frontier model benchmarks.",
-
-        "badge": "Live Web App",
-
-        "link": "https://app.neubench.workers.dev/",
-
-        "icon": "bolt",
-
-        "cta": "Launch NeuBench"
-
-    },
 
     {
 
@@ -130,9 +114,9 @@ ECOSYSTEM_PRODUCTS = [
 
 
 
-# In-memory cache for NeuBench feed (TTL: 180 seconds)
+# In-memory cache for the live feed (TTL: 180 seconds)
 
-_NEUBENCH_CACHE = {
+_FEED_CACHE = {
 
     "timestamp": 0,
 
@@ -171,7 +155,7 @@ def get_live_bluesky_metrics():
 
 
 
-    handle = config.BLUESKY_HANDLE or "neubench.bsky.social"
+    handle = config.BLUESKY_HANDLE or "@creator"
 
     pwd = config.BLUESKY_APP_PASSWORD
 
@@ -363,7 +347,7 @@ async def get_stats():
 
                 "configured": bool(config.BLUESKY_HANDLE and config.BLUESKY_APP_PASSWORD),
 
-                "handle": config.BLUESKY_HANDLE or "@neubench.bsky.social",
+                "handle": config.BLUESKY_HANDLE or "@creator",
 
                 "followers": bsky_live.get("followers", 1),
 
@@ -469,7 +453,7 @@ class PublishCustomRequest(BaseModel):
 
 async def publish_custom_tweet(req: PublishCustomRequest):
 
-    """Publishes a drafted tweet (e.g. from NeuBench Radar) directly or in dry run."""
+    """Publishes a drafted tweet (e.g. from Topic Radar) directly or in dry run."""
 
     safety = SafetyEngine()
 
@@ -512,149 +496,50 @@ async def publish_custom_tweet(req: PublishCustomRequest):
 
 
 
-@app.get("/api/neubench/feed")
-
-async def get_neubench_feed():
-
-    """Fetches trending AI stories and top benchmark models from NeuBench."""
-
+@app.get("/api/feed")
+async def get_live_feed():
+    """Serves local engineering signals. No third-party product branding."""
     now = time.time()
-
-    if _NEUBENCH_CACHE["data"] and (now - _NEUBENCH_CACHE["timestamp"] < 180):
-
-        return _NEUBENCH_CACHE["data"]
-
-
-
-    headers = {
-
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-
-    }
-
-
+    if _FEED_CACHE["data"] and (now - _FEED_CACHE["timestamp"] < 180):
+        return _FEED_CACHE["data"]
 
     stories = []
-
     try:
+        from src.trend_hunter import TrendHunter
 
-        r_stories = requests.get("https://app.neubench.workers.dev/api/stories?limit=8", headers=headers, timeout=5)
-
-        if r_stories.status_code == 200:
-
-            raw_stories = r_stories.json().get("stories", [])
-
-            for s in raw_stories:
-
-                stories.append({
-
-                    "id": s.get("id"),
-
-                    "title": s.get("title", ""),
-
-                    "summary": s.get("summary", ""),
-
-                    "company": s.get("company", "AI"),
-
-                    "topic": s.get("topic", "News"),
-
-                    "date": f"{s.get('month', '')} {s.get('day', '')}, {s.get('year', '')}".strip(", "),
-
-                    "source": s.get("source", "NeuBench"),
-
-                    "sourceUrl": s.get("sourceUrl", "https://app.neubench.workers.dev/"),
-
-                    "neubenchUrl": f"https://app.neubench.workers.dev/"
-
-                })
-
+        hunter = TrendHunter()
+        raw = hunter.get_engineering_briefs(limit=6) + hunter.get_huggingface_daily_papers(limit=2)
+        for index, item in enumerate(raw):
+            stories.append(
+                {
+                    "id": index,
+                    "title": item.get("title", ""),
+                    "summary": item.get("summary", ""),
+                    "company": item.get("company", "Engineering"),
+                    "topic": item.get("category", "ai_tech"),
+                    "date": "",
+                    "source": item.get("source", "Engineering Briefs"),
+                    "sourceUrl": item.get("url", ""),
+                }
+            )
     except Exception as e:
-
-        print(f"[NeuBench API] Failed to fetch stories: {e}")
-
-
-
-    benchmarks = []
-
-    total_models = 266
-
-    try:
-
-        r_bench = requests.get("https://app.neubench.workers.dev/api/benchmarks", headers=headers, timeout=5)
-
-        if r_bench.status_code == 200:
-
-            b_data = r_bench.json()
-
-            total_models = b_data.get("count", 266)
-
-            for m in b_data.get("models", [])[:8]:
-
-                benchmarks_dict = m.get("benchmarks", {})
-
-                highlight_scores = []
-
-                for b_id, b_val in list(benchmarks_dict.items())[:3]:
-
-                    highlight_scores.append({
-
-                        "name": b_val.get("name", b_id),
-
-                        "score": b_val.get("displayValue") or f"{b_val.get('score')}%"
-
-                    })
-
-
-
-                benchmarks.append({
-
-                    "id": m.get("id"),
-
-                    "name": m.get("name"),
-
-                    "developer": m.get("developer", "AI Lab"),
-
-                    "tagline": (m.get("tagline") or "")[:120],
-
-                    "context": m.get("specs", {}).get("displayContext", ""),
-
-                    "highlights": highlight_scores,
-
-                    "neubenchUrl": "https://app.neubench.workers.dev/"
-
-                })
-
-    except Exception as e:
-
-        print(f"[NeuBench API] Failed to fetch benchmarks: {e}")
-
-
+        print(f"[Feed] Failed to build stories: {e}")
 
     payload = {
-
         "status": "success",
-
-        "hub_url": "https://app.neubench.workers.dev/",
-
-        "total_models": total_models,
-
+        "hub_url": "",
+        "total_models": 0,
         "stories": stories,
-
-        "benchmarks": benchmarks
-
+        "benchmarks": [],
     }
 
-
-
-    _NEUBENCH_CACHE["timestamp"] = now
-
-    _NEUBENCH_CACHE["data"] = payload
-
+    _FEED_CACHE["timestamp"] = now
+    _FEED_CACHE["data"] = payload
     return payload
 
 
 
-class NeuBenchDraftRequest(BaseModel):
+class DraftRequest(BaseModel):
 
     title: str
 
@@ -666,11 +551,11 @@ class NeuBenchDraftRequest(BaseModel):
 
 
 
-@app.post("/api/neubench/draft")
+@app.post("/api/draft")
 
-async def draft_neubench_tweet(req: NeuBenchDraftRequest):
+async def draft_tweet(req: DraftRequest):
 
-    """Uses Gemini to generate a sharp, contrarian, human-sounding tweet on a NeuBench AI item."""
+    """Uses Gemini to generate a sharp, contrarian, human-sounding post on a live AI item."""
 
     try:
 
@@ -704,9 +589,9 @@ async def draft_neubench_tweet(req: NeuBenchDraftRequest):
 
 
 
-@app.post("/api/neubench/draft-multi")
+@app.post("/api/draft-multi")
 
-async def draft_neubench_multi(req: NeuBenchDraftRequest):
+async def draft_multi(req: DraftRequest):
 
     """Generates platform-tailored takes for 𝕏, Bluesky, and LinkedIn simultaneously."""
 
@@ -867,7 +752,7 @@ async def get_auth_status():
         "x": {
             "logged_in": x_logged_in,
             "status": "Active" if x_logged_in else "Not Connected",
-            "account_name": "NeuBench",
+            "account_name": config.CREATOR_NAME,
             "handle": "@GWorld34864" if x_logged_in else "Not Connected",
             "followers": "20",
             "reach": "25,000 Reach",
@@ -877,8 +762,8 @@ async def get_auth_status():
             "configured": bsky_configured,
             "logged_in": bsky_configured,
             "status": "Active" if bsky_configured else "Not Connected",
-            "account_name": "NeuBench",
-            "handle": config.BLUESKY_HANDLE or "neubench.bsky.social",
+            "account_name": config.CREATOR_NAME,
+            "handle": config.BLUESKY_HANDLE or "@creator",
             "protocol": "AT Protocol XRPC",
             "reach": "Tech Dev Stream",
             "limit": "300 Chars Max"
@@ -886,9 +771,9 @@ async def get_auth_status():
         "linkedin": {
             "logged_in": li_logged_in,
             "status": "Active" if li_logged_in else "Not Connected",
-            "account_name": "NeuBench",
+            "account_name": config.CREATOR_NAME,
             "profile_url": "https://www.linkedin.com/in/vishnu-gupta-b6b2951b2/",
-            "headline": "NeuBench • Tracking real-world LLM benchmarks, latency & cost",
+            "headline": "AI engineering, LLM benchmarks, developer tooling",
             "location": "Bengaluru / Global",
             "connections": 8,
             "followers": 8,
@@ -1055,14 +940,14 @@ async def toggle_autopilot():
 
 @app.post("/api/action/publish-omnichannel")
 async def publish_omnichannel_endpoint(payload: Optional[Dict[str, Any]] = None):
-    """Publishes a synchronized AI benchmark take across all 5 platforms with NeuBench backlinks."""
+    """Publishes a synchronized take across all platforms."""
     try:
         from src.scheduler import AutomaterEngine
         engine = AutomaterEngine(dry_run=False)
         ok = engine.run_single_cycle(force_action="post")
         return {
             "success": ok,
-            "message": "Omnichannel broadcast published across all 5 platforms with https://app.neubench.workers.dev!"
+            "message": "Omnichannel broadcast published across all platforms."
         }
     except Exception as e:
         return {"success": False, "message": f"Omnichannel publish error: {e}"}
@@ -1212,7 +1097,7 @@ AVAILABLE_TOPICS = [
 
         "icon": "fa-solid fa-microchip",
 
-        "desc": "Frontier LLM evaluations, latency, MMLU and reasoning scores from NeuBench",
+        "desc": "Frontier LLM evaluations, latency and reasoning signals",
 
         "best_for": ["x", "bluesky"]
 

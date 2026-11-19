@@ -95,7 +95,7 @@ Curated Data    ➔ Rapid Convergence ➔ Production Generalization
         {
             "id": "act4_recap",
             "title": "Day 04 Cheatsheet & Summary",
-            "voice_script": "Datasets are the curriculum your AI studies. Tomorrow in Day five, we break down features and labels in modern engineering. Follow NeuBench for the complete ninety-day AI masterclass.",
+            "voice_script": "Datasets are the curriculum your AI studies. Tomorrow in Day five, we break down features and labels in modern engineering. Follow for the complete ninety-day AI masterclass.",
             "html": """
             <div class="card">
                 <div class="card-header">

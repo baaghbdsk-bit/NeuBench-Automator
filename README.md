@@ -1,10 +1,10 @@
-# ⚡ NeuBench X-Post Automator
+# ⚡ Omnichannel Growth Suite
 
 
 
-> **The Autonomous Omnichannel AI Social Growth Suite for [NeuBench](https://app.neubench.workers.dev/).**  
+> **A creator-first posting engine for 𝕏, Bluesky and LinkedIn.**
 
-> Publish, grow, and automate your presence across **𝕏 (Twitter)**, **Bluesky**, **LinkedIn** simultaneously — **$0 paid API fees**, zero spam, powered by Google Gemini and NeuBench Live AI Radar.
+> Publish, grow, and automate one consistent creator voice across **𝕏 (Twitter)**, **Bluesky**, and **LinkedIn** — **$0 paid API fees**, no product promotion, powered by Google Gemini.
 
 
 
@@ -12,7 +12,7 @@
 
 
 
-## 🎯 What is NeuBench X-Post Automator?
+## 🎯 What is this?
 
 
 
@@ -20,25 +20,25 @@ Most social media automation tools blindly blast the exact same message across e
 
 
 
-**NeuBench X-Post Automator** is an open, full-stack creator suite built for developer founders, indie hackers, and creators:
+This is an open, full-stack creator suite built for developer founders, indie hackers, and creators who want reach instead of brand noise:
 
 
 
 1. **Native Omnichannel Matrix (3 Platforms):**
 
-   * **𝕏 (Twitter):** Contrarian hot takes, viral tech debates, and sniper replies under big accounts.
+   * **𝕏 (Twitter):** Contrarian AI/engineering takes, benchmark debates, and replies under accounts your audience already follows.
 
    * **🦋 Bluesky:** Developer-focused, open-source weight analyses, and AT Protocol updates ($0 official XRPC REST API).
 
-   * **💼 LinkedIn:** Executive B2B thought-leadership with structured hooks, bullet insights, and discussion prompts.
+   * **💼 LinkedIn:** Executive B2B thought-leadership with structured hooks, bullet insights, and discussion prompts — capped at 1 post/day.
 
+2. **Growth Engine, Not a Billboard:**
 
+   * No brand names, no product pitch, no external links in post bodies (links suppress reach on X and LinkedIn).
 
-2. **Native NeuBench Promotion Engine:**
+   * Near-duplicate topic detection stops the same take from being recycled.
 
-   * Automatically integrates real-world latency, cost, and throughput benchmarks from **[NeuBench](https://app.neubench.workers.dev/)** across 260+ models.
-
-   * Creatively and contextually embeds backlinks to `https://app.neubench.workers.dev` in every post to drive organic traffic.
+   * Engagement-first reply targeting on AI/engineering accounts.
 
 3. **Sleek Web Command Center (`http://127.0.0.1:8000`):**
 
@@ -134,17 +134,23 @@ GEMINI_MODEL=gemini-3.5-flash-lite
 
 # 2. Automation Cadence & Quotas
 
-POSTS_PER_DAY=24
+POSTS_PER_DAY=4
 
-POST_INTERVAL_MIN_MINUTES=25
+POST_INTERVAL_MIN_MINUTES=350
 
-POST_INTERVAL_MAX_MINUTES=50
+POST_INTERVAL_MAX_MINUTES=370
 
-MAX_DAILY_TOTAL=28
+MAX_DAILY_TOTAL=20
 
-MAX_DAILY_ORIGINAL_POSTS=8
+MAX_DAILY_ORIGINAL_POSTS=4
 
-MAX_DAILY_REPLIES=14
+MAX_DAILY_REPLIES=12
+
+# LinkedIn: 1 post/day. More than one suppresses reach.
+
+MAX_DAILY_LINKEDIN=1
+
+LINKEDIN_MIN_INTERVAL_MINUTES=720
 
 DRY_RUN=false
 
@@ -248,7 +254,7 @@ To have Windows automatically start the automator whenever your PC turns on:
 
 1. Press `Win + R`, type `taskschd.msc`, and hit Enter.
 
-2. Click **Create Basic Task** -> Name it `NeuBenchAutomator`.
+2. Click **Create Basic Task** -> Name it `OmnichannelAutomator`.
 
 3. Set Trigger: **"When the computer starts"** or **"When I log on"**.
 
@@ -322,12 +328,12 @@ To have Windows automatically start the automator whenever your PC turns on:
 
 
 
-* **Web App:** [https://app.neubench.workers.dev/](https://app.neubench.workers.dev/)
+* **Web App:** local dashboard (`python main.py web`)
 
 * **𝕏 / Twitter:** [@GWorld34864](https://x.com/GWorld34864)
 
 
-* **Bluesky:** [@neubench.bsky.social](https://bsky.app/profile/neubench.bsky.social)
+* **Bluesky:** [@creator](https://bsky.app/profile/creator.bsky.social)
 
 * **GitHub:** [baaghbdsk-bit](https://github.com/baaghbdsk-bit)
 

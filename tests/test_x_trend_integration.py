@@ -33,12 +33,12 @@ class XTrendIntegrationTests(unittest.TestCase):
                 "id": "tr_1",
                 "title": "Quantum Error Correction Threshold Achieved",
                 "summary": "Breakthrough demonstration of logical qubit fidelity.",
-                "source": "NeuBench Live Telemetry",
+                "source": "TechCrunch",
                 "category": "ai_tech",
-                "url": "https://app.neubench.workers.dev/quantum",
+                "url": "https://bench.example.com/quantum",
                 "score": 18.5,
                 "is_sensitive": False,
-                "metadata": {"sources_seen": ["NeuBench Live Telemetry"]}
+                "metadata": {"sources_seen": ["TechCrunch"]}
             }
         ]
 
@@ -54,9 +54,10 @@ class XTrendIntegrationTests(unittest.TestCase):
             called_title, called_context = mock_generate.call_args[0]
             self.assertEqual(called_title, "Quantum Error Correction Threshold Achieved")
             self.assertIn("Breakthrough demonstration", called_context)
-            self.assertIn("Source: NeuBench Live Telemetry", called_context)
+            self.assertIn("Source: TechCrunch", called_context)
             self.assertIn("Category: ai_tech", called_context)
-            self.assertIn("URL: https://app.neubench.workers.dev/quantum", called_context)
+            # Outbound URLs are intentionally excluded from generation context.
+            self.assertNotIn("URL:", called_context)
 
     def test_empty_cache_falls_back_to_legacy_topics(self):
         legacy_topics = [

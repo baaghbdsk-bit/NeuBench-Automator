@@ -1,9 +1,9 @@
-name: NeuBench LinkedIn Viral Engagement (Every 2 Hours)
+name: LinkedIn Viral Engagement (Every 6 Hours)
 
 on:
   schedule:
-    # Comments on viral AI posts and replies to suitable questions, spaced apart from posting runs.
-    - cron: '30 */2 * * *'
+    # Comments on viral AI posts and replies to suitable questions, aligned with the 6-hour posting cadence.
+    - cron: '30 */6 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -13,7 +13,9 @@ on:
         type: string
 
 concurrency:
-  group: neubench-state-sync
+  # Separate from the posting job: sharing one group starved this workflow
+  # whenever the 6-hour posting run took longer than the 30-minute gap.
+  group: linkedin-engagement
   cancel-in-progress: false
 
 permissions:
@@ -65,7 +67,7 @@ jobs:
           TRIAL_ENABLED: 'true'
           LINKEDIN_ENABLED: 'true'
           MAX_DAILY_LINKEDIN: '0'
-          MAX_DAILY_LINKEDIN_PEER_COMMENTS: '10'
+          MAX_DAILY_LINKEDIN_PEER_COMMENTS: '6'
           MAX_DAILY_ORIGINAL_POSTS: '0'
           MAX_DAILY_REPLIES: '0'
           MAX_DAILY_REPOSTS: '0'
@@ -112,11 +114,11 @@ jobs:
       - name: Generate Run Summary
         if: always()
         run: |
-          echo "## 💬 NeuBench LinkedIn Viral Engagement" >> $GITHUB_STEP_SUMMARY
+          echo "## 💬 Omnichannel LinkedIn Viral Engagement" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Cadence:** Every 2 hours" >> $GITHUB_STEP_SUMMARY
+          echo "- **Cadence:** Every 6 hours" >> $GITHUB_STEP_SUMMARY
           echo "- **Replies to our comments + comments on viral posts + genuine question replies**" >> $GITHUB_STEP_SUMMARY
-          echo "- **Daily Cap:** 10 comments/replies" >> $GITHUB_STEP_SUMMARY
+          echo "- **Daily Cap:** 6 comments/replies" >> $GITHUB_STEP_SUMMARY
           echo "- **Execution Time (UTC):** $(date -u)" >> $GITHUB_STEP_SUMMARY
           if [ -f "linkedin_engagement_history.json" ]; then
             TOTAL=$(python -c "import json; data=json.load(open('linkedin_engagement_history.json')); print(len(data.get('engagements', [])))" 2>/dev/null || echo "N/A")

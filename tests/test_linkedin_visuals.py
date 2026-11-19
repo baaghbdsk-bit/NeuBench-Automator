@@ -197,7 +197,7 @@ class TestLinkedInVisuals(unittest.TestCase):
             ],
             "framework": {"title": "Architecture Flow", "steps": ["Command", "Handler", "Event Store", "Read DB"]},
             "takeaway": {"title": "Production Rule", "body": "Never modify event schemas without versioning."},
-            "cta": {"prompt": "Have you used Event Sourcing in production?", "website": "neubench.workers.dev"},
+            "cta": {"prompt": "Have you used Event Sourcing in production?", "website": "bench.example.com"},
         }
 
         slides = build_slides(legacy_plan)
@@ -251,7 +251,7 @@ class TestLinkedInVisuals(unittest.TestCase):
                 "Benchmark tail latency (p99) under load",
             ],
             "discussion_prompt": "What failure mode have you encountered when scaling vector databases?",
-            "website": "app.neubench.workers.dev",
+            "website": "bench.example.com",
         }
         img = _cta_slide(payload, 6, 6)
         self.assertEqual(img.size, (CANVAS_WIDTH, CANVAS_HEIGHT))

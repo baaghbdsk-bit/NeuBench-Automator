@@ -376,7 +376,7 @@ def _draw_card(
 
 def _draw_footer(draw: ImageDraw.ImageDraw) -> None:
     draw.line([(MARGIN, 1214), (W - MARGIN, 1214)], fill=LINE_ON_PAPER, width=1)
-    draw_tracked(draw, (MARGIN, 1240), "NEUBENCH", get_font(14, "sans_bold"), MUTED_ON_PAPER, 3)
+    draw_tracked(draw, (MARGIN, 1240), "ENGINEERING NOTES", get_font(14, "sans_bold"), MUTED_ON_PAPER, 3)
     label = "ENGINEERING BLUEPRINTS"
     font = get_font(14, "sans_bold")
     width = _tracked_text_width(draw, label, font, 2)
@@ -552,7 +552,7 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
 
     # 1. Top Header
     draw.rounded_rectangle([MARGIN, 44, MARGIN + 280, 78], radius=6, fill=(241, 245, 249))
-    draw.text((MARGIN + 16, 52), "// NEUBENCH ARCHITECTURE", fill=(14, 116, 144), font=get_font(14, "sans_bold"))
+    draw.text((MARGIN + 16, 52), "// SYSTEMS ARCHITECTURE", fill=(14, 116, 144), font=get_font(14, "sans_bold"))
 
     title_font, title_lines = fit_heading(draw, title, CONTENT_W, max_size=36, min_size=24, max_lines=2)
     title_y = 88
@@ -741,7 +741,7 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
 
     # 5. Footer
     draw_dashed_line(draw, (MARGIN, 1225), (W - MARGIN, 1225), (203, 213, 225))
-    draw.text((MARGIN, 1245), "NeuBench Systems Architecture Series · app.neubench.workers.dev", fill=(71, 85, 105), font=get_font(14, "sans_bold"))
+    draw.text((MARGIN, 1245), "Systems Architecture Series", fill=(71, 85, 105), font=get_font(14, "sans_bold"))
     draw.text((W - MARGIN - 90, 1245), "Save this", fill=(245, 158, 11), font=get_font(14, "sans_bold"))
 
     return im

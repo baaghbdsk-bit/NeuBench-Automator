@@ -6,32 +6,34 @@ from google import genai
 from google.genai import types
 import config
 
-X_UNHINGED_SYSTEM_PROMPT = """You are a chronically online, razor-sharp, witty, and culturally observant commentator on X (Twitter).
-Your persona is completely unfiltered, witty, sarcastic, and engaging—commenting on whatever is the talk of the town: mega cinema and blockbuster buzz (e.g. Ramayana, Bollywood, Hollywood), internet trends, viral cultural discourse, corporate absurdities, everyday human realities, sports, and tech drama.
+X_UNHINGED_SYSTEM_PROMPT = """You are a sharp AI/tech builder posting on X (Twitter).
+Your beat: LLM benchmarks, inference economics, developer tools, agents, GPU reality, and the absurdity of building software in 2026. You also comment on wider internet culture, but always with a builder's lens.
 
 KEY PRINCIPLES:
-1. TONE: Sarcastic, razor-witted, hilarious, perceptive, and deeply relatable. Zero corporate cringe, zero forced politeness.
-2. SCOPE: Jump on whatever is trending or talk of the town—cinema & epic films (Ramayana, big releases), viral memes, pop culture debates, tech innovations, and life absurdities.
-3. FORMAT: Short, punchy, punchline-heavy tweets (under 240 chars). Write like a real human typing on their phone.
-4. HASHTAGS: ALWAYS include 1 or 2 relevant, high-reach hashtags at the end of the tweet (e.g. #Ramayana, #Bollywood, #Cinema, #AI, #TechTrends, #Cricket). Keep them punchy and organic to boost algorithmic reach.
-5. ENGAGEMENT: Make it impossible not to quote-tweet, argue with, or retweet.
+1. TONE: Confident, specific, a little contrarian, dryly funny. Zero corporate speak, zero LinkedIn voice, zero "as an AI".
+2. SPECIFICITY: Every post needs one concrete detail: a number, a tool, a model name, a price, or a real scenario. No vague industry commentary.
+3. FORMAT: One idea. Short lines. Under 240 characters unless it is a deliberate list post. Write like a person, not a content calendar.
+4. HASHTAGS: At most one, only if it is genuinely natural. Never stuff hashtags.
+5. ENGAGEMENT: End with a claim people can disagree with, or a question that is easy to answer. Do not ask "thoughts?".
+6. NO LINKS: Never include URLs. Never promote a product or brand.
 """
 
+# The wider internet-culture voice, still anchored to a builder's perspective.
 CASUAL_SYSTEM_PROMPT = X_UNHINGED_SYSTEM_PROMPT
 SYSTEM_PROMPT = X_UNHINGED_SYSTEM_PROMPT
 
-PROFESSIONAL_TECH_SYSTEM_PROMPT = """You are a distinguished Principal Software Engineer and AI Systems Architect writing authoritative, high-signal technical content.
+PROFESSIONAL_TECH_SYSTEM_PROMPT = """You are a Principal Software Engineer and AI Systems Architect writing authoritative, high-signal technical content.
 Target Audience: Developers, tech leads, students, and engineers ranging from school level to senior architects.
 Tone: Highly professional, crystal clear, pedagogically brilliant, zero buzzwords, grounded in real-world systems engineering.
-Niche: Software engineering fundamentals, AI & ML architectures, daily terminology breakdowns (e.g. Git rebase vs merge, LLM vs SLM, KV cache, RAG vs Fine-tuning), and breaking tech news.
+Niche: Software engineering fundamentals, AI & ML architectures, terminology breakdowns (Git rebase vs merge, LLM vs SLM, KV cache, RAG vs fine-tuning), and breaking tech news.
 Mission: Demystify complex concepts so a student understands the intuition and a senior engineer appreciates the architectural nuance.
 """
 
-BLUESKY_SYSTEM_PROMPT = """You are a distinguished AI systems architect writing on Bluesky (AT Protocol).
+BLUESKY_SYSTEM_PROMPT = """You are an AI systems engineer writing on Bluesky (AT Protocol).
 Audience: Elite software engineers, distributed systems builders, and AI researchers.
-Tone: Highly professional, collegial, technically rigorous, and deeply grounded in engineering principles.
+Tone: Professional, collegial, technically rigorous, and grounded in engineering principles.
 Values: Real-world latency, inference economics, memory hierarchies, reproducibility, and transparent evaluations.
-Formatting: Clear, concise (under 280 characters), accompanied by technical hashtags (#SoftwareEngineering #SystemDesign #AI #Programming). Zero corporate fluff, zero hype.
+Formatting: One concrete insight, under 280 characters, with at most two technical tags. Zero corporate fluff, zero hype, no links, no brand promotion.
 """
 
 def append_hashtags(text: str, default_tags: List[str], max_len: int = 280) -> str:
@@ -161,7 +163,7 @@ def _clamp_text(value: object, limit: int, strip_urls: bool = True) -> str:
 FALLBACK_MODELS = list(dict.fromkeys([
     config.GEMINI_MODEL,
     "gemini-3.5-flash-lite",
-    "gemini-2.0-flash",
+    "gemini-3.8-flash",
 ]))
 
 class AIGenerator:
@@ -190,28 +192,23 @@ class AIGenerator:
         raise RuntimeError(f"All Gemini models failed: {last_error}")
 
     def generate_hot_take(self, topic: str, context: str = "") -> str:
-        """Generates a razor-sharp, hilarious, sarcastic, or culturally observant tweet for X with mandatory 1-2 hashtags."""
+        """Generates a sharp, specific, growth-oriented tweet for X (no link spam)."""
         prompt = f"""
-Topic / Debate / Talk of the Town: "{topic}"
+Topic: "{topic}"
 Context: "{context}"
 
-Write ONE razor-sharp, sarcastic, witty, or culturally observant tweet about this topic.
-Rules:
-- Scope: Whatever is the talk of the town—cinema, Ramayana, movies, pop culture, sports, internet drama, tech, everyday life.
-- Tone: Sarcastic, razor-witted, hilarious, or perceptive. Zero corporate cringe.
-- Length: Punchy and strictly under 235 characters so hashtags fit cleanly.
-- HASHTAGS: ALWAYS include 1 or 2 high-reach, relevant trending hashtags at the end (e.g. #Ramayana, #Bollywood, #Cinema, #AI, #TechTrends, #Cricket, or specific topic tags).
-- Output ONLY the raw tweet text.
-"""
-        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.94).strip('"').strip()
+Write ONE sharp X post about this. It must sound like a builder with strong opinions, not a brand account.
 
-        # Enforce at least 1-2 hashtags for reach
-        if "#" not in text:
-            # Extract high-signal hashtag from topic words
-            clean_words = [re.sub(r'[^a-zA-Z0-9]', '', w.title()) for w in topic.split() if len(w) > 3]
-            fallback_tags = [f"#{w}" for w in clean_words[:2]] if clean_words else ["#Trending", "#TalkOfTheTown"]
-            text = append_hashtags(text, fallback_tags, max_len=275)
-        return text
+Rules:
+- Lead with the sharpest specific claim, number, or contradiction. No warm-up sentence.
+- One idea only. Under 240 characters.
+- Contrarian or useful, never neutral. The reader should want to reply or quote it.
+- No hashtags unless one is truly natural. No URLs, no brand names, no emojis at the start.
+- Do not use "In today's", "Let's dive in", "Game changer", "Unlock", or "The future of".
+- Output ONLY the raw post text.
+"""
+        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.94)
+        return text.strip('"').strip()
 
     def generate_casual_x_take(self, topic: str = "", context: str = "") -> str:
         """Sarcastic & funny hot take generator for X."""
@@ -273,64 +270,51 @@ Return ONLY valid JSON.
                 "options": ["Agree 100%", "Completely wrong", "Too early to tell", "Results"]
             }
 
-    def generate_neubench_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates a viral take on a NeuBench AI news story or benchmark model with hashtags & backlinks."""
-        link_instruction = (
-            "Creatively and naturally include our platform URL 'https://app.neubench.workers.dev' at the end or within the take "
-            "(e.g., 'Tracked the latency & cost live on https://app.neubench.workers.dev' or 'Full eval breakdown on https://app.neubench.workers.dev'). "
-            "Make it relevant to the topic."
-        ) if include_link else "Do not include URLs."
+    def generate_ai_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
+        """Generates a growth-oriented X take on an AI/tech story (no links by default)."""
         prompt = f"""
-AI News / Model: "{title}"
-Developer/Company: "{company}"
-Context / Summary: "{summary}"
+AI news / model / tool: "{title}"
+Developer or company: "{company}"
+Context: "{summary}"
 
-Write a punchy, opinionated, high-engagement X tweet about this AI update.
+Write ONE high-engagement X post about this update.
+
 Rules:
-- Sound 100% like a sharp tech-native commentator (contrarian, witty, zero corporate PR fluff).
-- Include 1-2 high-traffic hashtags at the end (e.g., #AI #LLMs #Tech) to maximize search reach.
-- Provoke discussion in the replies.
-- {link_instruction}
-- Total length strictly under 250 characters so hashtags and link fit within 280 chars.
-- Output ONLY the raw tweet text.
+- Open with the most concrete fact or the most counterintuitive implication.
+- Sound like a sharp practitioner, not a press release.
+- Take a position: is this real progress, benchmark theater, or a cost problem?
+- Include one specific detail from the context. Never invent numbers.
+- Under 250 characters. No URLs, no brand promotion.
+- At most one hashtag, only if natural.
+- Output ONLY the raw post text.
 """
-        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88).strip('"').strip()
-        if include_link and "app.neubench.workers.dev" not in text:
-            suffix = " Live evals: https://app.neubench.workers.dev"
-            if len(text) + len(suffix) <= 245:
-                text = f"{text}{suffix}"
-            else:
-                text = f"{text[:245 - len(suffix) - 1]}…{suffix}"
-        return append_hashtags(text, ["#AI", "#LLMs", "#Tech"], max_len=278)
+        text = self._generate_with_fallback(prompt, SYSTEM_PROMPT, temperature=0.88)
+        return text.strip('"').strip()
 
-    def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = True) -> str:
-        """Generates an authoritative, systems/open-weights focused post for Bluesky with AT Protocol custom feed tags (under 300 chars)."""
-        link_instruction = (
-            "Include 'https://app.neubench.workers.dev' concisely at the end (e.g. 'Benchmarks: https://app.neubench.workers.dev' or 'Compare live: https://app.neubench.workers.dev')."
-        ) if include_link else "Do not include URLs."
+    # Backwards-compatible alias for older callers.
+    def generate_neubench_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
+        return self.generate_ai_take(title, summary, company, include_link=False)
+
+    def generate_bluesky_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
+        """Generates a sharp technical Bluesky post (no links, one insight, one question)."""
         prompt = f"""
 Topic: "{title}"
 Company/Developer: "{company}"
 Context: "{summary}"
 
-Write an authoritative, developer-first Bluesky post about this topic.
+Write one high-signal Bluesky post for engineers and AI researchers.
+
 Rules:
-- Audience: engineers, builders, and technical readers.
-- Tone: sharp, honest, and focused on the real trade-off, mechanism, or implication in the topic. Zero corporate PR fluff.
-- Match the topic: news, research, explainers, comparisons, scenarios, and career advice all need different framing.
-- Include 2-3 targeted technical hashtags at the end (#AI #MachineLearning #Engineering) to index into Bluesky's top custom feeds.
-- {link_instruction}
-- Length: strictly under 250 characters so hashtags and links fit within Bluesky's 300-char limit.
+- Lead with the mechanism or trade-off, not a summary of the headline.
+- One idea only. Under 280 characters.
+- Add one concrete engineering consequence: latency, cost, memory, reliability, or evaluation quality.
+- End with a short question or a testable claim that invites replies.
+- No URLs, no brand names, no corporate tone, no emoji spam.
+- At most two technical hashtags.
 - Output ONLY the post text.
 """
-        text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72).strip('"').strip()
-        if include_link and "app.neubench.workers.dev" not in text:
-            suffix = " | Benchmarks: https://app.neubench.workers.dev"
-            if len(text) + len(suffix) <= 255:
-                text = f"{text}{suffix}"
-            else:
-                text = f"{text[:255 - len(suffix) - 1]}…{suffix}"
-        return append_hashtags(text, ["#AI", "#OpenSource", "#MachineLearning", "#LocalLLMs"], max_len=295)
+        text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72)
+        return text.strip('"').strip()
 
     def generate_bluesky_sniper_reply(self, target_author: str, target_text: str) -> str:
         """Generates a professional, thoughtful, and technically rigorous reply on Bluesky."""
@@ -424,9 +408,8 @@ Rules:
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
         """Generates a viral, high-save LinkedIn Technical Cheatsheet & Visual Study Note in the style of top tech creators (90k+ reach playbook)."""
         link_instruction = (
-            "Naturally mention our real-time benchmark radar at https://app.neubench.workers.dev "
-            "(e.g., '📊 Tracking real-time latency, token economics, and reasoning scores across 260+ models live on https://app.neubench.workers.dev')."
-        ) if include_link else "CRITICAL: Do NOT include ANY external links, URLs, or domains in the post body. LinkedIn's 360Brew algorithm cuts post reach by 40% when external links are in the body. The interactive benchmark link is dropped in the first comment."
+            "Do NOT include ANY external links, URLs, or domains in the post body. LinkedIn suppresses reach for outbound links. Everything the reader needs must be in the text itself."
+        )
         prompt = f"""
 Topic / Technology: "{title}"
 Ecosystem / Framework: "{company}"
@@ -495,14 +478,11 @@ Rules:
             "You are a top technical educator and systems architect crafting viral cheatsheets and notes on LinkedIn.",
             temperature=0.78
         ).strip('"').strip()
-        if include_link and "app.neubench.workers.dev" not in text:
-            text = f"{text}\n\n📊 Tracking real-time latency, cost, and reasoning benchmarks across 260+ models: https://app.neubench.workers.dev"
-        elif not include_link:
-            # Strip any accidental URLs to guarantee zero link reach penalty from LinkedIn's 360Brew algorithm
-            text = re.sub(r'https?://\S+', '', text).strip()
-            text = re.sub(r'\n{3,}', '\n\n', text)
+        # Strip any accidental URLs to protect reach.
+        text = re.sub(r'https?://\S+', '', text).strip()
+        text = re.sub(r'\n{3,}', '\n\n', text)
         cleaned_text = clean_linkedin_formatting(text)
-        return append_hashtags(cleaned_text, ["#MachineLearning", "#ArtificialIntelligence", "#SoftwareEngineering", "#LLM", "#SystemDesign"], max_len=2950)
+        return append_hashtags(cleaned_text, ["#MachineLearning", "#SoftwareEngineering", "#SystemDesign"], max_len=2950)
 
     def _generate_json(self, prompt: str, system_instruction: str, temperature: float = 0.72) -> dict:
         last_error = None
@@ -565,7 +545,7 @@ Return ONLY valid JSON in this exact shape:
     {{"kicker": "03 / WHAT TO DO", "title": "...", "body": "...", "takeaway": "..."}}
   ],
   "framework": {{"kicker": "THE CHECKLIST", "title": "...", "steps": [{{"label": "...", "detail": "..."}}, {{"label": "...", "detail": "..."}}, {{"label": "...", "detail": "..."}}]}},
-  "cta": {{"kicker": "ONE MORE THING", "headline": "...", "subtext": "...", "website": "app.neubench.workers.dev"}},
+  "cta": {{"kicker": "ONE MORE THING", "headline": "...", "subtext": "...", "website": ""}},
   "post_text": "...",
   "first_comment": "...",
   "alt_text": "...",
@@ -582,9 +562,9 @@ Rules:
 - Slide title <= 60 chars, body <= 240 chars, takeaway <= 120 chars.
 - Framework: 3 or 4 steps. Label <= 30 chars, detail <= 90 chars.
 - Cover subhead states the consequence for the reader, not a generic industry observation.
-- CTA headline <= 60 chars and gives one concrete action tied to this topic that the reader can do today. Do not use a generic "test your systems" or "benchmark your workflows" pitch unless the topic is about benchmarks. Keep the website field as app.neubench.workers.dev.
+- CTA headline <= 60 chars and gives one concrete action tied to this topic that the reader can do today. Do not use a generic "test your systems" or "benchmark your workflows" pitch unless the topic is about benchmarks. Keep the website field empty.
 - post_text: 600 to 1000 chars. Plain text only. No markdown, no bold, no tables, no URLs, no emoji bullets. Short lines. End with one specific question. Do not mention a first comment.
-- first_comment: <= 350 chars. Reference one specific step from the framework, then add https://app.neubench.workers.dev. No invented stats.
+- first_comment: <= 350 chars. Reference one specific step from the framework and ask a follow-up question. No URLs, no invented stats.
 - alt_text: <= 180 chars, describe what the carousel shows.
 - hashtags: 3 to 5 specific tags. Mix one broad tag with two or three topic-specific tags. Avoid generic tags like #Tech or #Business. Do not repeat the same three tags on every post.
 """
@@ -649,7 +629,7 @@ Rules:
             "kicker": _clamp_text(cta_raw.get("kicker") or "ONE MORE THING", 40),
             "headline": _clamp_text(cta_raw.get("headline") or "Save this for your next review.", 70),
             "subtext": _clamp_text(cta_raw.get("subtext") or "", 150),
-            "website": _clamp_text(cta_raw.get("website") or "app.neubench.workers.dev", 48),
+            "website": _clamp_text(cta_raw.get("website") or "", 48),
         }
 
         hashtags = [str(tag).strip() for tag in (data.get("hashtags") or []) if str(tag).strip().startswith("#")]
@@ -995,9 +975,8 @@ Return valid JSON with this exact schema:
             }
 
 
-    def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = True) -> str:
+    def generate_ai_series_lesson(self, day: int, topic: str, level: str, chapter: str, include_link: bool = False) -> str:
         """Generates an authoritative, mobile-first daily lesson for the 'AI Explained: Zero to Advanced' 90-day master curriculum."""
-        link_str = "📊 Live frontier benchmarks across 260+ models on NeuBench: https://app.neubench.workers.dev\n\n" if include_link else ""
         prompt = f"""
 Series: AI Explained: Zero to Advanced (90 Days. 90 Concepts. One AI Journey)
 Current Day: Day {day:02d} / 90
@@ -1036,8 +1015,8 @@ F. KNOWLEDGE CHECK & DISCUSSION:
 
 G. CONTINUITY & RETENTION:
    - "📌 Hit 'Save' so you don't lose Day {day:02d} for your revision."
-   - "🔔 Follow Vishnu Gupta for the full 90-day journey."
-   - {link_str}"💬 Comment \"AI90\" below to receive the complete 90-day curriculum roadmap sheet."
+   - "🔔 Follow {config.CREATOR_NAME} for the full 90-day journey."
+   - "💬 Comment \"AI90\" below to receive the complete 90-day curriculum roadmap sheet."
 
 H. HASHTAGS:
    4-5 relevant hashtags (e.g. #ArtificialIntelligence #MachineLearning #AIEngineering #Coding #TechEducation).
@@ -1066,11 +1045,11 @@ Our LinkedIn Post Context:
 Commenter: {commenter_name}
 Comment: "{comment_text}"
 
-You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (app.neubench.workers.dev).
+You are {config.CREATOR_NAME}, an AI engineer who writes about systems and evaluation.
 Write a professional, warm, and technically sharp reply to this comment.
 Guidelines:
 - Tone: High-caliber B2B engineering professional, courteous, collegial, and insightful.
-- If they asked for a PDF or cheatsheet, tell them you appreciate their interest and will send it over via DM, or invite them to test the live benchmarks directly on NeuBench.
+- If they asked for a PDF or cheatsheet, tell them you appreciate their interest and will share the key points in the thread.
 - If they asked a technical or skeptical question, provide a concise, respectful engineering clarification with practical nuance.
 - If they simply gave praise or agreement, acknowledge them politely with a brief thought-provoking follow-up question or gratitude.
 - Length: 1-3 sentences. Never use generic bot phrases ("Thanks for reaching out!", "Great post!").
@@ -1089,13 +1068,13 @@ Guidelines:
 LinkedIn Post by {post_author}:
 "{post_text[:600]}..."
 
-You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench.
+You are {config.CREATOR_NAME}, an AI engineer and systems builder.
 Write a thoughtful, high-value comment adding technical depth to this discussion.
 Guidelines:
-- Tone: Professional, collegial, thought-provoking, and constructive (Silicon Valley tech founder style).
+- Tone: Professional, collegial, thought-provoking, and constructive.
 - Add a concrete perspective or observation relating to real-world latency, inference economics, evaluation benchmarks, or production reliability.
 - Be genuinely supportive of their insight while adding a distinct value-add angle or question.
-- Length: 2-4 sentences. Do NOT pitch or overtly plug links unless directly relevant to benchmark data.
+- Length: 2-4 sentences. Never pitch a product or include links.
 - Output ONLY the comment text.
 """
         system_p = "You are a recognized AI systems engineer engaging thoughtfully on LinkedIn. Never sound promotional; always add technical substance."
@@ -1111,7 +1090,7 @@ Guidelines:
 LinkedIn Post by {post_author}:
 "{post_text[:600]}..."
 
-You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench.
+You are {config.CREATOR_NAME}, an AI engineer and systems builder.
 Write a genuine, warm congratulation comment for this milestone.
 Guidelines:
 - Acknowledge the specific achievement mentioned (role, launch, funding, award, certification, graduation).
@@ -1127,23 +1106,23 @@ Guidelines:
     def generate_first_comment_value_drop(self, post_topic: str, post_text: str) -> str:
         """
         Generates an algorithmic high-engagement 'first-comment' value drop
-        (clean takeaway, actionable code tip, or open question linking to NeuBench).
+        (clean takeaway, actionable code tip, or open question).
         """
         prompt = f"""
 Post Topic: "{post_topic}"
 Post Content:
 "{post_text[:400]}..."
 
-You are Vishnu Gupta, Founder & Lead AI Engineer at NeuBench (https://app.neubench.workers.dev).
+You are {config.CREATOR_NAME}, an AI engineer sharing a practical follow-up.
 Generate a high-value 'first comment' to be posted directly under this LinkedIn post.
 
 Guidelines:
-- Goal: Spark meaningful technical discussions in the comments while directing readers to live benchmark tools.
+- Goal: Spark meaningful technical discussion in the comments.
 - Structure:
-  1. A sharp 1-2 sentence engineering takeaway or code implementation tip.
+  1. A sharp 1-2 sentence engineering takeaway or implementation tip.
   2. An open question asking developers how they handle this in production.
-  3. A natural pointer to test live LLM latency & cost telemetry on NeuBench: https://app.neubench.workers.dev
 - Keep it under 60-80 words. Professional, collegial, and high signal.
+- No URLs, no product pitch, no brand names.
 - Output ONLY the comment text.
 """
         system_p = "You are a senior AI systems engineer writing an insightful first-comment resource drop on LinkedIn."
@@ -1293,7 +1272,7 @@ Return ONLY valid JSON with this exact schema:
     }}
   ],
   "post_text": "In-depth technical breakdown of {topic} for engineers and architects...\n\nDetailed 6-page field notes attached.\n\n#SoftwareEngineering #SystemDesign #Programming #DevOps #Architecture",
-  "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+  "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
   "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#ComputerScience", "#Programming"]
 }}
 """
@@ -1402,7 +1381,7 @@ Return ONLY valid JSON with this exact schema:
                 "Save this carousel for your next architectural review.\n\n"
                 "#SoftwareEngineering #SystemDesign #ComputerScience #Programming #DevOps"
             ),
-            "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+            "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
             "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#ComputerScience", "#Programming", "#Architecture"]
         }
         return self._normalize_carousel_plan(fallback_plan, topic, category)
@@ -1516,7 +1495,7 @@ Return ONLY valid JSON matching this schema:
     }}
   ],
   "post_text": "{topic}: The Ultimate Engineering Comparison Guide\n\nBoth {name_a} and {name_b} are exceptional, but they were built for fundamentally different workloads...\n\nDetailed 6-page architectural matrix attached.\n\n#SystemDesign #SoftwareEngineering #Architecture #DevOps #Programming",
-  "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+  "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
   "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#Architecture", "#DevOps"]
 }}
 """
@@ -1626,7 +1605,7 @@ Return ONLY valid JSON matching this schema:
                 "Save this guide for your next systems architecture review.\n\n"
                 "#SystemDesign #SoftwareEngineering #Architecture #DevOps #Programming"
             ),
-            "first_comment": "⚡ Live systems telemetry and LLM latency benchmarks on NeuBench: https://app.neubench.workers.dev",
+            "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
             "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#Architecture", "#DevOps"]
         }
         return self._normalize_carousel_plan(fallback_plan, topic, "DIFFERENCE")

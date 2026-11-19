@@ -24,7 +24,7 @@ class PushNotifier:
             return
 
         dry_prefix = "[DRY-RUN] " if is_dry_run else ""
-        action_title = f"{dry_prefix}NeuBench-Automator: {action_type.replace('_', ' ').title()} ({status.upper()})"
+        action_title = f"{dry_prefix}Automation: {action_type.replace('_', ' ').title()} ({status.upper()})"
 
         # 1. Dispatch to Discord
         if self.discord_url:
@@ -38,10 +38,10 @@ class PushNotifier:
         color = 0x00ba7c if status == "success" else 0xf59e0b if status == "skipped" else 0xef4444
         embed = {
             "title": title,
-            "description": f"**Content:**\n> {text}\n\n**Target:** {target or 'NeuBench AI Radar'}",
+            "description": f"**Content:**\n> {text}\n\n**Target:** {target or 'timeline'}",
             "color": color,
             "footer": {
-                "text": "NeuBench-Automator 24/7 Engine • 𝕏 + Bluesky + Omnichannel"
+                "text": "Omnichannel Engine • 𝕏 + Bluesky + LinkedIn"
             }
         }
         try:
@@ -50,7 +50,7 @@ class PushNotifier:
             print(f"[Notifier] Discord alert failed: {e}")
 
     def _send_telegram(self, title, action_type, text, target, status):
-        msg = f"⚡ *{title}*\n\n📝 *Take:* {text}\n🎯 *Target:* {target or 'NeuBench AI Radar'}"
+        msg = f"⚡ *{title}*\n\n📝 *Take:* {text}\n🎯 *Target:* {target or 'timeline'}"
         url = f"https://api.telegram.org/bot{self.telegram_token}/sendMessage"
         try:
             requests.post(url, json={"chat_id": self.telegram_chat_id, "text": msg, "parse_mode": "Markdown"}, timeout=4)

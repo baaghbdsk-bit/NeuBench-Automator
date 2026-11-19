@@ -19,14 +19,14 @@ import config
 console = Console()
 
 def update_linkedin_profile(
-    first_name: str = "NeuBench",
+    first_name: str = config.CREATOR_NAME,
     last_name: str = "AI",
-    headline: str = "Building NeuBench • Real-Time AI Benchmarks across 266+ Models | LLM Evals & Engineering Commentary",
+    headline: str = config.CREATOR_HEADLINE,
     banner_path: str = "assets/neubench_linkedin_banner.jpg",
     avatar_path: str = "assets/neubench_avatar.jpg"
 ):
     console.print("\n" + "="*60, style="bold blue")
-    console.print("💼 UPDATING LINKEDIN PROFILE TO NEUBENCH", style="bold white on blue")
+    console.print("💼 UPDATING LINKEDIN PROFILE", style="bold white on blue")
     console.print("="*60, style="bold blue")
     console.print(f"  First Name: {first_name}")
     console.print(f"  Last Name:  {last_name}")
@@ -141,7 +141,7 @@ def update_linkedin_profile(
             if save_btn and save_btn.is_visible():
                 save_btn.click()
                 page.wait_for_timeout(4000)
-                console.print("[bold green]🎉 SUCCESS! LinkedIn profile updated to NeuBench![/bold green]")
+                console.print("[bold green]🎉 SUCCESS! LinkedIn profile updated![/bold green]")
             else:
                 console.print("[yellow]Could not find Save button in intro modal.[/yellow]")
 

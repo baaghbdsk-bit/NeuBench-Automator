@@ -1,12 +1,12 @@
 """
-Autonomous Visual Engine for NeuBench Post Automation.
+Autonomous Visual Engine for social post automation.
 100% Dynamic, AI-Driven Visual Generation.
 Uses Gemini to inspect the exact post topic and dynamically synthesize:
 1. BENCHMARK_RACE: Real models, speeds, and latency from the specific topic.
 2. CODE_ARCHITECTURE: Custom system architecture blocks + syntax-highlighted code matching the exact topic.
 3. TOKEN_PIPELINE: Topic-specific prompt strings, subwords, and token IDs.
 
-Renders 1080x1080 animated infographics (MP4 video loop and high-res GIF) with NeuBench branding.
+Renders 1080x1080 animated infographics (MP4 video loop and high-res GIF) with neutral branding.
 """
 
 import os
@@ -23,7 +23,7 @@ from google import genai
 OUTPUT_DIR = Path("generated_visuals")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# Theme Palette (High-contrast NeuBench Dark Mode)
+# Theme Palette (High-contrast Dark Mode)
 BG_COLOR = (10, 14, 23)           # Deep Midnight Blue
 CARD_BG = (17, 24, 39)           # Slate Card
 BORDER_COLOR = (30, 41, 59)      # Slate Border
@@ -82,7 +82,7 @@ To keep our feed visually diverse and prevent repetitive visuals, DO NOT select 
 Select between the other two visual types that best fit the topic.
 """
 
-    prompt = f"""You are a Lead AI Research Engineer and Visual Information Designer for NeuBench.
+    prompt = f"""You are a lead AI research engineer and visual information designer.
 Topic / Post Content: "{topic_or_text}"
 Summary Context: "{summary}"
 {avoid_instruction}
@@ -391,7 +391,7 @@ def render_dynamic_concept_comparison(concept: Dict[str, Any], output_base_name:
 
         # Top Badge
         draw.rounded_rectangle([70, 40, 310, 75], radius=6, fill=(30, 41, 59))
-        draw.text((85, 47), f"NEUBENCH • {category[:18]}", fill=CYAN_ACCENT, font=f_tag)
+        draw.text((85, 47), f"SYSTEMS NOTES • {category[:18]}", fill=CYAN_ACCENT, font=f_tag)
 
         # Header Title
         draw.text((70, 88), title[:40], fill=WHITE, font=f_title)
@@ -477,8 +477,8 @@ def render_dynamic_concept_comparison(concept: Dict[str, Any], output_base_name:
             draw.text((95, 930), " ".join(rule_words[14:26]), fill=WHITE, font=f_small)
 
         # Footer
-        draw.text((70, 995), "NeuBench Educational Architecture Series", fill=MUTED, font=f_sub)
-        draw.text((780, 995), "app.neubench.workers.dev", fill=CYAN_ACCENT, font=f_sub)
+        draw.text((70, 995), "Engineering Notes", fill=MUTED, font=f_sub)
+        draw.text((780, 995), "Follow for more", fill=CYAN_ACCENT, font=f_sub)
 
         frames.append(img)
 

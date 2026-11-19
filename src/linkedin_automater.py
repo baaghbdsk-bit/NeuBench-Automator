@@ -29,9 +29,27 @@ SUITABILITY_BLOCKLIST = (
 
 from playwright.sync_api import sync_playwright
 
+from src.growth import sanitize_publish_text
+
 import config
 
 from src.linkedin_state import engagement_key
+
+
+def _self_identifiers() -> tuple:
+    """Names that identify our own account, used to avoid self-replies."""
+    raw = [
+        getattr(config, "CREATOR_NAME", ""),
+        os.getenv("CREATOR_FULL_NAME", ""),
+        os.getenv("LINKEDIN_PROFILE_NAME", ""),
+    ]
+    return tuple(value.strip().lower() for value in raw if value and value.strip())
+
+
+def _looks_like_own_account(*texts: str) -> bool:
+    haystack = " ".join(str(t or "").lower() for t in texts)
+    return any(name in haystack for name in _self_identifiers())
+
 
 
 
@@ -374,7 +392,7 @@ class LinkedInAutomater:
             print("[LinkedInAutomater] 🚀 Publishing via Official LinkedIn REST API...")
             media_urn = None
             media_kind = None
-            resolved_title = (media_title or "NeuBench Brief").strip()[:120]
+            resolved_title = (media_title or "Engineering Brief").strip()[:120]
             if image_path and os.path.exists(image_path):
                 ext = os.path.splitext(image_path)[1].lower()
                 try:
@@ -871,7 +889,7 @@ class LinkedInAutomater:
                         # Check if already replied by us in the visible DOM.
                         nested_replies = comment.locator('.comments-reply-item, .comments-comment-item__nested-comments').inner_text(timeout=1000)
                         nested_lower = nested_replies.lower()
-                        if "vishnu gupta" in nested_lower or "neubench" in nested_lower:
+                        if _looks_like_own_account(nested_lower):
                             continue
                     except Exception:
                         pass
@@ -879,7 +897,7 @@ class LinkedInAutomater:
                     try:
                         author_elem = comment.locator('.comments-post-meta__name-text, a[data-field="actor_name"]').first
                         author_name = author_elem.inner_text().strip() if author_elem.is_visible() else "Colleague"
-                        if "Vishnu Gupta" in author_name or "NeuBench" in author_name:
+                        if _looks_like_own_account(author_name):
                             continue  # Do not reply to self
 
                         text_elem = comment.locator('.comments-comment-item__main-content, .update-components-text').first
@@ -888,7 +906,7 @@ class LinkedInAutomater:
                             continue
 
                         parent_key = ""
-                        post_context = "NeuBench LinkedIn post"
+                        post_context = "our LinkedIn post"
                         for parent_selector in (
                             "xpath=ancestor::article[1]",
                             "xpath=ancestor::div[contains(@class, 'feed-shared-update-v2')][1]",
@@ -912,11 +930,11 @@ class LinkedInAutomater:
                             continue
 
                         print(f"[LinkedInAutomater] Replying to comment by {author_name}: \"{comment_text[:50]}...\"")
-                        reply_text = ai.generate_linkedin_comment_reply(
+                        reply_text = sanitize_publish_text(ai.generate_linkedin_comment_reply(
                             post_text=post_context,
                             commenter_name=author_name,
                             comment_text=comment_text,
-                        )
+                        ))
 
                         # Click Reply button inside this comment
                         reply_btn = comment.locator('button[aria-label*="Reply" i], button:has-text("Reply")').first
@@ -1025,7 +1043,7 @@ class LinkedInAutomater:
             return False
         if any(bad in lower for bad in SUITABILITY_BLOCKLIST):
             return False
-        if "vishnu gupta" in lower or "neubench" in lower:
+        if _looks_like_own_account(post_text):
             return False
         return True
 
@@ -1060,7 +1078,7 @@ class LinkedInAutomater:
                 body = body_elem.inner_text(timeout=1000).strip()
                 if not body or "?" not in body or len(body) < 15:
                     continue
-                if "vishnu gupta" in body.lower() or "neubench" in body.lower():
+                if _looks_like_own_account(body):
                     continue
 
                 author = "there"
@@ -1087,9 +1105,9 @@ class LinkedInAutomater:
                 if not box.is_visible():
                     continue
 
-                reply_text = ai.generate_linkedin_comment_reply(
+                reply_text = sanitize_publish_text(ai.generate_linkedin_comment_reply(
                     post_text=body, commenter_name=author, comment_text=body
-                )
+                ))
                 box.click()
                 page.keyboard.insert_text(reply_text)
                 page.wait_for_timeout(1500)
@@ -1230,10 +1248,10 @@ class LinkedInAutomater:
 
                         author_name = self._extract_author_name(post_elem)
                         if self._is_achievement_post(post_text):
-                            comm_text = ai.generate_linkedin_congrats_comment(post_author=author_name, post_text=post_text)
+                            comm_text = sanitize_publish_text(ai.generate_linkedin_congrats_comment(post_author=author_name, post_text=post_text))
                             kind = "congratulations"
                         else:
-                            comm_text = ai.generate_linkedin_peer_comment(post_author=author_name, post_text=post_text)
+                            comm_text = sanitize_publish_text(ai.generate_linkedin_peer_comment(post_author=author_name, post_text=post_text))
                             kind = "insight"
 
                         print(f"[LinkedInAutomater] Drafted {kind} comment for {author_name}: {comm_text[:70]}...")
