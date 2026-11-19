@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T08:26:13.858642+00:00",
+    "last_updated": "2026-11-19T09:12:39.529798+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1712,
-    "original_posts_attempted": 492,
+    "total_cycles_executed": 1717,
+    "original_posts_attempted": 494,
     "original_posts_succeeded": 299,
-    "replies_attempted": 134,
+    "replies_attempted": 135,
     "replies_succeeded": 25,
     "reposts_attempted": 65,
     "reposts_succeeded": 13,
-    "actions_skipped": 501,
+    "actions_skipped": 504,
     "failed_operations": 169,
-    "ai_generation_requests": 944,
+    "ai_generation_requests": 946,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T03:01:57.679894+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
-      "content_preview": "The ecosystem's over-reliance on GPU-subsidized venture cap was a single-point-of-failure disguised as an investment the",
-      "reason": "",
-      "duration_s": 4.74
-    },
-    {
-      "timestamp": "2026-11-14T04:01:50.532893+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley prices for a model that hallucinates python scripts while DeepSeek runs circles around it for the ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.3
-    },
-    {
-      "timestamp": "2026-11-14T04:01:50.561020+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T04:01:56.551387+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-      "content_preview": "VAE latents scaled training, but spatial-temporal compression now walls off high-res, low-latency control loops. Quadrup",
-      "reason": "",
-      "duration_s": 5.98
-    },
-    {
-      "timestamp": "2026-11-14T05:01:46.986163+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending your entire paycheck on 1M tokens just for the AI to hallucinate a syntax error faster. We are truly living in ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.16
-    },
     {
       "timestamp": "2026-11-14T05:01:47.006486+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "Bro really just invented a new dialect of corporate therapy-speak because we forgot how to talk to robots. #AI",
       "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates.",
       "duration_s": 84.98
+    },
+    {
+      "timestamp": "2026-11-19T09:08:58.130640+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T09:09:17.777990+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "Your database just crashed mid-transaction, and instead of spending 10 agonizing minutes running a heavy redo-undo recov",
+      "reason": "",
+      "duration_s": 19.63
+    },
+    {
+      "timestamp": "2026-11-19T09:09:23.647140+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Neural Network Currency Demystified",
+      "content_preview": "Logits are raw judge scores from a network’s final layer before normalization. Treat them as unconstrained voting points",
+      "reason": "",
+      "duration_s": 5.86
+    },
+    {
+      "timestamp": "2026-11-19T09:12:39.518848+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 194.52
+    },
+    {
+      "timestamp": "2026-11-19T09:12:39.529773+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 194.53
     }
   ]
 }

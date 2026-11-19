@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Meghan's father Thomas Markle under house arrest after child sex abuse material charge",
-    "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ",
     "prate wordle",
     "रेलवे स्टेशन",
     "cagliari vs frosinone",
@@ -499,7 +497,9 @@
     "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?",
     "bsky:NexSight: Verifiable Tasks for Fine-Grained Agentic Long-Video Understanding",
     "bsky:PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents",
-    "bsky:Anthropic prices initial public offering"
+    "bsky:Anthropic prices initial public offering",
+    "li:What is Shadow Paging in Database Engines?",
+    "bsky:What is a Logit? The Raw Neural Network Currency Demystified"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1171,7 +1171,8 @@
         "post:a65b546239e7bd703dea175d576ad70c0f0f491db6d0736bbc47f4f0a4106af2",
         "post:0d5a953f7ab2bc05a902c915d20cb2da936f9c9f07187c59eebfacaa566a9b87",
         "post:960a96904dfeb1b465e416219d58a8e8f6010d336eaaba559884ce81e592457b",
-        "post:8d0d4db85be9b9145e9311ad22be5c95ce15fcbf8649eecd321d614f9cffd65f"
+        "post:8d0d4db85be9b9145e9311ad22be5c95ce15fcbf8649eecd321d614f9cffd65f",
+        "post:3111f82b0966ca37ab8e75b51ac04e803ba627c6d7d820bbf79d38ce082edc38"
       ],
       "pending": [
         {

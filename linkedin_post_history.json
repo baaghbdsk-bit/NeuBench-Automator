@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-19T06:02:43.052386+00:00",
+  "last_success_at": "2026-11-19T09:09:17.766389+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1172,6 +1172,16 @@
       "posted_at": "2026-11-19T06:02:43.052386+00:00",
       "post_urn": "urn:li:share:7529061571587670017",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:76ee9fddf3fed81cfb7858bc70a08488",
+      "title": "What is Shadow Paging in Database Engines?",
+      "url": "",
+      "content_hash": "31d9e8fefe4841d5a76a365c490c071d",
+      "status": "success",
+      "posted_at": "2026-11-19T09:09:17.766389+00:00",
+      "post_urn": "urn:li:share:7529108527601180672",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1291,6 +1301,7 @@
     "li:What is a Bloom Filter?",
     "li:Asynchronous Kernel-Bypassed I/O with io_uring",
     "li:Asynchronous Kernel Bypass (io_uring)",
-    "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?"
+    "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?",
+    "li:What is Shadow Paging in Database Engines?"
   ]
 }
