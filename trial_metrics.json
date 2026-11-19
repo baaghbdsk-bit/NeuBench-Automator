@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T16:05:11.410260+00:00",
+    "last_updated": "2026-11-19T17:07:04.860075+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1758,
-    "original_posts_attempted": 510,
+    "total_cycles_executed": 1763,
+    "original_posts_attempted": 512,
     "original_posts_succeeded": 299,
-    "replies_attempted": 141,
+    "replies_attempted": 142,
     "replies_succeeded": 25,
     "reposts_attempted": 67,
     "reposts_succeeded": 13,
-    "actions_skipped": 542,
+    "actions_skipped": 546,
     "failed_operations": 169,
-    "ai_generation_requests": 949,
+    "ai_generation_requests": 950,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T16:14:39.081216+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "NeuBench data reveals up to 40% variance in real-world token throughput across major LLM APIs. Hidden queuing delays & K",
-      "reason": "",
-      "duration_s": 5.94
-    },
-    {
-      "timestamp": "2026-11-14T17:02:00.919344+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "LLMs having existential dread and drifting away from logic while your API bill costs a kidney. Can't wait to pay Silicon",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.25
-    },
-    {
-      "timestamp": "2026-11-14T17:02:00.937386+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T17:02:10.695331+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
-      "content_preview": "Cross-embodiment manipulation fails when aligning disparate sensorimotor spaces directly. EgoX solves this via \"embodime",
-      "reason": "",
-      "duration_s": 9.74
-    },
-    {
-      "timestamp": "2026-11-14T18:01:41.980367+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Billion-dollar AI labs crying over frontier reasoning drift while my code still breaks because I forgot a single semicol",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.07
-    },
     {
       "timestamp": "2026-11-14T18:01:42.000612+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 193.81
+    },
+    {
+      "timestamp": "2026-11-19T17:02:21.772133+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T17:03:47.320650+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "LLM KV Cache Eviction and PagedAttention\n\nUnderstanding the real-world mechanics of LLM KV Cache Eviction and PagedAtten",
+      "reason": "",
+      "duration_s": 85.54
+    },
+    {
+      "timestamp": "2026-11-19T17:03:47.330796+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T17:07:04.848514+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 196.63
+    },
+    {
+      "timestamp": "2026-11-19T17:07:04.860042+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 196.65
     }
   ]
 }
