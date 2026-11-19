@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T20:01:54.425550+00:00",
+    "last_updated": "2026-11-19T21:01:53.263262+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1777,
-    "original_posts_attempted": 516,
+    "total_cycles_executed": 1782,
+    "original_posts_attempted": 517,
     "original_posts_succeeded": 299,
-    "replies_attempted": 144,
+    "replies_attempted": 145,
     "replies_succeeded": 25,
     "reposts_attempted": 68,
     "reposts_succeeded": 13,
-    "actions_skipped": 559,
+    "actions_skipped": 564,
     "failed_operations": 170,
     "ai_generation_requests": 951,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T21:48:25.831456+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Numerical Engine Behind AI Probabilities",
-      "content_preview": "Logits are raw model scores before normalization—like raw race times before grading. \n\nNever apply Softmax before cross-",
-      "reason": "",
-      "duration_s": 5.84
-    },
-    {
-      "timestamp": "2026-11-14T22:01:42.750049+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley mortgage prices just for an LLM to hallucinate a python loop faster is my favorite comedy genre. \n",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.88
-    },
-    {
-      "timestamp": "2026-11-14T22:01:42.772179+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T22:01:48.241150+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Numerical Engine Behind AI Decisions",
-      "content_preview": "Logits are raw, unnormalized model outputs—unbounded continuous values representing directional preference. \n\nThink of t",
-      "reason": "",
-      "duration_s": 5.46
-    },
-    {
-      "timestamp": "2026-11-14T22:25:23.121404+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Every production AI agent looks brilliant in a Jupyter notebook, but when traffic hits 10,000 concurrent sessions, state",
-      "reason": "",
-      "duration_s": 27.94
-    },
     {
       "timestamp": "2026-11-14T23:01:41.942301+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Total daily limit reached (25/20).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T21:01:52.092065+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Total daily cap",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T21:01:52.101574+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Total daily cap",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T21:01:52.109002+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Total daily cap",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T21:01:52.680597+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T21:01:53.263233+00:00",
+      "action_type": "bluesky-replies",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "",
+      "content_preview": "",
+      "reason": "Total daily limit reached (25/20).",
+      "duration_s": 0.01
     }
   ]
 }
