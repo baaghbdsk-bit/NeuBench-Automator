@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T14:05:13.388234+00:00",
+    "last_updated": "2026-11-19T14:57:59.194824+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1743,
-    "original_posts_attempted": 504,
+    "total_cycles_executed": 1748,
+    "original_posts_attempted": 506,
     "original_posts_succeeded": 299,
-    "replies_attempted": 139,
+    "replies_attempted": 140,
     "replies_succeeded": 25,
     "reposts_attempted": 66,
     "reposts_succeeded": 13,
-    "actions_skipped": 527,
+    "actions_skipped": 532,
     "failed_operations": 169,
     "ai_generation_requests": 949,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-14T12:01:48.991784+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is KV Caching in Large Language Models?",
-      "content_preview": "LLM inference isn't re-reading the whole manuscript for every token. KV caching stores past Key-Value states in memory—l",
-      "reason": "",
-      "duration_s": 5.75
-    },
-    {
-      "timestamp": "2026-11-14T13:01:43.264790+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying venture capital prices for models to hallucinate Python code while DeepSeek runs circles on pennies. Peak silicon",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.04
-    },
-    {
-      "timestamp": "2026-11-14T13:01:43.286354+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-14T13:01:49.776345+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "TTFT and token throughput variance hits 40% across hosted LLM endpoints under identical workloads. Infrastructure multi-",
-      "reason": "",
-      "duration_s": 6.48
-    },
-    {
-      "timestamp": "2026-11-14T14:01:43.418381+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI model’s token drift during long-horizon codi",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.18
-    },
     {
       "timestamp": "2026-11-14T14:01:43.439288+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (8/8).",
       "duration_s": 195.96
+    },
+    {
+      "timestamp": "2026-11-19T14:54:43.107201+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/6).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T14:54:43.123310+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 111.7m ago (minimum interval: 180m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-19T14:54:43.141999+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (12/12).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-19T14:57:59.187100+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 195.53
+    },
+    {
+      "timestamp": "2026-11-19T14:57:59.194805+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (8/8).",
+      "duration_s": 195.54
     }
   ]
 }
