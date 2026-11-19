@@ -54,6 +54,21 @@ Engagement targets: 6 LinkedIn peer comments/day, X sniper replies every
 5. **Repeat topics** — dedupe should eliminate cases like two `io_uring`
    posts hours apart.
 
+## Implemented (2026-11-20)
+
+- `src/growth.py`: `evidence_gate()` and `first_comment_gate()` — no unsourced
+  numbers, no banned/template openers, no repeated titles, no absolutes, no
+  bait questions. Regenerate/skip, never silently strip digits.
+- `src/ai_generator.py`: LinkedIn hook prompt rewritten to first-person +
+  mechanism + consequence; removed the broken title-echo fallback; removed
+  fake example stats and "save this / tracker in comments" CTAs; max 3 hashtags.
+- `src/scheduler.py`: gates wired at candidate and final-text stages, first
+  comment is value-only, real per-post outcome log at `data/linkedin_outcomes.json`.
+- `src/linkedin_diagrams.py`: default static attachment is now a mid-loop frame
+  with real data instead of the empty frame 0.
+- Engagement workflow now runs every 3 hours and always persists its state file;
+  own-post replies can cover more comments per run.
+
 ## Remaining risks
 
 - Profile artwork files still have brand-based filenames

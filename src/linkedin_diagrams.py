@@ -775,7 +775,9 @@ def render_editorial_architecture_gif(
 
     images = [render_editorial_architecture_frame(idx / float(frames), spec) for idx in range(frames)]
     preview_path = folder / f"{base_name}_first_frame.png"
-    images[0].save(preview_path, "PNG")
+    # Frame 0 is the empty-data frame (bars at 0%, no active component). The
+    # static PNG is what LinkedIn attaches by default, so use a mid-loop frame.
+    images[frames // 2].save(preview_path, "PNG")
 
     gif_path = folder / f"{base_name}.gif"
     images[0].save(

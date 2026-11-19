@@ -8,7 +8,7 @@ reach) and blocks near-duplicate topics from being recycled.
 from __future__ import annotations
 
 import re
-from typing import Iterable, List, Sequence
+from typing import Iterable, List, Optional, Sequence, Tuple
 
 _BRAND_RE = re.compile(r"\bneu\s*[-_]?\s*bench\b", re.IGNORECASE)
 _URL_RE = re.compile(r"https?://[^\s)>\]]+", re.IGNORECASE)
@@ -153,3 +153,185 @@ def filter_fresh_topics(
         if len(fresh) >= limit:
             break
     return fresh
+
+
+# ==============================================================================
+# EVIDENCE GATE — quality is correctness, not taste
+# ==============================================================================
+
+_NUMERIC_CLAIM_RE = re.compile(
+    r"\b\d[\d,]*(?:\.\d+)?\s*[KMB]?\s*(?:"
+    r"%|percent\b|percentage\b|×|times?\b|"
+    r"ms\b|milliseconds?\b|µs\b|us\b|microseconds?\b|ns\b|nanoseconds?\b|"
+    r"seconds?\b|minutes?\b|hours?\b|"
+    r"[KMGT]?B(?:/s)?\b|GB/s\b|TB/s\b|IOPS\b|qps\b|reqs?/s\b|"
+    r"tokens?\b|cycles?\b|bits?\b|bytes?\b|writes?\b|reads?\b|"
+    r"thousand\b|million\b|billion\b|trillion\b|"
+    r"per\s+second\b)",
+    re.IGNORECASE,
+)
+
+_BANNED_OPENERS_RE = re.compile(
+    r"^\s*(?:what\s+is\b|understanding\s+the\s+real[- ]world\s+mechanics\b|"
+    r"in\s+today'?s\b|let'?s\s+dive\s+in\b|game\s+changer\b|unlock\b|"
+    r"the\s+future\s+of\b|your\s+.{0,80}?\s+(?:yet|but)\b|every\s+\w+\s+(?:time|context switch)\b|"
+    r"imagine\b)",
+    re.IGNORECASE,
+)
+
+_BROKEN_TEMPLATE_RE = re.compile(
+    r"understanding\s+the\s+real[- ]world\s+mechanics\s+of\b|"
+    r"is\s+one\s+of\s+the\s+most\s+critical\s+fundamentals\b|"
+    r"what\s+is\s+.{0,80}\?\s+is\b",
+    re.IGNORECASE,
+)
+
+_ABSOLUTE_CLAIM_RE = re.compile(
+    r"\b(?:guaranteed|100\s*%|eliminat(?:e|es|ed|ing)|provably|"
+    r"impossible\s+to\s+fail|never\s+fails?|always\s+works?)\b",
+    re.IGNORECASE,
+)
+
+_STRUCTURAL_NUMBER_RE = re.compile(
+    r"^(?:Day\s+\d+\s*/\s*\d+|Step\s+\d+|\d+[.)]\s|[A-Z][A-Za-z0-9]*-\d+)$"
+)
+
+
+def _normalize_claim(raw: str) -> str:
+    """Canonical value+unit so '60 percent' and '60%' compare equal."""
+    value = raw.strip().rstrip(".,;:").replace(",", "").lower()
+    value = re.sub(r"\s+", " ", value)
+    value = re.sub(r"\s*(?:k|m|b)(?=\s|$)", lambda m: m.group(0).strip(), value)
+    # µ is not a word character, so \bµs\b never matches. Handle it directly.
+    value = value.replace("µs", "us").replace("μs", "us")
+    for surface, canonical in (
+        ("percent", "%"), ("percentage", "%"),
+        ("milliseconds", "ms"), ("millisecond", "ms"),
+        ("microseconds", "us"),
+        ("nanoseconds", "ns"), ("nanosecond", "ns"),
+        ("seconds", "s"), ("second", "s"),
+        ("minutes", "min"), ("minute", "min"),
+        ("hours", "h"), ("hour", "h"),
+    ):
+        value = re.sub(rf"\b{surface}\b", canonical, value)
+    # "5 microseconds" and "5µs" must compare equal.
+    value = re.sub(r"\s+(?=%|ms\b|us\b|ns\b|s\b|min\b|h\b)", "", value)
+    return value.strip()
+
+
+def extract_numeric_claims(text: str) -> List[str]:
+    """Return every quantitative claim in a draft."""
+    return [match.group(0) for match in _NUMERIC_CLAIM_RE.finditer(text or "")]
+
+
+def validate_no_number_without_source(
+    text: str, source_context: str = ""
+) -> Tuple[bool, List[str]]:
+    """No number ships unless the same value+unit exists in the source context."""
+    sourced = {_normalize_claim(c) for c in extract_numeric_claims(source_context or "")}
+    issues = []
+    for claim in extract_numeric_claims(text):
+        if _STRUCTURAL_NUMBER_RE.match(claim.strip()):
+            continue
+        if _normalize_claim(claim) not in sourced:
+            issues.append(f"unsourced number: {claim.strip()}")
+    return not issues, issues
+
+
+def validate_no_banned_openers(text: str) -> Tuple[bool, List[str]]:
+    first_line = str(text or "").split("\n", 1)[0].strip()
+    if not first_line:
+        return False, ["first line is empty"]
+    if _BANNED_OPENERS_RE.search(first_line):
+        return False, [f"banned opener: {first_line[:80]}"]
+    if first_line.endswith("?"):
+        return False, ["first line is a question, not a claim"]
+    return True, []
+
+
+def validate_no_broken_template(text: str) -> Tuple[bool, List[str]]:
+    match = _BROKEN_TEMPLATE_RE.search(text or "")
+    if match:
+        return False, [f"broken template: {match.group(0)[:80]}"]
+    return True, []
+
+
+def validate_no_repeated_title(text: str, topic_title: str = "") -> Tuple[bool, List[str]]:
+    title = str(topic_title or "").strip()
+    if len(title) < 8:
+        return True, []
+    head = str(text or "")[:400].lower()
+    needle = title.lower().rstrip("?")
+    if head.count(needle) > 1:
+        return False, ["topic title repeated in the opening"]
+    return True, []
+
+
+def validate_no_absolute_claims(text: str) -> Tuple[bool, List[str]]:
+    issues = [m.group(0) for m in _ABSOLUTE_CLAIM_RE.finditer(text or "")]
+    return not issues, [f"absolute claim: {i}" for i in issues]
+
+
+def validate_one_question(text: str) -> Tuple[bool, List[str]]:
+    """Exactly one genuine closing question, never generic bait."""
+    body = str(text or "")
+    questions = body.count("?")
+    if questions == 0:
+        return False, ["no closing question"]
+    if questions > 2:
+        return False, [f"too many questions ({questions})"]
+    tail = body.rstrip().split("\n")[-1].strip()
+    if _BANNED_OPENERS_RE.search(tail) or re.search(
+        r"thoughts\s*\?|what\s+do\s+you\s+think|agree\s*\?|let\s+me\s+know|comment\s+below",
+        tail, re.IGNORECASE,
+    ):
+        return False, ["bait question"]
+    if len(tail) > 120:
+        return False, ["closing question too long"]
+    return True, []
+
+
+def evidence_gate(
+    text: str,
+    *,
+    topic_title: str = "",
+    source_context: str = "",
+    require_question: bool = True,
+) -> Tuple[bool, str, List[str]]:
+    """Master pre-publish gate. Returns (ok, text, violations).
+
+    Never silently edits numbers: a stripped digit creates a different false
+    claim. Callers must regenerate once and then skip the post.
+    """
+    cleaned = sanitize_publish_text(text)
+    issues: List[str] = []
+    checks = [
+        validate_no_broken_template(cleaned),
+        validate_no_repeated_title(cleaned, topic_title),
+        validate_no_number_without_source(cleaned, source_context),
+        validate_no_absolute_claims(cleaned),
+        validate_no_banned_openers(cleaned),
+    ]
+    if require_question:
+        checks.append(validate_one_question(cleaned))
+    for ok, problems in checks:
+        if not ok:
+            issues.extend(problems)
+    return not issues, cleaned, issues
+
+
+def first_comment_gate(text: str) -> Tuple[bool, str, List[str]]:
+    """First comment adds value, not a second question or a link."""
+    cleaned = sanitize_publish_text(text)
+    issues: List[str] = []
+    if not cleaned:
+        return False, cleaned, ["first comment is empty"]
+    if len(cleaned) > 350:
+        issues.append("first comment too long")
+    if "?" in cleaned:
+        issues.append("first comment asks a second question")
+    if re.search(r"https?://|www\.", cleaned, re.IGNORECASE):
+        issues.append("first comment contains a link")
+    ok, num_issues = validate_no_number_without_source(cleaned, "")
+    issues.extend(num_issues)
+    return not issues, cleaned, issues

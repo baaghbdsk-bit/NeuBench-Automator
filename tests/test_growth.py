@@ -3,11 +3,15 @@
 import unittest
 
 from src.growth import (
+    evidence_gate,
+    extract_numeric_claims,
     filter_fresh_topics,
+    first_comment_gate,
     is_near_duplicate_topic,
     sanitize_plan,
     sanitize_publish_text,
     topic_similarity,
+    validate_no_number_without_source,
 )
 
 
@@ -79,6 +83,70 @@ class TopicSimilarityTests(unittest.TestCase):
         ]
         fresh = filter_fresh_topics(topics, ["io_uring vs epoll in production"], limit=3)
         self.assertEqual([t["title"] for t in fresh], ["Why context windows are not free"])
+
+
+class EvidenceGateTests(unittest.TestCase):
+    def test_sourced_number_passes(self):
+        ok, _, issues = evidence_gate(
+            "I cut p99 latency on this path. The source says 60 percent was wasted.\n\nWhat do you measure first?",
+            source_context="Measured 60 percent waste on this path",
+        )
+        self.assertTrue(ok, issues)
+
+    def test_unsourced_number_is_rejected(self):
+        ok, _, issues = evidence_gate(
+            "Your cluster wastes 60 percent of its memory on empty air. Fix it here?",
+            source_context="",
+        )
+        self.assertFalse(ok)
+        self.assertTrue(any("unsourced number" in i for i in issues))
+
+    def test_banned_opener_is_rejected(self):
+        ok, _, issues = evidence_gate(
+            "What is a Bloom Filter? Here is how it works. Why does it matter?",
+            source_context="Bloom filters trade accuracy for memory",
+        )
+        self.assertFalse(ok)
+        self.assertTrue(any("banned opener" in i for i in issues))
+
+    def test_broken_template_is_rejected(self):
+        ok, _, issues = evidence_gate(
+            "Understanding the real-world mechanics of KV cache is one of the most critical fundamentals. Why does it matter?",
+            source_context="KV cache stores attention keys",
+        )
+        self.assertFalse(ok)
+
+    def test_repeated_title_is_rejected(self):
+        title = "What is a Bloom Filter?"
+        ok, _, issues = evidence_gate(
+            f"{title}\n\nI stopped trusting {title} after a false positive. What would you test first?",
+            topic_title=title,
+            source_context="",
+        )
+        self.assertFalse(ok)
+        self.assertTrue(any("repeated" in i for i in issues))
+
+    def test_absolute_claim_is_rejected(self):
+        ok, _, issues = evidence_gate(
+            "I switched to this approach. The result is guaranteed zero failures. What do you use?",
+            source_context="",
+        )
+        self.assertFalse(ok)
+
+    def test_first_comment_requires_value_without_question(self):
+        ok, _, issues = first_comment_gate(
+            "One detail the post skips: the cache grows with sequence length even when traffic is flat."
+        )
+        self.assertTrue(ok, issues)
+        ok, _, issues = first_comment_gate("What would you test first here?")
+        self.assertFalse(ok)
+        self.assertTrue(any("question" in i for i in issues))
+
+    def test_extract_numeric_claims_normalises_units(self):
+        ok_a, _ = validate_no_number_without_source("It costs 5 microseconds.", "measured 5µs here")
+        ok_b, _ = validate_no_number_without_source("It costs 5 microseconds.", "")
+        self.assertTrue(ok_a)
+        self.assertFalse(ok_b)
 
 
 if __name__ == "__main__":

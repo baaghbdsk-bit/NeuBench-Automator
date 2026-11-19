@@ -79,7 +79,9 @@ from src.platform_state import (
     stable_hash,
 )
 from src.growth import (
+    evidence_gate,
     filter_fresh_topics,
+    first_comment_gate,
     is_near_duplicate_topic,
     sanitize_plan,
     sanitize_publish_text,
@@ -1594,6 +1596,42 @@ class AutomaterEngine:
         """Publish an executive article on a user-specified topic through LinkedIn Portfolio Manager."""
         return self._execute_linkedin_post(time.time(), custom_topic=topic, force=True)
 
+    def _record_linkedin_outcome(self, *, posted_at: str, title: str, post_urn: str, visual_format: str) -> None:
+        """Create a real per-post outcome record (no invented metrics).
+
+        The 48h/7d engagement values are filled from LinkedIn analytics later.
+        Until then the record exists with nulls, never fabricated numbers.
+        """
+        path = Path("data/linkedin_outcomes.json")
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            payload = {"version": 1, "posts": []}
+            if path.exists():
+                loaded = json.loads(path.read_text(encoding="utf-8"))
+                if isinstance(loaded, dict) and isinstance(loaded.get("posts"), list):
+                    payload = loaded
+            try:
+                due = (datetime.fromisoformat(posted_at.replace("Z", "+00:00")) + timedelta(hours=48)).isoformat()
+            except Exception:
+                due = ""
+            payload["posts"].append({
+                "posted_at": posted_at,
+                "title": str(title)[:160],
+                "post_urn": post_urn,
+                "visual_format": visual_format,
+                "measure_due_at": due,
+                "impressions": None,
+                "reactions": None,
+                "comments": None,
+                "saves": None,
+                "profile_views": None,
+                "follower_delta": None,
+            })
+            payload["posts"] = payload["posts"][-500:]
+            path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+        except Exception as exc:
+            console.print(f"[dim]Outcome log note: {exc}[/dim]")
+
     def _execute_linkedin_post(
         self,
         start_time: float,
@@ -1870,6 +1908,20 @@ class AutomaterEngine:
 
                         candidate_text = str(plan.get("post_text") or "").strip()
                         if candidate_text:
+                            # Gate #1: reject invented numbers and template
+                            # openers before they reach the expensive review.
+                            draft_ok, draft_text, draft_issues = evidence_gate(
+                                candidate_text,
+                                topic_title=title,
+                                source_context=summary,
+                            )
+                            if not draft_ok:
+                                console.print(
+                                    f"[yellow]↩️ Draft rejected by evidence gate: {'; '.join(draft_issues[:3])}[/yellow]"
+                                )
+                                continue
+                            candidate_text = draft_text
+                        if candidate_text:
                             # Ensure full-length, highly descriptive technical article (never a 1-to-2 liner)
                             if len(candidate_text) < 600:
                                 console.print(f"[cyan]Expanding LinkedIn draft into full descriptive technical article...[/cyan]")
@@ -1891,7 +1943,7 @@ class AutomaterEngine:
                             media_path = None
                             first_comm = sanitize_publish_text(
                                 plan.get("first_comment")
-                                or "What would you test first here? I would start with the failure mode, not the happy path."
+                                or "One detail the post skips: the failure mode shows up at the boundary, not in the happy path. Test the boundary first."
                             )
                             break
                     except Exception as gen_err:
@@ -2004,10 +2056,27 @@ class AutomaterEngine:
                 console.print(f"[bold red]❌ Quality Gate Rejected Post for '{topic_title}': Failed executive standards. Aborting to protect portfolio integrity.[/bold red]")
                 return False
 
-            li_text = sanitize_publish_text(final_text)
+            gate_ok, gate_text, gate_issues = evidence_gate(
+                final_text,
+                topic_title=topic_title,
+                source_context=topic_summary,
+            )
+            if not gate_ok:
+                reason = "; ".join(gate_issues[:4])
+                console.print(f"[bold red]❌ Evidence gate rejected post: {reason}[/bold red]")
+                self.tracker.record_event(
+                    action_type="linkedin_post",
+                    status="skipped",
+                    target_identifier="Evidence gate",
+                    skip_or_error_reason=reason,
+                    duration_seconds=time.time() - start_time,
+                    is_dry_run=self.safety.dry_run,
+                )
+                return False
+            li_text = gate_text
             media_path = final_media
 
-            # Ensure hashtags are included cleanly if present in plan
+            # Ensure hashtags are included cleanly if present in plan (max 3).
             if carousel_plan:
                 tags = [
                     str(tag).strip()
@@ -2015,20 +2084,24 @@ class AutomaterEngine:
                     if str(tag).strip()
                 ]
                 if tags and "#" not in li_text[-200:]:
-                    tag_line = " ".join(tags[:5])
+                    tag_line = " ".join(tags[:3])
                     li_text = f"{li_text.rstrip()}\n\n{tag_line}"
 
             console.print(f"[green]✅ Approved LinkedIn Post ({len(li_text)} chars):[/green] {li_text[:180]}...")
 
             first_comm = None
             if carousel_plan:
-                first_comm = sanitize_publish_text(
-                    str(carousel_plan.get("first_comment") or "").strip()
-                ) or None
-                if first_comm:
+                cand_comment = str(carousel_plan.get("first_comment") or "").strip()
+                comment_ok, comment_text, comment_issues = first_comment_gate(cand_comment)
+                if comment_ok:
+                    first_comm = comment_text
                     console.print(
-                        f"[dim]💬 First-comment fallback ready (LinkedIn may skip it on personal tokens):[/dim] "
+                        f"[dim]💬 First comment ready (value only, no link/question):[/dim] "
                         f"{first_comm[:100]}..."
+                    )
+                elif comment_issues:
+                    console.print(
+                        f"[dim]First comment skipped: {'; '.join(comment_issues[:2])}[/dim]"
                     )
 
             if media_path:
@@ -2054,6 +2127,12 @@ class AutomaterEngine:
             post_urn = post_urn_match.group(0) if post_urn_match else ""
 
             if ok and not self.safety.dry_run:
+                self._record_linkedin_outcome(
+                    posted_at=now_iso,
+                    title=selected_trend.get("title", ""),
+                    post_urn=post_urn,
+                    visual_format=recorded_visual_format,
+                )
                 try:
                     append_post_entry(
                         post_state,
@@ -2244,7 +2323,9 @@ class AutomaterEngine:
                 {"key": key, "type": "own_reply", "ts": now_iso}
                 for key in replied_ids
             ]
-            if new_entries and not self.safety.dry_run:
+            if not self.safety.dry_run:
+                # Always persist the state file, even on a zero-action run, so the
+                # cloud workflow has observable evidence that engagement ran.
                 engagements.extend(new_entries)
                 save_engagement_history(engagements, ENGAGEMENT_HISTORY_FILE)
 
@@ -2318,7 +2399,7 @@ class AutomaterEngine:
             # Answer comments on our own posts first, then spend any remaining
             # budget on high-signal peer comments/replies.
             own_count, own_msg = automater.reply_to_own_post_comments(
-                max_replies=min(remaining, 2),
+                max_replies=min(remaining, 4),
                 already_replied=already_replied,
                 replied_ids=replied_ids,
             )
@@ -2353,7 +2434,9 @@ class AutomaterEngine:
                 for key in commented_ids
             ]
 
-            if new_entries and not self.safety.dry_run:
+            if not self.safety.dry_run:
+                # Always persist the state file, even on a zero-action run, so the
+                # cloud workflow has observable evidence that engagement ran.
                 engagements.extend(new_entries)
                 save_engagement_history(engagements, ENGAGEMENT_HISTORY_FILE)
 

@@ -370,7 +370,7 @@ FORMAT RULES (MOBILE OPTIMIZED):
 CRITICAL GUIDELINES:
 - Zero corporate fluff, zero generic motivational filler.
 - Clean spacing with emojis for visual anchors.
-- Do NOT include any external links or URLs in the text (LinkedIn penalizes links). The interactive benchmark tracker is mentioned for the first comment.
+- Do NOT include any external links or URLs in the text (LinkedIn penalizes links). The first comment, when present, adds one new technical detail and no link.
 - Output ONLY the finished post text.
 """
         text = self._generate_with_fallback(
@@ -426,7 +426,7 @@ CRITICAL MOBILE-FIRST FORMATTING RULES (80%+ OF USERS READ ON PHONES):
 
 Structure:
 1. 🪝 THE HOOK (First 2 Lines):
-   - A high-curiosity, high-utility opener promising to save time or money (e.g. "I spent 40+ hours benchmarking 260+ models on [Topic]. Here is the 1-page visual cheatsheet so you don't burn your cloud budget:").
+   - Open in FIRST PERSON with a real consequence and a named mechanism. Example shape: "I stopped trusting [mechanism] after [specific failure]." Never invent numbers, hours, or credentials. No "What is X", "Understanding...", "Your X...yet", "Every", or "Imagine".
 
 2. 🗺️ MOBILE CHEATSHEET SCORECARDS (Use vertical card boxes, under 32 chars wide):
    Example:
@@ -459,12 +459,11 @@ Structure:
      ▼
    [3] 𝗢𝗽𝘁𝗶𝗺𝗶𝘇𝗲𝗱 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 (90% Cost Cut)
 
-5. 📌 SAVE & ENGAGEMENT CTA (Triggers Algorithm Saves & Dwell Time):
-   - "📌 **Save this post** to reference during your next system design or benchmark review."
-   - "💬 **What is your go-to stack for this?** Drop your thoughts below — and check the first comment for the interactive benchmark tracker! 👇"
+5. 📌 ENGAGEMENT CTA:
+   - End with exactly one short question an engineer can answer in a few words about the mechanism. Never "thoughts?", "what do you think?", "agree?", "save this", or any promise of a resource in the first comment.
 
 6. 🏷️ HASHTAGS:
-   - 4-5 high-traffic engineering hashtags (e.g. #MachineLearning #ArtificialIntelligence #SoftwareEngineering #LLM #SystemDesign).
+   - At most 3 relevant, specific hashtags.
 
 Rules:
 - 100% actionable and authentic. Zero corporate fluff, PR marketing buzzwords, or textbook filler.
@@ -564,7 +563,7 @@ Rules:
 - Cover subhead states the consequence for the reader, not a generic industry observation.
 - CTA headline <= 60 chars and gives one concrete action tied to this topic that the reader can do today. Do not use a generic "test your systems" or "benchmark your workflows" pitch unless the topic is about benchmarks. Keep the website field empty.
 - post_text: 600 to 1000 chars. Plain text only. No markdown, no bold, no tables, no URLs, no emoji bullets. Short lines. End with one specific question. Do not mention a first comment.
-- first_comment: <= 350 chars. Reference one specific step from the framework and ask a follow-up question. No URLs, no invented stats.
+- first_comment: <= 350 chars. Add ONE new engineering detail or decision rule absent from the post. No question, no URLs, no invented stats.
 - alt_text: <= 180 chars, describe what the carousel shows.
 - hashtags: 3 to 5 specific tags. Mix one broad tag with two or three topic-specific tags. Avoid generic tags like #Tech or #Business. Do not repeat the same three tags on every post.
 """
@@ -627,7 +626,7 @@ Rules:
         cta_raw = data.get("cta") if isinstance(data.get("cta"), dict) else {}
         cta = {
             "kicker": _clamp_text(cta_raw.get("kicker") or "ONE MORE THING", 40),
-            "headline": _clamp_text(cta_raw.get("headline") or "Save this for your next review.", 70),
+            "headline": _clamp_text(cta_raw.get("headline") or "One thing to try next.", 70),
             "subtext": _clamp_text(cta_raw.get("subtext") or "", 150),
             "website": _clamp_text(cta_raw.get("website") or "", 48),
         }
@@ -685,42 +684,40 @@ Rules:
 
         comp_context = f"\nComparing: '{concept_a}' vs '{concept_b}'" if (concept_a and concept_b) else ""
 
-        if visual_format == "notebook_carousel":
-            visual_ref_instruction = 'Include a natural line referencing the attached 6-page field notes: "I broke down the complete mechanics, implementation code, and production traps into a 6-page study note field guide attached below."'
-        elif visual_format == "hero_image":
-            visual_ref_instruction = 'Include a natural line referencing the attached technical infographic: "I mapped the core architectural trade-offs into the visual blueprint attached below."'
-        else:
-            visual_ref_instruction = 'Include a natural line referencing the attached animated blueprint: "I created this animated visual guide to map the entire lifecycle step by step."'
+        # Visual references are banned: a weak post cannot be rescued by an
+        # attachment, and the copy should stand on its own in the feed.
+        visual_ref_instruction = 'Do not mention any attached image, visual, diagram, carousel, or guide. The text must stand alone.'
 
-        prompt = f"""You are an elite Principal Software Architect and Technical Educator writing an authoritative, highly engaging LinkedIn article.
+        prompt = f"""You are a sharp AI engineer writing on LinkedIn for other engineers. You are not a brand and not a lecturer.
 
 Topic: "{topic}"
 Summary / Context: "{summary}"{comp_context}
 Audience Tier: {target_audience} ({aud_note})
 
 STRUCTURE REQUIREMENTS (1,200 to 1,900 characters total):
-1. THE SCROLL-STOPPING HOOK:
-   Start with an eye-opening metric, striking paradox, or real-world comparison that stops the feed scroll immediately (e.g. parameter count contrast, latency gap, or hidden production bottleneck).
+1. THE HOOK — write the first line in FIRST PERSON with a real consequence and a named mechanism. Say what you did, what broke, or what you changed your mind about. The reader must be able to disagree with you.
+   BANNED openers: "What is X", "Understanding the real-world mechanics of X", "Your X ... yet/but", "Every time", "Imagine", "In today's", "Game changer", "Unlock".
+   BANNED: invented numbers. Use NO number unless the exact value and unit appear in the Summary / Context above. If no number is supplied, describe the trade-off qualitatively. Never use "up to", ranges, or hedged statistics.
 2. PLAIN-ENGLISH INTUITION:
-   Explain WHAT this concept is and WHY it exists in simple, visual language. Zero gatekeeping, zero buzzwords without clear definition.
+   Explain WHAT this mechanism is and WHY it exists in simple language. Zero gatekeeping, zero buzzwords without definition.
 3. UNDER-THE-HOOD EXECUTION LIFECYCLE:
-   Walk through the exact step-by-step flow of what happens when a request or token enters the system. Detail the journey from ingestion to routing, execution, and output.
+   Walk through what actually happens, step by step, and where it fails in production.
 4. THE PRODUCTION CATCH & TRADE-OFFS:
-   Address the architectural trade-offs that only experienced engineers know (e.g. memory footprint vs compute, cache invalidation, routing skew, operational overhead, failure modes).
-5. VISUAL REFERENCE:
+   Address the real trade-offs: memory vs compute, invalidation, routing skew, tail behaviour, operational cost. Take a position; do not hedge with "it depends".
+5. NO VISUAL REFERENCES:
    {visual_ref_instruction}
 6. DISCUSSION QUESTION:
-   End with one specific, open-ended question that invites software engineers and architects to share their production experiences in the comments.
+   End with exactly one short, specific question that an engineer can answer in a few words about the mechanism you named. Never "thoughts?", "what do you think?", "agree?", or "comment below".
 7. FORMATTING RULES:
-   - Use clean, short paragraphs (1 to 3 sentences each) separated by double newlines.
-   - Use simple bullet points (- ) where appropriate.
-   - NO markdown bolding with asterisks (use plain text for LinkedIn compatibility).
-   - NO emojis overload. Keep it clean, editorial, and highly professional.
-   - End with 4-5 relevant hashtags.
+   - Short paragraphs (1 to 3 sentences) separated by double newlines.
+   - Simple bullet points (- ) where appropriate.
+   - NO markdown bolding with asterisks.
+   - NO emoji overload. Clean, editorial, professional.
+   - End with at most 3 relevant hashtags.
 """
         system_instruction = (
-            "You are a world-class Systems Architect and Technical Educator on LinkedIn. "
-            "Write descriptive, high-signal, deeply informative technical articles that engineers love to read and save. "
+            "You are an AI systems engineer posting on LinkedIn. Write like a builder with a stake in being right: "
+            "first person, specific mechanisms, real trade-offs, an arguable position, and zero invented facts. "
             "Output ONLY the complete article text."
         )
         try:
@@ -730,28 +727,19 @@ STRUCTURE REQUIREMENTS (1,200 to 1,900 characters total):
         except Exception as e:
             print(f"[AIGenerator] Full article generation notice: {e}")
 
-        comp_str = f" between {concept_a} and {concept_b}" if (concept_a and concept_b) else ""
-        fallback_ref = (
-            "I broke down the complete mechanics, implementation code, and production traps into a 6-page study note field guide attached below."
-            if visual_format == "notebook_carousel"
-            else "I mapped out the complete step-by-step architecture and execution lifecycle in the animated diagram below."
+        # Safe fallback: first person, no invented numbers, no title echo, one
+        # answerable question. Ships only if every Gemini model failed.
+        clean_topic = str(topic or "").strip().rstrip("?")
+        context = str(summary or "").strip() or (
+            "The mechanism matters more than the label: where work is routed, "
+            "what state is kept, and which failure mode appears first."
         )
         return (
-            f"{topic}\n\n"
-            f"Understanding the real-world mechanics of {topic}{comp_str} is one of the most critical fundamentals in modern systems design.\n\n"
-            f"{summary or 'Most explanations focus only on textbook definitions, but production reality hits hard boundaries around memory, latency, and scaling.'}\n\n"
-            f"Here is how it actually works under the hood:\n\n"
-            f"1. Ingestion & Invariants: The incoming payload enters the runtime boundary where initial validation occurs.\n"
-            f"2. Routing & Dispatch: Instead of processing every path uniformly, the system selectively routes work based on state or probability weights.\n"
-            f"3. Execution: Active workers execute the core logic while idle resources remain dormant to preserve compute.\n"
-            f"4. Recombination: Results are synthesized, validated, and returned with minimal serialization overhead.\n\n"
-            f"The engineering catch:\n"
-            f"- Compute efficiency often comes at the cost of memory footprint.\n"
-            f"- Load distribution requires active balancing to prevent hotspotting and queue saturation.\n"
-            f"- Tail latency (p99) must be continuously measured against synthetic load spikes.\n\n"
-            f"{fallback_ref}\n\n"
-            f"How are you currently handling this in your production architecture?\n\n"
-            f"#SoftwareEngineering #SystemDesign #ComputerScience #Programming #CloudArchitecture"
+            "I stopped treating this as a definition and started treating it as a trade-off.\n\n"
+            f"{clean_topic}\n\n"
+            f"{context}\n\n"
+            "The cost is paid at the boundary, not in the happy path. I would measure that first.\n\n"
+            "Which part would you test first in your own system?"
         )
 
     def generate_editorial_architecture_spec(
@@ -1120,7 +1108,7 @@ Guidelines:
 - Goal: Spark meaningful technical discussion in the comments.
 - Structure:
   1. A sharp 1-2 sentence engineering takeaway or implementation tip.
-  2. An open question asking developers how they handle this in production.
+  2. One concrete implementation detail the post did not have room for.
 - Keep it under 60-80 words. Professional, collegial, and high signal.
 - No URLs, no product pitch, no brand names.
 - Output ONLY the comment text.
@@ -1272,7 +1260,7 @@ Return ONLY valid JSON with this exact schema:
     }}
   ],
   "post_text": "In-depth technical breakdown of {topic} for engineers and architects...\n\nDetailed 6-page field notes attached.\n\n#SoftwareEngineering #SystemDesign #Programming #DevOps #Architecture",
-  "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
+  "first_comment": "One detail the post skips: the failure mode shows up at the boundary, not in the happy path. Test the boundary first.",
   "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#ComputerScience", "#Programming"]
 }}
 """
@@ -1378,10 +1366,10 @@ Return ONLY valid JSON with this exact schema:
                 "• Implementation Reference Pattern\n"
                 "• Production Traps & Latency Pitfalls\n"
                 "• Revision Checklist for System Designers\n\n"
-                "Save this carousel for your next architectural review.\n\n"
+                "Ask the one decision you would make differently next time.\n\n"
                 "#SoftwareEngineering #SystemDesign #ComputerScience #Programming #DevOps"
             ),
-            "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
+            "first_comment": "One detail the post skips: the failure mode shows up at the boundary, not in the happy path. Test the boundary first.",
             "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#ComputerScience", "#Programming", "#Architecture"]
         }
         return self._normalize_carousel_plan(fallback_plan, topic, category)
@@ -1495,7 +1483,7 @@ Return ONLY valid JSON matching this schema:
     }}
   ],
   "post_text": "{topic}: The Ultimate Engineering Comparison Guide\n\nBoth {name_a} and {name_b} are exceptional, but they were built for fundamentally different workloads...\n\nDetailed 6-page architectural matrix attached.\n\n#SystemDesign #SoftwareEngineering #Architecture #DevOps #Programming",
-  "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
+  "first_comment": "One detail the post skips: the failure mode shows up at the boundary, not in the happy path. Test the boundary first.",
   "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#Architecture", "#DevOps"]
 }}
 """
@@ -1602,10 +1590,10 @@ Return ONLY valid JSON matching this schema:
                 "• Production Code Patterns & Consumer Ergonomics\n"
                 "• Critical Pitfalls & Failure Modes\n"
                 "• Golden Selection Rules\n\n"
-                "Save this guide for your next systems architecture review.\n\n"
+                "Ask which failure mode you would test first.\n\n"
                 "#SystemDesign #SoftwareEngineering #Architecture #DevOps #Programming"
             ),
-            "first_comment": "What would you test first here? I would start with the failure mode, not the happy path.",
+            "first_comment": "One detail the post skips: the failure mode shows up at the boundary, not in the happy path. Test the boundary first.",
             "hashtags": ["#SoftwareEngineering", "#SystemDesign", "#Architecture", "#DevOps"]
         }
         return self._normalize_carousel_plan(fallback_plan, topic, "DIFFERENCE")

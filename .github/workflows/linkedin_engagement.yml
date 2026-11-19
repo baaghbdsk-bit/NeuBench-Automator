@@ -3,7 +3,8 @@ name: LinkedIn Viral Engagement (Every 6 Hours)
 on:
   schedule:
     # Comments on viral AI posts and replies to suitable questions, aligned with the 6-hour posting cadence.
-    - cron: '30 */6 * * *'
+    # Every 3 hours: replying to comments quickly is the highest-ROI lever.
+    - cron: '30 */3 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
