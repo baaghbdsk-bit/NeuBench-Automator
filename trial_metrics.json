@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T03:06:09.380602+00:00",
+    "last_updated": "2026-11-20T04:01:53.865408+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1815,
-    "original_posts_attempted": 527,
+    "total_cycles_executed": 1821,
+    "original_posts_attempted": 529,
     "original_posts_succeeded": 299,
-    "replies_attempted": 154,
+    "replies_attempted": 155,
     "replies_succeeded": 25,
-    "reposts_attempted": 69,
+    "reposts_attempted": 70,
     "reposts_succeeded": 13,
-    "actions_skipped": 596,
+    "actions_skipped": 602,
     "failed_operations": 170,
-    "ai_generation_requests": 963,
+    "ai_generation_requests": 966,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T08:02:02.457201+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-      "content_preview": "VAE latent spaces solved video gen tractability, but spatiotemporal compression now bottlenecks high-res control. Liftin",
-      "reason": "",
-      "duration_s": 6.55
-    },
-    {
-      "timestamp": "2026-11-15T08:37:46.018745+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Swapping your AI model just to save pennies on tokens while it hallucinates the entire codebase. Bro, at this point hiri",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.33
-    },
-    {
-      "timestamp": "2026-11-15T08:37:46.032801+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T08:37:52.918092+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
-      "content_preview": "Cross-embodiment RL hits a wall with morphological and sensory variance. EgoX solves this via \"embodiment dreaming,\" map",
-      "reason": "",
-      "duration_s": 6.87
-    },
-    {
-      "timestamp": "2026-11-15T09:02:02.262918+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
-      "duration_s": 20.19
-    },
-    {
-      "timestamp": "2026-11-15T09:02:02.325029+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.04
-    },
     {
       "timestamp": "2026-11-15T09:02:09.056338+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 8.65
+    },
+    {
+      "timestamp": "2026-11-20T04:01:43.922641+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Cheap models vs frontier models",
+      "content_preview": "",
+      "reason": "unsourced number: 400B; unsourced number: 8B; unsourced number: 94%",
+      "duration_s": 1.25
+    },
+    {
+      "timestamp": "2026-11-20T04:01:43.938036+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 657.9m ago (minimum interval: 720m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T04:01:48.535866+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "VSpark: Speculative Decoding for Autoregressive Vision-Language-Action Models",
+      "content_preview": "",
+      "reason": "weak voice 3/10: {'pov': 1, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 4.59
+    },
+    {
+      "timestamp": "2026-11-20T04:01:52.861006+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T04:01:52.866959+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.84
+    },
+    {
+      "timestamp": "2026-11-20T04:01:53.865372+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark contamination",
+      "content_preview": "",
+      "reason": "unsourced number: 70B model",
+      "duration_s": 4.83
     }
   ]
 }
