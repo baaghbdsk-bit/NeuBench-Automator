@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T19:02:11.428244+00:00",
+    "last_updated": "2026-11-20T19:48:58.411468+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1909,
-    "original_posts_attempted": 558,
+    "total_cycles_executed": 1915,
+    "original_posts_attempted": 560,
     "original_posts_succeeded": 300,
-    "replies_attempted": 179,
+    "replies_attempted": 181,
     "replies_succeeded": 28,
     "reposts_attempted": 73,
     "reposts_succeeded": 13,
-    "actions_skipped": 679,
+    "actions_skipped": 685,
     "failed_operations": 174,
-    "ai_generation_requests": 1015,
+    "ai_generation_requests": 1018,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T11:01:56.601136+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T11:02:02.008431+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Vector Embedding? The Secret Language of AI",
-      "content_preview": "Meaning is distance: in high-dimensional spaces, semantic similarity maps to geometric proximity. Imagine stat grids for",
-      "reason": "",
-      "duration_s": 5.4
-    },
-    {
-      "timestamp": "2026-11-16T12:02:05.152336+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI coding agent went on a 260-model bender and ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 8.57
-    },
-    {
-      "timestamp": "2026-11-16T12:02:05.169791+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T12:02:11.723707+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Mobile AI Factory: Building Specialized Language Models for Your Mobile Device",
-      "content_preview": "Mobile SLMs solve privacy & latency constraints, but manual fine-tuning per device class doesn't scale. Mobile AI Factor",
-      "reason": "",
-      "duration_s": 6.52
-    },
-    {
-      "timestamp": "2026-11-16T12:15:10.268636+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending your entire salary on token costs just for your AI to hallucinate a python loop that deletes the universe. We a",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.09
-    },
     {
       "timestamp": "2026-11-16T12:15:10.282382+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 300ms",
       "duration_s": 4.86
+    },
+    {
+      "timestamp": "2026-11-20T19:48:47.730983+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 32B model; unsourced number: 4 minutes; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 1.16
+    },
+    {
+      "timestamp": "2026-11-20T19:48:47.753841+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T19:48:52.834710+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "RL Post-Training in Diffusion Transformers Is Activation Steering",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.07
+    },
+    {
+      "timestamp": "2026-11-20T19:48:57.506198+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T19:48:57.513221+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.99
+    },
+    {
+      "timestamp": "2026-11-20T19:48:58.411434+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 70B; unsourced number: 8B models; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.89
     }
   ]
 }
