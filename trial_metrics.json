@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-19T23:14:57.969127+00:00",
+    "last_updated": "2026-11-20T00:03:12.350859+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1790,
-    "original_posts_attempted": 519,
+    "total_cycles_executed": 1796,
+    "original_posts_attempted": 521,
     "original_posts_succeeded": 299,
-    "replies_attempted": 147,
+    "replies_attempted": 148,
     "replies_succeeded": 25,
-    "reposts_attempted": 68,
+    "reposts_attempted": 69,
     "reposts_succeeded": 13,
-    "actions_skipped": 572,
+    "actions_skipped": 578,
     "failed_operations": 170,
-    "ai_generation_requests": 951,
+    "ai_generation_requests": 954,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T01:02:00.051066+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Nvidia deliberately kept GPU prices high through circular financing deals",
-      "content_preview": "Financial engineering propping up hardware margins distorts true compute economics. When market clearing prices are arti",
-      "reason": "",
-      "duration_s": 6.26
-    },
-    {
-      "timestamp": "2026-11-15T01:26:29.655644+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley rent just to watch my AI hallucinate a Python loop while burning through my life savings per token",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.93
-    },
-    {
-      "timestamp": "2026-11-15T01:26:45.622547+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Imagine searching across 10 billion web pages and getting results in under 50 milliseconds. If a search engine scanned e",
-      "reason": "",
-      "duration_s": 15.96
-    },
-    {
-      "timestamp": "2026-11-15T01:26:51.422951+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is KV Caching in LLMs?",
-      "content_preview": "Autoregressive decoding without KV caching is re-solving every prior step for every new token. Caching attention keys an",
-      "reason": "",
-      "duration_s": 5.79
-    },
-    {
-      "timestamp": "2026-11-15T02:02:07.636223+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending half my salary on token costs just so my AI can hallucinate a semicolon in a loop. We are truly living in the f",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.0
-    },
-    {
-      "timestamp": "2026-11-15T02:02:07.651133+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 35.4m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-15T02:02:13.110302+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Total daily limit reached (25/20).",
       "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-20T00:02:57.424305+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "unsourced number: 40%; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.19
+    },
+    {
+      "timestamp": "2026-11-20T00:02:57.447370+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 419.2m ago (minimum interval: 720m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T00:03:02.699126+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Anthropic’s Nasdaq debut",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 0, 'stakes': 2, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 5.24
+    },
+    {
+      "timestamp": "2026-11-20T00:03:07.877863+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T00:03:07.885268+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.55
+    },
+    {
+      "timestamp": "2026-11-20T00:03:12.350832+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 9.02
     }
   ]
 }

@@ -788,39 +788,6 @@
   ],
   "pending_x_actions": [
     {
-      "reservation_id": "e96cc0201f5c4dc187fb7631f0e0215e",
-      "action_type": "reply",
-      "target_identifier": "https://x.com/elonmusk/status/2119617455102333206",
-      "content_hash": "1fe2661b305b0f81c6ff552561c502a0145ad28a5fa7f4bd6bedfaff7d249295",
-      "content_preview": "Imagine getting a CS degree just to have your entire overnight patch dictated by an unhinged reply guy with an anime PFP",
-      "status": "unknown",
-      "reserved_at": "2026-11-09T05:04:17.246696+00:00",
-      "unknown_at": "2026-11-09T05:04:50.442516+00:00",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
-    },
-    {
-      "reservation_id": "498ff7c223874568a4ded0ffd88803b2",
-      "action_type": "reply",
-      "target_identifier": "https://x.com/Swiggy/status/2090687847271637112",
-      "content_hash": "63095c2dec55e2d7604afe9be6d32fb73ee0a287a1f39233da986a0933c34e5b",
-      "content_preview": "Bro’s really doing market research on okra while taking 55 minutes to deliver a cold khichdi. #Swiggy",
-      "status": "unknown",
-      "reserved_at": "2026-11-11T23:03:22.707881+00:00",
-      "unknown_at": "2026-11-11T23:03:52.893842+00:00",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
-    },
-    {
-      "reservation_id": "16d051b796154bf9b22890c655c0603a",
-      "action_type": "reply",
-      "target_identifier": "https://x.com/sundarpichai/status/2120581155078729728",
-      "content_hash": "670e9fd4130cd9be477cf199f104cc0cee8c7348dae0fff809245e76f216c213",
-      "content_preview": "Bro literally just automated my inability to pick what to watch on Netflix for 45 minutes. #AI #TechTrends",
-      "status": "unknown",
-      "reserved_at": "2026-11-12T01:02:57.464822+00:00",
-      "unknown_at": "2026-11-12T01:03:30.554051+00:00",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
-    },
-    {
       "reservation_id": "227de2e00920485cadb2e84a1167c2b7",
       "action_type": "repost",
       "target_identifier": "https://x.com/naval/status/1002103360646823936",
