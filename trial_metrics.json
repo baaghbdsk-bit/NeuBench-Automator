@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T21:02:21.199878+00:00",
+    "last_updated": "2026-11-20T22:02:22.002415+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1929,
-    "original_posts_attempted": 564,
+    "total_cycles_executed": 1935,
+    "original_posts_attempted": 566,
     "original_posts_succeeded": 300,
-    "replies_attempted": 184,
+    "replies_attempted": 186,
     "replies_succeeded": 28,
     "reposts_attempted": 74,
     "reposts_succeeded": 13,
-    "actions_skipped": 698,
+    "actions_skipped": 704,
     "failed_operations": 174,
-    "ai_generation_requests": 1024,
+    "ai_generation_requests": 1027,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T18:01:51.387721+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley rent just to watch my AI hallucinate a Python loop for 45 minutes while bankrupting my API credits",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.1
-    },
-    {
-      "timestamp": "2026-11-16T18:01:51.401941+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T18:01:56.320751+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "OneSteer: Unlocking Steerable General Humanoid Motion Tracking via One-Step Diffusion Whole-Body Control",
-      "content_preview": "OneSteer achieves real-time humanoid control by combining multi-step diffusion tracking with one-step test-time steering",
-      "reason": "",
-      "duration_s": 4.91
-    },
-    {
-      "timestamp": "2026-11-16T19:02:27.593457+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
-      "duration_s": 20.16
-    },
-    {
-      "timestamp": "2026-11-16T19:02:27.649834+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.04
-    },
-    {
-      "timestamp": "2026-11-16T19:02:36.138003+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Alloy: A Multi-Material Physics Engine for Robot Learning",
-      "content_preview": "Multi-material simulation usually means stitching disparate solvers together, introducing severe integration drift and l",
-      "reason": "",
-      "duration_s": 8.48
-    },
     {
       "timestamp": "2026-11-16T19:38:13.343374+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 120ms",
       "duration_s": 5.35
+    },
+    {
+      "timestamp": "2026-11-20T22:02:01.996064+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "unsourced number: 60%; unsourced number: 80GB",
+      "duration_s": 1.3
+    },
+    {
+      "timestamp": "2026-11-20T22:02:02.018771+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T22:02:16.150854+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI claimed a solution to the 167-year-old Riemann Hypothesis — and a human did, too",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 14.12
+    },
+    {
+      "timestamp": "2026-11-20T22:02:20.869251+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T22:02:20.877860+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.99
+    },
+    {
+      "timestamp": "2026-11-20T22:02:22.002376+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "",
+      "reason": "unsourced number: 300ms",
+      "duration_s": 5.11
     }
   ]
 }
