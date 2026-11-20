@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T18:02:33.285409+00:00",
+    "last_updated": "2026-11-20T19:02:11.428244+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1903,
-    "original_posts_attempted": 556,
+    "total_cycles_executed": 1909,
+    "original_posts_attempted": 558,
     "original_posts_succeeded": 300,
-    "replies_attempted": 177,
+    "replies_attempted": 179,
     "replies_succeeded": 28,
     "reposts_attempted": 73,
     "reposts_succeeded": 13,
-    "actions_skipped": 673,
+    "actions_skipped": 679,
     "failed_operations": 174,
-    "ai_generation_requests": 1012,
+    "ai_generation_requests": 1015,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T09:02:12.703630+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T09:02:16.408708+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "MMFlash: Faster Speculative Decoding for Vision-Language Models",
-      "content_preview": "Extending diffusion-based speculative decoding (like DFlash) to VLMs requires parallelizing token block proposals across",
-      "reason": "",
-      "duration_s": 3.7
-    },
-    {
-      "timestamp": "2026-11-16T10:02:06.853892+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending 50 bucks in API tokens just for an LLM to hallucinate a python loop that creates a black hole. We are living in",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.16
-    },
-    {
-      "timestamp": "2026-11-16T10:02:06.875798+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T10:02:11.778378+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is an LLM KV Cache?",
-      "content_preview": "LLM KV cache: memoize Key/Value tensors to skip recomputing attention over historical context. \n\nAnalogy: keeping past p",
-      "reason": "",
-      "duration_s": 4.89
-    },
-    {
-      "timestamp": "2026-11-16T11:01:56.579798+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying a month's rent to watch an AI overthink a 5-line bug for 40 minutes just to suggest turning it off and on again. ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.17
-    },
     {
       "timestamp": "2026-11-16T11:01:56.601136+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 10x; unsourced number: 400ms",
       "duration_s": 10.8
+    },
+    {
+      "timestamp": "2026-11-20T19:02:00.922456+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI agents in production",
+      "content_preview": "",
+      "reason": "unsourced number: 40 times",
+      "duration_s": 0.85
+    },
+    {
+      "timestamp": "2026-11-20T19:02:00.945502+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T19:02:05.968570+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Real-World TTFT & Throughput Across Major LLM Hosted Endpoints",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 5.01
+    },
+    {
+      "timestamp": "2026-11-20T19:02:10.489259+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T19:02:10.514977+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.95
+    },
+    {
+      "timestamp": "2026-11-20T19:02:11.428208+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Cheap models vs frontier models",
+      "content_preview": "",
+      "reason": "unsourced number: 300ms",
+      "duration_s": 4.86
     }
   ]
 }
