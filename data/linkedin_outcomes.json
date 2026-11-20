@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "posts": [
+    {
+      "posted_at": "2026-11-20T06:02:19.289345+00:00",
+      "title": "How Vector Database HNSW Indexing Works Under the Hood",
+      "post_urn": "urn:li:ugcPost:7529423859377197057",
+      "visual_format": "notebook_carousel",
+      "measure_due_at": "2026-11-22T06:02:19.289345+00:00",
+      "impressions": null,
+      "reactions": null,
+      "comments": null,
+      "saves": null,
+      "profile_views": null,
+      "follower_delta": null
+    }
+  ]
+}

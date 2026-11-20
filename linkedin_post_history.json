@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-19T17:03:47.309495+00:00",
+  "last_success_at": "2026-11-20T06:02:19.289345+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1202,6 +1202,16 @@
       "posted_at": "2026-11-19T17:03:47.309495+00:00",
       "post_urn": "urn:li:share:7529227937544585216",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:557e0fa97b8f231375d51bfacbe1fe39",
+      "title": "How Vector Database HNSW Indexing Works Under the Hood",
+      "url": "",
+      "content_hash": "b34a4ec30c8f408048e643c1b132e85a",
+      "status": "success",
+      "posted_at": "2026-11-20T06:02:19.289345+00:00",
+      "post_urn": "urn:li:ugcPost:7529423859377197057",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1324,6 +1334,7 @@
     "li:What is Asynchronous Kernel Launch Latency and Host-Device Queue Stalling?",
     "li:What is Shadow Paging in Database Engines?",
     "li:What is Database Isolation Level? Concurrency vs. Consistency Demystified",
-    "li:LLM KV Cache Eviction and PagedAttention"
+    "li:LLM KV Cache Eviction and PagedAttention",
+    "li:How Vector Database HNSW Indexing Works Under the Hood"
   ]
 }

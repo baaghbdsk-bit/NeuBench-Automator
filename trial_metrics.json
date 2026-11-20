@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T05:02:27.422416+00:00",
+    "last_updated": "2026-11-20T06:02:38.829296+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1827,
-    "original_posts_attempted": 531,
+    "total_cycles_executed": 1833,
+    "original_posts_attempted": 533,
     "original_posts_succeeded": 299,
-    "replies_attempted": 157,
+    "replies_attempted": 159,
     "replies_succeeded": 25,
     "reposts_attempted": 70,
     "reposts_succeeded": 13,
-    "actions_skipped": 608,
+    "actions_skipped": 613,
     "failed_operations": 170,
-    "ai_generation_requests": 969,
+    "ai_generation_requests": 973,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T11:02:07.917421+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Numbers Behind AI Confidence",
-      "content_preview": "Logits are unnormalized raw scores—system opinions before Softmax translates them into a probability distribution summin",
-      "reason": "",
-      "duration_s": 4.93
-    },
-    {
-      "timestamp": "2026-11-15T12:02:08.224970+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI model had a severe reasoning drift while deb",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.14
-    },
-    {
-      "timestamp": "2026-11-15T12:02:08.239901+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T12:02:13.536015+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LLM API Outage Frequency & Degradation Index",
-      "content_preview": "Frontier LLM API degradation isn't just about hard outages; tail latency spikes and silent truncation are breaking produ",
-      "reason": "",
-      "duration_s": 5.29
-    },
-    {
-      "timestamp": "2026-11-15T13:01:46.711540+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI coding agent went on a 260-model bender and ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.95
-    },
-    {
-      "timestamp": "2026-11-15T13:01:46.729698+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-15T13:01:53.628709+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 70B",
       "duration_s": 7.27
+    },
+    {
+      "timestamp": "2026-11-20T06:01:58.362301+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Fine-tuning vs prompting",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model",
+      "duration_s": 1.19
+    },
+    {
+      "timestamp": "2026-11-20T06:02:19.309194+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent a week debugging why our vector search latency spiked during peak load, and I realized we completely misundersto",
+      "reason": "",
+      "duration_s": 20.93
+    },
+    {
+      "timestamp": "2026-11-20T06:02:26.554580+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Claude solves two open problems in the physics of black holes",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 1, 'stakes': 2, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 7.23
+    },
+    {
+      "timestamp": "2026-11-20T06:02:32.233437+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T06:02:32.244310+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.96
+    },
+    {
+      "timestamp": "2026-11-20T06:02:38.829260+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Latency budget",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model",
+      "duration_s": 11.54
     }
   ]
 }
