@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T22:02:22.002415+00:00",
+    "last_updated": "2026-11-20T23:02:05.965892+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1935,
-    "original_posts_attempted": 566,
+    "total_cycles_executed": 1941,
+    "original_posts_attempted": 568,
     "original_posts_succeeded": 300,
-    "replies_attempted": 186,
+    "replies_attempted": 188,
     "replies_succeeded": 28,
     "reposts_attempted": 74,
     "reposts_succeeded": 13,
-    "actions_skipped": 704,
+    "actions_skipped": 709,
     "failed_operations": 174,
-    "ai_generation_requests": 1027,
+    "ai_generation_requests": 1030,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T19:38:13.343374+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your expensive A100 GPU cluster is sitting idle 60 percent of the time during LLM inference, and static batching is the ",
-      "reason": "",
-      "duration_s": 30.45
-    },
-    {
-      "timestamp": "2026-11-16T20:01:49.192845+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending half my salary on token costs just so Claude can hallucinate a brilliantly structured bug in my code faster. We",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 6.9
-    },
-    {
-      "timestamp": "2026-11-16T20:01:49.215637+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T20:01:59.759845+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "HTTP/1.1 vs HTTP/2 vs HTTP/3",
-      "content_preview": "HTTP/1.1 text pipelines, HTTP/2 binary multiplexing, HTTP/3 QUIC streaming. \n\nSimplicity and measurable profiling beat p",
-      "reason": "",
-      "duration_s": 10.54
-    },
-    {
-      "timestamp": "2026-11-16T21:02:11.790348+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying rent prices just so an LLM can hallucinate a python script for the 4th time today. Frontier reasoning drift is ju",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.24
-    },
-    {
-      "timestamp": "2026-11-16T21:02:11.812539+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-16T21:02:17.988498+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 300ms",
       "duration_s": 5.11
+    },
+    {
+      "timestamp": "2026-11-20T23:01:56.090472+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Latency budget",
+      "content_preview": "",
+      "reason": "unsourced number: 180ms",
+      "duration_s": 0.83
+    },
+    {
+      "timestamp": "2026-11-20T23:01:56.112363+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T23:02:00.399818+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "RL Post-Training in Diffusion Transformers Is Activation Steering",
+      "content_preview": "I used to think RL post-training on DiTs restructured internal representations. Looking at the activation deltas, it’s j",
+      "reason": "",
+      "duration_s": 4.28
+    },
+    {
+      "timestamp": "2026-11-20T23:02:05.112029+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T23:02:05.120883+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.0
+    },
+    {
+      "timestamp": "2026-11-20T23:02:05.965865+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 4.84
     }
   ]
 }

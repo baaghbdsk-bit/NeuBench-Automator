@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
     "maryland vs purdue",
     "seher hone ko hai",
     "bsky:Amazon’s new basic Kindle proves you don’t need all the bells and whistles",
@@ -499,7 +498,8 @@
     "li:What is Database Isolation Level? Concurrency vs. Consistency Demystified",
     "li:How Vector Database HNSW Indexing Works Under the Hood",
     "bsky:Apple may be developing its own AI agent that runs your Mac",
-    "Open weights vs hosted APIs"
+    "Open weights vs hosted APIs",
+    "bsky:RL Post-Training in Diffusion Transformers Is Activation Steering"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1157,7 +1157,8 @@
         "post:3111f82b0966ca37ab8e75b51ac04e803ba627c6d7d820bbf79d38ce082edc38",
         "post:c635ec1692d2bfc73d9da4b8deb202df78888dff8d1ca76bc6ca11825defc465",
         "post:7e4844c95d213acf1e0bb76d2039099b42f1d645accafe3a74f56bf73bea6461",
-        "post:593c739e4e8b14d6d850e22cc2b4eec49c29f9d10b04a8beeb54456a8d991a6d"
+        "post:593c739e4e8b14d6d850e22cc2b4eec49c29f9d10b04a8beeb54456a8d991a6d",
+        "post:7c59e5b073faedd7f402c53d0f845ebe86a2092b39369e307e0e2156ae1c811a"
       ],
       "pending": [
         {
