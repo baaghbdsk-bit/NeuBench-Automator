@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T09:03:25.750910+00:00",
+    "last_updated": "2026-11-20T10:02:38.028617+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1854,
-    "original_posts_attempted": 540,
+    "total_cycles_executed": 1860,
+    "original_posts_attempted": 542,
     "original_posts_succeeded": 299,
-    "replies_attempted": 164,
+    "replies_attempted": 166,
     "replies_succeeded": 26,
     "reposts_attempted": 71,
     "reposts_succeeded": 13,
-    "actions_skipped": 633,
+    "actions_skipped": 638,
     "failed_operations": 170,
-    "ai_generation_requests": 986,
+    "ai_generation_requests": 989,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T19:01:57.702591+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T19:02:01.480808+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]",
-      "content_preview": "Using LLMs to parse legacy ROM dumps via low-cost hardware interfaces is a masterclass in applying pattern recognition t",
-      "reason": "",
-      "duration_s": 3.77
-    },
-    {
-      "timestamp": "2026-11-15T20:01:51.000638+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Deploying an army of models just to find out your AI still hallucinates bugs at 3 AM. At this rate, debugging costs more",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.13
-    },
-    {
-      "timestamp": "2026-11-15T20:01:51.022173+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T20:01:56.473488+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
-      "content_preview": "Hardware fragmentation in AV stacks is inevitable under export controls. When substituting Nvidia silicon, the real engi",
-      "reason": "",
-      "duration_s": 5.44
-    },
-    {
-      "timestamp": "2026-11-15T21:02:04.283955+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending $400 in API tokens just to watch Claude existential-dread its way through a simple CSS fix while DeepSeek speed",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.26
-    },
     {
       "timestamp": "2026-11-15T21:02:04.305535+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 37.46
+    },
+    {
+      "timestamp": "2026-11-20T10:02:21.978662+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; unsourced number: 1x; unsourced number: 100x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 6.98
+    },
+    {
+      "timestamp": "2026-11-20T10:02:22.003328+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T10:02:32.062336+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Apple may be developing its own AI agent that runs your Mac",
+      "content_preview": "I spent a week debugging why OS-level UI agents loop infinitely on modal dialogs.\n\nLocal DOM trees lack semantic state t",
+      "reason": "",
+      "duration_s": 10.05
+    },
+    {
+      "timestamp": "2026-11-20T10:02:36.784002+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T10:02:36.792558+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.01
+    },
+    {
+      "timestamp": "2026-11-20T10:02:38.028576+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark contamination",
+      "content_preview": "",
+      "reason": "unsourced number: 40%; unsourced number: 90%; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.25
     }
   ]
 }
