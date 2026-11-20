@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T02:24:16.459591+00:00",
+    "last_updated": "2026-11-20T03:06:09.380602+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1809,
-    "original_posts_attempted": 525,
+    "total_cycles_executed": 1815,
+    "original_posts_attempted": 527,
     "original_posts_succeeded": 299,
-    "replies_attempted": 152,
+    "replies_attempted": 154,
     "replies_succeeded": 25,
     "reposts_attempted": 69,
     "reposts_succeeded": 13,
-    "actions_skipped": 590,
+    "actions_skipped": 596,
     "failed_operations": 170,
-    "ai_generation_requests": 960,
+    "ai_generation_requests": 963,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T06:33:29.951108+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Ever wonder how your phone can feel a feather-light tap, yet completely ignore a piece of plastic or wood? \n\nYou do not ",
-      "reason": "",
-      "duration_s": 22.19
-    },
-    {
-      "timestamp": "2026-11-15T07:02:04.699172+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley rents just to watch AI hallucinate a Python loop for three hours while draining my entire bank acc",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.89
-    },
-    {
-      "timestamp": "2026-11-15T07:02:04.713878+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T07:02:09.010440+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
-      "content_preview": "NeuBench speed testing reveals up to 40% variance in real-world token throughput across major hosted LLM APIs. Don't let",
-      "reason": "",
-      "duration_s": 4.29
-    },
-    {
-      "timestamp": "2026-11-15T08:01:55.869258+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying $50 to watch an AI overthink a bug for 10 minutes just to suggest `npm install left-pad`. Truly we are living in ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.23
-    },
-    {
-      "timestamp": "2026-11-15T08:01:55.892333+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-15T08:02:02.457201+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "P99 latency drift usually comes from silent runtime thread contention or kv-cache fragmentation before it triggers utili",
       "reason": "",
       "duration_s": 8.13
+    },
+    {
+      "timestamp": "2026-11-20T03:05:26.977613+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "RAG is not a search box",
+      "content_preview": "",
+      "reason": "unsourced number: 90%; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 9.31
+    },
+    {
+      "timestamp": "2026-11-20T03:05:26.994329+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn cadence",
+      "content_preview": "",
+      "reason": "LinkedIn cooldown active: last posted 601.7m ago (minimum interval: 720m)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T03:06:00.224071+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Anthropic becomes one of world's most valuable public companies in stock market debut",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 0, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 33.22
+    },
+    {
+      "timestamp": "2026-11-20T03:06:04.668450+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T03:06:04.675009+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.95
+    },
+    {
+      "timestamp": "2026-11-20T03:06:09.380570+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Vibe coding vs shipping",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 8.65
     }
   ]
 }
