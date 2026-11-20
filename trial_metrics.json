@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T14:03:34.179634+00:00",
+    "last_updated": "2026-11-20T15:05:45.152377+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1882,
-    "original_posts_attempted": 548,
+    "total_cycles_executed": 1886,
+    "original_posts_attempted": 550,
     "original_posts_succeeded": 300,
-    "replies_attempted": 171,
+    "replies_attempted": 172,
     "replies_succeeded": 28,
     "reposts_attempted": 72,
     "reposts_succeeded": 13,
-    "actions_skipped": 656,
-    "failed_operations": 170,
-    "ai_generation_requests": 1001,
-    "ai_generation_failures": 10,
+    "actions_skipped": 657,
+    "failed_operations": 173,
+    "ai_generation_requests": 1004,
+    "ai_generation_failures": 13,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T03:01:57.765662+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 60.0m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T03:02:03.564855+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Qwen4-Max",
-      "content_preview": "Evaluating Qwen4-Max: Scaling inference compute introduces severe KV cache pressure. Latency bounds hinge on optimal ten",
-      "reason": "",
-      "duration_s": 5.69
-    },
-    {
-      "timestamp": "2026-11-16T03:46:08.457104+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending your entire life’s savings on API tokens just to watch an AI hallucinate a Python loop is the modern tech bro e",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.87
-    },
-    {
-      "timestamp": "2026-11-16T03:46:08.474754+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 104.2m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-16T03:46:13.611422+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 70B model; unsourced number: 8B; unsourced number: 84%; unsourced number: 180ms",
       "duration_s": 12.24
+    },
+    {
+      "timestamp": "2026-11-20T15:03:02.206716+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+      "duration_s": 35.63
+    },
+    {
+      "timestamp": "2026-11-20T15:03:02.222357+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T15:05:07.580471+00:00",
+      "action_type": "reply",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "https://x.com/cursor_ai/status/2088249881718919393",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+      "duration_s": 64.0
+    },
+    {
+      "timestamp": "2026-11-20T15:05:45.152332+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+      "duration_s": 101.57
     }
   ]
 }
