@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T02:02:50.219256+00:00",
+    "last_updated": "2026-11-20T02:24:16.459591+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1808,
+    "total_cycles_executed": 1809,
     "original_posts_attempted": 525,
     "original_posts_succeeded": 299,
     "replies_attempted": 152,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T06:01:49.559480+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Frontier reasoning drift on long-horizon tasks reveals stark inference cost divergences between DeepSeek, Claude, and Ge",
-      "reason": "",
-      "duration_s": 6.26
-    },
     {
       "timestamp": "2026-11-15T06:33:29.951108+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 3 days; unsourced number: 400%",
       "duration_s": 5.83
+    },
+    {
+      "timestamp": "2026-11-20T02:24:16.459569+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@pricepertoken.bsky.social",
+      "content_preview": "P99 latency drift usually comes from silent runtime thread contention or kv-cache fragmentation before it triggers utili",
+      "reason": "",
+      "duration_s": 8.13
     }
   ]
 }

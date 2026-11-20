@@ -1221,5 +1221,8 @@
   "posted_bluesky_topics": [
     "Order-Only On-Policy Distillation",
     "Blender's UI and Runtime: Much Faster Than GPUI"
+  ],
+  "bluesky_replied_uris": [
+    "at://did:plc:34cgqxlvugvljd27pmf7lmun/app.bsky.feed.post/3n2p3nhadkx27"
   ]
 }
