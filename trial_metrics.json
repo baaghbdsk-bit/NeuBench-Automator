@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T10:02:38.028617+00:00",
+    "last_updated": "2026-11-20T11:03:39.195501+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1860,
-    "original_posts_attempted": 542,
+    "total_cycles_executed": 1864,
+    "original_posts_attempted": 543,
     "original_posts_succeeded": 299,
-    "replies_attempted": 166,
-    "replies_succeeded": 26,
+    "replies_attempted": 167,
+    "replies_succeeded": 27,
     "reposts_attempted": 71,
     "reposts_succeeded": 13,
-    "actions_skipped": 638,
+    "actions_skipped": 641,
     "failed_operations": 170,
-    "ai_generation_requests": 989,
+    "ai_generation_requests": 992,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T21:02:04.305535+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T21:02:11.130577+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "NeuBench telemetry on 260+ models shows stark trade-offs in reasoning drift and token economics for long-horizon coding.",
-      "reason": "",
-      "duration_s": 6.81
-    },
-    {
-      "timestamp": "2026-11-15T22:01:51.342915+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying rent for my apartment is cheaper than running a single complex coding prompt on these new LLMs. We are officially",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.11
-    },
-    {
-      "timestamp": "2026-11-15T22:01:51.363481+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-15T22:01:57.049211+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 40%; unsourced number: 90%; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 5.25
+    },
+    {
+      "timestamp": "2026-11-20T11:02:34.308798+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark contamination",
+      "content_preview": "",
+      "reason": "unsourced number: 94%",
+      "duration_s": 6.79
+    },
+    {
+      "timestamp": "2026-11-20T11:02:34.324891+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T11:02:48.833153+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "TwinD: Generalizing Deepfake Detection from Blending to Entire Face Synthesis",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 14.5
+    },
+    {
+      "timestamp": "2026-11-20T11:03:39.195469+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/deepseek_ai/status/2112476496283775135",
+      "content_preview": "Bro literally dropped the entire production stack while NVIDIA’s datacenter division is actively calling an emergency bo",
+      "reason": "",
+      "duration_s": 49.86
     }
   ]
 }
