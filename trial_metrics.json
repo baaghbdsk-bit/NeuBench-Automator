@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T08:02:54.775600+00:00",
+    "last_updated": "2026-11-20T09:03:25.750910+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1849,
-    "original_posts_attempted": 538,
+    "total_cycles_executed": 1854,
+    "original_posts_attempted": 540,
     "original_posts_succeeded": 299,
-    "replies_attempted": 163,
+    "replies_attempted": 164,
     "replies_succeeded": 26,
     "reposts_attempted": 71,
     "reposts_succeeded": 13,
-    "actions_skipped": 628,
+    "actions_skipped": 633,
     "failed_operations": 170,
-    "ai_generation_requests": 982,
+    "ai_generation_requests": 986,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T17:01:59.856195+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
-      "content_preview": "EgoX solves cross-embodiment scaling by aligning human, real, and sim data via \"embodiment dreaming\"—bridging kinematic ",
-      "reason": "",
-      "duration_s": 6.48
-    },
-    {
-      "timestamp": "2026-11-15T18:01:50.212756+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my landlord that I can’t pay rent this month because my AI coding agent went on a 260-model bender and ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.27
-    },
-    {
-      "timestamp": "2026-11-15T18:01:50.232862+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T18:01:55.919693+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
-      "content_preview": "Geopolitical chip restrictions forcing China’s AV stack to pivot from Nvidia. Fallback architectures rely on domestic AS",
-      "reason": "",
-      "duration_s": 5.68
-    },
-    {
-      "timestamp": "2026-11-15T19:01:57.686176+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley rents just to watch AI hallucinate my semicolons while DeepSeek does it for the price of half a cu",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.97
-    },
     {
       "timestamp": "2026-11-15T19:01:57.702591+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 12.81
+    },
+    {
+      "timestamp": "2026-11-20T09:02:42.889610+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Reasoning models cost",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 1.27
+    },
+    {
+      "timestamp": "2026-11-20T09:02:42.906531+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T09:02:47.770140+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining",
+      "content_preview": "",
+      "reason": "weak voice 3/10: {'pov': 0, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 4.86
+    },
+    {
+      "timestamp": "2026-11-20T09:03:24.488130+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "cursor_ai",
+      "content_preview": "",
+      "reason": "unsourced number: 9 second",
+      "duration_s": 36.19
+    },
+    {
+      "timestamp": "2026-11-20T09:03:25.750874+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Evals before demos",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 37.46
     }
   ]
 }
