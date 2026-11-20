@@ -220,6 +220,46 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-20T09:36:46.067784+00:00",
+      "title": "Why context windows are not free",
+      "text": "I cut context length last quarter and latency dropped. Most teams overfeed their models.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-20T09:36:46.403970+00:00",
+      "title": "Quantum Error Correction Threshold Achieved",
+      "text": "I stopped trusting benchmark charts after a p99 spike. Most teams measure the wrong thing.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-20T09:36:46.741235+00:00",
+      "title": "ISRO Tests Cryogenic Upper Stage for Chandrayaan-4",
+      "text": "I watched a cryogenic test fail and the cost was obvious. Most teams skip this check.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-20T09:36:47.071652+00:00",
+      "title": "Cheap models vs frontier models",
+      "text": "I switched to routing small requests and cost fell. Bigger is not always better.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }

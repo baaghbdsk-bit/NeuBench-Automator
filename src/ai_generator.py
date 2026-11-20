@@ -306,11 +306,11 @@ Context: "{summary}"
 Write one high-signal Bluesky post for engineers and AI researchers.
 
 Rules:
-- Lead with the mechanism or trade-off, not a summary of the headline.
+- Open the FIRST line with "I" and one specific thing you did, saw break, or changed your mind about. The very first word must be "I".
 - One idea only. Under 280 characters.
-- Add one concrete engineering consequence: latency, cost, memory, reliability, or evaluation quality.
-- End with a short question or a testable claim that invites replies.
-- No URLs, no brand names, no corporate tone, no emoji spam.
+- Include one concrete engineering consequence: latency, cost, memory, reliability, or evaluation quality.
+- Take a position a peer could disagree with, then end with a short question about the mechanism.
+- No URLs, no brand names, no corporate tone, no emoji spam, no invented numbers.
 - At most two technical hashtags.
 - Output ONLY the post text.
 """
@@ -396,11 +396,13 @@ Topic: "{title}"
 Core Rule: "{golden_rule}"
 Analogy: "{school_ana}"
 
-Write a concise, professional, high-signal Bluesky post about this technical distinction.
+Write a concise, first-person, high-signal Bluesky post about this technical distinction.
 Rules:
+- The FIRST word must be "I". Open with what you did, saw break, or changed your mind about.
+- Name the mechanism and one real consequence. Take a position a peer could disagree with.
+- End with a short question about the mechanism.
 - Length: strictly under 240 characters so hashtags fit within Bluesky's 300-char limit.
-- Tone: Highly professional, developer-focused, clear contrast or insight.
-- Zero buzzwords.
+- Zero buzzwords, no invented numbers, no URLs, no brand names.
 - Output ONLY the post text.
 """
         text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.70).strip('"').strip()
