@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T12:01:54.190367+00:00",
+    "last_updated": "2026-11-20T12:05:51.692077+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1871,
+    "total_cycles_executed": 1872,
     "original_posts_attempted": 545,
     "original_posts_succeeded": 299,
     "replies_attempted": 168,
     "replies_succeeded": 27,
     "reposts_attempted": 72,
     "reposts_succeeded": 13,
-    "actions_skipped": 647,
+    "actions_skipped": 648,
     "failed_operations": 170,
     "ai_generation_requests": 995,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T23:02:03.907196+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Is bad news for Jensen Huang also bad news for the AI industry?",
-      "content_preview": "Nvidia’s capex dominance != the foundational velocity of ML. Hardware consolidation risks single-vendor bottlenecks, but",
-      "reason": "",
-      "duration_s": 4.98
-    },
     {
       "timestamp": "2026-11-16T00:01:42.600410+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 42 seconds",
       "duration_s": 4.96
+    },
+    {
+      "timestamp": "2026-11-20T12:05:51.692046+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 20.83
     }
   ]
 }
