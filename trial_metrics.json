@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T17:03:20.604241+00:00",
+    "last_updated": "2026-11-20T18:02:33.285409+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1897,
-    "original_posts_attempted": 554,
+    "total_cycles_executed": 1903,
+    "original_posts_attempted": 556,
     "original_posts_succeeded": 300,
-    "replies_attempted": 175,
+    "replies_attempted": 177,
     "replies_succeeded": 28,
     "reposts_attempted": 73,
     "reposts_succeeded": 13,
-    "actions_skipped": 667,
+    "actions_skipped": 673,
     "failed_operations": 174,
-    "ai_generation_requests": 1009,
+    "ai_generation_requests": 1012,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T07:01:59.420893+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T07:02:05.016670+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "eDIAR: Training-Free Open-Speaker Streaming Diarization for Long Meetings and Large Archives via e-means",
-      "content_preview": "Fixed-slot streaming diarizers break on unknown speaker counts. eDIAR removes this bottleneck training-free via e-means,",
-      "reason": "",
-      "duration_s": 5.59
-    },
-    {
-      "timestamp": "2026-11-16T08:01:52.169545+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending my entire monthly grocery budget just to watch Claude and DeepSeek argue over a single Python loop. The future ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.12
-    },
-    {
-      "timestamp": "2026-11-16T08:01:52.190660+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T08:01:56.945669+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
-      "content_preview": "Agent self-modification is a trap without rigorous evidence governance. Local gains in interaction histories routinely m",
-      "reason": "",
-      "duration_s": 4.74
-    },
-    {
-      "timestamp": "2026-11-16T09:02:12.684976+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Bro really calculated his existential crisis down to the token just to realize Claude is charging luxury therapy prices ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.36
-    },
     {
       "timestamp": "2026-11-16T09:02:12.703630+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.01
+    },
+    {
+      "timestamp": "2026-11-20T18:01:59.058681+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 3B; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.03
+    },
+    {
+      "timestamp": "2026-11-20T18:01:59.074095+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T18:02:21.967189+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Language Models Can Rewrite Their Own Weights",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 2, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 22.89
+    },
+    {
+      "timestamp": "2026-11-20T18:02:27.359294+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T18:02:27.365515+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.88
+    },
+    {
+      "timestamp": "2026-11-20T18:02:33.285368+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Fine-tuning vs prompting",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; unsourced number: 400ms",
+      "duration_s": 10.8
     }
   ]
 }
