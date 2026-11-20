@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T19:48:58.411468+00:00",
+    "last_updated": "2026-11-20T20:02:34.675190+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1915,
-    "original_posts_attempted": 560,
+    "total_cycles_executed": 1921,
+    "original_posts_attempted": 562,
     "original_posts_succeeded": 300,
-    "replies_attempted": 181,
+    "replies_attempted": 182,
     "replies_succeeded": 28,
-    "reposts_attempted": 73,
+    "reposts_attempted": 74,
     "reposts_succeeded": 13,
-    "actions_skipped": 685,
+    "actions_skipped": 691,
     "failed_operations": 174,
-    "ai_generation_requests": 1018,
+    "ai_generation_requests": 1021,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T12:15:10.282382+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T12:15:17.581292+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "V-JEPA-LM: Video-Language Models That Read Dynamics Beyond Static, Text-Aligned Representations",
-      "content_preview": "V-JEPA-LM couples dense spatio-temporal dynamics from video-only pretraining with LLMs. The engineering win: bypassing s",
-      "reason": "",
-      "duration_s": 7.29
-    },
-    {
-      "timestamp": "2026-11-16T13:01:51.453728+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Debugging your code for 6 hours only to realize the AI model cost you your entire month’s rent just to hallucinate a mis",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.55
-    },
-    {
-      "timestamp": "2026-11-16T13:01:51.475538+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T13:02:00.173663+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Zoox robotaxis are now on the Uber app in Las Vegas",
-      "content_preview": "Zoox routing AV telemetry through Uber’s dispatch layer in Vegas is a pragmatic play on asset utilization and inference ",
-      "reason": "",
-      "duration_s": 8.69
-    },
-    {
-      "timestamp": "2026-11-16T14:01:55.533553+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my landlord why I can’t pay rent because I spent my life savings running a 10-step coding prompt on Dee",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 12.81
-    },
     {
       "timestamp": "2026-11-16T14:01:55.550617+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 70B; unsourced number: 8B models; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.89
+    },
+    {
+      "timestamp": "2026-11-20T20:02:23.152377+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI coding tools",
+      "content_preview": "",
+      "reason": "unsourced number: 3x",
+      "duration_s": 0.98
+    },
+    {
+      "timestamp": "2026-11-20T20:02:23.174528+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T20:02:28.333679+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "RL Post-Training in Diffusion Transformers Is Activation Steering",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 5.15
+    },
+    {
+      "timestamp": "2026-11-20T20:02:33.295626+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T20:02:33.302716+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.94
+    },
+    {
+      "timestamp": "2026-11-20T20:02:34.675156+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Hiring for AI teams",
+      "content_preview": "",
+      "reason": "invented personal anecdote with no source; unsourced number: 4 hours; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.31
     }
   ]
 }
