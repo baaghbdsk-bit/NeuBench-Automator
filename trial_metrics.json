@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T20:02:34.675190+00:00",
+    "last_updated": "2026-11-20T20:17:50.004342+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1921,
+    "total_cycles_executed": 1922,
     "original_posts_attempted": 562,
     "original_posts_succeeded": 300,
     "replies_attempted": 182,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T14:01:55.550617+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-16T14:02:01.290818+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "invented personal anecdote with no source; unsourced number: 4 hours; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 5.31
+    },
+    {
+      "timestamp": "2026-11-20T20:17:50.004311+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@natolambert.bsky.social",
+      "content_preview": "Exact historical pattern. Tiering inference costs by keeping the frontier API-only while seeding downstream open weights",
+      "reason": "",
+      "duration_s": 1.37
     }
   ]
 }
