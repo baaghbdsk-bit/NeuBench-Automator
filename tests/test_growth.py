@@ -12,6 +12,7 @@ from src.growth import (
     sanitize_publish_text,
     topic_similarity,
     validate_no_number_without_source,
+    voice_quality_score,
 )
 
 
@@ -161,6 +162,23 @@ class EvidenceGateTests(unittest.TestCase):
             require_question=False,
         )
         self.assertTrue(ok, issues)
+
+    def test_invented_personal_anecdote_is_rejected(self):
+        ok, _, issues = evidence_gate(
+            "I spent a week debugging why our vector search latency spiked. Most teams ignore this. Because the cache was cold, it failed. What do you measure?",
+            topic_title="Vector search",
+            source_context="",
+            require_voice=True,
+        )
+        self.assertFalse(ok)
+        self.assertTrue(any("anecdote" in i for i in issues))
+
+    def test_keyword_stuffed_generic_post_cannot_score_full(self):
+        score, parts = voice_quality_score(
+            "I think cost latency memory p99 KV cache io_uring WAL softmax. Most teams wrong. Stop calling it fine.",
+            topic_title="KV cache",
+        )
+        self.assertLess(score, 10, parts)
 
     def test_hardened_regex_catches_model_counts_and_multipliers(self):
         claims = extract_numeric_claims("I tested 260+ models and 385x throughput on 25k+ logs.")

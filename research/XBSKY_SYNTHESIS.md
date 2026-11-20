@@ -53,8 +53,11 @@ code and shipped data. This file is the decision record; the reports are evidenc
 `voice_quality_score()` in `src/growth.py` scores every post before publish:
 first person, real stakes, arguable stance, named mechanism, clean opener.
 Anything below 7/10 is rejected on LinkedIn, X originals and Bluesky posts.
-This is the deterministic answer to "is the content ready to compete" — the
-generic explainer that earned 3.5/10 can no longer ship.
+It also requires a causal connector in the opening lines, so a keyword-stuffed
+generic opener cannot score full marks. This is a filter, not a guarantee:
+the first 20 published posts still need human review. Visual specs are now
+scrubbed of unsourced metrics before render, and "Save this" was removed
+from the default attachment.
 
 ## Kill criteria (automatic)
 

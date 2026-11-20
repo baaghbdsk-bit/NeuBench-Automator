@@ -380,6 +380,17 @@ class AutomaterEngine:
         if not self._x_guard("original_post", start_time):
             return False
 
+        text = self._publish_gate(
+            text,
+            action_type="original_post",
+            target="X custom post",
+            start_time=start_time,
+            require_voice=True,
+        )
+        if not text:
+            self.last_x_message = "Custom post rejected by evidence/voice gate"
+            return False
+
         target = f"X custom post {x_content_hash(text)[:16]}"
         reservation_id = None
         if not self.safety.dry_run:
@@ -635,6 +646,16 @@ class AutomaterEngine:
                 duration_seconds=time.time() - start_time,
                 is_dry_run=self.safety.dry_run,
             )
+            return False
+
+        text = self._publish_gate(
+            text,
+            action_type="bluesky_post",
+            target="Bluesky custom post",
+            start_time=start_time,
+            require_voice=True,
+        )
+        if not text:
             return False
 
         identity = f"post:{stable_hash(text)}"
@@ -1698,6 +1719,20 @@ class AutomaterEngine:
         """Publish an executive article on a user-specified topic through LinkedIn Portfolio Manager."""
         return self._execute_linkedin_post(time.time(), custom_topic=topic, force=True)
 
+    def _scrub_unsourced_numbers(self, value, source_context: str = ""):
+        """Remove fabricated metrics from visual specs before they are rendered."""
+        from src.growth import validate_no_number_without_source
+
+        if isinstance(value, dict):
+            return {k: self._scrub_unsourced_numbers(v, source_context) for k, v in value.items()}
+        if isinstance(value, list):
+            return [self._scrub_unsourced_numbers(v, source_context) for v in value]
+        if isinstance(value, str):
+            ok, _ = validate_no_number_without_source(value, source_context)
+            if not ok:
+                return "Measure this in your own environment."
+        return value
+
     def _publish_gate(
         self,
         text: str,
@@ -1731,6 +1766,8 @@ class AutomaterEngine:
         return None
 
     def _record_x_outcome(self, *, posted_at: str, title: str, text: str) -> None:
+        if self.safety.dry_run:
+            return
         path = Path("data/x_outcomes.json")
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -1755,6 +1792,8 @@ class AutomaterEngine:
             console.print(f"[dim]X outcome log note: {exc}[/dim]")
 
     def _record_bluesky_outcome(self, *, posted_at: str, title: str, ref: str) -> None:
+        if self.safety.dry_run:
+            return
         path = Path("data/bluesky_outcomes.json")
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -1783,6 +1822,8 @@ class AutomaterEngine:
         The 48h/7d engagement values are filled from LinkedIn analytics later.
         Until then the record exists with nulls, never fabricated numbers.
         """
+        if self.safety.dry_run:
+            return
         path = Path("data/linkedin_outcomes.json")
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -2120,7 +2161,7 @@ class AutomaterEngine:
                             if not is_valid:
                                 console.print(f"[yellow]Plan validation warning: {validation_msg} (using with fallback normalization)[/yellow]")
                             selected_trend = {"title": sanitize_publish_text(title), "summary": summary, "url": str(item.get("url") or "")}
-                            carousel_plan = sanitize_plan(plan)
+                            carousel_plan = self._scrub_unsourced_numbers(sanitize_plan(plan), summary)
                             li_text = sanitize_publish_text(candidate_text)
                             media_path = None
                             first_comm = sanitize_publish_text(
@@ -2196,6 +2237,7 @@ class AutomaterEngine:
                         audience=target_demographic,
                         ai_generator=self.ai
                     )
+                    arch_spec = self._scrub_unsourced_numbers(arch_spec, topic_summary)
                     gif_res = render_editorial_architecture_gif(arch_spec)
                     if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
                         prefer_static = os.getenv("LINKEDIN_PREFER_STATIC_VISUALS", "true").lower() in ("true", "1")

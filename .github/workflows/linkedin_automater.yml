@@ -79,21 +79,25 @@ jobs:
           LINKEDIN_MIN_INTERVAL_MINUTES: '720'
           LINKEDIN_SCHEDULE_GRACE_MINUTES: '60'
         run: |
-          CMD_ARGS="linkedin"
-          if [ -n "${{ inputs.topic }}" ]; then
-            CMD_ARGS="$CMD_ARGS --topic \"${{ inputs.topic }}\""
-          fi
           if [ "$DRY_RUN" = "true" ]; then
-            CMD_ARGS="$CMD_ARGS --dry-run"
+            if [ -n "${{ inputs.topic }}" ]; then
+              python main.py linkedin --topic "${{ inputs.topic }}" --dry-run
+            else
+              python main.py linkedin --dry-run
+            fi
+          else
+            if [ -n "${{ inputs.topic }}" ]; then
+              python main.py linkedin --topic "${{ inputs.topic }}"
+            else
+              python main.py linkedin
+            fi
           fi
-          eval "python main.py $CMD_ARGS"
-
       - name: Persist LinkedIn State
         if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          for state_file in linkedin_post_history.json trial_metrics.json linkedin_engagement_history.json; do
+          for state_file in linkedin_post_history.json trial_metrics.json linkedin_engagement_history.json data/linkedin_outcomes.json; do
             if [ -f "$state_file" ]; then
               git add "$state_file"
             fi

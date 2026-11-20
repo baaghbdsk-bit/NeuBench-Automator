@@ -560,7 +560,7 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
         draw.text((MARGIN, title_y), line, fill=(15, 23, 42), font=title_font)
         title_y += int(getattr(title_font, "size", 34) * 1.16)
 
-    subtitle_text = f"{subtitle} · Save this." if subtitle else "Save this."
+    subtitle_text = str(subtitle or "")
     subtitle_font = fit_font(draw, subtitle_text, CONTENT_W, max_size=20, min_size=15, kind="sans")
     draw.text((MARGIN, title_y + 2), subtitle_text, fill=(71, 85, 105), font=subtitle_font)
 
@@ -742,7 +742,7 @@ def render_editorial_architecture_frame(progress: float, spec: dict) -> Image.Im
     # 5. Footer
     draw_dashed_line(draw, (MARGIN, 1225), (W - MARGIN, 1225), (203, 213, 225))
     draw.text((MARGIN, 1245), "Systems Architecture Series", fill=(71, 85, 105), font=get_font(14, "sans_bold"))
-    draw.text((W - MARGIN - 90, 1245), "Save this", fill=(245, 158, 11), font=get_font(14, "sans_bold"))
+
 
     return im
 

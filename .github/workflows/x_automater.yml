@@ -76,7 +76,6 @@ jobs:
           fi
 
       - name: Execute Autonomous Broadcast Cycle
-        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-2.5-flash
@@ -158,9 +157,22 @@ jobs:
               git add "$file"
             fi
           done
-          git commit -m "chore(cloud): autonomous update post metrics [skip ci]" || echo "No changes to commit"
-          git pull --rebase --autostash origin main || true
-          git push origin main || echo "Push skipped or non-fast-forward"
+          git diff --cached --quiet || git commit -m "chore(cloud): autonomous update post metrics [skip ci]"
+          pushed=false
+          for i in 1 2 3; do
+            if git pull --rebase --autostash origin main; then
+              if git push origin main; then
+                pushed=true
+                break
+              fi
+            else
+              git rebase --abort || true
+            fi
+          done
+          if [ "$pushed" = false ]; then
+            echo "::error::Could not push post-run state after 3 attempts"
+            exit 1
+          fi
 
       - name: Generate Run Summary
         if: always()

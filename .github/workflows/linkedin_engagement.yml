@@ -1,4 +1,4 @@
-name: LinkedIn Viral Engagement (Every 6 Hours)
+name: LinkedIn Viral Engagement (Every 3 Hours)
 
 on:
   schedule:
@@ -85,7 +85,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          for state_file in linkedin_engagement_history.json; do
+          for state_file in linkedin_engagement_history.json trial_metrics.json post_history.json; do
             if [ -f "$state_file" ]; then
               git add "$state_file"
             fi

@@ -75,7 +75,7 @@ def _fix_line_starts(text: str) -> str:
         # Brand removal can leave a lowercase clause after a full stop.
         line = re.sub(
             r"(?<=[.!?])\s+([a-z])",
-            lambda m: m.group(1).upper(),
+            lambda m: " " + m.group(1).upper(),
             line,
         )
         lines.append(line)
@@ -196,6 +196,20 @@ _BROKEN_TEMPLATE_RE = re.compile(
 _ABSOLUTE_CLAIM_RE = re.compile(
     r"\b(?:guaranteed|100\s*%|eliminat(?:e|es|ed|ing)|provably|"
     r"impossible\s+to\s+fail|never\s+fails?|always\s+works?)\b",
+    re.IGNORECASE,
+)
+
+# A confident personal story the model invented ("I spent a week debugging...")
+# is the same class of defect as a fake benchmark number.
+_INVENTED_ANecdOTE_RE = re.compile(
+    r"\bI\s+(?:spent|wasted|burnt|burned)\s+(?:a|an|\d+)\s*"
+    r"(?:week|weeks|month|months|day|days|hour|hours|year|years)\b|"
+    r"\bour\s+(?:team|cluster|service|production)\b.{0,80}\b(?:we|I)\s+(?:saw|found|debugged|measured)\b",
+    re.IGNORECASE,
+)
+_VOICE_CONNECTOR_RE = re.compile(
+    r"\b(?:because|when|after|until|the reason|it turns out|here is|"
+    r"the cost|the cause|the part that|what breaks|the mistake)\b",
     re.IGNORECASE,
 )
 
@@ -350,6 +364,12 @@ def voice_quality_score(text: str, topic_title: str = "") -> Tuple[int, dict]:
 
     clean = 0 if _BANNED_OPENERS_RE.search(head) or head.endswith("?") else 2
 
+    # A keyword-stuffed first line with no causal explanation is still a
+    # generic post. Require an actual mechanism explanation in the first lines.
+    if not _VOICE_CONNECTOR_RE.search(head3):
+        stance = min(stance, 1)
+        stakes = min(stakes, 1)
+
     score = pov + stakes + stance + specificity + clean
     return score, {
         "pov": pov, "stakes": stakes, "stance": stance,
@@ -379,6 +399,8 @@ def evidence_gate(
         validate_no_absolute_claims(cleaned),
         validate_no_banned_openers(cleaned),
     ]
+    if _INVENTED_ANecdOTE_RE.search(cleaned) and not source_context:
+        issues.append("invented personal anecdote with no source")
     if require_question:
         checks.append(validate_one_question(cleaned))
     for ok, problems in checks:

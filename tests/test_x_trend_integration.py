@@ -184,5 +184,15 @@ class XTrendIntegrationTests(unittest.TestCase):
             self.assertIn("sensitive", events[-1]["reason"].lower())
 
 
+    def test_dry_run_never_writes_outcome_log(self):
+        with patch("src.scheduler.Path.write_text") as write_mock:
+            self.engine._record_x_outcome(
+                posted_at="2026-11-20T00:00:00+00:00",
+                title="fixture",
+                text="fixture",
+            )
+        write_mock.assert_not_called()
+
+
 if __name__ == "__main__":
     unittest.main()

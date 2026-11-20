@@ -73,9 +73,12 @@ Engagement targets: 6 LinkedIn peer comments/day, X sniper replies every
 
 A post cannot publish on LinkedIn, X or Bluesky unless it scores **>=7/10** on a
 deterministic voice rubric: first-person point of view, real stakes, an arguable
-stance, a named technical mechanism, and a clean (non-template, non-question)
-first line. Generic explainers and fabricated metrics are rejected before the
-browser is opened. 101 tests pass, including the voice and evidence gates.
+stance, a named technical mechanism, a clean (non-template, non-question) first
+line, AND a causal explanation in the opening lines. Fabricated numbers, invented
+personal anecdotes and fabricated visual metrics are rejected before render.
+The rubric is a strong filter, not proof of originality — a model can still game
+keywords. Human review of the first 20 published posts remains the final check.
+103 tests pass, including the voice, evidence and dry-run guards.
 
 Engagement outcomes are still collected with null values until real analytics
 are available; no gain is claimed from estimated numbers.

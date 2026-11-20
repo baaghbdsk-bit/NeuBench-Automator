@@ -139,9 +139,11 @@ class XGuardTests(unittest.TestCase):
         playwright_context.__exit__.return_value = False
 
         client._human_type = lambda _element, _text: None
-        with patch("src.twitter_client.sync_playwright", return_value=playwright_context), patch(
-            "src.twitter_client.time.sleep", return_value=None
-        ):
+        cookies = MagicMock()
+        cookies.exists.return_value = True
+        with patch("src.twitter_client.config.COOKIES_FILE", cookies), \
+             patch("src.twitter_client.sync_playwright", return_value=playwright_context), \
+             patch("src.twitter_client.time.sleep", return_value=None):
             ok = client.post_tweet("No confirmation smoke test")
 
         self.assertFalse(ok)

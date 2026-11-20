@@ -191,6 +191,21 @@ class AIGenerator:
                 continue
         raise RuntimeError(f"All Gemini models failed: {last_error}")
 
+    def _generate_with_voice_repair(
+        self, prompt: str, system_instruction: str, temperature: float = 0.72
+    ) -> str:
+        """Retry once when the model ignores the first-person voice rule."""
+        text = self._generate_with_fallback(prompt, system_instruction, temperature).strip('"').strip()
+        if re.match(r"^\s*(I\b|I've\b|I'd\b|I'm\b)", text, re.IGNORECASE):
+            return text
+        repair = (
+            prompt
+            + "\n\nREPAIR: the first line must start with the word 'I'. "
+            "Rewrite from scratch: first person, one concrete consequence, "
+            "one position a peer could disagree with. No numbers."
+        )
+        return self._generate_with_fallback(repair, system_instruction, temperature).strip('"').strip()
+
     def generate_hot_take(self, topic: str, context: str = "") -> str:
         """Generates a sharp, specific, growth-oriented tweet for X (no link spam)."""
         prompt = f"""
@@ -208,7 +223,7 @@ Rules:
 - Do not use "What is", "Understanding", "In today's", "Let's dive in", "Game changer", "Unlock", or "The future of".
 - Output ONLY the raw post text.
 """
-        text = self._generate_with_fallback(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.94)
+        text = self._generate_with_voice_repair(prompt, X_UNHINGED_SYSTEM_PROMPT, temperature=0.94)
         return text.strip('"').strip()
 
     def generate_casual_x_take(self, topic: str = "", context: str = "") -> str:
@@ -314,7 +329,7 @@ Rules:
 - At most two technical hashtags.
 - Output ONLY the post text.
 """
-        text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72)
+        text = self._generate_with_voice_repair(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.72)
         return text.strip('"').strip()
 
     def generate_bluesky_sniper_reply(self, target_author: str, target_text: str) -> str:
@@ -405,7 +420,7 @@ Rules:
 - Zero buzzwords, no invented numbers, no URLs, no brand names.
 - Output ONLY the post text.
 """
-        text = self._generate_with_fallback(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.70).strip('"').strip()
+        text = self._generate_with_voice_repair(prompt, BLUESKY_SYSTEM_PROMPT, temperature=0.70).strip('"').strip()
         return append_hashtags(text, ["#SoftwareEngineering", "#SystemDesign"], max_len=285)
 
     def generate_linkedin_take(self, title: str, summary: str = "", company: str = "", include_link: bool = False) -> str:
