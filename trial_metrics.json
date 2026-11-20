@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T20:17:50.004342+00:00",
+    "last_updated": "2026-11-20T20:40:54.708404+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1922,
+    "total_cycles_executed": 1923,
     "original_posts_attempted": 562,
     "original_posts_succeeded": 300,
     "replies_attempted": 182,
     "replies_succeeded": 28,
     "reposts_attempted": 74,
     "reposts_succeeded": 13,
-    "actions_skipped": 691,
+    "actions_skipped": 692,
     "failed_operations": 174,
     "ai_generation_requests": 1021,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T14:02:01.290818+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is an LLM Logit?",
-      "content_preview": "Treat LLM logits as raw voting scores, not probabilities. Like friends writing restaurant preference points on a whitebo",
-      "reason": "",
-      "duration_s": 5.73
-    },
     {
       "timestamp": "2026-11-16T15:02:35.377543+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Exact historical pattern. Tiering inference costs by keeping the frontier API-only while seeding downstream open weights",
       "reason": "",
       "duration_s": 1.37
+    },
+    {
+      "timestamp": "2026-11-20T20:40:54.708377+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 17.48
     }
   ]
 }
