@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T06:29:31.359291+00:00",
+    "last_updated": "2026-11-20T07:02:49.091134+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1839,
-    "original_posts_attempted": 535,
+    "total_cycles_executed": 1843,
+    "original_posts_attempted": 536,
     "original_posts_succeeded": 299,
-    "replies_attempted": 161,
-    "replies_succeeded": 25,
+    "replies_attempted": 162,
+    "replies_succeeded": 26,
     "reposts_attempted": 70,
     "reposts_succeeded": 13,
-    "actions_skipped": 619,
+    "actions_skipped": 622,
     "failed_operations": 170,
-    "ai_generation_requests": 976,
+    "ai_generation_requests": 979,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T15:02:09.331289+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-      "content_preview": "VAE latent compression enabled tractable video gen, but 2x spatial scaling quadruples token counts and breaks control gr",
-      "reason": "",
-      "duration_s": 4.56
-    },
-    {
-      "timestamp": "2026-11-15T16:02:09.229890+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying $50 to watch an AI overthink a simple loop for 10 minutes just to output \"As an AI model...\" \n\nBro, I could hire ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.54
-    },
-    {
-      "timestamp": "2026-11-15T16:02:09.251876+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T16:02:13.895633+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "All AI-generated code should be Open Source",
-      "content_preview": "Mandating AI code to be open-source ignores attribution mechanics and copyright lineage. If deterministic outputs derive",
-      "reason": "",
-      "duration_s": 4.64
-    },
     {
       "timestamp": "2026-11-15T16:23:33.894019+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 400ms; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 4.64
+    },
+    {
+      "timestamp": "2026-11-20T07:01:55.088094+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Cheap models vs frontier models",
+      "content_preview": "",
+      "reason": "unsourced number: 8B; unsourced number: 92%",
+      "duration_s": 0.95
+    },
+    {
+      "timestamp": "2026-11-20T07:01:55.111740+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T07:02:00.921410+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Currency of Neural Networks",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 0, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.8
+    },
+    {
+      "timestamp": "2026-11-20T07:02:49.091097+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/karpathy/status/2116957135661945283",
+      "content_preview": "We are officially back to writing shell scripts by vibrating at Claude until it builds a whole-ass streaming platform.",
+      "reason": "",
+      "duration_s": 47.44
     }
   ]
 }
