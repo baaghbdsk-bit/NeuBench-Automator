@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T06:02:38.829296+00:00",
+    "last_updated": "2026-11-20T06:29:31.359291+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1833,
-    "original_posts_attempted": 533,
+    "total_cycles_executed": 1839,
+    "original_posts_attempted": 535,
     "original_posts_succeeded": 299,
-    "replies_attempted": 159,
+    "replies_attempted": 161,
     "replies_succeeded": 25,
     "reposts_attempted": 70,
     "reposts_succeeded": 13,
-    "actions_skipped": 613,
+    "actions_skipped": 619,
     "failed_operations": 170,
-    "ai_generation_requests": 973,
+    "ai_generation_requests": 976,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T13:01:53.628709+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Demystifying Continuous Batching in LLM Inference",
-      "content_preview": "Never let GPU compute stall waiting for the longest sequence in a static batch. Continuous batching schedules at the gra",
-      "reason": "",
-      "duration_s": 6.89
-    },
-    {
-      "timestamp": "2026-11-15T14:01:42.392252+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying rent prices to watch AI hallucinate a simple Python loop while DeepSeek and Claude fight a token-slashing deathma",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.23
-    },
-    {
-      "timestamp": "2026-11-15T14:01:42.413131+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T14:01:47.645136+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Understanding Positional Embeddings in Modern LLMs",
-      "content_preview": "Absolute position embeddings (learned/sinusoidal) hardcode context windows. RoPE rotates Q/K in complex space, encoding ",
-      "reason": "",
-      "duration_s": 5.22
-    },
-    {
-      "timestamp": "2026-11-15T15:02:04.752145+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Debugging code for 6 hours just to watch an AI model have an existential crisis over a missing semicolon and charge you ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.97
-    },
-    {
-      "timestamp": "2026-11-15T15:02:04.766252+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-15T15:02:09.331289+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 7B model",
       "duration_s": 11.54
+    },
+    {
+      "timestamp": "2026-11-20T06:29:21.708100+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Prompt injection",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 0.87
+    },
+    {
+      "timestamp": "2026-11-20T06:29:21.726644+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T06:29:26.151497+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Apple may be developing its own AI agent that runs your Mac",
+      "content_preview": "",
+      "reason": "weak voice 3/10: {'pov': 0, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 4.42
+    },
+    {
+      "timestamp": "2026-11-20T06:29:30.556303+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T06:29:30.563972+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.84
+    },
+    {
+      "timestamp": "2026-11-20T06:29:31.359262+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Latency budget",
+      "content_preview": "",
+      "reason": "unsourced number: 400ms; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 4.64
     }
   ]
 }
