@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "posts": [
+    {
+      "posted_at": "2026-11-20T14:02:36.302763+00:00",
+      "title": "Open weights vs hosted APIs",
+      "text": "I spent three days debugging vLLM thread locks just to save $400 on API costs.\n\nOpen weights are only cheaper until you pay a senior engineer $250k to babysit the inference stack at 3 AM.\n\nManaged APIs are just paying the intelligence tax so you can sleep. Disagree?",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
+    }
+  ]
+}

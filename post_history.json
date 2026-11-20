@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "marcus freeman",
     "bsky:Real-World TTFT & Throughput Benchmarks across Major LLM Hosted Endpoints",
     "maryland vs purdue",
     "seher hone ko hai",
@@ -499,7 +498,8 @@
     "bsky:Gemini 4 Neon",
     "li:What is Database Isolation Level? Concurrency vs. Consistency Demystified",
     "li:How Vector Database HNSW Indexing Works Under the Hood",
-    "bsky:Apple may be developing its own AI agent that runs your Mac"
+    "bsky:Apple may be developing its own AI agent that runs your Mac",
+    "Open weights vs hosted APIs"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -787,7 +787,8 @@
     "ff0ba1270a3dcb35bf569e08bd24731ceebfa21dd4c04714c3186a2a78853b2e",
     "8a4f4b3bd1dfdaa3b0560ca728960c582a308f66874679f52d24bfbf5e6893d1",
     "cc58fc1b400053cd2e519b99dabf37a8076685bcfd51cdea8ac44e92f8cd705c",
-    "d71f347935dd0ca05f9edf041b7cfec51691d5d7073f066aec59de70ce0ebb1d"
+    "d71f347935dd0ca05f9edf041b7cfec51691d5d7073f066aec59de70ce0ebb1d",
+    "2770fdda18b8f45dd195fe7dddbf04b3d067f9a1327dbd3a4a9933394f1ccdc5"
   ],
   "pending_x_actions": [
     {

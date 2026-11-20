@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T13:03:24.155573+00:00",
+    "last_updated": "2026-11-20T14:03:34.179634+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1876,
-    "original_posts_attempted": 546,
-    "original_posts_succeeded": 299,
-    "replies_attempted": 169,
+    "total_cycles_executed": 1882,
+    "original_posts_attempted": 548,
+    "original_posts_succeeded": 300,
+    "replies_attempted": 171,
     "replies_succeeded": 28,
     "reposts_attempted": 72,
     "reposts_succeeded": 13,
-    "actions_skipped": 651,
+    "actions_skipped": 656,
     "failed_operations": 170,
-    "ai_generation_requests": 998,
+    "ai_generation_requests": 1001,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T01:01:46.539503+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 131.8m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T01:01:53.298284+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Is bad news for Jensen Huang also bad news for the AI industry?",
-      "content_preview": "Nvidia’s capex cycle dictates infra availability, but cluster scaling bottlenecks are moving from silicon to interconnec",
-      "reason": "",
-      "duration_s": 6.75
-    },
-    {
-      "timestamp": "2026-11-16T02:01:48.240977+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending $500 in API tokens just to watch Claude and DeepSeek argue about a missing semicolon for 4 hours. We are truly ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.07
-    },
-    {
-      "timestamp": "2026-11-16T02:01:58.863144+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Training a model on a 1-million-token context window using standard attention requires an O(N^2) memory footprint that i",
-      "reason": "",
-      "duration_s": 10.6
-    },
-    {
-      "timestamp": "2026-11-16T02:02:03.774119+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Apple launches new app to study how people use AI for health",
-      "content_preview": "Real-world clinical data pipelines need better telemetry. Apple's new health study app is a step toward closing the feed",
-      "reason": "",
-      "duration_s": 4.9
-    },
-    {
-      "timestamp": "2026-11-16T03:01:57.747673+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending 40 bucks and waiting 3 business days for an AI to center a div while reasoning like a philosophy major. Bro I j",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 2.58
-    },
     {
       "timestamp": "2026-11-16T03:01:57.765662+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "Bro literally invented contrarian indexing and called it a personality trait.",
       "reason": "",
       "duration_s": 46.45
+    },
+    {
+      "timestamp": "2026-11-20T14:02:36.296214+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Open weights vs hosted APIs",
+      "content_preview": "I spent three days debugging vLLM thread locks just to save $400 on API costs.\n\nOpen weights are only cheaper until you ",
+      "reason": "",
+      "duration_s": 36.98
+    },
+    {
+      "timestamp": "2026-11-20T14:02:36.317219+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T14:03:21.402188+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 45.08
+    },
+    {
+      "timestamp": "2026-11-20T14:03:25.830400+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T14:03:25.836487+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.9
+    },
+    {
+      "timestamp": "2026-11-20T14:03:34.179598+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "unsourced number: 70B model; unsourced number: 8B; unsourced number: 84%; unsourced number: 180ms",
+      "duration_s": 12.24
     }
   ]
 }
