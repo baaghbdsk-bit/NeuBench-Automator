@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T12:05:51.692077+00:00",
+    "last_updated": "2026-11-20T13:03:24.155573+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1872,
-    "original_posts_attempted": 545,
+    "total_cycles_executed": 1876,
+    "original_posts_attempted": 546,
     "original_posts_succeeded": 299,
-    "replies_attempted": 168,
-    "replies_succeeded": 27,
+    "replies_attempted": 169,
+    "replies_succeeded": 28,
     "reposts_attempted": 72,
     "reposts_succeeded": 13,
-    "actions_skipped": 648,
+    "actions_skipped": 651,
     "failed_operations": 170,
-    "ai_generation_requests": 995,
+    "ai_generation_requests": 998,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T00:01:42.600410+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Building an app used to cost your soul and sanity. Now it just costs $400k in API tokens for an AI to hallucinate a synt",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.14
-    },
-    {
-      "timestamp": "2026-11-16T00:01:42.613551+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 71.7m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T00:01:47.661659+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market",
-      "content_preview": "Edge AI sensor fusion demands sub-millisecond inference and strict thermal budgets. Bharat Semi’s $24M seed for speciali",
-      "reason": "",
-      "duration_s": 5.04
-    },
-    {
-      "timestamp": "2026-11-16T01:01:46.522238+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Watching techbros cry over token costs like their AI startup isn't just a glorified wrapper for someone else's API. Anyw",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.11
-    },
     {
       "timestamp": "2026-11-16T01:01:46.539503+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 20.83
+    },
+    {
+      "timestamp": "2026-11-20T13:02:33.118641+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "unsourced number: 300ms",
+      "duration_s": 1.16
+    },
+    {
+      "timestamp": "2026-11-20T13:02:33.135908+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T13:02:37.160979+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Do Probing and Steering Favor the Same Directions Within and Across Language Models?",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 1, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 4.02
+    },
+    {
+      "timestamp": "2026-11-20T13:03:24.155536+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/paulg/status/2123122026932007233",
+      "content_preview": "Bro literally invented contrarian indexing and called it a personality trait.",
+      "reason": "",
+      "duration_s": 46.45
     }
   ]
 }
