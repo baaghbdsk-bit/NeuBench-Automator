@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-20T07:02:49.091134+00:00",
+    "last_updated": "2026-11-20T08:02:54.775600+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1843,
-    "original_posts_attempted": 536,
+    "total_cycles_executed": 1849,
+    "original_posts_attempted": 538,
     "original_posts_succeeded": 299,
-    "replies_attempted": 162,
+    "replies_attempted": 163,
     "replies_succeeded": 26,
-    "reposts_attempted": 70,
+    "reposts_attempted": 71,
     "reposts_succeeded": 13,
-    "actions_skipped": 622,
+    "actions_skipped": 628,
     "failed_operations": 170,
-    "ai_generation_requests": 979,
+    "ai_generation_requests": 982,
     "ai_generation_failures": 10,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-15T16:23:33.894019+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Transformer context windows are hitting a brutal physics wall where doubling sequence length quadruples your compute cos",
-      "reason": "",
-      "duration_s": 10.27
-    },
-    {
-      "timestamp": "2026-11-15T16:42:17.277326+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending my entire monthly salary just to make an AI code a simple login button while reasoning drifts into existential ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.97
-    },
-    {
-      "timestamp": "2026-11-15T16:42:17.295392+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-15T16:42:23.610891+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
-      "content_preview": "EgoX unifies heterogeneous cross-embodiment data (humans, real robots, sims) via \"embodiment dreaming\" to bridge morphol",
-      "reason": "",
-      "duration_s": 6.31
-    },
-    {
-      "timestamp": "2026-11-15T17:01:53.349895+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending my entire monthly salary just to watch an AI overthink a 5-line bug for 20 minutes. At this rate, debugging wit",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 7.34
-    },
-    {
-      "timestamp": "2026-11-15T17:01:53.369450+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (4/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-15T17:01:59.856195+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "We are officially back to writing shell scripts by vibrating at Claude until it builds a whole-ass streaming platform.",
       "reason": "",
       "duration_s": 47.44
+    },
+    {
+      "timestamp": "2026-11-20T08:02:18.638134+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark contamination",
+      "content_preview": "",
+      "reason": "unsourced number: 92%; weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 7.74
+    },
+    {
+      "timestamp": "2026-11-20T08:02:18.686447+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-20T08:02:41.282530+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Embeddings vs. Grep: Rethinking the Dense Advantage in Code Search",
+      "content_preview": "",
+      "reason": "weak voice 3/10: {'pov': 0, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 22.59
+    },
+    {
+      "timestamp": "2026-11-20T08:02:47.758738+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-20T08:02:47.767866+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 5.81
+    },
+    {
+      "timestamp": "2026-11-20T08:02:54.775567+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Prompt injection",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 12.81
     }
   ]
 }
