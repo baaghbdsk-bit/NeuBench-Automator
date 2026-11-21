@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T11:39:57.886090+00:00",
+    "last_updated": "2026-11-21T12:02:04.335508+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2019,
-    "original_posts_attempted": 593,
+    "total_cycles_executed": 2025,
+    "original_posts_attempted": 595,
     "original_posts_succeeded": 304,
-    "replies_attempted": 210,
+    "replies_attempted": 211,
     "replies_succeeded": 29,
-    "reposts_attempted": 77,
+    "reposts_attempted": 78,
     "reposts_succeeded": 13,
-    "actions_skipped": 776,
+    "actions_skipped": 782,
     "failed_operations": 174,
     "ai_generation_requests": 1059,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T21:03:01.501691+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your LLM pipeline is outputting hallucinated gibberish in production, yet your prompt engineering is pristine and your b",
-      "reason": "",
-      "duration_s": 26.68
-    },
-    {
-      "timestamp": "2026-11-17T21:03:01.509505+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (21/12).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-17T21:06:15.520569+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 193.43
-    },
-    {
-      "timestamp": "2026-11-17T21:06:43.301670+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "u.s. soccer",
-      "content_preview": "Calling it \"soccer\" while the rest of the planet treats football like an actual religion is the ultimate American superp",
-      "reason": "",
-      "duration_s": 221.22
-    },
-    {
-      "timestamp": "2026-11-17T22:02:13.588052+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "erling haaland",
-      "content_preview": "Erling Haaland is literally just a 19th-century Viking peasant who accidentally time-traveled into an elite football con",
-      "reason": "",
-      "duration_s": 25.63
-    },
-    {
-      "timestamp": "2026-11-17T22:02:13.614876+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 59.2m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-17T22:02:13.620789+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 16.71
+    },
+    {
+      "timestamp": "2026-11-21T12:01:58.845836+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T12:01:58.867687+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T12:01:58.874868+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T12:02:04.322025+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T12:02:04.328804+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.73
+    },
+    {
+      "timestamp": "2026-11-21T12:02:04.335486+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 4.73
     }
   ]
 }
