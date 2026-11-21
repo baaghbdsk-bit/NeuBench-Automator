@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T16:02:09.112272+00:00",
+    "last_updated": "2026-11-21T17:02:01.007060+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2047,
-    "original_posts_attempted": 602,
+    "total_cycles_executed": 2053,
+    "original_posts_attempted": 604,
     "original_posts_succeeded": 304,
-    "replies_attempted": 217,
+    "replies_attempted": 219,
     "replies_succeeded": 30,
     "reposts_attempted": 79,
     "reposts_succeeded": 13,
-    "actions_skipped": 803,
+    "actions_skipped": 809,
     "failed_operations": 174,
     "ai_generation_requests": 1060,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T01:06:00.027823+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "bosnia and herzegovina national football team vs romania national football team standings",
-      "content_preview": "Checking Bosnia and Herzegovina vs Romania standings is the male equivalent of reading horoscopes to find out why your l",
-      "reason": "",
-      "duration_s": 213.62
-    },
-    {
-      "timestamp": "2026-11-18T02:02:23.688728+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "rudy gobert",
-      "content_preview": "Rudy Gobert plays defense like he’s trying to shield his screen from his mom while texting in 2008. Unstoppable traffic ",
-      "reason": "",
-      "duration_s": 22.67
-    },
-    {
-      "timestamp": "2026-11-18T02:02:23.718645+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 102.3m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-18T02:02:29.582125+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Google's AI answers reducing search traffic by 40%",
-      "content_preview": "AI summaries eating 40% of search traffic shifts the web economics model. Zero-click answers reduce publisher incentives",
-      "reason": "",
-      "duration_s": 5.85
-    },
-    {
-      "timestamp": "2026-11-18T02:05:46.106855+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 195.67
-    },
-    {
-      "timestamp": "2026-11-18T02:06:07.327845+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "mexico vs jamaica",
-      "content_preview": "Watching Mexico vs Jamaica is basically a stress-test for my heart rate while pretending I understand tactical football.",
-      "reason": "",
-      "duration_s": 216.89
-    },
     {
       "timestamp": "2026-11-18T03:02:23.419151+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 4.04
+    },
+    {
+      "timestamp": "2026-11-21T17:01:56.529930+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T17:01:56.546467+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T17:01:56.552793+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T17:02:00.993943+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T17:02:01.000507+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.89
+    },
+    {
+      "timestamp": "2026-11-21T17:02:01.007045+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 3.9
     }
   ]
 }
