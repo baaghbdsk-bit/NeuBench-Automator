@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T05:03:11.487740+00:00",
+    "last_updated": "2026-11-21T06:03:19.811794+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1977,
-    "original_posts_attempted": 580,
+    "total_cycles_executed": 1981,
+    "original_posts_attempted": 581,
     "original_posts_succeeded": 303,
-    "replies_attempted": 198,
-    "replies_succeeded": 28,
+    "replies_attempted": 199,
+    "replies_succeeded": 29,
     "reposts_attempted": 76,
     "reposts_succeeded": 13,
-    "actions_skipped": 740,
+    "actions_skipped": 742,
     "failed_operations": 174,
-    "ai_generation_requests": 1051,
+    "ai_generation_requests": 1054,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T07:02:22.448192+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T07:02:27.336966+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What are Vector Embeddings? The Secret Map of AI Brains",
-      "content_preview": "Vector embeddings project semantic spaces into dense numerical coordinates. Similar concepts cluster via distance metric",
-      "reason": "",
-      "duration_s": 4.88
-    },
-    {
-      "timestamp": "2026-11-17T08:01:47.570061+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending $400 on API tokens just for Claude to hallucinate a python script that deletes my entire system 32 folder. We t",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.97
-    },
-    {
-      "timestamp": "2026-11-17T08:01:47.583771+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-17T08:01:53.712327+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "I spent three days debugging a hallucinating agent before realizing the LLM wasn't wrong, my top-k retrieval was just pu",
       "reason": "",
       "duration_s": 29.26
+    },
+    {
+      "timestamp": "2026-11-21T06:02:00.749405+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.29
+    },
+    {
+      "timestamp": "2026-11-21T06:02:00.767829+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T06:02:06.676483+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "PAD: Policy-Aware Data Valuation for Autonomous Driving",
+      "content_preview": "I stopped filtering driving demos by embedding distance and started tracking marginal policy gradient utility instead. S",
+      "reason": "",
+      "duration_s": 5.9
+    },
+    {
+      "timestamp": "2026-11-21T06:03:19.811755+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/cursor_ai/status/2088249881718919393",
+      "content_preview": "Can’t wait to debug orbital mechanics at 3 AM because my IDE decided Falcon 9 needed to refactor its landing sequence.",
+      "reason": "",
+      "duration_s": 72.57
     }
   ]
 }

@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "winthrop basketball",
     "bsky:The end of Microsoft Research's AI Frontiers group",
     "wku vs middle tenn.",
     "bsky:Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
@@ -499,7 +498,8 @@
     "bsky:Lang-SVG: Hierarchical Image Vectorization with Language Priors",
     "li:How Vector Database Segment Merging Works Under the Hood",
     "Observability for LLMs",
-    "RAG is not a search box"
+    "RAG is not a search box",
+    "bsky:PAD: Policy-Aware Data Valuation for Autonomous Driving"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -532,7 +532,8 @@
     "https://x.com/AshwiniVaishnaw/status/2116878283874918631",
     "https://x.com/karpathy/status/2116957135661945283",
     "https://x.com/deepseek_ai/status/2112476496283775135",
-    "https://x.com/paulg/status/2123122026932007233"
+    "https://x.com/paulg/status/2123122026932007233",
+    "https://x.com/cursor_ai/status/2088249881718919393"
   ],
   "reposted_urls": [
     "https://x.com/ndtv/status/2113019999380193613",
@@ -1162,7 +1163,8 @@
         "post:7e4844c95d213acf1e0bb76d2039099b42f1d645accafe3a74f56bf73bea6461",
         "post:593c739e4e8b14d6d850e22cc2b4eec49c29f9d10b04a8beeb54456a8d991a6d",
         "post:7c59e5b073faedd7f402c53d0f845ebe86a2092b39369e307e0e2156ae1c811a",
-        "post:00f58d3a9df1c8aea6b6a52429683ee39974527836878dcdb9cca5d0dbba4f4e"
+        "post:00f58d3a9df1c8aea6b6a52429683ee39974527836878dcdb9cca5d0dbba4f4e",
+        "post:b8a94a05cbc8cac8c449274c24e45f13ff0ed2fad3848f16c0d08a9213c8c41f"
       ],
       "pending": [
         {
