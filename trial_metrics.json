@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T02:03:01.652320+00:00",
+    "last_updated": "2026-11-21T02:14:02.177301+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1957,
+    "total_cycles_executed": 1958,
     "original_posts_attempted": 574,
     "original_posts_succeeded": 301,
     "replies_attempted": 193,
     "replies_succeeded": 28,
     "reposts_attempted": 75,
     "reposts_succeeded": 13,
-    "actions_skipped": 722,
+    "actions_skipped": 723,
     "failed_operations": 174,
     "ai_generation_requests": 1042,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T02:01:43.981692+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Writing code used to require coffee and existential dread. Now it just requires a second mortgage to pay for 1M tokens o",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.07
-    },
     {
       "timestamp": "2026-11-17T02:01:43.999198+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.97
+    },
+    {
+      "timestamp": "2026-11-21T02:14:02.177265+00:00",
+      "action_type": "bluesky_reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "sexabolition.blog",
+      "content_preview": "",
+      "reason": "first line is a question, not a claim",
+      "duration_s": 2.11
     }
   ]
 }
