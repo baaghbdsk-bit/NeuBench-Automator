@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T15:02:01.073539+00:00",
+    "last_updated": "2026-11-21T16:02:09.112272+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2041,
-    "original_posts_attempted": 600,
+    "total_cycles_executed": 2047,
+    "original_posts_attempted": 602,
     "original_posts_succeeded": 304,
-    "replies_attempted": 216,
+    "replies_attempted": 217,
     "replies_succeeded": 30,
-    "reposts_attempted": 78,
+    "reposts_attempted": 79,
     "reposts_succeeded": 13,
-    "actions_skipped": 797,
+    "actions_skipped": 803,
     "failed_operations": 174,
     "ai_generation_requests": 1060,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T00:21:35.965580+00:00",
-      "action_type": "quote_tweet",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/naval/status/1002103360646823936",
-      "content_preview": "Step 1: Be born to wealthy parents who happened to get lucky in 1984. #TechTrends",
-      "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates.",
-      "duration_s": 86.96
-    },
-    {
-      "timestamp": "2026-11-18T00:58:25.605813+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 38.4m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-18T01:02:19.873275+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "AI will replace coders vs Indian IT bodyshopping",
-      "content_preview": "Silicon Valley bros crying that AI is replacing coders while Infosys deploys 4,000 freshers to debug a COBOL mainframe o",
-      "reason": "",
-      "duration_s": 21.91
-    },
-    {
-      "timestamp": "2026-11-18T01:02:19.899145+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 42.3m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-18T01:02:25.090012+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Scoring Engine Behind Modern AI",
-      "content_preview": "Think of logits as raw exam point totals before grading curves. Probabilities are just the normalized letter grades. \n\nI",
-      "reason": "",
-      "duration_s": 5.18
-    },
-    {
-      "timestamp": "2026-11-18T01:05:40.085772+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 193.67
-    },
     {
       "timestamp": "2026-11-18T01:06:00.027823+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 4.11
+    },
+    {
+      "timestamp": "2026-11-21T16:02:04.293229+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T16:02:04.316827+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T16:02:04.325640+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T16:02:09.093749+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T16:02:09.103223+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.03
+    },
+    {
+      "timestamp": "2026-11-21T16:02:09.112253+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 4.04
     }
   ]
 }
