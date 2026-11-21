@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T04:02:20.897963+00:00",
+    "last_updated": "2026-11-21T05:03:11.487740+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1971,
-    "original_posts_attempted": 578,
-    "original_posts_succeeded": 301,
-    "replies_attempted": 196,
+    "total_cycles_executed": 1977,
+    "original_posts_attempted": 580,
+    "original_posts_succeeded": 303,
+    "replies_attempted": 198,
     "replies_succeeded": 28,
     "reposts_attempted": 76,
     "reposts_succeeded": 13,
-    "actions_skipped": 736,
+    "actions_skipped": 740,
     "failed_operations": 174,
-    "ai_generation_requests": 1048,
+    "ai_generation_requests": 1051,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T05:42:08.456736+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T05:42:20.946222+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Reducing Batch Makespan for LLM Agent Workloads through Inference-Environment Coordination",
-      "content_preview": "LLM agent workloads thrash KV caches because they interleave inference with environment execution. Coordinating batch sc",
-      "reason": "",
-      "duration_s": 12.48
-    },
-    {
-      "timestamp": "2026-11-17T06:02:32.048948+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Silicon Valley really looked at $10 to write a hello world loop and said \"let’s make it $0.20 and call it philosophy.\" \n",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 5.49
-    },
-    {
-      "timestamp": "2026-11-17T06:02:32.063615+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T06:02:39.632068+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "PaperCritic: Training AI Reviewers to Assess the Soundness of Papers",
-      "content_preview": "Mimicking human peer review fails because subjective metrics like \"interestingness\" corrupt reward signals. PaperCritic ",
-      "reason": "",
-      "duration_s": 7.56
-    },
-    {
-      "timestamp": "2026-11-17T07:02:22.433438+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Rich Silicon Valley companies crying over token costs while I just spent 2 hours debugging a missing semicolon. Differen",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 0.99
-    },
     {
       "timestamp": "2026-11-17T07:02:22.448192+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
       "duration_s": 6.76
+    },
+    {
+      "timestamp": "2026-11-21T05:02:19.827933+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Observability for LLMs",
+      "content_preview": "I watched a junior dev try to debug a looping agent with `console.log` today and aged three years.\n\nIf you aren't loggin",
+      "reason": "",
+      "duration_s": 27.05
+    },
+    {
+      "timestamp": "2026-11-21T05:02:19.852423+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T05:02:41.623167+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Tech stock sell-off drags markets down as Anthropic shares slide",
+      "content_preview": "",
+      "reason": "unsourced number: 14%",
+      "duration_s": 21.76
+    },
+    {
+      "timestamp": "2026-11-21T05:02:45.974564+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T05:02:46.426564+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.21
+    },
+    {
+      "timestamp": "2026-11-21T05:03:11.480328+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "RAG is not a search box",
+      "content_preview": "I spent three days debugging a hallucinating agent before realizing the LLM wasn't wrong, my top-k retrieval was just pu",
+      "reason": "",
+      "duration_s": 29.26
     }
   ]
 }

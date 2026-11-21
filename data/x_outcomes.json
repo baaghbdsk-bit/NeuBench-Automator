@@ -20,6 +20,26 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-21T05:02:19.835744+00:00",
+      "title": "Observability for LLMs",
+      "text": "I watched a junior dev try to debug a looping agent with `console.log` today and aged three years.\n\nIf you aren't logging exact token counts, prompt hashes, and model endpoints, you aren't debugging—you're just guessing in prod.\n\nMost \"LLM observability\" startups are just overpri",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-21T05:03:11.487358+00:00",
+      "title": "RAG is not a search box",
+      "text": "I spent three days debugging a hallucinating agent before realizing the LLM wasn't wrong, my top-k retrieval was just pulling garbage paragraphs.\n\nFixing your chunking strategy beats spending $2,000 fine-tuning a bigger model every single time.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }
