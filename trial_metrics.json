@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T17:02:01.007060+00:00",
+    "last_updated": "2026-11-21T18:02:06.976825+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2053,
-    "original_posts_attempted": 604,
+    "total_cycles_executed": 2059,
+    "original_posts_attempted": 606,
     "original_posts_succeeded": 304,
-    "replies_attempted": 219,
+    "replies_attempted": 221,
     "replies_succeeded": 30,
     "reposts_attempted": 79,
     "reposts_succeeded": 13,
-    "actions_skipped": 809,
+    "actions_skipped": 815,
     "failed_operations": 174,
     "ai_generation_requests": 1060,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T03:02:23.419151+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "गुजरात टाइटन्स",
-      "content_preview": "Gujarat Titans are the corporate presentation that somehow gets a promotion over the guy who actually built the company.",
-      "reason": "",
-      "duration_s": 23.52
-    },
-    {
-      "timestamp": "2026-11-18T03:02:23.449192+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 162.3m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-18T03:02:29.067704+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "As Trump and Xi meet, China's AI dreams face an unexpected hurdle: the Nvidia spy scandal",
-      "content_preview": "Silicon supply chains remain uniquely brittle. Geopolitical friction over hardware integrity accelerates decoupling, for",
-      "reason": "",
-      "duration_s": 5.61
-    },
-    {
-      "timestamp": "2026-11-18T03:05:47.661588+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 197.84
-    },
-    {
-      "timestamp": "2026-11-18T03:06:10.133439+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "unlv vs kansas",
-      "content_preview": "Watching UNLV vs Kansas feels less like a football game and more like watching a guy try to return a sweater at Zara wit",
-      "reason": "",
-      "duration_s": 220.31
-    },
-    {
-      "timestamp": "2026-11-18T04:01:42.894521+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (7/6).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-18T04:01:53.261706+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 3.9
+    },
+    {
+      "timestamp": "2026-11-21T18:02:02.210033+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T18:02:02.231557+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T18:02:02.239703+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T18:02:06.954719+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T18:02:06.965094+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.02
+    },
+    {
+      "timestamp": "2026-11-21T18:02:06.976807+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 4.03
     }
   ]
 }
