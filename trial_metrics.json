@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T18:02:06.976825+00:00",
+    "last_updated": "2026-11-21T18:54:18.136847+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2059,
-    "original_posts_attempted": 606,
+    "total_cycles_executed": 2065,
+    "original_posts_attempted": 608,
     "original_posts_succeeded": 304,
-    "replies_attempted": 221,
+    "replies_attempted": 223,
     "replies_succeeded": 30,
     "reposts_attempted": 79,
     "reposts_succeeded": 13,
-    "actions_skipped": 815,
+    "actions_skipped": 821,
     "failed_operations": 174,
     "ai_generation_requests": 1060,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T04:01:53.261706+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "You can feed an LLM 128k tokens of pristine documentation, yet it will completely hallucinate an API key hidden right in",
-      "reason": "",
-      "duration_s": 10.35
-    },
-    {
-      "timestamp": "2026-11-18T04:01:59.232615+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Weight-Space Programming Doesn't Need Transformers",
-      "content_preview": "Transformers won because of autograd and hardware co-design. If LLMs write target weights directly in weight-space, thos",
-      "reason": "",
-      "duration_s": 5.96
-    },
-    {
-      "timestamp": "2026-11-18T04:05:13.039459+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 193.33
-    },
-    {
-      "timestamp": "2026-11-18T04:05:33.749804+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "dylan harper",
-      "content_preview": "Watching Dylan Harper ball out while my biggest athletic achievement today is successfully dodging human contact at the ",
-      "reason": "",
-      "duration_s": 214.04
-    },
-    {
-      "timestamp": "2026-11-18T05:01:53.253819+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T05:01:53.277663+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 60.0m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-18T05:02:03.464354+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 4.03
+    },
+    {
+      "timestamp": "2026-11-21T18:54:13.442878+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T18:54:13.465738+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T18:54:13.474219+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T18:54:18.120015+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T18:54:18.128291+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.97
+    },
+    {
+      "timestamp": "2026-11-21T18:54:18.136830+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 3.98
     }
   ]
 }
