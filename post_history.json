@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:The end of Microsoft Research's AI Frontiers group",
     "wku vs middle tenn.",
     "bsky:Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
     "elena rybakina",
@@ -499,7 +498,8 @@
     "li:How Vector Database Segment Merging Works Under the Hood",
     "Observability for LLMs",
     "RAG is not a search box",
-    "bsky:PAD: Policy-Aware Data Valuation for Autonomous Driving"
+    "bsky:PAD: Policy-Aware Data Valuation for Autonomous Driving",
+    "Evals before demos"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -792,7 +792,8 @@
     "2770fdda18b8f45dd195fe7dddbf04b3d067f9a1327dbd3a4a9933394f1ccdc5",
     "e74eadc2f447027e75c4c382fbf0fc6bdfe7f8e5e8ad8dcba52fb04b4c0de66d",
     "fb93239b0b78efc7764767b0fc7c1351cb2df6a9a6bd7b4f0da8a4acf3523334",
-    "1027ca7f0686924399f8cf834a08a2d2b3434e0c7f06a70bcee98b44971973b3"
+    "1027ca7f0686924399f8cf834a08a2d2b3434e0c7f06a70bcee98b44971973b3",
+    "fc29d33fc48da419489f49d8ded237bbcc269a92e228db7f20b8d79ae340d6bb"
   ],
   "pending_x_actions": [
     {

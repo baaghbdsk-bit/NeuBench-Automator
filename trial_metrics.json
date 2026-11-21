@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T06:03:19.811794+00:00",
+    "last_updated": "2026-11-21T06:20:29.455266+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1981,
-    "original_posts_attempted": 581,
-    "original_posts_succeeded": 303,
-    "replies_attempted": 199,
+    "total_cycles_executed": 1987,
+    "original_posts_attempted": 583,
+    "original_posts_succeeded": 304,
+    "replies_attempted": 201,
     "replies_succeeded": 29,
     "reposts_attempted": 76,
     "reposts_succeeded": 13,
-    "actions_skipped": 742,
+    "actions_skipped": 747,
     "failed_operations": 174,
-    "ai_generation_requests": 1054,
+    "ai_generation_requests": 1056,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T08:01:53.712327+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Currency of Machine Learning",
-      "content_preview": "Logits are raw vote counts—unnormalized model scores akin to team points in a game. Highest wins, but they don't represe",
-      "reason": "",
-      "duration_s": 6.12
-    },
-    {
-      "timestamp": "2026-11-17T09:01:53.607025+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending my entire monthly salary just to watch an AI hallucinate a missing semicolon on a 1M token coding task. We are ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 3.49
-    },
-    {
-      "timestamp": "2026-11-17T09:01:53.621021+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T09:02:16.573045+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Continuation-Guided LLM Evolution of Program Policies and Goal Compilers in Craftax",
-      "content_preview": "Synthesizing zero-inference code policies in Craftax hits a wall on long horizons: local optimization degrades global su",
-      "reason": "",
-      "duration_s": 22.95
-    },
-    {
-      "timestamp": "2026-11-17T10:02:45.405559+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying startup founder prices just to watch an AI hallucinate a missing semicolon in my React loop. At this rate, debugg",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 6.11
-    },
-    {
-      "timestamp": "2026-11-17T10:02:45.420437+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-17T10:03:08.600829+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "Can’t wait to debug orbital mechanics at 3 AM because my IDE decided Falcon 9 needed to refactor its landing sequence.",
       "reason": "",
       "duration_s": 72.57
+    },
+    {
+      "timestamp": "2026-11-21T06:20:03.394402+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Evals before demos",
+      "content_preview": "I spent yesterday watching a team rewrite their system prompt three times because the founder \"vibed\" with a demo.\n\nIf y",
+      "reason": "",
+      "duration_s": 26.8
+    },
+    {
+      "timestamp": "2026-11-21T06:20:03.422754+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T06:20:24.857131+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 21.43
+    },
+    {
+      "timestamp": "2026-11-21T06:20:29.438897+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T06:20:29.446931+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.86
+    },
+    {
+      "timestamp": "2026-11-21T06:20:29.455247+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 3.87
     }
   ]
 }
