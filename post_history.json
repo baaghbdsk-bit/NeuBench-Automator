@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "maryland vs purdue",
-    "seher hone ko hai",
     "bsky:Amazon’s new basic Kindle proves you don’t need all the bells and whistles",
     "jordyn tyson",
     "bsky:The End of AI Frontiers",
@@ -499,7 +497,9 @@
     "li:How Vector Database HNSW Indexing Works Under the Hood",
     "bsky:Apple may be developing its own AI agent that runs your Mac",
     "Open weights vs hosted APIs",
-    "bsky:RL Post-Training in Diffusion Transformers Is Activation Steering"
+    "bsky:RL Post-Training in Diffusion Transformers Is Activation Steering",
+    "AI coding tools",
+    "bsky:Lang-SVG: Hierarchical Image Vectorization with Language Priors"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -788,7 +788,8 @@
     "8a4f4b3bd1dfdaa3b0560ca728960c582a308f66874679f52d24bfbf5e6893d1",
     "cc58fc1b400053cd2e519b99dabf37a8076685bcfd51cdea8ac44e92f8cd705c",
     "d71f347935dd0ca05f9edf041b7cfec51691d5d7073f066aec59de70ce0ebb1d",
-    "2770fdda18b8f45dd195fe7dddbf04b3d067f9a1327dbd3a4a9933394f1ccdc5"
+    "2770fdda18b8f45dd195fe7dddbf04b3d067f9a1327dbd3a4a9933394f1ccdc5",
+    "e74eadc2f447027e75c4c382fbf0fc6bdfe7f8e5e8ad8dcba52fb04b4c0de66d"
   ],
   "pending_x_actions": [
     {
@@ -1158,7 +1159,8 @@
         "post:c635ec1692d2bfc73d9da4b8deb202df78888dff8d1ca76bc6ca11825defc465",
         "post:7e4844c95d213acf1e0bb76d2039099b42f1d645accafe3a74f56bf73bea6461",
         "post:593c739e4e8b14d6d850e22cc2b4eec49c29f9d10b04a8beeb54456a8d991a6d",
-        "post:7c59e5b073faedd7f402c53d0f845ebe86a2092b39369e307e0e2156ae1c811a"
+        "post:7c59e5b073faedd7f402c53d0f845ebe86a2092b39369e307e0e2156ae1c811a",
+        "post:00f58d3a9df1c8aea6b6a52429683ee39974527836878dcdb9cca5d0dbba4f4e"
       ],
       "pending": [
         {

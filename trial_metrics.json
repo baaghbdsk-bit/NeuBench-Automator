@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T00:02:51.972914+00:00",
+    "last_updated": "2026-11-21T01:02:34.610210+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1946,
-    "original_posts_attempted": 570,
-    "original_posts_succeeded": 300,
-    "replies_attempted": 189,
+    "total_cycles_executed": 1951,
+    "original_posts_attempted": 572,
+    "original_posts_succeeded": 301,
+    "replies_attempted": 191,
     "replies_succeeded": 28,
     "reposts_attempted": 75,
     "reposts_succeeded": 13,
-    "actions_skipped": 714,
+    "actions_skipped": 717,
     "failed_operations": 174,
-    "ai_generation_requests": 1034,
+    "ai_generation_requests": 1038,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-16T23:01:48.254586+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T23:02:01.154396+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Apple reveals new Mac security controls as AI agents raise privacy risks",
-      "content_preview": "macOS 27.3 brings granular permission boundaries for autonomous AI agents. Necessary hardening given agentic privilege e",
-      "reason": "",
-      "duration_s": 12.89
-    },
-    {
-      "timestamp": "2026-11-16T23:07:10.060300+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Me explaining to my bank why a coding bug required 1M tokens of existential AI dread and a $40 API bill just to center a",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.14
-    },
-    {
-      "timestamp": "2026-11-16T23:07:10.081990+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (3/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-16T23:07:18.812311+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "BrickFlow: Connectivity-Guided Brick Reconstruction",
-      "content_preview": "BrickFlow turns combinatorial 3D reconstruction into a guided search. Solving discrete physical snap-fits from images is",
-      "reason": "",
-      "duration_s": 8.72
-    },
     {
       "timestamp": "2026-11-17T00:02:12.203861+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "unsourced number: 70B; unsourced number: 200ms; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 4.86
+    },
+    {
+      "timestamp": "2026-11-21T01:02:14.012532+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "AI coding tools",
+      "content_preview": "I watched a junior developer ship a 400-line cursor-generated PR that looked pristine, except it silently caught every d",
+      "reason": "",
+      "duration_s": 24.87
+    },
+    {
+      "timestamp": "2026-11-21T01:02:29.197122+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Lang-SVG: Hierarchical Image Vectorization with Language Priors",
+      "content_preview": "I used to think SVG vectorization was purely a continuous optimization problem until language priors forced path hierarc",
+      "reason": "",
+      "duration_s": 4.83
+    },
+    {
+      "timestamp": "2026-11-21T01:02:33.764907+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T01:02:33.773908+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.84
+    },
+    {
+      "timestamp": "2026-11-21T01:02:34.610175+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 9 seconds",
+      "duration_s": 4.68
     }
   ]
 }
