@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T08:02:03.584647+00:00",
+    "last_updated": "2026-11-21T09:01:59.502768+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1999,
-    "original_posts_attempted": 587,
+    "total_cycles_executed": 2005,
+    "original_posts_attempted": 589,
     "original_posts_succeeded": 304,
-    "replies_attempted": 204,
+    "replies_attempted": 206,
     "replies_succeeded": 29,
     "reposts_attempted": 77,
     "reposts_succeeded": 13,
-    "actions_skipped": 758,
+    "actions_skipped": 763,
     "failed_operations": 174,
-    "ai_generation_requests": 1058,
+    "ai_generation_requests": 1059,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T15:02:18.185149+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending half my salary on token costs just so my AI can hallucinate a brilliantly optimized bug in record time. Love th",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 5.93
-    },
-    {
-      "timestamp": "2026-11-17T15:02:18.205490+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T15:02:38.166260+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Voyage Labs raises $12 million for a specialized AI travel assistant",
-      "content_preview": "A $12M raise for a domain-specific travel LLM agent. General-purpose models already handle multi-step tool use fine; the",
-      "reason": "",
-      "duration_s": 19.95
-    },
-    {
-      "timestamp": "2026-11-17T15:10:05.425248+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying Silicon Valley rent just to watch my AI hallucinate python syntax slower and cheaper than yesterday. Progress is ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 6.46
-    },
-    {
-      "timestamp": "2026-11-17T15:10:05.446511+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T15:10:14.502745+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Zuse: A Decision Model for European Languages",
-      "content_preview": "Zuse brings decision models—LoRA + pointer heads predicting fixed-set probabilities—to European languages across 4B, 9B,",
-      "reason": "",
-      "duration_s": 9.05
-    },
     {
       "timestamp": "2026-11-17T16:02:42.104075+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 3.91
+    },
+    {
+      "timestamp": "2026-11-21T09:01:49.620904+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T09:01:49.636310+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T09:01:55.066581+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Probability Score Behind AI",
+      "content_preview": "I used to treat logits as just unnormalized probabilities until clipping at inference broke our tail diversity. Softmax ",
+      "reason": "",
+      "duration_s": 5.42
+    },
+    {
+      "timestamp": "2026-11-21T09:01:59.478284+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T09:01:59.490857+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.84
+    },
+    {
+      "timestamp": "2026-11-21T09:01:59.502756+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 3.85
     }
   ]
 }
