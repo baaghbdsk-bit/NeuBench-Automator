@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-20T06:02:19.289345+00:00",
+  "last_success_at": "2026-11-21T02:02:51.436610+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1212,6 +1212,16 @@
       "posted_at": "2026-11-20T06:02:19.289345+00:00",
       "post_urn": "urn:li:ugcPost:7529423859377197057",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:9559bf5c122ebe5fd455acb96768e62d",
+      "title": "How Vector Database Segment Merging Works Under the Hood",
+      "url": "",
+      "content_hash": "b1f34349fab192374d7cac4d2f8b9fd0",
+      "status": "success",
+      "posted_at": "2026-11-21T02:02:51.436610+00:00",
+      "post_urn": "urn:li:share:7529725986179858432",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1335,6 +1345,7 @@
     "li:What is Shadow Paging in Database Engines?",
     "li:What is Database Isolation Level? Concurrency vs. Consistency Demystified",
     "li:LLM KV Cache Eviction and PagedAttention",
-    "li:How Vector Database HNSW Indexing Works Under the Hood"
+    "li:How Vector Database HNSW Indexing Works Under the Hood",
+    "li:How Vector Database Segment Merging Works Under the Hood"
   ]
 }

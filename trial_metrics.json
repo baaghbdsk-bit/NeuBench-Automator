@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T01:02:34.610210+00:00",
+    "last_updated": "2026-11-21T02:03:01.652320+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1951,
-    "original_posts_attempted": 572,
+    "total_cycles_executed": 1957,
+    "original_posts_attempted": 574,
     "original_posts_succeeded": 301,
-    "replies_attempted": 191,
+    "replies_attempted": 193,
     "replies_succeeded": 28,
     "reposts_attempted": 75,
     "reposts_succeeded": 13,
-    "actions_skipped": 717,
+    "actions_skipped": 722,
     "failed_operations": 174,
-    "ai_generation_requests": 1038,
+    "ai_generation_requests": 1042,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T00:02:12.203861+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Dropping $40 per 1M tokens just so Claude can write a React component that still invents a new JavaScript framework out ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 6.34
-    },
-    {
-      "timestamp": "2026-11-17T00:02:25.191875+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "It takes roughly 10 milliseconds for your finger to depress a mechanical keyboard switch, yet by the time that character",
-      "reason": "",
-      "duration_s": 12.98
-    },
-    {
-      "timestamp": "2026-11-17T00:02:37.159757+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use",
-      "content_preview": "OS-level telemetry tracking local dev toolchains and coding agents introduces silent privacy overhead. Engineers care ab",
-      "reason": "",
-      "duration_s": 11.72
-    },
-    {
-      "timestamp": "2026-11-17T01:01:50.371531+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Bro we are actually out here negotiating token prices like we’re buying crypto on a sketchy telegram channel just so a b",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 8.71
-    },
-    {
-      "timestamp": "2026-11-17T01:01:50.392653+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 59.4m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T01:02:05.383174+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What are Vector Embeddings? The Secret Language of AI",
-      "content_preview": "Vector embeddings project semantic meaning into dense continuous spaces. If concepts share context, their distance minim",
-      "reason": "",
-      "duration_s": 14.98
-    },
     {
       "timestamp": "2026-11-17T02:01:43.981692+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 9 seconds",
       "duration_s": 4.68
+    },
+    {
+      "timestamp": "2026-11-21T02:01:57.862624+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 0.96
+    },
+    {
+      "timestamp": "2026-11-21T02:02:51.447349+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I stopped trusting default vector database background syncs the moment concurrent segment merging dropped our p99 query ",
+      "reason": "",
+      "duration_s": 53.57
+    },
+    {
+      "timestamp": "2026-11-21T02:02:55.954397+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 4.5
+    },
+    {
+      "timestamp": "2026-11-21T02:03:00.738196+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T02:03:00.746351+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.06
+    },
+    {
+      "timestamp": "2026-11-21T02:03:01.652290+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.97
     }
   ]
 }

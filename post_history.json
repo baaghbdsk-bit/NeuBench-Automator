@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Amazon’s new basic Kindle proves you don’t need all the bells and whistles",
     "jordyn tyson",
     "bsky:The End of AI Frontiers",
     "winthrop basketball",
@@ -499,7 +498,8 @@
     "Open weights vs hosted APIs",
     "bsky:RL Post-Training in Diffusion Transformers Is Activation Steering",
     "AI coding tools",
-    "bsky:Lang-SVG: Hierarchical Image Vectorization with Language Priors"
+    "bsky:Lang-SVG: Hierarchical Image Vectorization with Language Priors",
+    "li:How Vector Database Segment Merging Works Under the Hood"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
