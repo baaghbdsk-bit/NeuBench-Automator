@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T22:02:06.387353+00:00",
+    "last_updated": "2026-11-21T23:02:07.406746+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2091,
-    "original_posts_attempted": 616,
+    "total_cycles_executed": 2097,
+    "original_posts_attempted": 618,
     "original_posts_succeeded": 304,
-    "replies_attempted": 230,
+    "replies_attempted": 232,
     "replies_succeeded": 30,
     "reposts_attempted": 80,
     "reposts_succeeded": 13,
-    "actions_skipped": 846,
+    "actions_skipped": 852,
     "failed_operations": 174,
     "ai_generation_requests": 1060,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T11:01:55.200589+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T11:02:05.545585+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "A single paragraph of code can quietly bloat your LLM inference budget by 300 percent simply because of how a word is sp",
-      "reason": "",
-      "duration_s": 10.33
-    },
-    {
-      "timestamp": "2026-11-18T11:02:12.569708+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Energy-Based Reasoners: 385x more efficient inference",
-      "content_preview": "Energy-Based Reasoners hit 385x inference efficiency by optimizing scalar energy minimization over autoregressive token ",
-      "reason": "",
-      "duration_s": 7.02
-    },
-    {
-      "timestamp": "2026-11-18T11:05:28.565110+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 195.42
-    },
-    {
-      "timestamp": "2026-11-18T11:05:28.573941+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 195.43
-    },
-    {
-      "timestamp": "2026-11-18T11:43:20.448817+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 41.2m ago (minimum interval: 180m)",
-      "duration_s": 0.02
-    },
     {
       "timestamp": "2026-11-18T12:02:05.955972+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 4.2
+    },
+    {
+      "timestamp": "2026-11-21T23:02:02.529501+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T23:02:02.549573+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T23:02:02.556448+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T23:02:07.393163+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T23:02:07.399922+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.27
+    },
+    {
+      "timestamp": "2026-11-21T23:02:07.406729+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 4.28
     }
   ]
 }
