@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T03:02:11.617740+00:00",
+    "last_updated": "2026-11-21T04:02:20.897963+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1965,
-    "original_posts_attempted": 576,
+    "total_cycles_executed": 1971,
+    "original_posts_attempted": 578,
     "original_posts_succeeded": 301,
-    "replies_attempted": 195,
+    "replies_attempted": 196,
     "replies_succeeded": 28,
-    "reposts_attempted": 75,
+    "reposts_attempted": 76,
     "reposts_succeeded": 13,
-    "actions_skipped": 730,
+    "actions_skipped": 736,
     "failed_operations": 174,
-    "ai_generation_requests": 1045,
+    "ai_generation_requests": 1048,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T04:01:58.274448+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T04:02:03.723032+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
-      "content_preview": "A $1B valuation in 90 days for an AI security startup highlights the massive demand for automated remediation. But veloc",
-      "reason": "",
-      "duration_s": 5.44
-    },
-    {
-      "timestamp": "2026-11-17T05:01:57.052737+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Anthropic charging your entire soul for 1M tokens while DeepSeek runs long-horizon coding on hopes, dreams, and pure caf",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 1.46
-    },
-    {
-      "timestamp": "2026-11-17T05:01:57.073675+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T05:02:12.151709+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Running coding agents without handing them my credentials",
-      "content_preview": "Stop giving local LLM coding agents root access and raw cloud credentials. \n\nUse scoped ephemeral tokens, local executio",
-      "reason": "",
-      "duration_s": 15.07
-    },
-    {
-      "timestamp": "2026-11-17T05:42:08.442076+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Paying venture capital prices for an LLM to hallucinate a python script when I could just stare at a blank wall and cry ",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 14.82
-    },
     {
       "timestamp": "2026-11-17T05:42:08.456736+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.01
+    },
+    {
+      "timestamp": "2026-11-21T04:02:09.214115+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark contamination",
+      "content_preview": "",
+      "reason": "invented personal anecdote with no source; unsourced number: 94%",
+      "duration_s": 0.95
+    },
+    {
+      "timestamp": "2026-11-21T04:02:09.237926+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T04:02:13.364656+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Teaching Vision-Language-Action Models to Stop Safely",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.12
+    },
+    {
+      "timestamp": "2026-11-21T04:02:20.038873+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T04:02:20.048145+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 5.91
+    },
+    {
+      "timestamp": "2026-11-21T04:02:20.897934+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Evals before demos",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 6.76
     }
   ]
 }
