@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T19:15:19.276040+00:00",
+    "last_updated": "2026-11-21T19:43:05.035285+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2072,
+    "total_cycles_executed": 2073,
     "original_posts_attempted": 610,
     "original_posts_succeeded": 304,
     "replies_attempted": 225,
     "replies_succeeded": 30,
     "reposts_attempted": 79,
     "reposts_succeeded": 13,
-    "actions_skipped": 827,
+    "actions_skipped": 828,
     "failed_operations": 174,
     "ai_generation_requests": 1060,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T07:01:57.783525+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-18T07:02:06.537496+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Moral agency aside, the allocation of liability is strictly a systems design constraint; if a deterministic pipeline lac",
       "reason": "",
       "duration_s": 1.97
+    },
+    {
+      "timestamp": "2026-11-21T19:43:05.035248+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 11.18
     }
   ]
 }
