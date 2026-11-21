@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "wku vs middle tenn.",
     "bsky:Quantized FP8 vs Dense Weights for Autonomous Coding Agents",
     "elena rybakina",
     "li:Optimistic vs. Pessimistic Locking",
@@ -499,7 +498,8 @@
     "Observability for LLMs",
     "RAG is not a search box",
     "bsky:PAD: Policy-Aware Data Valuation for Autonomous Driving",
-    "Evals before demos"
+    "Evals before demos",
+    "bsky:Real-World TTFT & Throughput Across Major LLM Hosted Endpoints"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1165,7 +1165,8 @@
         "post:593c739e4e8b14d6d850e22cc2b4eec49c29f9d10b04a8beeb54456a8d991a6d",
         "post:7c59e5b073faedd7f402c53d0f845ebe86a2092b39369e307e0e2156ae1c811a",
         "post:00f58d3a9df1c8aea6b6a52429683ee39974527836878dcdb9cca5d0dbba4f4e",
-        "post:b8a94a05cbc8cac8c449274c24e45f13ff0ed2fad3848f16c0d08a9213c8c41f"
+        "post:b8a94a05cbc8cac8c449274c24e45f13ff0ed2fad3848f16c0d08a9213c8c41f",
+        "post:8662b12dcfb7db47999289dc938c182b03685d8b5905dcd3f7fef401d8d5d606"
       ],
       "pending": [
         {

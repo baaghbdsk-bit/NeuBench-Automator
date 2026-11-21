@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-21T07:01:58.344573+00:00",
+    "last_updated": "2026-11-21T08:02:03.584647+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 1993,
-    "original_posts_attempted": 585,
+    "total_cycles_executed": 1999,
+    "original_posts_attempted": 587,
     "original_posts_succeeded": 304,
-    "replies_attempted": 203,
+    "replies_attempted": 204,
     "replies_succeeded": 29,
-    "reposts_attempted": 76,
+    "reposts_attempted": 77,
     "reposts_succeeded": 13,
-    "actions_skipped": 753,
+    "actions_skipped": 758,
     "failed_operations": 174,
-    "ai_generation_requests": 1057,
+    "ai_generation_requests": 1058,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-17T12:01:50.939409+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "SALA: Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models",
-      "content_preview": "SALA decouples data collection via Semantically Aligned Latent Actions, enabling dual-axis scaling of embodied foundatio",
-      "reason": "",
-      "duration_s": 3.96
-    },
-    {
-      "timestamp": "2026-11-17T13:01:47.980000+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "Spending my entire monthly salary on API tokens just so my AI can hallucinate a python script with maximum confidence. W",
-      "reason": "BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
-      "duration_s": 9.99
-    },
-    {
-      "timestamp": "2026-11-17T13:01:47.994212+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-17T13:02:05.338287+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Correcting Persistent Failures in Point-Cloud Grasping Policies using Human Demonstrations in Virtual Reality",
-      "content_preview": "Point-cloud grasping fails on edge cases. Injecting VR human demos corrects persistent policy bottlenecks without needin",
-      "reason": "",
-      "duration_s": 17.34
-    },
-    {
-      "timestamp": "2026-11-17T14:02:13.125003+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Frontier Reasoning Drift & Cost per 1M Tokens (DeepSeek vs Claude vs Gemini)",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-flash-latest is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
-      "duration_s": 20.3
-    },
-    {
-      "timestamp": "2026-11-17T14:02:13.149464+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (2/2)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-17T15:02:18.185149+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 4.04
+    },
+    {
+      "timestamp": "2026-11-21T08:01:52.502264+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-21T08:01:52.520370+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-21T08:01:59.110258+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Real-World TTFT & Throughput Across Major LLM Hosted Endpoints",
+      "content_preview": "I profiled TTFT across endpoints serving identical weights and found p95 variance is driven entirely by KV-cache evictio",
+      "reason": "",
+      "duration_s": 6.58
+    },
+    {
+      "timestamp": "2026-11-21T08:02:03.570201+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-21T08:02:03.577334+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.9
+    },
+    {
+      "timestamp": "2026-11-21T08:02:03.584631+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 3.91
     }
   ]
 }
