@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T00:02:30.205179+00:00",
+    "last_updated": "2026-11-22T01:02:00.613855+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2103,
-    "original_posts_attempted": 620,
+    "total_cycles_executed": 2109,
+    "original_posts_attempted": 622,
     "original_posts_succeeded": 304,
-    "replies_attempted": 233,
+    "replies_attempted": 235,
     "replies_succeeded": 30,
     "reposts_attempted": 81,
     "reposts_succeeded": 13,
-    "actions_skipped": 857,
+    "actions_skipped": 862,
     "failed_operations": 174,
-    "ai_generation_requests": 1064,
+    "ai_generation_requests": 1067,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T13:02:09.670158+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 120.1m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-18T13:02:09.678234+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T13:05:24.936994+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 194.64
-    },
-    {
-      "timestamp": "2026-11-18T13:05:24.946564+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 194.65
-    },
-    {
-      "timestamp": "2026-11-18T14:02:28.723915+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T14:03:28.335668+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "What is Context Window Poisoning? The Silent Killer of Long-Form LLM Memory\n\nUnderstanding the real-world mechanics of W",
-      "reason": "",
-      "duration_s": 59.6
-    },
     {
       "timestamp": "2026-11-18T14:03:28.345861+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 64GB; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.89
+    },
+    {
+      "timestamp": "2026-11-22T01:01:48.743013+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.17
+    },
+    {
+      "timestamp": "2026-11-22T01:01:48.758497+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T01:01:54.553703+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Time Series Structure Learning with Local Causal Parent Discovery",
+      "content_preview": "I restricted time-series causal discovery to local parent sets to dodge the $O(p^2)$ conditioning explosion. Latency dro",
+      "reason": "",
+      "duration_s": 5.79
+    },
+    {
+      "timestamp": "2026-11-22T01:01:59.515846+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T01:01:59.521362+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.43
+    },
+    {
+      "timestamp": "2026-11-22T01:02:00.613825+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Prompt injection",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.53
     }
   ]
 }

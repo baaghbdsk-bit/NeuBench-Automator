@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:Optimistic vs. Pessimistic Locking",
     "bsky:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
     "Restaurant service charge entitlement",
     "li:Event-Driven vs. Request-Driven Architecture",
@@ -499,7 +498,8 @@
     "Evals before demos",
     "bsky:Real-World TTFT & Throughput Across Major LLM Hosted Endpoints",
     "bsky:What is a Logit? The Raw Probability Score Behind AI",
-    "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale"
+    "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale",
+    "bsky:Time Series Structure Learning with Local Causal Parent Discovery"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1168,7 +1168,8 @@
         "post:00f58d3a9df1c8aea6b6a52429683ee39974527836878dcdb9cca5d0dbba4f4e",
         "post:b8a94a05cbc8cac8c449274c24e45f13ff0ed2fad3848f16c0d08a9213c8c41f",
         "post:8662b12dcfb7db47999289dc938c182b03685d8b5905dcd3f7fef401d8d5d606",
-        "post:cffc9107bd3e17e8421b6d8a759ca3cccd6c0d10b9c27f12c8d147c5739ec22a"
+        "post:cffc9107bd3e17e8421b6d8a759ca3cccd6c0d10b9c27f12c8d147c5739ec22a",
+        "post:d064704be2c5fe3ccd7d41bf6dc357e622f8ab68bf06f957b03cafa7f0df5443"
       ],
       "pending": [
         {
