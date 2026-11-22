@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T16:02:28.672519+00:00",
+    "last_updated": "2026-11-22T17:03:04.763459+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2212,
-    "original_posts_attempted": 655,
+    "total_cycles_executed": 2216,
+    "original_posts_attempted": 656,
     "original_posts_succeeded": 308,
-    "replies_attempted": 263,
-    "replies_succeeded": 31,
+    "replies_attempted": 264,
+    "replies_succeeded": 32,
     "reposts_attempted": 85,
     "reposts_succeeded": 13,
-    "actions_skipped": 953,
+    "actions_skipped": 956,
     "failed_operations": 176,
-    "ai_generation_requests": 1104,
+    "ai_generation_requests": 1105,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T09:08:58.130640+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T09:09:17.777990+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "Your database just crashed mid-transaction, and instead of spending 10 agonizing minutes running a heavy redo-undo recov",
-      "reason": "",
-      "duration_s": 19.63
-    },
-    {
-      "timestamp": "2026-11-19T09:09:23.647140+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Neural Network Currency Demystified",
-      "content_preview": "Logits are raw judge scores from a network’s final layer before normalization. Treat them as unconstrained voting points",
-      "reason": "",
-      "duration_s": 5.86
-    },
-    {
-      "timestamp": "2026-11-19T09:12:39.518848+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 194.52
-    },
     {
       "timestamp": "2026-11-19T09:12:39.529773+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 3.76
+    },
+    {
+      "timestamp": "2026-11-22T17:02:18.894483+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T17:02:18.908892+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T17:02:18.914727+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T17:03:04.763422+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/demishassabis/status/2123168218743554465",
+      "content_preview": "Alchemy at its finest\" is a wild way to admit you're just guessing which weights hit the token budget.",
+      "reason": "",
+      "duration_s": 45.35
     }
   ]
 }
