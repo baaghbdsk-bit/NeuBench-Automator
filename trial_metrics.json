@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T05:03:35.576394+00:00",
+    "last_updated": "2026-11-22T05:52:49.013219+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2133,
-    "original_posts_attempted": 629,
+    "total_cycles_executed": 2139,
+    "original_posts_attempted": 631,
     "original_posts_succeeded": 307,
-    "replies_attempted": 241,
+    "replies_attempted": 243,
     "replies_succeeded": 31,
     "reposts_attempted": 82,
     "reposts_succeeded": 13,
-    "actions_skipped": 878,
+    "actions_skipped": 884,
     "failed_operations": 174,
-    "ai_generation_requests": 1078,
+    "ai_generation_requests": 1080,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T18:19:44.341748+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T18:20:50.061129+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "https://x.com/elonmusk/status/2122408454325416322",
-      "content_preview": "",
-      "reason": "This X reply target is already completed or reserved.",
-      "duration_s": 65.21
-    },
-    {
-      "timestamp": "2026-11-18T18:20:50.067850+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 65.22
-    },
-    {
-      "timestamp": "2026-11-18T19:02:11.980489+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T19:02:46.040755+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "What is a Bloom Filter?\n\nUnderstanding the real-world mechanics of What is a Bloom Filter? is one of the most critical f",
-      "reason": "",
-      "duration_s": 34.05
-    },
-    {
-      "timestamp": "2026-11-18T19:02:46.048995+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-18T19:06:00.141605+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "The board is just trying to optimize for a zero-H100 future so they can write medium posts about the beauty of constrain",
       "reason": "",
       "duration_s": 73.64
+    },
+    {
+      "timestamp": "2026-11-22T05:52:42.249657+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10 seconds; unsourced number: 10x; unsourced number: 10x",
+      "duration_s": 1.0
+    },
+    {
+      "timestamp": "2026-11-22T05:52:42.272890+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T05:52:42.281327+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T05:52:48.003618+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T05:52:48.012875+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.97
+    },
+    {
+      "timestamp": "2026-11-22T05:52:49.013191+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 4.2 seconds",
+      "duration_s": 5.97
     }
   ]
 }
