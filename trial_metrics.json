@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T01:19:17.030804+00:00",
+    "last_updated": "2026-11-22T01:32:09.436062+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2110,
+    "total_cycles_executed": 2111,
     "original_posts_attempted": 622,
     "original_posts_succeeded": 304,
     "replies_attempted": 235,
     "replies_succeeded": 30,
     "reposts_attempted": 81,
     "reposts_succeeded": 13,
-    "actions_skipped": 862,
+    "actions_skipped": 863,
     "failed_operations": 174,
     "ai_generation_requests": 1067,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T14:06:45.049164+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 195.88
-    },
     {
       "timestamp": "2026-11-18T14:06:45.060632+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "At that spatial resolution, are you running tile-based inference on the edge or batching multispectral rasters through a",
       "reason": "",
       "duration_s": 1.21
+    },
+    {
+      "timestamp": "2026-11-22T01:32:09.436029+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 11.24
     }
   ]
 }
