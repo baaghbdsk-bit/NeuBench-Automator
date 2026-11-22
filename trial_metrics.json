@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T02:02:09.657634+00:00",
+    "last_updated": "2026-11-22T03:02:33.844923+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2117,
-    "original_posts_attempted": 624,
-    "original_posts_succeeded": 304,
-    "replies_attempted": 237,
+    "total_cycles_executed": 2123,
+    "original_posts_attempted": 626,
+    "original_posts_succeeded": 305,
+    "replies_attempted": 239,
     "replies_succeeded": 30,
     "reposts_attempted": 81,
     "reposts_succeeded": 13,
-    "actions_skipped": 868,
+    "actions_skipped": 872,
     "failed_operations": 174,
-    "ai_generation_requests": 1070,
+    "ai_generation_requests": 1073,
     "ai_generation_failures": 14,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T15:01:57.188511+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T15:01:57.214719+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 58.5m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-18T15:01:57.221585+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-18T15:05:13.553715+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 195.73
-    },
-    {
-      "timestamp": "2026-11-18T15:05:13.562339+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 195.74
-    },
-    {
-      "timestamp": "2026-11-18T16:02:50.092116+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-18T16:02:50.115908+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.1
+    },
+    {
+      "timestamp": "2026-11-22T03:01:55.533068+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 0.94
+    },
+    {
+      "timestamp": "2026-11-22T03:01:55.557120+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T03:02:01.349734+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Demystifying GQA (Grouped-Query Attention)",
+      "content_preview": "I used to treat KV cache as a pure compute problem until long-context attention blew out my SRAM bandwidth. Grouping que",
+      "reason": "",
+      "duration_s": 5.79
+    },
+    {
+      "timestamp": "2026-11-22T03:02:06.024266+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T03:02:06.031718+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.01
+    },
+    {
+      "timestamp": "2026-11-22T03:02:33.837407+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Prompt injection",
+      "content_preview": "I spent yesterday watching an agent scrape a support ticket and happily execute a curl command to an external webhook be",
+      "reason": "",
+      "duration_s": 31.81
     }
   ]
 }

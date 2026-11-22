@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "Restaurant service charge entitlement",
-    "li:Event-Driven vs. Request-Driven Architecture",
     "हैं",
     "li:Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
     "mls standings",
@@ -499,7 +497,9 @@
     "bsky:What is a Logit? The Raw Probability Score Behind AI",
     "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale",
     "bsky:Time Series Structure Learning with Local Causal Parent Discovery",
-    "bsky:Here are the top AI agents that can live in your text messages"
+    "bsky:Here are the top AI agents that can live in your text messages",
+    "bsky:Demystifying GQA (Grouped-Query Attention)",
+    "Prompt injection"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -794,7 +794,8 @@
     "e74eadc2f447027e75c4c382fbf0fc6bdfe7f8e5e8ad8dcba52fb04b4c0de66d",
     "fb93239b0b78efc7764767b0fc7c1351cb2df6a9a6bd7b4f0da8a4acf3523334",
     "1027ca7f0686924399f8cf834a08a2d2b3434e0c7f06a70bcee98b44971973b3",
-    "fc29d33fc48da419489f49d8ded237bbcc269a92e228db7f20b8d79ae340d6bb"
+    "fc29d33fc48da419489f49d8ded237bbcc269a92e228db7f20b8d79ae340d6bb",
+    "064e0fbefb860ad4287537dc42e555578fe6452d62026ab632c16ec041310085"
   ],
   "pending_x_actions": [
     {
@@ -1170,7 +1171,8 @@
         "post:8662b12dcfb7db47999289dc938c182b03685d8b5905dcd3f7fef401d8d5d606",
         "post:cffc9107bd3e17e8421b6d8a759ca3cccd6c0d10b9c27f12c8d147c5739ec22a",
         "post:d064704be2c5fe3ccd7d41bf6dc357e622f8ab68bf06f957b03cafa7f0df5443",
-        "post:60e8a947eee365ed9d0c9cc3cb87e9f0717bc92f6b05565c219095f0efc8487c"
+        "post:60e8a947eee365ed9d0c9cc3cb87e9f0717bc92f6b05565c219095f0efc8487c",
+        "post:67fcd6ca5c4bf5917a7a4f9dfc2873bdd203505394662fd09e54a124500d7666"
       ],
       "pending": [
         {

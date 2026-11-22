@@ -50,6 +50,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-22T03:02:33.844502+00:00",
+      "title": "Prompt injection",
+      "text": "I spent yesterday watching an agent scrape a support ticket and happily execute a curl command to an external webhook because a user hid `rm -rf` inside a CSS style tag.\n\nPrompt injection isn't a security bug. It's just the fundamental cost of letting text execute code.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }
