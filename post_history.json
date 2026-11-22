@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "mls standings",
     "li:After the midterms, things are looking rocky for Elon Musk and data centers",
     "nets vs hawks",
     "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
@@ -499,7 +498,8 @@
     "bsky:Demystifying GQA (Grouped-Query Attention)",
     "Prompt injection",
     "bsky:Data Processing Incidents on Inference Providers",
-    "Benchmark contamination"
+    "Benchmark contamination",
+    "Hiring for AI teams"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -534,7 +534,8 @@
     "https://x.com/deepseek_ai/status/2112476496283775135",
     "https://x.com/paulg/status/2123122026932007233",
     "https://x.com/cursor_ai/status/2088249881718919393",
-    "https://x.com/deepseek_ai/status/2111375640717033777"
+    "https://x.com/deepseek_ai/status/2111375640717033777",
+    "https://x.com/paulg/status/2124041291046785484"
   ],
   "reposted_urls": [
     "https://x.com/ndtv/status/2113019999380193613",
@@ -796,7 +797,8 @@
     "1027ca7f0686924399f8cf834a08a2d2b3434e0c7f06a70bcee98b44971973b3",
     "fc29d33fc48da419489f49d8ded237bbcc269a92e228db7f20b8d79ae340d6bb",
     "064e0fbefb860ad4287537dc42e555578fe6452d62026ab632c16ec041310085",
-    "d2d72d234cc4ee4c0e7c330dbde2eb7cc9a7788be84b73da9d5016f72fbf176a"
+    "d2d72d234cc4ee4c0e7c330dbde2eb7cc9a7788be84b73da9d5016f72fbf176a",
+    "f68b9537bfbb023b99e165c1091f7dadc66b7d44f371a0b6fee5b2f069cb1cfe"
   ],
   "pending_x_actions": [
     {
