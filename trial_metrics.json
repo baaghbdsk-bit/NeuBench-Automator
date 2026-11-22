@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T14:20:15.828416+00:00",
+    "last_updated": "2026-11-22T15:02:42.241512+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2200,
-    "original_posts_attempted": 651,
+    "total_cycles_executed": 2206,
+    "original_posts_attempted": 653,
     "original_posts_succeeded": 307,
-    "replies_attempted": 260,
+    "replies_attempted": 262,
     "replies_succeeded": 31,
     "reposts_attempted": 84,
     "reposts_succeeded": 13,
-    "actions_skipped": 942,
+    "actions_skipped": 948,
     "failed_operations": 176,
-    "ai_generation_requests": 1101,
+    "ai_generation_requests": 1103,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T06:02:57.232185+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "NexSight: Verifiable Tasks for Fine-Grained Agentic Long-Video Understanding",
-      "content_preview": "Long-video understanding suffers from $O(N)$ context explosion. NexSight shifts this via verifiable agentic search—routi",
-      "reason": "",
-      "duration_s": 14.16
-    },
-    {
-      "timestamp": "2026-11-19T06:06:13.364259+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 195.38
-    },
-    {
-      "timestamp": "2026-11-19T06:06:13.374923+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 195.39
-    },
-    {
-      "timestamp": "2026-11-19T07:01:51.092436+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T07:01:51.109557+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 59.1m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T07:02:04.038136+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents",
-      "content_preview": "Indirect prompt injection in autonomous LLM agents remains a severe distributed security surface. PIPETTE introduces sca",
-      "reason": "",
-      "duration_s": 12.92
-    },
     {
       "timestamp": "2026-11-19T07:05:19.082620+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
       "duration_s": 6.51
+    },
+    {
+      "timestamp": "2026-11-22T15:02:30.916446+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "unsourced number: 70B model; unsourced number: 400%; unsourced number: 0.2%; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 23.29
+    },
+    {
+      "timestamp": "2026-11-22T15:02:30.937436+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T15:02:30.945833+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T15:02:38.358191+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T15:02:38.366231+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 6.71
+    },
+    {
+      "timestamp": "2026-11-22T15:02:42.241472+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Latency budget",
+      "content_preview": "",
+      "reason": "unsourced number: 4B; unsourced number: 800ms",
+      "duration_s": 10.59
     }
   ]
 }
