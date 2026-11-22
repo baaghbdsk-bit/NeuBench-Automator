@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T01:02:00.613855+00:00",
+    "last_updated": "2026-11-22T01:19:17.030804+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2109,
+    "total_cycles_executed": 2110,
     "original_posts_attempted": 622,
     "original_posts_succeeded": 304,
     "replies_attempted": 235,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-18T14:03:28.345861+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-18T14:06:45.049164+00:00",
       "action_type": "reply",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.53
+    },
+    {
+      "timestamp": "2026-11-22T01:19:17.030778+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@antonie.eurosky.social",
+      "content_preview": "At that spatial resolution, are you running tile-based inference on the edge or batching multispectral rasters through a",
+      "reason": "",
+      "duration_s": 1.21
     }
   ]
 }
