@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T17:03:04.763459+00:00",
+    "last_updated": "2026-11-22T18:03:04.188751+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2216,
-    "original_posts_attempted": 656,
+    "total_cycles_executed": 2220,
+    "original_posts_attempted": 657,
     "original_posts_succeeded": 308,
-    "replies_attempted": 264,
-    "replies_succeeded": 32,
+    "replies_attempted": 265,
+    "replies_succeeded": 33,
     "reposts_attempted": 85,
     "reposts_succeeded": 13,
-    "actions_skipped": 956,
+    "actions_skipped": 959,
     "failed_operations": 176,
-    "ai_generation_requests": 1105,
+    "ai_generation_requests": 1106,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T09:12:39.529773+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 194.53
-    },
-    {
-      "timestamp": "2026-11-19T10:01:49.440189+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T10:01:49.455089+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 52.5m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T10:01:57.374279+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LightTAR: Light and Fast Target-Aware Representations for Multimodal Tabular Learning",
-      "content_preview": "Multimodal tabular learning bottlenecked by high-dim text/image embeddings? LightTAR replaces heavy PCA pipelines with t",
-      "reason": "",
-      "duration_s": 7.91
-    },
     {
       "timestamp": "2026-11-19T10:05:10.892929+00:00",
       "action_type": "reply",
@@ -5018,6 +4978,46 @@
       "content_preview": "Alchemy at its finest\" is a wild way to admit you're just guessing which weights hit the token budget.",
       "reason": "",
       "duration_s": 45.35
+    },
+    {
+      "timestamp": "2026-11-22T18:02:21.554734+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T18:02:21.569857+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T18:02:21.575456+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T18:03:04.188704+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/MistralAI/status/2115811242556137820",
+      "content_preview": "Naming your model after a fat cat doesn't fix the fact that I still have to write 400 lines of boilerplate to catch its ",
+      "reason": "",
+      "duration_s": 42.11
     }
   ]
 }
