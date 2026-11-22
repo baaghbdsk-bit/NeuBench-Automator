@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T12:02:44.312114+00:00",
+    "last_updated": "2026-11-22T13:02:15.282535+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2182,
-    "original_posts_attempted": 645,
+    "total_cycles_executed": 2188,
+    "original_posts_attempted": 647,
     "original_posts_succeeded": 307,
-    "replies_attempted": 254,
+    "replies_attempted": 256,
     "replies_succeeded": 31,
     "reposts_attempted": 84,
     "reposts_succeeded": 13,
-    "actions_skipped": 924,
+    "actions_skipped": 930,
     "failed_operations": 176,
-    "ai_generation_requests": 1095,
+    "ai_generation_requests": 1097,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T02:49:59.318218+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 47.2m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T03:02:22.358602+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "tyler herro",
-      "content_preview": "Tyler Herro plays basketball like he’s got a 4 PM reservation at a Nobu nobody asked him to make and an extremely loud S",
-      "reason": "",
-      "duration_s": 23.14
-    },
-    {
-      "timestamp": "2026-11-19T03:02:22.388582+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 59.5m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T03:02:27.451964+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "IDEA: Intent-Dominance Evidence Audit for Inference-Time Backdoor Detection in GUI Agents",
-      "content_preview": "GUI agents from unvetted checkpoints are supply-chain time bombs. Visual triggers bypass static weights. We need runtime",
-      "reason": "",
-      "duration_s": 5.05
-    },
-    {
-      "timestamp": "2026-11-19T03:05:43.065906+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 194.88
-    },
-    {
-      "timestamp": "2026-11-19T03:06:05.671905+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "byu basketball",
-      "content_preview": "BYU basketball fans treating a standard Tuesday night game like they’re single-handedly defending the honor of the entir",
-      "reason": "",
-      "duration_s": 217.49
-    },
     {
       "timestamp": "2026-11-19T04:14:33.036256+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 28.23
+    },
+    {
+      "timestamp": "2026-11-22T13:02:00.190438+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 4.2 seconds",
+      "duration_s": 0.98
+    },
+    {
+      "timestamp": "2026-11-22T13:02:00.255481+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T13:02:00.262315+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T13:02:05.126453+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T13:02:05.152949+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.24
+    },
+    {
+      "timestamp": "2026-11-22T13:02:15.282504+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "unsourced number: 40%",
+      "duration_s": 14.37
     }
   ]
 }
