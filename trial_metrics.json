@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T10:02:16.706309+00:00",
+    "last_updated": "2026-11-22T11:02:17.539865+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2169,
-    "original_posts_attempted": 641,
+    "total_cycles_executed": 2175,
+    "original_posts_attempted": 643,
     "original_posts_succeeded": 307,
-    "replies_attempted": 252,
+    "replies_attempted": 254,
     "replies_succeeded": 31,
     "reposts_attempted": 83,
     "reposts_succeeded": 13,
-    "actions_skipped": 913,
-    "failed_operations": 175,
-    "ai_generation_requests": 1090,
-    "ai_generation_failures": 15,
+    "actions_skipped": 918,
+    "failed_operations": 176,
+    "ai_generation_requests": 1092,
+    "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T00:03:16.466326+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
-      "content_preview": "LLMs as weight-space programmers: generating and repairing neural network parameters directly without gradient descent. ",
-      "reason": "",
-      "duration_s": 6.08
-    },
-    {
-      "timestamp": "2026-11-19T00:06:32.532496+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 195.3
-    },
-    {
-      "timestamp": "2026-11-19T00:06:54.341507+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "central mi vs buffalo",
-      "content_preview": "Watching Central Michigan vs Buffalo on a Tuesday night is the exact moment you have to seriously evaluate every life ch",
-      "reason": "",
-      "duration_s": 217.11
-    },
-    {
-      "timestamp": "2026-11-19T01:02:21.345289+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "série a",
-      "content_preview": "Watching a Série A match at 3 AM just to watch a 0-0 masterclass where both teams forgot how to kick a football. Pure he",
-      "reason": "",
-      "duration_s": 20.68
-    },
-    {
-      "timestamp": "2026-11-19T01:02:21.375343+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 135.6m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T01:02:26.661149+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Seven new models at scalable price-performance",
-      "content_preview": "Model proliferation is easy; Pareto-optimal inference is hard. Dropping 7 models simultaneously demands rigorous evaluat",
-      "reason": "",
-      "duration_s": 5.28
-    },
     {
       "timestamp": "2026-11-19T01:05:42.394955+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 10x; unsourced number: 10x",
       "duration_s": 6.59
+    },
+    {
+      "timestamp": "2026-11-22T11:01:53.327270+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 3B; weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 1.01
+    },
+    {
+      "timestamp": "2026-11-22T11:01:53.342211+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T11:01:53.347847+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T11:01:57.847408+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T11:01:57.853029+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.01
+    },
+    {
+      "timestamp": "2026-11-22T11:02:17.539827+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Fine-tuning vs prompting",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+      "duration_s": 23.69
     }
   ]
 }
