@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T11:24:42.191695+00:00",
+    "last_updated": "2026-11-22T11:55:10.999291+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2176,
+    "total_cycles_executed": 2177,
     "original_posts_attempted": 643,
     "original_posts_succeeded": 307,
     "replies_attempted": 254,
     "replies_succeeded": 31,
     "reposts_attempted": 83,
     "reposts_succeeded": 13,
-    "actions_skipped": 918,
+    "actions_skipped": 919,
     "failed_operations": 176,
     "ai_generation_requests": 1092,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T01:06:05.350784+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "mavericks vs warriors",
-      "content_preview": "Watching Mavericks vs Warriors is basically paying to watch a guy shoot 40-foot logo threes while the defense just stand",
-      "reason": "",
-      "duration_s": 217.34
-    },
     {
       "timestamp": "2026-11-19T02:02:21.127653+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Distilling frontier outputs into smaller task-specific classifiers usually drops tail latency, but dataset drift silentl",
       "reason": "",
       "duration_s": 2.1
+    },
+    {
+      "timestamp": "2026-11-22T11:55:10.999260+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 22.25
     }
   ]
 }
