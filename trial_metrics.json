@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T22:02:09.740499+00:00",
+    "last_updated": "2026-11-22T23:02:52.142238+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2246,
-    "original_posts_attempted": 665,
+    "total_cycles_executed": 2251,
+    "original_posts_attempted": 667,
     "original_posts_succeeded": 308,
-    "replies_attempted": 272,
+    "replies_attempted": 273,
     "replies_succeeded": 33,
     "reposts_attempted": 86,
     "reposts_succeeded": 13,
-    "actions_skipped": 984,
+    "actions_skipped": 989,
     "failed_operations": 176,
-    "ai_generation_requests": 1106,
+    "ai_generation_requests": 1107,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T14:57:59.187100+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 195.53
-    },
-    {
-      "timestamp": "2026-11-19T14:57:59.194805+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 195.54
-    },
-    {
-      "timestamp": "2026-11-19T15:02:45.984288+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T15:02:46.006364+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 119.8m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T15:02:46.015397+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-19T15:06:03.864722+00:00",
       "action_type": "reply",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 5.04
+    },
+    {
+      "timestamp": "2026-11-22T23:02:20.043223+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T23:02:20.058372+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T23:02:20.064231+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T23:02:52.134219+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GoogleDeepMind",
+      "content_preview": "",
+      "reason": "unsourced number: 4%",
+      "duration_s": 31.55
+    },
+    {
+      "timestamp": "2026-11-22T23:02:52.142220+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 31.55
     }
   ]
 }
