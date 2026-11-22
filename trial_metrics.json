@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T13:02:15.282535+00:00",
+    "last_updated": "2026-11-22T14:02:10.283477+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2188,
-    "original_posts_attempted": 647,
+    "total_cycles_executed": 2194,
+    "original_posts_attempted": 649,
     "original_posts_succeeded": 307,
-    "replies_attempted": 256,
+    "replies_attempted": 258,
     "replies_succeeded": 31,
     "reposts_attempted": 84,
     "reposts_succeeded": 13,
-    "actions_skipped": 930,
+    "actions_skipped": 936,
     "failed_operations": 176,
-    "ai_generation_requests": 1097,
+    "ai_generation_requests": 1099,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T04:14:33.036256+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (7/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T04:14:33.051205+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 131.7m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T04:14:38.770272+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is Asynchronous Memory Fragmentation in GPU Tensor Cores?",
-      "content_preview": "GPU tensor cores demand contiguous memory. Treat VRAM like a high-speed assembly line: without fixed-size slots, scatter",
-      "reason": "",
-      "duration_s": 5.71
-    },
-    {
-      "timestamp": "2026-11-19T04:15:36.299538+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "https://x.com/naval/status/1002103360646823936",
-      "content_preview": "",
-      "reason": "This X repost target is already completed or reserved.",
-      "duration_s": 57.0
-    },
-    {
-      "timestamp": "2026-11-19T04:15:54.628029+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "will richard",
-      "content_preview": "At this point, \"will richard\" sounds less like a guy and more like a mandatory corporate wellness module we all have to ",
-      "reason": "",
-      "duration_s": 75.33
-    },
-    {
-      "timestamp": "2026-11-19T04:59:38.020748+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-19T04:59:38.043751+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 40%",
       "duration_s": 14.37
+    },
+    {
+      "timestamp": "2026-11-22T14:02:04.144354+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Cheap models vs frontier models",
+      "content_preview": "",
+      "reason": "unsourced number: 3%; unsourced number: 82%",
+      "duration_s": 9.36
+    },
+    {
+      "timestamp": "2026-11-22T14:02:04.358638+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T14:02:04.487513+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T14:02:09.458109+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T14:02:09.465400+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.9
+    },
+    {
+      "timestamp": "2026-11-22T14:02:10.283448+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Fine-tuning vs prompting",
+      "content_preview": "",
+      "reason": "unsourced number: 70B model; unsourced number: 90%",
+      "duration_s": 4.72
     }
   ]
 }
