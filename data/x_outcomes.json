@@ -80,6 +80,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-22T16:02:22.938364+00:00",
+      "title": "Fine-tuning vs prompting",
+      "text": "I watched a team spend three weeks curating a fine-tuning dataset of 40 examples only to see their hallucination rate double on edge cases.\n\nFixing the system prompt and dropping to a smaller quantized model cut their p99 latency in half and actually solved the drift.\n\nFine-tunin",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }

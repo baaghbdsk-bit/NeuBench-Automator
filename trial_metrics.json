@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T15:02:42.241512+00:00",
+    "last_updated": "2026-11-22T16:02:28.672519+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2206,
-    "original_posts_attempted": 653,
-    "original_posts_succeeded": 307,
-    "replies_attempted": 262,
+    "total_cycles_executed": 2212,
+    "original_posts_attempted": 655,
+    "original_posts_succeeded": 308,
+    "replies_attempted": 263,
     "replies_succeeded": 31,
-    "reposts_attempted": 84,
+    "reposts_attempted": 85,
     "reposts_succeeded": 13,
-    "actions_skipped": 948,
+    "actions_skipped": 953,
     "failed_operations": 176,
-    "ai_generation_requests": 1103,
+    "ai_generation_requests": 1104,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T07:05:19.082620+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 194.59
-    },
-    {
-      "timestamp": "2026-11-19T07:05:19.091358+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 194.6
-    },
-    {
-      "timestamp": "2026-11-19T08:24:40.495710+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T08:24:40.510466+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 142.0m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T08:24:48.352184+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Anthropic prices initial public offering",
-      "content_preview": "Public market entry fundamentally shifts AI lab incentives: long-horizon safety research meets quarterly inference margi",
-      "reason": "",
-      "duration_s": 7.84
-    },
-    {
-      "timestamp": "2026-11-19T08:26:13.858607+00:00",
-      "action_type": "quote_tweet",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/karpathy/status/2105819303471976479",
-      "content_preview": "Bro really just invented a new dialect of corporate therapy-speak because we forgot how to talk to robots. #AI",
-      "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates.",
-      "duration_s": 84.98
-    },
     {
       "timestamp": "2026-11-19T09:08:58.130640+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 4B; unsourced number: 800ms",
       "duration_s": 10.59
+    },
+    {
+      "timestamp": "2026-11-22T16:02:22.514559+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Fine-tuning vs prompting",
+      "content_preview": "I watched a team spend three weeks curating a fine-tuning dataset of 40 examples only to see their hallucination rate do",
+      "reason": "",
+      "duration_s": 27.47
+    },
+    {
+      "timestamp": "2026-11-22T16:02:23.558433+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-22T16:02:23.886050+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-22T16:02:28.658981+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-22T16:02:28.665637+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.75
+    },
+    {
+      "timestamp": "2026-11-22T16:02:28.672504+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X daily cap",
+      "content_preview": "",
+      "reason": "Daily original posts limit reached (4/4).",
+      "duration_s": 3.76
     }
   ]
 }

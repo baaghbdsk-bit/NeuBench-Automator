@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:After the midterms, things are looking rocky for Elon Musk and data centers",
     "nets vs hawks",
     "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
     "svengoolie tonight",
@@ -499,7 +498,8 @@
     "Prompt injection",
     "bsky:Data Processing Incidents on Inference Providers",
     "Benchmark contamination",
-    "Hiring for AI teams"
+    "Hiring for AI teams",
+    "Fine-tuning vs prompting"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -798,7 +798,8 @@
     "fc29d33fc48da419489f49d8ded237bbcc269a92e228db7f20b8d79ae340d6bb",
     "064e0fbefb860ad4287537dc42e555578fe6452d62026ab632c16ec041310085",
     "d2d72d234cc4ee4c0e7c330dbde2eb7cc9a7788be84b73da9d5016f72fbf176a",
-    "f68b9537bfbb023b99e165c1091f7dadc66b7d44f371a0b6fee5b2f069cb1cfe"
+    "f68b9537bfbb023b99e165c1091f7dadc66b7d44f371a0b6fee5b2f069cb1cfe",
+    "c19eb28d702b1315fa673bef980f9d5de2246f10e6ec0cca378461544fd6ced5"
   ],
   "pending_x_actions": [
     {
