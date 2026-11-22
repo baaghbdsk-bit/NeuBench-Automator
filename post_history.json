@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "elena rybakina",
     "li:Optimistic vs. Pessimistic Locking",
     "bsky:Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
     "Restaurant service charge entitlement",
@@ -499,7 +498,8 @@
     "bsky:PAD: Policy-Aware Data Valuation for Autonomous Driving",
     "Evals before demos",
     "bsky:Real-World TTFT & Throughput Across Major LLM Hosted Endpoints",
-    "bsky:What is a Logit? The Raw Probability Score Behind AI"
+    "bsky:What is a Logit? The Raw Probability Score Behind AI",
+    "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",

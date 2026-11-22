@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-21T02:02:51.436610+00:00",
+  "last_success_at": "2026-11-22T00:02:19.100406+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1222,6 +1222,16 @@
       "posted_at": "2026-11-21T02:02:51.436610+00:00",
       "post_urn": "urn:li:share:7529725986179858432",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:c7eb6d3edf5b81e2957d8a4cce632873",
+      "title": "DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale",
+      "url": "",
+      "content_hash": "50dc0135b897ffb9f7d1345378124e85",
+      "status": "success",
+      "posted_at": "2026-11-22T00:02:19.100406+00:00",
+      "post_urn": "urn:li:share:7530058037802434560",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1346,6 +1356,7 @@
     "li:What is Database Isolation Level? Concurrency vs. Consistency Demystified",
     "li:LLM KV Cache Eviction and PagedAttention",
     "li:How Vector Database HNSW Indexing Works Under the Hood",
-    "li:How Vector Database Segment Merging Works Under the Hood"
+    "li:How Vector Database Segment Merging Works Under the Hood",
+    "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale"
   ]
 }
