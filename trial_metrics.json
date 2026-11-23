@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T07:02:06.196519+00:00",
+    "last_updated": "2026-11-23T08:02:04.610911+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2312,
-    "original_posts_attempted": 687,
+    "total_cycles_executed": 2318,
+    "original_posts_attempted": 689,
     "original_posts_succeeded": 309,
-    "replies_attempted": 291,
+    "replies_attempted": 292,
     "replies_succeeded": 33,
-    "reposts_attempted": 88,
+    "reposts_attempted": 89,
     "reposts_succeeded": 13,
-    "actions_skipped": 1045,
+    "actions_skipped": 1050,
     "failed_operations": 176,
-    "ai_generation_requests": 1135,
+    "ai_generation_requests": 1138,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T03:06:04.668450+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-20T03:06:04.675009+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.95
-    },
-    {
-      "timestamp": "2026-11-20T03:06:09.380570+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vibe coding vs shipping",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 8.65
-    },
-    {
-      "timestamp": "2026-11-20T04:01:43.922641+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Cheap models vs frontier models",
-      "content_preview": "",
-      "reason": "unsourced number: 400B; unsourced number: 8B; unsourced number: 94%",
-      "duration_s": 1.25
-    },
-    {
-      "timestamp": "2026-11-20T04:01:43.938036+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 657.9m ago (minimum interval: 720m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T04:01:48.535866+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "VSpark: Speculative Decoding for Autoregressive Vision-Language-Action Models",
-      "content_preview": "",
-      "reason": "weak voice 3/10: {'pov': 1, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 4.59
-    },
     {
       "timestamp": "2026-11-20T04:01:52.861006+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 4.91
+    },
+    {
+      "timestamp": "2026-11-23T08:01:54.352976+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "unsourced number: 3 seconds; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.01
+    },
+    {
+      "timestamp": "2026-11-23T08:01:54.371766+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T08:01:59.256722+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "NHS launches world's largest AI breast cancer screening trial",
+      "content_preview": "I watched an early CAD triage model silently drop recall on dense tissue because it was trained on pre-processed vendor ",
+      "reason": "",
+      "duration_s": 4.88
+    },
+    {
+      "timestamp": "2026-11-23T08:02:03.690112+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T08:02:03.697285+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.88
+    },
+    {
+      "timestamp": "2026-11-23T08:02:04.610876+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.79
     }
   ]
 }
