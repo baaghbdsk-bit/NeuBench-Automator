@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T00:02:47.188396+00:00",
+    "last_updated": "2026-11-23T01:02:10.682590+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2263,
-    "original_posts_attempted": 671,
+    "total_cycles_executed": 2269,
+    "original_posts_attempted": 673,
     "original_posts_succeeded": 308,
-    "replies_attempted": 276,
+    "replies_attempted": 278,
     "replies_succeeded": 33,
     "reposts_attempted": 87,
     "reposts_succeeded": 13,
-    "actions_skipped": 1000,
+    "actions_skipped": 1006,
     "failed_operations": 176,
-    "ai_generation_requests": 1111,
+    "ai_generation_requests": 1114,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T18:10:41.989906+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T18:10:42.004624+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 66.9m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T18:10:42.011057+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T18:12:08.894598+00:00",
-      "action_type": "reply",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/taran_adarsh/status/2116565998618943966",
-      "content_preview": "Taran, blink twice if the studio is holding your family hostage in the editing room. #Ramayana",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates.",
-      "duration_s": 86.38
-    },
-    {
-      "timestamp": "2026-11-19T19:01:57.492651+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T19:01:57.515420+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 118.2m ago (minimum interval: 180m)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-19T19:01:57.524421+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 40 minutes; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 7.76
+    },
+    {
+      "timestamp": "2026-11-23T01:01:59.185389+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Vibe coding vs shipping",
+      "content_preview": "",
+      "reason": "unsourced number: 10 minutes; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 0.97
+    },
+    {
+      "timestamp": "2026-11-23T01:01:59.204203+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T01:02:05.244521+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 6.03
+    },
+    {
+      "timestamp": "2026-11-23T01:02:09.657565+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T01:02:09.671876+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.86
+    },
+    {
+      "timestamp": "2026-11-23T01:02:10.682556+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 4.88
     }
   ]
 }
