@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T05:02:10.154515+00:00",
+    "last_updated": "2026-11-23T06:02:08.641846+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2294,
-    "original_posts_attempted": 681,
+    "total_cycles_executed": 2300,
+    "original_posts_attempted": 683,
     "original_posts_succeeded": 309,
-    "replies_attempted": 285,
+    "replies_attempted": 287,
     "replies_succeeded": 33,
     "reposts_attempted": 88,
     "reposts_succeeded": 13,
-    "actions_skipped": 1028,
+    "actions_skipped": 1033,
     "failed_operations": 176,
-    "ai_generation_requests": 1126,
+    "ai_generation_requests": 1129,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T00:03:07.885268+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 4.55
-    },
-    {
-      "timestamp": "2026-11-20T00:03:12.350832+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Startup AI budgets",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 9.02
-    },
-    {
-      "timestamp": "2026-11-20T01:01:55.981536+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "unsourced number: 4MB; weak voice 6/10: {'pov': 2, 'stakes': 2, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 1.04
-    },
-    {
-      "timestamp": "2026-11-20T01:01:55.997240+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 478.1m ago (minimum interval: 720m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T01:02:01.144875+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Anthropic’s 7 founders cashed out nearly $2B in record-breaking IPO",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 0, 'stakes': 0, 'stance': 2, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 5.14
-    },
-    {
-      "timestamp": "2026-11-20T01:02:06.370916+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
     {
       "timestamp": "2026-11-20T01:02:06.378561+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 8B model; weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
       "duration_s": 6.21
+    },
+    {
+      "timestamp": "2026-11-23T06:01:56.218651+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "unsourced number: 70B",
+      "duration_s": 1.1
+    },
+    {
+      "timestamp": "2026-11-23T06:01:56.239709+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T06:02:03.044762+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a KV Cache? The Secret Memory Saving Large Language Models",
+      "content_preview": "I used to clear attention states between prompt turns to save code complexity, until multi-turn batching OOM'd our nodes",
+      "reason": "",
+      "duration_s": 6.8
+    },
+    {
+      "timestamp": "2026-11-23T06:02:07.551244+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T06:02:07.558239+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.92
+    },
+    {
+      "timestamp": "2026-11-23T06:02:08.641818+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 8B model; unsourced number: 45 tokens; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.0
     }
   ]
 }
