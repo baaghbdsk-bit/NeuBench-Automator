@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "svengoolie tonight",
     "toluca - monterrey",
     "malachi toney",
     "टाटा स्टील",
@@ -499,7 +498,8 @@
     "Hiring for AI teams",
     "Fine-tuning vs prompting",
     "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation",
-    "Latency budget"
+    "Latency budget",
+    "bsky:What is Speculative Decoding in LLMs?"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1180,7 +1180,8 @@
         "post:d064704be2c5fe3ccd7d41bf6dc357e622f8ab68bf06f957b03cafa7f0df5443",
         "post:60e8a947eee365ed9d0c9cc3cb87e9f0717bc92f6b05565c219095f0efc8487c",
         "post:67fcd6ca5c4bf5917a7a4f9dfc2873bdd203505394662fd09e54a124500d7666",
-        "post:a5459d266a9885a425e9edad52f822664f171463f327a2f97ff9043881342650"
+        "post:a5459d266a9885a425e9edad52f822664f171463f327a2f97ff9043881342650",
+        "post:dfd81b63f5eb0cd366fc805bf0926e0aa082d091ec3fa08d5c35fd20bf370ffe"
       ],
       "pending": [
         {

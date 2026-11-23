@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T02:02:33.706122+00:00",
+    "last_updated": "2026-11-23T03:02:36.588965+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2276,
-    "original_posts_attempted": 675,
+    "total_cycles_executed": 2282,
+    "original_posts_attempted": 677,
     "original_posts_succeeded": 309,
-    "replies_attempted": 280,
+    "replies_attempted": 282,
     "replies_succeeded": 33,
     "reposts_attempted": 87,
     "reposts_succeeded": 13,
-    "actions_skipped": 1012,
+    "actions_skipped": 1017,
     "failed_operations": 176,
-    "ai_generation_requests": 1117,
+    "ai_generation_requests": 1120,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T20:01:54.425523+00:00",
-      "action_type": "bluesky-replies",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T21:01:52.092065+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Total daily cap",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T21:01:52.101574+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Total daily cap",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T21:01:52.109002+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Total daily cap",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T21:01:52.680597+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-19T21:01:53.263233+00:00",
-      "action_type": "bluesky-replies",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-19T22:01:51.672458+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 5.15
+    },
+    {
+      "timestamp": "2026-11-23T03:02:22.159204+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.54
+    },
+    {
+      "timestamp": "2026-11-23T03:02:22.183062+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T03:02:29.413438+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is Speculative Decoding in LLMs?",
+      "content_preview": "I used to think speculative decoding only traded FLOPs for memory bandwidth. But on long KV cache contexts, the draft-ve",
+      "reason": "",
+      "duration_s": 7.22
+    },
+    {
+      "timestamp": "2026-11-23T03:02:35.393946+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T03:02:35.402514+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 5.24
+    },
+    {
+      "timestamp": "2026-11-23T03:02:36.588930+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 6.42
     }
   ]
 }
