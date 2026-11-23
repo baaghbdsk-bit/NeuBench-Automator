@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T23:03:04.590949+00:00",
+    "last_updated": "2026-11-23T23:38:10.351260+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2408,
-    "original_posts_attempted": 718,
-    "original_posts_succeeded": 310,
-    "replies_attempted": 318,
+    "total_cycles_executed": 2414,
+    "original_posts_attempted": 720,
+    "original_posts_succeeded": 311,
+    "replies_attempted": 320,
     "replies_succeeded": 34,
     "reposts_attempted": 92,
     "reposts_succeeded": 13,
-    "actions_skipped": 1125,
+    "actions_skipped": 1130,
     "failed_operations": 188,
-    "ai_generation_requests": 1168,
+    "ai_generation_requests": 1170,
     "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T19:02:11.428208+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Cheap models vs frontier models",
-      "content_preview": "",
-      "reason": "unsourced number: 300ms",
-      "duration_s": 4.86
-    },
-    {
-      "timestamp": "2026-11-20T19:48:47.730983+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Local LLMs on laptops",
-      "content_preview": "",
-      "reason": "unsourced number: 32B model; unsourced number: 4 minutes; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 1.16
-    },
-    {
-      "timestamp": "2026-11-20T19:48:47.753841+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T19:48:52.834710+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "RL Post-Training in Diffusion Transformers Is Activation Steering",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 5.07
-    },
-    {
-      "timestamp": "2026-11-20T19:48:57.506198+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-20T19:48:57.513221+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.99
-    },
     {
       "timestamp": "2026-11-20T19:48:58.411434+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
       "duration_s": 33.67
+    },
+    {
+      "timestamp": "2026-11-23T23:37:36.751920+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI agents in production",
+      "content_preview": "",
+      "reason": "unsourced number: 40 times; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.35
+    },
+    {
+      "timestamp": "2026-11-23T23:37:36.777528+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T23:37:36.786459+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-23T23:37:41.824653+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T23:37:41.833404+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.19
+    },
+    {
+      "timestamp": "2026-11-23T23:38:10.341998+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Vibe coding vs shipping",
+      "content_preview": "I watched an LLM hallucinate an entire Stripe webhook handler at 2 AM last week. Vibe coding your prototype is fine unti",
+      "reason": "",
+      "duration_s": 32.7
     }
   ]
 }
