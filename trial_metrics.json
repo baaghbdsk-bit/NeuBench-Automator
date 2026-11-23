@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T06:02:08.641846+00:00",
+    "last_updated": "2026-11-23T06:39:55.663882+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2300,
-    "original_posts_attempted": 683,
+    "total_cycles_executed": 2306,
+    "original_posts_attempted": 685,
     "original_posts_succeeded": 309,
-    "replies_attempted": 287,
+    "replies_attempted": 289,
     "replies_succeeded": 33,
     "reposts_attempted": 88,
     "reposts_succeeded": 13,
-    "actions_skipped": 1033,
+    "actions_skipped": 1039,
     "failed_operations": 176,
-    "ai_generation_requests": 1129,
+    "ai_generation_requests": 1132,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T01:02:06.378561+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.73
-    },
-    {
-      "timestamp": "2026-11-20T01:02:09.711135+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Fine-tuning vs prompting",
-      "content_preview": "",
-      "reason": "unsourced number: 8B; unsourced number: 400ms",
-      "duration_s": 8.06
-    },
-    {
-      "timestamp": "2026-11-20T02:02:38.044066+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Token pricing race",
-      "content_preview": "",
-      "reason": "unsourced number: 70B model",
-      "duration_s": 1.85
-    },
-    {
-      "timestamp": "2026-11-20T02:02:38.067664+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 538.8m ago (minimum interval: 720m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T02:02:43.629685+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Unified Law for Visual Tasks (The Four Laws of Computer Vision)",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 1, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 5.55
-    },
-    {
-      "timestamp": "2026-11-20T02:02:48.469004+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
     {
       "timestamp": "2026-11-20T02:02:48.478022+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 8B model; unsourced number: 45 tokens; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.0
+    },
+    {
+      "timestamp": "2026-11-23T06:39:45.337762+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 405B; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.1
+    },
+    {
+      "timestamp": "2026-11-23T06:39:45.358881+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T06:39:49.823503+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.46
+    },
+    {
+      "timestamp": "2026-11-23T06:39:54.428079+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T06:39:54.543629+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.1
+    },
+    {
+      "timestamp": "2026-11-23T06:39:55.663845+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "",
+      "reason": "unsourced number: 14%; unsourced number: 300ms",
+      "duration_s": 5.22
     }
   ]
 }
