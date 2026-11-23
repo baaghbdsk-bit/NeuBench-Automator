@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T22:02:00.378971+00:00",
+    "last_updated": "2026-11-23T23:03:04.590949+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2402,
-    "original_posts_attempted": 716,
+    "total_cycles_executed": 2408,
+    "original_posts_attempted": 718,
     "original_posts_succeeded": 310,
-    "replies_attempted": 316,
+    "replies_attempted": 318,
     "replies_succeeded": 34,
     "reposts_attempted": 92,
     "reposts_succeeded": 13,
-    "actions_skipped": 1121,
-    "failed_operations": 186,
-    "ai_generation_requests": 1166,
-    "ai_generation_failures": 26,
+    "actions_skipped": 1125,
+    "failed_operations": 188,
+    "ai_generation_requests": 1168,
+    "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T18:02:33.285368+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Fine-tuning vs prompting",
-      "content_preview": "",
-      "reason": "unsourced number: 10x; unsourced number: 400ms",
-      "duration_s": 10.8
-    },
-    {
-      "timestamp": "2026-11-20T19:02:00.922456+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI agents in production",
-      "content_preview": "",
-      "reason": "unsourced number: 40 times",
-      "duration_s": 0.85
-    },
-    {
-      "timestamp": "2026-11-20T19:02:00.945502+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T19:02:05.968570+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Real-World TTFT & Throughput Across Major LLM Hosted Endpoints",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 5.01
-    },
-    {
-      "timestamp": "2026-11-20T19:02:10.489259+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-20T19:02:10.514977+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.95
-    },
     {
       "timestamp": "2026-11-20T19:02:11.428208+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 4 seconds; unsourced number: 10x; unsourced number: 1x; unsourced number: 10 times",
       "duration_s": 5.29
+    },
+    {
+      "timestamp": "2026-11-23T23:02:29.825255+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Reasoning models cost",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+      "duration_s": 27.55
+    },
+    {
+      "timestamp": "2026-11-23T23:02:30.049827+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T23:02:30.058603+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-23T23:02:35.070838+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T23:02:35.079373+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.15
+    },
+    {
+      "timestamp": "2026-11-23T23:03:04.590918+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+      "duration_s": 33.67
     }
   ]
 }
