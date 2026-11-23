@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
     "svengoolie tonight",
     "toluca - monterrey",
     "malachi toney",
@@ -499,7 +498,8 @@
     "Benchmark contamination",
     "Hiring for AI teams",
     "Fine-tuning vs prompting",
-    "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation"
+    "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation",
+    "Latency budget"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -801,7 +801,8 @@
     "064e0fbefb860ad4287537dc42e555578fe6452d62026ab632c16ec041310085",
     "d2d72d234cc4ee4c0e7c330dbde2eb7cc9a7788be84b73da9d5016f72fbf176a",
     "f68b9537bfbb023b99e165c1091f7dadc66b7d44f371a0b6fee5b2f069cb1cfe",
-    "c19eb28d702b1315fa673bef980f9d5de2246f10e6ec0cca378461544fd6ced5"
+    "c19eb28d702b1315fa673bef980f9d5de2246f10e6ec0cca378461544fd6ced5",
+    "51c8f99dc2306284e07f8ebe8196bda99cd59fd92ed735909937b05cf1c810dd"
   ],
   "pending_x_actions": [
     {

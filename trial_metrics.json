@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T01:56:48.260563+00:00",
+    "last_updated": "2026-11-23T02:02:33.706122+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2270,
-    "original_posts_attempted": 673,
-    "original_posts_succeeded": 308,
-    "replies_attempted": 278,
+    "total_cycles_executed": 2276,
+    "original_posts_attempted": 675,
+    "original_posts_succeeded": 309,
+    "replies_attempted": 280,
     "replies_succeeded": 33,
     "reposts_attempted": 87,
     "reposts_succeeded": 13,
-    "actions_skipped": 1007,
+    "actions_skipped": 1012,
     "failed_operations": 176,
-    "ai_generation_requests": 1114,
+    "ai_generation_requests": 1117,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T19:05:13.768817+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 195.53
-    },
-    {
-      "timestamp": "2026-11-19T19:05:13.779479+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 195.54
-    },
-    {
-      "timestamp": "2026-11-19T20:01:53.253037+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Total daily cap",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T20:01:53.268859+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Total daily cap",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T20:01:53.276314+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Total daily cap",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T20:01:53.881641+00:00",
-      "action_type": "repost",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "",
-      "content_preview": "",
-      "reason": "Total daily limit reached (25/20).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-19T20:01:54.425523+00:00",
       "action_type": "bluesky-replies",
@@ -5018,6 +4958,66 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 19.97
+    },
+    {
+      "timestamp": "2026-11-23T02:02:22.744350+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Latency budget",
+      "content_preview": "I spent yesterday ripping out a 450-token local draft model because it added a 1.2s pause on every cursor stop.\n\nUsers p",
+      "reason": "",
+      "duration_s": 28.23
+    },
+    {
+      "timestamp": "2026-11-23T02:02:23.263683+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T02:02:27.808839+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Teaching Vision-Language-Action Models to Stop Safely",
+      "content_preview": "",
+      "reason": "unsourced number: 400ms; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.54
+    },
+    {
+      "timestamp": "2026-11-23T02:02:32.393649+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T02:02:32.401592+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.85
+    },
+    {
+      "timestamp": "2026-11-23T02:02:33.706092+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.15
     }
   ]
 }

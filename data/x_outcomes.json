@@ -90,6 +90,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-23T02:02:23.002041+00:00",
+      "title": "Latency budget",
+      "text": "I spent yesterday ripping out a 450-token local draft model because it added a 1.2s pause on every cursor stop.\n\nUsers prefer a dumb, instant autocomplete over a genius model that makes them wait for the UI to breathe. Latency is a feature.\n\nAgree or disagree?",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }
