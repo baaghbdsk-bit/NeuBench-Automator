@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T19:02:14.205433+00:00",
+    "last_updated": "2026-11-23T20:02:06.739309+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2384,
-    "original_posts_attempted": 710,
+    "total_cycles_executed": 2390,
+    "original_posts_attempted": 712,
     "original_posts_succeeded": 310,
-    "replies_attempted": 311,
+    "replies_attempted": 312,
     "replies_succeeded": 34,
-    "reposts_attempted": 91,
+    "reposts_attempted": 92,
     "reposts_succeeded": 13,
-    "actions_skipped": 1104,
+    "actions_skipped": 1110,
     "failed_operations": 185,
-    "ai_generation_requests": 1160,
+    "ai_generation_requests": 1162,
     "ai_generation_failures": 25,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T15:05:07.580471+00:00",
-      "action_type": "reply",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "https://x.com/cursor_ai/status/2088249881718919393",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
-      "duration_s": 64.0
-    },
-    {
-      "timestamp": "2026-11-20T15:05:45.152332+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
-      "duration_s": 101.57
-    },
-    {
-      "timestamp": "2026-11-20T16:03:11.646203+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Reasoning models cost",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "duration_s": 19.16
-    },
-    {
-      "timestamp": "2026-11-20T16:03:11.668409+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T16:03:58.209762+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-20T16:03:58.218279+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 4.28
-    },
     {
       "timestamp": "2026-11-20T16:04:07.697321+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 405B; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 7.72
+    },
+    {
+      "timestamp": "2026-11-23T20:02:00.651490+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Cheap models vs frontier models",
+      "content_preview": "",
+      "reason": "unsourced number: 70B; unsourced number: 8B model; unsourced number: 4 seconds",
+      "duration_s": 0.84
+    },
+    {
+      "timestamp": "2026-11-23T20:02:00.675654+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T20:02:00.684277+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-23T20:02:05.498835+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T20:02:05.508325+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.06
+    },
+    {
+      "timestamp": "2026-11-23T20:02:06.739271+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.29
     }
   ]
 }
