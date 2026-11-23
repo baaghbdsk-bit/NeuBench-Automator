@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T06:39:55.663882+00:00",
+    "last_updated": "2026-11-23T07:02:06.196519+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2306,
-    "original_posts_attempted": 685,
+    "total_cycles_executed": 2312,
+    "original_posts_attempted": 687,
     "original_posts_succeeded": 309,
-    "replies_attempted": 289,
+    "replies_attempted": 291,
     "replies_succeeded": 33,
     "reposts_attempted": 88,
     "reposts_succeeded": 13,
-    "actions_skipped": 1039,
+    "actions_skipped": 1045,
     "failed_operations": 176,
-    "ai_generation_requests": 1132,
+    "ai_generation_requests": 1135,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T02:02:48.478022+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.09
-    },
-    {
-      "timestamp": "2026-11-20T02:02:50.219229+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Evals before demos",
-      "content_preview": "",
-      "reason": "unsourced number: 3 days; unsourced number: 400%",
-      "duration_s": 5.83
-    },
-    {
-      "timestamp": "2026-11-20T02:24:16.459569+00:00",
-      "action_type": "bluesky_reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "@pricepertoken.bsky.social",
-      "content_preview": "P99 latency drift usually comes from silent runtime thread contention or kv-cache fragmentation before it triggers utili",
-      "reason": "",
-      "duration_s": 8.13
-    },
-    {
-      "timestamp": "2026-11-20T03:05:26.977613+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "RAG is not a search box",
-      "content_preview": "",
-      "reason": "unsourced number: 90%; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
-      "duration_s": 9.31
-    },
-    {
-      "timestamp": "2026-11-20T03:05:26.994329+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn cadence",
-      "content_preview": "",
-      "reason": "LinkedIn cooldown active: last posted 601.7m ago (minimum interval: 720m)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T03:06:00.224071+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Anthropic becomes one of world's most valuable public companies in stock market debut",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 0, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 33.22
-    },
     {
       "timestamp": "2026-11-20T03:06:04.668450+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 14%; unsourced number: 300ms",
       "duration_s": 5.22
+    },
+    {
+      "timestamp": "2026-11-23T07:01:55.837164+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 1, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.03
+    },
+    {
+      "timestamp": "2026-11-23T07:01:55.856319+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T07:02:00.693775+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 4.83
+    },
+    {
+      "timestamp": "2026-11-23T07:02:05.245960+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T07:02:05.252903+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.97
+    },
+    {
+      "timestamp": "2026-11-23T07:02:06.196487+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 4.91
     }
   ]
 }
