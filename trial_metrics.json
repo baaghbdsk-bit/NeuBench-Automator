@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T13:02:32.111989+00:00",
+    "last_updated": "2026-11-23T13:37:25.868771+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2347,
+    "total_cycles_executed": 2348,
     "original_posts_attempted": 698,
     "original_posts_succeeded": 310,
     "replies_attempted": 300,
     "replies_succeeded": 34,
     "reposts_attempted": 90,
     "reposts_succeeded": 13,
-    "actions_skipped": 1074,
+    "actions_skipped": 1075,
     "failed_operations": 178,
     "ai_generation_requests": 1148,
     "ai_generation_failures": 18,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T08:02:47.767866+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 5.81
-    },
     {
       "timestamp": "2026-11-20T08:02:54.775567+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 42 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.32
+    },
+    {
+      "timestamp": "2026-11-23T13:37:25.868739+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 25.86
     }
   ]
 }
