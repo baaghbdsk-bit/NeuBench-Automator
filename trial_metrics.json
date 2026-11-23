@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T12:04:44.669970+00:00",
+    "last_updated": "2026-11-23T12:38:23.138941+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2340,
+    "total_cycles_executed": 2341,
     "original_posts_attempted": 696,
     "original_posts_succeeded": 309,
     "replies_attempted": 298,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T07:01:55.111740+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-20T07:02:00.921410+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
       "duration_s": 5.48
+    },
+    {
+      "timestamp": "2026-11-23T12:38:23.138925+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@undercode.bsky.social",
+      "content_preview": "Unconstrained exploration often loops on artifact harvesting until state-space pruning is introduced. At what depth did ",
+      "reason": "",
+      "duration_s": 2.0
     }
   ]
 }
