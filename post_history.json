@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "urban meyer",
     "josh brolin",
     "hawks",
     "jalen johnson",
@@ -499,7 +498,8 @@
     "bsky:What is Speculative Decoding in LLMs?",
     "bsky:OpenAI’s chief scientist has thoughts on how to limit AI development",
     "bsky:What is a KV Cache? The Secret Memory Saving Large Language Models",
-    "bsky:NHS launches world's largest AI breast cancer screening trial"
+    "bsky:NHS launches world's largest AI breast cancer screening trial",
+    "Token pricing race"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -803,7 +803,8 @@
     "d2d72d234cc4ee4c0e7c330dbde2eb7cc9a7788be84b73da9d5016f72fbf176a",
     "f68b9537bfbb023b99e165c1091f7dadc66b7d44f371a0b6fee5b2f069cb1cfe",
     "c19eb28d702b1315fa673bef980f9d5de2246f10e6ec0cca378461544fd6ced5",
-    "51c8f99dc2306284e07f8ebe8196bda99cd59fd92ed735909937b05cf1c810dd"
+    "51c8f99dc2306284e07f8ebe8196bda99cd59fd92ed735909937b05cf1c810dd",
+    "d59bc7ba4b6c9a05ee550489836aa08064cbdc8da7fc89ca012bdc448e976ad5"
   ],
   "pending_x_actions": [
     {
