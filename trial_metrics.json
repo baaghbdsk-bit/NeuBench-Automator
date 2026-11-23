@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T11:02:37.292823+00:00",
+    "last_updated": "2026-11-23T12:04:44.669970+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2334,
-    "original_posts_attempted": 694,
+    "total_cycles_executed": 2340,
+    "original_posts_attempted": 696,
     "original_posts_succeeded": 309,
-    "replies_attempted": 297,
+    "replies_attempted": 298,
     "replies_succeeded": 34,
-    "reposts_attempted": 89,
+    "reposts_attempted": 90,
     "reposts_succeeded": 13,
-    "actions_skipped": 1064,
-    "failed_operations": 177,
-    "ai_generation_requests": 1144,
-    "ai_generation_failures": 17,
+    "actions_skipped": 1069,
+    "failed_operations": 178,
+    "ai_generation_requests": 1146,
+    "ai_generation_failures": 18,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T06:29:21.726644+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T06:29:26.151497+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Apple may be developing its own AI agent that runs your Mac",
-      "content_preview": "",
-      "reason": "weak voice 3/10: {'pov': 0, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 4.42
-    },
-    {
-      "timestamp": "2026-11-20T06:29:30.556303+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-20T06:29:30.563972+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.84
-    },
-    {
-      "timestamp": "2026-11-20T06:29:31.359262+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Latency budget",
-      "content_preview": "",
-      "reason": "unsourced number: 400ms; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 4.64
-    },
-    {
-      "timestamp": "2026-11-20T07:01:55.088094+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Cheap models vs frontier models",
-      "content_preview": "",
-      "reason": "unsourced number: 8B; unsourced number: 92%",
-      "duration_s": 0.95
-    },
     {
       "timestamp": "2026-11-20T07:01:55.111740+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
       "duration_s": 26.26
+    },
+    {
+      "timestamp": "2026-11-23T12:04:38.734237+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Reasoning models cost",
+      "content_preview": "",
+      "reason": "unsourced number: 14x",
+      "duration_s": 1.12
+    },
+    {
+      "timestamp": "2026-11-23T12:04:38.748404+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T12:04:38.753680+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-23T12:04:42.934252+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T12:04:42.939897+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.75
+    },
+    {
+      "timestamp": "2026-11-23T12:04:44.669933+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "duration_s": 5.48
     }
   ]
 }
