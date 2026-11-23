@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T13:37:25.868771+00:00",
+    "last_updated": "2026-11-23T14:02:33.487979+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2348,
-    "original_posts_attempted": 698,
+    "total_cycles_executed": 2354,
+    "original_posts_attempted": 700,
     "original_posts_succeeded": 310,
-    "replies_attempted": 300,
+    "replies_attempted": 302,
     "replies_succeeded": 34,
     "reposts_attempted": 90,
     "reposts_succeeded": 13,
-    "actions_skipped": 1075,
-    "failed_operations": 178,
-    "ai_generation_requests": 1148,
-    "ai_generation_failures": 18,
+    "actions_skipped": 1080,
+    "failed_operations": 179,
+    "ai_generation_requests": 1150,
+    "ai_generation_failures": 19,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T08:02:54.775567+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Prompt injection",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 12.81
-    },
-    {
-      "timestamp": "2026-11-20T09:02:42.889610+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Reasoning models cost",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 1.27
-    },
-    {
-      "timestamp": "2026-11-20T09:02:42.906531+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T09:02:47.770140+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining",
-      "content_preview": "",
-      "reason": "weak voice 3/10: {'pov': 0, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 4.86
-    },
-    {
-      "timestamp": "2026-11-20T09:03:24.488130+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "cursor_ai",
-      "content_preview": "",
-      "reason": "unsourced number: 9 second",
-      "duration_s": 36.19
-    },
-    {
-      "timestamp": "2026-11-20T09:03:25.750874+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Evals before demos",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 37.46
-    },
     {
       "timestamp": "2026-11-20T10:02:21.978662+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 25.86
+    },
+    {
+      "timestamp": "2026-11-23T14:02:10.172065+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "duration_s": 2.59
+    },
+    {
+      "timestamp": "2026-11-23T14:02:10.186244+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-23T14:02:10.191396+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-23T14:02:15.498531+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T14:02:15.503730+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.88
+    },
+    {
+      "timestamp": "2026-11-23T14:02:33.487950+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "",
+      "reason": "unsourced number: 90%; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 22.86
     }
   ]
 }
