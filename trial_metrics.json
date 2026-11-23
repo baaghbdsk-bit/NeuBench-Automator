@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-22T23:27:03.451934+00:00",
+    "last_updated": "2026-11-23T00:02:47.188396+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2257,
-    "original_posts_attempted": 669,
+    "total_cycles_executed": 2263,
+    "original_posts_attempted": 671,
     "original_posts_succeeded": 308,
-    "replies_attempted": 275,
+    "replies_attempted": 276,
     "replies_succeeded": 33,
-    "reposts_attempted": 86,
+    "reposts_attempted": 87,
     "reposts_succeeded": 13,
-    "actions_skipped": 995,
+    "actions_skipped": 1000,
     "failed_operations": 176,
-    "ai_generation_requests": 1107,
+    "ai_generation_requests": 1111,
     "ai_generation_failures": 16,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-19T16:05:11.410232+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 193.81
-    },
-    {
-      "timestamp": "2026-11-19T17:02:21.772133+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/6).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T17:03:47.320650+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "LLM KV Cache Eviction and PagedAttention\n\nUnderstanding the real-world mechanics of LLM KV Cache Eviction and PagedAtten",
-      "reason": "",
-      "duration_s": 85.54
-    },
-    {
-      "timestamp": "2026-11-19T17:03:47.330796+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (12/12).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-19T17:07:04.848514+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 196.63
-    },
-    {
-      "timestamp": "2026-11-19T17:07:04.860042+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (8/8).",
-      "duration_s": 196.65
-    },
     {
       "timestamp": "2026-11-19T18:10:41.989906+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "Daily original posts limit reached (4/4).",
       "duration_s": 4.17
+    },
+    {
+      "timestamp": "2026-11-23T00:02:13.655042+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "unsourced number: 70B model",
+      "duration_s": 5.29
+    },
+    {
+      "timestamp": "2026-11-23T00:02:30.284291+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent last week rewriting our CanvasZero generation pipeline because our state boundaries kept leaking memory during h",
+      "reason": "",
+      "duration_s": 16.49
+    },
+    {
+      "timestamp": "2026-11-23T00:02:38.674775+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model",
+      "duration_s": 8.38
+    },
+    {
+      "timestamp": "2026-11-23T00:02:44.594656+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-23T00:02:44.603427+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 5.18
+    },
+    {
+      "timestamp": "2026-11-23T00:02:47.188358+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "unsourced number: 40 minutes; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 7.76
     }
   ]
 }

@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "nets vs hawks",
     "li:Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
     "svengoolie tonight",
     "toluca - monterrey",
@@ -499,7 +498,8 @@
     "bsky:Data Processing Incidents on Inference Providers",
     "Benchmark contamination",
     "Hiring for AI teams",
-    "Fine-tuning vs prompting"
+    "Fine-tuning vs prompting",
+    "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-22T00:02:19.100406+00:00",
+  "last_success_at": "2026-11-23T00:02:30.274264+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1232,6 +1232,16 @@
       "posted_at": "2026-11-22T00:02:19.100406+00:00",
       "post_urn": "urn:li:share:7530058037802434560",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:1e52af31bd10d60096e76d70edb71f52",
+      "title": "Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation",
+      "url": "",
+      "content_hash": "718b6a58591ea1a14de59958ed02389e",
+      "status": "success",
+      "posted_at": "2026-11-23T00:02:30.274264+00:00",
+      "post_urn": "urn:li:share:7530420473512431616",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1357,6 +1367,7 @@
     "li:LLM KV Cache Eviction and PagedAttention",
     "li:How Vector Database HNSW Indexing Works Under the Hood",
     "li:How Vector Database Segment Merging Works Under the Hood",
-    "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale"
+    "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale",
+    "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation"
   ]
 }
