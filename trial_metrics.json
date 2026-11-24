@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T04:02:39.722782+00:00",
+    "last_updated": "2026-11-24T05:02:20.864572+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2446,
-    "original_posts_attempted": 730,
+    "total_cycles_executed": 2452,
+    "original_posts_attempted": 732,
     "original_posts_succeeded": 313,
-    "replies_attempted": 328,
+    "replies_attempted": 330,
     "replies_succeeded": 34,
     "reposts_attempted": 94,
     "reposts_succeeded": 13,
-    "actions_skipped": 1156,
+    "actions_skipped": 1162,
     "failed_operations": 188,
-    "ai_generation_requests": 1186,
+    "ai_generation_requests": 1189,
     "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T01:02:14.012532+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "AI coding tools",
-      "content_preview": "I watched a junior developer ship a 400-line cursor-generated PR that looked pristine, except it silently caught every d",
-      "reason": "",
-      "duration_s": 24.87
-    },
-    {
-      "timestamp": "2026-11-21T01:02:29.197122+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Lang-SVG: Hierarchical Image Vectorization with Language Priors",
-      "content_preview": "I used to think SVG vectorization was purely a continuous optimization problem until language priors forced path hierarc",
-      "reason": "",
-      "duration_s": 4.83
-    },
-    {
-      "timestamp": "2026-11-21T01:02:33.764907+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-21T01:02:33.773908+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.84
-    },
-    {
-      "timestamp": "2026-11-21T01:02:34.610175+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Context window marketing",
-      "content_preview": "",
-      "reason": "unsourced number: 9 seconds",
-      "duration_s": 4.68
-    },
-    {
-      "timestamp": "2026-11-21T02:01:57.862624+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 0.96
-    },
     {
       "timestamp": "2026-11-21T02:02:51.447349+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "I watched an autonomous agent loop on a 429 rate limit for three hours until it ran up a $400 API bill.\n\nYour demo works",
       "reason": "",
       "duration_s": 31.53
+    },
+    {
+      "timestamp": "2026-11-24T05:02:01.080220+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 3B; weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 1.16
+    },
+    {
+      "timestamp": "2026-11-24T05:02:01.180052+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T05:02:14.617406+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 13.43
+    },
+    {
+      "timestamp": "2026-11-24T05:02:19.543450+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T05:02:19.634440+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.05
+    },
+    {
+      "timestamp": "2026-11-24T05:02:20.864543+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Cheap models vs frontier models",
+      "content_preview": "",
+      "reason": "unsourced number: 90%",
+      "duration_s": 5.28
     }
   ]
 }
