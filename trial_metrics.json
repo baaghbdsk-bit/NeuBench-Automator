@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T05:02:20.864572+00:00",
+    "last_updated": "2026-11-24T06:02:51.815648+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2452,
-    "original_posts_attempted": 732,
+    "total_cycles_executed": 2457,
+    "original_posts_attempted": 734,
     "original_posts_succeeded": 313,
-    "replies_attempted": 330,
+    "replies_attempted": 332,
     "replies_succeeded": 34,
     "reposts_attempted": 94,
     "reposts_succeeded": 13,
-    "actions_skipped": 1162,
-    "failed_operations": 188,
-    "ai_generation_requests": 1189,
-    "ai_generation_failures": 28,
+    "actions_skipped": 1166,
+    "failed_operations": 189,
+    "ai_generation_requests": 1191,
+    "ai_generation_failures": 29,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T02:02:51.447349+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I stopped trusting default vector database background syncs the moment concurrent segment merging dropped our p99 query ",
-      "reason": "",
-      "duration_s": 53.57
-    },
-    {
-      "timestamp": "2026-11-21T02:02:55.954397+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
-      "duration_s": 4.5
-    },
-    {
-      "timestamp": "2026-11-21T02:03:00.738196+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-21T02:03:00.746351+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.06
-    },
-    {
-      "timestamp": "2026-11-21T02:03:01.652290+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The 10x engineer myth",
-      "content_preview": "",
-      "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 4.97
-    },
     {
       "timestamp": "2026-11-21T02:14:02.177265+00:00",
       "action_type": "bluesky_reply",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "unsourced number: 90%",
       "duration_s": 5.28
+    },
+    {
+      "timestamp": "2026-11-24T06:02:38.777944+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "duration_s": 3.55
+    },
+    {
+      "timestamp": "2026-11-24T06:02:38.802570+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T06:02:50.596113+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T06:02:50.604153+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 5.28
+    },
+    {
+      "timestamp": "2026-11-24T06:02:51.815611+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; unsourced number: 10 times; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 6.49
     }
   ]
 }
