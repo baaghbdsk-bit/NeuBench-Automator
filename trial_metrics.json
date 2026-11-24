@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T09:07:33.714923+00:00",
+    "last_updated": "2026-11-24T10:02:15.283311+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2480,
-    "original_posts_attempted": 742,
+    "total_cycles_executed": 2486,
+    "original_posts_attempted": 744,
     "original_posts_succeeded": 313,
-    "replies_attempted": 339,
+    "replies_attempted": 341,
     "replies_succeeded": 34,
     "reposts_attempted": 95,
     "reposts_succeeded": 13,
-    "actions_skipped": 1188,
+    "actions_skipped": 1193,
     "failed_operations": 190,
-    "ai_generation_requests": 1202,
+    "ai_generation_requests": 1205,
     "ai_generation_failures": 30,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T06:03:19.811755+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/cursor_ai/status/2088249881718919393",
-      "content_preview": "Can’t wait to debug orbital mechanics at 3 AM because my IDE decided Falcon 9 needed to refactor its landing sequence.",
-      "reason": "",
-      "duration_s": 72.57
-    },
-    {
-      "timestamp": "2026-11-21T06:20:03.394402+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Evals before demos",
-      "content_preview": "I spent yesterday watching a team rewrite their system prompt three times because the founder \"vibed\" with a demo.\n\nIf y",
-      "reason": "",
-      "duration_s": 26.8
-    },
-    {
-      "timestamp": "2026-11-21T06:20:03.422754+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-21T06:20:24.857131+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 21.43
-    },
-    {
-      "timestamp": "2026-11-21T06:20:29.438897+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-21T06:20:29.446931+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.86
-    },
     {
       "timestamp": "2026-11-21T06:20:29.455247+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 40ms; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
       "duration_s": 5.01
+    },
+    {
+      "timestamp": "2026-11-24T10:02:02.070397+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 44 seconds",
+      "duration_s": 1.12
+    },
+    {
+      "timestamp": "2026-11-24T10:02:02.092947+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T10:02:09.281298+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Let the Fixer Decide: Training a Code Localizer from the Fixer's Likelihood",
+      "content_preview": "I stopped training localizers on diffs and used a frozen model's token likelihood over the candidate context instead.\n\nC",
+      "reason": "",
+      "duration_s": 7.18
+    },
+    {
+      "timestamp": "2026-11-24T10:02:14.148341+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T10:02:14.157022+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.11
+    },
+    {
+      "timestamp": "2026-11-24T10:02:15.283282+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.23
     }
   ]
 }
