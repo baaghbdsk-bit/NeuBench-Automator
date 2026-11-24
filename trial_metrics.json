@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-23T23:38:10.351260+00:00",
+    "last_updated": "2026-11-24T00:03:16.775602+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2414,
-    "original_posts_attempted": 720,
+    "total_cycles_executed": 2420,
+    "original_posts_attempted": 722,
     "original_posts_succeeded": 311,
-    "replies_attempted": 320,
+    "replies_attempted": 321,
     "replies_succeeded": 34,
-    "reposts_attempted": 92,
+    "reposts_attempted": 93,
     "reposts_succeeded": 13,
-    "actions_skipped": 1130,
+    "actions_skipped": 1134,
     "failed_operations": 188,
-    "ai_generation_requests": 1170,
+    "ai_generation_requests": 1174,
     "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T19:48:58.411434+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Startup AI budgets",
-      "content_preview": "",
-      "reason": "unsourced number: 70B; unsourced number: 8B models; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 4.89
-    },
-    {
-      "timestamp": "2026-11-20T20:02:23.152377+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI coding tools",
-      "content_preview": "",
-      "reason": "unsourced number: 3x",
-      "duration_s": 0.98
-    },
-    {
-      "timestamp": "2026-11-20T20:02:23.174528+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T20:02:28.333679+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "RL Post-Training in Diffusion Transformers Is Activation Steering",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 5.15
-    },
-    {
-      "timestamp": "2026-11-20T20:02:33.295626+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-20T20:02:33.302716+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 3.94
-    },
     {
       "timestamp": "2026-11-20T20:02:34.675156+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "I watched an LLM hallucinate an entire Stripe webhook handler at 2 AM last week. Vibe coding your prototype is fine unti",
       "reason": "",
       "duration_s": 32.7
+    },
+    {
+      "timestamp": "2026-11-24T00:02:04.127561+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI agents in production",
+      "content_preview": "",
+      "reason": "unsourced number: 400 times",
+      "duration_s": 1.27
+    },
+    {
+      "timestamp": "2026-11-24T00:03:04.801391+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I blew through our inference memory budget because I treated tokens as words instead of tracking how byte-pair encoding ",
+      "reason": "",
+      "duration_s": 60.67
+    },
+    {
+      "timestamp": "2026-11-24T00:03:10.902747+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "US to blacklist Asian AI firm Megaspeed after Nvidia scandal",
+      "content_preview": "I used to think supply-chain origin tracing for accelerator clusters was a solved compliance problem, but shell routing ",
+      "reason": "",
+      "duration_s": 6.09
+    },
+    {
+      "timestamp": "2026-11-24T00:03:15.472884+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T00:03:15.478779+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.9
+    },
+    {
+      "timestamp": "2026-11-24T00:03:16.775569+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI agents in production",
+      "content_preview": "",
+      "reason": "unsourced number: 40 times; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.19
     }
   ]
 }
