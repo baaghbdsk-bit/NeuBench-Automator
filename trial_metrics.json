@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T20:02:07.704091+00:00",
+    "last_updated": "2026-11-24T21:02:10.052828+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2545,
-    "original_posts_attempted": 763,
+    "total_cycles_executed": 2551,
+    "original_posts_attempted": 765,
     "original_posts_succeeded": 313,
-    "replies_attempted": 357,
+    "replies_attempted": 359,
     "replies_succeeded": 35,
     "reposts_attempted": 98,
     "reposts_succeeded": 13,
-    "actions_skipped": 1243,
+    "actions_skipped": 1249,
     "failed_operations": 197,
-    "ai_generation_requests": 1226,
+    "ai_generation_requests": 1228,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T16:02:09.103223+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 4.03
-    },
-    {
-      "timestamp": "2026-11-21T16:02:09.112253+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 4.04
-    },
-    {
-      "timestamp": "2026-11-21T17:01:56.529930+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-21T17:01:56.546467+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-21T17:01:56.552793+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-21T17:02:00.993943+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
     {
       "timestamp": "2026-11-21T17:02:01.000507+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
       "duration_s": 12.9
+    },
+    {
+      "timestamp": "2026-11-24T21:02:00.143308+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 4 seconds; unsourced number: 10x; unsourced number: 10x",
+      "duration_s": 2.21
+    },
+    {
+      "timestamp": "2026-11-24T21:02:00.169417+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T21:02:00.179299+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-24T21:02:05.094119+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T21:02:05.104745+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.14
+    },
+    {
+      "timestamp": "2026-11-24T21:02:10.052788+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 48 seconds",
+      "duration_s": 9.09
     }
   ]
 }
