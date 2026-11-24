@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T06:02:51.815648+00:00",
+    "last_updated": "2026-11-24T07:03:00.553698+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2457,
-    "original_posts_attempted": 734,
+    "total_cycles_executed": 2463,
+    "original_posts_attempted": 736,
     "original_posts_succeeded": 313,
-    "replies_attempted": 332,
+    "replies_attempted": 334,
     "replies_succeeded": 34,
     "reposts_attempted": 94,
     "reposts_succeeded": 13,
-    "actions_skipped": 1166,
+    "actions_skipped": 1172,
     "failed_operations": 189,
-    "ai_generation_requests": 1191,
+    "ai_generation_requests": 1194,
     "ai_generation_failures": 29,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T02:14:02.177265+00:00",
-      "action_type": "bluesky_reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "sexabolition.blog",
-      "content_preview": "",
-      "reason": "first line is a question, not a claim",
-      "duration_s": 2.11
-    },
-    {
-      "timestamp": "2026-11-21T02:45:16.771294+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 12.46
-    },
-    {
-      "timestamp": "2026-11-21T03:02:01.497981+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Benchmark contamination",
-      "content_preview": "",
-      "reason": "unsourced number: 92%",
-      "duration_s": 0.89
-    },
-    {
-      "timestamp": "2026-11-21T03:02:01.526875+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.02
-    },
-    {
-      "timestamp": "2026-11-21T03:02:05.942046+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Time Series Structure Learning with Local Causal Parent Discovery",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 4.41
-    },
-    {
-      "timestamp": "2026-11-21T03:02:10.724870+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
     {
       "timestamp": "2026-11-21T03:02:10.749371+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 10x; unsourced number: 10 times; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 6.49
+    },
+    {
+      "timestamp": "2026-11-24T07:02:32.768004+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model; unsourced number: 2 hours; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 1.53
+    },
+    {
+      "timestamp": "2026-11-24T07:02:32.789864+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T07:02:54.047265+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 21.25
+    },
+    {
+      "timestamp": "2026-11-24T07:02:58.924126+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T07:02:59.189824+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.42
+    },
+    {
+      "timestamp": "2026-11-24T07:03:00.553656+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.78
     }
   ]
 }
