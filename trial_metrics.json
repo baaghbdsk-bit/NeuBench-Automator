@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T03:02:30.455644+00:00",
+    "last_updated": "2026-11-24T04:02:39.722782+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2440,
-    "original_posts_attempted": 728,
-    "original_posts_succeeded": 312,
-    "replies_attempted": 327,
+    "total_cycles_executed": 2446,
+    "original_posts_attempted": 730,
+    "original_posts_succeeded": 313,
+    "replies_attempted": 328,
     "replies_succeeded": 34,
-    "reposts_attempted": 93,
+    "reposts_attempted": 94,
     "reposts_succeeded": 13,
-    "actions_skipped": 1151,
+    "actions_skipped": 1156,
     "failed_operations": 188,
-    "ai_generation_requests": 1183,
+    "ai_generation_requests": 1186,
     "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T23:02:05.965865+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "GPU cost reality",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 4.84
-    },
-    {
-      "timestamp": "2026-11-21T00:01:57.897791+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI coding tools",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 1.0
-    },
-    {
-      "timestamp": "2026-11-21T00:02:46.548094+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Squoosh Bench: Evaluating UX-1 on 318 Historical Website A/B Tests",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 24.13
-    },
-    {
-      "timestamp": "2026-11-21T00:02:51.002376+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-21T00:02:51.008419+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 3.9
-    },
-    {
-      "timestamp": "2026-11-21T00:02:51.972876+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Latency budget",
-      "content_preview": "",
-      "reason": "unsourced number: 70B; unsourced number: 200ms; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 4.86
-    },
     {
       "timestamp": "2026-11-21T01:02:14.012532+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 8B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 8.05
+    },
+    {
+      "timestamp": "2026-11-24T04:02:02.447187+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10 seconds; unsourced number: 10x",
+      "duration_s": 1.13
+    },
+    {
+      "timestamp": "2026-11-24T04:02:02.469698+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T04:02:07.463651+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.99
+    },
+    {
+      "timestamp": "2026-11-24T04:02:12.254632+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T04:02:12.263995+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.08
+    },
+    {
+      "timestamp": "2026-11-24T04:02:39.713918+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "AI agents in production",
+      "content_preview": "I watched an autonomous agent loop on a 429 rate limit for three hours until it ran up a $400 API bill.\n\nYour demo works",
+      "reason": "",
+      "duration_s": 31.53
     }
   ]
 }

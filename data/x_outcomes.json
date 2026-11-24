@@ -130,6 +130,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-24T04:02:39.722287+00:00",
+      "title": "AI agents in production",
+      "text": "I watched an autonomous agent loop on a 429 rate limit for three hours until it ran up a $400 API bill.\n\nYour demo works because the happy path is easy. Production fails on retries, OAuth token expiration, and partial database writes.\n\nAnyone charging for agentic workflows right ",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }
