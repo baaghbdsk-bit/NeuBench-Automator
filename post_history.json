@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Goodbye Claude, Hello Pi",
     "john mulaney",
     "dave chappelle",
     "connor mcdavid",
@@ -499,7 +498,8 @@
     "Reasoning models cost",
     "bsky:GLM-5.4: Toward generalized coding with our first loop transformer",
     "AI agents in production",
-    "bsky:Let the Fixer Decide: Training a Code Localizer from the Fixer's Likelihood"
+    "bsky:Let the Fixer Decide: Training a Code Localizer from the Fixer's Likelihood",
+    "bsky:SynthDCB: World Distillation for Scalable Device Control Benchmarking"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1192,7 +1192,8 @@
         "post:8e115eb33b3211e0c83b4feb1c4cc10ac82a2ff8379d0cd7a6f0e313c208bcb6",
         "post:da2e43271d8171b2a0a21c077fc19ab3251ff226fc7e4e78bb9f6f20852658e5",
         "post:66ac4acf3664c7ff5b897d2108145b8f41b2966503107bb766d112a8e37a006c",
-        "post:944c0730f1d8ec8fbc340a5a4146930a90a29bddec688fd417cad98e4ab3ddc6"
+        "post:944c0730f1d8ec8fbc340a5a4146930a90a29bddec688fd417cad98e4ab3ddc6",
+        "post:9f9321b0c881cdf008163460bdd8cf955e90be5a0000d57a96edaf83d7579735"
       ],
       "pending": [
         {
