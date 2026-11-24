@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T02:31:48.777448+00:00",
+    "last_updated": "2026-11-24T03:02:30.455644+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2434,
-    "original_posts_attempted": 726,
+    "total_cycles_executed": 2440,
+    "original_posts_attempted": 728,
     "original_posts_succeeded": 312,
-    "replies_attempted": 325,
+    "replies_attempted": 327,
     "replies_succeeded": 34,
     "reposts_attempted": 93,
     "reposts_succeeded": 13,
-    "actions_skipped": 1145,
+    "actions_skipped": 1151,
     "failed_operations": 188,
-    "ai_generation_requests": 1180,
+    "ai_generation_requests": 1183,
     "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T22:02:22.002376+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "unsourced number: 300ms",
-      "duration_s": 5.11
-    },
-    {
-      "timestamp": "2026-11-20T23:01:56.090472+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Latency budget",
-      "content_preview": "",
-      "reason": "unsourced number: 180ms",
-      "duration_s": 0.83
-    },
-    {
-      "timestamp": "2026-11-20T23:01:56.112363+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T23:02:00.399818+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "RL Post-Training in Diffusion Transformers Is Activation Steering",
-      "content_preview": "I used to think RL post-training on DiTs restructured internal representations. Looking at the activation deltas, it’s j",
-      "reason": "",
-      "duration_s": 4.28
-    },
-    {
-      "timestamp": "2026-11-20T23:02:05.112029+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-20T23:02:05.120883+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.0
-    },
     {
       "timestamp": "2026-11-20T23:02:05.965865+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 12.13
+    },
+    {
+      "timestamp": "2026-11-24T03:02:15.935453+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AI agents in production",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 1.15
+    },
+    {
+      "timestamp": "2026-11-24T03:02:15.959565+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T03:02:21.637798+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What is Subnormal (Denormalized) Floating-Point Arithmetic?",
+      "content_preview": "",
+      "reason": "unsourced number: 40x",
+      "duration_s": 5.67
+    },
+    {
+      "timestamp": "2026-11-24T03:02:27.839916+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T03:02:27.848343+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 5.44
+    },
+    {
+      "timestamp": "2026-11-24T03:02:30.455614+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 8B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 8.05
     }
   ]
 }
