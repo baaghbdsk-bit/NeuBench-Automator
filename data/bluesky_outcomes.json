@@ -135,6 +135,15 @@
       "replies": null,
       "reposts": null,
       "quotes": null
+    },
+    {
+      "posted_at": "2026-11-24T02:02:34.127157+00:00",
+      "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+      "post_ref": "Post published to Bluesky successfully! (URI: at://did:plc:g63e3oxmiwmv24oviigzzbro/app.bsky.feed.post/3n2zkhd5k6b2h)",
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "quotes": null
     }
   ]
 }

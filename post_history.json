@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "partidos de liga mx",
     "Moral policing uncle-aunt networks",
     "tatiana suarez",
     "bsky:Goodbye Claude, Hello Pi",
@@ -499,7 +498,8 @@
     "Token pricing race",
     "Vibe coding vs shipping",
     "bsky:US to blacklist Asian AI firm Megaspeed after Nvidia scandal",
-    "Reasoning models cost"
+    "Reasoning models cost",
+    "bsky:GLM-5.4: Toward generalized coding with our first loop transformer"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1189,7 +1189,8 @@
         "post:6775c89ab456d14ff7742d3ab8c5bab1424d37d6b5351e670e42b27554551abf",
         "post:e6d9aa49d7f8771936f5edaa536e3e40ee7776ac22c59a88ea4563034e6eaac9",
         "post:8e115eb33b3211e0c83b4feb1c4cc10ac82a2ff8379d0cd7a6f0e313c208bcb6",
-        "post:da2e43271d8171b2a0a21c077fc19ab3251ff226fc7e4e78bb9f6f20852658e5"
+        "post:da2e43271d8171b2a0a21c077fc19ab3251ff226fc7e4e78bb9f6f20852658e5",
+        "post:66ac4acf3664c7ff5b897d2108145b8f41b2966503107bb766d112a8e37a006c"
       ],
       "pending": [
         {
