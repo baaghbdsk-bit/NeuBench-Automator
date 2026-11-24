@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T02:12:44.155181+00:00",
+    "last_updated": "2026-11-24T02:31:48.777448+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2433,
+    "total_cycles_executed": 2434,
     "original_posts_attempted": 726,
     "original_posts_succeeded": 312,
     "replies_attempted": 325,
     "replies_succeeded": 34,
     "reposts_attempted": 93,
     "reposts_succeeded": 13,
-    "actions_skipped": 1144,
+    "actions_skipped": 1145,
     "failed_operations": 188,
     "ai_generation_requests": 1180,
     "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T22:02:20.877860+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.99
-    },
     {
       "timestamp": "2026-11-20T22:02:22.002376+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "When scaling GxE prediction across diverse target environments, how do you handle distribution shift in the spatial-temp",
       "reason": "",
       "duration_s": 1.67
+    },
+    {
+      "timestamp": "2026-11-24T02:31:48.777421+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 12.13
     }
   ]
 }
