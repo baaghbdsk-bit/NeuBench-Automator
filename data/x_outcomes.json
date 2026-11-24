@@ -120,6 +120,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-24T01:02:26.420236+00:00",
+      "title": "Reasoning models cost",
+      "text": "I watched a 40-second reasoning loop turn a $0.002 API call into a $0.18 timeout error in staging today.\n\nLetting a model think until it hits max tokens isn't intelligence, it's just an expensive infinite while-loop.\n\nTimeout budgets should be enforced in code, not left to the vi",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }

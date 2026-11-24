@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T00:03:16.775602+00:00",
+    "last_updated": "2026-11-24T01:02:26.420780+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2420,
-    "original_posts_attempted": 722,
-    "original_posts_succeeded": 311,
-    "replies_attempted": 321,
+    "total_cycles_executed": 2426,
+    "original_posts_attempted": 724,
+    "original_posts_succeeded": 312,
+    "replies_attempted": 323,
     "replies_succeeded": 34,
     "reposts_attempted": 93,
     "reposts_succeeded": 13,
-    "actions_skipped": 1134,
+    "actions_skipped": 1139,
     "failed_operations": 188,
-    "ai_generation_requests": 1174,
+    "ai_generation_requests": 1177,
     "ai_generation_failures": 28,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-20T20:02:34.675156+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Hiring for AI teams",
-      "content_preview": "",
-      "reason": "invented personal anecdote with no source; unsourced number: 4 hours; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 5.31
-    },
-    {
-      "timestamp": "2026-11-20T20:17:50.004311+00:00",
-      "action_type": "bluesky_reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "@natolambert.bsky.social",
-      "content_preview": "Exact historical pattern. Tiering inference costs by keeping the frontier API-only while seeding downstream open weights",
-      "reason": "",
-      "duration_s": 1.37
-    },
-    {
-      "timestamp": "2026-11-20T20:40:54.708377+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 17.48
-    },
-    {
-      "timestamp": "2026-11-20T21:02:09.979002+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Fine-tuning vs prompting",
-      "content_preview": "",
-      "reason": "unsourced number: 90%",
-      "duration_s": 1.19
-    },
-    {
-      "timestamp": "2026-11-20T21:02:10.003778+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-20T21:02:15.021548+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Experts warn: nearly everyone in AI is susceptible to a honey trap scheme right now",
-      "content_preview": "",
-      "reason": "weak voice 7/10: {'pov': 2, 'stakes': 1, 'stance': 2, 'specificity': 0, 'clean_open': 2}",
-      "duration_s": 5.01
-    },
     {
       "timestamp": "2026-11-20T21:02:19.981302+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 40 times; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 5.19
+    },
+    {
+      "timestamp": "2026-11-24T01:01:51.201968+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "",
+      "reason": "unsourced number: 42ms; weak voice 6/10: {'pov': 2, 'stakes': 2, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 0.93
+    },
+    {
+      "timestamp": "2026-11-24T01:01:51.219267+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-24T01:01:55.721153+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Which Dwarf Is This? Doppeldwarf-306 and Near-Identical Instance Retrieval",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.5
+    },
+    {
+      "timestamp": "2026-11-24T01:02:00.085090+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-24T01:02:00.091816+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.86
+    },
+    {
+      "timestamp": "2026-11-24T01:02:26.413357+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Reasoning models cost",
+      "content_preview": "I watched a 40-second reasoning loop turn a $0.002 API call into a $0.18 timeout error in staging today.\n\nLetting a mode",
+      "reason": "",
+      "duration_s": 30.18
     }
   ]
 }
