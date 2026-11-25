@@ -150,6 +150,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-25T14:03:16.196052+00:00",
+      "title": "Model routing",
+      "text": "I watched a team burn $14k in a week routing simple JSON extraction to Claude 3.5 Sonnet.\n\nHardcoding your biggest model for every prompt isn't rigor, it's just an expensive form of laziness.\n\nRouter logic beats raw weights every single time.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }

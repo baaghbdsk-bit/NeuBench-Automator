@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Goodbye Claude, Hello Pi",
     "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
     "bsky:Agent memory needs its OpenTelemetry moment",
     "What I run on my $10 USD OpenStick homelab",
@@ -499,7 +498,8 @@
     "Cheap models vs frontier models",
     "bsky:Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks",
     "bsky:Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
-    "bsky:What is a Logit? The Raw Calculus Behind AI Decisions"
+    "bsky:What is a Logit? The Raw Calculus Behind AI Decisions",
+    "Model routing"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -810,7 +810,8 @@
     "04422ce2b47d0e6900df0ce53fcbc5be57e59768cfc249a8c38ca54241e9ab1a",
     "b3ed814a7b0cbccddafb3c47793cc43334a7e22e56f62d9685aa8e18820d0fcf",
     "7597dc0e0a47735f1975b980ed1a0290692c1b54fb6d9f93872043cad5463513",
-    "5108b8ae674123df17b77bba25a9937213b7a6f56979c2f60fdd3b3d673a9b91"
+    "5108b8ae674123df17b77bba25a9937213b7a6f56979c2f60fdd3b3d673a9b91",
+    "85bbbc0c713d93a13c9de528663c9e828cd378c3852bbfb5152656188f45c2cd"
   ],
   "pending_x_actions": [
     {
