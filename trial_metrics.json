@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T09:02:43.546438+00:00",
+    "last_updated": "2026-11-25T10:02:05.803920+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2629,
-    "original_posts_attempted": 790,
+    "total_cycles_executed": 2635,
+    "original_posts_attempted": 792,
     "original_posts_succeeded": 314,
-    "replies_attempted": 381,
+    "replies_attempted": 383,
     "replies_succeeded": 36,
     "reposts_attempted": 101,
     "reposts_succeeded": 13,
-    "actions_skipped": 1318,
+    "actions_skipped": 1324,
     "failed_operations": 197,
-    "ai_generation_requests": 1268,
+    "ai_generation_requests": 1270,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T05:02:21.262632+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Hiring for AI teams",
-      "content_preview": "I spent three hours tracing a phantom hallucination in a RAG pipeline only to find the prompt was fine and the embedding",
-      "reason": "",
-      "duration_s": 26.32
-    },
-    {
-      "timestamp": "2026-11-22T05:02:21.287598+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T05:02:21.313018+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T05:03:35.576361+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/paulg/status/2124041291046785484",
-      "content_preview": "The board is just trying to optimize for a zero-H100 future so they can write medium posts about the beauty of constrain",
-      "reason": "",
-      "duration_s": 73.64
-    },
-    {
-      "timestamp": "2026-11-22T05:52:42.249657+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The 10x engineer myth",
-      "content_preview": "",
-      "reason": "unsourced number: 10 seconds; unsourced number: 10x; unsourced number: 10x",
-      "duration_s": 1.0
-    },
-    {
-      "timestamp": "2026-11-22T05:52:42.272890+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-22T05:52:42.281327+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
       "reason": "",
       "duration_s": 22.27
+    },
+    {
+      "timestamp": "2026-11-25T10:01:56.276908+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 1.09
+    },
+    {
+      "timestamp": "2026-11-25T10:01:56.431753+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T10:01:56.487420+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-25T10:02:00.773962+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T10:02:00.779789+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.77
+    },
+    {
+      "timestamp": "2026-11-25T10:02:05.803890+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "unsourced number: 100%; unsourced number: 70B model; unsourced number: 800ms",
+      "duration_s": 8.79
     }
   ]
 }

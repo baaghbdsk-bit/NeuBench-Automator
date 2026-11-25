@@ -814,17 +814,6 @@
   ],
   "pending_x_actions": [
     {
-      "reservation_id": "70f16382f5ab43f284933b03c0e5cd16",
-      "action_type": "reply",
-      "target_identifier": "https://x.com/elonmusk/status/2122408454325416322",
-      "content_hash": "e774d126ff218aa8fb1ec34f77b6fb0e25ac57012a1157fc1c3ac1785037f417",
-      "content_preview": "Bro thinks he’s catching a Uber after a Saturday night out. #SpaceX",
-      "status": "unknown",
-      "reserved_at": "2026-11-18T09:20:51.650418+00:00",
-      "unknown_at": "2026-11-18T09:21:18.606506+00:00",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
-    },
-    {
       "reservation_id": "a4e68c22c7f44f6dbe07935784920943",
       "action_type": "repost",
       "target_identifier": "https://x.com/karpathy/status/2105819303471976479",
