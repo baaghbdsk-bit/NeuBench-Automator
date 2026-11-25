@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T07:46:23.993770+00:00",
+    "last_updated": "2026-11-25T08:02:00.818718+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2621,
-    "original_posts_attempted": 788,
+    "total_cycles_executed": 2627,
+    "original_posts_attempted": 790,
     "original_posts_succeeded": 314,
-    "replies_attempted": 378,
+    "replies_attempted": 379,
     "replies_succeeded": 36,
-    "reposts_attempted": 100,
+    "reposts_attempted": 101,
     "reposts_succeeded": 13,
-    "actions_skipped": 1311,
+    "actions_skipped": 1317,
     "failed_operations": 197,
-    "ai_generation_requests": 1264,
+    "ai_generation_requests": 1266,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T03:02:06.031718+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.01
-    },
-    {
-      "timestamp": "2026-11-22T03:02:33.837407+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Prompt injection",
-      "content_preview": "I spent yesterday watching an agent scrape a support ticket and happily execute a curl command to an external webhook be",
-      "reason": "",
-      "duration_s": 31.81
-    },
-    {
-      "timestamp": "2026-11-22T04:02:10.073030+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Benchmark contamination",
-      "content_preview": "",
-      "reason": "unsourced number: 92%; unsourced number: 400ms",
-      "duration_s": 1.64
-    },
-    {
-      "timestamp": "2026-11-22T04:02:10.098130+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T04:02:15.840114+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Data Processing Incidents on Inference Providers",
-      "content_preview": "I watched a third-party inference provider silently map user prompts to a shared KV-cache pool, leaking stale system ins",
-      "reason": "",
-      "duration_s": 5.73
-    },
-    {
-      "timestamp": "2026-11-22T04:02:20.851025+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
     {
       "timestamp": "2026-11-22T04:02:20.859285+00:00",
       "action_type": "quote_tweet",
@@ -5018,6 +4958,66 @@
       "content_preview": "Bro printed out the back of a 2018 Moleskine and called it a masterclass.",
       "reason": "",
       "duration_s": 72.77
+    },
+    {
+      "timestamp": "2026-11-25T08:01:54.872981+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 405B; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 3.99
+    },
+    {
+      "timestamp": "2026-11-25T08:01:54.893556+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T08:01:54.900326+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-25T08:01:59.451616+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T08:01:59.519555+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.02
+    },
+    {
+      "timestamp": "2026-11-25T08:02:00.818687+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 405B model; unsourced number: 8B models; unsourced number: 90%; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.31
     }
   ]
 }
