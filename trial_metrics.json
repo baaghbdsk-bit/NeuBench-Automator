@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T02:03:43.924657+00:00",
+    "last_updated": "2026-11-25T03:02:42.977987+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2588,
-    "original_posts_attempted": 777,
-    "original_posts_succeeded": 313,
-    "replies_attempted": 369,
+    "total_cycles_executed": 2594,
+    "original_posts_attempted": 779,
+    "original_posts_succeeded": 314,
+    "replies_attempted": 371,
     "replies_succeeded": 35,
     "reposts_attempted": 99,
     "reposts_succeeded": 13,
-    "actions_skipped": 1283,
+    "actions_skipped": 1288,
     "failed_operations": 197,
-    "ai_generation_requests": 1245,
+    "ai_generation_requests": 1248,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T22:02:06.368622+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-21T22:02:06.378382+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.2
-    },
-    {
-      "timestamp": "2026-11-21T22:02:06.387332+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 4.2
-    },
-    {
-      "timestamp": "2026-11-21T23:02:02.529501+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-21T23:02:02.549573+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-21T23:02:02.556448+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-21T23:02:07.393163+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 42 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 64.28
+    },
+    {
+      "timestamp": "2026-11-25T03:02:05.507793+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "unsourced number: 40ms; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 1.44
+    },
+    {
+      "timestamp": "2026-11-25T03:02:05.530412+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T03:02:10.509484+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.97
+    },
+    {
+      "timestamp": "2026-11-25T03:02:15.229371+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T03:02:15.237807+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.0
+    },
+    {
+      "timestamp": "2026-11-25T03:02:42.969670+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Cheap models vs frontier models",
+      "content_preview": "I routed our JSON extraction pipeline to a $0.20/M model and watched the retry loop burn three times the compute fixing ",
+      "reason": "",
+      "duration_s": 31.73
     }
   ]
 }

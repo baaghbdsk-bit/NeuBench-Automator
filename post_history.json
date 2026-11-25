@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "connor mcdavid",
     "celine dion",
     "inundación",
     "australia vs samoa",
@@ -499,7 +498,8 @@
     "bsky:Let the Fixer Decide: Training a Code Localizer from the Fixer's Likelihood",
     "bsky:SynthDCB: World Distillation for Scalable Device Control Benchmarking",
     "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
-    "bsky:What is KV Caching? The LLM's Short-Term Memory"
+    "bsky:What is KV Caching? The LLM's Short-Term Memory",
+    "Cheap models vs frontier models"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -808,7 +808,8 @@
     "d59bc7ba4b6c9a05ee550489836aa08064cbdc8da7fc89ca012bdc448e976ad5",
     "04422ce2b47d0e6900df0ce53fcbc5be57e59768cfc249a8c38ca54241e9ab1a",
     "b3ed814a7b0cbccddafb3c47793cc43334a7e22e56f62d9685aa8e18820d0fcf",
-    "7597dc0e0a47735f1975b980ed1a0290692c1b54fb6d9f93872043cad5463513"
+    "7597dc0e0a47735f1975b980ed1a0290692c1b54fb6d9f93872043cad5463513",
+    "5108b8ae674123df17b77bba25a9937213b7a6f56979c2f60fdd3b3d673a9b91"
   ],
   "pending_x_actions": [
     {
