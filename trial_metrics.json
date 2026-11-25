@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T16:02:32.087730+00:00",
+    "last_updated": "2026-11-25T17:02:33.207799+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2671,
-    "original_posts_attempted": 804,
+    "total_cycles_executed": 2677,
+    "original_posts_attempted": 806,
     "original_posts_succeeded": 315,
-    "replies_attempted": 393,
+    "replies_attempted": 395,
     "replies_succeeded": 36,
     "reposts_attempted": 103,
     "reposts_succeeded": 13,
-    "actions_skipped": 1351,
-    "failed_operations": 205,
-    "ai_generation_requests": 1282,
-    "ai_generation_failures": 45,
+    "actions_skipped": 1356,
+    "failed_operations": 206,
+    "ai_generation_requests": 1284,
+    "ai_generation_failures": 46,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T11:01:53.347847+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T11:01:57.847408+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-22T11:01:57.853029+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.01
-    },
-    {
-      "timestamp": "2026-11-22T11:02:17.539827+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Fine-tuning vs prompting",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
-      "duration_s": 23.69
-    },
-    {
-      "timestamp": "2026-11-22T11:24:42.191675+00:00",
-      "action_type": "bluesky_reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "@sungkim.bsky.social",
-      "content_preview": "Distilling frontier outputs into smaller task-specific classifiers usually drops tail latency, but dataset drift silentl",
-      "reason": "",
-      "duration_s": 2.1
-    },
-    {
-      "timestamp": "2026-11-22T11:55:10.999260+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 22.25
-    },
     {
       "timestamp": "2026-11-22T12:02:15.543787+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
       "duration_s": 24.57
+    },
+    {
+      "timestamp": "2026-11-25T17:02:08.343203+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "unsourced number: 60%; weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 6.34
+    },
+    {
+      "timestamp": "2026-11-25T17:02:08.365723+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T17:02:08.374151+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-25T17:02:13.256762+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T17:02:13.265349+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.14
+    },
+    {
+      "timestamp": "2026-11-25T17:02:33.207769+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "duration_s": 24.08
     }
   ]
 }
