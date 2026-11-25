@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T06:02:02.854756+00:00",
+    "last_updated": "2026-11-25T07:03:07.074384+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2612,
-    "original_posts_attempted": 785,
+    "total_cycles_executed": 2617,
+    "original_posts_attempted": 787,
     "original_posts_succeeded": 314,
-    "replies_attempted": 376,
+    "replies_attempted": 377,
     "replies_succeeded": 35,
     "reposts_attempted": 100,
     "reposts_succeeded": 13,
-    "actions_skipped": 1305,
+    "actions_skipped": 1309,
     "failed_operations": 197,
-    "ai_generation_requests": 1257,
+    "ai_generation_requests": 1261,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T02:01:58.777421+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T02:02:03.905342+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Here are the top AI agents that can live in your text messages",
-      "content_preview": "I tried routing SMS agent state through standard tool-use loops and watched multi-turn context drift ruin persistence wi",
-      "reason": "",
-      "duration_s": 5.12
-    },
-    {
-      "timestamp": "2026-11-22T02:02:08.436406+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-22T02:02:08.442833+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.88
-    },
-    {
-      "timestamp": "2026-11-22T02:02:09.657595+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The 10x engineer myth",
-      "content_preview": "",
-      "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 5.1
-    },
     {
       "timestamp": "2026-11-22T03:01:55.533068+00:00",
       "action_type": "original_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "unsourced number: 80%; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.63
+    },
+    {
+      "timestamp": "2026-11-25T07:02:16.591998+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Model routing",
+      "content_preview": "",
+      "reason": "unsourced number: 40%",
+      "duration_s": 0.87
+    },
+    {
+      "timestamp": "2026-11-25T07:02:16.608100+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T07:02:38.469295+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "content_preview": "I watched an alignment classifier trip a false positive on public domain nursery rhyme text because the regex looked for",
+      "reason": "",
+      "duration_s": 21.86
+    },
+    {
+      "timestamp": "2026-11-25T07:03:06.147018+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "OpenAI",
+      "content_preview": "",
+      "reason": "unsourced number: 99%",
+      "duration_s": 27.16
+    },
+    {
+      "timestamp": "2026-11-25T07:03:07.074349+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 405B; unsourced number: 8B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 28.08
     }
   ]
 }

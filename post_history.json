@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "inundación",
     "australia vs samoa",
     "Goodbye Claude, Hello Pi",
     "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
@@ -499,7 +498,8 @@
     "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
     "bsky:What is KV Caching? The LLM's Short-Term Memory",
     "Cheap models vs frontier models",
-    "bsky:Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks"
+    "bsky:Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks",
+    "bsky:Gemini refused to give me the lyrics to Twinkle Twinkle Little Star"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -812,17 +812,6 @@
     "5108b8ae674123df17b77bba25a9937213b7a6f56979c2f60fdd3b3d673a9b91"
   ],
   "pending_x_actions": [
-    {
-      "reservation_id": "b4afa6b9a944448b9c7d9a02fcf15067",
-      "action_type": "reply",
-      "target_identifier": "https://x.com/MKBHD/status/1282750287229456385",
-      "content_hash": "d377729fdd9e7a66679174f3be01d1924fca298a21781cad00e7f2da0782e610",
-      "content_preview": "bro tweeting about character growth like he didn't just review a $2,000 smart toaster with a notch #TechTrends",
-      "status": "unknown",
-      "reserved_at": "2026-11-18T06:19:50.252465+00:00",
-      "unknown_at": "2026-11-18T06:20:18.744358+00:00",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
-    },
     {
       "reservation_id": "70f16382f5ab43f284933b03c0e5cd16",
       "action_type": "reply",
@@ -1186,7 +1175,8 @@
         "post:944c0730f1d8ec8fbc340a5a4146930a90a29bddec688fd417cad98e4ab3ddc6",
         "post:9f9321b0c881cdf008163460bdd8cf955e90be5a0000d57a96edaf83d7579735",
         "post:72c21980495a6f676c523165e79c6abaca8983566c16a806b555f6771910317e",
-        "post:00a6dfcb8c0270de57b6a4e62efed68218a32b4f925ddbf55232dd6a37fbd9c9"
+        "post:00a6dfcb8c0270de57b6a4e62efed68218a32b4f925ddbf55232dd6a37fbd9c9",
+        "post:06d804a13851833183cfa65efdbf382810704dc6d4b3fc9ab176f6c684305654"
       ],
       "pending": [
         {
