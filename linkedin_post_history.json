@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-24T00:03:04.792758+00:00",
+  "last_success_at": "2026-11-25T00:02:13.651215+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1252,6 +1252,16 @@
       "posted_at": "2026-11-24T00:03:04.792758+00:00",
       "post_urn": "urn:li:share:7530783006471516161",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:c0c80893d1959cf3ecfe0688427d55ef",
+      "title": "Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
+      "url": "",
+      "content_hash": "f3cdb78d7f5138dc530a767c8226d459",
+      "status": "success",
+      "posted_at": "2026-11-25T00:02:13.651215+00:00",
+      "post_urn": "urn:li:share:7531145178363883521",
+      "visual_format": "text_only"
     }
   ],
   "posted_titles": [
@@ -1379,6 +1389,7 @@
     "li:How Vector Database Segment Merging Works Under the Hood",
     "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale",
     "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation",
-    "li:What Exactly is a Token in Modern LLMs?"
+    "li:What Exactly is a Token in Modern LLMs?",
+    "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs"
   ]
 }

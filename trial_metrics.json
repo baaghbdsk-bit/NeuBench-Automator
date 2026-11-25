@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-24T23:53:57.238135+00:00",
+    "last_updated": "2026-11-25T00:02:25.829288+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2570,
-    "original_posts_attempted": 771,
+    "total_cycles_executed": 2576,
+    "original_posts_attempted": 773,
     "original_posts_succeeded": 313,
-    "replies_attempted": 365,
+    "replies_attempted": 366,
     "replies_succeeded": 35,
-    "reposts_attempted": 98,
+    "reposts_attempted": 99,
     "reposts_succeeded": 13,
-    "actions_skipped": 1267,
+    "actions_skipped": 1271,
     "failed_operations": 197,
-    "ai_generation_requests": 1234,
+    "ai_generation_requests": 1238,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T19:01:52.395384+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 3.8
-    },
-    {
-      "timestamp": "2026-11-21T19:15:19.276018+00:00",
-      "action_type": "bluesky_reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "@sexabolition.blog",
-      "content_preview": "Moral agency aside, the allocation of liability is strictly a systems design constraint; if a deterministic pipeline lac",
-      "reason": "",
-      "duration_s": 1.97
-    },
-    {
-      "timestamp": "2026-11-21T19:43:05.035248+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 11.18
-    },
-    {
-      "timestamp": "2026-11-21T20:02:01.440082+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-21T20:02:01.459868+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-21T20:02:01.466898+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-21T20:02:05.907100+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "Debugging finite-state machines always looks straightforward until edge cases trigger unhandled transitions under high c",
       "reason": "",
       "duration_s": 2.53
+    },
+    {
+      "timestamp": "2026-11-25T00:02:03.157204+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 3/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 0}",
+      "duration_s": 1.03
+    },
+    {
+      "timestamp": "2026-11-25T00:02:13.662306+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I spent last week rewriting our decoding loop to implement test-time compute via tree search, and it broke our p99 laten",
+      "reason": "",
+      "duration_s": 10.49
+    },
+    {
+      "timestamp": "2026-11-25T00:02:20.052810+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is KV Caching? The LLM's Short-Term Memory",
+      "content_preview": "I used to think KV cache eviction policies were mostly about saving system RAM until context length scaled up and fragme",
+      "reason": "",
+      "duration_s": 6.38
+    },
+    {
+      "timestamp": "2026-11-25T00:02:24.900798+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T00:02:24.909502+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.11
+    },
+    {
+      "timestamp": "2026-11-25T00:02:25.829250+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.03
     }
   ]
 }

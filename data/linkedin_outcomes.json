@@ -65,6 +65,19 @@
       "saves": null,
       "profile_views": null,
       "follower_delta": null
+    },
+    {
+      "posted_at": "2026-11-25T00:02:13.651215+00:00",
+      "title": "Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
+      "post_urn": "urn:li:share:7531145178363883521",
+      "visual_format": "text_only",
+      "measure_due_at": "2026-11-27T00:02:13.651215+00:00",
+      "impressions": null,
+      "reactions": null,
+      "comments": null,
+      "saves": null,
+      "profile_views": null,
+      "follower_delta": null
     }
   ]
 }
