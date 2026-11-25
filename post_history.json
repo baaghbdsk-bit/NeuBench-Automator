@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "australia vs samoa",
     "Goodbye Claude, Hello Pi",
     "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
     "bsky:Agent memory needs its OpenTelemetry moment",
@@ -499,7 +498,8 @@
     "bsky:What is KV Caching? The LLM's Short-Term Memory",
     "Cheap models vs frontier models",
     "bsky:Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks",
-    "bsky:Gemini refused to give me the lyrics to Twinkle Twinkle Little Star"
+    "bsky:Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+    "bsky:What is a Logit? The Raw Calculus Behind AI Decisions"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -539,7 +539,8 @@
     "https://x.com/demishassabis/status/2123168218743554465",
     "https://x.com/MistralAI/status/2115811242556137820",
     "https://x.com/sama/status/2117794005165748448",
-    "https://x.com/AndrewYNg/status/2088302050706686198"
+    "https://x.com/AndrewYNg/status/2088302050706686198",
+    "https://x.com/swyx/status/1281424520100737025"
   ],
   "reposted_urls": [
     "https://x.com/ndtv/status/2113019999380193613",
@@ -1176,7 +1177,8 @@
         "post:9f9321b0c881cdf008163460bdd8cf955e90be5a0000d57a96edaf83d7579735",
         "post:72c21980495a6f676c523165e79c6abaca8983566c16a806b555f6771910317e",
         "post:00a6dfcb8c0270de57b6a4e62efed68218a32b4f925ddbf55232dd6a37fbd9c9",
-        "post:06d804a13851833183cfa65efdbf382810704dc6d4b3fc9ab176f6c684305654"
+        "post:06d804a13851833183cfa65efdbf382810704dc6d4b3fc9ab176f6c684305654",
+        "post:98eafa415aea031e377799a71ba34df87eecb8e5d97f028154e0ff9ac083726b"
       ],
       "pending": [
         {
