@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T19:15:24.203241+00:00",
+    "last_updated": "2026-11-25T19:33:35.420138+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2690,
+    "total_cycles_executed": 2691,
     "original_posts_attempted": 810,
     "original_posts_succeeded": 315,
     "replies_attempted": 399,
     "replies_succeeded": 36,
     "reposts_attempted": 103,
     "reposts_succeeded": 13,
-    "actions_skipped": 1366,
+    "actions_skipped": 1367,
     "failed_operations": 208,
     "ai_generation_requests": 1288,
     "ai_generation_failures": 48,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T14:02:04.487513+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-22T14:02:09.458109+00:00",
       "action_type": "reply",
@@ -5018,6 +5008,16 @@
       "content_preview": "Moving from heuristic scoring to base-level inference on 650 genomes shifts the bottleneck from feature engineering to b",
       "reason": "",
       "duration_s": 2.04
+    },
+    {
+      "timestamp": "2026-11-25T19:33:35.420111+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 24.2
     }
   ]
 }
