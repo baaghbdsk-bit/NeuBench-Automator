@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T03:02:42.977987+00:00",
+    "last_updated": "2026-11-25T04:02:08.744478+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2594,
-    "original_posts_attempted": 779,
+    "total_cycles_executed": 2600,
+    "original_posts_attempted": 781,
     "original_posts_succeeded": 314,
-    "replies_attempted": 371,
+    "replies_attempted": 372,
     "replies_succeeded": 35,
-    "reposts_attempted": 99,
+    "reposts_attempted": 100,
     "reposts_succeeded": 13,
-    "actions_skipped": 1288,
+    "actions_skipped": 1294,
     "failed_operations": 197,
-    "ai_generation_requests": 1248,
+    "ai_generation_requests": 1251,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T23:02:07.393163+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-21T23:02:07.399922+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.27
-    },
-    {
-      "timestamp": "2026-11-21T23:02:07.406729+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 4.28
-    },
-    {
-      "timestamp": "2026-11-22T00:01:59.528914+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Model routing",
-      "content_preview": "",
-      "reason": "unsourced number: 405B model; unsourced number: 8B; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 0.94
-    },
-    {
-      "timestamp": "2026-11-22T00:02:19.114685+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I rewrote our inference serving pipeline to use DeepSeek-V3 Multi-head Latent Attention and immediately hit a wall with ",
-      "reason": "",
-      "duration_s": 19.57
-    },
-    {
-      "timestamp": "2026-11-22T00:02:24.014568+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Here are the top AI agents that can live in your text messages",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 4.89
-    },
     {
       "timestamp": "2026-11-22T00:02:29.312928+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "I routed our JSON extraction pipeline to a $0.20/M model and watched the retry loop burn three times the compute fixing ",
       "reason": "",
       "duration_s": 31.73
+    },
+    {
+      "timestamp": "2026-11-25T04:01:58.127375+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 0.95
+    },
+    {
+      "timestamp": "2026-11-25T04:01:58.151388+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T04:02:03.144825+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.98
+    },
+    {
+      "timestamp": "2026-11-25T04:02:07.953742+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T04:02:07.962026+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.07
+    },
+    {
+      "timestamp": "2026-11-25T04:02:08.744439+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 4.86
     }
   ]
 }
