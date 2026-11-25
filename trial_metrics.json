@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T05:01:58.549919+00:00",
+    "last_updated": "2026-11-25T06:02:02.854756+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2606,
-    "original_posts_attempted": 783,
+    "total_cycles_executed": 2612,
+    "original_posts_attempted": 785,
     "original_posts_succeeded": 314,
-    "replies_attempted": 374,
+    "replies_attempted": 376,
     "replies_succeeded": 35,
     "reposts_attempted": 100,
     "reposts_succeeded": 13,
-    "actions_skipped": 1299,
+    "actions_skipped": 1305,
     "failed_operations": 197,
-    "ai_generation_requests": 1254,
+    "ai_generation_requests": 1257,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T01:01:59.515846+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-22T01:01:59.521362+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.43
-    },
-    {
-      "timestamp": "2026-11-22T01:02:00.613825+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Prompt injection",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 5.53
-    },
-    {
-      "timestamp": "2026-11-22T01:19:17.030778+00:00",
-      "action_type": "bluesky_reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "@antonie.eurosky.social",
-      "content_preview": "At that spatial resolution, are you running tile-based inference on the edge or batching multispectral rasters through a",
-      "reason": "",
-      "duration_s": 1.21
-    },
-    {
-      "timestamp": "2026-11-22T01:32:09.436029+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 11.24
-    },
-    {
-      "timestamp": "2026-11-22T02:01:58.760299+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Latency budget",
-      "content_preview": "",
-      "reason": "unsourced number: 70B model; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 1, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 0.99
-    },
     {
       "timestamp": "2026-11-22T02:01:58.777421+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 3.8 seconds",
       "duration_s": 4.87
+    },
+    {
+      "timestamp": "2026-11-25T06:01:52.764925+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 800k tokens; unsourced number: 42 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 0.91
+    },
+    {
+      "timestamp": "2026-11-25T06:01:52.787465+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T06:01:56.475704+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AdProducer: Towards Agentic Advertising Video Generation",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 3.68
+    },
+    {
+      "timestamp": "2026-11-25T06:02:01.243258+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T06:02:01.251253+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.02
+    },
+    {
+      "timestamp": "2026-11-25T06:02:02.854720+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "unsourced number: 80%; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.63
     }
   ]
 }
