@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T01:01:55.238412+00:00",
+    "last_updated": "2026-11-25T02:03:43.924657+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2583,
-    "original_posts_attempted": 775,
+    "total_cycles_executed": 2588,
+    "original_posts_attempted": 777,
     "original_posts_succeeded": 313,
-    "replies_attempted": 368,
+    "replies_attempted": 369,
     "replies_succeeded": 35,
     "reposts_attempted": 99,
     "reposts_succeeded": 13,
-    "actions_skipped": 1278,
+    "actions_skipped": 1283,
     "failed_operations": 197,
-    "ai_generation_requests": 1241,
+    "ai_generation_requests": 1245,
     "ai_generation_failures": 37,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-21T21:01:59.789377+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.73
-    },
-    {
-      "timestamp": "2026-11-21T21:01:59.794792+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 3.74
-    },
-    {
-      "timestamp": "2026-11-21T22:02:01.335024+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-21T22:02:01.358118+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-21T22:02:01.366477+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-21T22:02:06.368622+00:00",
       "action_type": "reply",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "unsourced number: 10x",
       "duration_s": 4.82
+    },
+    {
+      "timestamp": "2026-11-25T02:02:16.757839+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 8B",
+      "duration_s": 0.91
+    },
+    {
+      "timestamp": "2026-11-25T02:02:16.773572+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T02:02:39.121947+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 22.34
+    },
+    {
+      "timestamp": "2026-11-25T02:03:43.203933+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "AnthropicAI",
+      "content_preview": "",
+      "reason": "unsourced number: 40B",
+      "duration_s": 63.56
+    },
+    {
+      "timestamp": "2026-11-25T02:03:43.924622+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 42 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 64.28
     }
   ]
 }
