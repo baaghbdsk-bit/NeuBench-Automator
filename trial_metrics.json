@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T22:02:05.616821+00:00",
+    "last_updated": "2026-11-25T23:02:05.222868+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2713,
-    "original_posts_attempted": 817,
+    "total_cycles_executed": 2719,
+    "original_posts_attempted": 819,
     "original_posts_succeeded": 315,
-    "replies_attempted": 405,
+    "replies_attempted": 407,
     "replies_succeeded": 36,
     "reposts_attempted": 104,
     "reposts_succeeded": 14,
-    "actions_skipped": 1388,
+    "actions_skipped": 1394,
     "failed_operations": 208,
-    "ai_generation_requests": 1296,
+    "ai_generation_requests": 1298,
     "ai_generation_failures": 48,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T17:02:18.908892+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T17:02:18.914727+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T17:03:04.763422+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/demishassabis/status/2123168218743554465",
-      "content_preview": "Alchemy at its finest\" is a wild way to admit you're just guessing which weights hit the token budget.",
-      "reason": "",
-      "duration_s": 45.35
-    },
-    {
-      "timestamp": "2026-11-22T18:02:21.554734+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T18:02:21.569857+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T18:02:21.575456+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-22T18:03:04.188704+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 14%",
       "duration_s": 9.64
+    },
+    {
+      "timestamp": "2026-11-25T23:01:59.261852+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "",
+      "reason": "unsourced number: 8B model; unsourced number: 4.2 seconds; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 6.17
+    },
+    {
+      "timestamp": "2026-11-25T23:01:59.280349+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T23:01:59.287292+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-25T23:02:03.774153+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T23:02:03.781014+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.94
+    },
+    {
+      "timestamp": "2026-11-25T23:02:05.222840+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x",
+      "duration_s": 5.38
     }
   ]
 }
