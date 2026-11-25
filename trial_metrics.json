@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T08:02:00.818718+00:00",
+    "last_updated": "2026-11-25T08:33:23.747647+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2627,
+    "total_cycles_executed": 2628,
     "original_posts_attempted": 790,
     "original_posts_succeeded": 314,
     "replies_attempted": 379,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T04:02:20.859285+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 4.18
-    },
     {
       "timestamp": "2026-11-22T04:02:49.684415+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 405B model; unsourced number: 8B models; unsourced number: 90%; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 5.31
+    },
+    {
+      "timestamp": "2026-11-25T08:33:23.747587+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@ninavizz.bsky.social",
+      "content_preview": "Fine-tuning historical weights on sparse priors works until the interpolation collapses under out-of-distribution prompt",
+      "reason": "",
+      "duration_s": 2.55
     }
   ]
 }
