@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T20:02:58.193868+00:00",
+    "last_updated": "2026-11-25T21:02:24.413015+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2695,
-    "original_posts_attempted": 811,
+    "total_cycles_executed": 2701,
+    "original_posts_attempted": 813,
     "original_posts_succeeded": 315,
-    "replies_attempted": 399,
+    "replies_attempted": 401,
     "replies_succeeded": 36,
     "reposts_attempted": 104,
     "reposts_succeeded": 14,
-    "actions_skipped": 1370,
+    "actions_skipped": 1376,
     "failed_operations": 208,
-    "ai_generation_requests": 1290,
+    "ai_generation_requests": 1292,
     "ai_generation_failures": 48,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T14:20:08.829686+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T14:20:08.835084+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T14:20:14.016336+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-22T14:20:14.021857+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.7
-    },
-    {
-      "timestamp": "2026-11-22T14:20:15.828381+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vibe coding vs shipping",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 6.51
-    },
-    {
-      "timestamp": "2026-11-22T15:02:30.916446+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Model routing",
-      "content_preview": "",
-      "reason": "unsourced number: 70B model; unsourced number: 400%; unsourced number: 0.2%; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 23.29
-    },
     {
       "timestamp": "2026-11-22T15:02:30.937436+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "Bro spent his weekend building a glorified RSS reader because he’s too lazy to click 'don't recommend channel'.",
       "reason": "",
       "duration_s": 52.33
+    },
+    {
+      "timestamp": "2026-11-25T21:02:18.451694+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "",
+      "reason": "unsourced number: 400ms",
+      "duration_s": 1.25
+    },
+    {
+      "timestamp": "2026-11-25T21:02:18.475574+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-25T21:02:18.484030+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-25T21:02:23.261066+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-25T21:02:23.270129+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.05
+    },
+    {
+      "timestamp": "2026-11-25T21:02:24.412984+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "invented personal anecdote with no source; unsourced number: 400ms; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.2
     }
   ]
 }
