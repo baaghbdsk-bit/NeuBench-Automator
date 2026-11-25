@@ -171,6 +171,15 @@
       "replies": null,
       "reposts": null,
       "quotes": null
+    },
+    {
+      "posted_at": "2026-11-25T05:01:53.159443+00:00",
+      "title": "Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks",
+      "post_ref": "Post published to Bluesky successfully! (URI: at://did:plc:g63e3oxmiwmv24oviigzzbro/app.bsky.feed.post/3n34ewv7k7d2g)",
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "quotes": null
     }
   ]
 }

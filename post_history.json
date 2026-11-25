@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "celine dion",
     "inundación",
     "australia vs samoa",
     "Goodbye Claude, Hello Pi",
@@ -499,7 +498,8 @@
     "bsky:SynthDCB: World Distillation for Scalable Device Control Benchmarking",
     "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
     "bsky:What is KV Caching? The LLM's Short-Term Memory",
-    "Cheap models vs frontier models"
+    "Cheap models vs frontier models",
+    "bsky:Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1185,7 +1185,8 @@
         "post:66ac4acf3664c7ff5b897d2108145b8f41b2966503107bb766d112a8e37a006c",
         "post:944c0730f1d8ec8fbc340a5a4146930a90a29bddec688fd417cad98e4ab3ddc6",
         "post:9f9321b0c881cdf008163460bdd8cf955e90be5a0000d57a96edaf83d7579735",
-        "post:72c21980495a6f676c523165e79c6abaca8983566c16a806b555f6771910317e"
+        "post:72c21980495a6f676c523165e79c6abaca8983566c16a806b555f6771910317e",
+        "post:00a6dfcb8c0270de57b6a4e62efed68218a32b4f925ddbf55232dd6a37fbd9c9"
       ],
       "pending": [
         {
