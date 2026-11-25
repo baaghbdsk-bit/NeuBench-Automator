@@ -812,17 +812,6 @@
   ],
   "pending_x_actions": [
     {
-      "reservation_id": "227de2e00920485cadb2e84a1167c2b7",
-      "action_type": "repost",
-      "target_identifier": "https://x.com/naval/status/1002103360646823936",
-      "content_hash": "abb48e2668bcd400a262edd815e2e4743db514bc1b0976e23424abe3e7f3cbb0",
-      "content_preview": "Step 1: Be born to wealthy parents who happened to get lucky in 1984. #TechTrends",
-      "status": "unknown",
-      "reserved_at": "2026-11-18T00:21:05.756154+00:00",
-      "unknown_at": "2026-11-18T00:21:35.964365+00:00",
-      "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates."
-    },
-    {
       "reservation_id": "b4afa6b9a944448b9c7d9a02fcf15067",
       "action_type": "reply",
       "target_identifier": "https://x.com/MKBHD/status/1282750287229456385",
