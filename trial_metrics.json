@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T05:02:14.192633+00:00",
+    "last_updated": "2026-11-26T06:03:15.738850+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2755,
-    "original_posts_attempted": 830,
+    "total_cycles_executed": 2759,
+    "original_posts_attempted": 831,
     "original_posts_succeeded": 315,
-    "replies_attempted": 416,
-    "replies_succeeded": 36,
+    "replies_attempted": 417,
+    "replies_succeeded": 37,
     "reposts_attempted": 106,
     "reposts_succeeded": 15,
-    "actions_skipped": 1423,
+    "actions_skipped": 1426,
     "failed_operations": 209,
-    "ai_generation_requests": 1317,
+    "ai_generation_requests": 1320,
     "ai_generation_failures": 49,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T23:27:03.443432+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.17
-    },
-    {
-      "timestamp": "2026-11-22T23:27:03.451914+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 4.17
-    },
-    {
-      "timestamp": "2026-11-23T00:02:13.655042+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Model routing",
-      "content_preview": "",
-      "reason": "unsourced number: 70B model",
-      "duration_s": 5.29
-    },
-    {
-      "timestamp": "2026-11-23T00:02:30.284291+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent last week rewriting our CanvasZero generation pipeline because our state boundaries kept leaking memory during h",
-      "reason": "",
-      "duration_s": 16.49
-    },
     {
       "timestamp": "2026-11-23T00:02:38.674775+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 800ms",
       "duration_s": 6.49
+    },
+    {
+      "timestamp": "2026-11-26T06:01:59.718208+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "",
+      "reason": "unsourced number: 8B model; unsourced number: 1200ms; unsourced number: 90ms; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.85
+    },
+    {
+      "timestamp": "2026-11-26T06:01:59.737166+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T06:02:06.476089+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "iMFPO: Improving Mean Flow Policy Optimization with Drift-Aware Velocity Alignment for Embodied Control",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 6.73
+    },
+    {
+      "timestamp": "2026-11-26T06:03:15.738821+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/AnthropicAI/status/2123461658890686863",
+      "content_preview": "Nothing cures grief quite like ringing the bell at Nasdaq.",
+      "reason": "",
+      "duration_s": 68.68
     }
   ]
 }
