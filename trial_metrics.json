@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-25T23:02:05.222868+00:00",
+    "last_updated": "2026-11-26T00:02:18.429159+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2719,
-    "original_posts_attempted": 819,
+    "total_cycles_executed": 2725,
+    "original_posts_attempted": 821,
     "original_posts_succeeded": 315,
-    "replies_attempted": 407,
+    "replies_attempted": 408,
     "replies_succeeded": 36,
-    "reposts_attempted": 104,
+    "reposts_attempted": 105,
     "reposts_succeeded": 14,
-    "actions_skipped": 1394,
+    "actions_skipped": 1399,
     "failed_operations": 208,
-    "ai_generation_requests": 1298,
+    "ai_generation_requests": 1302,
     "ai_generation_failures": 48,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T18:03:04.188704+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/MistralAI/status/2115811242556137820",
-      "content_preview": "Naming your model after a fat cat doesn't fix the fact that I still have to write 400 lines of boilerplate to catch its ",
-      "reason": "",
-      "duration_s": 42.11
-    },
-    {
-      "timestamp": "2026-11-22T19:02:00.991593+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T19:02:01.014099+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T19:02:01.022518+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T19:02:05.647222+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-22T19:02:05.654169+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.99
-    },
     {
       "timestamp": "2026-11-22T19:02:05.675052+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 10x",
       "duration_s": 5.38
+    },
+    {
+      "timestamp": "2026-11-26T00:01:50.072122+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; unsourced number: 10x",
+      "duration_s": 1.04
+    },
+    {
+      "timestamp": "2026-11-26T00:02:06.194787+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I dropped Multi-Head Latent Attention into our inference pipeline last week and immediately hit a wall with KV cache mem",
+      "reason": "",
+      "duration_s": 16.11
+    },
+    {
+      "timestamp": "2026-11-26T00:02:12.844063+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "FCC approves SpaceX plan to put AI data centers in space",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 2, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 6.64
+    },
+    {
+      "timestamp": "2026-11-26T00:02:17.203551+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-26T00:02:17.209275+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 3.89
+    },
+    {
+      "timestamp": "2026-11-26T00:02:18.429128+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 5.11
     }
   ]
 }

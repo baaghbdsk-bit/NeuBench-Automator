@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:Agentic Memory vs. Stateless Context Windows: The Ultimate LLM Workflow Showdown",
     "bsky:Agent memory needs its OpenTelemetry moment",
     "What I run on my $10 USD OpenStick homelab",
     "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
@@ -499,7 +498,8 @@
     "bsky:Do learned image captioning metrics generalize? Auditing duplicated samples in human-judgment benchmarks",
     "bsky:Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
     "bsky:What is a Logit? The Raw Calculus Behind AI Decisions",
-    "Model routing"
+    "Model routing",
+    "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",

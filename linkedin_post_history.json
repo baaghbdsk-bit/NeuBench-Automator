@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-25T00:02:13.651215+00:00",
+  "last_success_at": "2026-11-26T00:02:06.184386+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1262,6 +1262,16 @@
       "posted_at": "2026-11-25T00:02:13.651215+00:00",
       "post_urn": "urn:li:share:7531145178363883521",
       "visual_format": "text_only"
+    },
+    {
+      "topic_key": "title:cb039b90e7fb7c28e99de8aa3553a6f5",
+      "title": "Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM",
+      "url": "",
+      "content_hash": "7d8ad1cb16feb19d8601b26b0989e738",
+      "status": "success",
+      "posted_at": "2026-11-26T00:02:06.184386+00:00",
+      "post_urn": "urn:li:ugcPost:7531507536282312705",
+      "visual_format": "notebook_carousel"
     }
   ],
   "posted_titles": [
@@ -1390,6 +1400,7 @@
     "li:DeepSeek-V3 Multi-head Latent Attention (MLA): Compressing KV Cache at Scale",
     "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation",
     "li:What Exactly is a Token in Modern LLMs?",
-    "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs"
+    "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
+    "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM"
   ]
 }
