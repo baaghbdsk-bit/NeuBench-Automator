@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T02:02:03.929924+00:00",
+    "last_updated": "2026-11-26T03:02:20.418595+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2737,
-    "original_posts_attempted": 825,
+    "total_cycles_executed": 2743,
+    "original_posts_attempted": 827,
     "original_posts_succeeded": 315,
-    "replies_attempted": 412,
+    "replies_attempted": 414,
     "replies_succeeded": 36,
     "reposts_attempted": 105,
     "reposts_succeeded": 14,
-    "actions_skipped": 1410,
+    "actions_skipped": 1415,
     "failed_operations": 208,
-    "ai_generation_requests": 1308,
+    "ai_generation_requests": 1311,
     "ai_generation_failures": 48,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T21:02:11.132315+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-22T21:02:11.141292+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 5.54
-    },
-    {
-      "timestamp": "2026-11-22T21:02:11.149685+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 5.55
-    },
-    {
-      "timestamp": "2026-11-22T22:02:03.977153+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T22:02:04.000275+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T22:02:04.007732+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-22T22:02:09.726613+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 3B; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 7.07
+    },
+    {
+      "timestamp": "2026-11-26T03:02:00.575789+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The 10x engineer myth",
+      "content_preview": "",
+      "reason": "unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 2, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 4.13
+    },
+    {
+      "timestamp": "2026-11-26T03:02:00.598728+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T03:02:11.972322+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "US approves SpaceX plan to send a million data satellites to space",
+      "content_preview": "I tried routing distributed inference across high-latency nodes and realized orbital compute is a throughput trap for an",
+      "reason": "",
+      "duration_s": 11.37
+    },
+    {
+      "timestamp": "2026-11-26T03:02:16.790739+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-26T03:02:16.798909+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.09
+    },
+    {
+      "timestamp": "2026-11-26T03:02:20.418555+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model; unsourced number: 1400ms; unsourced number: 90ms",
+      "duration_s": 7.71
     }
   ]
 }
