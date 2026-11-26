@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
     "bsky:What is a Logit? The Raw Neural Network Score Demystified",
     "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
     "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields",
@@ -499,7 +498,8 @@
     "Model routing",
     "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM",
     "bsky:Fractal Neural Synthesis: Constant-Storage Procedural Weight Derivation via Complex Quadratic Boundary Dynamics",
-    "bsky:US approves SpaceX plan to send a million data satellites to space"
+    "bsky:US approves SpaceX plan to send a million data satellites to space",
+    "bsky:What is a Logit? The Raw Brainwaves of Neural Networks"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -558,7 +558,8 @@
     "https://x.com/ndtv/status/2118729786621346069",
     "https://x.com/ANI/status/2118657532034174998",
     "https://x.com/IndianTechGuide/status/2118916386969813109",
-    "https://x.com/karpathy/status/2116957135661945283"
+    "https://x.com/karpathy/status/2116957135661945283",
+    "https://x.com/deepseek_ai/status/2112476496283775135"
   ],
   "posted_tweet_hashes": [
     "11f42a9ddef263b8808ee39941519feb81f42c6eb9ac12f1324c64ef9bd72035",
@@ -1171,7 +1172,8 @@
         "post:06d804a13851833183cfa65efdbf382810704dc6d4b3fc9ab176f6c684305654",
         "post:98eafa415aea031e377799a71ba34df87eecb8e5d97f028154e0ff9ac083726b",
         "post:44088e58695ae3860d5d4be2a933ba8c2f86480916b707e9631247a76c7ba43e",
-        "post:97dfd15df072333beb1199ad23ff0ec37507516fbc2ee4999a9f0d26ee00ff5f"
+        "post:97dfd15df072333beb1199ad23ff0ec37507516fbc2ee4999a9f0d26ee00ff5f",
+        "post:2c8686dc5467c7c68d58b9637cf5c4696978cac9e19b3b22aa670c595f5b501e"
       ],
       "pending": [
         {
