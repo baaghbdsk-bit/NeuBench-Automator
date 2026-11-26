@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T08:02:16.698071+00:00",
+    "last_updated": "2026-11-26T09:02:19.698388+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2777,
-    "original_posts_attempted": 837,
+    "total_cycles_executed": 2783,
+    "original_posts_attempted": 839,
     "original_posts_succeeded": 315,
-    "replies_attempted": 422,
+    "replies_attempted": 424,
     "replies_succeeded": 37,
     "reposts_attempted": 107,
     "reposts_succeeded": 15,
-    "actions_skipped": 1444,
+    "actions_skipped": 1450,
     "failed_operations": 209,
-    "ai_generation_requests": 1329,
+    "ai_generation_requests": 1332,
     "ai_generation_failures": 49,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T03:02:22.183062+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-23T03:02:29.413438+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is Speculative Decoding in LLMs?",
-      "content_preview": "I used to think speculative decoding only traded FLOPs for memory bandwidth. But on long KV cache contexts, the draft-ve",
-      "reason": "",
-      "duration_s": 7.22
-    },
-    {
-      "timestamp": "2026-11-23T03:02:35.393946+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-23T03:02:35.402514+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 5.24
-    },
-    {
-      "timestamp": "2026-11-23T03:02:36.588930+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Local LLMs on laptops",
-      "content_preview": "",
-      "reason": "unsourced number: 7B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 6.42
-    },
-    {
-      "timestamp": "2026-11-23T04:01:58.701692+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
-      "duration_s": 1.24
-    },
     {
       "timestamp": "2026-11-23T04:01:58.724477+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 70B; weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
       "duration_s": 7.71
+    },
+    {
+      "timestamp": "2026-11-26T09:02:01.368085+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 42 seconds",
+      "duration_s": 0.96
+    },
+    {
+      "timestamp": "2026-11-26T09:02:01.387662+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T09:02:13.089678+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "A Mesh for Every Moment",
+      "content_preview": "",
+      "reason": "unsourced number: 80GB; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 11.64
+    },
+    {
+      "timestamp": "2026-11-26T09:02:17.728229+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-26T09:02:17.735182+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.96
+    },
+    {
+      "timestamp": "2026-11-26T09:02:19.698354+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "",
+      "reason": "unsourced number: 40ms; unsourced number: 15%",
+      "duration_s": 5.93
     }
   ]
 }

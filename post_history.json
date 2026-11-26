@@ -818,17 +818,6 @@
   ],
   "pending_x_actions": [
     {
-      "reservation_id": "a4e68c22c7f44f6dbe07935784920943",
-      "action_type": "repost",
-      "target_identifier": "https://x.com/karpathy/status/2105819303471976479",
-      "content_hash": "1b1701ab58902388c9320ee409bd239748de254da2025db343298e168491fb4a",
-      "content_preview": "Bro really just invented a new dialect of corporate therapy-speak because we forgot how to talk to robots. #AI",
-      "status": "unknown",
-      "reserved_at": "2026-11-19T08:25:41.041858+00:00",
-      "unknown_at": "2026-11-19T08:26:13.857355+00:00",
-      "reason": "X quote-tweet submission timed out; retry blocked to prevent duplicates."
-    },
-    {
       "reservation_id": "f6eb663841ce4a5ebd16ace6ea9076f5",
       "action_type": "reply",
       "target_identifier": "https://x.com/taran_adarsh/status/2116565998618943966",
