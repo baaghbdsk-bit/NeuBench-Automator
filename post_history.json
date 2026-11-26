@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Agent memory needs its OpenTelemetry moment",
     "What I run on my $10 USD OpenStick homelab",
     "li:Autonomous Agent Credential Leakage Vectors via Permission-Caching Abuses",
     "bsky:What is a Logit? The Raw Neural Network Score Demystified",
@@ -499,7 +498,8 @@
     "bsky:Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
     "bsky:What is a Logit? The Raw Calculus Behind AI Decisions",
     "Model routing",
-    "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM"
+    "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM",
+    "bsky:Fractal Neural Synthesis: Constant-Storage Procedural Weight Derivation via Complex Quadratic Boundary Dynamics"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1169,7 +1169,8 @@
         "post:72c21980495a6f676c523165e79c6abaca8983566c16a806b555f6771910317e",
         "post:00a6dfcb8c0270de57b6a4e62efed68218a32b4f925ddbf55232dd6a37fbd9c9",
         "post:06d804a13851833183cfa65efdbf382810704dc6d4b3fc9ab176f6c684305654",
-        "post:98eafa415aea031e377799a71ba34df87eecb8e5d97f028154e0ff9ac083726b"
+        "post:98eafa415aea031e377799a71ba34df87eecb8e5d97f028154e0ff9ac083726b",
+        "post:44088e58695ae3860d5d4be2a933ba8c2f86480916b707e9631247a76c7ba43e"
       ],
       "pending": [
         {
