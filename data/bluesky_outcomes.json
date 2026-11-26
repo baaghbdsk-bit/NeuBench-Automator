@@ -225,6 +225,15 @@
       "replies": null,
       "reposts": null,
       "quotes": null
+    },
+    {
+      "posted_at": "2026-11-26T10:14:44.241169+00:00",
+      "title": "When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
+      "post_ref": "Post published to Bluesky successfully! (URI: at://did:plc:g63e3oxmiwmv24oviigzzbro/app.bsky.feed.post/3n37gva4jfx2q)",
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "quotes": null
     }
   ]
 }

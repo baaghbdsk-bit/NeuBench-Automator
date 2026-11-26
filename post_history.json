@@ -1,7 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:What is a Logit? The Raw Neural Network Score Demystified",
-    "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
     "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields",
     "bsky:What is a Vector Embedding? Turning Meaning into Coordinates",
     "Agent memory needs its OpenTelemetry moment",
@@ -499,7 +497,9 @@
     "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM",
     "bsky:Fractal Neural Synthesis: Constant-Storage Procedural Weight Derivation via Complex Quadratic Boundary Dynamics",
     "bsky:US approves SpaceX plan to send a million data satellites to space",
-    "bsky:What is a Logit? The Raw Brainwaves of Neural Networks"
+    "bsky:What is a Logit? The Raw Brainwaves of Neural Networks",
+    "Vector database hype",
+    "bsky:When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -541,7 +541,8 @@
     "https://x.com/sama/status/2117794005165748448",
     "https://x.com/AndrewYNg/status/2088302050706686198",
     "https://x.com/swyx/status/1281424520100737025",
-    "https://x.com/AnthropicAI/status/2123461658890686863"
+    "https://x.com/AnthropicAI/status/2123461658890686863",
+    "https://x.com/AnthropicAI/status/2125627317263466739"
   ],
   "reposted_urls": [
     "https://x.com/ndtv/status/2113019999380193613",
@@ -814,7 +815,8 @@
     "b3ed814a7b0cbccddafb3c47793cc43334a7e22e56f62d9685aa8e18820d0fcf",
     "7597dc0e0a47735f1975b980ed1a0290692c1b54fb6d9f93872043cad5463513",
     "5108b8ae674123df17b77bba25a9937213b7a6f56979c2f60fdd3b3d673a9b91",
-    "85bbbc0c713d93a13c9de528663c9e828cd378c3852bbfb5152656188f45c2cd"
+    "85bbbc0c713d93a13c9de528663c9e828cd378c3852bbfb5152656188f45c2cd",
+    "af1df8808af6c3956c726c352d6316bf5661aadca81009920e5d438b72982080"
   ],
   "pending_x_actions": [
     {
@@ -1163,7 +1165,8 @@
         "post:98eafa415aea031e377799a71ba34df87eecb8e5d97f028154e0ff9ac083726b",
         "post:44088e58695ae3860d5d4be2a933ba8c2f86480916b707e9631247a76c7ba43e",
         "post:97dfd15df072333beb1199ad23ff0ec37507516fbc2ee4999a9f0d26ee00ff5f",
-        "post:2c8686dc5467c7c68d58b9637cf5c4696978cac9e19b3b22aa670c595f5b501e"
+        "post:2c8686dc5467c7c68d58b9637cf5c4696978cac9e19b3b22aa670c595f5b501e",
+        "post:33d8ddbcc3bf0f17bacccd0e5cb6a5eba9c901acf9e9bdd0e654f2c3186f20f1"
       ],
       "pending": [
         {

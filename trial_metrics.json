@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T09:02:19.698388+00:00",
+    "last_updated": "2026-11-26T10:15:30.742143+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2783,
-    "original_posts_attempted": 839,
-    "original_posts_succeeded": 315,
-    "replies_attempted": 424,
-    "replies_succeeded": 37,
+    "total_cycles_executed": 2787,
+    "original_posts_attempted": 840,
+    "original_posts_succeeded": 316,
+    "replies_attempted": 425,
+    "replies_succeeded": 38,
     "reposts_attempted": 107,
     "reposts_succeeded": 15,
-    "actions_skipped": 1450,
+    "actions_skipped": 1451,
     "failed_operations": 209,
-    "ai_generation_requests": 1332,
+    "ai_generation_requests": 1335,
     "ai_generation_failures": 49,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T04:01:58.724477+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-23T04:02:04.574874+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "OpenAI’s chief scientist has thoughts on how to limit AI development",
-      "content_preview": "I tried using inference compute as a development speed limit, but it just shifted the bottleneck from training throughpu",
-      "reason": "",
-      "duration_s": 5.84
-    },
-    {
-      "timestamp": "2026-11-23T04:02:10.181569+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-23T04:02:10.189981+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 4.87
-    },
     {
       "timestamp": "2026-11-23T04:02:11.191134+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 40ms; unsourced number: 15%",
       "duration_s": 5.93
+    },
+    {
+      "timestamp": "2026-11-26T10:14:38.811373+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "I migrated our search off a dedicated vector db last week and saved $800/mo on memory alone. Turns out most apps just ne",
+      "reason": "",
+      "duration_s": 28.01
+    },
+    {
+      "timestamp": "2026-11-26T10:14:38.832164+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T10:14:44.235277+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
+      "content_preview": "I stopped using stronger-model rollouts to fix all-zero RL batches on long horizons. Splicing teacher traces into dead g",
+      "reason": "",
+      "duration_s": 5.4
+    },
+    {
+      "timestamp": "2026-11-26T10:15:30.742112+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/AnthropicAI/status/2125627317263466739",
+      "content_preview": "So you fired the python devs and had your own product debug its replacement while it slowly realized it was digging its ",
+      "reason": "",
+      "duration_s": 45.96
     }
   ]
 }
