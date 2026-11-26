@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T13:03:26.315622+00:00",
+    "last_updated": "2026-11-26T14:02:11.256229+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2803,
-    "original_posts_attempted": 845,
+    "total_cycles_executed": 2809,
+    "original_posts_attempted": 847,
     "original_posts_succeeded": 316,
-    "replies_attempted": 429,
+    "replies_attempted": 431,
     "replies_succeeded": 39,
     "reposts_attempted": 108,
     "reposts_succeeded": 15,
-    "actions_skipped": 1465,
+    "actions_skipped": 1471,
     "failed_operations": 210,
-    "ai_generation_requests": 1341,
+    "ai_generation_requests": 1343,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T06:39:54.428079+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-23T06:39:54.543629+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.1
-    },
-    {
-      "timestamp": "2026-11-23T06:39:55.663845+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "unsourced number: 14%; unsourced number: 300ms",
-      "duration_s": 5.22
-    },
-    {
-      "timestamp": "2026-11-23T07:01:55.837164+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "GPU cost reality",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 1, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 1.03
-    },
-    {
-      "timestamp": "2026-11-23T07:01:55.856319+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-23T07:02:00.693775+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 4.83
-    },
     {
       "timestamp": "2026-11-23T07:02:05.245960+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "Nothing screams \"we just hit a wall at 100k H100s\" quite like begging everyone else to stop building too.",
       "reason": "",
       "duration_s": 49.25
+    },
+    {
+      "timestamp": "2026-11-26T14:02:00.496820+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 8B model; unsourced number: 400ms; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 7.48
+    },
+    {
+      "timestamp": "2026-11-26T14:02:00.519578+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T14:02:00.528850+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-26T14:02:05.956441+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-26T14:02:05.965322+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.74
+    },
+    {
+      "timestamp": "2026-11-26T14:02:11.256195+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 7B; unsourced number: 90%; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 10.03
     }
   ]
 }
