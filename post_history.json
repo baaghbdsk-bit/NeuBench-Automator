@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:What is a Vector Embedding? Turning Meaning into Coordinates",
     "Agent memory needs its OpenTelemetry moment",
     "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
     "bsky:Demystifying Continuous Batching in LLM Inference Engines",
@@ -499,7 +498,8 @@
     "bsky:What is a Logit? The Raw Brainwaves of Neural Networks",
     "Vector database hype",
     "bsky:When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
-    "The 10x engineer myth"
+    "The 10x engineer myth",
+    "Goodbye Claude, Hello Pi"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -818,7 +818,8 @@
     "5108b8ae674123df17b77bba25a9937213b7a6f56979c2f60fdd3b3d673a9b91",
     "85bbbc0c713d93a13c9de528663c9e828cd378c3852bbfb5152656188f45c2cd",
     "af1df8808af6c3956c726c352d6316bf5661aadca81009920e5d438b72982080",
-    "5452461bd403f3a5126015fecaf12b3b8757d0f08079fa6e8899e5f620898bec"
+    "5452461bd403f3a5126015fecaf12b3b8757d0f08079fa6e8899e5f620898bec",
+    "3a77b6bd784ab2af50da96e0df3da7e67255ff9bd56d2b6cfc58172b48093cea"
   ],
   "pending_x_actions": [],
   "platform_history": {

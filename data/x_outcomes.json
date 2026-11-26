@@ -180,6 +180,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-26T22:02:16.653030+00:00",
+      "title": "Goodbye Claude, Hello Pi",
+      "text": "I migrated my core agent loop off Claude this morning because the latency tax on simple tool routing is just too high for local state management.\n\nFor routine JSON parsing, paying enterprise weights is dead money.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }
