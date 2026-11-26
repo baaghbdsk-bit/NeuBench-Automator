@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T04:03:56.009893+00:00",
+    "last_updated": "2026-11-26T05:02:14.192633+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2749,
-    "original_posts_attempted": 828,
+    "total_cycles_executed": 2755,
+    "original_posts_attempted": 830,
     "original_posts_succeeded": 315,
-    "replies_attempted": 414,
+    "replies_attempted": 416,
     "replies_succeeded": 36,
     "reposts_attempted": 106,
     "reposts_succeeded": 15,
-    "actions_skipped": 1418,
-    "failed_operations": 208,
-    "ai_generation_requests": 1314,
-    "ai_generation_failures": 48,
+    "actions_skipped": 1423,
+    "failed_operations": 209,
+    "ai_generation_requests": 1317,
+    "ai_generation_failures": 49,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-22T23:02:52.134219+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "GoogleDeepMind",
-      "content_preview": "",
-      "reason": "unsourced number: 4%",
-      "duration_s": 31.55
-    },
-    {
-      "timestamp": "2026-11-22T23:02:52.142220+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 31.55
-    },
-    {
-      "timestamp": "2026-11-22T23:26:58.426992+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X daily cap",
-      "content_preview": "",
-      "reason": "Daily original posts limit reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T23:26:58.449956+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-22T23:26:58.458983+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-22T23:27:03.435220+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
     {
       "timestamp": "2026-11-22T23:27:03.443432+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "Dropping an inference framework named DeepInfer right after v4.1 flash is peak open-source fan service for guys who own ",
       "reason": "",
       "duration_s": 80.11
+    },
+    {
+      "timestamp": "2026-11-26T05:02:00.293735+00:00",
+      "action_type": "original_post",
+      "status": "failed",
+      "is_dry_run": false,
+      "target": "Vector database hype",
+      "content_preview": "",
+      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "duration_s": 3.51
+    },
+    {
+      "timestamp": "2026-11-26T05:02:00.317581+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T05:02:06.929183+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "3D CoCa v3: Contrastive Learners with Scene Graphs for Urban Scene Understanding",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 6.6
+    },
+    {
+      "timestamp": "2026-11-26T05:02:11.706173+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-26T05:02:11.715910+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.02
+    },
+    {
+      "timestamp": "2026-11-26T05:02:14.192606+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "unsourced number: 800ms",
+      "duration_s": 6.49
     }
   ]
 }
