@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T07:02:16.630269+00:00",
+    "last_updated": "2026-11-26T07:39:12.815667+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2765,
-    "original_posts_attempted": 833,
+    "total_cycles_executed": 2771,
+    "original_posts_attempted": 835,
     "original_posts_succeeded": 315,
-    "replies_attempted": 419,
+    "replies_attempted": 421,
     "replies_succeeded": 37,
     "reposts_attempted": 106,
     "reposts_succeeded": 15,
-    "actions_skipped": 1432,
+    "actions_skipped": 1438,
     "failed_operations": 209,
-    "ai_generation_requests": 1323,
+    "ai_generation_requests": 1326,
     "ai_generation_failures": 49,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T01:02:05.244521+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "OpenAI’s chief scientist has thoughts on how to limit AI development",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 6.03
-    },
-    {
-      "timestamp": "2026-11-23T01:02:09.657565+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-23T01:02:09.671876+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.86
-    },
-    {
-      "timestamp": "2026-11-23T01:02:10.682556+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 4.88
-    },
-    {
-      "timestamp": "2026-11-23T01:56:48.260530+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 19.97
-    },
-    {
-      "timestamp": "2026-11-23T02:02:22.744350+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Latency budget",
-      "content_preview": "I spent yesterday ripping out a 450-token local draft model because it added a 1.2s pause on every cursor stop.\n\nUsers p",
-      "reason": "",
-      "duration_s": 28.23
-    },
     {
       "timestamp": "2026-11-23T02:02:23.263683+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 4.2 seconds",
       "duration_s": 7.13
+    },
+    {
+      "timestamp": "2026-11-26T07:38:59.207678+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Goodbye Claude, Hello Pi",
+      "content_preview": "",
+      "reason": "unsourced number: 120ms",
+      "duration_s": 1.12
+    },
+    {
+      "timestamp": "2026-11-26T07:38:59.230148+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T07:39:06.093109+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Playfulness as Feedback for Agentic Game Development",
+      "content_preview": "",
+      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 0}",
+      "duration_s": 6.86
+    },
+    {
+      "timestamp": "2026-11-26T07:39:11.518383+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-26T07:39:11.525227+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.78
+    },
+    {
+      "timestamp": "2026-11-26T07:39:12.815638+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "unsourced number: 4%; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 6.07
     }
   ]
 }
