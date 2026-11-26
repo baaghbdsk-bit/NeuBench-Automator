@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T16:53:32.233281+00:00",
+    "last_updated": "2026-11-26T17:02:04.058823+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2822,
-    "original_posts_attempted": 851,
+    "total_cycles_executed": 2828,
+    "original_posts_attempted": 853,
     "original_posts_succeeded": 316,
-    "replies_attempted": 434,
+    "replies_attempted": 436,
     "replies_succeeded": 39,
     "reposts_attempted": 109,
     "reposts_succeeded": 15,
-    "actions_skipped": 1483,
+    "actions_skipped": 1489,
     "failed_operations": 210,
-    "ai_generation_requests": 1347,
+    "ai_generation_requests": 1349,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T09:02:07.081621+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.11
-    },
-    {
-      "timestamp": "2026-11-23T09:02:07.941134+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Context window marketing",
-      "content_preview": "",
-      "reason": "unsourced number: 1M token; unsourced number: 48 seconds",
-      "duration_s": 4.97
-    },
-    {
-      "timestamp": "2026-11-23T10:19:45.979255+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "unsourced number: 200ms; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 3.85
-    },
-    {
-      "timestamp": "2026-11-23T10:19:45.994924+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-23T10:19:46.000696+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-23T10:20:23.313239+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/sama/status/2117794005165748448",
-      "content_preview": "Bro wrote a half-finished tweet because gpt-5 timed out on the punchline",
-      "reason": "",
-      "duration_s": 36.81
-    },
     {
       "timestamp": "2026-11-23T11:02:10.423361+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "Curious how SLAKE handles the KV cache eviction overhead during the prefill phase on long sequences. Does the speedup ho",
       "reason": "",
       "duration_s": 2.91
+    },
+    {
+      "timestamp": "2026-11-26T17:01:57.117514+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 40 seconds",
+      "duration_s": 1.48
+    },
+    {
+      "timestamp": "2026-11-26T17:01:57.137587+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-26T17:01:57.145918+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-26T17:02:02.284374+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-26T17:02:02.294857+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.5
+    },
+    {
+      "timestamp": "2026-11-26T17:02:04.058792+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "unsourced number: 80%; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 6.26
     }
   ]
 }
