@@ -819,19 +819,7 @@
     "85bbbc0c713d93a13c9de528663c9e828cd378c3852bbfb5152656188f45c2cd",
     "af1df8808af6c3956c726c352d6316bf5661aadca81009920e5d438b72982080"
   ],
-  "pending_x_actions": [
-    {
-      "reservation_id": "f6eb663841ce4a5ebd16ace6ea9076f5",
-      "action_type": "reply",
-      "target_identifier": "https://x.com/taran_adarsh/status/2116565998618943966",
-      "content_hash": "f3b2d7644922c58da9b954a82546f6dd65600928b16582d1e2a687c81b75e92b",
-      "content_preview": "Taran, blink twice if the studio is holding your family hostage in the editing room. #Ramayana",
-      "status": "unknown",
-      "reserved_at": "2026-11-19T18:11:40.611536+00:00",
-      "unknown_at": "2026-11-19T18:12:08.893121+00:00",
-      "reason": "X reply submission timed out; retry blocked to prevent duplicates."
-    }
-  ],
+  "pending_x_actions": [],
   "platform_history": {
     "bluesky": {
       "completed": [
