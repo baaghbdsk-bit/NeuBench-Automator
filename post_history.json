@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:The Invisible Magic of Electric Sparks: How Kirlian Cameras Capture Energy Fields",
     "bsky:What is a Vector Embedding? Turning Meaning into Coordinates",
     "Agent memory needs its OpenTelemetry moment",
     "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
@@ -499,7 +498,8 @@
     "bsky:US approves SpaceX plan to send a million data satellites to space",
     "bsky:What is a Logit? The Raw Brainwaves of Neural Networks",
     "Vector database hype",
-    "bsky:When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL"
+    "bsky:When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
+    "The 10x engineer myth"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -817,7 +817,8 @@
     "7597dc0e0a47735f1975b980ed1a0290692c1b54fb6d9f93872043cad5463513",
     "5108b8ae674123df17b77bba25a9937213b7a6f56979c2f60fdd3b3d673a9b91",
     "85bbbc0c713d93a13c9de528663c9e828cd378c3852bbfb5152656188f45c2cd",
-    "af1df8808af6c3956c726c352d6316bf5661aadca81009920e5d438b72982080"
+    "af1df8808af6c3956c726c352d6316bf5661aadca81009920e5d438b72982080",
+    "5452461bd403f3a5126015fecaf12b3b8757d0f08079fa6e8899e5f620898bec"
   ],
   "pending_x_actions": [],
   "platform_history": {
