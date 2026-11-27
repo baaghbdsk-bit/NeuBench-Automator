@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T06:02:07.669727+00:00",
+    "last_updated": "2026-11-27T07:02:32.802242+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2911,
-    "original_posts_attempted": 880,
-    "original_posts_succeeded": 318,
-    "replies_attempted": 459,
+    "total_cycles_executed": 2917,
+    "original_posts_attempted": 882,
+    "original_posts_succeeded": 319,
+    "replies_attempted": 461,
     "replies_succeeded": 40,
     "reposts_attempted": 112,
     "reposts_succeeded": 15,
-    "actions_skipped": 1564,
+    "actions_skipped": 1569,
     "failed_operations": 210,
-    "ai_generation_requests": 1387,
+    "ai_generation_requests": 1390,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T23:37:41.824653+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-23T23:37:41.833404+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.19
-    },
-    {
-      "timestamp": "2026-11-23T23:38:10.341998+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Vibe coding vs shipping",
-      "content_preview": "I watched an LLM hallucinate an entire Stripe webhook handler at 2 AM last week. Vibe coding your prototype is fine unti",
-      "reason": "",
-      "duration_s": 32.7
-    },
-    {
-      "timestamp": "2026-11-24T00:02:04.127561+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI agents in production",
-      "content_preview": "",
-      "reason": "unsourced number: 400 times",
-      "duration_s": 1.27
-    },
-    {
-      "timestamp": "2026-11-24T00:03:04.801391+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I blew through our inference memory budget because I treated tokens as words instead of tracking how byte-pair encoding ",
-      "reason": "",
-      "duration_s": 60.67
-    },
-    {
-      "timestamp": "2026-11-24T00:03:10.902747+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "US to blacklist Asian AI firm Megaspeed after Nvidia scandal",
-      "content_preview": "I used to think supply-chain origin tracing for accelerator clusters was a solved compliance problem, but shell routing ",
-      "reason": "",
-      "duration_s": 6.09
-    },
     {
       "timestamp": "2026-11-24T00:03:15.472884+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
       "duration_s": 4.87
+    },
+    {
+      "timestamp": "2026-11-27T07:01:57.473271+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 8B; unsourced number: 14 seconds",
+      "duration_s": 0.88
+    },
+    {
+      "timestamp": "2026-11-27T07:01:57.495420+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T07:02:01.652774+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Boundary-Aware Policy Learning for Agent-Orchestrated Robot Manipulation",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.15
+    },
+    {
+      "timestamp": "2026-11-27T07:02:06.433872+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-27T07:02:06.445461+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.04
+    },
+    {
+      "timestamp": "2026-11-27T07:02:32.792677+00:00",
+      "action_type": "original_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "I audited our H100 cluster bill yesterday and realized we’re burning $4k an hour just waiting for users to type their ne",
+      "reason": "",
+      "duration_s": 30.39
     }
   ]
 }

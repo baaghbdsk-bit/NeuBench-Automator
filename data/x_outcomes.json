@@ -190,6 +190,16 @@
       "replies": null,
       "reposts": null,
       "profile_visits": null
+    },
+    {
+      "posted_at": "2026-11-27T07:02:32.801463+00:00",
+      "title": "GPU cost reality",
+      "text": "I audited our H100 cluster bill yesterday and realized we’re burning $4k an hour just waiting for users to type their next prompt.\n\nModel quality gets all the clout, but idle memory overhead is what actually bankrupts early-stage inference startups.",
+      "impressions": null,
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "profile_visits": null
     }
   ]
 }

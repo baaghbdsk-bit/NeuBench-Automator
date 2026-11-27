@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:How LLM Context Windows Work Under the Hood",
     "bsky:Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
     "oneplus coloros 17 update schedule",
     "li:tata motors share price",
@@ -499,7 +498,8 @@
     "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture",
     "bsky:AI made self-hosting fun again",
     "bsky:What is a Logit? The Raw Numerical Fuel of Neural Networks",
-    "bsky:DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents"
+    "bsky:DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents",
+    "GPU cost reality"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -820,7 +820,8 @@
     "85bbbc0c713d93a13c9de528663c9e828cd378c3852bbfb5152656188f45c2cd",
     "af1df8808af6c3956c726c352d6316bf5661aadca81009920e5d438b72982080",
     "5452461bd403f3a5126015fecaf12b3b8757d0f08079fa6e8899e5f620898bec",
-    "3a77b6bd784ab2af50da96e0df3da7e67255ff9bd56d2b6cfc58172b48093cea"
+    "3a77b6bd784ab2af50da96e0df3da7e67255ff9bd56d2b6cfc58172b48093cea",
+    "9742d2633635fed31e1c02ec0adeae56f1ab2920bb69c85fe73129c6ff5b4624"
   ],
   "pending_x_actions": [],
   "platform_history": {
