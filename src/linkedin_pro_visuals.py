@@ -195,6 +195,49 @@ STRICT RULES:
     }
 
 
+_AUTO_FIT_SVG_JS = """
+() => {
+  document.querySelectorAll('svg').forEach(svg => {
+    const vb = svg.viewBox && svg.viewBox.baseVal ? svg.viewBox.baseVal : { x: 0, y: 0, width: 920, height: 440 };
+    const rects = Array.from(svg.querySelectorAll('rect')).map(r => {
+      const b = r.getBBox();
+      return { x: b.x, y: b.y, w: b.width, h: b.height, area: b.width * b.height };
+    }).filter(r => r.w > 30 && r.h > 18 && r.w < vb.width * 0.92);
+
+    svg.querySelectorAll('text').forEach(txt => {
+      const tb = txt.getBBox();
+      if (!tb || tb.width <= 0) return;
+      const cx = tb.x + tb.width / 2;
+      const cy = tb.y + tb.height / 2;
+      // Find smallest rect containing the text center
+      const containers = rects.filter(r => cx >= r.x && cx <= r.x + r.w && cy >= r.y && cy <= r.y + r.h)
+                              .sort((a, b) => a.area - b.area);
+      const box = containers[0] || { x: vb.x + 16, y: vb.y + 16, w: vb.width - 32, h: vb.height - 32 };
+      const maxW = Math.max(40, box.w - 24);
+      if (tb.width > maxW) {
+        const cs = window.getComputedStyle(txt);
+        const curFs = parseFloat(txt.getAttribute('font-size') || cs.fontSize || '18') || 18;
+        const newFs = Math.max(11, curFs * (maxW / tb.width) * 0.96);
+        txt.setAttribute('font-size', newFs.toFixed(1));
+        txt.style.fontSize = newFs.toFixed(1) + 'px';
+      }
+      // Re-check horizontal bounds and nudge if needed
+      const nb = txt.getBBox();
+      if (nb.x < box.x + 10) {
+        const shift = (box.x + 10) - nb.x;
+        const oldX = parseFloat(txt.getAttribute('x') || '0');
+        if (!isNaN(oldX)) txt.setAttribute('x', (oldX + shift).toFixed(1));
+      } else if (nb.x + nb.width > box.x + box.w - 10) {
+        const shift = (nb.x + nb.width) - (box.x + box.w - 10);
+        const oldX = parseFloat(txt.getAttribute('x') || '0');
+        if (!isNaN(oldX)) txt.setAttribute('x', (oldX - shift).toFixed(1));
+      }
+    });
+  });
+}
+"""
+
+
 def _render_html_to_png(html_str: str, out_png: Path) -> None:
     from playwright.sync_api import sync_playwright
     tmp_html = out_png.with_suffix(".html")
@@ -204,6 +247,8 @@ def _render_html_to_png(html_str: str, out_png: Path) -> None:
         page = browser.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
         page.goto(tmp_html.resolve().as_uri(), wait_until="networkidle")
         page.wait_for_timeout(350)
+        page.evaluate(_AUTO_FIT_SVG_JS)
+        page.wait_for_timeout(50)
         page.screenshot(path=str(out_png), type="png")
         browser.close()
 
