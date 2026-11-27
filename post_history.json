@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
     "bsky:Demystifying Continuous Batching in LLM Inference Engines",
     "Kirlian Photography: Building Your Own Equipment",
     "li:How LLM Context Windows Work Under the Hood",
@@ -499,7 +498,8 @@
     "bsky:When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
     "The 10x engineer myth",
     "Goodbye Claude, Hello Pi",
-    "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture"
+    "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture",
+    "bsky:AI made self-hosting fun again"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1157,7 +1157,8 @@
         "post:44088e58695ae3860d5d4be2a933ba8c2f86480916b707e9631247a76c7ba43e",
         "post:97dfd15df072333beb1199ad23ff0ec37507516fbc2ee4999a9f0d26ee00ff5f",
         "post:2c8686dc5467c7c68d58b9637cf5c4696978cac9e19b3b22aa670c595f5b501e",
-        "post:33d8ddbcc3bf0f17bacccd0e5cb6a5eba9c901acf9e9bdd0e654f2c3186f20f1"
+        "post:33d8ddbcc3bf0f17bacccd0e5cb6a5eba9c901acf9e9bdd0e654f2c3186f20f1",
+        "post:e3bc105b0ab9d4ad71aa599c8b3bed9f538d3f812a793b5c7dcaf7cc61586a08"
       ],
       "pending": [
         {
