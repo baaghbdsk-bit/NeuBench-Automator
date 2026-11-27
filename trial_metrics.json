@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T17:02:07.790471+00:00",
+    "last_updated": "2026-11-27T18:03:04.716376+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2981,
-    "original_posts_attempted": 901,
+    "total_cycles_executed": 2985,
+    "original_posts_attempted": 902,
     "original_posts_succeeded": 319,
-    "replies_attempted": 477,
-    "replies_succeeded": 42,
+    "replies_attempted": 478,
+    "replies_succeeded": 43,
     "reposts_attempted": 115,
     "reposts_succeeded": 16,
-    "actions_skipped": 1627,
+    "actions_skipped": 1630,
     "failed_operations": 210,
-    "ai_generation_requests": 1414,
+    "ai_generation_requests": 1416,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T10:02:02.092947+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-24T10:02:09.281298+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Let the Fixer Decide: Training a Code Localizer from the Fixer's Likelihood",
-      "content_preview": "I stopped training localizers on diffs and used a frozen model's token likelihood over the candidate context instead.\n\nC",
-      "reason": "",
-      "duration_s": 7.18
-    },
-    {
-      "timestamp": "2026-11-24T10:02:14.148341+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T10:02:14.157022+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.11
-    },
     {
       "timestamp": "2026-11-24T10:02:15.283282+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 4.2 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.9
+    },
+    {
+      "timestamp": "2026-11-27T18:01:53.540064+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 0.5B; unsourced number: 4 seconds",
+      "duration_s": 0.95
+    },
+    {
+      "timestamp": "2026-11-27T18:01:53.565121+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T18:01:53.572829+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-27T18:03:04.716338+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/demishassabis/status/2125787894522544318",
+      "content_preview": "Easy to tweet from a private cluster when your training runs aren’t hitting 429 errors.",
+      "reason": "",
+      "duration_s": 70.5
     }
   ]
 }
