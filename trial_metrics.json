@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T14:02:01.999845+00:00",
+    "last_updated": "2026-11-27T15:02:07.927528+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2965,
-    "original_posts_attempted": 896,
+    "total_cycles_executed": 2971,
+    "original_posts_attempted": 898,
     "original_posts_succeeded": 319,
-    "replies_attempted": 473,
+    "replies_attempted": 475,
     "replies_succeeded": 42,
     "reposts_attempted": 114,
     "reposts_succeeded": 15,
-    "actions_skipped": 1612,
+    "actions_skipped": 1618,
     "failed_operations": 210,
-    "ai_generation_requests": 1408,
+    "ai_generation_requests": 1410,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T08:02:34.341070+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T08:02:34.348280+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 4.01
-    },
-    {
-      "timestamp": "2026-11-24T08:02:54.352670+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "The 10x engineer myth",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
-      "duration_s": 24.01
-    },
-    {
-      "timestamp": "2026-11-24T09:02:11.088240+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Benchmark scores vs real latency",
-      "content_preview": "",
-      "reason": "unsourced number: 40%; unsourced number: 3.2 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 1.33
-    },
-    {
-      "timestamp": "2026-11-24T09:02:11.111940+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-24T09:02:16.610098+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "World Models as Native Latent Action Models",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 2, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 5.49
-    },
     {
       "timestamp": "2026-11-24T09:02:21.293202+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 320ms; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.92
+    },
+    {
+      "timestamp": "2026-11-27T15:02:02.089145+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 42 seconds",
+      "duration_s": 0.74
+    },
+    {
+      "timestamp": "2026-11-27T15:02:02.111647+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T15:02:02.119813+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-27T15:02:07.099780+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-27T15:02:07.108035+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.14
+    },
+    {
+      "timestamp": "2026-11-27T15:02:07.927493+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 0.5B model; unsourced number: 4 seconds; unsourced number: 100x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.96
     }
   ]
 }
