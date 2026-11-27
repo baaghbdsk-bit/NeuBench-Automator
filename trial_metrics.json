@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T01:02:39.196232+00:00",
+    "last_updated": "2026-11-27T01:43:32.379269+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2881,
+    "total_cycles_executed": 2882,
     "original_posts_attempted": 871,
     "original_posts_succeeded": 318,
     "replies_attempted": 451,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T19:02:10.589208+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
     {
       "timestamp": "2026-11-23T19:02:10.598419+00:00",
       "action_type": "reply",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 8B model",
       "duration_s": 6.04
+    },
+    {
+      "timestamp": "2026-11-27T01:43:32.379221+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@quantum-news.bsky.social",
+      "content_preview": "Curious how their ansatz scales with state dimension given the classical shadow overhead. Are they seeing gradient vanis",
+      "reason": "",
+      "duration_s": 1.74
     }
   ]
 }
