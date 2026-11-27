@@ -346,15 +346,43 @@ def render_pro_architecture_png(topic: str, summary: str = "", article_text: str
 
         takeaways = (spec.get("takeaways") or [])[:2]
         cards_html = ""
-        for idx, item in enumerate(takeaways):
-            border_col = th["accent_a"] if idx == 0 else th["accent_b"]
-            clean_tag = str(item.get("tag", "")).replace("//", "·").strip()
-            cards_html += f"""
+        if theme_key == "comparison_split" and len(takeaways) == 2:
+            cols = ""
+            for idx, item in enumerate(takeaways):
+                top_col = th["accent_a"] if idx == 0 else th["accent_b"]
+                clean_tag = str(item.get("tag", "")).replace("//", "·").strip()
+                cols += f"""
+        <div style="border-color:{th['card_border']}; border-top-width:8px; border-top-color:{top_col};" class="bg-white border-2 rounded-2xl p-6 shadow-sm space-y-2 flex flex-col justify-between">
+          <div style="color:{top_col};" class="text-sm font-bold">{clean_tag}</div>
+          <div class="text-2xl font-extrabold text-slate-900 leading-tight">{item.get('title', '')}</div>
+          <p class="text-lg text-slate-600 leading-snug font-medium">{item.get('body', '')}</p>
+        </div>"""
+            cards_container = f'<div class="grid grid-cols-2 gap-4">{cols}</div>'
+        elif theme_key == "builder_notes":
+            for idx, item in enumerate(takeaways):
+                badge_col = th["accent_a"] if idx == 0 else th["accent_b"]
+                clean_tag = str(item.get("tag", "")).replace("//", "·").strip()
+                cards_html += f"""
+        <div style="border-color:{th['card_border']};" class="bg-white border-2 rounded-2xl p-6 shadow-sm flex items-start gap-4">
+          <div style="background:{badge_col};" class="w-10 h-10 rounded-xl text-white font-mono text-lg font-extrabold flex items-center justify-center shrink-0">0{idx + 1}</div>
+          <div class="space-y-1">
+            <div style="color:{badge_col};" class="text-xs font-bold">{clean_tag}</div>
+            <div class="text-2xl font-extrabold text-slate-900">{item.get('title', '')}</div>
+            <p class="text-xl text-slate-600 leading-snug font-medium">{item.get('body', '')}</p>
+          </div>
+        </div>"""
+            cards_container = f'<div class="space-y-4">{cards_html}</div>'
+        else:
+            for idx, item in enumerate(takeaways):
+                border_col = th["accent_a"] if idx == 0 else th["accent_b"]
+                clean_tag = str(item.get("tag", "")).replace("//", "·").strip()
+                cards_html += f"""
         <div style="border-color:{th['card_border']}; border-left-width:8px; border-left-color:{border_col};" class="bg-white border-2 rounded-2xl p-6 shadow-sm space-y-1.5">
           <div style="color:{border_col};" class="text-sm font-bold">{clean_tag}</div>
           <div class="text-2xl font-extrabold text-slate-900">{item.get('title', '')}</div>
           <p class="text-xl text-slate-600 leading-snug font-medium">{item.get('body', '')}</p>
         </div>"""
+            cards_container = f'<div class="space-y-4">{cards_html}</div>'
 
         if svg_html:
             center_section = f"""
@@ -400,9 +428,7 @@ def render_pro_architecture_png(topic: str, summary: str = "", article_text: str
 
   {center_section}
 
-  <div class="space-y-4">
-    {cards_html}
-  </div>
+  {cards_container}
 
   <div class="flex items-center justify-between border-t-2 border-slate-200 pt-4 text-slate-500 text-base font-semibold">
     <span>{creator} · AI Engineering Notes</span>
