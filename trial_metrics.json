@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-26T23:02:07.646350+00:00",
+    "last_updated": "2026-11-27T00:02:42.681252+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2870,
-    "original_posts_attempted": 867,
+    "total_cycles_executed": 2875,
+    "original_posts_attempted": 869,
     "original_posts_succeeded": 318,
-    "replies_attempted": 448,
+    "replies_attempted": 449,
     "replies_succeeded": 39,
-    "reposts_attempted": 110,
+    "reposts_attempted": 111,
     "reposts_succeeded": 15,
-    "actions_skipped": 1529,
+    "actions_skipped": 1534,
     "failed_operations": 210,
-    "ai_generation_requests": 1364,
+    "ai_generation_requests": 1368,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T17:02:33.115948+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.17
-    },
-    {
-      "timestamp": "2026-11-23T17:02:53.202025+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "duration_s": 24.25
-    },
-    {
-      "timestamp": "2026-11-23T18:01:53.737068+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Model routing",
-      "content_preview": "",
-      "reason": "unsourced number: 40%",
-      "duration_s": 1.37
-    },
-    {
-      "timestamp": "2026-11-23T18:01:53.759029+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-23T18:01:53.767700+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-23T18:01:58.509031+00:00",
       "action_type": "reply",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
       "duration_s": 8.96
+    },
+    {
+      "timestamp": "2026-11-27T00:02:06.581844+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 1B; unsourced number: 2 tokens",
+      "duration_s": 6.77
+    },
+    {
+      "timestamp": "2026-11-27T00:02:36.830712+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 2, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 4.86
+    },
+    {
+      "timestamp": "2026-11-27T00:02:41.629866+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-27T00:02:41.637921+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 4.08
+    },
+    {
+      "timestamp": "2026-11-27T00:02:42.681216+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 8B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 5.13
     }
   ]
 }
