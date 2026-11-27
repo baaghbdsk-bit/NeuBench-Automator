@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T16:02:54.504751+00:00",
+    "last_updated": "2026-11-27T17:02:07.790471+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2975,
-    "original_posts_attempted": 899,
+    "total_cycles_executed": 2981,
+    "original_posts_attempted": 901,
     "original_posts_succeeded": 319,
-    "replies_attempted": 475,
+    "replies_attempted": 477,
     "replies_succeeded": 42,
     "reposts_attempted": 115,
     "reposts_succeeded": 16,
-    "actions_skipped": 1621,
+    "actions_skipped": 1627,
     "failed_operations": 210,
-    "ai_generation_requests": 1412,
+    "ai_generation_requests": 1414,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T09:07:22.788847+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-24T09:07:28.195321+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "World Models as Native Latent Action Models",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 5.4
-    },
-    {
-      "timestamp": "2026-11-24T09:07:32.672167+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T09:07:32.678068+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.98
-    },
-    {
-      "timestamp": "2026-11-24T09:07:33.714894+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "unsourced number: 40ms; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 5.01
-    },
-    {
-      "timestamp": "2026-11-24T10:02:02.070397+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Context window marketing",
-      "content_preview": "",
-      "reason": "unsourced number: 44 seconds",
-      "duration_s": 1.12
-    },
     {
       "timestamp": "2026-11-24T10:02:02.092947+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "Can’t wait to benchmark a model specifically trained to write shorter READMEs that nobody reads.",
       "reason": "",
       "duration_s": 44.9
+    },
+    {
+      "timestamp": "2026-11-27T17:02:02.261763+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 1.5B model; unsourced number: 14 seconds",
+      "duration_s": 0.89
+    },
+    {
+      "timestamp": "2026-11-27T17:02:02.281204+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T17:02:02.288191+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-27T17:02:06.854648+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-27T17:02:06.861829+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.97
+    },
+    {
+      "timestamp": "2026-11-27T17:02:07.790435+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 4.2 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.9
     }
   ]
 }
