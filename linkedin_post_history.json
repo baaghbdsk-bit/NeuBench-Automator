@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-26T00:02:06.184386+00:00",
+  "last_success_at": "2026-11-27T01:02:27.086781+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1272,6 +1272,16 @@
       "posted_at": "2026-11-26T00:02:06.184386+00:00",
       "post_urn": "urn:li:ugcPost:7531507536282312705",
       "visual_format": "notebook_carousel"
+    },
+    {
+      "topic_key": "title:aea157e1e818f782877b85753b17e34c",
+      "title": "Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture",
+      "url": "",
+      "content_hash": "edfc0d7c7f198dfa73b07fb53f62411e",
+      "status": "success",
+      "posted_at": "2026-11-27T01:02:27.086781+00:00",
+      "post_urn": "urn:li:share:7531885111584239616",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1401,6 +1411,7 @@
     "li:Teaching AI to Draw: Inside 'CanvasZero' and Instant Image Generation",
     "li:What Exactly is a Token in Modern LLMs?",
     "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
-    "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM"
+    "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM",
+    "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture"
   ]
 }

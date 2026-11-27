@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "Agent memory needs its OpenTelemetry moment",
     "li:How Distributed Consensus Survives Split-Brain: Raft Under the Hood",
     "bsky:Demystifying Continuous Batching in LLM Inference Engines",
     "Kirlian Photography: Building Your Own Equipment",
@@ -499,7 +498,8 @@
     "Vector database hype",
     "bsky:When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
     "The 10x engineer myth",
-    "Goodbye Claude, Hello Pi"
+    "Goodbye Claude, Hello Pi",
+    "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
