@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T15:02:07.927528+00:00",
+    "last_updated": "2026-11-27T16:02:54.504751+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2971,
-    "original_posts_attempted": 898,
+    "total_cycles_executed": 2975,
+    "original_posts_attempted": 899,
     "original_posts_succeeded": 319,
     "replies_attempted": 475,
     "replies_succeeded": 42,
-    "reposts_attempted": 114,
-    "reposts_succeeded": 15,
-    "actions_skipped": 1618,
+    "reposts_attempted": 115,
+    "reposts_succeeded": 16,
+    "actions_skipped": 1621,
     "failed_operations": 210,
-    "ai_generation_requests": 1410,
+    "ai_generation_requests": 1412,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T09:02:21.293202+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T09:02:21.494216+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.17
-    },
-    {
-      "timestamp": "2026-11-24T09:02:23.010740+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Local LLMs on laptops",
-      "content_preview": "",
-      "reason": "unsourced number: 70B; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 5.68
-    },
-    {
-      "timestamp": "2026-11-24T09:07:22.773009+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Context window marketing",
-      "content_preview": "",
-      "reason": "unsourced number: 44 seconds; unsourced number: 50k tokens; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 1.3
-    },
     {
       "timestamp": "2026-11-24T09:07:22.788847+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 0.5B model; unsourced number: 4 seconds; unsourced number: 100x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.96
+    },
+    {
+      "timestamp": "2026-11-27T16:02:09.044822+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 4.2 seconds",
+      "duration_s": 0.77
+    },
+    {
+      "timestamp": "2026-11-27T16:02:09.060505+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T16:02:09.066393+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-27T16:02:54.504720+00:00",
+      "action_type": "quote_tweet",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/deepseek_ai/status/2111375640717033777",
+      "content_preview": "Can’t wait to benchmark a model specifically trained to write shorter READMEs that nobody reads.",
+      "reason": "",
+      "duration_s": 44.9
     }
   ]
 }
