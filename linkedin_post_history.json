@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_success_at": "2026-11-27T01:02:27.086781+00:00",
+  "last_success_at": "2026-11-27T07:44:35.481624+00:00",
   "last_unknown_at": null,
   "posts": [
     {
@@ -1282,6 +1282,16 @@
       "posted_at": "2026-11-27T01:02:27.086781+00:00",
       "post_urn": "urn:li:share:7531885111584239616",
       "visual_format": "animated_flow_gif"
+    },
+    {
+      "topic_key": "title:0b285653541e452a87bfe31ad9f4c25d",
+      "title": "CPU vs GPU: The Brain vs. The Mega-Artist",
+      "url": "",
+      "content_hash": "36d24a703e355cb10c9a572ac2f464f2",
+      "status": "success",
+      "posted_at": "2026-11-27T07:44:35.481624+00:00",
+      "post_urn": "urn:li:share:7531986312330055680",
+      "visual_format": "animated_flow_gif"
     }
   ],
   "posted_titles": [
@@ -1412,6 +1422,7 @@
     "li:What Exactly is a Token in Modern LLMs?",
     "li:Unrolling the Loop: Understanding Test-Time Compute and Search-Based LLMs",
     "li:Unlocking DeepSeek's Multi-Head Latent Attention: How Low-Rank Joint Compression Saves VRAM",
-    "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture"
+    "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture",
+    "li:CPU vs GPU: The Brain vs. The Mega-Artist"
   ]
 }

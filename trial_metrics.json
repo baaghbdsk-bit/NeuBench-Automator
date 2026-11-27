@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T07:34:09.178615+00:00",
+    "last_updated": "2026-11-27T07:44:35.492172+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2924,
+    "total_cycles_executed": 2925,
     "original_posts_attempted": 884,
     "original_posts_succeeded": 319,
     "replies_attempted": 463,
@@ -14,21 +14,11 @@
     "reposts_succeeded": 15,
     "actions_skipped": 1575,
     "failed_operations": 210,
-    "ai_generation_requests": 1393,
+    "ai_generation_requests": 1394,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T01:02:00.091816+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.86
-    },
     {
       "timestamp": "2026-11-24T01:02:26.413357+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "LinkedIn daily cap reached (1/1)",
       "duration_s": 0.02
+    },
+    {
+      "timestamp": "2026-11-27T07:44:35.492151+00:00",
+      "action_type": "linkedin_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "LinkedIn B2B",
+      "content_preview": "I refactored our inference pipeline from CPU to GPU last month and immediately doubled our p99 tail latency because I un",
+      "reason": "",
+      "duration_s": 36.67
     }
   ]
 }
