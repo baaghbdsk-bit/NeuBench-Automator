@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T07:44:35.492172+00:00",
+    "last_updated": "2026-11-27T08:02:06.293829+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2925,
-    "original_posts_attempted": 884,
+    "total_cycles_executed": 2931,
+    "original_posts_attempted": 886,
     "original_posts_succeeded": 319,
-    "replies_attempted": 463,
+    "replies_attempted": 464,
     "replies_succeeded": 40,
-    "reposts_attempted": 112,
+    "reposts_attempted": 113,
     "reposts_succeeded": 15,
-    "actions_skipped": 1575,
+    "actions_skipped": 1581,
     "failed_operations": 210,
-    "ai_generation_requests": 1394,
+    "ai_generation_requests": 1396,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T01:02:26.413357+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Reasoning models cost",
-      "content_preview": "I watched a 40-second reasoning loop turn a $0.002 API call into a $0.18 timeout error in staging today.\n\nLetting a mode",
-      "reason": "",
-      "duration_s": 30.18
-    },
-    {
-      "timestamp": "2026-11-24T02:02:03.791493+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI agents in production",
-      "content_preview": "",
-      "reason": "unsourced number: 40 times; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 1.78
-    },
-    {
-      "timestamp": "2026-11-24T02:02:03.812989+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-24T02:02:34.119795+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "GLM-5.4: Toward generalized coding with our first loop transformer",
-      "content_preview": "I replaced stacked layers with a looped block and watched step latency spike from re-encoding context. Weight tying save",
-      "reason": "",
-      "duration_s": 30.3
-    },
-    {
-      "timestamp": "2026-11-24T02:02:39.625753+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T02:02:39.633426+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.94
-    },
     {
       "timestamp": "2026-11-24T02:02:40.770000+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "I refactored our inference pipeline from CPU to GPU last month and immediately doubled our p99 tail latency because I un",
       "reason": "",
       "duration_s": 36.67
+    },
+    {
+      "timestamp": "2026-11-27T08:01:59.180767+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.22
+    },
+    {
+      "timestamp": "2026-11-27T08:01:59.202843+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T08:01:59.211441+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-27T08:02:05.087978+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-27T08:02:05.096137+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 5.12
+    },
+    {
+      "timestamp": "2026-11-27T08:02:06.293801+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 8B; unsourced number: 4 minutes; unsourced number: 90%; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 6.32
     }
   ]
 }
