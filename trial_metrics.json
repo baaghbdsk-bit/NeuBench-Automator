@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T12:19:09.009306+00:00",
+    "last_updated": "2026-11-27T13:00:58.309391+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2952,
+    "total_cycles_executed": 2953,
     "original_posts_attempted": 892,
     "original_posts_succeeded": 319,
     "replies_attempted": 469,
     "replies_succeeded": 42,
     "reposts_attempted": 114,
     "reposts_succeeded": 15,
-    "actions_skipped": 1599,
+    "actions_skipped": 1600,
     "failed_operations": 210,
     "ai_generation_requests": 1404,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T06:02:38.777944+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "duration_s": 3.55
-    },
     {
       "timestamp": "2026-11-24T06:02:38.802570+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "Open weights reduce distribution friction, but unconstrained inference endpoints still present major attack surfaces reg",
       "reason": "",
       "duration_s": 6.27
+    },
+    {
+      "timestamp": "2026-11-27T13:00:58.309362+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 19.66
     }
   ]
 }
