@@ -90,10 +90,10 @@ jobs:
           MAX_DAILY_X_ORIGINALS: '4'
           MAX_DAILY_X_REPLIES: '12'
           MAX_DAILY_X_REPOSTS: '4'
-          MAX_DAILY_LINKEDIN: '1'
+          MAX_DAILY_LINKEDIN: '0'
           MAX_DAILY_BLUESKY: '4'
           MAX_DAILY_TOTAL: '20'
-          LINKEDIN_MIN_INTERVAL_MINUTES: '720'
+          LINKEDIN_MIN_INTERVAL_MINUTES: '180'
         run: |
           ACTION="${{ inputs.action || 'auto' }}"
           if [ "$DRY_RUN" = "true" ]; then

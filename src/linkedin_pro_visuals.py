@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -133,13 +134,19 @@ def _extract_article_points(summary: str, article_text: str) -> List[str]:
     return sents[:4] if sents else [summary or "Core engineering breakdown."]
 
 
-def _build_visual_spec(topic: str, summary: str, article_text: str) -> Dict[str, Any]:
+def _build_visual_spec(topic: str, summary: str, article_text: str, qa_feedback: str = "") -> Dict[str, Any]:
+    feedback_block = (
+        f"\nPREVIOUS RENDER FAILED VISUAL QA — FIX THESE SPECIFIC ISSUES:\n{qa_feedback}\n"
+        if qa_feedback
+        else ""
+    )
     prompt = f"""You are a senior staff engineer & editorial designer (ByteByteGo / Stripe Docs / Apple Keynote).
 Design a crystal-clear, topic-unique Light-Mode LinkedIn visual attachment for this exact post:
 
 Topic: {topic}
 Summary: {summary}
 Article Excerpt: {article_text[:1200]}
+{feedback_block}
 
 STRICT RULES:
 - Pick the best `theme` for this topic:
@@ -253,51 +260,123 @@ def _render_html_to_png(html_str: str, out_png: Path) -> None:
         browser.close()
 
 
-def render_pro_architecture_png(topic: str, summary: str = "", article_text: str = "") -> Dict[str, Any]:
-    """Render a crisp 1080x1350 topic-themed Light-Mode editorial PNG via Playwright."""
-    spec = _build_visual_spec(topic, summary, article_text)
-    theme_key = str(spec.get("theme") or _pick_fallback_theme(topic))
-    th = THEMES.get(theme_key, THEMES["editorial_paper"])
-    svg_html = _sanitize_svg(str(spec.get("svg") or ""))
+def _log_li_feedback(topic: str, png_path: Path, score: int, passed: bool, defects: List[str], summary: str) -> None:
+    log_path = Path.home() / ".gemini" / "config" / "skills" / "creative-production-director" / "feedback-log.jsonl"
+    if not log_path.parent.exists():
+        return
+    try:
+        entry = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "media_type": "image",
+            "model_provider": "linkedin_pro_visuals + gemini-3.5-flash-qa",
+            "settings": "1080x1350",
+            "prompt": topic,
+            "output_path": str(png_path),
+            "score": score,
+            "passed": passed,
+            "critical_defects": defects,
+            "revisions": summary,
+            "final_result": "accepted" if passed else "rejected",
+        }
+        with log_path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
 
+
+def _verify_png_with_gemini(topic: str, png_path: Path) -> Dict[str, Any]:
+    """Inspect rendered 1080x1350 PNG against the 80/100 Image Quality Rubric via Gemini Vision."""
+    api_key = getattr(config, "GEMINI_API_KEY", "") or os.getenv("GEMINI_API_KEY", "")
+    if not api_key or not png_path.exists():
+        return {"passed": True, "skipped": "no_api_key_or_file"}
+    try:
+        from google import genai
+        from google.genai import types
+    except Exception as exc:
+        return {"passed": True, "skipped": f"google-genai unavailable: {exc}"}
+
+    rubric = (
+        "You are a strict Image Quality Auditor. Inspect this 1080x1350 Light-Mode LinkedIn technical graphic. "
+        "Score out of 100 (Composition 15, Lighting/Contrast 15, Realism/Clarity 20, Subject/Diagram Quality 20, "
+        "Detail Quality 10, Aesthetic Appeal 10, Mobile Platform Suitability 10). "
+        "List any CRITICAL DEFECTS (text overflowing boxes, clipped/cut-off labels, overlapping SVG nodes/arrows, "
+        "unreadable tiny text, or blank diagram area). "
+        'Respond ONLY with JSON: {"score": <int 0-100>, "critical_defects": [<strings>], "summary": "<1-line>"}'
+    )
+    img_part = types.Part.from_bytes(data=png_path.read_bytes(), mime_type="image/png")
+    client = genai.Client(api_key=api_key)
+    for model_name in ("gemini-3.5-flash", "gemini-3.5-flash-lite"):
+        try:
+            resp = client.models.generate_content(
+                model=model_name,
+                contents=[rubric, img_part],
+                config=types.GenerateContentConfig(response_mime_type="application/json"),
+            )
+            parsed = json.loads(resp.text or "{}")
+            score = int(parsed.get("score", 0))
+            defects = [str(d) for d in (parsed.get("critical_defects") or []) if str(d).strip()]
+            summary = str(parsed.get("summary") or "")
+            passed = score >= 80 and not defects
+            _log_li_feedback(topic, png_path, score, passed, defects, summary)
+            return {"score": score, "passed": passed, "critical_defects": defects, "summary": summary, "model": model_name}
+        except Exception:
+            continue
+    return {"passed": True, "skipped": "vision_qa_unavailable"}
+
+
+def render_pro_architecture_png(topic: str, summary: str = "", article_text: str = "") -> Dict[str, Any]:
+    """Render a crisp 1080x1350 topic-themed Light-Mode editorial PNG via Playwright, with 80/100 Visual QA + 1 retry."""
     slug = re.sub(r"[^a-zA-Z0-9]+", "_", topic.lower()).strip("_")[:32] or "post"
     digest = hashlib.md5(topic.encode("utf-8")).hexdigest()[:8]
     out_dir = OUTPUT_DIR / f"pro_{slug}_{digest}"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_png = out_dir / f"{slug}.png"
-
     creator = getattr(config, "CREATOR_NAME", "Vishnu")
-    takeaways = (spec.get("takeaways") or [])[:2]
-    cards_html = ""
-    for idx, item in enumerate(takeaways):
-        border_col = th["accent_a"] if idx == 0 else th["accent_b"]
-        cards_html += f"""
+
+    qa_feedback = ""
+    spec: Dict[str, Any] = {}
+    theme_key = _pick_fallback_theme(topic)
+    qa_result: Dict[str, Any] = {}
+
+    for attempt in range(1, 3):
+        spec = _build_visual_spec(topic, summary, article_text, qa_feedback=qa_feedback)
+        theme_key = str(spec.get("theme") or _pick_fallback_theme(topic))
+        th = THEMES.get(theme_key, THEMES["editorial_paper"])
+        svg_html = _sanitize_svg(str(spec.get("svg") or ""))
+
+        takeaways = (spec.get("takeaways") or [])[:2]
+        cards_html = ""
+        for idx, item in enumerate(takeaways):
+            border_col = th["accent_a"] if idx == 0 else th["accent_b"]
+            clean_tag = str(item.get("tag", "")).replace("//", "·").strip()
+            cards_html += f"""
         <div style="border-color:{th['card_border']}; border-left-width:8px; border-left-color:{border_col};" class="bg-white border-2 rounded-2xl p-6 shadow-sm space-y-1.5">
-          <div style="color:{border_col};" class="font-mono text-sm font-extrabold tracking-widest uppercase">{item.get('tag', '')}</div>
+          <div style="color:{border_col};" class="text-sm font-bold">{clean_tag}</div>
           <div class="text-2xl font-extrabold text-slate-900">{item.get('title', '')}</div>
           <p class="text-xl text-slate-600 leading-snug font-medium">{item.get('body', '')}</p>
         </div>"""
 
-    if svg_html:
-        center_section = f"""
+        if svg_html:
+            center_section = f"""
         <div style="border-color:{th['card_border']};" class="bg-white border-2 rounded-3xl p-6 shadow-md space-y-3 my-3">
-          <div class="font-mono text-base font-extrabold text-slate-500 tracking-wider uppercase border-b border-slate-100 pb-2">
-            {spec.get('diagram_title', '1. ARCHITECTURE')}
+          <div class="text-base font-bold text-slate-600 border-b border-slate-100 pb-2">
+            {spec.get('diagram_title', '1. Architecture')}
           </div>
           <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3 flex items-center justify-center">
             {svg_html}
           </div>
         </div>"""
-    else:
-        pts = _extract_article_points(summary, article_text)
-        pts_html = "".join(f'<li class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-2xl font-semibold text-slate-800">{pt}</li>' for pt in pts[:3])
-        center_section = f"""
+        else:
+            pts = _extract_article_points(summary, article_text)
+            pts_html = "".join(f'<li class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-2xl font-semibold text-slate-800">{pt}</li>' for pt in pts[:3])
+            center_section = f"""
         <div style="border-color:{th['card_border']};" class="bg-white border-2 rounded-3xl p-7 shadow-md space-y-4 my-3">
-          <div class="font-mono text-base font-extrabold text-slate-500 tracking-wider uppercase border-b border-slate-100 pb-2">KEY POINTS</div>
+          <div class="text-base font-bold text-slate-600 border-b border-slate-100 pb-2">Key takeaways</div>
           <ul class="space-y-3">{pts_html}</ul>
         </div>"""
 
-    html = f"""<!DOCTYPE html>
+        clean_kicker = str(spec.get("kicker", "Systems note")).lstrip("/ ").strip()
+        html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -312,8 +391,8 @@ def render_pro_architecture_png(topic: str, summary: str = "", article_text: str
 </head>
 <body class="bg-grid flex flex-col justify-between p-12">
   <div class="space-y-3">
-    <div style="background:{th['kicker_bg']}; border-color:{th['kicker_border']}; color:{th['kicker_text']};" class="inline-block px-4 py-1.5 rounded-full border font-mono text-sm font-extrabold tracking-widest uppercase">
-      // {spec.get('kicker', 'SYSTEMS NOTE')}
+    <div style="background:{th['kicker_bg']}; border-color:{th['kicker_border']}; color:{th['kicker_text']};" class="inline-block px-4 py-1.5 rounded-full border text-sm font-bold">
+      {clean_kicker}
     </div>
     <h1 class="font-display text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">{spec.get('headline', topic)}</h1>
     <p class="text-2xl text-slate-600 font-medium leading-snug">{spec.get('subtitle', summary)}</p>
@@ -325,15 +404,22 @@ def render_pro_architecture_png(topic: str, summary: str = "", article_text: str
     {cards_html}
   </div>
 
-  <div class="flex items-center justify-between border-t-2 border-slate-200 pt-4 text-slate-500 font-mono text-base font-bold">
+  <div class="flex items-center justify-between border-t-2 border-slate-200 pt-4 text-slate-500 text-base font-semibold">
     <span>{creator} · AI Engineering Notes</span>
-    <span>SAVE FOR LATER</span>
+    <span>Save for reference</span>
   </div>
 </body>
 </html>"""
 
-    _render_html_to_png(html, out_png)
-    return {"png_path": str(out_png), "spec": spec, "theme": theme_key}
+        _render_html_to_png(html, out_png)
+        qa_result = _verify_png_with_gemini(topic, out_png)
+        if qa_result.get("passed", True) or attempt == 2:
+            break
+        defects_str = "; ".join(qa_result.get("critical_defects") or [])
+        qa_feedback = f"Score {qa_result.get('score', '?')}/100. Defects: {defects_str}. Notes: {qa_result.get('summary', '')}"
+        print(f"[linkedin_pro_visuals] Visual QA failed on attempt {attempt}/2 ({qa_feedback}). Regenerating...")
+
+    return {"png_path": str(out_png), "spec": spec, "theme": theme_key, "visual_qa": qa_result}
 
 
 def render_pro_carousel_pdf(

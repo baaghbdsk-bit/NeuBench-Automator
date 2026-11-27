@@ -1,8 +1,9 @@
-name: LinkedIn Autopilot (Manual / On-Demand)
+name: LinkedIn Autopilot (5:30 PM & 9:30 PM IST)
 
 on:
-  # LinkedIn posts are published by the every-6-hours omnichannel workflow
-  # (x_automater.yml), so this workflow is manual-only to avoid double-posting.
+  schedule:
+    # Twice daily at ~17:30 and ~21:30 IST (UTC+05:30); off-peak :55 avoids :00 queue drops.
+    - cron: '55 11,15 * * *'
   workflow_dispatch:
     inputs:
       topic:
@@ -75,8 +76,8 @@ jobs:
           MAX_DAILY_REPLIES: '0'
           MAX_DAILY_REPOSTS: '0'
           MAX_DAILY_TOTAL: '0'
-          MAX_DAILY_LINKEDIN: '3'
-          LINKEDIN_MIN_INTERVAL_MINUTES: '0'
+          MAX_DAILY_LINKEDIN: '2'
+          LINKEDIN_MIN_INTERVAL_MINUTES: '180'
           LINKEDIN_SCHEDULE_GRACE_MINUTES: '60'
         run: |
           if [ "$DRY_RUN" = "true" ]; then
