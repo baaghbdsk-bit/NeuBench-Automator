@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T18:03:04.716376+00:00",
+    "last_updated": "2026-11-27T19:02:02.761971+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2985,
-    "original_posts_attempted": 902,
+    "total_cycles_executed": 2991,
+    "original_posts_attempted": 904,
     "original_posts_succeeded": 319,
-    "replies_attempted": 478,
+    "replies_attempted": 480,
     "replies_succeeded": 43,
     "reposts_attempted": 115,
     "reposts_succeeded": 16,
-    "actions_skipped": 1630,
+    "actions_skipped": 1636,
     "failed_operations": 210,
-    "ai_generation_requests": 1416,
+    "ai_generation_requests": 1418,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T10:02:15.283282+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 5.23
-    },
-    {
-      "timestamp": "2026-11-24T11:01:54.284384+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Benchmark scores vs real latency",
-      "content_preview": "",
-      "reason": "weak voice 4/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 0}",
-      "duration_s": 1.19
-    },
-    {
-      "timestamp": "2026-11-24T11:01:54.316444+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-24T11:02:01.326653+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "SynthDCB: World Distillation for Scalable Device Control Benchmarking",
-      "content_preview": "I benchmarked device control agents by distilling simulator transitions into static state graphs. It cut eval runtime by",
-      "reason": "",
-      "duration_s": 7.01
-    },
-    {
-      "timestamp": "2026-11-24T11:02:05.584621+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T11:02:05.590320+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.81
-    },
     {
       "timestamp": "2026-11-24T11:02:07.220395+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "Easy to tweet from a private cluster when your training runs aren’t hitting 429 errors.",
       "reason": "",
       "duration_s": 70.5
+    },
+    {
+      "timestamp": "2026-11-27T19:01:57.462843+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 1B model; unsourced number: 14 seconds",
+      "duration_s": 1.0
+    },
+    {
+      "timestamp": "2026-11-27T19:01:57.478238+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T19:01:57.483900+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-27T19:02:01.932307+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-27T19:02:01.938615+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.89
+    },
+    {
+      "timestamp": "2026-11-27T19:02:02.761929+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 4.2 seconds",
+      "duration_s": 4.71
     }
   ]
 }
