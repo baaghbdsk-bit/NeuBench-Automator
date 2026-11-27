@@ -1,34 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T23:27:22.420253+00:00",
+    "last_updated": "2026-11-27T23:41:22.908923+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3022,
+    "total_cycles_executed": 3023,
     "original_posts_attempted": 914,
     "original_posts_succeeded": 319,
     "replies_attempted": 488,
     "replies_succeeded": 43,
     "reposts_attempted": 117,
     "reposts_succeeded": 16,
-    "actions_skipped": 1667,
+    "actions_skipped": 1668,
     "failed_operations": 210,
     "ai_generation_requests": 1428,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T16:02:37.667673+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Benchmark scores vs real latency",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "duration_s": 9.06
-    },
     {
       "timestamp": "2026-11-24T17:02:14.598212+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 70B",
       "duration_s": 1.97
+    },
+    {
+      "timestamp": "2026-11-27T23:41:22.908890+00:00",
+      "action_type": "linkedin_peer_comment",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn Viral Engagement",
+      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
+      "reason": "",
+      "duration_s": 13.19
     }
   ]
 }
