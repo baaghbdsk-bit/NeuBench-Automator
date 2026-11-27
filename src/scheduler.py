@@ -2207,52 +2207,42 @@ class AutomaterEngine:
 
             # Generate visual ONLY if format demands it
             if visual_fmt == "notebook_carousel":
-                if carousel_plan and carousel_plan.get("pages") and len(carousel_plan["pages"]) >= 4:
-                    try:
-                        from src.linkedin_visuals import render_linkedin_carousel
-                        assets = render_linkedin_carousel(carousel_plan)
-                        if assets.get("pdf_path") and Path(assets["pdf_path"]).exists():
-                            media_path = assets["pdf_path"]
-                            media_title = str(carousel_plan.get("cover", {}).get("headline") or topic_title)[:100]
-                            console.print(
-                                f"[bold magenta]📚 LinkedIn Multi-Page Study Notes Carousel ready: {media_path} "
-                                f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
-                            )
-                    except Exception as car_err:
-                        console.print(f"[yellow]Study notes carousel render failed: {car_err}. Suppressing to text-only.[/yellow]")
-                        media_path = None
-                        visual_fmt = "text_only"
-                else:
-                    console.print("[yellow]Carousel pages insufficient. Suppressing visual to text-only.[/yellow]")
+                try:
+                    from src.linkedin_pro_visuals import render_pro_carousel_pdf
+                    assets = render_pro_carousel_pdf(
+                        topic_title,
+                        summary=topic_summary,
+                        article_text=li_text,
+                        carousel_plan=carousel_plan,
+                    )
+                    if assets.get("pdf_path") and Path(assets["pdf_path"]).exists():
+                        media_path = assets["pdf_path"]
+                        media_title = str((carousel_plan or {}).get("cover", {}).get("headline") or topic_title)[:100]
+                        console.print(
+                            f"[bold magenta]📚 LinkedIn Pro PDF Carousel ready: {media_path} "
+                            f"({assets.get('slide_count', 0)} slides)[/bold magenta]"
+                        )
+                except Exception as car_err:
+                    console.print(f"[yellow]Pro carousel render failed: {car_err}. Suppressing to text-only.[/yellow]")
+                    media_path = None
                     visual_fmt = "text_only"
 
             elif visual_fmt == "animated_flow_gif":
                 try:
-                    from src.linkedin_diagrams import build_editorial_architecture_spec, render_editorial_architecture_gif
-                    flow_steps = selected_trend.get("flow_steps") if isinstance(selected_trend, dict) else None
-                    arch_spec = build_editorial_architecture_spec(
+                    from src.linkedin_pro_visuals import render_pro_architecture_png
+                    pro_res = render_pro_architecture_png(
                         topic_title,
                         summary=topic_summary,
-                        flow_steps=flow_steps,
-                        audience=target_demographic,
-                        ai_generator=self.ai
+                        article_text=li_text,
                     )
-                    arch_spec = self._scrub_unsourced_numbers(arch_spec, topic_summary)
-                    gif_res = render_editorial_architecture_gif(arch_spec)
-                    if gif_res.get("gif_path") and Path(gif_res["gif_path"]).exists():
-                        prefer_static = os.getenv("LINKEDIN_PREFER_STATIC_VISUALS", "true").lower() in ("true", "1")
-                        png_path = str(gif_res.get("png_path") or "")
-                        if prefer_static and png_path and Path(png_path).exists():
-                            media_path = png_path
-                            console.print("[dim]Attaching static PNG (sharper in-feed than a looping GIF).[/dim]")
-                        else:
-                            media_path = gif_res["gif_path"]
+                    if pro_res.get("png_path") and Path(pro_res["png_path"]).exists():
+                        media_path = pro_res["png_path"]
                         media_title = str(topic_title)[:100]
                         console.print(
-                            f"[bold magenta]Topic-Specific Architecture Visual ready: {media_path}[/bold magenta]"
+                            f"[bold magenta]🎨 Topic-Specific Pro Architecture Visual ready: {media_path}[/bold magenta]"
                         )
                 except Exception as gif_err:
-                    console.print(f"[yellow]Editorial flow GIF render skipped: {gif_err}. Suppressing to text-only.[/yellow]")
+                    console.print(f"[yellow]Pro architecture visual skipped: {gif_err}. Suppressing to text-only.[/yellow]")
                     media_path = None
                     visual_fmt = "text_only"
 
