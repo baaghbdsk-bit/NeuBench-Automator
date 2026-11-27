@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T12:02:03.285157+00:00",
+    "last_updated": "2026-11-27T12:19:09.009306+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2951,
+    "total_cycles_executed": 2952,
     "original_posts_attempted": 892,
     "original_posts_succeeded": 319,
     "replies_attempted": 469,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T05:02:20.864543+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Cheap models vs frontier models",
-      "content_preview": "",
-      "reason": "unsourced number: 90%",
-      "duration_s": 5.28
-    },
     {
       "timestamp": "2026-11-24T06:02:38.777944+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "unsourced number: 8B model; weak voice 4/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
       "duration_s": 4.89
+    },
+    {
+      "timestamp": "2026-11-27T12:19:09.009267+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@misskitty.art",
+      "content_preview": "Open weights reduce distribution friction, but unconstrained inference endpoints still present major attack surfaces reg",
+      "reason": "",
+      "duration_s": 6.27
     }
   ]
 }
