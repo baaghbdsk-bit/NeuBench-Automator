@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "bsky:Demystifying Continuous Batching in LLM Inference Engines",
     "Kirlian Photography: Building Your Own Equipment",
     "li:How LLM Context Windows Work Under the Hood",
     "bsky:Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
@@ -499,7 +498,8 @@
     "The 10x engineer myth",
     "Goodbye Claude, Hello Pi",
     "li:Continuous Paging for GPU Memory: Unpacking vLLM's PagedAttention Architecture",
-    "bsky:AI made self-hosting fun again"
+    "bsky:AI made self-hosting fun again",
+    "bsky:What is a Logit? The Raw Numerical Fuel of Neural Networks"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1159,7 +1159,8 @@
         "post:97dfd15df072333beb1199ad23ff0ec37507516fbc2ee4999a9f0d26ee00ff5f",
         "post:2c8686dc5467c7c68d58b9637cf5c4696978cac9e19b3b22aa670c595f5b501e",
         "post:33d8ddbcc3bf0f17bacccd0e5cb6a5eba9c901acf9e9bdd0e654f2c3186f20f1",
-        "post:e3bc105b0ab9d4ad71aa599c8b3bed9f538d3f812a793b5c7dcaf7cc61586a08"
+        "post:e3bc105b0ab9d4ad71aa599c8b3bed9f538d3f812a793b5c7dcaf7cc61586a08",
+        "post:d55cc71130fbdb670343cb2fe9d045f22c6cbc328d10e9e64e521449cf401618"
       ],
       "pending": [
         {

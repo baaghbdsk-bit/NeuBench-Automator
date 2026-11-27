@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T03:03:21.739095+00:00",
+    "last_updated": "2026-11-27T04:01:54.928013+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2893,
-    "original_posts_attempted": 874,
+    "total_cycles_executed": 2899,
+    "original_posts_attempted": 876,
     "original_posts_succeeded": 318,
-    "replies_attempted": 454,
+    "replies_attempted": 455,
     "replies_succeeded": 40,
-    "reposts_attempted": 111,
+    "reposts_attempted": 112,
     "reposts_succeeded": 15,
-    "actions_skipped": 1548,
+    "actions_skipped": 1553,
     "failed_operations": 210,
-    "ai_generation_requests": 1378,
+    "ai_generation_requests": 1381,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T21:02:19.537290+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-23T21:02:19.545422+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.19
-    },
-    {
-      "timestamp": "2026-11-23T21:02:43.322518+00:00",
-      "action_type": "original_post",
-      "status": "failed",
-      "is_dry_run": false,
-      "target": "Local LLMs on laptops",
-      "content_preview": "",
-      "reason": "AI generation failed: All Gemini models failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "duration_s": 27.97
-    },
-    {
-      "timestamp": "2026-11-23T22:01:54.282596+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The 10x engineer myth",
-      "content_preview": "",
-      "reason": "unsourced number: 30 seconds; unsourced number: 10x",
-      "duration_s": 1.05
-    },
-    {
-      "timestamp": "2026-11-23T22:01:54.306523+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-23T22:01:54.314904+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-23T22:01:59.138981+00:00",
       "action_type": "reply",
@@ -5018,6 +4958,66 @@
       "content_preview": "Bro hit max context window mid-sentence and started experiencing existential grief.",
       "reason": "",
       "duration_s": 43.51
+    },
+    {
+      "timestamp": "2026-11-27T04:01:43.214984+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 47 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 0.9
+    },
+    {
+      "timestamp": "2026-11-27T04:01:43.231105+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T04:01:48.240029+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "What is a Logit? The Raw Numerical Fuel of Neural Networks",
+      "content_preview": "I used to debug classification failures by checking softmax outputs, until I realized small denominator shifts hide dead",
+      "reason": "",
+      "duration_s": 5.0
+    },
+    {
+      "timestamp": "2026-11-27T04:01:54.003050+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-27T04:01:54.008604+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 5.0
+    },
+    {
+      "timestamp": "2026-11-27T04:01:54.927990+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "GPU cost reality",
+      "content_preview": "",
+      "reason": "unsourced number: 40%; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
+      "duration_s": 5.92
     }
   ]
 }
