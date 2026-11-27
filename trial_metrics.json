@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T08:02:06.293829+00:00",
+    "last_updated": "2026-11-27T09:02:41.527297+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2931,
-    "original_posts_attempted": 886,
+    "total_cycles_executed": 2935,
+    "original_posts_attempted": 887,
     "original_posts_succeeded": 319,
-    "replies_attempted": 464,
-    "replies_succeeded": 40,
+    "replies_attempted": 465,
+    "replies_succeeded": 41,
     "reposts_attempted": 113,
     "reposts_succeeded": 15,
-    "actions_skipped": 1581,
+    "actions_skipped": 1584,
     "failed_operations": 210,
-    "ai_generation_requests": 1396,
+    "ai_generation_requests": 1398,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T02:02:40.770000+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Local LLMs on laptops",
-      "content_preview": "",
-      "reason": "unsourced number: 8B model; unsourced number: 2%; first line is a question, not a claim; weak voice 6/10: {'pov': 2, 'stakes': 2, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 6.07
-    },
-    {
-      "timestamp": "2026-11-24T02:12:44.155162+00:00",
-      "action_type": "bluesky_reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "@aliraza6.bsky.social",
-      "content_preview": "When scaling GxE prediction across diverse target environments, how do you handle distribution shift in the spatial-temp",
-      "reason": "",
-      "duration_s": 1.67
-    },
-    {
-      "timestamp": "2026-11-24T02:31:48.777421+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 12.13
-    },
-    {
-      "timestamp": "2026-11-24T03:02:15.935453+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "AI agents in production",
-      "content_preview": "",
-      "reason": "weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 0, 'clean_open': 2}",
-      "duration_s": 1.15
-    },
     {
       "timestamp": "2026-11-24T03:02:15.959565+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 8B; unsourced number: 4 minutes; unsourced number: 90%; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 6.32
+    },
+    {
+      "timestamp": "2026-11-27T09:01:59.883424+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 8B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 0.86
+    },
+    {
+      "timestamp": "2026-11-27T09:01:59.906922+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (2/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T09:01:59.915098+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-27T09:02:41.527260+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/deepseek_ai/status/2121247896918253875",
+      "content_preview": "Bro really looked at the US cloud bill landscape and chose arson.",
+      "reason": "",
+      "duration_s": 40.96
     }
   ]
 }
