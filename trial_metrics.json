@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-27T02:02:05.761988+00:00",
+    "last_updated": "2026-11-27T03:03:21.739095+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 2889,
-    "original_posts_attempted": 873,
+    "total_cycles_executed": 2893,
+    "original_posts_attempted": 874,
     "original_posts_succeeded": 318,
-    "replies_attempted": 453,
-    "replies_succeeded": 39,
+    "replies_attempted": 454,
+    "replies_succeeded": 40,
     "reposts_attempted": 111,
     "reposts_succeeded": 15,
-    "actions_skipped": 1545,
+    "actions_skipped": 1548,
     "failed_operations": 210,
-    "ai_generation_requests": 1375,
+    "ai_generation_requests": 1378,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-23T20:02:06.739271+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The 10x engineer myth",
-      "content_preview": "",
-      "reason": "unsourced number: 10x; unsourced number: 10x; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 5.29
-    },
-    {
-      "timestamp": "2026-11-23T21:02:13.946653+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Benchmark scores vs real latency",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 1.21
-    },
-    {
-      "timestamp": "2026-11-23T21:02:14.293462+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-23T21:02:14.611339+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
     {
       "timestamp": "2026-11-23T21:02:19.537290+00:00",
       "action_type": "reply",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 18 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.99
+    },
+    {
+      "timestamp": "2026-11-27T03:02:33.354577+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "The AI wrapper startup",
+      "content_preview": "",
+      "reason": "unsourced number: 40ms; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
+      "duration_s": 0.79
+    },
+    {
+      "timestamp": "2026-11-27T03:02:33.370694+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (1/1)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-27T03:02:37.707637+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Stable Gated DeltaNet-2: Understanding and Mitigating Recurrent State Instability",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.33
+    },
+    {
+      "timestamp": "2026-11-27T03:03:21.739063+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/sama/status/2125983591389974980",
+      "content_preview": "Bro hit max context window mid-sentence and started experiencing existential grief.",
+      "reason": "",
+      "duration_s": 43.51
     }
   ]
 }
