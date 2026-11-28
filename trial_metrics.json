@@ -1,64 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T14:01:55.009850+00:00",
+    "last_updated": "2026-11-28T15:03:15.603031+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3117,
-    "original_posts_attempted": 945,
+    "total_cycles_executed": 3121,
+    "original_posts_attempted": 946,
     "original_posts_succeeded": 319,
-    "replies_attempted": 513,
-    "replies_succeeded": 44,
+    "replies_attempted": 514,
+    "replies_succeeded": 45,
     "reposts_attempted": 121,
     "reposts_succeeded": 16,
-    "actions_skipped": 1756,
+    "actions_skipped": 1759,
     "failed_operations": 210,
-    "ai_generation_requests": 1468,
+    "ai_generation_requests": 1470,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-25T07:44:57.716211+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "unsourced number: 400ms",
-      "duration_s": 6.51
-    },
-    {
-      "timestamp": "2026-11-25T07:44:57.731869+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-25T07:45:10.697530+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is a Logit? The Raw Calculus Behind AI Decisions",
-      "content_preview": "I stopped computing cross-entropy on softmax outputs after watching gradients flatten to zero near saturation. Feeding r",
-      "reason": "",
-      "duration_s": 12.96
-    },
-    {
-      "timestamp": "2026-11-25T07:46:23.993735+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/swyx/status/1281424520100737025",
-      "content_preview": "Bro printed out the back of a 2018 Moleskine and called it a masterclass.",
-      "reason": "",
-      "duration_s": 72.77
-    },
     {
       "timestamp": "2026-11-25T08:01:54.872981+00:00",
       "action_type": "original_post",
@@ -5018,6 +4978,46 @@
       "content_preview": "",
       "reason": "unsourced number: 14 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 4.85
+    },
+    {
+      "timestamp": "2026-11-28T15:02:25.961990+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Local LLMs on laptops",
+      "content_preview": "",
+      "reason": "unsourced number: 7B model; unsourced number: 42GB; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 0.92
+    },
+    {
+      "timestamp": "2026-11-28T15:02:25.978250+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T15:02:25.984564+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-28T15:03:15.602994+00:00",
+      "action_type": "reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "https://x.com/JeffDean/status/2123793677860696070",
+      "content_preview": "Nothing says global tech leadership like stopping a neuroscientist at the border because her.bib file had too many forei",
+      "reason": "",
+      "duration_s": 49.08
     }
   ]
 }
