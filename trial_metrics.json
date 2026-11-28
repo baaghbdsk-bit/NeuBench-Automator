@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T05:02:03.182243+00:00",
+    "last_updated": "2026-11-28T06:02:15.079661+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3059,
-    "original_posts_attempted": 926,
+    "total_cycles_executed": 3065,
+    "original_posts_attempted": 928,
     "original_posts_succeeded": 319,
-    "replies_attempted": 498,
+    "replies_attempted": 500,
     "replies_succeeded": 43,
     "reposts_attempted": 119,
     "reposts_succeeded": 16,
-    "actions_skipped": 1700,
+    "actions_skipped": 1706,
     "failed_operations": 210,
-    "ai_generation_requests": 1446,
+    "ai_generation_requests": 1448,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T22:07:19.969862+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-24T22:07:24.210990+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T22:07:24.216240+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.79
-    },
-    {
-      "timestamp": "2026-11-24T22:07:25.078094+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "invented personal anecdote with no source; unsourced number: 400ms",
-      "duration_s": 4.66
-    },
-    {
-      "timestamp": "2026-11-24T23:01:57.344051+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Cheap models vs frontier models",
-      "content_preview": "",
-      "reason": "unsourced number: 70B model; unsourced number: 8B; unsourced number: 90%",
-      "duration_s": 6.35
-    },
-    {
-      "timestamp": "2026-11-24T23:01:57.367658+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-24T23:01:57.376404+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 400ms",
       "duration_s": 4.7
+    },
+    {
+      "timestamp": "2026-11-28T06:02:00.976970+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 400ms",
+      "duration_s": 6.16
+    },
+    {
+      "timestamp": "2026-11-28T06:02:01.000842+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T06:02:01.009106+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-28T06:02:05.887291+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-28T06:02:05.899000+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.11
+    },
+    {
+      "timestamp": "2026-11-28T06:02:15.079631+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Startup AI budgets",
+      "content_preview": "",
+      "reason": "unsourced number: 800B; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 13.29
     }
   ]
 }
