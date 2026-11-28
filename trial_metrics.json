@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T00:02:07.485725+00:00",
+    "last_updated": "2026-11-28T01:02:04.749026+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3029,
-    "original_posts_attempted": 916,
+    "total_cycles_executed": 3035,
+    "original_posts_attempted": 918,
     "original_posts_succeeded": 319,
-    "replies_attempted": 489,
+    "replies_attempted": 491,
     "replies_succeeded": 43,
     "reposts_attempted": 118,
     "reposts_succeeded": 16,
-    "actions_skipped": 1674,
+    "actions_skipped": 1679,
     "failed_operations": 210,
-    "ai_generation_requests": 1431,
+    "ai_generation_requests": 1434,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T18:02:45.954010+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Model routing",
-      "content_preview": "",
-      "reason": "unsourced number: 84%; unsourced number: 70B; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 2.93
-    },
-    {
-      "timestamp": "2026-11-24T18:02:45.969602+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-24T18:02:45.975232+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-24T18:03:51.967980+00:00",
-      "action_type": "reply",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "https://x.com/AndrewYNg/status/2088302050706686198",
-      "content_preview": "Can’t wait to update my resume with \"expert at writing system prompts that accidentally make Claude write Python in Shak",
-      "reason": "",
-      "duration_s": 65.47
-    },
-    {
-      "timestamp": "2026-11-24T19:02:54.795752+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Startup AI budgets",
-      "content_preview": "",
-      "reason": "unsourced number: 8B; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 14.16
-    },
-    {
-      "timestamp": "2026-11-24T19:02:54.819112+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-24T19:02:54.827345+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 40%; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 4.92
+    },
+    {
+      "timestamp": "2026-11-28T01:01:54.274112+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 14 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 0.88
+    },
+    {
+      "timestamp": "2026-11-28T01:01:54.292595+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T01:01:59.576662+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Nvidia hits pause on chip shipments to Southeast Asia",
+      "content_preview": "I watched a cluster allocation stall because export controls on transit hubs forced a sudden routing pivot to domestic b",
+      "reason": "",
+      "duration_s": 5.28
+    },
+    {
+      "timestamp": "2026-11-28T01:02:03.965919+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-28T01:02:03.972768+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.84
+    },
+    {
+      "timestamp": "2026-11-28T01:02:04.748999+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 42 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.62
     }
   ]
 }
