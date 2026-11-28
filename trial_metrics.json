@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T13:02:56.378392+00:00",
+    "last_updated": "2026-11-28T14:01:55.009850+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3111,
-    "original_posts_attempted": 943,
+    "total_cycles_executed": 3117,
+    "original_posts_attempted": 945,
     "original_posts_succeeded": 319,
-    "replies_attempted": 511,
+    "replies_attempted": 513,
     "replies_succeeded": 44,
     "reposts_attempted": 121,
     "reposts_succeeded": 16,
-    "actions_skipped": 1750,
+    "actions_skipped": 1756,
     "failed_operations": 210,
-    "ai_generation_requests": 1466,
+    "ai_generation_requests": 1468,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-25T06:02:02.854720+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "unsourced number: 80%; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 5.63
-    },
-    {
-      "timestamp": "2026-11-25T07:02:16.591998+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Model routing",
-      "content_preview": "",
-      "reason": "unsourced number: 40%",
-      "duration_s": 0.87
-    },
-    {
-      "timestamp": "2026-11-25T07:02:16.608100+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
-    {
-      "timestamp": "2026-11-25T07:02:38.469295+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
-      "content_preview": "I watched an alignment classifier trip a false positive on public domain nursery rhyme text because the regex looked for",
-      "reason": "",
-      "duration_s": 21.86
-    },
-    {
-      "timestamp": "2026-11-25T07:03:06.147018+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "OpenAI",
-      "content_preview": "",
-      "reason": "unsourced number: 99%",
-      "duration_s": 27.16
-    },
-    {
-      "timestamp": "2026-11-25T07:03:07.074349+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Startup AI budgets",
-      "content_preview": "",
-      "reason": "unsourced number: 405B; unsourced number: 8B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 28.08
-    },
     {
       "timestamp": "2026-11-25T07:44:57.716211+00:00",
       "action_type": "original_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "Can’t wait for GPT-6 to hallucinate a synthetic pathogen because the training set had too many sci-fi paperbacks.",
       "reason": "",
       "duration_s": 42.61
+    },
+    {
+      "timestamp": "2026-11-28T14:01:49.598168+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 8B; unsourced number: 42 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 0.83
+    },
+    {
+      "timestamp": "2026-11-28T14:01:49.615769+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T14:01:49.622803+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-28T14:01:54.043322+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-28T14:01:54.050074+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 3.89
+    },
+    {
+      "timestamp": "2026-11-28T14:01:55.009816+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 14 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 4.85
     }
   ]
 }
