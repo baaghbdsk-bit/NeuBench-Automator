@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T07:00:50.788787+00:00",
+    "last_updated": "2026-11-28T07:01:58.842920+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3070,
-    "original_posts_attempted": 930,
+    "total_cycles_executed": 3076,
+    "original_posts_attempted": 932,
     "original_posts_succeeded": 319,
-    "replies_attempted": 501,
+    "replies_attempted": 503,
     "replies_succeeded": 43,
     "reposts_attempted": 119,
     "reposts_succeeded": 16,
-    "actions_skipped": 1711,
+    "actions_skipped": 1717,
     "failed_operations": 210,
-    "ai_generation_requests": 1451,
+    "ai_generation_requests": 1453,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-25T00:02:03.157204+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "The AI wrapper startup",
-      "content_preview": "",
-      "reason": "weak voice 3/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 0}",
-      "duration_s": 1.03
-    },
-    {
-      "timestamp": "2026-11-25T00:02:13.662306+00:00",
-      "action_type": "linkedin_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "LinkedIn B2B",
-      "content_preview": "I spent last week rewriting our decoding loop to implement test-time compute via tree search, and it broke our p99 laten",
-      "reason": "",
-      "duration_s": 10.49
-    },
-    {
-      "timestamp": "2026-11-25T00:02:20.052810+00:00",
-      "action_type": "bluesky_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "What is KV Caching? The LLM's Short-Term Memory",
-      "content_preview": "I used to think KV cache eviction policies were mostly about saving system RAM until context length scaled up and fragme",
-      "reason": "",
-      "duration_s": 6.38
-    },
-    {
-      "timestamp": "2026-11-25T00:02:24.900798+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-25T00:02:24.909502+00:00",
-      "action_type": "quote_tweet",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unquoted trending tweet found",
-      "duration_s": 4.11
-    },
-    {
-      "timestamp": "2026-11-25T00:02:25.829250+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Startup AI budgets",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 5.03
-    },
     {
       "timestamp": "2026-11-25T00:03:54.372847+00:00",
       "action_type": "linkedin_peer_comment",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 4.2 seconds",
       "duration_s": 28.3
+    },
+    {
+      "timestamp": "2026-11-28T07:01:51.972391+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 1B model; unsourced number: 14 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 0.71
+    },
+    {
+      "timestamp": "2026-11-28T07:01:51.989608+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T07:01:51.996739+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-28T07:01:57.985977+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-28T07:01:57.993080+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 5.45
+    },
+    {
+      "timestamp": "2026-11-28T07:01:58.842890+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 6.3
     }
   ]
 }
