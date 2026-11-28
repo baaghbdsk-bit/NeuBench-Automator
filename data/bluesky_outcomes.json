@@ -297,6 +297,15 @@
       "replies": null,
       "reposts": null,
       "quotes": null
+    },
+    {
+      "posted_at": "2026-11-28T05:01:57.770841+00:00",
+      "title": "Google's DeepCrossAttention achieves comparable model quality up to 3x faster",
+      "post_ref": "Post published to Bluesky successfully! (URI: at://did:plc:g63e3oxmiwmv24oviigzzbro/app.bsky.feed.post/3n3dwdrz3jc25)",
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "quotes": null
     }
   ]
 }

@@ -1,6 +1,5 @@
 {
   "posted_tweets": [
-    "tata motors share price",
     "li:hindalco share price",
     "bsky:Quadrillion-parameter transformers and how to train them",
     "hindalco share price",
@@ -499,7 +498,8 @@
     "bsky:What is Asynchronous Kernel Coalescing in Distributed GPU Clusters?",
     "bsky:Nvidia hits pause on chip shipments to Southeast Asia",
     "bsky:LayoutRecall: Preserving Appearance in Multi-Round 3D Layout-Controlled Image Editing",
-    "bsky:Damped Atomic Wave Integration Neurons (DAWIN): A Universal Primitive for Continuous-Time Spatiotemporal Learning"
+    "bsky:Damped Atomic Wave Integration Neurons (DAWIN): A Universal Primitive for Continuous-Time Spatiotemporal Learning",
+    "bsky:Google's DeepCrossAttention achieves comparable model quality up to 3x faster"
   ],
   "replied_urls": [
     "https://x.com/unusual_whales/status/2086422490872713578",
@@ -1170,7 +1170,8 @@
         "post:adb6d0fb36148098869f48a31ce5a4fa63d7a06f8beea269ea16d50da8c7b1eb",
         "post:512305bb033a81c7bcc769a2d7b76ada2c86baa75016af9ed4c920689f380ce9",
         "post:b83d367da8093b050a5da4f07b074d96aa950800e214005bd5f308e9a373df70",
-        "post:8191ea9d5036036ae6a376ac7e9c6c7c8fc794dbe7b97be896e247fb021893f2"
+        "post:8191ea9d5036036ae6a376ac7e9c6c7c8fc794dbe7b97be896e247fb021893f2",
+        "post:c9ada3dfc464e548b498394d20882e35bd22e868488eb1fd4ae865165a554db0"
       ],
       "pending": [
         {

@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T04:02:32.961532+00:00",
+    "last_updated": "2026-11-28T05:02:03.182243+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3053,
-    "original_posts_attempted": 924,
+    "total_cycles_executed": 3059,
+    "original_posts_attempted": 926,
     "original_posts_succeeded": 319,
-    "replies_attempted": 496,
+    "replies_attempted": 498,
     "replies_succeeded": 43,
     "reposts_attempted": 119,
     "reposts_succeeded": 16,
-    "actions_skipped": 1695,
+    "actions_skipped": 1700,
     "failed_operations": 210,
-    "ai_generation_requests": 1443,
+    "ai_generation_requests": 1446,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T22:01:48.532338+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-24T22:01:53.137476+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T22:01:53.157874+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 3.96
-    },
-    {
-      "timestamp": "2026-11-24T22:01:54.149575+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Vector database hype",
-      "content_preview": "",
-      "reason": "unsourced number: 90%; weak voice 5/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 2, 'clean_open': 0}",
-      "duration_s": 4.95
-    },
-    {
-      "timestamp": "2026-11-24T22:07:19.950431+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "GPU cost reality",
-      "content_preview": "",
-      "reason": "unsourced number: 14 seconds; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 0.78
-    },
-    {
-      "timestamp": "2026-11-24T22:07:19.964474+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-24T22:07:19.969862+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 1M token; unsourced number: 45 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
       "duration_s": 5.81
+    },
+    {
+      "timestamp": "2026-11-28T05:01:53.322113+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 8B; unsourced number: 42 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 1.22
+    },
+    {
+      "timestamp": "2026-11-28T05:01:53.343840+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T05:01:57.762997+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Google's DeepCrossAttention achieves comparable model quality up to 3x faster",
+      "content_preview": "I tested a deep cross-attention layer and found it shifts the bottleneck entirely from compute to memory bandwidth durin",
+      "reason": "",
+      "duration_s": 4.41
+    },
+    {
+      "timestamp": "2026-11-28T05:02:02.481334+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-28T05:02:02.489747+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unreplied trending tweet found",
+      "duration_s": 4.01
+    },
+    {
+      "timestamp": "2026-11-28T05:02:03.182212+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 400ms",
+      "duration_s": 4.7
     }
   ]
 }
