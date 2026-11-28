@@ -1,74 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T09:01:58.407138+00:00",
+    "last_updated": "2026-11-28T10:02:59.575379+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3090,
-    "original_posts_attempted": 936,
+    "total_cycles_executed": 3095,
+    "original_posts_attempted": 938,
     "original_posts_succeeded": 319,
-    "replies_attempted": 506,
+    "replies_attempted": 507,
     "replies_succeeded": 43,
     "reposts_attempted": 120,
     "reposts_succeeded": 16,
-    "actions_skipped": 1730,
+    "actions_skipped": 1735,
     "failed_operations": 210,
-    "ai_generation_requests": 1457,
+    "ai_generation_requests": 1460,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-25T03:02:10.509484+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "PenGPT: A Generative Transformer for Handwriting and Sketches",
-      "content_preview": "",
-      "reason": "weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
-      "duration_s": 4.97
-    },
-    {
-      "timestamp": "2026-11-25T03:02:15.229371+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-25T03:02:15.237807+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.0
-    },
-    {
-      "timestamp": "2026-11-25T03:02:42.969670+00:00",
-      "action_type": "original_post",
-      "status": "success",
-      "is_dry_run": false,
-      "target": "Cheap models vs frontier models",
-      "content_preview": "I routed our JSON extraction pipeline to a $0.20/M model and watched the retry loop burn three times the compute fixing ",
-      "reason": "",
-      "duration_s": 31.73
-    },
-    {
-      "timestamp": "2026-11-25T04:01:58.127375+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Local LLMs on laptops",
-      "content_preview": "",
-      "reason": "unsourced number: 7B model; weak voice 5/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
-      "duration_s": 0.95
-    },
     {
       "timestamp": "2026-11-25T04:01:58.151388+00:00",
       "action_type": "linkedin_post",
@@ -5018,6 +4968,56 @@
       "content_preview": "",
       "reason": "unsourced number: 8B; unsourced number: 512MB; unsourced number: 4 minutes",
       "duration_s": 4.89
+    },
+    {
+      "timestamp": "2026-11-28T10:02:29.689179+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Benchmark scores vs real latency",
+      "content_preview": "",
+      "reason": "unsourced number: 800ms; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
+      "duration_s": 1.34
+    },
+    {
+      "timestamp": "2026-11-28T10:02:29.704980+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T10:02:29.710469+00:00",
+      "action_type": "bluesky_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Bluesky daily cap",
+      "content_preview": "",
+      "reason": "Bluesky daily cap reached (4/4).",
+      "duration_s": 0.0
+    },
+    {
+      "timestamp": "2026-11-28T10:02:58.786361+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "karpathy",
+      "content_preview": "",
+      "reason": "unsourced number: 8 hours",
+      "duration_s": 28.56
+    },
+    {
+      "timestamp": "2026-11-28T10:02:59.575347+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 1B model; unsourced number: 14 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 29.35
     }
   ]
 }
