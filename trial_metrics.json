@@ -1,11 +1,11 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T07:01:58.842920+00:00",
+    "last_updated": "2026-11-28T07:47:49.300648+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3076,
+    "total_cycles_executed": 3077,
     "original_posts_attempted": 932,
     "original_posts_succeeded": 319,
     "replies_attempted": 503,
@@ -19,16 +19,6 @@
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-25T00:03:54.372847+00:00",
-      "action_type": "linkedin_peer_comment",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn Viral Engagement",
-      "content_preview": "LinkedIn session expired or requires login. LinkedIn browser session expired or requires login.",
-      "reason": "",
-      "duration_s": 18.88
-    },
     {
       "timestamp": "2026-11-25T01:01:44.615029+00:00",
       "action_type": "original_post",
@@ -5018,6 +5008,16 @@
       "content_preview": "",
       "reason": "weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 6.3
+    },
+    {
+      "timestamp": "2026-11-28T07:47:49.300621+00:00",
+      "action_type": "bluesky_reply",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "@alimabsoute.bsky.social",
+      "content_preview": "Paper titles need to report end-to-end token latency per successful task completion rather than accuracy on static bench",
+      "reason": "",
+      "duration_s": 2.3
     }
   ]
 }
