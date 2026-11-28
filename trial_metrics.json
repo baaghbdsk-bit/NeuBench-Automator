@@ -1,84 +1,24 @@
 {
   "trial_meta": {
     "version": "1.0.0",
-    "last_updated": "2026-11-28T03:01:58.265934+00:00",
+    "last_updated": "2026-11-28T04:02:32.961532+00:00",
     "trial_start_utc": "2026-10-21T21:41:38.370550+00:00"
   },
   "lifetime_summary": {
-    "total_cycles_executed": 3047,
-    "original_posts_attempted": 922,
+    "total_cycles_executed": 3053,
+    "original_posts_attempted": 924,
     "original_posts_succeeded": 319,
-    "replies_attempted": 495,
+    "replies_attempted": 496,
     "replies_succeeded": 43,
-    "reposts_attempted": 118,
+    "reposts_attempted": 119,
     "reposts_succeeded": 16,
-    "actions_skipped": 1690,
+    "actions_skipped": 1695,
     "failed_operations": 210,
-    "ai_generation_requests": 1440,
+    "ai_generation_requests": 1443,
     "ai_generation_failures": 50,
     "rate_limits_encountered": 0
   },
   "recent_events": [
-    {
-      "timestamp": "2026-11-24T21:02:00.179299+00:00",
-      "action_type": "bluesky_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Bluesky daily cap",
-      "content_preview": "",
-      "reason": "Bluesky daily cap reached (4/4).",
-      "duration_s": 0.0
-    },
-    {
-      "timestamp": "2026-11-24T21:02:05.094119+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "X session",
-      "content_preview": "",
-      "reason": "X browser session not authenticated; discovery skipped",
-      "duration_s": 0
-    },
-    {
-      "timestamp": "2026-11-24T21:02:05.104745+00:00",
-      "action_type": "reply",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "High-engagement target",
-      "content_preview": "",
-      "reason": "No high-engagement unreplied trending tweet found",
-      "duration_s": 4.14
-    },
-    {
-      "timestamp": "2026-11-24T21:02:10.052788+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Context window marketing",
-      "content_preview": "",
-      "reason": "unsourced number: 48 seconds",
-      "duration_s": 9.09
-    },
-    {
-      "timestamp": "2026-11-24T22:01:48.498442+00:00",
-      "action_type": "original_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "Cheap models vs frontier models",
-      "content_preview": "",
-      "reason": "unsourced number: 700B model; unsourced number: 8B; unsourced number: 4x",
-      "duration_s": 1.0
-    },
-    {
-      "timestamp": "2026-11-24T22:01:48.523473+00:00",
-      "action_type": "linkedin_post",
-      "status": "skipped",
-      "is_dry_run": false,
-      "target": "LinkedIn daily cap",
-      "content_preview": "",
-      "reason": "LinkedIn daily cap reached (1/1)",
-      "duration_s": 0.01
-    },
     {
       "timestamp": "2026-11-24T22:01:48.532338+00:00",
       "action_type": "bluesky_post",
@@ -5018,6 +4958,66 @@
       "content_preview": "",
       "reason": "unsourced number: 7B model; weak voice 6/10: {'pov': 2, 'stakes': 1, 'stance': 0, 'specificity': 1, 'clean_open': 2}",
       "duration_s": 4.63
+    },
+    {
+      "timestamp": "2026-11-28T04:02:20.697146+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "What I run on my $10 USD OpenStick homelab",
+      "content_preview": "",
+      "reason": "unsourced number: 8B; unsourced number: 45 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 1.0
+    },
+    {
+      "timestamp": "2026-11-28T04:02:20.723604+00:00",
+      "action_type": "linkedin_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "LinkedIn daily cap",
+      "content_preview": "",
+      "reason": "LinkedIn daily cap reached (0/0)",
+      "duration_s": 0.01
+    },
+    {
+      "timestamp": "2026-11-28T04:02:26.331335+00:00",
+      "action_type": "bluesky_post",
+      "status": "success",
+      "is_dry_run": false,
+      "target": "Damped Atomic Wave Integration Neurons (DAWIN): A Universal Primitive for Continuous-Time Spatiotemporal Learning",
+      "content_preview": "I swapped spatial aggregation for damped wave integration to fix irregular time-series drift, and gradient updates stall",
+      "reason": "",
+      "duration_s": 5.6
+    },
+    {
+      "timestamp": "2026-11-28T04:02:32.140227+00:00",
+      "action_type": "reply",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "X session",
+      "content_preview": "",
+      "reason": "X browser session not authenticated; discovery skipped",
+      "duration_s": 0
+    },
+    {
+      "timestamp": "2026-11-28T04:02:32.201834+00:00",
+      "action_type": "quote_tweet",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "High-engagement target",
+      "content_preview": "",
+      "reason": "No high-engagement unquoted trending tweet found",
+      "duration_s": 5.05
+    },
+    {
+      "timestamp": "2026-11-28T04:02:32.961485+00:00",
+      "action_type": "original_post",
+      "status": "skipped",
+      "is_dry_run": false,
+      "target": "Context window marketing",
+      "content_preview": "",
+      "reason": "unsourced number: 1M token; unsourced number: 45 seconds; weak voice 6/10: {'pov': 2, 'stakes': 0, 'stance': 0, 'specificity': 2, 'clean_open': 2}",
+      "duration_s": 5.81
     }
   ]
 }
